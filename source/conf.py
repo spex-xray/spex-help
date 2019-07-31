@@ -132,6 +132,10 @@ html_theme = 'alabaster'
 # documentation.
 #
 # html_theme_options = {}
+html_theme_options = {
+    'logo': 'logo.png',
+    'logo_name': 'SPEX',
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []

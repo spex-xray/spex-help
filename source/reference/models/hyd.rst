@@ -1,0 +1,54 @@
+Hyd: model with user-own hydrodynamical simulation
+==================================================
+
+This model calculates the spectrum of a plasma with a given set of ion
+concentrations. It allows users to calculate the X-ray spectrum
+corresponding to his own hydrodynamical simulation results. The basic
+usage is that the user first runs own calculations to obtain the ion
+concentrations, and stores them in an ascii file. The name should be
+either of “spexicon_abs.dat” or “spexicon_rel.dat”. Then the user runs
+SPEX and loads the Hyd model to calculate the spectrum.
+
+For users who are familiar with Fortran, we offer the supporting
+fortran90 subroutine, *hydro_driver*, to make the ion concentration file
+conveniently. The usage of the *hydro_driver* is described in
+Section \ `[sect:hydrodriver] <#sect:hydrodriver>`__.
+
+For more general cases users can directly load the Hyd model and just
+calculate the spectrum. The model has two modes to specify the format
+for the ion concentrations: absolute (mode 1) or relative (mode 2). For
+mode 1, the input file must have the name “spexicon_abs.dat”, and the
+values are treated as absolute ion concentrations (relative to
+hydrogen). In this mode the parameters of the elemental abundances do
+not affect the ion concentration nor the spectrum at all (they are
+ignored). For the case that users wish to treat elemental abundances as
+fitting parameters, mode=2 can be used. In this mode the input file must
+have the name “spexicon_rel.dat”, which contains the ion concentrations
+relative to the concentration of the relevant chemical element.
+
+| The parameters of the model are: ``hyd`` : Hydrogen density in
+  :math:`10^{20}` m:math:`^{-3}`
+| ``mode`` : Mode of the model. Mode=1: read absolute ion concentration
+  from “spexicon_abs.dat”. mode=2: read relative ion concentration from
+  “spexicon_rel.dat”
+| The following parameters are the same as for the cie-model: ``norm`` :
+  the normalisation, which is the emission measure
+  :math:`Y \equiv  n_{\rm e} n_{\rm H} V` in units of
+  :math:`10^{64}` m:math:`^{-3}`, where :math:`n_{\rm e}` and
+  :math:`n_{\rm H}` are the electron and Hydrogen densities and
+  :math:`V` the volume of the source. Default value: 1.
+| ``t`` : the electron temperature :math:`T_{\rm e}` in keV. Default
+  value: 1.
+| ``it`` : Ion temperature in keV
+| ``vmic`` : Micro turbulent velocity in km/s
+| ``ref`` : Reference element
+| ``01$\ldots$30`` : Abundances of H to Zn
+| ``file`` : Filename for the nonthermal electron distribution
+| **Warning:** *By default, SPEX starts with "var calc old" (see the var
+  menu for explanation). If you want to use this model with the latest
+  atomic database, you should set the ionisation balance to U16. Note
+  that this is only used to calculate inner-shell ionisation rates for
+  the spectral evaluation, it will not affect the ion concentrations
+  that the user provides.*
+
+*Recommended citation (first use):* :raw-latex:`\citet{kosenko2015}`.

@@ -3,13 +3,37 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to SPEX Help Center's documentation!
-============================================
+SPEX Help Center
+================
 
-Contents:
+Getting started
+---------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+
+   getstarted/install
+   getstarted/runspex
+   getstarted/runtrafo
+
+
+Analysis threads
+----------------
+
+
+Reference manual
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   reference/commands
+   reference/models
+
+
+Additional tools
+----------------
+
 
 
 
