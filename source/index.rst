@@ -20,6 +20,10 @@ Getting started
 Analysis threads
 ----------------
 
+.. toctree::
+   :maxdepth: 1
+   
+   threads/partbkg/partbkg
 
 Reference manual
 ----------------
@@ -34,7 +38,11 @@ Reference manual
 Additional tools
 ----------------
 
-
+.. toctree::
+   :maxdepth: 1
+   
+   tools/fortcall
+   
 
 
 Indices and tables
