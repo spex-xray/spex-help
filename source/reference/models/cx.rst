@@ -3,28 +3,34 @@ CX: model for charge exchange plasmas
 
 This model calculates the spectrum emitted from a hot plasma when it
 recombines with cold neutral materials. This model is based on three key
-assumptions: (1) it considers only single electron capture in
-ion-neutral collision; (2) all cross section data are obtained only with
+assumptions: (1) it considers only single electron capture in a
+ion-neutral collision; (2) all cross section data are obtained only with a
 atomic hydrogen target, (3) electronic collisional excitation and
-recombination are ignored in the spectral calculation. More informations
-can be found in :raw-latex:`\citet{gu2016}`.
+recombination are ignored in the spectral calculation. More information
+can be found in `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_.
+
 
 Charge exchange cross sections
 ------------------------------
 
 The CX cross section data used in the model are partly taken from
 literatures, including quantum molecular-orbital close-coupling
-calculations for :math:`\rm C^{5+}` and :math:`\rm O^{6+}` by
-:raw-latex:`\citet{wu2012}` and :raw-latex:`\citet{nolte2012}`,
-multi-channel Laudau-Zener results for :math:`\rm Fe^{25+}` and
-:math:`\rm Fe^{26+}` by :raw-latex:`\citet{mullen2016}`, other data
-compilations for :math:`\rm C^{6+}` and :math:`\rm O^{8+}` by
-:raw-latex:`\citet{janev1993}`, and NIFS Charge Transfer Database
-(CHART)  [1]_ for :math:`\rm Be^{4+}`, :math:`\rm B^{5+}`,
-:math:`\rm N^{7+}`, and :math:`\rm Ne^{10+}`. For CHART database, we
+calculations for :math:`\mathrm C^{5+}` and :math:`\mathrm O^{6+}` by
+`Wu et al. (2012) <https://doi.org/10.1088/0953-4075/45/23/235201>`_
+and `Nolte et al. (2012) <https://doi.org/10.1088/0953-4075/45/24/245202>`_,
+multi-channel Laudau-Zener results for :math:`\mathrm Fe^{25+}` and
+:math:`\mathrm Fe^{26+}` by `Mullen et al. (2016)
+<https://ui.adsabs.harvard.edu/abs/2016ApJS..224...31M/abstract>`_, other data
+compilations for :math:`\mathrm C^{6+}` and :math:`\mathrm O^{8+}` by
+`Janev et al. (1993) <https://ui.adsabs.harvard.edu/abs/1993ADNDT..55..201J/abstract>`_,
+and the NIFS Charge Transfer Database
+(CHART)  [1]_ for :math:`\mathrm Be^{4+}`, :math:`\mathrm B^{5+}`,
+:math:`\mathrm N^{7+}`, and :math:`\mathrm Ne^{10+}`. For CHART database, we
 extracted all the data, from both theoretical calculations and
-experiments (see a full list in Table 1 of :raw-latex:`\citet{gu2016}`),
-and fitted them with Eq.2 of :raw-latex:`\citet{gu2016}` in the energy
+experiments (see a full list in Table 1 of `Gu et al. (2016)
+<https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_),
+and fitted them with Eq.2 of `Gu et al. (2016)
+<https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_ in the energy
 range of interests. In typical astrophysical velocity range
 (:math:`\sim 100-5000` km s\ :math:`^{-1}`), the useful CHART data are
 usually from molecular-orbital and atomic-orbital close-coupling
@@ -37,17 +43,18 @@ interpolate by analyzing the known ions. First we used a scaling law to
 determine total cross section for each ion, and applied another scaling
 law to represent the :math:`n-` selectivity. The :math:`l-` dependence
 is approximated by one of the five empirical weighting functions
-presented in Eqs.\ :math:`4-8` of :raw-latex:`\citet{gu2016}`.
+presented in Eqs.\ :math:`4-8` of `Gu et al. (2016)
+<https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_.
 
-**Warning:** *CX model only works with the updated atomic database set
-through the command “var calc new”.*
+.. Warning:: The CX model only works with the updated atomic database set
+   through the command ``var calc new``.
 
-**Warning:** *All Beryllium-like sequence ions are not included in the
-current version; will be available later.*
+.. Warning:: All Beryllium-like sequence ions are not included in the
+   current version; will be available later.
 
-**Warning:** *We will keep updating the CX model when new data
-(especially for molecular targets) from theoretical calculations and
-experiments become available.*
+.. Warning:: We will keep updating the CX model when new data
+   (especially for molecular targets) from theoretical calculations and
+   experiments become available.
 
 Parameter description
 ---------------------
@@ -56,12 +63,13 @@ The parameters of the CX model are:
 
 | ``norm`` : the normalisation, which is the emission measure
   :math:`Y \equiv n_{\mathrm
-  H} n_{\rm nh} V` in units of :math:`10^{64}` m:math:`^{-3}`, where
-  :math:`n_{\mathrm H}` and :math:`n_{\rm nh}` are the Hydrogen
+  H} n_{\mathrm nh} V` in units of :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
+  :math:`n_{\mathrm H}` and :math:`n_{\mathrm nh}` are the Hydrogen
   densities of the ionized and neutral materials, respectively, and
   :math:`V` is the effective interaction volume. Default value: 1.
 | ``hden`` : Hydrogen density of the neutral materials in units of
-  :math:`10^{20}` m:math:`^{-3}` (or :math:`10^{14}` cm:math:`^{-3}`).
+  :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}` 
+  :math:`\mathrm{m}^{-3}`).
   Default value: :math:`10^{-14}`.
 | ``mode`` : Switch between a hot-cold interaction driven by thermal
   motion of hot plasma, and the one dominated by flow velocity. Default
@@ -87,10 +95,11 @@ The parameters of the CX model are:
 | ``wt`` : Weighting functions for subshell :math:`l-` population. When
   wt is set to 1, the :math:`l-` population is approximated by a series
   of empirical functions that switchs from one to another as a function
-  of collision velocity. See :raw-latex:`\citet{gu2016}` for details.
-  These empirical functions are defined in Eqs.\ :math:`4-8` of
-  :raw-latex:`\citet{gu2016}`, and will be selected when wt is set to
-  :math:`2-6`, respectively. Default: 1
+  of collision velocity. See `Gu et al. (2016)
+  <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_ for details.
+  These empirical functions are defined in Eqs. :math:`4-8` of
+  `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_,
+  and will be selected when wt is set to :math:`2-6`, respectively. Default: 1
 | ``vmic`` : the (micro)turbulent velocity :math:`v_{\mathrm{micro}}`,
   in km/s. Default value 0.
 | ``ref`` : reference element. Default value 1 (hydrogen). See above for
@@ -102,7 +111,8 @@ The parameters of the CX model are:
   Default 1.
 | ``file`` : Filename for the nonthermal distribution. If not present,
   nonthermal effects are not taken into account (default).
-| *Recommended citation:* :raw-latex:`\citet{gu2016}`.
+
+*Recommended citation:* `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_.
 
 .. [1]
    http://dbshino.nifs.ac.jp/

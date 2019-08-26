@@ -86,16 +86,15 @@ Non-thermal electron distributions
 ----------------------------------
 
 The effects of non-thermal electron distribution on the spectrum can be
-included. See Sect. \ `[sec:nonthermal] <#sec:nonthermal>`__ for more
-details.
+included. See Section `Non-thermal electron distributions <#sec:nonthermal>`__
+for more details.
 
 Abundances
 ----------
 
 The abundances are given in Solar units. Which set of solar units is
-being used can be set using the "abun" command (see
-Sect. \ `[sec:abundance] <#sec:abundance>`__). For spectral fitting
-purposes it is important to distinguish two situations.
+being used can be set using the `abun command <#sec:abundance>`__).
+For spectral fitting purposes it is important to distinguish two situations.
 
 In the first case there is a strong thermal continuum. Since in most
 circumstances the continuum is determined mainly by hydrogen and helium,
@@ -122,56 +121,59 @@ when it is another element, like O, the normalisation is still the
 product of :math:`n_{\mathrm e}n_{\mathrm X}V` where X stands for the
 fictitious hydrogen density derived from the solar O/H ratio.
 
-Example: suppose the Solar O abundance is 1E-3 (i.e. there is 0.001
+Example
+"""""""
+
+Suppose the Solar O abundance is 1E-3 (i.e. there is 0.001
 oxygen atom per hydrogen atom in the Sun). Take the reference atom
 oxygen (:math:`Z=8`). Fix the oxygen abundance to 1. Fit your spectrum
 with a free hydrogen abundance. Suppose the outcome of this fit is a
 hydrogen abundance of 0.2 and an emission measure 3 (in SPEX units).
-This means :math:`n_{\mathrm e}n_{\mathrm
-X}V` = :math:`3\times 10^{64}` m:math:`^{-3}`. Then the "true" emission
-measure :math:`n_{\mathrm
-e}n_{\mathrm H}V` = :math:`0.2 \times 3\times 10^{64}` m:math:`^{-3}`.
+This means :math:`n_{\mathrm e}n_{\mathrm X}V` = :math:`3\times 10^{64}` 
+:math:`\mathrm{m}^{-3}`. Then the "true" emission measure
+:math:`n_{\mathrm e}n_{\mathrm H}V` = :math:`0.2 \times 3\times 10^{64}` 
+:math:`\mathrm{m}^{-3}`.
 The nominal oxygen emission measure is
 :math:`n_{\mathrm e}n_{\mathrm O}V` = :math:`0.001 \times 3\times
-10^{64}` m:math:`^{-3}`, and nominally oxygen would have 5 times
+10^{64}` :math:`\mathrm{m}^{-3}`, and nominally oxygen would have 5 times
 overabundance as compared to hydrogen, in terms of solar ratios.
 
 Parameter description
 ---------------------
 
-**Warning:** *When you make the temperature too low such that the plasma
-becomes completely neutral, the model will crash. This is because in
-that case the electron density becomes zero, and the emission measure is
-undefined. The nominal temperature limits that are implemented in
-SPEX usually avoid that condition, but the results may depend somewhat
-upon the metallicity because of the charge exchange processes in the
-ionisation balance.*
+.. Warning:: When you make the temperature too low such that the plasma
+   becomes completely neutral, the model will crash. This is because in
+   that case the electron density becomes zero, and the emission measure is
+   undefined. The nominal temperature limits that are implemented in
+   SPEX usually avoid that condition, but the results may depend somewhat
+   upon the metallicity because of the charge exchange processes in the
+   ionisation balance.
 
-**Warning:** *In high resolution spectra, do not forget to couple the
-ion temperature to the electron temperature, as otherwise the ion
-temperature might keep its default value of 1 keV during spectral
-fitting and the line widths may be wrong.*
+.. Warning:: In high resolution spectra, do not forget to couple the
+   ion temperature to the electron temperature, as otherwise the ion
+   temperature might keep its default value of 1 keV during spectral
+   fitting and the line widths may be wrong.
 
-**Warning:** *Some people use instead of the emission measure
-:math:`Y \equiv n_{\mathrm H}
-n_{\mathrm e} V`, the quantity :math:`Y^\prime = n_{\mathrm e}^2 V` as
-normalisation. This use should be avoided as the emission is
-proportional to the product of electron and ion densities, and therefore
-use of :math:`Y^\prime` makes the spectrum to depend nonlinear on the
-elemental abundances (since an increase in abundances also affects the
-:math:`n_{\mathrm e} / n_{\mathrm H}` ratio).*
+.. Warning:: Some people use instead of the emission measure
+   :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V`, the quantity
+   :math:`Y^\prime = n_{\mathrm e}^2 V` as
+   normalisation. This use should be avoided as the emission is
+   proportional to the product of electron and ion densities, and therefore
+   use of :math:`Y^\prime` makes the spectrum to depend nonlinear on the
+   elemental abundances (since an increase in abundances also affects the
+   :math:`n_{\mathrm e} / n_{\mathrm H}` ratio).
 
-**Warning:** *The default line broadening is just Doppler broadening.
-This is fine and self-consistent for the ‘old’ line calculation. To
-incorporate the natural line broadeing for the ‘new’ calculations, the
-user must use the var dopp 4 option to get Voigt profiles. This is
-physically better but takes more computation time.*
+.. Warning:: The default line broadening is just Doppler broadening.
+   This is fine and self-consistent for the ‘old’ line calculation. To
+   incorporate the natural line broadeing for the ‘new’ calculations, the
+   user must use the var dopp 4 option to get Voigt profiles. This is
+   physically better but takes more computation time.
 
 The parameters of the model are:
 
 | ``norm`` : the normalisation, which is the emission measure
-  :math:`Y \equiv n_{\mathrm
-  H} n_{\mathrm e} V` in units of :math:`10^{64}` m:math:`^{-3}`, where
+  :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V` in units of
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
   :math:`n_{\mathrm e}` and :math:`n_{\mathrm H}` are the electron and
   Hydrogen densities and :math:`V` the volume of the source. Default
   value: 1.
@@ -187,7 +189,7 @@ The parameters of the model are:
 | ``logt`` : Switch between linear and logarithmic temperature scale for
   the gaussian emission measure profile. Default value: 1 (logarithmic)
 | ``ed`` : the electron density :math:`n_{\mathrm e}` in units of
-  :math:`10^{20}` m:math:`^{-3}` (or :math:`10^{14}` cm:math:`^{-3}`).
+  :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}` :math:`\mathrm{cm}^{-3}`).
   Default value: :math:`10^{-14}`, i.e. typical ISM conditions, or the
   low density limit.
 | ``it`` : the ion temperature :math:`T_{\mathrm i}` in keV. Default
@@ -206,4 +208,5 @@ The parameters of the model are:
   Default 1.
 | ``file`` : Filename for the nonthermal electron distribution. If not
   present, nonthermal effects are not taken into account (default).
-| *Recommended citation:* :raw-latex:`\citet{kaastra1996b}`.
+
+*Recommended citation:* `Kaastra et al. (1996) <https://ui.adsabs.harvard.edu/abs/1996uxsa.conf..411K/abstract>`_.

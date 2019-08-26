@@ -2,7 +2,8 @@ Absm: Morrison & McCammon absorption model
 ==========================================
 
 This model calculates the transmission of neutral gas with cosmic
-abundances as published first by :raw-latex:`\citet{morrison1983}`. It
+abundances as published first by `Morrison & McCammon (1983)
+<https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract>`_. It
 is a widely used model. The following is useful to know when this model
 is applied:
 
@@ -30,4 +31,4 @@ The parameters of the model are:
   latitudes).
 | ``f`` : The covering factor of the absorber. Default value: 1 (full
   covering)
-| *Recommended citation:* :raw-latex:`\citet{morrison1983}`.
+| *Recommended citation:* `Morrison & McCammon (1983) <https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract>`_.

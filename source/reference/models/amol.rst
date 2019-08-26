@@ -4,17 +4,11 @@ Amol: oxygen edge molecules absorption model
 This model calculates the transmission of various molecules.
 
 The following compounds are presently taken into account (see
-Table \ `[tab:amol] <#tab:amol>`__).
+`the table below <#tab:amol>`__).
 
 .. table:: Molecules present in the amol model.
 
    ========== =================== ========================================================================================================================================= =============== =====
-   \                                                                                                                                                                                       
-   [tab:amol]                                                                                                                                                                              
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
    108        molecular oxygen    O\ :math:`_2`                                                                                                                             O 1s            a
    114        silicon crystal     Si                                                                                                                                        Si 1s           h
    126        metallic iron       Fe                                                                                                                                        Fe 1s,2p        i,j
@@ -60,24 +54,13 @@ Table \ `[tab:amol] <#tab:amol>`__).
    4101       acmite              NaFeSi\ :math:`_2`\ O\ :math:`_6`                                                                                                         O 1s            e
    4102       franklinite         Zn\ :math:`_{0.6}`\ Mn\ :math:`_{0.8}`\ Fe\ :math:`_{1.6}`\ O\ :math:`_4`                                                                 O 1s            e
    4103       olivine             Mg\ :math:`_{1.6}`\ Fe\ :math:`_{0.4}`\ SiO\ :math:`_4`                                                                                   O 1s            e
-   4104       almandine           Fe\ :math:`_3`\ Al\ :math:`_2`\ (SiO:math:`_4`)\ :math:`_3`                                                                               O 1s            e
+   4104       almandine           Fe\ :math:`_3`\ Al\ :math:`_2`\ (SiO\ :math:`_4`)\ :math:`_3`                                                                             O 1s            e
    4105       hedenbergite        CaFeSi\ :math:`_2`\ O\ :math:`_6`                                                                                                         O 1s            e
    5001       dna (herring sperm) C\ :math:`_{39}`\ H\ :math:`_{61}`\ N\ :math:`_{15}`\ O\ :math:`_{36}`\ P\ :math:`_4`                                                     O,N 1s          f
-   6001       montmorillonite     Na\ :math:`_{0.2}`\ Ca\ :math:`_{0.1}`\ Al\ :math:`_2`\ Si\ :math:`_4`\ O\ :math:`_{10}`\ (OH):math:`_2`\ (H:math:`_2`\ O)\ :math:`_{10}` Si 1s           h
-   6002       nontronite          Na\ :math:`_{0.3}`\ Fe\ :math:`^{3+}_2`\ Si\ :math:`_3`\ AlO\ :math:`_{10}`\ (OH):math:`_2` :math:`\bullet` (H:math:`_2`\ O)              Si 1s           h
-   7001       enstatite_paulite   Ca\ :math:`_2`\ Mg\ :math:`_4`\ Al\ :math:`_{0.75}`\ Fe\ :math:`_{0.25}`\ (Si:math:`_7`\ AlO\ :math:`_{22}`)(OH)\ :math:`_2`              Si 1s           h
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
-   \                                                                                                                                                                                       
+   6001       montmorillonite     Na\ :math:`_{0.2}`\ Ca\ :math:`_{0.1}`\ Al\ :math:`_2`\ Si\ :math:`_4`\ O\ :math:`_{10}`\ (OH\ :math:`_2`)\ (H\ :math:`_2`\ O)\
+                                  :math:`_{10}`                                                                                                                             Si 1s           h
+   6002       nontronite          Na\ :math:`_{0.3}`\ Fe\ :math:`_2^{3+}`\ Si\ :math:`_3`\ AlO\ :math:`_{10}`\ (OH)\ :math:`_2` :math:`\bullet` (H\ :math:`_2`\ O)          Si 1s           h
+   7001       enstatite_paulite   Ca\ :math:`_2`\ Mg\ :math:`_4`\ Al\ :math:`_{0.75}`\ Fe\ :math:`_{0.25}`\ (Si\ :math:`_7`\ AlO\ :math:`_{22}`)(OH)\ :math:`_2`              Si 1s           h
    ========== =================== ========================================================================================================================================= =============== =====
 
 The chemical composition of these minerals was mainly taken from the
@@ -85,86 +68,97 @@ Mineralogy Database of David Barthelmy [1]_. For DNA we assume equal
 contributions of adenine, cytosine, guanine and thymine, plus for each
 of these on average one phosphate and one 2-deoxyribose molecule. We
 take the cross-sections from the references as listed in
-Table \ `[tab:amol] <#tab:amol>`__ in the energy interval where these
-are given, and use the cross section for free atoms
-:raw-latex:`\citep{verner1995}` outside this range.
+`the table above <#tab:amol>`__ in the energy interval where these
+are given, and use the cross section for free atoms `Verner & Yakovlev (1995)
+<https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract>`_
+outside this range.
 
-:raw-latex:`\citet{vanaken1998}` do not list the precise composition of
-iron oxide. We assume here that :math:`x=0.5`.
+`Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+do not list the precise composition of iron oxide. We assume here that :math:`x=0.5`.
 
-Some remarks about the data from :raw-latex:`\citet{barrus1979}`: not
+Some remarks about the data from `Barrus et al. (1979)
+<https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_: not
 all lines are given in their tables, because they suffered from
 instrumental effects (finite thickness absorber combined with finite
-spectral resolution). However, :raw-latex:`\citet{barrus1979}` have
+spectral resolution). However, `Barrus et al. (1979)
+<https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_ have
 estimated the peak intensities of the lines based on measurements with
 different column densities, and they also list the FWHM of these
 transitions. We have included these lines in the table of cross sections
 and joined smoothly with the tabulated values.
 
 For N\ :math:`_2`\ O, the fine structure lines are not well resolved by
-:raw-latex:`\citet{barrus1979}` Instead we take here the relative peaks
-from :raw-latex:`\citet{wight1974}`, that have a relative ratio of 1.00
+`Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_.
+Instead we take here the relative peaks
+from `Wight et al. (1974) <https://doi.org/10.1016/0368-2048(74)80010-1>`_,
+that have a relative ratio of 1.00
 : 0.23 : 0.38 : 0.15 for peaks 1, 2, 3, and 4, respectively. We adopted
 equal FWHMs of 1.2 eV for these lines, as measured typically for line 1
 from the plot of Wight. We scale the intensities to the peak listed by
-:raw-latex:`\citet{barrus1979}`.
+`Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_.
 
 Further, we subtract the C and N parts of the cross section as well as
-the oxygen 2s/2p part, using the cross sections of
-:raw-latex:`\citet{verner1995}`. At low energy, a very small residual
+the oxygen 2s/2p part, using the cross sections of `Verner & Yakovlev (1995)
+<https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract>`_.
+At low energy, a very small residual
 remains, that we corrected for by subtracting a constant fitted to the
 510–520 eV range of the residuals. The remaining cross section at 600 eV
 is about 10 % above the Verner cross section; it rapidly decreases; we
 approximate the high-E behaviour by extrapolating linearly the average
 slope of the ratio between 580 and 600 eV to the point where it becomes
 1. The remaining cross section at 600 eV is about 10% above the
-:raw-latex:`\citet{verner1995}` cross section; it rapidly decreases; we
+`Verner & Yakovlev (1995) <https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract>`_
+cross section; it rapidly decreases; we
 approximate the high-E behaviour therefore by extrapolating linearly the
 average slope of the ratio between 580 and 600 eV to the point where it
 becomes 1.
 
-**Warning:** *The normalisation is the total *molecular* column density.
-Thus, a value of :math:`10^{-7}` for CO\ :math:`_2` means
-:math:`10^{21}` CO:math:`_2` molecules m\ :math:`^{-2}`, but of course
-:math:`2\times 10^{21}` O atoms m\ :math:`^{-2}`, because each
-CO\ :math:`_2` molecule contains 2 oxygen atoms.*
+.. Warning:: The normalisation is the total *molecular* column density.
+   Thus, a value of :math:`10^{-7}` for CO\ :math:`_2` means
+   :math:`10^{21}` CO\ :math:`_2` molecules :math:`\mathrm{m}^{-2}`, but of course
+   :math:`2\times 10^{21}` O atoms :math:`\mathrm{m}^{-2}`, because each
+   CO\ :math:`_2` molecule contains 2 oxygen atoms.
 
-**Warning:** *The Table above shows for which edges and atoms the XAFS
-are taken into account. For all other edges and atoms not listed there,
-we simply use the pure atomic cross-section (without absorption lines).
-Note that for almost all constituents this may give completely wrong
-cross sections in the optical/UV band, as at these low energies the
-effects of chemical binding, crystal structure etc. are very important
-for the optical transmission constants. This is contrary to the
-SPEX models for pure atomic or ionised gas, where our models can be used
-in the optical band.*
+.. Warning:: The Table above shows for which edges and atoms the XAFS
+   are taken into account. For all other edges and atoms not listed there,
+   we simply use the pure atomic cross-section (without absorption lines).
+   Note that for almost all constituents this may give completely wrong
+   cross sections in the optical/UV band, as at these low energies the
+   effects of chemical binding, crystal structure etc. are very important
+   for the optical transmission constants. This is contrary to the
+   SPEX models for pure atomic or ionised gas, where our models can be used
+   in the optical band.
 
-**Warning:** *It is possible to change the values of the output atomic
-column densities of H–Zn, that are shown when you issue the "show par"
-command of SPEX. However, SPEX completely ignores this and when you
-issue the "calc" or "fit" commands, they will be reset to the proper
-values. Morale: just read of those parameters, don’t touch them!*
+.. Warning:: It is possible to change the values of the output atomic
+   column densities of H–Zn, that are shown when you issue the "show par"
+   command of SPEX. However, SPEX completely ignores this and when you
+   issue the "calc" or "fit" commands, they will be reset to the proper
+   values. Morale: just read of those parameters, don’t touch them!
 
 The parameters of the model are:
 
 | ``n1--n4`` : Molecular column density in
-  :math:`10^{28}` m:math:`^{-2}` for molecules 1–4. Default value:
+  :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
   :math:`10^{-6}` for molecule 1, and zero for the others.
 | ``i1--i4`` : the molecule numbers for molecules 1–4 in the list
-  (Table `[tab:amol] <#tab:amol>`__). Default value: 108 (O:math:`_2`)
+  (`Table above <#tab:amol>`__). Default value: 108 (O\ :math:`_2`)
   for molecule 1, zero for the others. A value of zero indicates that
   for that number no molecule will be taken into account. Thus, for only
   1 molecule, keep *i2–i4* :math:`=0`.
+
 | The following parameters are common to all our absorption models:
-  ``f`` : The covering factor of the absorber. Default value: 1 (full
-  covering)
-| ``zv`` : Average systematic velocity :math:`v` of the absorber
+
+- ``f`` : The covering factor of the absorber. Default value: 1 (fullcovering)
+- ``zv`` : Average systematic velocity :math:`v` of the absorber
+
 | The following parameters are *only* output parameters:
 
-| ``h--zn`` : The column densities in :math:`10^{28}` m:math:`^{-2}` for
+- ``h--zn`` : The column densities in :math:`10^{28}` :math:`\mathrm{m}^{-2}` for
   all *atoms* added together for the all molecules that are present in
   this component.
-| *Recommended citation:* :raw-latex:`\citet{pinto2010}`.
+
+| *Recommended citation:* `Pinto et al. (2010) <https://ui.adsabs.harvard.edu/abs/2010A%26A...521A..79P/abstract>`_.
+
 
 .. [1]
    http://webmineral.com/
