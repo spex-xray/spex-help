@@ -12,24 +12,24 @@ multiplying the transmission of the individual ions.
 
 The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
-refer to Sect. \ `[sect:absmodels] <#sect:absmodels>`__. You can mimick
+refer to Section `Absorption models <#sect:absmodels>`__. You can mimick
 the transmission of a neutral plasma very easy by putting the
 temperature to 0.5 eV (5 10\ :math:`^{-4}` keV).
 
-**Warning:** *For solar abundances, do not take the temperature much
-lower than 0.0005 keV, because if the plasma is completely neutral, the
-code will crash; a tiny fraction of ions such as Fe  or Na  will help to
-keep a few free electrons in the gas without affecting the transmission
-too much. You can check the ion concentrations by giving an "asc ter
-:math:`\ldots` icon" command. Fill in the sector and component number of
-the hot component for the … in the "asc ter … icon" command to get the
-values for the right component.*
+.. warning:: For solar abundances, do not take the temperature much
+   lower than 0.0005 keV, because if the plasma is completely neutral, the
+   code will crash; a tiny fraction of ions such as Fe  or Na  will help to
+   keep a few free electrons in the gas without affecting the transmission
+   too much. You can check the ion concentrations by giving an "asc ter
+   :math:`\ldots` icon" command. Fill in the sector and component number of
+   the hot component for the … in the "asc ter … icon" command to get the
+   values for the right component.
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` m:math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` m\ :math:`^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` m:math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}` m\ :math:`^{-2}`, a typical value at low Galactic
   latitudes).
 | ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
   value: 1.
@@ -47,7 +47,9 @@ The parameters of the model are:
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
 | The following parameters are the same as for the cie-model (see there
   for a description): ``ref`` : Reference element
-| ``01$\ldots$30`` : Abundances of H to Zn
+| ``01...30`` : Abundances of H to Zn
 | ``file`` : Filename for the nonthermal electron distribution
-| *Recommended citation:* :raw-latex:`\citet{deplaa2004}` and
-  :raw-latex:`\citet{steenbrugge2005}`.
+
+*Recommended citation:* `de Plaa et al. (2004)
+<https://ui.adsabs.harvard.edu/abs/2004A%26A...423...49D/abstract>`_ and
+`Steenbrugge et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract>`_.

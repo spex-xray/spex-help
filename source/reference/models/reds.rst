@@ -32,10 +32,10 @@ case 2 (flag=1): this is the old case for a source with a redshift
 caused by motion away from us. It should be used for any velocity fields
 other than the Hubble flow.
 
-**Warning:** *Note that this component should be used in tandem with the
-distance command (Section *\ `[sec:distance] <#sec:distance>`__\ *) to
-take into account the cosmological redshift and its influence on the
-flux completely.*
+.. Warning:: Note that this component should be used in tandem with the
+   distance command (Section `Distance <#sec:distance>`__) to
+   take into account the cosmological redshift and its influence on the
+   flux completely.
 
 The parameters of the model are:
 

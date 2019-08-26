@@ -22,7 +22,7 @@ SPEX then creates a grid :math:`x_1,\,x_2,\,\ldots,\,x_n` with uniform
 spacing in :math:`b` (see below for details). The spectrum at these grid
 points is contained in the corresponding array
 :math:`y_1,\,y_2,\,\ldots,\,y_n`. These have the usual units of
-:math:`10^{44}` photons s:math:`^{-1}` keV:math:`^{_1}` used throughout
+:math:`10^{44}` photons s\ :math:`^{-1}` keV\ :math:`^{-1}` used throughout
 SPEX, and is the spectrum emitted at the source. The parameters
 :math:`y_i` can be adjusted during the spectral fitting, but
 :math:`b_1`, :math:`b_2` and :math:`n` and thereby :math:`x_i` remain
@@ -63,16 +63,16 @@ fixed velocity resolution (for broadened line features for example).
 Further, each time that the model is being evaluated, the relevant
 values of the :math:`x_i` grid points are evaluated.
 
-**Warning:** *Be aware that if you just set :math:`b_1`, :math:`b_2` and
-:math:`n` but do not issue the "calc" command or the "fit" command, the
-:math:`x_i` values have not yet been calculated and any listed values
-that you get with the "par show" command will be wrong. After the first
-calculation, they are right.*
+.. Warning:: Be aware that if you just set :math:`b_1`, :math:`b_2` and
+   :math:`n` but do not issue the "calc" command or the "fit" command, the
+   :math:`x_i` values have not yet been calculated and any listed values
+   that you get with the ``par show`` command will be wrong. After the first
+   calculation, they are right.
 
-**Warning:** *If at any time you change one of the parameters
-:math:`type`, :math:`b_1`, :math:`b_2` or :math:`n`, the :math:`y_i`
-values will not be appropriate anymore as they correspond to the
-previous set of :math:`x_i` values.*
+.. Warning:: If at any time you change one of the parameters
+   :math:`type`, :math:`b_1`, :math:`b_2` or :math:`n`, the :math:`y_i`
+   values will not be appropriate anymore as they correspond to the
+   previous set of :math:`x_i` values.
 
 The maximum number :math:`n` of grid points that is allowed is 999, for
 practical reasons. Should you wish to have a larger number, then you
@@ -113,14 +113,14 @@ The parameters of the model are:
   :math:`x`-values are not allowed to vary (i.e. you may not fit them).
 | ``x002`` : Second x-value
 | ``x003`` : Third x-value
-| ``$\ldots$`` : Other x-values
+| ``...`` : Other x-values
 | ``x999`` : last x-value, by definition equal to :math:`b_n`. If
   :math:`n<999`, replace the 999 by the relevant value (for example, if
   :math:`n=237`, then the last :math:`x`-value is x237).
 | ``y001`` : First y-value. This is a fittable parameter.
 | ``y002`` : Second y-value
 | ``y003`` : Third y-value
-| ``$\ldots$`` : Other y-values
+| ``...`` : Other y-values
 | ``y999`` : last y-value. If :math:`n<999`, replace the 999 by the
   relevant value (for example, if :math:`n=237`, then the last
-  :math:`y`-value is y237).
+  :math:`y`-value is 237).

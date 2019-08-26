@@ -10,10 +10,10 @@ The spectrum is given by:
 .. math:: F(E) = A E^{-\Gamma}e^{\eta(E)},
 
 where :math:`E` is the photon energy in keV, :math:`F` the photon flux
-in units of :math:`10^{44}` ph s:math:`^{-1}\,`\ keV\ :math:`^{-1}`, and
+in units of :math:`10^{44}` ph s\ :math:`^{-1}\,`\ keV\ :math:`^{-1}`, and
 the function :math:`\eta(E)` is given by
 
-.. math:: \eta(E) = {r\xi + \sqrt{r^2\xi^2+b^2(1-r^2)} \over 1-r^2},
+.. math:: \eta(E) = \frac{r\xi + \sqrt{r^2\xi^2+b^2(1-r^2)} }{1-r^2},
 
 with :math:`\xi \equiv \ln (E/E_0)`, and :math:`E_0`, :math:`r` and
 :math:`b` adjustable parameters. For high energies, :math:`\xi` becomes
@@ -23,7 +23,7 @@ low energies :math:`\xi` approaches :math:`-\infty` and as a consequence
 the spectrum is :math:`\Delta\Gamma=2r\xi/(1-r^2)`. Inverting this we
 have
 
-.. math:: r = {\sqrt{1+(\Delta\Gamma)^2} - 1\over \vert \Delta\Gamma \vert}.
+.. math:: r = \frac{\sqrt{1+(\Delta\Gamma)^2} - 1 }{\vert \Delta\Gamma \vert}.
 
 The parameter :math:`b` gives the distance (in logarithmic units) from
 the interception point of the asymptotes of the hyperbola to the
@@ -33,15 +33,15 @@ for larger values of :math:`b` the break gets smoother.
 The simple power law model is obtained by having :math:`\Delta\Gamma=0`,
 or the break energy :math:`E_0` put to a very large value.
 
-**Warning:** *By default, the allowed range for the photon index
-:math:`\Gamma` is (-10,10). If you manually increase the limits, you may
-run the risk that SPEX crashes due to overflow for very large photon
-indices.*
+.. Warning:: By default, the allowed range for the photon index
+   :math:`\Gamma` is (-10,10). If you manually increase the limits, you may
+   run the risk that SPEX crashes due to overflow for very large photon
+   indices.
 
-**Warning:** *Note the sign of :math:`\Gamma`: positive values
-correspond to spectra decreasing with energy. A spectrum with
-:math:`\Delta\Gamma>0` therefore steepens/softens at high energies, for
-:math:`\Delta\Gamma<0` it hardens.*
+.. Warning:: Note the sign of :math:`\Gamma`: positive values
+   correspond to spectra decreasing with energy. A spectrum with
+   :math:`\Delta\Gamma>0` therefore steepens/softens at high energies, for
+   :math:`\Delta\Gamma<0` it hardens.
 
 As an extension, we allow for a different normalisation, namely the
 integrated luminosity :math:`L` in a given energy band
@@ -57,32 +57,32 @@ over the fitted range. Note that the parameters :math:`E_1` and
 power law, not corrected for any transmission effects that you may have
 specified in other spectral components.
 
-**Warning:** *When you do spectral fitting, you **must** keep either
-:math:`A` or :math:`L` a fixed parameter! The other parameter will then
-be calculated automatically whenever you give the calculate or fit
-command. SPEX does not check this for you! If you do not do this, you
-may get unexpected results / crashes.*
+.. Warning:: When you do spectral fitting, you **must** keep either
+   :math:`A` or :math:`L` a fixed parameter! The other parameter will then
+   be calculated automatically whenever you give the calculate or fit
+   command. SPEX does not check this for you! If you do not do this, you
+   may get unexpected results / crashes.
 
-**Warning:** *The conversion factor between :math:`L` and :math:`A` is
-calculated numerically and not analytically (because of the possible
-break). In the power law model, photon fluxes above the nominal limit
-(currently :math:`e^{34}=5.8\times 10^{14}` in unscaled units) are put
-to the maximum value in order to prevent numerical overflow. This
-implies that you get inaccurate results for low energies, for example
-for a simple power law with :math:`\Gamma=2` the results (including
-conversion factors) for :math:`E<10^{-7}` keV become inaccurate.*
+.. Warning:: The conversion factor between :math:`L` and :math:`A` is
+   calculated numerically and not analytically (because of the possible
+   break). In the power law model, photon fluxes above the nominal limit
+   (currently :math:`e^{34}=5.8\times 10^{14}` in unscaled units) are put
+   to the maximum value in order to prevent numerical overflow. This
+   implies that you get inaccurate results for low energies, for example
+   for a simple power law with :math:`\Gamma=2` the results (including
+   conversion factors) for :math:`E<10^{-7}` keV become inaccurate.
 
-**Warning:** *Note that when you include a break, the value of
-:math:`\Gamma` is the photon index at energies below the break. Also,
-the normalisation :math:`A` is the nominal normalisation of this
-low-energy part. In such a case of a break, the true flux at 1 keV may
-be different from the value of A! Of course, you can always calculate
-the flux in a given band separately.*
+.. Warning:: Note that when you include a break, the value of
+   :math:`\Gamma` is the photon index at energies below the break. Also,
+   the normalisation :math:`A` is the nominal normalisation of this
+   low-energy part. In such a case of a break, the true flux at 1 keV may
+   be different from the value of A! Of course, you can always calculate
+   the flux in a given band separately.
 
 The parameters of the model are:
 
 | ``norm`` : Normalisation :math:`A` of the power law, in units of
-  :math:`10^{44}` ph s:math:`^{-1}\,`\ keV\ :math:`^{-1}` at 1 keV.
+  :math:`10^{44}` ph s\ :math:`^{-1}\,`\ keV\ :math:`^{-1}` at 1 keV.
   Default value: 1. When :math:`\Delta\Gamma` is not equal to 0, it is
   the asymptotic value at 1 keV of the low-energy branch.
 | ``gamm`` : The photon index :math:`\Gamma` of the spectrum. Default

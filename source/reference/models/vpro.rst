@@ -7,8 +7,7 @@ an arbitrarily shaped Doppler profile, characterized by the half-width
 :math:`S_c(E)` is calculated from the original spectrum :math:`S(E)` as
 
 .. math::
-
-   S_c(E) = \int f \bigl( {\displaystyle{ {E-E_0\over E_0}\,{v\over c} }} \bigr)
+   S_c(E) = \int f \bigl( \frac{E-E_0}{E_0} \frac{v}{c}  \bigr)
    S(E_0) {\mathrm d}E_0.
 
 The function :math:`f(x)` must correspond to a probability function,
@@ -18,20 +17,20 @@ i.e. for all values of :math:`x` we have
 
 and furthermore
 
-.. math:: \int\limits_{-\infty}^{\infty} f(x) {\mathrm d}x = 1.
+.. math:: \int_{-\infty}^{\infty} f(x) {\mathrm d}x = 1.
 
 In our implementation, we do not use :math:`f(x)` but instead the
 cumulative probability density function :math:`F(x)`, which is related
 to :math:`f(x)` by
 
-.. math:: F(x)\equiv \int\limits_{-\infty}^{x} f(y){\mathrm d}y,
+.. math:: F(x)\equiv \int_{-\infty}^{x} f(y){\mathrm d}y,
 
 where obviously :math:`F(-\infty)=0` and :math:`F(\infty)=1`. The reason
 for using the cumulative distribution is that this allows easier
 interpolation and conservation of photons in the numerical integrations.
 
 If this component is used, you must have a file available which we call
-here "vprof.dat" (but any name is allowed). This is a simple ascii file,
+here ``vprof.dat`` (but any name is allowed). This is a simple ascii file,
 with :math:`n` lines, and at each line two numbers: a value for
 :math:`x` and the corresponding :math:`F(x)`. The lines must be sorted
 in ascending order in :math:`x`, and for :math:`F(x)` to be a proper

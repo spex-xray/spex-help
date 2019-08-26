@@ -3,7 +3,8 @@ Laor: relativistic line broadening model
 
 This multiplicative model broadens an arbitrary additive component with
 a relativistic line profile. The relativistic line profile is
-interpolated from tables produced by :raw-latex:`\citet{laor1991}`. In
+interpolated from tables produced by `Laor (1991)
+<https://ui.adsabs.harvard.edu/abs/1991ApJ...376...90L/abstract>`_. In
 his model, the line transfer function is determined for emission from
 the equatorial plane around a Kerr black hole, assuming an emissivity
 law :math:`I(\cos\theta) \sim 1. +
@@ -25,12 +26,12 @@ radius :math:`r_1` and an outer radius :math:`r_2`. Given the radial
 grid that is provided in Laor’s data, the outer radius extends out to at
 most :math:`400GM/c^2`.
 
-**Warning:** *Of course, any line or continuum emission component can be
-convolved with the this broadening model; for continuum components the
-computational time may be very large, however, due to the convolution
-involved.*
+.. Warning:: Of course, any line or continuum emission component can be
+   convolved with the this broadening model; for continuum components the
+   computational time may be very large, however, due to the convolution
+   involved.
 
-**Warning:** *The outer radius cannot be larger than :math:`400GM/c^2`*
+.. Warning:: The outer radius cannot be larger than :math:`400GM/c^2`.
 
 The parameters of the model are:
 
@@ -46,4 +47,6 @@ The parameters of the model are:
 | ``i`` : Inclination angle (in degrees) of the disk (angle between line
   of sight and the rotation axis of the disk). Default value: 45
   degrees.
-| *Recommended citation:* :raw-latex:`\citet{laor1991}`.
+
+*Recommended citation:* `Laor (1991)
+<https://ui.adsabs.harvard.edu/abs/1991ApJ...376...90L/abstract>`_.

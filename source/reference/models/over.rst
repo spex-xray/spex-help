@@ -2,16 +2,15 @@ Overview of spectral components
 ===============================
 
 For more information on the definition of spectral components and the
-different types, see Sect. \ `[sec:modeltypes] <#sec:modeltypes>`__.
+different types, see Section `Model types <#sec:modeltypes>`__.
 Currently the following models are implemented in SPEX, see
-Table \ `[tab:specmodels] <#tab:specmodels>`__.
+`Table <#tab:specmodels>`__.
 
 .. table:: Available spectral components
 
    ======= ===================================================================
    acronym description
    ======= ===================================================================
-   \      
    pow     Power law
    delt    Delta line
    gaus    Gaussian line
@@ -42,7 +41,7 @@ Table \ `[tab:specmodels] <#tab:specmodels>`__.
    laor    Laor relativistic line profile
    \      
    absm    Morrison & McCammon ISM absorption
-   euve    EUVE absorption model :raw-latex:`\citet{rumph1994}` (H+He)
+   euve    EUVE absorption model (Rumph et al. 1994) (H+He)
    ebv     Galactic interstellar extinction model
    hot     SPEX absorption by plasma in CIE
    slab    Absorption by a slab with adjustable ionic columns

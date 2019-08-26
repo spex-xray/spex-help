@@ -8,28 +8,27 @@ galaxies. It was first introduced by :raw-latex:`\citet{kaastra2004}`
 and is defined as follows:
 
 .. math::
-
-   \label{eqn:demalpha}
-   { {\mathrm d}Y \over {\mathrm d}T } = \left\{
+   \frac{ {\mathrm d}Y }{ {\mathrm d}T } = \left\{
    \begin{array}{ll}
-    0           & \qquad\mbox{if $T \leq \beta T_{\max}$}; \\
-    cT^{\alpha}  & \qquad\mbox{if $\beta T_{\max} < T < T_{\max}$};\\
-    0           & \qquad\mbox{if $T \geq T_{\max}$}.
-    \end{array} \right.
+   0            & \qquad\mbox{if T \leq \beta T_{\max}}; \\
+   cT^{\alpha}  & \qquad\mbox{if \beta T_{\max} < T < T_{\max}};\\
+   0            & \qquad\mbox{if T \geq T_{\max}}.
+   \end{array} \right.
+   :label: demalpha
 
 Here :math:`Y` is the emission measure
 :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V` in units of
-:math:`10^{64}` m:math:`^{-3}`, where :math:`n_{\mathrm e}` and
+:math:`10^{64}` m\ :math:`^{-3}`, where :math:`n_{\mathrm e}` and
 :math:`n_{\mathrm H}` are the electron and Hydrogen densities and
 :math:`V` the volume of the source.
 
 For :math:`\alpha\rightarrow\infty`, we obtain the isothermal model, for
 large :math:`\alpha` a steep temperature decline is recovered while for
 :math:`\alpha=0` the emission measure distribution is flat. Note that
-:raw-latex:`\citet{peterson2003}` use a similar parameterisation but
-then for the differential luminosity distribution). In practice, we have
-implemented the model (`[eqn:demalpha] <#eqn:demalpha>`__) by using the
-integrated emission measure :math:`Y_{\mathrm{tot}}` instead of
+`Peterson et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003ApJ...590..207P/abstract>`_
+use a similar parameterisation but then for the differential luminosity
+distribution). In practice, we have implemented the model :eq:`demalpha` by
+using the integrated emission measure :math:`Y_{\mathrm{tot}}` instead of
 :math:`c` for the normalisation, and instead of :math:`\alpha` its
 inverse :math:`p=1/\alpha`, so that we can test isothermality by taking
 :math:`p=0`. The emission measure distribution for the model is binned
@@ -44,21 +43,20 @@ directly as the lower temperature cut-off, we use a scaled cut-off
 
 From the parameters of the wdem model, the emission weighted mean
 temperature :math:`kT_{\mathrm{mean}}` can be calculated
-:raw-latex:`\citep{deplaa2006}`:
+`de Plaa et al. (2006) <https://ui.adsabs.harvard.edu/abs/2006A%26A...452..397D/abstract>`_:
 
 .. math::
-
-   T_{\mathrm{mean}} = \frac{(1+\alpha)}{(2+\alpha)} 
+   T_{\mathrm{mean}} = \frac{(1+\alpha)}{(2+\alpha)}
                       \frac{(1 - \beta^{2+\alpha})}{(1 - \beta^{1+\alpha})} ~T_{\mathrm{max}}
 
-**Warning:** *Take care that :math:`\beta<1`. For :math:`\beta=1`, the
-model becomes isothermal, regardless the value of :math:`\alpha`. The
-model also becomes isothermal for :math:`p`\ =0, regardless of the value
-of :math:`\beta`.*
+.. warning:: Take care that :math:`\beta<1`. For :math:`\beta=1`, the
+   model becomes isothermal, regardless the value of :math:`\alpha`. The
+   model also becomes isothermal for :math:`p`\ =0, regardless of the value
+   of :math:`\beta`.
 
-**Warning:** *For low resolution spectra, the :math:`\alpha` and
-:math:`\beta` parameters are not entirely independent, which could lead
-to degeneracies in the fit.*
+.. warning:: For low resolution spectra, the :math:`\alpha` and
+   :math:`\beta` parameters are not entirely independent, which could lead
+   to degeneracies in the fit.
 
 The parameters of the model are:
 
@@ -68,11 +66,15 @@ The parameters of the model are:
 | ``p`` : Slope :math:`p=1/\alpha`. Default: 0.25 (:math:`\alpha = 4`).
 | ``cut`` : Lower temperature cut-off :math:`\beta` , in units of
   :math:`T_{\max}`. Default value: 0.1.
-| The following parameters are the same as for the cie-model: ``ed`` :
-  Electron density in :math:`10^{20}` m:math:`^{-3}`
+
+The following parameters are the same as for the cie-model:
+
+| ``ed`` : Electron density in :math:`10^{20}` m\ :math:`^{-3}`
 | ``it`` : Ion temperature in keV
 | ``vmic`` : Micro turbulent velocity in km/s
 | ``ref`` : Reference element
-| ``01$\ldots$30`` : Abundances of H to Zn
+| ``01...30`` : Abundances of H to Zn
 | ``file`` : Filename for the nonthermal electron distribution
-| *Recommended citation:* :raw-latex:`\citet{kaastra2004}`.
+
+*Recommended citation:* `Kaastra et al. (2004)
+<https://ui.adsabs.harvard.edu/abs/2004A%26A...413..415K/abstract>`_.

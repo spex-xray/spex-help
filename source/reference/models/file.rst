@@ -17,15 +17,14 @@ should have the follwing format:
 
 Here :math:`E_i` is the energy of a photon in keV, and :math:`S_i` is
 the spectrum in units of :math:`10^{44}`
-photons s\ :math:`^{-1}` keV:math:`^{-1}`. All energies :math:`E_i` must
+photons s\ :math:`^{-1}` keV\ :math:`^{-1}`. All energies :math:`E_i` must
 be positive, and the grid must be monotonically increasing (two
 subsequent energies may not have the same value). Also, the spectrum
 :math:`S_i` must be strictly positive (i.e. :math:`S_i=0` is not
 allowed).
 
 SPEX then calculates the spectrum by linear interpolation in the
-:math:`\log E -
-\log S` plane (this is why fluxes must be positive). For :math:`E<E_1`
+:math:`\log E - \log S` plane (this is why fluxes must be positive). For :math:`E<E_1`
 and :math:`E>E_n` however, the spectrum is put to zero. Finally, the
 spectrum is multiplied by the scale factor :math:`N` prescribed by the
 user.

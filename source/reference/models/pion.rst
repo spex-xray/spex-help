@@ -15,36 +15,36 @@ XSTAR (or even with the present *pion* model :math:`\ldots`), in the
 present *pion* model the photoionisation equilibrium is calculated
 self-consistently using the available plasma routines of SPEX.
 
-**Warning:** *The default energy grid in SPEX has 8192 bins between
-0.001 and 100 keV. This may not be sufficient for the pion model when
-you use it without data. Recommended is a logarithmic grid between
-:math:`10^{-6}--10^{6}` keV with a step size of 0.005. You can get this
-by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV".
-Note that if you have read in data, SPEX automatically expands the
-energy grid to this range and resolution, plus including all energy
-boundaries from the response matrix.*
+.. Warning:: The default energy grid in SPEX has 8192 bins between
+   0.001 and 100 keV. This may not be sufficient for the pion model when
+   you use it without data. Recommended is a logarithmic grid between
+   :math:`10^{-6}-10^{6}` keV with a step size of 0.005. You can get this
+   by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV".
+   Note that if you have read in data, SPEX automatically expands the
+   energy grid to this range and resolution, plus including all energy
+   boundaries from the response matrix.
 
-**Warning:** *This model is still under development and not all atomic
-data is fully updated. For instance, no cooling by collisional
-excitation for ions of the K- to Zn-isolelectronic sequences is taken
-into account yet. So use with care!*
+.. Warning:: This model is still under development and not all atomic
+   data is fully updated. For instance, no cooling by collisional
+   excitation for ions of the K- to Zn-isolelectronic sequences is taken
+   into account yet. So use with care!
 
-**Warning:** *When setting up the model, be aware that the pion model is
-both additive and multiplicative (even if you put the emission to zero).
-Therefore, the pion model needs the same com rel sequence as you use for
-your absorption component. Example: ’com pow — com reds — com pion — com
-rel 1 3,2’ (a powerlaw that powers a pion model and is then redshifted)
-needs as next command ’com rel 3 2’, telling SPEX that the pion emission
-model is also redshifted.*
+.. Warning:: When setting up the model, be aware that the pion model is
+   both additive and multiplicative (even if you put the emission to zero).
+   Therefore, the pion model needs the same com rel sequence as you use for
+   your absorption component. Example: ``com pow`` — ``com reds`` — ``com
+   pion`` — ``com rel 1 3,2`` (a powerlaw that powers a pion model and is then redshifted)
+   needs as next command ``com rel 3 2``, telling SPEX that the pion emission
+   model is also redshifted.
 
-**Warning:** *Please note that all PION components must be multiplied by
-at least one continuum component (using the usual comp rel command).
-Otherwise, photoionisation cannot be calculated and SPEX may crash. A
-typical AGN SED spanning optical to X-ray energies can be set up with
-three continuum components in SPEX: pow (primary hard X-ray power-law
-emission), refl (reflected power-law emission), comt (thermal optical/UV
-disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
-in :raw-latex:`\citet{mehdipour2015}`.*
+.. Warning:: Please note that all PION components must be multiplied by
+   at least one continuum component (using the usual comp rel command).
+   Otherwise, photoionisation cannot be calculated and SPEX may crash. A
+   typical AGN SED spanning optical to X-ray energies can be set up with
+   three continuum components in SPEX: pow (primary hard X-ray power-law
+   emission), refl (reflected power-law emission), comt (thermal optical/UV
+   disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
+   in `Mehdipour et al. (2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_.
 
 The main advantage, however, is that the user can define his own
 ionising continuum by combining any additive components of SPEX, and
@@ -64,7 +64,7 @@ and the model is not too far off the data.
 Emission from the *pion* model
 ------------------------------
 
-**Latest news:** we have now incorporated a first version of emission
+We have now incorporated a first version of emission
 from the same layer. We cannot give you any guarantee at the moment that
 it is bug-free. We know at the moment that the source has probelms when
 the density gets too high; this is different for each ion; so unless you
@@ -73,7 +73,7 @@ surpass the critical density and you may get a warning message. Here is
 an example. For a photoionised case, with :math:`\log \xi = 3`
 (resulting :math:`kT=0.64` keV) the nominal occupation of the ground
 state of H  becomes negative for a density
-:math:`>0.15\times 10^{20}` m:math:`^{-3}`. This can be traced down to
+:math:`>0.15\times 10^{20}` m\ :math:`^{-3}`. This can be traced down to
 incomplete atomic data. For H , we include collisional excitation and
 de-excitation up to principal quantum number :math:`n=5` but not above.
 As a result, in this example the 1s–5s levels are mainly
@@ -87,9 +87,9 @@ the catastrophe of negative occupation for the ground state. We mitigate
 this by replacing the level populations by the LTE populations and
 issueing a warning. Without this mitigation, SPEX would crash.
 
-**Warning:** *You can get the emission by putting the covering factor
-(omeg) to a non-zero value; it will slow down the calculations compared
-to absorption-only calculations, so be aware*
+.. Warning:: You can get the emission by putting the covering factor
+   (omeg) to a non-zero value; it will slow down the calculations compared
+   to absorption-only calculations, so be aware.
 
 Normally, to calculate the emission from a full thin shell surrounding
 an ionising source, you should set the parameter *omeg* to unity (a full
@@ -99,8 +99,15 @@ sense but you can formally play around with it (for very large values,
 the emitted spectrum would start dominating the absorbed primary
 continuum, but if you want to suppress the primary continuum in the
 observed spectrum, it is better to define your model like the example
-below as: com pow com pion com etau com rel 1 2,3 com rel 2 0 par 3 tau
-v 1e10 par 3 a v 0
+below as::
+
+  SPEX> com pow
+  SPEX> com pion
+  SPEX> com etau
+  SPEX> com rel 1 2,3
+  SPEX> com rel 2 0
+  SPEX> par 3 tau v 1e10
+  SPEX> par 3 a v 0
 
 In this example, the powerlaw goes through the *pion* component and is
 killed afterwards by the *etau* component, while the emission from the
@@ -111,11 +118,11 @@ forwards to backwards emission. Putting it to 1 (default) means you get
 the forward emission, putting it to 0 the backwards emission, and
 intermediate values give you a mix.
 
-**Warning:** *The emission model uses currently only one layer. When the
-continuum optical depth of the absorbed continuum, weighted with the
-incoming flux, becomes of order unity, the layer will become
-inhomogeneous in terms of temperature structure, and our single-layer
-approximation will break down.*
+.. Warning:: The emission model uses currently only one layer. When the
+   continuum optical depth of the absorbed continuum, weighted with the
+   incoming flux, becomes of order unity, the layer will become
+   inhomogeneous in terms of temperature structure, and our single-layer
+   approximation will break down.
 
 In order to make a PION component produce emission only, fix the
 covering fraction (cf) parameter to zero so that no absorption is
@@ -125,7 +132,7 @@ multiply these components with your multiplicative components (like the
 Galactic absorption) using the ``comp rel`` command.
 
 For more information on this model, the atomic data and parameters we
-refer to Sect. \ `[sect:abs_models] <#sect:abs_models>`__.
+refer to Section `Absorption models <#sect:abs_models>`__.
 
 More options
 ------------
@@ -170,7 +177,7 @@ There are situations where there is not a unique solution to the energy
 balance equations. A simple example can be obtained as follows: take a
 logarithmic energy grid between :math:`10^{-6}-10^6` keV, use a powerlaw
 with photon index 1.5, apply the pion model to it and put *exth* to
-:math:`5\times 10^{-25}` W m:math:`^{-3}`. In this case there are 3
+:math:`5\times 10^{-25}` W m\ :math:`^{-3}`. In this case there are 3
 solutions. SPEX chooses by default the hottest solution. You can see all
 solutions by putting the parameter *fmod=1* and using the *heat* ascii
 output option. Or check the behaviour of the hating balance by issuing
@@ -180,8 +187,8 @@ solution), and for the above case of 3 solutions values of 1, 2 and 3
 renders you the coldest, second ant hottest solution. Test this with the
 *heat* or *plas* output options.
 
-**Warning:** *When you set soln to a non-zero value, use fmod=1,
-otherwise SPEX may crash.*
+.. Warning:: When you set soln to a non-zero value, use fmod=1,
+   otherwise SPEX may crash.
 
 No equilibrium solution
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -200,15 +207,15 @@ Adiabatic cooling
 
 The effects of adiabatic cooling can be taken into account by setting
 the parameter *tadi*. This represents the adiabatic cooling time
-:math:`t_{\rm adi}`. The associated cooling rate is calculated as
-:math:`R_{\rm adi}= frac{3}{2} nkT / t_{\rm adi}`, where :math:`n` is
+:math:`t_{\mathrm adi}`. The associated cooling rate is calculated as
+:math:`R_{\mathrm adi}= \frac{3}{2} nkT / t_{\mathrm adi}`, where :math:`n` is
 the total particle density (electrons and ions). The default setting is
 such that this process can be neglected. If the user takes this process
 into account, it should be verified afterwards that the physlical
 conditions for adiabatic cooling are met, i.e. energy losses by
 radiation or heat conduction must be small compared with those by the
-adiabatic expansion. Check this for example by running the *asc ter
-:math:`\ldots` heat* output.
+adiabatic expansion. Check this for example by running the ``asc ter
+... heat`` output.
 
 Radiative acceleration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -218,35 +225,37 @@ incoming radiation on the layer is calculated, and given as output
 parameter *acc*. Physically, it is given by the following equation,
 which can be easily derived:
 
-.. math:: a =F_{\rm abs}/c f m_{\rm p} N_{\rm H},
+.. math:: a =F_{\mathrm abs}/c f m_{\mathrm p} N_{\mathrm H},
 
-where :math:`F_{\rm abs}=\int F(E)(1-T(E)){\rm d}E` is the absorbed flux
+where :math:`F_{\mathrm abs}=\int F(E)(1-T(E)){\mathrm d}E` is the absorbed flux
 (:math:`F(E)` is the incoming flux in W m\ :math:`^{-2}` keV and
 :math:`T(E)` the transmission of the layer), :math:`c` the speed of
-light, :math:`m_{\rm p}` the proton mass, :math:`N_{\rm H}` the hydrogen
+light, :math:`m_{\mathrm p}` the proton mass, :math:`N_{\mathrm H}` the hydrogen
 column density and :math:`f` is a dimension less quantity determined
-from :math:`\rho = f n_{\rm H} m_{\rm p}` with :math:`n_{\rm H}` the
-hydrogen density and :math:`\rho` the mass density (kg m:math:`^{-3}`)
+from :math:`\rho = f n_{\mathrm H} m_{\mathrm p}` with :math:`n_{\mathrm H}` the
+hydrogen density and :math:`\rho` the mass density (kg m\ :math:`^{-3}`)
 of the plasma, for example :math:`f=1.4287` for the present default
-abundances of SPEX (you can check this number from the *asc ter
-:math:`\ldots` plas* ascii output option).
+abundances of SPEX (you can check this number from the ``asc ter
+... plas`` ascii output option).
 
 Model parameters
 ----------------
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` m:math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` m\ :math:`^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` m:math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}` m\ :math:`^{-2}`, a typical value at low Galactic
   latitudes).
 | ``xi`` : the :math:`^{10}`\ log of the ionisation parameter
   :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
 | ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
-| The following parameters are common to all our absorption models:
-  ``fcov`` : The covering factor of the absorber. Default value: 1 (full
+
+The following parameters are common to all our absorption models:
+
+| ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend
@@ -256,7 +265,7 @@ The parameters of the model are:
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
 | The following parameters are the same as for the cie-model (see there
   for a description): ``ref`` : Reference element
-| ``01$\ldots$28`` : Abundances of H to Ni; only here we take H, He, C,
+| ``01...28`` : Abundances of H to Ni; only here we take H, He, C,
   N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
 | ``file`` : File name for the electron distribution (in case of a sum
   of Maxwellians distribution)
@@ -265,8 +274,8 @@ The parameters of the model are:
   parameter; if type equals 1, it uses lixi (see next parameter) as its
   main parameter
 | ``lixi`` : Optional alternative ionisation parameter, defines as
-  :math:`L_{\rm
-  {ion}}/\xi` in units of :math:`10^{39}` m:math:`^{-1}`. This is useful
+  :math:`L_{\mathrm
+  {ion}}/\xi` in units of :math:`10^{39}` m\ :math:`^{-1}`. This is useful
   for time-variable spectra where :math:`\xi` has been determined from
   one spectrum and where one wants to calculated the transmitted
   spectrum for fixed :math:`nr^2` for a different ionising spectrum; in
@@ -292,5 +301,7 @@ The parameters of the model are:
   Default value: :math:`10^{30}` s.
 | ``acc`` : Radiative acceleration. See description above. Note: only
   output.
-| *Recommended citation:* :raw-latex:`\citet{miller2015}` and Mehdipour
-  et al. (2016).
+
+*Recommended citation:* `Mehdipour et al. (2015)
+<https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_
+and `Miller et al. (2015) <https://ui.adsabs.harvard.edu/abs/2015Natur.526..542M/abstract>`_

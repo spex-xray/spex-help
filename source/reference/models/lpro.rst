@@ -26,7 +26,7 @@ extent). Then we can transform :math:`I(\Delta\lambda)` into a
 probability distribution :math:`f(x)` with :math:`f=0` for very small or
 large values of :math:`x` (here and further we put
 :math:`x=\Delta\lambda`). The auxilliary task rgsvprof (see
-Section \ `[sect:rgsvprof] <#sect:rgsvprof>`__) is able to create an
+Section \ `RGSvprof <#sect:rgsvprof>`__) is able to create an
 input file for the lpro component from a MOS1 image.
 
 The resulting spatially convolved spectrum :math:`S_c(\lambda)` is
@@ -44,13 +44,13 @@ i.e. for all values of :math:`x` we have
 
 and furthermore
 
-.. math:: \int\limits_{-\infty}^{\infty} f(x) {\mathrm d}x = 1.
+.. math:: \int_{-\infty}^{\infty} f(x) {\mathrm d}x = 1.
 
 In our implementation, we do not use :math:`f(x)` but instead the
 cumulative probability density function :math:`F(x)`, which is related
 to :math:`f(x)` by
 
-.. math:: F(x)\equiv \int\limits_{-\infty}^{x} f(y){\mathrm d}y,
+.. math:: F(x)\equiv \int_{-\infty}^{x} f(y){\mathrm d}y,
 
 where obviously :math:`F(-\infty)=0` and :math:`F(\infty)=1`. The reason
 for using the cumulative distribution is that this allows easier
@@ -76,19 +76,19 @@ In addition, the parameter :math:`\lambda_o` can be varied if the
 absolute position of the source is unknown and a small linear shift in
 wavelength is necessary.
 
-**Warning:** *This model can be applied to grating spectra (like RGS),
-but if you include in your fit also other data (for example EPIC), the
-same broadening will also be applied to that other data SET. This can be
-avoided by using a separate sector for each detector type.*
+.. Warning:: This model can be applied to grating spectra (like RGS),
+   but if you include in your fit also other data (for example EPIC), the
+   same broadening will also be applied to that other data SET. This can be
+   avoided by using a separate sector for each detector type.
 
-**Warning:** *The above approximation of spatially extended sources
-assumes that there are no intrinsic spectral variations over the surface
-area of the X-ray source. Only total intensity variations over the
-surface area are taken into account. Whenever there are spatial
-variations in spectral shape (not in intensity) our method is strictly
-speaking not valid, but still gives more accurate results than a
-point-source approximation. In principle in those cases a more
-complicated analysis is needed.*
+.. Warning:: The above approximation of spatially extended sources
+   assumes that there are no intrinsic spectral variations over the surface
+   area of the X-ray source. Only total intensity variations over the
+   surface area are taken into account. Whenever there are spatial
+   variations in spectral shape (not in intensity) our method is strictly
+   speaking not valid, but still gives more accurate results than a
+   point-source approximation. In principle in those cases a more
+   complicated analysis is needed.
 
 The parameters of the model are:
 
@@ -97,4 +97,7 @@ The parameters of the model are:
   0 Å.
 | ``file`` : Ascii character string, containing the actual name of the
   vprof.dat file
-| *Recommended citation:* :raw-latex:`\citet{tamura2004}`.
+
+*Recommended citation:* `Tamura et al. (2004)
+<https://ui.adsabs.harvard.edu/abs/2004A%26A...420..135T/abstract>`_
+

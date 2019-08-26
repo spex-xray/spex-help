@@ -10,11 +10,12 @@ absorption by atomic gas, the effects of dust are two-fold:
 -  Reduced opacity due to self-shielding in grains
 
 The *dabs* model only accounts for the second effect, reduced opacity
-due to self-shielding. The formalism of :raw-latex:`\citet{wilms2000}`
+due to self-shielding. The formalism of `Wilms et al. (2000)
+<https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract>`_
 is followed, and we refer to that paper for a full explanation.
 
 In the set of abundances, we use the depletion factors of
-:raw-latex:`\citet{wilms2000}`.
+`Wilms et al. (2000) <https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract>`_.
 
 === === == == ===== === ===== === ==== ==== ==== ==== ==== === ===
 H   He  Li Be B     C   N     O   F    Ne   Na   Mg   Al   Si  P
@@ -28,18 +29,18 @@ grains. Noble gases like Ne and Ar are chemically inert hence are
 generally not bound in dust grains, but other elements like Ca exist
 predominantly in dust grains.
 
-**Warning:** *For a realistic model, it is advised to combine the *dabs*
-model with a *hot* model, where (for Solar abundances), the hot model
-should contain the elemnts *not* bound in the dust.*
+.. warning:: For a realistic model, it is advised to combine the *dabs*
+   model with a *hot* model, where (for Solar abundances), the hot model
+   should contain the elements *not* bound in the dust.
 
-Finally, we note that the *amol* model can deal with the modified
-structure near the oxygen edge, but that model does not take
-elf-shielding into account.
+.. note:: Finally, we note that the *amol* model can deal with the modified
+   structure near the oxygen edge, but that model does not take
+   self-shielding into account.
 
 The parameters of the model are:
 
 | ``nh`` : Nominal hydrogen column density in
-  :math:`10^{28}` m:math:`^{-2}`. Default value: :math:`1`.
+  :math:`10^{28}` :math:`\mathrm{m}^{-2}`. Default value: :math:`1`.
 | ``amin`` : Minimum grain size in :math:`\mu`\ m. Default value: 0.025.
 | ``amax`` : Minimum grain size in :math:`\mu`\ m. Default value: 0.25.
 | ``p`` : Power index grain size distribution. Default value: 3.5.
@@ -49,11 +50,13 @@ The parameters of the model are:
   according to the depletion factors used, does not contain hydrogen, we
   substitute here formally Lithium. The user is advisednot to change
   this.
-| ``01$\ldots$30`` : Abundances of H to Zn. See the remark on depletion
+| ``01...30`` : Abundances of H to Zn. See the remark on depletion
   factors above.
 | The following parameters are common to all our absorption models:
   ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
-| *Recommended citation:* :raw-latex:`\citet{wilms2000}` and
-  :raw-latex:`\citet{kaastra2009}`.
+
+*Recommended citation:* `Wilms et al. (2000)
+<https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract>`_ and
+`Kaastra et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009A%26A...497..291K/abstract>`_.

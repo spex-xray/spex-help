@@ -17,18 +17,18 @@ where :math:`K(x,y)` is the Voigt profile given by
 
 .. math::
 
-   K(x,y) = \frac{y}{\pi} \int\limits_{-\infty}^{\infty}
+   K(x,y) = \frac{y}{\pi} \int_{-\infty}^{\infty}
    \frac{e^{\displaystyle{-t^2}}}{y^2+(x-t)^2} \mathrm{d}t,
 
 with
 
-.. math:: x = \frac{2\sqrt{\ln{2}}}{F_{\rm g}}  (E-E_0)
+.. math:: x = \frac{2\sqrt{\ln{2}}}{F_{\mathrm g}}  (E-E_0)
 
 and
 
-.. math:: y = \sqrt{\ln{2}} \frac{F_{\rm l}}{F_{\rm d}}
+.. math:: y = \sqrt{\ln{2}} \frac{F_{\mathrm l}}{F_{\mathrm d}}
 
-where :math:`F_{\rm g}` and :math:`F_{\rm l}` are the Full Width at Half
+where :math:`F_{\mathrm g}` and :math:`F_{\mathrm l}` are the Full Width at Half
 Maximum of the Gaussian and Lorentzian components, respectively.
 Further, :math:`E_0` is the line centroid.
 
@@ -40,20 +40,20 @@ width, and FWHMs of the Gaussian and Lorentzian components) are
 calculated. In addition, like all SPEX absorption models, also the
 covering factor can be varied.
 
-**Warning:** *The equivalent width is calculated at the energy grid in
-use for SPEX. Line flux outside this range is not taken into account.
-That may be important in the case of strong Lorentzian wings.*
+.. Warning:: The equivalent width is calculated at the energy grid in
+   use for SPEX. Line flux outside this range is not taken into account.
+   That may be important in the case of strong Lorentzian wings.
 
-**Warning:** *The parameter :math:`\tau_0` only represents the optical
-depth at the line centre for a pure Gaussian case. When the Lorentzian
-component becomes important, the "true" depth at line center is
-smaller.*
+.. Warning:: The parameter :math:`\tau_0` only represents the optical
+   depth at the line centre for a pure Gaussian case. When the Lorentzian
+   component becomes important, the "true" depth at line center is
+   smaller.
 
-**Warning:** *When changing from energy to wavelength units, take care
-about the frozen/thawn status of the line centroid and FWHM.*
+.. Warning:: When changing from energy to wavelength units, take care
+   about the frozen/thawn status of the line centroid and FWHM.*
 
-**Warning:** *You need to do a "calc" or "fit" command to get an update
-of the wavelength (for type=0) or energy (type=1).*
+.. Warning:: You need to do a "calc" or "fit" command to get an update
+   of the wavelength (for type=0) or energy (type=1).
 
 The parameters of the model are:
 

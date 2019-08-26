@@ -30,7 +30,7 @@ computer time, the step size for numerical integration
 (the default) is 0.2.
 
 For more information on this model, the atomic data and parameters we
-refer to Sect. \ `[sect:abs_models] <#sect:abs_models>`__.
+refer to Section `Absorption models <#sect:abs_models>`__.
 
 The parameters of the model are:
 
@@ -43,7 +43,7 @@ The parameters of the model are:
   values are generally recommended; minimum value is 2.
 | ``dxi`` : step size for numerical integration :math:`\Delta\log\xi`.
   Default value: 0.2.
-| ``f01$\ldots$f19`` : Values of
+| ``f01...f19`` : Values of
   :math:`f_i={\mathrm d}N_{\mathrm H}/{\mathrm
   d}\ln\xi` at the grid points. Default values :math:`10^{-6}`. When
   npol\ :math:`<19`, the remaining values of :math:`f_i` are simply
@@ -60,4 +60,5 @@ The parameters of the model are:
 | The following parameter is the same as for the xabs-model (see there
   for a description): ``col`` : File name for the photoionisation
   balance parameters
-| *Recommended citation:* :raw-latex:`\citet{steenbrugge2005b}`.
+
+*Recommended citation:* `Steenbrugge et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005A%26A...432..453S/abstract>`_

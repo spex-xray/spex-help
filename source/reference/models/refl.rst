@@ -9,14 +9,17 @@ smearing added. Both are combined into the single refl model in SPEX.
 
 It is a model of reflection from a constant density X-ray illuminated
 atmosphere. It computes the Compton-reflected continuum
-:raw-latex:`\citep[cf.][]{magdziarz1995}` and the iron K alpha line
-:raw-latex:`\citep[cf.][]{zycki1994}`, as described in
-:raw-latex:`\citet{zycki1999}`. In addition it can be convolved with a
-relativistic diskline model (for Schwarzschild geometry).
+(`Magdziarz & Zdziarski (1995) <https://ui.adsabs.harvard.edu/abs/1995MNRAS.273..837M/abstract>`_;
+and the iron K alpha line `Zycki & Czerny (1994)
+<https://ui.adsabs.harvard.edu/abs/1994MNRAS.266..653Z/abstract>`_,
+as described in `Zicky et al. (1999)
+<https://ui.adsabs.harvard.edu/abs/1999MNRAS.305..231Z/abstract>`_
+In addition, it can be convolved with a relativistic diskline model
+(for Schwarzschild geometry).
 
 Chemical elements taken into account in this model are H, He, C, N, O,
 Ne, Mg, Si, S and Fe. The standard abundances are taken from
-:raw-latex:`\citet{morrison1983}`.
+`Morrison & McCammon (1983) <https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract>`_.
 
 The incoming spectrum is characterized by:
 
@@ -25,7 +28,7 @@ The incoming spectrum is characterized by:
 where :math:`E` is the photon energy in keV, :math:`N_i(E)` the number
 of photons per per second per keV, :math:`\Gamma` is the photon index
 and :math:`E_c` a cut-off energy. The normalisation :math:`A` is in
-units of :math:`10^{44}` photons s:math:`^{-1}` keV:math:`^{-1}` at
+units of :math:`10^{44}` photons s\ :math:`^{-1}` keV\ :math:`^{-1}` at
 1 keV, just the same as in the standard power law model. The total
 spectrum :math:`N(E)` is then given by
 
@@ -36,18 +39,18 @@ factor.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` of the power law
-| ``gamm`` : The photon index :math:`\Gamma` of the ionising spectrum
+| ``norm`` : Normalisation :math:`A` of the power law.
+| ``gamm`` : The photon index :math:`\Gamma` of the ionising spectrum.
 | ``ecut`` : The cut-off energy (keV) of the ionising spectrum. If no
   cut-off is desired, take this parameter zero (and keep it frozen!).
 | ``pow`` : If pow=1, the incoming power law is added to the spectrum
-  (default); if pow=0, only the reflected spectrum is given
+  (default); if pow=0, only the reflected spectrum is given.
 | ``disk`` : If disk=1, the spectrum will be convolved with an accretion
-  disk profile (default); if disk=0, this is not done
-| ``fgr`` : Full general relativity used (default, for fgr=1)
-| ``t`` : Temperature of the reflector (disk) in keV
+  disk profile (default); if disk=0, this is not done.
+| ``fgr`` : Full general relativity used (default, for fgr=1).
+| ``t`` : Temperature of the reflector (disk) in keV.
 | ``xi`` : Ionisation parameter :math:`\xi=L/nr^2` in the usual (c.g.s.
-  based) units of :math:`10^{-9}` W m
+  based) units of :math:`10^{-9}` W m.
 | ``abun`` : The abundance of all metals excluding H and He, in solar
   units
 | ``feab`` : The iron abundance with respect to the other metals
@@ -63,5 +66,7 @@ The parameters of the model are:
   10.
 | ``r2`` : Outer radius of the disk in units of :math:`GM/c^2`. Default:
   :math:`10^4`.
-| *Recommended citation:* :raw-latex:`\citet{magdziarz1995}` and
-  :raw-latex:`\citet{zycki1999}`.
+
+*Recommended citation:* `Magdziarz & Zdziarski (1995)
+<https://ui.adsabs.harvard.edu/abs/1995MNRAS.273..837M/abstract>`_ and
+`Zicky et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999MNRAS.305..231Z/abstract>`_

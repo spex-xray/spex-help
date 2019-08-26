@@ -20,24 +20,24 @@ The *xabs* model needs an ascii-file as input. The user can provide such
 a file (see parameter "col" in the parameter list), but there is also a
 default file in SPEX that is read if the user does not provide a
 separate file. The default is based on a run with Cloudy, using the
-spectral energy distribution of NGC 5548 as used in
-:raw-latex:`\citet{steenbrugge2005}`. Such an ascii-files contains a
-pre-calculated list of ionic column densities versus ionisation
-parameter, as well as electron temperatures versus ionisation parameter
-(needed for the thermal line broadening). If you want to produce such a
-file, you can use the auxiliary program *xabsinput*, that will run
-Cloudy for you and make the file to be used in SPEX. See
-Sect. \ `[sect:xabsinput] <#sect:xabsinput>`__ for more details how to
+spectral energy distribution of NGC 5548 as used in `Steenbrugge et al. (2005)
+<https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract>`_.
+Such an ascii-files contains a pre-calculated list of ionic column
+densities versus ionisation parameter, as well as electron temperatures
+versus ionisation parameter (needed for the thermal line broadening).
+If you want to produce such a file, you can use the auxiliary program
+*xabsinput*, that will run Cloudy for you and make the file to be used
+in SPEX. See Section `Xabsinput <#sect:xabsinput>`__ for more details how to
 use that program.
 
 For more information on this model, the atomic data and parameters we
-refer to Sect. \ `[sect:abs_models] <#sect:abs_models>`__.
+refer to Section `Absorption models <#sect:abs_models>`__.
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` m:math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` m\ :math:`^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` m:math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}` m\ :math:`^{-2}`, a typical value at low Galactic
   latitudes).
 | ``xi`` : the :math:`^{10}`\ log of the ionisation parameter
   :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
@@ -52,8 +52,10 @@ The parameters of the model are:
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
 | The following parameters are the same as for the cie-model (see there
   for a description): ``ref`` : Reference element
-| ``01$\ldots$28`` : Abundances of H to Ni; only here we take H, He, C,
+| ``01...28`` : Abundances of H to Ni; only here we take H, He, C,
   N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
 | The following parameter is unique for the xabs-model and the warm
   model: ``col`` : File name for the photoionisation balance parameters
-| *Recommended citation:* :raw-latex:`\citet{steenbrugge2003}`.
+
+*Recommended citation:* `Steenbrugge et al. (2003)
+<https://ui.adsabs.harvard.edu/abs/2003A%26A...402..477S/abstract>`_.

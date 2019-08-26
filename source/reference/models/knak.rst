@@ -12,11 +12,12 @@ of the source has an unknown continuum shape with a superimposed
 absorption model, it is a good trick to model the continuum by a power
 law, modify that by a knak model with adjustable or fixed transmission
 at some relevant energies, and then apply the absorption. An example of
-this last application can be found in :raw-latex:`\citet{porquet2004}`.
+this last application can be found in `Porquet et al. (2004)
+<https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract>`_.
 
 The Transmission is given by:
 
-.. math:: T(E) = c_iE^{\displaystyle{a_i}}\qquad {\mbox{if $E_i<E<E_{i+1}$}}
+.. math:: T(E) = c_iE^{a_i} \quad \mathrm{if} \quad E_i < E < E_{i+1}
 
 for each value of :math:`i` between 0 and :math:`n`, the number of grid
 points. The transmission is 1 for :math:`E<E_1` and :math:`E>E_2`.
@@ -29,10 +30,10 @@ Finally, for historical reasons we use here a wavelength grid instead of
 an energy grid; the corresponding nodes :math:`\lambda_i` should
 therefore be in strictly increasing order.
 
-**Warning:** *When applying this model, take care that at least one of
-the :math:`n` transmission values is kept fixed (otherwise you may run
-the risk that your model is unconstrained, for example if the
-normalisation of the continuum is also a free parameter).*
+.. warning:: When applying this model, take care that at least one of
+   the :math:`n` transmission values is kept fixed (otherwise you may run
+   the risk that your model is unconstrained, for example if the
+   normalisation of the continuum is also a free parameter).
 
 The parameters of the model are:
 
@@ -41,10 +42,11 @@ The parameters of the model are:
 | ``f1`` : Transmission :math:`T(\lambda_1)` at :math:`\lambda_1`.
 | ``w2`` : Wavelength :math:`\lambda_2` (Å) of the second grid point
 | ``f1`` : Transmission :math:`T(\lambda_2)` at :math:`\lambda_2`.
-| ```` : :math:`\ldots`
+| ...
 | ``w9`` : Wavelength :math:`\lambda_9` (Å) of the last grid point
 | ``f9`` : Transmission :math:`T(\lambda_9)` at :math:`\lambda_9`.
 | Note that if :math:`n<9`, the values of :math:`T_i` and
   :math:`\lambda_i` will be ignored for :math:`i>n`.
 
-*Recommended citation:* :raw-latex:`\citet{porquet2004}`.
+*Recommended citation:* `Porquet et al. (2004)
+<https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract>`_.
