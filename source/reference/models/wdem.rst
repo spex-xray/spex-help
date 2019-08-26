@@ -4,15 +4,16 @@ Wdem: power law differential emission measure model
 This model calculates the spectrum of a power law distribution of the
 differential emission measure distribution. It appears to be a good
 empirical approximation for the spectrum in cooling cores of clusters of
-galaxies. It was first introduced by :raw-latex:`\citet{kaastra2004}`
+galaxies. It was first introduced by `Kaastra et al. (2004)
+<https://ui.adsabs.harvard.edu/abs/2004A%26A...413..415K/abstract>`_
 and is defined as follows:
 
 .. math::
    \frac{ {\mathrm d}Y }{ {\mathrm d}T } = \left\{
    \begin{array}{ll}
-   0            & \qquad\mbox{if T \leq \beta T_{\max}}; \\
-   cT^{\alpha}  & \qquad\mbox{if \beta T_{\max} < T < T_{\max}};\\
-   0            & \qquad\mbox{if T \geq T_{\max}}.
+   0            & \qquad \mathrm{if} \quad T \leq \beta T_{\max} ; \\
+   cT^{\alpha}  & \qquad \mathrm{if} \quad \beta T_{\max} < T < T_{\max} ;\\
+   0            & \qquad \mathrm{if} \quad T \geq T_{\max} .
    \end{array} \right.
    :label: demalpha
 
