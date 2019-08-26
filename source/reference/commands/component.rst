@@ -29,10 +29,10 @@ is important as operations are not always communative. This setting is
 also done with this component command.
 
 If multiple sectors are present in the spectral model or response matrix
-(see Sect. \ `[sec:sectorsandregions] <#sec:sectorsandregions>`__) then
+(see Section `Sectors and regions <#sec:sectorsandregions>`__) then
 one has to specify the spectral components and their relation for each
 sector. The possible components to the model are listed and described in
-Sect. \ `[chap:specmod] <#chap:specmod>`__.
+Section `Spectral models <#chap:specmod>`__.
 
 Note that the order that you define the components is not important.
 However, for each sector, the components are numbered starting from 1,
@@ -42,17 +42,19 @@ components to the additive components.
 If you want to see the model components and the way they are related,
 type "model show".
 
-**Warning:** *If in any of the commands as listed above you omit the
-sector number or sector number range, the operation will be done for all
-sectors that are present. For example, having 3 sectors, the "comp pow"
-command will define a power law component for each of the three sectors.
-If you only want to define/delete/relate the component for one sector,
-you should specify the sector number(s). In the very common case that
-you have only one sector you can always omit the sector numbers.*
+.. warning:: If in any of the commands as listed above you omit the
+             sector number or sector number range, the operation will
+             be done for all sectors that are present. For example,
+             having 3 sectors, the "comp pow" command will define a
+             power law component for each of the three sectors. If you
+             only want to define/delete/relate the component for one
+             sector, you should specify the sector number(s). In the
+             very common case that you have only one sector you can
+             always omit the sector numbers.
 
-**Warning:** *After deleting a component, all components are
-re-numbered! So if you have components 1,2,3 for example as pow, cie,
-gaus, and you type "comp del 2", you are left with 1=pow, 2=gaus.*
+.. warning:: After deleting a component, all components are re-numbered!
+             So if you have components 1,2,3 for example as pow, cie, gaus,
+             and you type "comp del 2", you are left with 1=pow, 2=gaus.
 
 Syntax
 ~~~~~~

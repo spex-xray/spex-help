@@ -20,11 +20,11 @@ The multiplicative constant shift (*plotshift*\ =2) is generally
 preferred for log-log plots, while for linear plots a constant additive
 shift (*plotshift*\ =1) is preferred.
 
-**Warning:** *In the case of addition (*plotshift*\ =1), the addition
-constant is given in counts/s. This thus leads to a different
-(energy-dependent) constant being added to the plotted spectrum if the
-units are not in counts/s. For the multiplicative case this is of course
-not the case.*
+.. warning:: In the case of addition (*plotshift*\ =1), the addition
+   constant is given in counts/s. This thus leads to a different
+   (energy-dependent) constant being added to the plotted spectrum if the
+   units are not in counts/s. For the multiplicative case this is of course
+   not the case.
 
 Syntax
 ~~~~~~

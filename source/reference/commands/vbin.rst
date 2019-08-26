@@ -15,21 +15,21 @@ ratio, you also specify the minimal bin width. This is useful for
 rebinning low count data, which have no strong or sharp features or
 lines in it.
 
-**Warning:** *For high resolution spectra with sharp and strong lines,
-this binning can lead to very wrong results. In this case either the
-emission lines or the continuum (in case of absorption lines) have a
-much higher signal to noise ratio than the other component. As a result
-this function will try to bin the line and continuum together, resulting
-in a smoothing out of the lines.*
+.. Warning:: For high resolution spectra with sharp and strong lines,
+   this binning can lead to very wrong results. In this case either the
+   emission lines or the continuum (in case of absorption lines) have a
+   much higher signal to noise ratio than the other component. As a result
+   this function will try to bin the line and continuum together, resulting
+   in a smoothing out of the lines.
 
-**Warning:** *It is not always guaranteed that the minimum
-signal-to-noise ratio is obtained in all channels. This is an effect of
-the applied algorithm. Channels with the highest S/N ratio and
-neighboring bins are merged until sufficient S/N ratio is obtained. This
-process is continued for the remaining number of bins. At the end of the
-process a few bins with a low S/N ratio will remain. These are merged
-with their neighbors, resulting in a possibly lower S/N ratio for that
-bin.*
+.. Warning:: It is not always guaranteed that the minimum
+   signal-to-noise ratio is obtained in all channels. This is an effect of
+   the applied algorithm. Channels with the highest S/N ratio and
+   neighboring bins are merged until sufficient S/N ratio is obtained. This
+   process is continued for the remaining number of bins. At the end of the
+   process a few bins with a low S/N ratio will remain. These are merged
+   with their neighbors, resulting in a possibly lower S/N ratio for that
+   bin.
 
 Syntax
 ~~~~~~

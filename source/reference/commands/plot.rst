@@ -27,16 +27,16 @@ as well as character commands like font style, line weights, plot
 colours, etc. Finally, the plot command can also be used to dump the
 data to an ascii file.
 
-**Warning:** *To make a plot, always start with a "plot device" command
-to open any plot device you wish. Next select a plot type using "plot
-type". After this you can give any plot commands to modify or display
-the plot.*
+.. warning:: To make a plot, always start with a "plot device" command
+   to open any plot device you wish. Next select a plot type using "plot
+   type". After this you can give any plot commands to modify or display
+   the plot.
 
-**Warning:** *Some of the more fancy plotting options, like adding
-labels to a plot, are broken. To make more sophisticated plots, it is
-advisable to save the plot to a QDP file with ‘plot adum’ and adapt them
-through QDP (Ftools). We intent to update the plotting system in a
-future version of SPEX.*
+.. warning:: Some of the more fancy plotting options, like adding
+   labels to a plot, are broken. To make more sophisticated plots, it is
+   advisable to save the plot to a QDP file with ``plot adum`` and adapt them
+   through QDP (Ftools). We intent to update the plotting system in a
+   future version of SPEX.
 
 Syntax
 ~~~~~~
@@ -55,11 +55,11 @@ The following syntax rules apply for plot:
 | ``plot frame delete #i`` : Deletes frame number #i.
 | ``plot type #a`` : Specifies what is to be plotted in the selected
   frame. #a can be any of the plot types specified in
-  Sect. \ `[sec:plottypes] <#sec:plottypes>`__.
+  Section `Plot types <#sec:plottypes>`__.
 | ``plot device #a1 [#a2]`` : Selects a graphics device #a1 and optional
   file name #a2 (in the case of a postscript or gif device). File
   extensions (for example .ps) should be specified. For valid devices,
-  see Sect. \ `[sec:plotdevices] <#sec:plotdevices>`__.
+  see Section `Plot devices <#sec:plotdevices>`__.
 | ``plot close #i`` : Close graphics device number #i. Note, always
   close a postscript device before quiting /spex, otherwise the contents
   may be corrupted.
@@ -75,16 +75,16 @@ The following syntax rules apply for plot:
   scale; for y-values below #r1 the data will be plotted linear, and for
   y-values above #r1 the data will be plotted logarithmically; the
   linear part occupies the fraction of the total frame height given by
-  #r2. See also Sect. \ `[sec:plotscales] <#sec:plotscales>`__.
+  #r2. See also Section `Plot axes scales <#sec:plotscales>`__.
 | ``plot z lin`` : Plot the z-axis on a linear scale. The z-axis is
   defined for two-dimensional plots like contour plots.
 | ``plot z log`` : As above, but using a log scale.
 | ``plot ux #a`` : Set the plot units on the x-axis, #a can be Å, keV,
   eV, or whatever unit that is allowed. The allowed values depend upon
-  the plot type. See Sect. \ `[sec:plotunits] <#sec:plotunits>`__ for
+  the plot type. See Section `Plot axes units <#sec:plotunits>`__ for
   allowed units for each plot type.
 | ``plot ux vel #r #a`` : Plot the x-axis in velocity units
-  (km s:math:`^{-1}`), with reference energy provided as #r if #a is
+  (:math:`\mathrm{km}` :math:`\mathrm{s}^{-1}`), with reference energy provided as #r if #a is
   "keV" or reference wavelength provided as #r if #a is "Ang". Note that
   the same zero scale will be set for all plot windows.
 | ``plot uy #a`` : Same as above, but for the y-axis
@@ -100,7 +100,7 @@ The following syntax rules apply for plot:
   where #r1 and #r2 must be in the range 0–1.
 | ``plot view y #r1:#r2`` : Same as above, but for the y-range.
 | ``plot view back #i`` : Set the viewport background colour to value
-  #i. See Sect. \ `[sec:plotcolours] <#sec:plotcolours>`__ for the
+  #i. See Section `Plot colours <#sec:plotcolours>`__ for the
   allowed plot colours.
 | ``plot view transp #l`` : If true, set the viewport background to to
   transparent, the plot frame will be shown with the background colour
@@ -145,23 +145,23 @@ The following syntax rules apply for plot:
   major tick mark on the x-axis
 | ``plot box tick subdiv y #i`` : Same as above, but for the y-axis
 | ``plot box col #i`` : Set the box colour to colour number #i. See
-  Sect. \ `[sec:plotcolours] <#sec:plotcolours>`__ for the allowed plot
+  Section `Plot colours <#sec:plotcolours>`__ for the allowed plot
   colours.
 | ``plot box lt #i`` : Set the box line type to #i. See
-  Sect. \ `[sec:plotlines] <#sec:plotlines>`__ for allowed line types.
+  Section `Plot lines <#sec:plotlines>`__ for allowed line types.
 | ``plot box lw #i`` : Set the box line weight to number #i. See
-  Sect. \ `[sec:plotlines] <#sec:plotlines>`__ for more about line
+  Section `Plot lines <#sec:plotlines>`__ for more about line
   weights.
 | ``plot box fh #r`` : Set the box font height to number #i.
 | ``plot box font #i`` : Set the box font to number #i. See
-  Sect. \ `[sec:plottext] <#sec:plottext>`__ for more details about text
+  Section `Plot text <#sec:plottext>`__ for more details about text
   fonts.
 | ``plot cap #a disp #l`` : If #l is true, display the caption
   (default). For more about captions see
-  Sect. \ `[sec:plotcaptions] <#sec:plotcaptions>`__. Here and below, #a
+  Section `Plot captions <#sec:plotcaptions>`__. Here and below, #a
   can be x, y, z, id, lt or ut.
 | ``plot cap #a col #i`` : Plot caption #a in colour number #i. See
-  Sect. \ `[sec:plotcolours] <#sec:plotcolours>`__ for valid colour
+  Section `Plot colours <#sec:plotcolours>`__ for valid colour
   indices.
 | ``plot cap #a back #i`` : Set the background colour for caption #a to
   #i.
@@ -181,7 +181,7 @@ The following syntax rules apply for plot:
   values to write inside the viewport.
 | ``plot cap #a coord #r`` : Plot caption #a along the specified edge of
   the viewport, in units of the viewport length, where
-  :math:`0.0 \le #r \le 1.0`.
+  :math:`0.0 \le\mathrm{\#r}\le 1.0`.
 | ``plot cap #a fjust #r`` : Controls justification of the caption #a
   parallel to the specified edge of the viewport. If #r = 0.0, the left
   hand of #a will be placed at the position specified by "coord" above;
@@ -190,7 +190,7 @@ The following syntax rules apply for plot:
   be used but are less useful.
 | ``plot string new #r1 #r2 #a`` : Plot a new string with text as
   specified in #a at x=#r1 and y = #r2. See
-  Sect. \ `[sec:plottext] <#sec:plottext>`__ for more deatils about text
+  Section `Plot text <#sec:plottext>`__ for more deatils about text
   strings. Also do not forget to put #a between "" if it consists of
   more than one word (i.e., if it contains spaces).
 | ``plot string del #i:`` : Delete string numbers specified by the range
@@ -291,7 +291,7 @@ The following syntax rules apply for plot:
 | ``plot data lw #i`` : Give the data line weight #i.
 | ``plot data fh #r`` : Give the symbols for the data font height #r.
 | ``plot data symbol #i`` : Plot the data with symbol number #i. For
-  symbol numbers, see Sect. \ `[sec:plotmarkers] <#sec:plotmarkers>`__.
+  symbol numbers, see Section `Plot markers <#sec:plotmarkers>`__.
 | ``plot adum #a [overwrite] [append]`` : Dump the data and model in the
   plot in an ascii file with filename #a. The extension ".qdp" will
   automatically be appended. Note that the data will be written as they
@@ -333,7 +333,7 @@ Examples
   2
 | ``plot ux a`` : Set the x-axis plot units of frame 2 to Å
 | ``plot ux 21.602 ang`` : Plot the x-axis as velocity in
-  km \ :math:`^{-1}` relative to a wavelength of 21.602 Å.
+  :math:`\mathrm{km}^{-1}` relative to a wavelength of 21.602 Å.
 | ``plot ry -1:1`` : Set the y-axis plot range of frame 2 to between a
   lower limit of -1 and an upper limit of 1
 | ``plot frame 1`` : Go to frame 1

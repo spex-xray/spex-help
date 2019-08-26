@@ -27,7 +27,7 @@ Different options exist and several parameters can be set:
 -  syserr: add a systematic error to both the source and background
    spectrum. An alternative way to introduce systematic errors is of
    course to use the syserr command
-   (Sect. `[sec:syserr] <#sec:syserr>`__). Take care not to set the
+   (Section `Syserr <#sec:syserr>`__). Take care not to set the
    systematic errors twice, and remember that rebinning your spectrum
    later will reduce the systematic errors, as these will be added in
    quadrature to the statistical errors. So first rebin and then add
@@ -45,40 +45,40 @@ Different options exist and several parameters can be set:
    specific seed can be set. The command will show the seeds used for
    the maximum number of expected threads.
 
-**Warning:** *A response matrix and spectrum of the region and the
-instrument you want to simulate are necessary, because SPEX needs the
-response matrix as well as the background to be subtracted for the
-simulations.*
+.. Warning:: A response matrix and spectrum of the region and the
+   instrument you want to simulate are necessary, because SPEX needs the
+   response matrix as well as the background to be subtracted for the
+   simulations.
 
-**Warning:** *When you include systematic errors in the simulation (by
-putting the "syserr" to non-zero values), you cannot use anymore
-Poissonian statistics hence the C-stat for fitting, but you have to use
-the "fit meth chi" to use Gaussian errors and :math:`\chi^2`-fitting,
-with all thr disadvantages of that.*
+.. Warning:: When you include systematic errors in the simulation (by
+   putting the "syserr" to non-zero values), you cannot use anymore
+   Poissonian statistics hence the C-stat for fitting, but you have to use
+   the "fit meth chi" to use Gaussian errors and :math:`\chi^2`-fitting,
+   with all thr disadvantages of that.
 
-**Warning:** *When you use bnoise\ :math:`=`\ true, your subtracted
-background (the scaled background from the background region) will be
-randomized, and the pure C-stat cannot be used; the W-stat can be used
-as alternative but has serious drawbacks and is not recommended to be
-used).*
+.. Warning:: When you use bnoise\ :math:`=`\ true, your subtracted
+   background (the scaled background from the background region) will be
+   randomized, and the pure C-stat cannot be used; the W-stat can be used
+   as alternative but has serious drawbacks and is not recommended to be
+   used).
 
-**Warning:** *(obsolete) If your background is taken from the same
-observation as your source, and you multiply the original exposure time
-with a factor of :math:`S`, you should put :math:`f_b` to
-:math:`S^{-0.5}`, reflecting the fact that with increasing source
-statistics the background statistics also improves. This is the case for
-an imaging observation where a part of the image is used to determine
-the background. If instead you use a deep field to subtract the
-background, then the exposure time of your background will probably not
-change and you can safely put :math:`f_b=1` for any exposure time
-:math:`t`.*
+.. Warning:: (obsolete) If your background is taken from the same
+   observation as your source, and you multiply the original exposure time
+   with a factor of :math:`S`, you should put :math:`f_b` to
+   :math:`S^{-0.5}`, reflecting the fact that with increasing source
+   statistics the background statistics also improves. This is the case for
+   an imaging observation where a part of the image is used to determine
+   the background. If instead you use a deep field to subtract the
+   background, then the exposure time of your background will probably not
+   change and you can safely put :math:`f_b=1` for any exposure time
+   :math:`t`.
 
-**Warning:** *(obsolete) If your subtracted background (one of the
-columns in the .spo file) is derived from a low statistics Poissonian
-variable (for example a measured count rate with few counts per
-channel), then scaling the background is slightly inaccurate as it takes
-the observed instead of expected number of background counts as the
-starting point for the simulation.*
+.. Warning:: (obsolete) If your subtracted background (one of the
+   columns in the .spo file) is derived from a low statistics Poissonian
+   variable (for example a measured count rate with few counts per
+   channel), then scaling the background is slightly inaccurate as it takes
+   the observed instead of expected number of background counts as the
+   starting point for the simulation.
 
 Syntax
 ~~~~~~

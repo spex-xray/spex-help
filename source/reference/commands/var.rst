@@ -29,7 +29,7 @@ Line emission contributions
 By default, all possible line emission processes are taken into account
 in the plasma models. For testing purposes, it is possible to include or
 exclude specific contributions. These are listed below in
-Table \ `[tab:linproc] <#tab:linproc>`__.
+`the table below <#tab:linproc>`__.
 
 .. table:: Possible line emission processes
 
@@ -41,7 +41,6 @@ Table \ `[tab:linproc] <#tab:linproc>`__.
    dr          dielectronic recombination
    ds          dielectronic recombination satellites
    ii          inner shell ionisation
-   \          
    =========== =====================================
 
 Doppler broadening
@@ -66,9 +65,9 @@ Atomic data
 The user can choose between the "old" Mekal code (the current default)
 and updated calculations for the ions for which this is possible.
 
-**Warning:** *The updated atomic database that can be used through the
-command "var calc new" is still being developed and incomplete. Using
-this database is therefore not yet recommended.*
+.. Warning:: The updated atomic database that can be used through the
+   command "var calc new" is still being developed and incomplete. Using
+   this database is therefore not yet recommended.
 
 Calculation level occupations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,12 +93,12 @@ are used as starting values. This can be useful for spectral fitting
 and/or error searches, where for each call the parameters of the model
 are close to those for the previous call.
 
-**Warning:** *The var occstart last option will have limited advantage
-if the model during a fit is far off from the final values (large
-parameter changes during fitting), or with multiple components (in which
-case the last parameters stored in the newlin subroutine may be
-associated to a different spectral component compared to the one
-studied).*
+.. Warning:: The var occstart last option will have limited advantage
+   if the model during a fit is far off from the final values (large
+   parameter changes during fitting), or with multiple components (in which
+   case the last parameters stored in the newlin subroutine may be
+   associated to a different spectral component compared to the one
+   studied).
 
 Mekal code
 ~~~~~~~~~~
@@ -110,15 +109,16 @@ possible to discard some of these improvements by going back to the old
 code. The improvements are classified as follows (with the appropriate
 syntax word added here).
 
-Wav: wavelength corrections according to the work of
-:raw-latex:`\citet{phillips1999}`, based upon Solar flare spectra; in
-addition, the 1s-np wavelengths of Ni XXVII and Ni XXVIII have been
-improved.
+``Wav:`` wavelength corrections according to the work of
+`Phillips et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999A%26AS..138..381P/abstract>`_,
+based upon Solar flare spectra; in addition, the 1s-np wavelengths of
+Ni XXVII and Ni XXVIII have been improved.
 
-Fe17: The strongest Fe XVII lines are corrected in order to agree with
-the rates as calculated by :raw-latex:`\citet{doron2002}`.
+``Fe17:`` The strongest Fe XVII lines are corrected in order to agree with
+the rates as calculated by `Doron & Behar (2002)
+<https://ui.adsabs.harvard.edu/abs/2002ApJ...574..518D/abstract>`_.
 
-Update: several minor corrections: the Si IX C7 line has been deleted;
+``Update:`` several minor corrections: the Si IX C7 line has been deleted;
 the Si VIII N6 line now only has the 319.83 Å line strength instead of
 the total triplet strength; the Ni XVIII and Fe XVI Na1A and NA1B lines
 plus their satellites have been deleted.
@@ -161,7 +161,7 @@ The following syntax rules apply:
   not change if you do not know what it does.
 | ``var gacc reset`` : Reset gfbacc to its default value.
 | ``var line #a #l`` : For process #a (where #a is one of the
-  abbreviations in Table \ `[tab:linproc] <#tab:linproc>`__) the process
+  abbreviations in `the Table above <#tab:linproc>`__) the process
   is allowed (if #l is true) or disabled (if #l is false). By default,
   all processes are allowed.
 | ``var line reset`` : Enable all line emission processes

@@ -9,7 +9,7 @@ Overview
 This command can only be used after the ignore command was used to block
 out part of the data set in the fitting. The command re-includes thus
 (part of) the data set for fitting. As it undoes what the ignore command
-did (see section \ `[sec:ignore] <#sec:ignore>`__) the syntax and use of
+did (see Section `Ignore <#sec:ignore>`__) the syntax and use of
 both are very similar. Again one can/must specify the instrument and
 region for one wants the data to be re-included. Further can one specify
 the units chosen to give the range of data points to be included. The

@@ -12,12 +12,12 @@ trafo needs is a spectrum (.pi or .pha) and a response matrix
 you have an additional arf file, then please also collect these
 files in your working directory.
 
-**NOTE:** There is also an alternative for the
-trafo program called ogip2spex. This program is part of the SPEX
-Python tools (PYSPEX). This program takes the necessary input from
-the command line and is easy for scripting. More information about
-ogip2spex can be found on the `Pyspex Github documentation
-page <https://spex-xray.github.io/pyspex/tutorials/ogip2spex.html>`__.
+.. note:: There is also an alternative for the trafo program called
+          ogip2spex. This program is part of the SPEX Python tools
+          (PYSPEX). This program takes the necessary input from the
+          command line and is easy for scripting. More information
+          about ogip2spex can be found on the `Pyspex Github
+          documentation page <https://spex-xray.github.io/pyspex/tutorials/ogip2spex.html>`__.
 
 Starting trafo
 --------------

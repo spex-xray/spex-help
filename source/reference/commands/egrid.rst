@@ -53,8 +53,9 @@ The following syntax rules apply:
   the number of bins, but the bin width (in log :math:`E`) #r3.
 | ``egrid read #a`` : Read the energy grid from file #a.egr
 | ``egrid save #a`` : Save the current energy grid to file #a.egr
-| **Warning:** *The lower limit of the energy grid must be positive, and
-  the upper limit must always be larger than the lower limit.*
+
+.. warning:: The lower limit of the energy grid must be positive, and
+             the upper limit must always be larger than the lower limit.
 
 Examples
 ~~~~~~~~

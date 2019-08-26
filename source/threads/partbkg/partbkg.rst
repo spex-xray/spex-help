@@ -231,7 +231,8 @@ start fitting. In Figure \ `1.5 <#fig:partbkg-s4>`__, we show the best
 fit using this model. The contribution of soft-protons at high energies
 is now being accounted for by the power law.
 
-***WARNING!** The example above uses a simplified model of the X-ray
-background. Background subtraction for extended sources is complicated
-and subject of continuous research. Please be very careful in selecting
-model components and deciding which parameters can be left free.*
+.. warning:: The example above uses a simplified model of the X-ray
+             background. Background subtraction for extended sources is
+             complicated and subject of continuous research. Please be
+             very careful in selecting model components and deciding
+             which parameters can be left free.

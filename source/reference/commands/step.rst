@@ -16,10 +16,9 @@ about the position of the best fit in the parameter space, or in cases
 where the usual error search is complicated. Further it can be useful
 incases of complicated correlations between parameters.
 
-**Warning:** *Take care to do a spectral fit first!*
+.. warning:: Take care to do a spectral fit first!
 
-**Warning:** *Beware of the cpu-time if you have a fine grid or many
-dimensions!*
+.. Warning:: Beware of the cpu-time if you have a fine grid or many dimensions!
 
 Syntax
 ~~~~~~
@@ -39,9 +38,10 @@ The following syntax rules apply:
   entered the number of dimensions.
 | ``step file example`` : Do the step search and also write the results
   to an .stp file used by the stepcontour program (see
-  `[sec:stepcontour] <#sec:stepcontour>`__).
-| **Warning:** *The step file command will overwrite existing .stp files
-  with the same name by default.*
+  `Stepcontour <#sec:stepcontour>`__).
+
+.. Warning:: The step file command will overwrite existing .stp files
+   with the same name by default.
 
 Examples
 ~~~~~~~~

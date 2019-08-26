@@ -9,41 +9,42 @@ Overview
 For the plasma models, a default set of abundances is used. All
 abundances are calculated relative to those standard values. The current
 default abundance set are the proto-Solar abundances of
-:raw-latex:`\citet{lodders2009}`. Note that in older versions of SPEX,
-:raw-latex:`\citet{anders1989}` was the default. In particular, we
-recommend to use the proto-Solar (= Solar system) abundances for most
-applications, as the Solar photospheric abundance has been affected by
-nucleosynthesis (burning of H to He) and settlement in the Sun during
-its lifetime. The following abundances
-(Table `[tab:standabu] <#tab:standabu>`__) can be used in SPEX:
+`Lodders et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009LanB...4B..712L/abstract>`_.
+Note that in older versions of SPEX, `Anders & Grevesse (1989)
+<https://ui.adsabs.harvard.edu/abs/1989GeCoA..53..197A/abstract>`_
+was the default. In particular, we recommend to use the proto-Solar
+(= Solar system) abundances for most applications, as the Solar
+photospheric abundance has been affected by nucleosynthesis (burning
+of H to He) and settlement in the Sun during its lifetime.
+The following abundances (`see the Table below <#tab:standabu>`__)
+can be used in SPEX:
 
 .. table:: Standard abundance sets
 
    =========== ============================================================
    Abbrevation Reference
    =========== ============================================================
-   reset       default :raw-latex:`\citep[=][]{lodders2009}`
-   ag          :raw-latex:`\citet{anders1989}`
-   allen       :raw-latex:`\citet{allen1973}`
-   ra          :raw-latex:`\citet{ross1976}`
-   grevesse    :raw-latex:`\citet{grevesse1992}`
-   gs          :raw-latex:`\citet{grevesse1998}`)
-   lodders     Lodders proto-Solar :raw-latex:`\citep{lodders2003}`
-   solar       Lodders Solar photospheric :raw-latex:`\citep{lodders2003}`)
-   \          
+   reset       default `Lodders et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009LanB...4B..712L/abstract>`_
+   ag          `Anders & Grevesse (1989) <https://ui.adsabs.harvard.edu/abs/1989GeCoA..53..197A/abstract>`_
+   allen       `Allen (1973) <https://ui.adsabs.harvard.edu/abs/1973asqu.book.....A/abstract>`_
+   ra          `Ross & Aller (1976) <https://ui.adsabs.harvard.edu/abs/1976Sci...191.1223R/abstract>`_
+   grevesse    `Grevesse et al. (1992) <https://ui.adsabs.harvard.edu/abs/1992ESASP.348..305G/abstract>`_
+   gs          `Grevesse & Sauval (1998) <https://ui.adsabs.harvard.edu/abs/1998SSRv...85..161G/abstract>`_
+   lodders     Lodders proto-Solar `Lodders <https://ui.adsabs.harvard.edu/abs/2003ApJ...591.1220L/abstract>`_
+   solar       Lodders Solar photospheric `Lodders <https://ui.adsabs.harvard.edu/abs/2003ApJ...591.1220L/abstract>`_
    =========== ============================================================
 
-For the case of Grevesse & Sauval (1998) we adopted their meteoritic
-values (in general more accurate than the photospheric values, but in
-most cases consistent), except for He (slightly enhanced in the solar
-photosphere due to element migration at the bottom of the convection
-zone), C, N and O (largely escaped from meteorites) Ne and Ar (noble
-gases).
+For the case of `Grevesse & Sauval (1998)
+<https://ui.adsabs.harvard.edu/abs/1998SSRv...85..161G/abstract>`_
+we adopted their meteoritic values (in general more accurate than the
+photospheric values, but in most cases consistent), except for He
+(slightly enhanced in the solar photosphere due to element migration
+at the bottom of the convection zone), C, N and O (largely escaped
+from meteorites) Ne and Ar (noble gases).
 
-In Table \ `[tab:abuset] <#tab:abuset>`__ we show the values of the
+In `the table below <#tab:abuset>`__ we show the values of the
 standard abundances. They are expressed in logarithmic units, with
-hydrogen by definition 12.0. For :raw-latex:`\citet{allen1973}` the
-value for boron is just an upper limit.
+hydrogen by definition 12.0.
 
 .. table:: Abundances for the standard sets
 
@@ -54,7 +55,7 @@ value for boron is just an upper limit.
    2  He   10.987  10.99 10.93          10.80 10.97    10.99 10.98   10.90
    3  Li   3.331   1.16  0.70           1.00  1.16     3.31  3.35    3.28
    4  Be   1.373   1.15  1.10           1.15  1.15     1.42  1.48    1.41
-   5  B    2.860   2.6   :math:`<`\ 3.0 2.11  2.6      2.79  2.85    2.78
+   5  B    2.860   2.6   <3.0           2.11  2.6      2.79  2.85    2.78
    6  C    8.443   8.56  8.52           8.62  8.55     8.52  8.46    8.39
    7  N    7.912   8.05  7.96           7.94  7.97     7.92  7.90    7.83
    8  O    8.782   8.93  8.82           8.84  8.87     8.83  8.76    8.69
@@ -80,11 +81,10 @@ value for boron is just an upper limit.
    28 Ni   6.276   6.25  6.30           6.28  6.25     6.25  6.29    6.22
    29 Cu   4.319   4.21  4.50           4.06  4.21     4.29  4.34    4.26
    30 Zn   4.700   4.60  4.20           4.45  4.60     4.67  4.70    4.63
-   \                                                                
    == ==== ======= ===== ============== ===== ======== ===== ======= =====
 
-**Warning:** *For :raw-latex:`\citet{allen1973}` the value for boron is
-just an upper limit.*
+.. warning:: For `Allen (1973) <https://ui.adsabs.harvard.edu/abs/1973asqu.book.....A/abstract>`_
+             the value for boron is just an upper limit.
 
 The current active solar abundance table can be shown using the command
 ``abundance show``.
@@ -102,6 +102,6 @@ Examples
 ~~~~~~~~
 
 | ``abundance gs`` : change the standard abundances to the set of
-  :raw-latex:`\citet{grevesse1998}`
+  `Grevesse & Sauval (1998) <https://ui.adsabs.harvard.edu/abs/1998SSRv...85..161G/abstract>`_
 | ``abundance reset`` : reset the abundances to the standard set
 | ``abundance show`` : show the currently active abundance table

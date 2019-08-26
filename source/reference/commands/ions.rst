@@ -20,13 +20,12 @@ A new quicklook mode is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
 :math:`n` and :math:`l` of Hydrogen-like ions are provided in
-Table \ `[tab:presetnl] <#tab:presetnl>`__.
+`the table below <#tab:presetnl>`__.
 
-**Warning:** *This mode will not work for CX model, since electron
-captured by charge exchange usually populate the outer shells.*
+.. warning:: This mode will not work for CX model, since electron
+             captured by charge exchange usually populate the outer shells.
 
-.. table:: Preset maximum :math:`n` and :math:`l` for quicklook mode
-(H-like)
+.. table:: Preset maximum :math:`n` and :math:`l` for quicklook mode (H-like)
 
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
    Ion      max. :math:`n` max. :math:`l` Ion       max. :math:`n` max. :math:`l` Ion     max. :math:`n` max. :math:`l`
@@ -40,7 +39,6 @@ captured by charge exchange usually populate the outer shells.*
    Cr XXIV  5              1              Mn XXV    4              1              Fe XXVI 16             4
    Co XXVII 2              1              Ni XXVIII 8              2              Cu XXIX 2              1
    Zn XXX   2              1                                                                            
-   \                                                                                                    
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
 
 Syntax

@@ -25,7 +25,7 @@ First we make a few remarks about proper data weighting. :math:`\chi^2`
 is usually calculated as the sum over all data bins :math:`i` of
 :math:`(N_i - s_i)^2 / \sigma_i^2`, i.e.
 
-.. math:: \chi^2 = \sum\limits_{i=1}^{n} {(N_i - s_i)^2 \over  \sigma_i^2},
+.. math:: \chi^2 = \sum_{i=1}^{n} \frac{(N_i - s_i)^2}{\sigma_i^2},
 
 where :math:`N_i` is the observed number of source plus background
 counts, :math:`s_i` the expected number of source plus background counts
@@ -38,20 +38,22 @@ line spectra you cannot do this of course without loosing important
 information! Note however that this method has inaccuracies if
 :math:`N_i` is less than :math:`\sim`\ 100.
 
-:raw-latex:`\citet{wheaton1995}` have shown that the classical
-:math:`\chi^2` method becomes inaccurate for spectra with less than
-:math:`\sim 100` counts per bin. This is *not* due to the approximation
-of the Poisson statistic by a normal distribution, but due to using the
-*observed* number of counts :math:`N_i` as weights in the calculation of
-:math:`\chi^2`. :raw-latex:`\citet{wheaton1995}` showed that the problem
-can be resolved by using instead :math:`\sigma_i^2 = s_i`, i.e. the
-*expected* number of counts from the best fit model.
+`Wheaton et al. (1995) <https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract>`_
+have shown that the classical :math:`\chi^2` method becomes inaccurate
+for spectra with less than :math:`\sim 100` counts per bin. This is *not*
+due to the approximation of the Poisson statistic by a normal distribution,
+but due to using the *observed* number of counts :math:`N_i` as weights
+in the calculation of :math:`\chi^2`. `Wheaton et al. (1995)
+<https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract>`_
+showed that the problem can be resolved by using instead
+:math:`\sigma_i^2 = s_i`, i.e. the *expected* number of counts
+from the best fit model.
 
 The option "fit weight model" allows to use these modified weights. By
 selecting it, the expected number of counts (both source plus
 background) of the current spectral model is used onwards in calculating
-the fit statistic. :raw-latex:`\citet{wheaton1995}` suggest to do the
-following 3-step process, which we also recommend to the user of
+the fit statistic. `Wheaton et al. (1995) <https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract>`_
+suggest to do the following 3-step process, which we also recommend to the user of
 SPEX who uses this option:
 
 #. first fit the spectrum using the data errors as weights (the default
@@ -74,7 +76,7 @@ There is yet another option to try for spectral fitting with low count
 rate statistics and that is maximum likelyhood fitting. It can be shown
 that a good alternative to :math:`\chi^2` in that limit is
 
-.. math:: C = 2 \sum\limits_{i=1}^{n} s_i - N_i + N_i \ln (N_i/s_i).
+.. math:: C = 2 \sum_{i=1}^{n} s_i - N_i + N_i \ln (N_i/s_i).
 
 This is strictly valid in the limit of Poissonian statistics. If you
 have a background subtracted spectrum, take care that the subtracted
@@ -82,20 +84,22 @@ number of background counts is properly stored in the spectral data
 file, so that raw number of counts can be reconstructed.
 
 This statistic was originally proposed in some other form by
-:raw-latex:`\citet{cash1979}` and in the present form sometimes
-attributed to Castor. However, it appears that it was already introduced
-and well explained by :raw-latex:`\citet{baker1984}`.
+`Cash (1979) <https://ui.adsabs.harvard.edu/abs/1979ApJ...228..939C/abstract>`_
+and in the present form sometimes attributed to Castor. However, it appears
+that it was already introduced and well explained by
+`Baker et al. (1994) <https://ui.adsabs.harvard.edu/abs/1984NIMPR.221..437B/abstract>`_ .
 
-**Warning:** *Note that for a spectrum with many counts per bin
-:math:`C\rightarrow\chi^2`, but if the predicted number of counts per
-bin is small, the expected value for :math:`C` can be substantially
-smaller than the number of bins :math:`n`.*
+.. warning:: Note that for a spectrum with many counts per bin
+   :math:`C\rightarrow\chi^2`, but if the predicted number of counts per
+   bin is small, the expected value for :math:`C` can be substantially
+   smaller than the number of bins :math:`n`.
 
 To help the user to see if a :math:`C`-value corresponds to an
 acceptable fit, SPEX gives, after spectral fitting, the expected value
 of :math:`C` and its r.m.s. spread, based on the best-fit model. Both
 quantities are simply determined by adding the expected contributions
-and their variances over all bins. See :raw-latex:`\citet{kaastra2017}`
+and their variances over all bins. See `Kaastra et al. (2017)
+<https://ui.adsabs.harvard.edu/abs/2017A&A...605A..51K/abstract>`_
 for more details.
 
 .. figure:: cstat.png
@@ -109,32 +113,32 @@ for more details.
 The expected value :math:`C_{\rm e}` for :math:`C` in a bin :math:`i`
 and its variance :math:`C_{\rm v}` are given by:
 
-.. math:: C_{\rm e} = 2 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu)),
+.. math:: C_{e} = 2 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu)),
 
-.. math:: S_{\rm v} = 4 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu))^2,
+.. math:: S_{v} = 4 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu))^2,
 
-.. math:: C_{\rm v} = S_{\rm v} - C_{\rm e}^2,
+.. math:: C_{v} = S_{v} - C_{e}^2,
 
 with :math:`P_k(\mu)` the Poisson distribution:
 
-.. math:: P_k(\mu) = {\rm e}^{\displaystyle{-\mu}} \mu^k / k!
+.. math:: P_k(\mu) = {e}^{\displaystyle{-\mu}} \mu^k / k!
 
 and :math:`\mu` the expected number of counts. We show both quantities
 in Fig. \ `1 <#fig:cstat>`__.
 
-**Warning:** *For a proper use of C-stat, it is needed that the
-background (if present) is also a model for the background, not a scaled
-background observation. Unfortunately, the fast majority of instrument
-software packeges provide spectra with such a scaled (and therefore
-noisy) background). By experimenting it can be shown that in situations
-where the source is (much) weaker that the subtracted background, this
-can give bias in the fitted flux (it will be over-estimated). Rebinning
-the spectrum resolves the problem (because it is some kind of smoothing)
-but at the expense of spectral resolution. This is undesired. We
-therefore offer an auxiliary program called backfilter that can filter
-the subtracted background. It works on a .spo file and creates an
-improved .spo file. See the documentation of backfilter for more
-details.*
+.. warning:: For a proper use of C-stat, it is needed that the
+   background (if present) is also a model for the background, not a scaled
+   background observation. Unfortunately, the fast majority of instrument
+   software packeges provide spectra with such a scaled (and therefore
+   noisy) background). By experimenting it can be shown that in situations
+   where the source is (much) weaker that the subtracted background, this
+   can give bias in the fitted flux (it will be over-estimated). Rebinning
+   the spectrum resolves the problem (because it is some kind of smoothing)
+   but at the expense of spectral resolution. This is undesired. We
+   therefore offer an auxiliary program called backfilter that can filter
+   the subtracted background. It works on a .spo file and creates an
+   improved .spo file. See the documentation of backfilter for more
+   details.
 
 W-stat
 ~~~~~~
@@ -142,8 +146,9 @@ W-stat
 The above problem is mitigated in the Xspec package by introducing the
 so-called W-statistic. See the Xspec manual for more details. We provide
 here the option to fit using W-stat for compatibility reasons,
-**Warning:** *but we do not recommend to use it*, but instead use C-stat
-with background filtering (see above) where needed.
+
+.. warning:: But we do not recommend to use it, but instead use C-stat
+   with background filtering (see above) where needed.
 
 The W-stat first calculates a background estimate for each bin using
 maximum likelihood techniques. This background depends on the number of

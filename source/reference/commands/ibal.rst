@@ -9,32 +9,28 @@ Overview
 For the plasma models, different ionisation balance calculations are
 possible.
 
-Currently, the default set is :raw-latex:`\citet{arnaud1985}` for H, He,
-C, N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca and Ni, with
-:raw-latex:`\citet{arnaud1992}`) for Fe.
-Table \ `[tab:ibal] <#tab:ibal>`__ lists the possible options.
+Currently, the default set is `Urdampilleta et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017A%26A...601A..85U/abstract>`_
+The Table \ `Ionisation balance models <#tab:ibal>`__ lists the possible options.
 
 .. table:: Ionisation balance modes
 
-   =========== ======================================================
+   =========== ==========================================================================================
    Abbrevation Reference
-   =========== ======================================================
+   =========== ==========================================================================================
    reset       default (=u17)
-   ar85        :raw-latex:`\citet{arnaud1985}`
-   ar92        :raw-latex:`\citet{arnaud1992}` for Fe,
-   \           :raw-latex:`\citet{arnaud1985}` for the other elements
-   bryans09    :raw-latex:`\citet{bryans2009}`
-   u17         :raw-latex:`\citet{urdampilleta2017}` (default)
-   \          
-   =========== ======================================================
+   ar85        `Arnaud & Rothenflug (1985) <https://ui.adsabs.harvard.edu/abs/1985A%26AS...60..425A/abstract>`_
+   ar92        `Arnaud & Raymond (1992) <https://ui.adsabs.harvard.edu/abs/1992ApJ...398..394A/abstract>`_ for Fe,
+   \           `Arnaud & Rothenflug (1985) <https://ui.adsabs.harvard.edu/abs/1985A%26AS...60..425A/abstract>`_ for the other elements
+   bryans09    `Bryans et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009ApJ...691.1540B/abstract>`_
+   u17         `Urdampilleta et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017A%26A...601A..85U/abstract>`_ (default)
+   =========== ==========================================================================================
 
 Syntax
 ~~~~~~
 
 The following syntax rules apply:
 
-| ``ibal #a`` : Set the ionisation balance to set #a with #a in the
-  table above.
+| ``ibal #a`` : Set the ionisation balance to set #a with #a in the table above.
 | ``ibal show`` : Show the currently active ionisation balance.
 
 Examples

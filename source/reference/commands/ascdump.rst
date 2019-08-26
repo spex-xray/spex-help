@@ -163,9 +163,9 @@ The following syntax rules apply for ascii output:
 | ``ascdump file #a1 #i1 #i2 #a2`` : As above, but output written to a
   file with its name given by the parameter #a1. The suffix ".asc" will
   be appended automatically to this filename.
-| **Warning:** *Any existing files with the same name will be
-  overwritten.* **Warning:** *Sorting only possible for the line and
-  tran options.*
+
+.. warning:: Any existing files with the same name will be overwritten.
+.. warning:: Sorting only possible for the line and tran options.
 
 Examples
 ~~~~~~~~

@@ -8,7 +8,7 @@ Overview
 
 This command rebins the data (thus both the spectrum file and the
 response file) in a manner as described in
-Sect. \ `[sec:data] <#sec:data>`__. The range to be rebinned can be
+Section `Data <#sec:data>`__. The range to be rebinned can be
 specified either as a channel range (no units required) or in eiter any
 of the following units: keV, eV, Rydberg, Joule, Hertz, Å, nanometer,
 with the following abbrevations: kev, ev, ryd, j, hz, ang, nm.

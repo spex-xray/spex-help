@@ -8,13 +8,13 @@ Overview
 
 In order to fit an observed spectrum, SPEX needs a spectral data file
 and a response matrix. These data are stored in FITS format, tailored
-for SPEX (see section \ `[sec:resp:formats] <#sec:resp:formats>`__). The
+for SPEX (see section `Response formats <#sec:resp:formats>`__). The
 data files need not necessarily be located in the same directory, one
 can also give a pathname plus filename in this command.
 
-**Warning:** *Filenames should be entered in the data command without
-their extension. For the files response.res and spectrum.spo, the data
-command would look like: data response spectrum.*
+.. warning:: Filenames should be entered in the data command without their
+             extension. For the files response.res and spectrum.spo, the
+             data command would look like: data response spectrum.
 
 Syntax
 ~~~~~~

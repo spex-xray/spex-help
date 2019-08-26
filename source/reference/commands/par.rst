@@ -49,20 +49,20 @@ model: power law (component 1), blackbody (component 2) and RGS line
 broadening (lpro, component 3). If you type in the commands in that
 order, this is what happens:
 
--  par val 2 – sets the norm (= first parameter) of the power law to
+-  ``par val 2`` – sets the norm (= first parameter) of the power law to
    value 2
 
--  par gam val 3 – sets the photon index of the power law to value 3
+-  ``par gam val 3`` – sets the photon index of the power law to value 3
 
--  par 2 t val 2.5 – sets the temperature of the blackbody to 2.5 keV
+-  ``par 2 t val 2.5`` – sets the temperature of the blackbody to 2.5 keV
 
--  par norm val 10 – sets the norm of the blackbody to 10
+-  ``par norm val 10`` – sets the norm of the blackbody to 10
 
--  par 1:2 norm v 5 – sets the norm of both the PL and BB to 5
+-  ``par 1:2 norm v 5`` – sets the norm of both the PL and BB to 5
 
--  par val 4.2 – sets the norm of both the PL and BB to 4.2
+-  ``par val 4.2`` – sets the norm of both the PL and BB to 4.2
 
--  par 3 file avalue myprofile.dat – sets for the LPRO component the
+-  ``par 3 file avalue myprofile.dat`` – sets for the LPRO component the
    file name with the broadening kernel to myprofile.dat. Note that the
    command ’value’ changes here to ’avalue’ to indicate that the
    parameter is an ascii string.

@@ -12,7 +12,7 @@ observed spectra are of a different origin. One can create a sector for
 another (unresolved) source in the spectrum, for modeling particle
 background, or for spectra extracted in a different time interval for a
 time variable source. See for more details about sectors and regions
-section \ `[sec:sectorsandregions] <#sec:sectorsandregions>`__.
+in the Section `Sectors and Regions <#sec:sectorsandregions>`__.
 
 For doing spectral fitting of data sets, the sectors need to be
 specified in the response matrix of the data: the response file should
@@ -22,7 +22,7 @@ The sector command features also a spectral dump mode (adump) that
 writes the model spectrum to an ascii file, formatted such that it is
 suited for the SPEX file model. The first line of the output file is an
 integer showing the number of bins, and the following lines show the
-energy bin centroid and the luminosity in 10\ :math:`^{44}` ph/s/keV.
+energy bin centroid and the luminosity in :math:`10^{44}` ph/s/keV.
 
 Syntax
 ~~~~~~

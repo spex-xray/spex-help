@@ -14,8 +14,9 @@ component that corresponds to a multi-temperature structure. There are
 no restrictions to the number of multiplicative components. For a
 description of the DEM analysis method see document SRON/SPEX/TRPB05 (in
 the documentation for version 1.0 of SPEX),
-:raw-latex:`\citet{mewe1994}`, :raw-latex:`\citet{mewe1995}` and
-:raw-latex:`\citet{kaastra1996}`.
+`Mewe et al. (1994) <https://ui.adsabs.harvard.edu/abs/1994ASPC...64...41M/abstract>`_,
+`Mewe et al. (1995) <https://ui.adsabs.harvard.edu/abs/1995A&A...296..477M/abstract>`_
+and `Kaastra et al. (1996) <https://ui.adsabs.harvard.edu/abs/1996A&A...314..547K/abstract>`_.
 
 SPEX has 5 different dem analysis methods implemented, as listed shortly
 below. We refer to the above papers for more details.
@@ -136,4 +137,4 @@ Examples
 | ``dem smooth 0.3`` : smooth the DEM to a temperature width of 0.3 in
   :math:`^{10}\log T` (approximately a factor of 2 in temperature
   range).
-| Recommended citation: :raw-latex:`\citet{mewe1995}`.
+| Recommended citation: `Mewe et al. (1995) <https://ui.adsabs.harvard.edu/abs/1995A&A...296..477M/abstract>`_.

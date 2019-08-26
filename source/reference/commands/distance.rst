@@ -33,7 +33,6 @@ Allowed distance units are shown in the table below.
    mpc         Mpc, Megaparsec, 3.085678 \ :math:`10^{22}` m
    z           redshift units for the given cosmological parameters
    cz          recession velocity in km/s for the given cosmological parameters
-   \          
    =========== ================================================================
 
 The default unit of :math:`10^{22}` m is internally used in all
@@ -46,17 +45,13 @@ H\ :math:`_0`, :math:`\Omega_m` (matter density), :math:`\Omega_\Lambda`
 (cosmological constant related density), and :math:`\Omega_r` (radiation
 density). At startup, the values are:
 
-H\ :math:`_0`:
-   70 km/s/Mpc ,
+H\ :math:`_0`: 70 km/s/Mpc ,
 
-:math:`\Omega_m`:
-   0.3 ,
+:math:`\Omega_m`: 0.3 ,
 
-:math:`\Omega_\Lambda`:
-   0.7 ,
+:math:`\Omega_\Lambda`: 0.7 ,
 
-:math:`\Omega_r`:
-   0.0
+:math:`\Omega_r`:   0.0
 
 i.e. a flat model with cosmological constant. However, the user can
 specify other values of the cosmological parameters. Note that the
@@ -66,17 +61,17 @@ Note that the previous defaults for SPEX (H:math:`_0=50`,
 :math:`q_0=0.5`) can be obtained by putting H\ :math:`_0=50`,
 :math:`\Omega_m=1`, :math:`\Omega_\Lambda=0` and :math:`\Omega_r=0`.
 
-**Warning:** *when H\ :math:`_0` or any of the :math:`\Omega` is
-changed, the luminosity distance will not change, but the equivalent
-redshift of the source is adjusted. For example, setting the distance
-first to z=1 with the default H\ :math:`_0`\ =70 km/s/Mpc results into a
-distance of :math:`2.039\,10^{26}` m. When H\ :math:`_0` is then changed
-to 100 km/s/Mpc, the distance is still :math:`2.168\,10^{26}` m, but the
-redshift is adjusted to 1.3342.*
+.. warning:: When H\ :math:`_0` or any of the :math:`\Omega` is changed,
+             the luminosity distance will not change, but the equivalent
+             redshift of the source is adjusted. For example, setting the distance
+             first to z=1 with the default H\ :math:`_0`\ =70 km/s/Mpc results
+             into a distance of :math:`2.039\,10^{26}` m. When H\ :math:`_0` is
+             then changed to 100 km/s/Mpc, the distance is still :math:`2.168\,10^{26}` m,
+             but the redshift is adjusted to 1.3342.
 
-**Warning:** *In the output also the light travel time is given. This
-should not be confused with the (luminosity) distance in light years,
-which is simply calculated from the luminosity distance in m!*
+.. warning:: In the output also the light travel time is given. This should
+             not be confused with the (luminosity) distance in light years,
+             which is simply calculated from the luminosity distance in m!
 
 Syntax
 ~~~~~~

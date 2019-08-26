@@ -12,18 +12,20 @@ must specify both the systematic error as a fraction of the source
 spectrum as well as of the subtracted background spectrum. The total of
 these fractions can either be less or greater than 1.
 
-| **Warning:** *This command mixes two fundamentally different types of
-  errors: statistical (random fluctuations) and systematic (offset). The
-  resulting uncertainties are unjustly treated as being statistical,
-  which can lead to wrong results when the systematic offsets are
-  substantial. Syserr should therefore be used with extreme caution.*
-| **Warning:** *One should first rebin the data, before running syserr.
-  Run syserr however before fitting the data or finding errors on the
-  fit.*
-| **Warning:** *Running syserr multiple times will increase the error
-  every time. If the input to syserr is wrong one should restart
-  SPEX and rerun syserr with the correct values to calculate the total
-  error correctly.*
+.. Warning:: This command mixes two fundamentally different types of
+   errors: statistical (random fluctuations) and systematic (offset). The
+   resulting uncertainties are unjustly treated as being statistical,
+   which can lead to wrong results when the systematic offsets are
+   substantial. Syserr should therefore be used with extreme caution.
+
+.. Warning:: One should first rebin the data, before running syserr.
+   Run syserr however before fitting the data or finding errors on the
+   fit.
+
+.. Warning:: Running syserr multiple times will increase the error
+   every time. If the input to syserr is wrong one should restart
+   SPEX and rerun syserr with the correct values to calculate the total
+   error correctly.
 
 Syntax
 ~~~~~~
