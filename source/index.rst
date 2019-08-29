@@ -24,6 +24,7 @@ Analysis threads
    :maxdepth: 1
    
    threads/partbkg/partbkg
+   threads/uv
 
 Reference manual
 ----------------
@@ -31,8 +32,10 @@ Reference manual
 .. toctree::
    :maxdepth: 1
 
+   reference/fitting
    reference/commands
    reference/models
+   reference/spexact
 
 
 Additional tools

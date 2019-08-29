@@ -1,3 +1,5 @@
+.. _chap:specmod:
+
 Overview of spectral components
 ===============================
 
