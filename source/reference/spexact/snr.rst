@@ -52,7 +52,7 @@ parameters as follows:
 
 .. math::
    f_{\mathrm p} kT_s = f_{\mathrm T} \epsilon_\rho m_{\mathrm p}r_s^2/t^2
-   :label:`snr:eqn4`
+   :label: snr:eqn4
 
 where :math:`\epsilon_\rho` is a dimensionless factor representing the
 average mass in units of a proton mass per Hydrogen atom (:math:`\rho =

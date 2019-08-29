@@ -1,4 +1,4 @@
-.. _sect:absmodels
+.. _sect:absmodels:
 
 Absorption models
 =================
@@ -55,7 +55,7 @@ precision arithmetics:
    \sigma = \left\{
    {
    \begin{array}{ll}
-   \sigma_T (1-2x+5.2x^2-13.3x^3+32.685x^4) & \qquad x < 0.05};\\
+   \sigma_T (1-2x+5.2x^2-13.3x^3+32.685x^4) & \qquad x < 0.05;\\
    0.75\sigma_T 
    \left[
    \frac{1+x}{x^3}
