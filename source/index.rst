@@ -6,46 +6,16 @@
 SPEX Help Center
 ================
 
-Getting started
----------------
-
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :numbered:
 
-   getstarted/install
-   getstarted/runspex
-   getstarted/runtrafo
-
-
-Analysis threads
-----------------
-
-.. toctree::
-   :maxdepth: 1
-   
-   threads/partbkg/partbkg
-   threads/uv
-
-Reference manual
-----------------
-
-.. toctree::
-   :maxdepth: 1
-
-   reference/fitting
-   reference/commands
-   reference/models
-   reference/spexact
-
-
-Additional tools
-----------------
-
-.. toctree::
-   :maxdepth: 1
-   
-   tools/fortcall
-   
+   getstarted
+   threads
+   reference
+   tools
+   spexact
+   fitting
 
 
 Indices and tables
