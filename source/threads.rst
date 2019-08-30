@@ -1,3 +1,5 @@
+.. _chap:threads:
+
 Analysis threads
 ================
 

@@ -1,3 +1,5 @@
+.. _sect:runtrafo:
+
 How to run Trafo
 ================
 
