@@ -1,3 +1,5 @@
+.. _chap:plasmamodel:
+
 Plasma model in SPEX 3.0
 ========================
 
@@ -35,7 +37,7 @@ The production of the relevant files is not yet complete, but in the
 first release of version 3.0 we incorporate the data for the H, He, and
 Li iso-electronic sequences, and some data for the other sequences,
 including the Fe-L ions. For an overview of what is in the code see
-Section [sect:newsequences] below.
+Section :ref:`sect:newsequences` below.
 
 By default, the plasma code is the old version 2.0 code, but by giving
 the command “var calc new”, for the ions for which new data are

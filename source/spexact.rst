@@ -1,11 +1,12 @@
 .. _chap:moremodels:
 
-SPEXACT theory
-==============
+SPEXACT
+=======
 
 .. toctree::
    :maxdepth: 1
 
+   spexact/intro
    spexact/plasma
    spexact/absmodels
    spexact/atomicabs

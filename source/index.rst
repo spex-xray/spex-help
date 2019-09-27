@@ -16,6 +16,8 @@ SPEX Help Center
    tools
    spexact
    fitting
+   changelog
+   credits
 
 
 Indices and tables

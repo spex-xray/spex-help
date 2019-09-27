@@ -1,8 +1,8 @@
-Reference manual
-================
+Command help
+============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    reference/commands
    reference/models
