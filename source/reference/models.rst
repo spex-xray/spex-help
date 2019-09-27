@@ -1,4 +1,4 @@
-Spectral models
+Model reference
 ===============
 
 .. toctree::

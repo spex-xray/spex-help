@@ -66,8 +66,8 @@ summarized here:
    balance can now be queried using the commands ``abun show`` and
    ``ibal show``, respectively.
 
-Changes in version 3.01
------------------------
+Version 3.01.00
+---------------
 
 -  To optimize for calculation speed, in the new line list, one can
    select ions that should be calculated the old way (``ions old``) or
@@ -107,8 +107,8 @@ Changes in version 3.01
    Fe XIX to Fe XXIII are added using the data from `Palmeri et al. (2003)
    <https://ui.adsabs.harvard.edu/abs/2003A%26A...410..359P/abstract>`_.
 
-Changes in version 3.02.00
---------------------------
+Version 3.02.00
+---------------
 
 -  Updated pion model (details will be described soon).
 
@@ -118,8 +118,8 @@ Changes in version 3.02.00
 -  Introduced the SPEXACT naming and versioning for the atomic code and
    tables in SPEX.
 
-Changes in version 3.03.00
---------------------------
+Version 3.03.00
+---------------
 
 In SPEX 3.03.00:
 
@@ -148,8 +148,8 @@ In SPEXACT 3.03.00:
 
 -  Updated ionisation balance for U16.
 
-Changes in version 3.04.00
---------------------------
+Version 3.04.00
+---------------
 
 In SPEX 3.04.00:
 
@@ -199,8 +199,8 @@ In SPEXACT 3.04.00:
 
 -  Extended data for Fe XXI, Fe XXII, and Fe XXIII.
 
-Changes in version 3.05.00
---------------------------
+Version 3.05.00
+---------------
 
 In SPEX 3.05.00:
 

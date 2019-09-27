@@ -5,3 +5,4 @@ Spectral fitting
    :maxdepth: 1
 
    fitting/fitting
+   fitting/response

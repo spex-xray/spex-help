@@ -12,7 +12,9 @@ SPEX Help Center
 
    getstarted
    threads
-   reference
+   reference/commands
+   reference/models
+   plot
    tools
    spexact
    fitting
