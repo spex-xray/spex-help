@@ -1,6 +1,6 @@
-.. _chap:intro:
-
 .. highlight:: none
+
+.. _sec:intro:
 
 How to run SPEX
 ===============

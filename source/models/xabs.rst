@@ -1,3 +1,5 @@
+.. _sec:xabs:
+
 Xabs: photoionised absorption model
 ===================================
 

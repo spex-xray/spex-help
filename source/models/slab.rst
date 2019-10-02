@@ -1,3 +1,5 @@
+.. _sec:slab:
+
 Slab: thin slab absorption model
 ================================
 
