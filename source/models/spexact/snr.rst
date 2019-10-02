@@ -1,4 +1,4 @@
-Supernova remnant (SNR) models
+Supernova remnant model theory
 ==============================
 
 For the calculation of SNR models we follow `Kaastra & Jansen (1993)

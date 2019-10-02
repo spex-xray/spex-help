@@ -1,5 +1,5 @@
-SPEX Install
-============
+How to install SPEX
+===================
 
   .. highlight:: none
 

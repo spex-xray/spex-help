@@ -55,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SPEX Help Center'
-copyright = u'2019, Jelle de Plaa, Jelle Kaastra, SPEX Development Team'
+copyright = u'2019, Jelle de Plaa, Jelle Kaastra, SRON Netherlands Institute for Space Research <https://www.sron.nl>`_'
 author = u'Jelle de Plaa, Jelle Kaastra, SPEX Development Team'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -133,7 +133,7 @@ html_theme = 'alabaster'
 #
 # html_theme_options = {}
 html_theme_options = {
-    'logo': 'logo.png',
+    'logo': 'logo-wide.png',
     'logo_name': 'SPEX',
     #'page_width': '75%'
 }

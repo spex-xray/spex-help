@@ -1,5 +1,5 @@
-Spectral fitting
-================
+Spectral fitting theory
+=======================
 
 .. toctree::
    :maxdepth: 1

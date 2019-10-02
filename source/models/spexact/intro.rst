@@ -1,5 +1,5 @@
-The SPEX Atomic Code & Tables
-=============================
+The SPEX Atomic Code & Tables (SPEXACT)
+=======================================
 
 The SPEX package is a spectral fitting program with integrated models
 that are mostly based on one atomic database and a set of routines to

@@ -1,7 +1,7 @@
 .. _sect:absmodels:
 
-Absorption models
-=================
+Absorption model theory
+=======================
 
 Introduction
 ------------

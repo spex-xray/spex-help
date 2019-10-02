@@ -1,7 +1,7 @@
 .. _sect:runtrafo:
 
-How to run Trafo
-================
+How to convert spectra to SPEX format
+=====================================
 
 .. highlight :: none
 

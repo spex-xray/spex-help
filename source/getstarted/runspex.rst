@@ -19,7 +19,7 @@ The SPEX data format
 The data files containing the spectrum of the source and the response
 need to be in the correct format. In the SPEX installation, we provide a
 program called ``trafo`` to convert OGIP standard fits files into SPEX
-format (see Chapter `[ch:trafo] <#ch:trafo>`__ for an explanation of
+format (see :ref:`sect:runtrafo` for an explanation of how to use
 trafo). In this chapter, we assume that you already have spectra in SPEX
 format. For example, the demo spectra from the SPEX web site.
 
@@ -37,8 +37,8 @@ integral equation to account for the imperfections caused by the
 instrument:
 
 .. math::
-
-   D(c) =  \int R(c,E) A(E) S(E) dE 
+   D(c) =  \int R(c,E) A(E) S(E) dE
+   :label: eq_data
 
 .. math::
 
@@ -50,7 +50,8 @@ format widely used in Astronomy. FITS files can contain images as well
 as data tables. The software package FTOOLS provided by NASA contains a
 large number of tools to manipulate FITS files (see references). If you
 are interested, then you can launch ``flaunch`` to see which tools are
-available.
+available. For more information about the SPEX spectrum and response
+format see :ref:`sect:matrices`.
 
 Loading spectra into SPEX
 -------------------------
@@ -66,8 +67,8 @@ start SPEX do this:
 
    SPEX> 
 
-First, we have to load the data files. This is done using the command
-``data``. It is a general thing in SPEX that filename extensions are not
+First, we have to load the data files. This is done using the ``data`` command
+(:ref:`sec:data`). It is a general thing in SPEX that filename extensions are not
 typed explicitly when issuing a command. If you have a file called
 ``filename.spo`` and ``filename.res`` then you type:
 
@@ -88,14 +89,20 @@ Plotting the data
 -----------------
 
 If the ``data`` command was successful, we can now have a look at the
-spectra. SPEX offers a lot of different plot commands through the PGPLOT
-package (known from, for example, Fortran programs). Below is a simple
-example to create a linear-linear plot in Å:
-
-::
+spectra. SPEX offers a lot of different plot commands (see :ref:`sec:plot`).
+Using default settings, the easiest way of plotting a spectrum is as follows::
 
    SPEX> plot dev xs
    SPEX> plot type data
+   SPEX> plot
+
+The sequence above opens a PGPLOT window (``plot dev xs``) and tells SPEX that we
+want to plot the spectral data (``plot type data``). This will create a linear-linear
+plot in keV units.
+
+The plot can be tailored to your wishes. Below is an example to change the
+plot to a linear-linear plot in Å and add a title to the plot::
+
    SPEX> plot x lin
    SPEX> plot y lin
    SPEX> plot ux a
@@ -108,20 +115,21 @@ example to create a linear-linear plot in Å:
    SPEX> plot cap id disp false
    SPEX> plot
 
-The sequence above opens a PGPLOT window (``dev xs``) and tells SPEX
-that the plot will contain data with linear axes (``x lin`` and
-``y lin``) in unit Å  (``ux a`` and ``uy a``). ``rx`` and ``ry`` are the
+To make sure the axes are linear, we give the commands (``plot x lin`` and
+``plot y lin``) and change the axes to unit Å  (``plot ux a`` and ``plot uy a``).
+The commands ``plot rx 8.:35.`` and ``plot ry 0.:0.05`` change the
 ranges on the x and y axes, respectively. Then the color of the data,
 background spectrum and model are set. The last commands beginning with
 ``plot cap`` remove some standard titles and other text around the plot.
 After you define the plot like in the example above, you can plot it
 with a single ``plot`` command.
 
-The y-axis in this plot is in counts s\ :math:`^{-1}` Å\ :math:`^{-1}`.
-Ångstrom is not the only unit used in high-energy astrophysics. Usually,
-the energy of the photons is expressed in keV. In SPEX you can use keV
-by writing ``k`` instead of ``a`` in all commands. For example,
-``plot ux k`` to use keV for the x-axis.
+The y-axis in this plot is in :math:`\mathrm{counts}` :math:`\mathrm{s}^{-1}`
+:math:`\mathrm{Å}^{-1}`. Ångstrom is not the only unit used in high-energy
+astrophysics. Usually, the energy of the photons is expressed in keV.
+In SPEX you can use keV by writing ``k`` instead of ``a`` in all commands.
+For example, ``plot ux k`` to use keV for the x-axis. An overview of
+possible units is provided in :ref:`sect:plotaxes`.
 
 Ignoring and rebinning
 ----------------------
@@ -130,8 +138,10 @@ High-resolution X-ray spectra from Chandra and XMM-Newton are usually
 oversampled (e.g. the energy bins are much smaller than the spectral
 resolution) and contain a lot more channels then is useful. Therefore,
 it is necessary to remove wavelength intervals which contain bad data
-and rebin your spectrum. In the next example we bin the spectrum over
-the 8–35 Å  range with a factor of 5 and ignore the rest of the
+and rebin your spectrum. The SPEX command to ignore parts of the spectrum
+is called ``ignore`` (:ref:`sec:ignore`) and the command to rebin is called
+``bin`` (:ref:`sec:bin`). In the next example we bin the spectrum over
+the 8–35 Å range with a factor of 5 and ignore the rest of the
 spectrum:
 
 ::
@@ -158,7 +168,7 @@ Defining a model
 
 Now we have a clean and rebinned spectrum that is ready to fit. Before
 we can start fitting, we first need to define a model. It’s equivalent
-to :math:`S(E)` in Eq. \ `[eq:data] <#eq:data>`__. The model can contain
+to :math:`S(E)` in Eq. :eq:`eq_data`. The model can contain
 one or more of these components:
 
 -  ``absm`` Model for interstellar absorption.
@@ -169,10 +179,10 @@ one or more of these components:
 
 -  ``ga`` Gaussian.
 
-And there are more (see the SPEX manual)! The following command sequence
+And there are more (see :ref:`chap:specmod`)! The following command sequence
 defines a simple powerlaw model at a certain redshift and absorbed by
 the interstellar medium. The individual components of the model are
-loaded one-by-one with the ``com`` command:
+loaded one-by-one with the ``com`` command (:ref:`sec:comp`):
 
 ::
 
@@ -188,9 +198,8 @@ what happens in which order on the way from the source to the telescope.
 
 For most sources the distance is more or less known. To get a right
 luminosity estimate for the source, the expected distance has to be
-provided to SPEX:
-
-::
+provided to SPEX. This is done with the ``distance`` command
+(:ref:`sec:distance`)::
 
    SPEX> dist 0.1 z
    Distances assuming H0 =  50.0 km/s/Mpc and q0 = 0.500
@@ -204,9 +213,7 @@ With this command, the distance to the source is set to a redshift of
 ``dist`` command.
 
 Now we have to estimate the initial parameters. With the command
-``par show`` we can see which parameters there are:
-
-::
+``par show`` we can see which parameters there are::
 
    SPEX> par show
    ----------------------------------------------------------------------------------
@@ -234,7 +241,7 @@ Now we have to estimate the initial parameters. With the command
                (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
        1    3 pow    0.00000       0.00000       0.00000       0.00000
 
-We can set the parameters using the ``par`` command. The first “1” in
+We can set the parameters using the ``par`` command (:ref:`sec:par`). The first “1” in
 column “sect” can usually be ignored. The commands then look like this:
 
 ::
@@ -278,8 +285,8 @@ see what happened:
 
 Finding the right initial values for the parameters is a game of trial
 and error. To see whether you are going in the right direction, you can
-calculate the model with the command ``calc`` and ``plot`` again. If you
-see the model appear in your screen, then the model is close enough to
+calculate the model with the command ``calc`` and ``plot`` again (:ref:`sec:calculate`).
+If you see the model appear in your screen, then the model is close enough to
 be fitted. Especially the normalization of the powerlaw (``3 norm``) can
 vary a lot depending on the countrate of the source.
 
@@ -288,11 +295,11 @@ Fitting the data
 
 We are ready to fit the data! SPEX has a nice feature to look at the
 progress of the fit. To activate this feature you have to give the
-command ``fit print 1``. If your initial parameters were acceptable, you
-can see the model converge to the data in the plot window after you
-entered the ``fit`` command. When the fit is done, then the parameters
-and :math:`\chi^2` are printed on screen. If the :math:`\chi^2` value is
-close to the number of degrees of freedom, then your fit is acceptable.
+command ``fit print 1`` (see :ref:`sec:fit`). If your initial parameters
+were acceptable, you can see the model converge to the data in the plot
+window after you entered the ``fit`` command. When the fit is done, then
+the parameters and C-stat are printed on screen. If the C-stat value is
+close to the expected C-stat value, then your fit is acceptable.
 Sometimes more runs of the command ``fit`` are necessary after changing
 some initial parameters. This is especially true when using complex
 models. Again this is a game of trial and error.
@@ -312,25 +319,29 @@ Calculating errors
 
 When the fit is acceptable, you might want to know the uncertainties on
 your fitted parameters. Errors are determined one-by-one by fixing the
-parameter to some value and calculate the :math:`\Delta\chi^2` with
+parameter to some value and calculate the :math:`\Delta` C-stat with
 respect to the best fit. If you want to know the 1\ :math:`\sigma` error
-on the parameter, you need to know its values at :math:`\Delta\chi^2` =
-1. This is done by the ``error`` command. First you have to set the
-desired :math:`\Delta\chi^2` in SPEX: ``error dchi 1.`` After this you
+on the parameter, you need to know its values at :math:`\Delta` C-stat =
+1. This is done by the ``error`` command (:ref:`sec:error`). You
 can calculate the error for each parameter. For example redshift:
 
 ::
 
    SPEX> error 1 z
 
-Making life easier…
--------------------
+If you need another :math:`\Delta` C-stat limit (not recommended), then
+you can set the desired :math:`\Delta` C-stat in SPEX using the command:
+``error dchi 1.``
+
+Making life easier
+------------------
 
 In this short manual you have seen a lot of commands, but to avoid
 typing too much you want to use some identical series of commands every
 time you fit a certain spectrum. For example, you don’t want to type all
 plot commands again when making a plot. Therefore, the program has a
-command to solve this problem. With the command ``log exe filename`` you
+command to solve this problem called ``log`` (see :ref:`sec:log`).
+With the command ``log exe filename`` you
 can execute a number of commands at the same time. The numbers are read
 from a normal text file with (in this case) the name ``filename.com``.
 Again the extension ``.com`` should not be typed explicitly. Below is an
@@ -400,9 +411,9 @@ Saving commands
 ~~~~~~~~~~~~~~~
 
 If you want to save all commands that you execute to an ASCII file
-(``filename.com``), then type ``log save filename``. Do not forget to
-close the file at the end of the session by typing ``log close save``.
-The saved commands in the textfile can be executed again by the
+(``filename.com``), then type ``log save filename`` (see also :ref:`sec:log`).
+Do not forget to close the file at the end of the session by typing
+``log close save``. The saved commands in the textfile can be executed again by the
 ``log exe filename`` command.
 
 Saving output
@@ -417,7 +428,7 @@ and errors.
 Quitting the program
 --------------------
 
-Just type ``quit``\ …
+Just type ``quit`` (see :ref:`sec:quit`).
 
 Tips & Tricks
 -------------

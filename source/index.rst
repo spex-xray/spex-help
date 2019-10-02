@@ -6,17 +6,17 @@
 SPEX Help Center
 ================
 
+Welcome to the SPEX help center.
+
 .. toctree::
    :maxdepth: 2
    :numbered:
 
    getstarted
    threads
-   reference/commands
-   reference/models
-   plot
+   reference
+   models
    tools
-   spexact
    fitting
    changelog
    credits
