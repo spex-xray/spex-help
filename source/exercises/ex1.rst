@@ -3,7 +3,8 @@ Powerlaw
 
 Before doing this exercise, we advise you to read :ref:`sec:intro`.
 
-The spectrum in the files ``powerl.spo`` and ``powerl.res`` was recorded
+The spectrum in the files :download:`powerl.spo </_static/exercises/powerl.spo>`
+and :download:`powerl.res </_static/exercises/powerl.res>` was recorded
 from a source at 6 kpc distance.
 
 #. Load the spectrum into SPEX and plot it.

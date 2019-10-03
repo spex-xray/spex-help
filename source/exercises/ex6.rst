@@ -1,8 +1,9 @@
 Relativistic lines
 ==================
 
-The file ``agnrel.spo`` contains a spectrum of an AGN at 1 Mpc distance.
-The response matrix to be used is ``rgs.res``. The two features that are
+The file :download:`agnrel.spo </_static/exercises/agnrel.spo>` contains
+a spectrum of an AGN at 1 Mpc distance. The response matrix to be used
+is :download:`corona.res </_static/exercises/corona.res>`. The two features that are
 visible in the spectrum are the O VIII L\ :math:`\alpha`
 (:math:`\lambda=18.969` Å)and N VII L\ :math:`\alpha`
 (:math:`\lambda=24.781` Å) lines. Because the emission from the disk is
@@ -13,7 +14,8 @@ the geometry of the system.
 
 In this exercise we fix the :math:`\mathrm{N}_{\mathrm{H}}` to
 :math:`1 \times 10^{20} \ \mathrm{cm}^{-2}`. The continuum emission can be well
-described with a powerlaw. The response file is ``rgs.res``.
+described with a powerlaw. The response file is :download:`corona.res
+</_static/exercises/corona.res>`.
 
 #. First start with the most simple model components: ``pow`` and
    Galactic foreground absorption. Plot the data. Hint: it may be useful

@@ -1,13 +1,14 @@
-Basics of SPEX / Stellar Spectra
-================================
+Stellar Spectra
+===============
 
 We examine a high resolution spectrum of a nearby star at a distance of
-10 pc. The files ``corona.spo`` and ``corona.res`` contain the spectrum
+10 pc. The files :download:`corona.spo </_static/exercises/corona.spo>`
+and :download:`corona.res </_static/exercises/corona.res>` contain the spectrum
 and instrumental response of this source. This spectrum has been
 simulated using a RGS-like response. We do not provide real data files,
 because of their size and because of the time constraints of the course.
-You can use ``plot_rgs.com`` for plotting, but it is more instructive
-and easier to plot manually!
+You can use :download:`plot_rgs.com </_static/exercises/plot_rgs.com>`
+for plotting, but it is more instructive and easier to plot manually!
 
 #. Read the data into SPEX and plot it in unit Å. The data ranges
    roughly from 8 to 38 Å. Hint: you may issue successively the commands

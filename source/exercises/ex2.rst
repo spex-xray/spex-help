@@ -1,7 +1,8 @@
 Powerlaw with a Gaussian line
 =============================
 
-The files ``powgaus.spo`` and ``powgaus.res`` contain an absorbed
+The files :download:`powgaus.spo </_static/exercises/powgaus.spo>`
+and :download:`powgaus.res </_static/exercises/powgaus.res>` contain an absorbed
 powerlaw spectrum with a Gaussian line. From an optical observation of
 the source we know that this source has a redshift of :math:`z` =
 0.0345. There is also Galactic foreground absorption. The source has

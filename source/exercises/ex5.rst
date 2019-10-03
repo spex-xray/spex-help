@@ -5,7 +5,8 @@ Up to now we have only fitted an object which was in collisional
 ionization equilibrium (CIE), but when there are plasma shocks in a (low
 density) medium, equilibrium might not be reached yet. This is often the
 case in supernova remnants. We will illustrate this with the following
-spectrum: ``nei.spo``. Again the response is the same as ``corona.res``.
+spectrum: :download:`nei.spo </_static/exercises/nei.spo>`. Again the
+response is the same as :download:`corona.res </_static/exercises/corona.res>`.
 Adopt a source distance of 3 kpc, and fix the Galactic foreground
 absorption to :math:`5 \times 10^{24}  \mathrm{m}^{-2}`. Define your spectral model.
 

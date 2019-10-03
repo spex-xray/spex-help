@@ -2,10 +2,11 @@ AGN winds
 =========
 
 In many cases the emission from the central region around the black hole
-is partly absorbed by the disk and/or wind. In the file ``agn.spo`` we
-have a spectrum showing a lot of absorption lines. We set the distance
-to the source to 1 Mpc and the :math:`\mathrm{N}_{\mathrm{H}}` to
-:math:`1 \times 10^{20} \ \mathrm{cm}^{-2}`. Response file: ``corona.res``.
+is partly absorbed by the disk and/or wind. In the file :download:`agn.spo
+</_static/exercises/agn.spo>` we have a spectrum showing a lot of absorption
+lines. We set the distance to the source to 1 Mpc and the
+:math:`\mathrm{N}_{\mathrm{H}}` to :math:`1 \times 10^{20} \ \mathrm{cm}^{-2}`.
+Response file: :download:`corona.res </_static/exercises/corona.res>`.
 
 #. This spectrum is too complicated to fit in one run. Therefore start
    fitting with just an absorbed power-law model to get the slope and

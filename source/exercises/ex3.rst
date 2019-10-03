@@ -1,7 +1,8 @@
 Statistics, binning and more
 ============================
 
-The files ``nustar.spo`` and ``nustar.res`` contains the observed (not
+The files :download:`nustar.spo </_static/exercises/nustar.spo>` and
+:download:`nustar.res </_static/exercises/nustar.res>` contains the observed (not
 simulated!) spectrum of the pulsar PSR J1813-1246 as observed by the
 NuSTAR satellite. You can adopt a distance of 2.5 kpc to this source.
 You can assume that the spectrum is a simple power law with Galactic
