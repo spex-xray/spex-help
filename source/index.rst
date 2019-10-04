@@ -18,7 +18,7 @@ Welcome to the SPEX help center.
    models
    tools
    help
-   fitting
+   theory
    exercises
    changelog
    credits
