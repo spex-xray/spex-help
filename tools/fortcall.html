@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.8. Calling SPEX from Fortran &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.9. Python tools" href="pyspextools.html" />
+    <link rel="prev" title="5.7. RGS_fmat" href="rgs_fmat.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="calling-spex-from-fortran">
+<h1>5.8. Calling SPEX from Fortran<a class="headerlink" href="#calling-spex-from-fortran" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal">
+<h2>5.8.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you may want to combine SPEX with some of your own code. For
+instance, you may have a hydrodynamical code calculating the evolution
+of a cluster of galaxies or a supernova remnant, and you want SPEX to
+calculate the corresponding spectrum. Or you need to make realistic
+simulations for a large sample of sources or a broad range of
+parameters. In that case it can be useful to call SPEX from a fortran
+program.</p>
+</div>
+<div class="section" id="solution">
+<h2>5.8.2. Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p>The basic flow of the solution is as follows:</p>
+<ul class="simple">
+<li><p>Start your fortran program and calculate whatever is needed</p></li>
+<li><p>create a command file for SPEX</p></li>
+<li><p>call SPEX through a system call</p></li>
+<li><p>read the output of SPEX</p></li>
+<li><p>continue with your program</p></li>
+</ul>
+<p>To explain how you can do this, we give below a sample Fortran 90
+program. The program first creates a command file called spex.com that
+contains the input for the run with SPEX. In your case, you can replace
+the “/usr/local/bin/spex” to whatever path is appropriate for you to
+call SPEX. The “<img class="math" src="../_images/math/0380b5bc01a81d1983a5b51ebe52027732502134.svg" alt="&lt;&lt;" style="vertical-align: 0px"/>STOP” is essential for linux to tell when
+the input stream is finished.</p>
+<p>In the command file, it tells how to read the pn spectrum of a cluster
+of galaxies with roughly metallicity 0.3, temperature 2 keV, redshift
+0.01 and Galactic foreground absorption of
+<img class="math" src="../_images/math/aefa37581afcf81f953eda92310f404adcebf568.svg" alt="10^{24} ~ \mathrm{m}^{-2}" style="vertical-align: 0px"/>. It ignores data at the lowest and
+highest energies, sets the initial model and parameters for SPEX. It
+will then perform a fit with SPEX. Next we tell SPEX to open an output
+file named “spex.out”, that will contain the results of the next part of
+the SPEX run, an error search on the temperature. Note also that we have
+set-up the plotting device to “null”, to speed up the calculation (but
+implying that you do not get to see the fit itself, so use with care).
+After the error run, we stop SPEX, first by writing the “quit” command
+for SPEX and then the end of input signal “STOP” for linux. Next we
+simply close the command file spex.com.</p>
+<p>The fortran program then continues by making spex.com executable, and
+then by executing that file, thereby doing the run with SPEX. When SPEX
+is finished, fortran takes over control again and reads the spex.out
+file created by SPEX. The program grabs any info it needs from that file
+(here the errors on the temperature) and then closes the file.</p>
+<p>As a last step, the intermediate outputfile “spex.out” is deleted, as we
+do not need it longer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   real nh,z,t
+   character*128 s
+
+   z = 0.01    !redshift 0.01
+   nh = 1e-4   !1E20 cm**-2 absorption column density (SPEX uses units of 1E28 m**-2)
+   t = 2       !temperature 2 keV
+
+   open(unit=12,file=&#39;spex.com&#39;,status=&#39;replace&#39;) !open a spex command file called spex.com
+   write (12,&#39;(&quot;/usr/local/bin/spex &lt;&lt;STOP&quot;)&#39;)    !call spex
+   write (12,&#39;(&quot;abu lodders&quot;)&#39;)                   !set abunances to Lodders scale
+   write (s,&#39;(&quot;dis &quot;,f6.4,&quot; z&quot;)&#39;) z
+   write (12,&#39;(a)&#39;) trim(s)                       !write the distance
+   write (12,&#39;(&quot;data pn pn)&#39;)                     !read some spex data set: pn.res &amp; pn.spo
+   write (12,&#39;(&quot;ign in 1 r 1 1:60&quot;)&#39;)             !ignore first 60 channels
+   write (12,&#39;(&quot;ign in 1 12:10000 u kev&quot;)&#39;)       !ignore E&gt;12 keV region
+   write (12,&#39;(&quot;com cie&quot;)&#39;)                       !define a CIE component
+   write (12,&#39;(&quot;com reds&quot;)&#39;)                      !define a redshift component
+   write (12,&#39;(&quot;com abs&quot;)&#39;)                       !define galactic absorption
+   write (12,&#39;(&quot;com rel 1 2,3&quot;)&#39;)                 !couple the components
+   write (s,&#39;(&quot;par 1 2 z v &quot;,f6.4)&#39;) z
+   write (12,&#39;(a)&#39;) trim(s)                       !set the redshift
+   write (s,&#39;(&quot;par 1 3 nh v &quot;,1pe12.3)&#39;) nh
+   write (12,&#39;(a)&#39;) trim(s)                       !set the galactic absorption
+   write (12,&#39;(&quot;par 1 3 nh s f&quot;)&#39;)                !freeze NH
+   write (12,&#39;(&quot;par 1 1 06:28 v 0.3&quot;)&#39;)           !set abundances of C to Ni to 0.3 time solar
+   write (s,&#39;(&quot;par 1 1 t v &quot;,f5.2)&#39;) t
+   write (12,&#39;(a)&#39;) trim(s)                       !set the temperature
+   write (12,&#39;(&quot;fit meth cstat&quot;)&#39;)                !use C-statistics for fitting
+   write (12,&#39;(&quot;plot dev null&quot;)&#39;)                 !no visible plots
+   write (12,&#39;(&quot;plot type data&quot;)&#39;)                !plot type data
+   write (12,&#39;(&quot;fit prin 1&quot;)&#39;)                    !show each fitting step
+   write (12,&#39;(&quot;fit&quot;)&#39;)                           !do a fit
+   write (12,&#39;(&quot;err dchi 1.&quot;)&#39;)                   !for error search, do Delta chi**2 = 1
+   write (12,&#39;(&quot;log out spex o&quot;)&#39;)                !open a file for the SPEX output
+                                                  !file will be called &quot;spex.out&quot;
+                                                  !the option &quot;o&quot; means overwrite
+   write (12,&#39;(&quot;err 1 1 t&quot;)&#39;)                     !do an error search on T
+   write (12,&#39;(&quot;quit&quot;)&#39;)                          !done with the spex run, so quit
+   write (12,&#39;(&quot;STOP&quot;)&#39;)                          !last command needed to close the command file
+   close (12)                                     !close the file spex.com and save
+
+   call system(&quot;chmod +x spex.com&quot;)               !make file spex.com executable
+   call system(&quot;spex.com&quot;)                        !execute the file spex.com
+
+   open (unit=12,file=&#39;spex.out&#39;,status=&#39;old&#39;)    !open the outputfile spex.out
+   do k = 1,100000                                !loop over all the lines in this file
+     read (12,&#39;(a)&#39;,end=20) s                     !read the text of the line; put it in string s
+     if (s(2:11).eq.&quot;Parameter:&quot;) then            !search for the line with text Parameter:
+       read (s(34:),*) e1,e2                      !read from this line the errors on T
+       err = 0.5 * (-e1 + e2)                     !calculate average pos and neg error
+       !..... do further all you wish
+     endif
+   enddo                                          !close loop over lines file spex.out
+20 close(12)                                      !close spex.out
+   call system(&quot;rm spex.out&quot;)                     !remove the file spex.out
+   end
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tools.html">5. Additional tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trafo.html">5.1. Trafo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stepcontour.html">5.2. Stepcontour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xabsinput.html">5.3. Xabsinput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hydro_driver.html">5.4. Hydro driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsvprof.html">5.5. Rgsvprof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsfluxcombine.html">5.6. RGS_fluxcombine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgs_fmat.html">5.7. RGS_fmat</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.8. Calling SPEX from Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspextools.html">5.9. Python tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tools.html">5. Additional tools</a><ul>
+      <li>Previous: <a href="rgs_fmat.html" title="previous chapter">5.7. RGS_fmat</a></li>
+      <li>Next: <a href="pyspextools.html" title="next chapter">5.9. Python tools</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

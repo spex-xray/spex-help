@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.33. Watch &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2. Plotting reference" href="../plot.html" />
+    <link rel="prev" title="3.1.32. Vbin: variable rebinning of the data" href="vbin.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="watch">
+<span id="sec-watch"></span><h1>3.1.33. Watch<a class="headerlink" href="#watch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.33.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>If you have any problems with the execution of SPEX, you may set the
+watch-options. For example, if the computation time needed for your
+model is very large, it could be wise to check which parts of the
+program consume most of the cpu-time. You might then hope to improve the
+performance by assuming other parameters or by re-structuring a part of
+the code. In this case, you set the “time” flag to true (see below), and
+at the end of the program you will see how much time was spent in the
+most important subroutines.</p>
+<p>Another case occurs in the unlikely case that SPEX crashes. In that case
+it is recommended to re-execute the program, saving all commands onto a
+log-file and use the “sub” flag to report the entering and exiting of
+all major subroutines. This makes it more easy to find the source of the
+error.</p>
+<p>Timing is done by the use of the stopwatch package by William F.
+Mitchell of the NIST, which is free available at the web. If the time
+flag is set to true, on exit SPEX will report for each subroutine the
+following execution times (in s):</p>
+<ul class="simple">
+<li><p>The user time, i.e. the cpu-time spent in this subroutine</p></li>
+<li><p>The system time, i.e. the overhead system time for this subroutine</p></li>
+<li><p>The wall time, i.e. the total time spent while executing this
+subroutine.</p></li>
+</ul>
+<p>Also the totals for SPEX as a whole are given (this may be more then the
+sum of the subroutine components, since not all subroutines are listed
+separately; the wall tiem for SPEX as a whole also includes the time
+that the program was idle, waiting for input from the user).</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.33.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">time</span> <span class="pre">#l</span></code> : set the “time” flag to true or false.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">sub</span> <span class="pre">#l</span></code> : set the flag that SPEX causes to report each major
+subroutine it enters or exits</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.33.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">time</span> <span class="pre">t</span></code> : set the “time” flag to true</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">sub</span> <span class="pre">f</span></code> : set the subroutine report flag to false</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="vbin.html" title="previous chapter">3.1.32. Vbin: variable rebinning of the data</a></li>
+      <li>Next: <a href="../plot.html" title="next chapter">3.2. Plotting reference</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

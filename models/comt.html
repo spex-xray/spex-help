@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.6. Comt: comptonisation model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.7. CX: model for charge exchange plasmas" href="cx.html" />
+    <link rel="prev" title="4.1.5. Cie: collisional ionisation equilibrium model" href="cie.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="comt-comptonisation-model">
+<h1>4.1.6. Comt: comptonisation model<a class="headerlink" href="#comt-comptonisation-model" title="Permalink to this headline">¶</a></h1>
+<p>This is the model for Comptonisation of soft photons in a hot plasma,
+developed by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...434..570T/abstract">Titarchuk (1994)</a>.
+See the XSPEC manual for more details. The code was substantially
+improved and brought to the SPEX standards.</p>
+<div class="section" id="some-modifications">
+<h2>4.1.6.1. Some modifications<a class="headerlink" href="#some-modifications" title="Permalink to this headline">¶</a></h2>
+<p>Titarchuk (1994) gives an analytical approximation for
+<img class="math" src="../_images/math/89630636b51099b986e9ce43c6a6ff620cf321a1.svg" alt="\beta(\tau" style="vertical-align: -4px"/>) to the exact calculations as provided by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1985A%26A...143..374S/abstract">Sunyaev &amp; Titarchuk (1985)</a>
+for <img class="math" src="../_images/math/16ebcfbed0a82a22b7b7c486eae81924cb622e21.svg" alt="0.1&lt;\tau&lt;10" style="vertical-align: 0px"/>. Their
+approximation has the proper asymptotic behaviour for small and large
+values of <img class="math" src="../_images/math/7c2a99dd4fdef887e19dd3a680c0d431480df75f.svg" alt="\tau" style="vertical-align: 0px"/>, but unfortunately has deviations up to 7 % over
+the <img class="math" src="../_images/math/babc4696cc93f9208d02e6ac9b256d70c09804c7.svg" alt="0.1-10" style="vertical-align: -1px"/> range for <img class="math" src="../_images/math/7c2a99dd4fdef887e19dd3a680c0d431480df75f.svg" alt="\tau" style="vertical-align: 0px"/>. The approximation by
+Titarchuk is given in their equations (27) and (28) by</p>
+<div class="math">
+<p><img src="../_images/math/f031880f83f173b37eb4fba0274cffd42dea0cad.svg" alt="\begin{aligned}
+\mbox{disk:} \beta &amp;=&amp;
+\frac{\pi^2}{12(\tau+2/3)^2} (1-{\mathrm e}^{\displaystyle{-1.35\tau}})
++0.45{\mathrm e}^{\displaystyle{-3.7\tau}}\ln \frac{10}{3\tau}, \\
+\mbox{sphere:} \beta &amp;=&amp;
+\frac{\pi^2}{ 3(\tau+2/3)^2} (1-{\mathrm e}^{\displaystyle{-0.7\tau}})
++{\mathrm e}^{\displaystyle{-1.4\tau}}\ln \frac{4}{3\tau}.\end{aligned}"/></p>
+</div><p>We found an approximation that is better than 1 % using a slight
+modification of the above equations. We use these new approximations in
+our calculations:</p>
+<div class="math">
+<p><img src="../_images/math/8f3147c4091e8682837f20ae1e7fd57fb13f7475.svg" alt="\begin{aligned}
+\mbox{disk:} \beta &amp;=&amp;
+\frac{0.8351}{(\tau+0.867)^2}(1-{\mathrm e}^{\displaystyle{-3.876\tau}})
++0.572{\mathrm e}^{\displaystyle{-3.75\tau}}\ln \frac{1.06}{\tau}, \\
+\mbox{sphere:} \beta &amp;=&amp;
+\frac{3.504}{(\tau+1.2)^2}(1-{\mathrm e}^{\displaystyle{-2.09\tau}})
++1.013{\mathrm e}^{\displaystyle{-2.2\tau}}\ln \frac{1.6}{\tau}.\end{aligned}"/></p>
+</div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For the physically valid range of parameters, consult the
+XSPEC manual; see also <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...449..188H/abstract">Hua &amp; Titarchuk (1995)</a>, their Fig. 7.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> of the power law, in units of
+<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/e7c5b62e15f1ef4dc6cb389e77a0f607826a18b2.svg" alt="{\mathrm ph}" style="vertical-align: -3px"/> <img class="math" src="../_images/math/f073246ca9dded62cff1f3a62b92f8b74952c075.svg" alt="\mathrm{s}^{-1}\," style="vertical-align: 0px"/>keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>. Due to the way the model is calculated, this is not
+the flux at 1 keV! Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t0</span></code> : The temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> of the seed photons in keV. Default
+value: 1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t1</span></code> : The plasma temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 100
+keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tau</span></code> : The optical depth. Default value: 3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">type</span></code> : The type of geometry. Allowed values are 0 for a disk
+(default) or 1 for a sphere. This is a frozen parameter (cannot be
+fitted).</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...434..570T/abstract">Titarchuk (1994)</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="cie.html" title="previous chapter">4.1.5. Cie: collisional ionisation equilibrium model</a></li>
+      <li>Next: <a href="cx.html" title="next chapter">4.1.7. CX: model for charge exchange plasmas</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

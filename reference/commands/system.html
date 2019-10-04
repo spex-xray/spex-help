@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.29. System: call system executables &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.30. Use: reuse part of the spectrum" href="use.html" />
+    <link rel="prev" title="3.1.28. Syserr: systematic errors" href="syserr.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="system-call-system-executables">
+<span id="sec-system"></span><h1>3.1.29. System: call system executables<a class="headerlink" href="#system-call-system-executables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.29.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes it can be handy if SPEX interacts with the computer system,
+for example if you run it in command mode. You might want to check the
+existence of certain file, or run other programs to produce output for
+you, and depending on that output you want to continue SPEX.</p>
+<p>Therefore there is an option to execute any shell type commands on your
+machine, using the fortran “call system” subroutine.</p>
+<p>Another useful goody is the possibility to stop SPEX automatically if
+you find some condition to occur; this might be useful for example if
+you have a program running that calls SPEX, and depending on the outcome
+of SPEX you might want to terminate the execution. This is achieved in
+SPEX by testing for the existence of a file with a given filename; if
+the file exists, SPEX stops immediately execution and terminates; if the
+file does not exist, SPEX continues normally.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.29.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">exe</span> <span class="pre">#a</span></code> : execute the command #a on your UNIX/linux shell</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">stop</span> <span class="pre">#a</span></code> : stop SPEX if the file #a exists</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.29.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">exe</span> <span class="pre">&quot;ls</span> <span class="pre">-l&quot;</span></code> : give a listing of all file names with length
+in the current directory</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">exe</span> <span class="pre">&quot;myfortranprogram&quot;</span></code> : execute the fortran program with
+name “myfortranprogram”</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">stop</span> <span class="pre">testfile</span></code> : stop SPEX if the file with name testfile
+exists; if this file does not exist, continue with SPEX</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="syserr.html" title="previous chapter">3.1.28. Syserr: systematic errors</a></li>
+      <li>Next: <a href="use.html" title="next chapter">3.1.30. Use: reuse part of the spectrum</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

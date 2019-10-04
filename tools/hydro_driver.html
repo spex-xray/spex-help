@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.4. Hydro driver &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.5. Rgsvprof" href="rgsvprof.html" />
+    <link rel="prev" title="5.3. Xabsinput" href="xabsinput.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hydro-driver">
+<span id="sect-hydrodriver"></span><h1>5.4. Hydro driver<a class="headerlink" href="#hydro-driver" title="Permalink to this headline">¶</a></h1>
+<p>Some users run complex and computationally expensive hydrodynamical
+simulations, and want to be able to calculate the corresponding X-ray
+spectrum. Without having to implement these hydro-codes into it is now
+possible to do this.</p>
+<p>For that purpose we offer the fortran90 subroutine <em>hydro_driver</em>. The
+source code of that routine is available in the SPEX distribution.
+Basically, it does the following:</p>
+<ol class="arabic simple">
+<li><p>It reads the needed parameters as subroutine arguments.</p></li>
+<li><p>It does a few sanity checks (ion concentrations should be
+non-negative, and the total H+H column density must be 1.</p></li>
+<li><p>It then creates a file called “spexicon.dat” containing the ion
+concentrations.</p></li>
+<li><p>It also creates a file called “spexgrid.egr” containing the energy
+grid.</p></li>
+<li><p>It then creates a file called “spexdriver.com” that contains the
+commands to run  in batch mode.</p></li>
+<li><p>This file is executed, and  creates a file “spexoutput.asc”
+containing the emitted spectrum.</p></li>
+<li><p>SPEX terminates.</p></li>
+<li><p>The subroutine reads the file “spexoutput.asc” and puts the spectrum
+in the appropriate output array of the subroutine.</p></li>
+</ol>
+<p>The input arguments of the subroutine are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hden</span></code> : The Hydrogen density in units of <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. Real number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code> : The electron temperature in keV. Real number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">it</span></code> : The ion temperature in keV, used for line broadening. Real number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : The microturbulence velocity, in <img class="math" src="../_images/math/69b3fd2b9651e07049f832ee7d2779a45bb22129.svg" alt="\mathrm{km}\  \mathrm{s}^{-1}" style="vertical-align: 0px"/>, used for line broadening. Real number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volume</span></code> : The emitting volume, in  units of <img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/7d6ac67c14632abdce61da06760e80af5bb37854.svg" alt="\mathrm{m}^3" style="vertical-align: 0px"/>. Real number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">con(31,30)</span></code> : Array with ion concentrations relative to hydrogen (number densities).
+The abundances of the metals should be taken into
+account in this; thus, for example, for cosmic abundances, oxygen has a
+number density of about 0.001 per hydrogen atom, hence the sum of all
+oxygen ion concentrations should then be 0.001. The array con(jz,iz)
+contains for each element (labeled with atomic number <img class="math" src="../_images/math/96447c1de4bc5dca32e5344d4c013b3f34b729fb.svg" alt="iz" style="vertical-align: 0px"/>, H=1,
+He=2 etc.) the concentration; <img class="math" src="../_images/math/a531d0810e014485c87af982a06c3284cb63d887.svg" alt="jz" style="vertical-align: -3px"/> indicates the ionisation stage
+(1=I=neutral, 2=II=singly ionized, etc.; do not forget to include the
+bare nucleus as the last one. Array elements with <img class="math" src="../_images/math/5d2d70e5c0cdcb175e1f76081829aa4a814dcc7c.svg" alt="jz&gt;iz+1" style="vertical-align: -3px"/> will
+be ignored. Note that as things are normalised to hydrogen,
+<img class="math" src="../_images/math/b2a27224a3f0ed4ff8ccda57d91697788201740f.svg" alt="con(1,1) + con(2,1) = 1" style="vertical-align: -4px"/> is obligatory! Real array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neg</span></code> : Number of energy bins. Integer number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eg(0:neg)</span></code> : Energy bin boundaries in keV; the boundaries of the
+first bin are stored in eg(0) and eg(1); the second bin in eg(1) and
+eg(2); etc. Real array.</p></li>
+</ul>
+<p>The output arguments of the subroutine are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">spec(neg)</span></code> : The emitted spectrum in units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/>
+photons/s/keV. Divide this number by <img class="math" src="../_images/math/a4aa9364aac22c4c7073119a178bc7d26a353dfe.svg" alt="4\pi d^2" style="vertical-align: 0px"/> with <img class="math" src="../_images/math/5ac673113d00676b08c46a209eb6b5d862c02609.svg" alt="d" style="vertical-align: 0px"/> the
+source distance to get the flux at Earth. Real array.</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tools.html">5. Additional tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trafo.html">5.1. Trafo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stepcontour.html">5.2. Stepcontour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xabsinput.html">5.3. Xabsinput</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.4. Hydro driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsvprof.html">5.5. Rgsvprof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsfluxcombine.html">5.6. RGS_fluxcombine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgs_fmat.html">5.7. RGS_fmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortcall.html">5.8. Calling SPEX from Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspextools.html">5.9. Python tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tools.html">5. Additional tools</a><ul>
+      <li>Previous: <a href="xabsinput.html" title="previous chapter">5.3. Xabsinput</a></li>
+      <li>Next: <a href="rgsvprof.html" title="next chapter">5.5. Rgsvprof</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

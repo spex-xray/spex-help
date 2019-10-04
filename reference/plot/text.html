@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.2.5. Plot text &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.6. Plot captions" href="captions.html" />
+    <link rel="prev" title="3.2.4. Plot line types" href="lines.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plot-text">
+<span id="sect-plottext"></span><h1>3.2.5. Plot text<a class="headerlink" href="#plot-text" title="Permalink to this headline">¶</a></h1>
+<p>In  it is possible to draw text strings on the plot surface or near the
+frame of the plot. Several properties of the text can be adjusted, like
+the fontheight, font type, colour, orientation and location of the text.
+See the figure below for an example of possible fonts.</p>
+<div class="section" id="font-types-font">
+<h2>3.2.5.1. Font types (font)<a class="headerlink" href="#font-types-font" title="Permalink to this headline">¶</a></h2>
+<p>The following fonts types are allowed (values between 1–4):</p>
+<ol class="arabic simple">
+<li><p>normal font (default)</p></li>
+<li><p>roman font</p></li>
+<li><p><em>italic font</em></p></li>
+<li><p>script font</p></li>
+</ol>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/pgfonts.png"><img alt="Example of different fonts." src="../../_images/pgfonts.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">Example of different fonts.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="font-heights-fh">
+<h2>3.2.5.2. Font heights (fh)<a class="headerlink" href="#font-heights-fh" title="Permalink to this headline">¶</a></h2>
+<p>The font height can be entered as a real number, the default value is 1.
+A useful value for getting results that are still readable for
+publications is 1.3. Note that if you make the font height for the
+captions of the figure too large, you may loose some text off the paper.</p>
+</div>
+<div class="section" id="special-characters">
+<h2>3.2.5.3. Special characters<a class="headerlink" href="#special-characters" title="Permalink to this headline">¶</a></h2>
+<p>The texts strings that are plotted may be modified using the pgplot
+escape sequences. These are character–sequences that are not plotted,
+but are interpreted as instructions to change the font, draw
+superscripts or subscripts, draw non-ASCII characters, Greek letters,
+etc. All escape sequences start with a backslash character (<code class="docutils literal notranslate"><span class="pre">\</span></code>). A
+list of the defined escape sequences is given in the first table below. A
+lookup table for Greek letters is presented in the table after that. Some
+useful non-ASCII characters are listed as well.
+The last table shows some examples of the use of pgplot escape
+sequences in character strings.</p>
+<p><strong>A list of available escape sequences.</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Seq.</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\u</span></code></p></td>
+<td><p>Start a superscript or end a subscript. A <code class="docutils literal notranslate"><span class="pre">\u</span></code> must be ended by a <code class="docutils literal notranslate"><span class="pre">\d</span></code>!</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td><p>Start a subscript or end a superscript. A <code class="docutils literal notranslate"><span class="pre">\d</span></code> must be ended by a <code class="docutils literal notranslate"><span class="pre">\u</span></code>!</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
+<td><p>Backspace (i.e. do not advance textpointer after plotting the previous character)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\A</span></code></p></td>
+<td><p>Ångstrom symbol (Å)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\gx</span></code></p></td>
+<td><p>Greek letter corresponding to roman letter <code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\fn</span></code></p></td>
+<td><p>Switch to Normal font</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\fr</span></code></p></td>
+<td><p>Switch to Roman font</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\fi</span></code></p></td>
+<td><p>Switch to Italic font</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\fs</span></code></p></td>
+<td><p>Switch to Script font</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\(n)</span></code></p></td>
+<td><p>Character number <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>, see <em>pgplot manual appendix B, tab. 1</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>** List of upper- and lower case Greek letters (G) and their corresponding Roman letters (R).**</p>
+<div class="math">
+<p><img src="../../_images/math/3d5d959c9b541233d2d41fd310a51ab5b0293816.svg" alt="\begin{array}{rc|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+\hline \hline
+{\rm R:} &amp; A &amp; B &amp; G &amp; D &amp; E &amp; Z &amp; Y &amp; H &amp; I &amp; K &amp; L &amp; M &amp; N &amp; C &amp; O &amp; P &amp; R &amp; S &amp; T &amp; U &amp; F &amp; X &amp; Q &amp; W \\
+{\rm G:} &amp; A &amp; B &amp; \Gamma &amp; \Delta &amp; E &amp; Z &amp; H &amp; \Theta &amp; I &amp; K &amp; \Lambda &amp; M &amp; N &amp; \Xi &amp; O &amp; \Pi &amp; P &amp; \Sigma &amp; T &amp; \Upsilon &amp; \Phi &amp; X &amp; \Psi &amp; \Omega\\
+\hline
+{\rm R:} &amp; a &amp; b &amp; g &amp; d &amp; e &amp; z &amp; y &amp; h &amp; i &amp; k &amp; l &amp; m &amp; n &amp; c &amp; o &amp; p &amp; r &amp; s &amp; t &amp; u &amp; f &amp; x &amp; q &amp; w\\
+{\rm G:} &amp; \alpha &amp; \beta &amp; \gamma &amp; \delta &amp; \epsilon &amp; \zeta &amp; \eta &amp; \theta &amp; \iota &amp; \kappa &amp; \lambda &amp; \mu &amp; \nu &amp; \xi &amp; o &amp; \pi &amp; \rho &amp; \sigma &amp; \tau &amp; v &amp; \phi &amp; \chi &amp; \psi &amp; \omega\\
+\hline \hline
+\end{array}"/></p>
+</div><div class="math">
+<p><img src="../../_images/math/8d0c4942de4800eeaed4f82be925240d82fbc8e5.svg" alt="\begin{array}{cc|cc|cc}
+\hline\hline
+\sim            &amp; 2248 &amp; \pm      &amp; 2233 &amp; \nabla   &amp; 0583 \\
+\approx         &amp; 0248 &amp; \mp      &amp; 2234 &amp; \surd    &amp; 2267 \\
+\cong           &amp; 0250 &amp; \times   &amp; 2235 &amp; \int     &amp; 2268 \\
+\propto         &amp; 2245 &amp; \div     &amp; 2237 &amp; \oint    &amp; 2269 \\
+\neq            &amp; 2239 &amp; \equiv   &amp; 2240 &amp; \infty   &amp; 2270 \\
+\stackrel{&lt;}{=} &amp; 2243 &amp; \dagger  &amp; 2277 &amp; \partial &amp; 2286 \\
+\stackrel{&gt;}{=} &amp; 2244 &amp; \ddagger &amp; 2278 &amp; \odot    &amp; 2281 \\
+\hline\hline
+\end{array}"/></p>
+</div><table class="docutils align-default">
+<colgroup>
+<col style="width: 56%" />
+<col style="width: 44%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Displayed</strong></p></td>
+<td><p><strong>PGPLOT escape sequence</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><img class="math" src="../../_images/math/db458d447a3288c5d3c4ff99d50efc37264b9e0f.svg" alt="f(x) = x^2\cos (2\pi x)" style="vertical-align: -4px"/></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\fif(x)</span> <span class="pre">=</span> <span class="pre">x\u2\d</span> <span class="pre">\frcos\fi(\fr2\fi\gpx)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><img class="math" src="../../_images/math/5d2420738cdb41155cab0ab306dc1564135166b0.svg" alt="H_0" style="vertical-align: -2px"/> = 75 <img class="math" src="../../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/> 25 km s<img class="math" src="../../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/> Mpc<img class="math" src="../../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\fiH\d0\u\fr</span> <span class="pre">=</span> <span class="pre">75</span> <span class="pre">\(2233)</span> <span class="pre">25</span> <span class="pre">km</span> <span class="pre">s\u-1\d</span> <span class="pre">Mpc\u-1\d</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../plot.html">3.2. Plotting reference</a><ul>
+      <li>Previous: <a href="lines.html" title="previous chapter">3.2.4. Plot line types</a></li>
+      <li>Next: <a href="captions.html" title="next chapter">3.2.6. Plot captions</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

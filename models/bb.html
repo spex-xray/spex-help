@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.3. Bb: blackbody model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.4. Cf: isobaric cooling flow differential emission measure model" href="cf.html" />
+    <link rel="prev" title="4.1.2. Amol: oxygen edge molecules absorption model" href="amol.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bb-blackbody-model">
+<h1>4.1.3. Bb: blackbody model<a class="headerlink" href="#bb-blackbody-model" title="Permalink to this headline">¶</a></h1>
+<p>The surface <em>energy</em> flux of a blackbody emitter is given by</p>
+<div class="math">
+<p><img src="../_images/math/249763b841c6ca6672c5552dcc8c98881a7ae2ca.svg" alt="F_\nu = \pi B_\nu = \frac{2\pi h\nu^3/c^2}{e^{h\nu/kT}-1}"/></p>
+</div><p>(<a class="reference external" href="https://doi.org/10.1002/9783527618170">Chapter 1 of Rybicki &amp; Lightman 1986</a>).
+We transform this into a spectrum with energy units (conversion from Hz to keV) and
+obtain for the total <em>photon</em> flux:</p>
+<div class="math">
+<p><img src="../_images/math/5b547e7e961175d80c8b9166bcc44c264909f5b0.svg" alt="S(E){\mathrm d}E = 2\pi c [10^3e/hc]^3 \frac{E^2}{e^{E/T}-1} {\mathrm d}E"/></p>
+</div><p>where now <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> the
+temperature in keV and <img class="math" src="../_images/math/2e56c3586f9ed1c878dc33c4bd9d709d279141a8.svg" alt="e" style="vertical-align: 0px"/> is the elementary charge in Coulomb.
+Inserting numerical values and multiplying by the emitting area
+<img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/>, we get</p>
+<div class="math">
+<p><img src="../_images/math/3e35765adf15871f25d8c5abcdeb48fe380fb081.svg" alt="N(E) = 9.883280\times 10^{7}\, E^2A/(e^{E/T}-1)"/></p>
+</div><p>where N(E) is the photon spectrum in units of
+<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> photons/s/keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> the emitting area in
+<img class="math" src="../_images/math/a0236e3d3ceabddd953324dad75f50c1f83ce39e.svg" alt="10^{16}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> (the emitting area, in units of
+<img class="math" src="../_images/math/a0236e3d3ceabddd953324dad75f50c1f83ce39e.svg" alt="10^{16}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : The temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 1 keV.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://doi.org/10.1002/andp.18601850205">Kirchhoff (1860)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="amol.html" title="previous chapter">4.1.2. Amol: oxygen edge molecules absorption model</a></li>
+      <li>Next: <a href="cf.html" title="next chapter">4.1.4. Cf: isobaric cooling flow differential emission measure model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

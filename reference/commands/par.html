@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.21. Par: Input and output of model parameters &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.22. Plot: Plotting data and models" href="plot.html" />
+    <link rel="prev" title="3.1.20. Obin: optimal rebinning of the data" href="obin.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="par-input-and-output-of-model-parameters">
+<span id="sec-par"></span><h1>3.1.21. Par: Input and output of model parameters<a class="headerlink" href="#par-input-and-output-of-model-parameters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.21.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This command is used as an interface to set or display the parameters of
+the spectral model. Each model parameter (like temperature <img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>,
+abundance, normalization etc.) has a set of attributes, namely its
+value, status, range and coupling. This is illustrated by the following
+example. Assume we have a spectral model consisting of a thermal plasma.
+Consider the silicon abundance (acronym in the model: 14). It can have a
+value (for example 2.0, meaning twice the solar abundance). Its status
+is a logical variable, true (thawn) if the parameter can be adjusted
+during the spectral fitting proces or false (frozen) if it should be
+kept fixed during the spectral fit. The range is the allowed range that
+the parameter can have during the spectral fit, for example 0–1000
+(minimum – maximum values). This is useful to set to constrain a
+spectral search to a priori “reasonable” values (e.g. abundances should
+be non-negative) or “safe” values (SPEX could crash for negative
+temperatures for example). Finally the coupling allows you to couple
+parameters, for example if the Si abundance is coupled to the Fe
+abundance, a change in the Fe abundance (either defined by the user or
+in a spectral fitting process) will result automatically in an
+adjustment of the Si abundance. This is a useful property in practical
+cases where for example a spectrum has strong Fe lines and weaker lines
+from other species, but definitely non-solar abundances. In this case,
+one may fit the Fe abundance, but the statistics for the other elements
+may not be sufficient to determine their abundance accurately; however a
+priori insight might lead you to think that it is the global metallicity
+that is enhanced, and therefore you would expect the Si abundance to be
+enhanced in the same way as Fe.</p>
+<p>With the par command, you can set for each parameter individually or for
+a range of parameters in the same command, their attributes (value,
+status, range and coupling). Also, you can display the parameters on the
+screen or write them on a SPEX command file, which allows you to start
+another run with the current set of parameters.</p>
+<p>When setting parameters, you can also specify the sector (range) and
+component (range). For your first call, it is assumed that you refer to
+sector 1, component 1, first parameter. In all subsequent calls of the
+parameter command, it is assumed that you refer to the same sector(s)
+and component(s) as your last call, unless specified differently. This
+is illustrated by the following example. Suppose you have the following
+model: power law (component 1), blackbody (component 2) and RGS line
+broadening (lpro, component 3). If you type in the commands in that
+order, this is what happens:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">val</span> <span class="pre">2</span></code> – sets the norm (= first parameter) of the power law to
+value 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">gam</span> <span class="pre">val</span> <span class="pre">3</span></code> – sets the photon index of the power law to value 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">2</span> <span class="pre">t</span> <span class="pre">val</span> <span class="pre">2.5</span></code> – sets the temperature of the blackbody to 2.5 keV</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">norm</span> <span class="pre">val</span> <span class="pre">10</span></code> – sets the norm of the blackbody to 10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">1:2</span> <span class="pre">norm</span> <span class="pre">v</span> <span class="pre">5</span></code> – sets the norm of both the PL and BB to 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">val</span> <span class="pre">4.2</span></code> – sets the norm of both the PL and BB to 4.2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">3</span> <span class="pre">file</span> <span class="pre">avalue</span> <span class="pre">myprofile.dat</span></code> – sets for the LPRO component the
+file name with the broadening kernel to myprofile.dat. Note that the
+command ’value’ changes here to ’avalue’ to indicate that the
+parameter is an ascii string.</p></li>
+</ul>
+<p>Instrument normalisations can be thawned by entering the instrument
+number as a negative sector number. For example, freeing the instrument
+normalisation of instrument 2 is done with the command
+<code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">-2</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">stat</span> <span class="pre">thawn</span></code>. The second value in the command (1) is the
+region number. Therefore, freeing the normalisation of the third region
+of the fourth instrument is done with the command:
+<code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">-4</span> <span class="pre">3</span> <span class="pre">norm</span> <span class="pre">stat</span> <span class="pre">thawn</span></code>.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.21.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a1:]</span> <span class="pre">avalue</span> <span class="pre">#a2</span></code> : Assign the value #a2 to the
+parameters specified by the (range of) name(s) #a1 of component range
+#i2: of sectors #i1:. The sector (range), component (range) and
+parameter name (range) are optional. If #a2 should be an empty text
+string, specify the value “none” (without quotes, and all four
+characters in lowercase). If they are not specified, the sector(s),
+component(s) and parameter(s) of the last call are used. This command
+containing the word “avalue” holds for input of text strings. For the
+input of real numbers “avalue” is replaced by “value” and #a2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a:]</span> <span class="pre">value</span> <span class="pre">#r</span></code> : Assign the value #r to the
+parameters specified by the (range of) name(s) #a of component range
+#i2: of sectors #i1:. The sector (range), component (range) and
+parameter name (range) are optional. If not specified, the sector(s),
+component(s) and parameter(s) of the last call are used.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a:]</span> <span class="pre">status</span> <span class="pre">#l</span></code> : As above but for the status of
+a (range of) parameters; #l = T (true, thawn) means a parameter that
+can be adjusted during a spectral fit, #l = F (false, froze, fixed)
+means a parameter that will remain fixed during the spectral fitting.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a:]</span> <span class="pre">range</span> <span class="pre">#r1:#r2</span></code> : As above but fore the
+allowed range of the parameter. #r1 denotes the lower limit and #r2
+denotes the upper limit. Both should be specified.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a1:]</span> <span class="pre">couple</span> <span class="pre">[#i3:]</span> <span class="pre">[#i4:]</span> <span class="pre">#a2:</span></code> : Here #i1:,
+#i2:, #a1: are the sector(s), component(s) and parameter(s) that are
+to be coupled. The parameter (s) to which they are coupled are
+specified by #a2: and the optional #i3:, #i4:. If ranges are used,
+take care that the number of sectors, components and parameters on the
+right and left match.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a1:]</span> <span class="pre">couple</span> <span class="pre">[#i3:]</span> <span class="pre">[#i4:]</span> <span class="pre">#a2:</span> <span class="pre">factor</span> <span class="pre">#r</span></code> : As
+above, but couple using a scaling factor #r.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">#a:</span> <span class="pre">decouple</span></code> : Decouples the parameter(s) #a: of
+(optional) components #i2: of of (optional) sector(s) #i1:. Inverse
+operation of the couple command.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">[free]</span></code> : Shows on the display screen all parameters of
+all components. If the optional keyword free is given, shows only
+parameters with fit status “T” (true, thawn), i.e., the free
+parameters in a spectral fit.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">corr</span> <span class="pre">#l</span></code> : Display the correlations between parameters
+after fitting if this flag is true (default)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span></code> : Writes all parameters to a SPEX command
+file #a. #a should be specified without extension, SPEX automatically
+adds the .com extension. If the optional overwrite command is given,
+then the file #a will be overwritten with the new values.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.21.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">val</span> <span class="pre">10</span></code> : Sets the value of the current parameter to 10.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">t</span> <span class="pre">val</span> <span class="pre">4</span></code> : Sets the parameter named “t” to 4.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">06:28</span> <span class="pre">value</span> <span class="pre">0.3</span></code> : Sets the parameters named 06:28 (for example
+the abundances of C (<img class="math" src="../../_images/math/fa89b6d4d82596ad7d079de334e0abe077c263ae.svg" alt="Z=6" style="vertical-align: 0px"/>), N (<img class="math" src="../../_images/math/555038a36c72e579731ca5b958dba618cbe33633.svg" alt="Z=7" style="vertical-align: 0px"/>), <img class="math" src="../../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> Ni
+(<img class="math" src="../../_images/math/aa908aee08f9a2b06da0051a6c00f996857bfa34.svg" alt="Z=28" style="vertical-align: 0px"/>)) to the value 0.3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">2</span> <span class="pre">nh</span> <span class="pre">val</span> <span class="pre">0.01</span></code> : Sets the parameter named “nh” of component 2
+to the value 0.01</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">value</span> <span class="pre">1E8</span></code> : Sets parameter named “norm” of component
+1 of sector 1 to the value <img class="math" src="../../_images/math/1c44b4ddc5b8358823c0741f276bfffd54e2cf28.svg" alt="10^8" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">file</span> <span class="pre">avalue</span> <span class="pre">myfile.with.data</span></code> : sets the ascii-type parameter
+named “file” to the value “myfile.with.data” (without quotes).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">file</span> <span class="pre">avalue</span> <span class="pre">none</span></code> : sets the ascii-type parameter named “file”
+to the value “” (i.e. an empty string)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">status</span> <span class="pre">frozen</span></code> : Sets the fit status of the current parameter
+to “frozen” (fixed).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">1</span> <span class="pre">3</span> <span class="pre">t</span> <span class="pre">stat</span> <span class="pre">thawn</span></code> : Specifies that parameter “t” of the third
+component of the model for sector 1 should be left free (thawn) during
+spectral fitting.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">gamm</span> <span class="pre">range</span> <span class="pre">1.6:1.9</span></code> : Limit parameter “gamm” of component 3
+of sector 2 to the range 1.6 – 1.9.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">norm</span> <span class="pre">range</span> <span class="pre">-1E8</span> <span class="pre">1E8</span></code> : Set the range for the parameter “norm”
+between <img class="math" src="../../_images/math/856586ae68a5e8709b45ef27f8aa7a523d835ddd.svg" alt="-10^{8}" style="vertical-align: -1px"/> and <img class="math" src="../../_images/math/bd3c7601d3dc8dc89bd90ab35873b62d4700eeb6.svg" alt="+10^{8}" style="vertical-align: -1px"/>. This command is necessary
+if for example the model is a delta line used to mimick an absorption
+line, which normally has a default minimum value of 0. (for an
+emission line).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">couple</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">norm</span></code> : Couples the norm of the first
+component for the first sector to the norm of the first component of
+the model for the second sector.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">couple</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">factor</span> <span class="pre">3</span></code> : The same command as the
+above, but now the norm of the first component in the model for sector
+1 is 3 times the norm of the first component of the model for sector
+2. For example, if the norm of the 1st component of sector 2 gets the
+value 40, then the norm of the 1st component of sector 1 will
+automatically be updated to a value of <img class="math" src="../../_images/math/4eeedea5327f163bca95691eb2fafe844e9c61eb.svg" alt="3\times 40 = 120" style="vertical-align: -1px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">3:5</span> <span class="pre">02:30</span> <span class="pre">couple</span> <span class="pre">1</span> <span class="pre">02:30</span></code> : Couples the abundances of He–Zn of
+components 3, 4 and 5 to the He–Zn abundances of component 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">norm</span> <span class="pre">decouple</span></code> : Decouples the norm of the current component
+from whatever it was coupled to.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">-2</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">stat</span> <span class="pre">thawn</span></code> : Free the instrument normalisation of
+instrument 2 and region 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code> : Shows all the parameters of the current model for all
+sectors and how they are coupled (if applicable). For each parameter
+it shows the value, status, range and coupling information, as well as
+info on its units etc. It also shows the fluxes and restframe
+luminosities of the additive components, photon flux (phot/m**2/s) and
+energy flux (W/m**2) are the values observed at Earth (including any
+transmission effects like Galactic absorption or intrinsic absoprtion
+that have been taken into account), and the nr. of photons (photons/s)
+and luminosity (W) are all as emitted by the source, without any
+attenuation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">free</span></code> : As above, but only displays the parameters that
+have the status thawn.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span> <span class="pre">mypar</span> <span class="pre">overwrite</span></code> : SPEX writes all parameters for the
+model to a file named mypar.com. Any previously existing file
+mypar.com is overwritten.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span> <span class="pre">mypar</span></code> : Same command as above, but now a new file is
+created. If there already exists a file with the same filename
+SPEX will give an error message.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="obin.html" title="previous chapter">3.1.20. Obin: optimal rebinning of the data</a></li>
+      <li>Next: <a href="plot.html" title="next chapter">3.1.22. Plot: Plotting data and models</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

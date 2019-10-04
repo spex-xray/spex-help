@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.7. CX: model for charge exchange plasmas &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.8. Dabs: dust absorption model" href="dabs.html" />
+    <link rel="prev" title="4.1.6. Comt: comptonisation model" href="comt.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="cx-model-for-charge-exchange-plasmas">
+<h1>4.1.7. CX: model for charge exchange plasmas<a class="headerlink" href="#cx-model-for-charge-exchange-plasmas" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the spectrum emitted from a hot plasma when it
+recombines with cold neutral materials. This model is based on three key
+assumptions: (1) it considers only single electron capture in a
+ion-neutral collision; (2) all cross section data are obtained only with a
+atomic hydrogen target, (3) electronic collisional excitation and
+recombination are ignored in the spectral calculation. More information
+can be found in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
+<div class="section" id="charge-exchange-cross-sections">
+<h2>4.1.7.1. Charge exchange cross sections<a class="headerlink" href="#charge-exchange-cross-sections" title="Permalink to this headline">¶</a></h2>
+<p>The CX cross section data used in the model are partly taken from
+literatures, including quantum molecular-orbital close-coupling
+calculations for <img class="math" src="../_images/math/389a469d4d9c3d57a3607a9b38fadd13ed592445.svg" alt="\mathrm C^{5+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ba3e7fc78c209c2e3f5b64b6e6952fb1c01a4763.svg" alt="\mathrm O^{6+}" style="vertical-align: 0px"/> by
+<a class="reference external" href="https://doi.org/10.1088/0953-4075/45/23/235201">Wu et al. (2012)</a>
+and <a class="reference external" href="https://doi.org/10.1088/0953-4075/45/24/245202">Nolte et al. (2012)</a>,
+multi-channel Laudau-Zener results for <img class="math" src="../_images/math/63b2706ca3e2a3cf684da16fc5acfb8f2d688f07.svg" alt="\mathrm Fe^{25+}" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/a19afdd029aa9f9a5ade5ba05e2a0b1e6abc735a.svg" alt="\mathrm Fe^{26+}" style="vertical-align: 0px"/> by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ApJS..224...31M/abstract">Mullen et al. (2016)</a>, other data
+compilations for <img class="math" src="../_images/math/7cc4dd3aed1a07cbbc7bef17f7f740948f64eeaa.svg" alt="\mathrm C^{6+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/b5d29ad1d7318eaf8dd111a4637c8a7d14f155fb.svg" alt="\mathrm O^{8+}" style="vertical-align: 0px"/> by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993ADNDT..55..201J/abstract">Janev et al. (1993)</a>,
+and the NIFS Charge Transfer Database
+(CHART)  <a class="footnote-reference brackets" href="#id8" id="id1">1</a> for <img class="math" src="../_images/math/d9b8b2cc4ebac007b9ff14df828f83bb82912ba8.svg" alt="\mathrm Be^{4+}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/c82a316f1fd773cfa6467044b22047e077d0dfc3.svg" alt="\mathrm B^{5+}" style="vertical-align: 0px"/>,
+<img class="math" src="../_images/math/20fb6d5646f28f85af6addf12a910b5d5393960e.svg" alt="\mathrm N^{7+}" style="vertical-align: 0px"/>, and <img class="math" src="../_images/math/8441ea480fdf6b1f0d016c3f5dbfeb0a8d827b83.svg" alt="\mathrm Ne^{10+}" style="vertical-align: 0px"/>. For CHART database, we
+extracted all the data, from both theoretical calculations and
+experiments (see a full list in Table 1 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>),
+and fitted them with Eq.2 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a> in the energy
+range of interests. In typical astrophysical velocity range
+(<img class="math" src="../_images/math/e2195ccada191eb57b0342c5fa887af793e23976.svg" alt="\sim 100-5000" style="vertical-align: -1px"/> km s<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>), the useful CHART data are
+usually from molecular-orbital and atomic-orbital close-coupling
+methods, and a few classical trajectory Monte Carlo calculations. All
+the above data are dependent on collision energy, and resolved to levels
+described by quantum number <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/>.</p>
+<p>For ions not available in public sources, we developed a new method to
+interpolate by analyzing the known ions. First we used a scaling law to
+determine total cross section for each ion, and applied another scaling
+law to represent the <img class="math" src="../_images/math/101e77fe425252eb6c0ba042f4a0a8cc5cfb002a.svg" alt="n-" style="vertical-align: -1px"/> selectivity. The <img class="math" src="../_images/math/8c76fc64a6522d468ab25613ce650d2efdf1cff0.svg" alt="l-" style="vertical-align: -1px"/> dependence
+is approximated by one of the five empirical weighting functions
+presented in Eqs.<img class="math" src="../_images/math/ce92356a81b5b234e064c37f3c4e0612cb89dfec.svg" alt="4-8" style="vertical-align: -1px"/> of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The CX model only works with the updated atomic database set
+through the command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All Beryllium-like sequence ions are not included in the
+current version; will be available later.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We will keep updating the CX model when new data
+(especially for molecular targets) from theoretical calculations and
+experiments become available.</p>
+</div>
+</div>
+<div class="section" id="parameter-description">
+<h2>4.1.7.2. Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p>The parameters of the CX model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : the normalisation, which is the emission measure
+<img class="math" src="../_images/math/7024af9372e52aad9d1932da8e05cfe66642c6e8.svg" alt="Y \equiv n_{\mathrm
+H} n_{\mathrm nh} V" style="vertical-align: -2px"/> in units of <img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, where
+<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/8fe55f1a0687a70933a508b585f88e130d23a2d5.svg" alt="n_{\mathrm nh}" style="vertical-align: -2px"/> are the Hydrogen
+densities of the ionized and neutral materials, respectively, and
+<img class="math" src="../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> is the effective interaction volume. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density of the neutral materials in units of
+<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> (or <img class="math" src="../_images/math/ec8f0eda6b74e73d2064fccc92e96a21c1983abc.svg" alt="10^{14}" style="vertical-align: 0px"/>
+<img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>).
+Default value: <img class="math" src="../_images/math/e6a84054eab4e0a886622798559262af5b4ebe58.svg" alt="10^{-14}" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code> : Switch between a hot-cold interaction driven by thermal
+motion of hot plasma, and the one dominated by flow velocity. Default
+value: 2 (kinematic).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the ionization temperature of hot matter in keV. It is also
+used to approximate the thermal motion when mode is set to 1. Default
+value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sig</span></code> : the width <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the gaussian emission measure
+profile. Default value: 0. (no temperature distribution i.e.
+isothermal)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sup</span></code> : the width <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the high-temperature part of
+the gaussian emission measure profile. If larger than <img class="math" src="../_images/math/373534238f84ddb3c99a028005ff5f9c61d9f2bc.svg" alt="10^{-5}" style="vertical-align: 0px"/>
+keV, the sig parameter becomes the sigma value for the low-temperature
+end. Default value: 0</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">logt</span></code> : Switch between linear and logarithmic temperature scale for
+the gaussian emission measure profile. Default value: 1 (logarithmic)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Collision velocity in unit of km s<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>, used when
+mode is set to 2. Default value: 100</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">op</span></code> : Switch between single and multiple collisions for each ion.
+In multiple collision case, one ion would continuously undergo CX and
+produce various emission lines, until it becomes neutral. Default: 1
+(single)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">wt</span></code> : Weighting functions for subshell <img class="math" src="../_images/math/8c76fc64a6522d468ab25613ce650d2efdf1cff0.svg" alt="l-" style="vertical-align: -1px"/> population. When
+wt is set to 1, the <img class="math" src="../_images/math/8c76fc64a6522d468ab25613ce650d2efdf1cff0.svg" alt="l-" style="vertical-align: -1px"/> population is approximated by a series
+of empirical functions that switchs from one to another as a function
+of collision velocity. See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a> for details.
+These empirical functions are defined in Eqs. <img class="math" src="../_images/math/ce92356a81b5b234e064c37f3c4e0612cb89dfec.svg" alt="4-8" style="vertical-align: -1px"/> of
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>,
+and will be selected when wt is set to <img class="math" src="../_images/math/9aab044c575c57394efed2c9860a665d465f8831.svg" alt="2-6" style="vertical-align: -1px"/>, respectively. Default: 1</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : the (micro)turbulent velocity <img class="math" src="../_images/math/00e962457c0f4200532e09548cad6d4830b7e060.svg" alt="v_{\mathrm{micro}}" style="vertical-align: -2px"/>,
+in km/s. Default value 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : reference element. Default value 1 (hydrogen). See above for
+more details. The value corresponds to the atomic number of the
+reference element.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01</span></code> : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">02</span></code> : Abundance of helium (He, Z=2) in Solar units. Default 1.</div>
+<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">30</span></code> : Abundance of zinc (Zn, Z=30) in Solar units.
+Default 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal distribution. If not present,
+nonthermal effects are not taken into account (default).</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://dbshino.nifs.ac.jp/">http://dbshino.nifs.ac.jp/</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="comt.html" title="previous chapter">4.1.6. Comt: comptonisation model</a></li>
+      <li>Next: <a href="dabs.html" title="next chapter">4.1.8. Dabs: dust absorption model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

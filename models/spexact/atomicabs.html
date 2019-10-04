@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.5. Atomic database for the absorbers &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.6. Non-equilibrium ionisation (NEI) calculations" href="nei.html" />
+    <link rel="prev" title="4.4. Absorption model theory" href="absmodels.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="atomic-database-for-the-absorbers">
+<span id="sect-abs-database"></span><h1>4.5. Atomic database for the absorbers<a class="headerlink" href="#atomic-database-for-the-absorbers" title="Permalink to this headline">¶</a></h1>
+<p>The continuum opacities are taken from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract">Verner &amp; Yakovlev
+(1995)</a>.
+Line opacities and wavelengths for most ions are from
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996ADNDT..64....1V/abstract">Verner et al. (1996)</a>,
+with the following additions and exceptions:</p>
+<div class="section" id="k-shell-transitions">
+<span id="sect-k-shell"></span><h2>4.5.1. K-shell transitions<a class="headerlink" href="#k-shell-transitions" title="Permalink to this headline">¶</a></h2>
+<p>For some hydrogenic ions (C, N, O, Ne, Mg, Si, S and Ar) we added the
+transitions from principal quantum numbers 11–20 to the ground using our
+own SPEX database.</p>
+<div class="section" id="c-k-transitions">
+<h3>4.5.1.1. C-K transitions<a class="headerlink" href="#c-k-transitions" title="Permalink to this headline">¶</a></h3>
+<p>Three inner-shell K-shell transitions for C I were calculated by Raassen
+using the Cowan code, but here only the oscillator strengths were
+calculated, and therefore calculated equivalent widths for large optical
+depths will be too weak. We added two C IV lines from the work of
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001PhRvA..63f0701N/abstract">Nahar et al. (2001)</a>.</p>
+</div>
+<div class="section" id="n-k-transitions">
+<h3>4.5.1.2. N-K transitions<a class="headerlink" href="#n-k-transitions" title="Permalink to this headline">¶</a></h3>
+<p>For N I the K-shell transitions were calculated by Raassen using the Cowan
+code. We adjusted the wavelength of the strongest 1s–2p line acording to
+measurements. However, for the 1s–2p lines towards
+<img class="math" src="../../_images/math/9fdce24acc78a76d38f73dd232672e2dd16da1e7.svg" alt="1s 2s^2 2p^4" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/971e673463d898ca2720914f1a31bda48264d751.svg" alt="^4 P" style="vertical-align: 0px"/>, we used oscilator
+strengths and Auger widths from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJS..185..477G/abstract">Garcia et al. (2009)</a>.</p>
+<p>Inner-shell K-shell transitions for N II were also calculated by Raassen
+using the Cowan code, but here only the oscillator strengths were
+calculated, and therefore calculated equivalent widths for large optical
+depths will be too weak. The exception to this are the 1s–2p absorption
+lines to the <img class="math" src="../../_images/math/0efdc1be2a50391489750d890fcb4653f624411c.svg" alt="1s 2s^2 2p^3" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/f6bd5bda15dc5173610bcc0786ef012f51303c0e.svg" alt="^3 S_1" style="vertical-align: -2px"/>,
+<img class="math" src="../../_images/math/579d64f380bd1968a8a9bece208dd372d8fb1b99.svg" alt="^3 P_1" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/22a0250ba5520f59ab53fc2a2f60cc7e5e53f262.svg" alt="^3 D_1" style="vertical-align: -2px"/> levels, for
+which we use <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJS..185..477G/abstract">Garcia et al. (2009)</a>.</p>
+<p>For N III we added the 1s–2p absorption lines towards the
+<img class="math" src="../../_images/math/0dd1f83a66b71247e1dcd6b29b5dcff434b025f5.svg" alt="1s 2s^2 2p^2" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/5669aa1607aa9d9d8939b9479f865f6dd3bc3d32.svg" alt="^2 S" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/19bc9ac5fffd0615af71691ace4b4beffc9989e8.svg" alt="^2 P" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/40ba8ac4d7c32c504bf44c428d15ae1f7d154008.svg" alt="^2 D_{3/2}" style="vertical-align: -5px"/>
+levels from the paper by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJS..185..477G/abstract">Garcia et al. (2009)</a>.
+Wavelengths are theoretical, so may be somewhat off.</p>
+<p>For N IV we added the 1s–2p absorption lines towards the <img class="math" src="../../_images/math/a6010422248c7de7b5c4b3ee7431bd0b3bc196ed.svg" alt="1s 2s^2 2p" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/2f69aa4939c7688400d4abe05ea40869b6fc5225.svg" alt="^1P_1" style="vertical-align: -2px"/>
+and <img class="math" src="../../_images/math/697a1bfe6337dc05fc4770f96967564ee6c31d4d.svg" alt="1s 2p^3" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/3f35ede27da82d4b2b3bb7c28864abe3f96ae9de.svg" alt="^1 P_1" style="vertical-align: -2px"/> levels from the paper by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJS..185..477G/abstract">Garcia et al. (2009)</a>.
+Wavelengths are theoretical, so may be somewhat off.</p>
+<p>For N V we added the 1s–2p absorption lines towards the
+<img class="math" src="../../_images/math/7b3a290d7600da5dc8d2e798200fac33fca66bd4.svg" alt="1s(2S)2s2p(3P)" style="vertical-align: -4px"/> <img class="math" src="../../_images/math/19bc9ac5fffd0615af71691ace4b4beffc9989e8.svg" alt="^2 P" style="vertical-align: 0px"/> doublet and
+<img class="math" src="../../_images/math/3a7d33d9676bd978cd20585b32067547176e5bb0.svg" alt="1s(2S)2s2p(1P)" style="vertical-align: -4px"/> <img class="math" src="../../_images/math/19bc9ac5fffd0615af71691ace4b4beffc9989e8.svg" alt="^2 P" style="vertical-align: 0px"/> doublet from the paper by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJS..185..477G/abstract">Garcia et al. (2009)</a>.
+Wavelengths were corrected according to
+the measurements of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999RScI...70..276B/abstract">Beiersdorfer et al.
+(1999)</a>.</p>
+<p>For N VI we added the 1s–np lines for <img class="math" src="../../_images/math/19ba45cff170c23025d2915e663c709208efb00b.svg" alt="n=5-7" style="vertical-align: -1px"/> from our SPEX database.</p>
+</div>
+<div class="section" id="o-k-transitions">
+<h3>4.5.1.3. O-K transitions<a class="headerlink" href="#o-k-transitions" title="Permalink to this headline">¶</a></h3>
+<p>We included the inner shell K-shell transitions of oxygen ions (O I – O VI)
+from earlier work of Behar (HULLAC calculations, private commumication).</p>
+<p>We adjusted the wavelength of the strongest line to <img class="math" src="../../_images/math/b4d018e0821f0d2fc54e431a8f9b92e6c617f672.svg" alt="22.370\pm0.010" style="vertical-align: -1px"/> Å,
+taken from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...627.1066G/abstract">Gu et al. (2005)</a>.</p>
+<p>The two 1s–2p <img class="math" src="../../_images/math/6067c9eb6df718ccdf21a70b3e1a693315245742.svg" alt="^2 P_{1/2,3/2}" style="vertical-align: -5px"/> lines of O IV were adjusted
+to 22.741 and 22.739 Å, respectively following <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...627.1066G/abstract">Gu et al. (2005)</a>.
+The lines to the <img class="math" src="../../_images/math/40ba8ac4d7c32c504bf44c428d15ae1f7d154008.svg" alt="^2 D_{3/2}" style="vertical-align: -5px"/> and <img class="math" src="../../_images/math/6cb644289f515b793b94181572331655f42b9855.svg" alt="^2 S_{1/2}" style="vertical-align: -5px"/> terms
+were not adjusted as no values are given by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...627.1066G/abstract">Gu et al. (2005)</a>.</p>
+<p>For O III, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...627.1066G/abstract">Gu et al. (2005)</a>
+give only a single line instead of the three dominant lines to
+<img class="math" src="../../_images/math/22a0250ba5520f59ab53fc2a2f60cc7e5e53f262.svg" alt="^3 D_1" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/f6bd5bda15dc5173610bcc0786ef012f51303c0e.svg" alt="^3 S_1" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/579d64f380bd1968a8a9bece208dd372d8fb1b99.svg" alt="^3 P_1" style="vertical-align: -2px"/>. The
+oscillator-strength weighted average wavelength for these three lines
+using Behar’s HULLAC calculations is 23.058 Å, compared to 23.065 Å as
+given by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...627.1066G/abstract">Gu et al. (2005)</a>.
+Other sets of calculation differ much from this, up to 0.05–0.10 Å
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002MNRAS.332.1005O/abstract">Olalla et al., 2002</a>;
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003MNRAS.341.1268P/abstract">Pradhan et al., 2003</a>;
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004ApJ...612..308J/abstract">Juett et al., 2004</a>;
+so we keep the Behar values lacking more reliable calculations.</p>
+<p>For O II, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004ApJ...612..308J/abstract">Juett et al. (2004)</a>
+identified a feature in observed
+Chandra HETGS spectra towards several sources with the 1s–2p line from
+this ion; their measured wavelength is 23.351 <img class="math" src="../../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/> 0.003 Å.
+This identification seems to be justified given the Auger electron
+measurements of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994NIMPB..87..178K/abstract">Krause (1994)</a>
+and <a class="reference external" href="https://doi.org/10.1016/0368-2048(93)02055-Q">Caldwell et al. (1994)</a>
+as cited by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJS..158...68G/abstract">Garcia et al. (2005)</a>.
+The relevant transitions are from the
+ground <img class="math" src="../../_images/math/13d945ef639581489f9a952064ace267dddd1eb9.svg" alt="^4 S_{3/2}" style="vertical-align: -5px"/> to the <img class="math" src="../../_images/math/87dde36f4047bf6a76482bb193901b3a06cecad7.svg" alt="^4 P_{5/2}" style="vertical-align: -5px"/>, <img class="math" src="../../_images/math/aa4fbd33e3e77255b33108385be9331c4822b899.svg" alt="^4 P_{3/2}" style="vertical-align: -5px"/>, and
+<img class="math" src="../../_images/math/0906a7e065098b46645658ece76fc9c2407289ef.svg" alt="^4 P_{1/2}" style="vertical-align: -5px"/> levels; the oscillator strength weighted
+wavelength from Behar is 23.3012 Å. Therefore we shift the wavelengths
+of these transitions by <img class="math" src="../../_images/math/e9690c954daedfccd317a39f1652e422f97289a8.svg" alt="+0.0498" style="vertical-align: -1px"/> Å in order to match the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004ApJ...612..308J/abstract">Juett et al. (2004)</a> value.</p>
+<p>Finally, in a similar way we shift the strong 1s–2p doublet from to
+match the weighted average of the value found by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004ApJ...612..308J/abstract">Juett et al. (2004)</a>
+with the Chandra HETGS (23.508 <img class="math" src="../../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/> 0.003 Å) and in Mrk 421 with RGS
+(23.5130 <img class="math" src="../../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/> 0.0022 Å) to (23.5113 <img class="math" src="../../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/> 0.0018 Å). For
+all O I lines, we have updated the oscillator strengths and transition rates
+to values obtained by Ton Raassen using Cowan’s code, and benchmarked to
+an adjusted wavelength scale.</p>
+<p>Lines from O VII up to <img class="math" src="../../_images/math/a59a34d1cf1822eb986017c3500d669305b3acd8.svg" alt="n=100" style="vertical-align: 0px"/> were calculated by extrapolation of the
+data for <img class="math" src="../../_images/math/fbec972aedf3543f1f1e03da27c6270532cfd625.svg" alt="n \le 10" style="vertical-align: -2px"/>.</p>
+</div>
+<div class="section" id="ne-k-to-ca-k-transitions">
+<h3>4.5.1.4. Ne-K to Ca-K transitions<a class="headerlink" href="#ne-k-to-ca-k-transitions" title="Permalink to this headline">¶</a></h3>
+<p>The strongest K-shell transitions from Li-like to F-like ions of Ne, Mg,
+Al, Si, S, Ar, and Ca were taken from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002ApJ...570..165B/abstract">Behar &amp; Netzer (2002)</a>.</p>
+</div>
+<div class="section" id="fe-k-transitions">
+<h3>4.5.1.5. Fe-K transitions<a class="headerlink" href="#fe-k-transitions" title="Permalink to this headline">¶</a></h3>
+<p>K-shell transitions in Fe II – Fe XXIV were included from the series of papers by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003A%26A...410..359P/abstract">Palmeri et al. (2003)</a>,
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...414..377M/abstract">Mendoza et al. (2004)</a>,
+and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...418.1171B/abstract">Bautista et al. (2004)</a>.</p>
+<p>In addition, the strongest 1s–3p transitions in Fe XXIII were added from
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002ApJ...570..165B/abstract">Behar &amp; Netzer (2002)</a>.</p>
+</div>
+</div>
+<div class="section" id="l-shell-transitions">
+<span id="sect-l-shell"></span><h2>4.5.2. L-shell transitions<a class="headerlink" href="#l-shell-transitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fe-l-transitions">
+<h3>4.5.2.1. Fe-L transitions<a class="headerlink" href="#fe-l-transitions" title="Permalink to this headline">¶</a></h3>
+<p>For the L-shell ions of iron (Fe XVII - Fe XXIV) we used HULLAC calculations.
+The wavelengths of these L-shell transitions were adjusted according to
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999A%26AS..138..381P/abstract">Phillips et al. (1999)</a>.
+Also the L-shell ions of Si VIII – Si XII, S X – S XIV and Ar XV
+were calculated using the HULLAC code. In addition, we added the 2p–3d
+inner shell resonance lines of Fe I - Fe XVI from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001ApJ...563..497B/abstract">Behar et al. (2001)</a>.
+These inner shell resonance lines occur
+mainly in the 16 - 17 Å band and appear to be extremely
+important diagnostic tools, since the normal resonance lines of these
+lowly ionized iron ions have their wavelengths mainly in the
+inaccessible EUV band.</p>
+</div>
+<div class="section" id="ni-l-transitions">
+<h3>4.5.2.2. Ni-L transitions<a class="headerlink" href="#ni-l-transitions" title="Permalink to this headline">¶</a></h3>
+<p>L-shell transitions of Ni I – Ni XVIII were calculated by Raassen using Cowan’s code,
+with the neglect of line broadening due to auto-ionizations.</p>
+</div>
+</div>
+<div class="section" id="m-shell-transitions">
+<span id="sect-m-shell"></span><h2>4.5.3. M-shell transitions<a class="headerlink" href="#m-shell-transitions" title="Permalink to this headline">¶</a></h2>
+<p>For M-shell transitions of Fe ions, we have used data calculated by Ehud
+Behar using HULLAC (Fe I – Fe XVI). The calculations for (Fe VI – Fe XVI)
+were replaced on November 21, 2008 by updated calculations by Ming Feng Gu
+using FAC and compared with the NGC 3783 spectrum in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2006ApJ...641.1227G/abstract">Gu et al. (2006)</a>. They
+represent slight ( ~ 0.03 Angstrom) shifts from Behar’s initial
+calculations. Also, they exhibit typically 2–3 times higher total
+transition rates (Auger rates).</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../models.html">4. Spectral models</a><ul>
+      <li>Previous: <a href="absmodels.html" title="previous chapter">4.4. Absorption model theory</a></li>
+      <li>Next: <a href="nei.html" title="next chapter">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.20. Knak: segmented power law transmission model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.21. Laor: relativistic line broadening model" href="laor.html" />
+    <link rel="prev" title="4.1.19. Hyd: model with user-own hydrodynamical simulation" href="hyd.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="knak-segmented-power-law-transmission-model">
+<h1>4.1.20. Knak: segmented power law transmission model<a class="headerlink" href="#knak-segmented-power-law-transmission-model" title="Permalink to this headline">¶</a></h1>
+<p>The knak model is used to model the transmission of any spectrum using a
+set of contiguous segments with a power-law transmission at each
+segment.</p>
+<p>This component can be useful for new instruments, in order to test large
+scale calibration errors (effective area errors for example), but other
+applications can also be made, of course. For example, if the spectrum
+of the source has an unknown continuum shape with a superimposed
+absorption model, it is a good trick to model the continuum by a power
+law, modify that by a knak model with adjustable or fixed transmission
+at some relevant energies, and then apply the absorption. An example of
+this last application can be found in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract">Porquet et al. (2004)</a>.</p>
+<p>The Transmission is given by:</p>
+<div class="math">
+<p><img src="../_images/math/c2fbdc1ec684b2704c78c9bb7a9a663b8eae92ee.svg" alt="T(E) = c_iE^{a_i} \quad \mathrm{if} \quad E_i &lt; E &lt; E_{i+1}"/></p>
+</div><p>for each value of <img class="math" src="../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> between 0 and <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>, the number of grid
+points. The transmission is 1 for <img class="math" src="../_images/math/470031933a315dc7c3779faf17136c3b04e60fc7.svg" alt="E&lt;E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/125501559363bd93c45c9cf0da0ead9bc4d3a275.svg" alt="E&gt;E_2" style="vertical-align: -2px"/>.
+Further, instead of using the constants <img class="math" src="../_images/math/09fea0de52676f21b70eacdb71d1663c5828f141.svg" alt="c_i" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/17c71340327486bebc244c09ed969ebdee802c99.svg" alt="a_i" style="vertical-align: -2px"/>, we
+use instead the values of the transmission at <img class="math" src="../_images/math/f97bd4708860cf07e8b83ef8f71883cd0e0e1a9a.svg" alt="E_i" style="vertical-align: -2px"/>, i.e.
+<img class="math" src="../_images/math/577044306a5618e01c7f87801de26f1009a5e866.svg" alt="T_i \equiv T(E_i) = c_i E_i^{\displaystyle{a_i}}" style="vertical-align: -4px"/>. This allows
+for a continuous connection between neighbouring segments.</p>
+<p>Finally, for historical reasons we use here a wavelength grid instead of
+an energy grid; the corresponding nodes <img class="math" src="../_images/math/f1589f52cb66069f1d896e2a1184e845305dd504.svg" alt="\lambda_i" style="vertical-align: -2px"/> should
+therefore be in strictly increasing order.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When applying this model, take care that at least one of
+the <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> transmission values is kept fixed (otherwise you may run
+the risk that your model is unconstrained, for example if the
+normalisation of the continuum is also a free parameter).</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">n</span></code> : The number of grid points. Maximum value is 9.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w1</span></code> : Wavelength <img class="math" src="../_images/math/24d6c2c46032411476845e306e773dbac09c60b8.svg" alt="\lambda_1" style="vertical-align: -2px"/> (Å) of the first grid point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f1</span></code> : Transmission <img class="math" src="../_images/math/07a5080ef273d5bdb7658334f2a577ed45e14f34.svg" alt="T(\lambda_1)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/24d6c2c46032411476845e306e773dbac09c60b8.svg" alt="\lambda_1" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w2</span></code> : Wavelength <img class="math" src="../_images/math/a9b8c5ecf60b50cf033e4948c9ddef54ed5b1714.svg" alt="\lambda_2" style="vertical-align: -2px"/> (Å) of the second grid point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f1</span></code> : Transmission <img class="math" src="../_images/math/fc3b1c882968f2da26da5809ad58b50686384298.svg" alt="T(\lambda_2)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/a9b8c5ecf60b50cf033e4948c9ddef54ed5b1714.svg" alt="\lambda_2" style="vertical-align: -2px"/>.</div>
+<div class="line">…</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w9</span></code> : Wavelength <img class="math" src="../_images/math/c1d7e88697e867b1d5e86f916352044db0266a61.svg" alt="\lambda_9" style="vertical-align: -2px"/> (Å) of the last grid point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f9</span></code> : Transmission <img class="math" src="../_images/math/7d7aa5a69d89a7a87894ac4f3cfd0cbd92c599f1.svg" alt="T(\lambda_9)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/c1d7e88697e867b1d5e86f916352044db0266a61.svg" alt="\lambda_9" style="vertical-align: -2px"/>.</div>
+<div class="line">Note that if <img class="math" src="../_images/math/6ec96ddbf4d10d8dafc6323f2e4eee8a2d007b23.svg" alt="n&lt;9" style="vertical-align: 0px"/>, the values of <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/f1589f52cb66069f1d896e2a1184e845305dd504.svg" alt="\lambda_i" style="vertical-align: -2px"/> will be ignored for <img class="math" src="../_images/math/0e452aec74f397b48dd5e7882b0040b06b97d23f.svg" alt="i&gt;n" style="vertical-align: 0px"/>.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract">Porquet et al. (2004)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="hyd.html" title="previous chapter">4.1.19. Hyd: model with user-own hydrodynamical simulation</a></li>
+      <li>Next: <a href="laor.html" title="next chapter">4.1.21. Laor: relativistic line broadening model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

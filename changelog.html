@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>9. Changelog &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Credits" href="credits.html" />
+    <link rel="prev" title="8.7. AGN winds" href="exercises/ex7.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="changelog">
+<h1>9. Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>What is new in SPEX version 3.00 compared to SPEX 2.06? Most of the changes are
+actually “under the hood” of the SPEX program and are only noticed when
+model fits are compared, but we also provide useful new model additions.
+A more detailed overview of the changes in the plasma models can be
+found in Section <a class="reference internal" href="models/spexact/plasma.html#chap-plasmamodel"><span class="std std-ref">Plasma model in SPEX 3.0</span></a>. The most important changes are
+summarized here:</p>
+<ul class="simple">
+<li><p>The first version of the new atomic database prepared by Ton Raassen
+is included in this release. It contains hundreds of thousands of
+energy levels from hydrogen to zinc. The new database is not yet
+enabled by default (see command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code>). Using the new line
+database requires more memory and CPU time then before, which may not
+be needed in every case. Enable the new line list if you need more
+accuracy, for example when you fit high-resolution spectra.</p></li>
+<li><p>We have optimized the calculation of the radiative recombination,
+di-electronic recombination, two-photon, and proton excitation
+processes to be able to calculate a spectrum from the new atomic data
+within a reasonable time. The results from full calculations were
+approximated by functions that can be calculated much faster, which
+allows the fitting of complicated spectra with models containing a
+large range of physical parameters of the plasma.</p></li>
+<li><p>The photo-ionization model <code class="docutils literal notranslate"><span class="pre">pion</span></code> has been substantially improved.
+It is now possible to model several absorption layers with including
+their radiative transfer. Also the emission part is implemented.
+However, use with care since this model is still experimental.</p></li>
+<li><p>We included natural &amp; Voigt broadening to SPEX emission models.</p></li>
+<li><p>We introduce a new charge exchange model (<code class="docutils literal notranslate"><span class="pre">cx</span></code>) developed by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...594A..78G/abstract">Gu et al. (2016)</a>.</p></li>
+<li><p>We added the <code class="docutils literal notranslate"><span class="pre">ebv</span></code> component in  to model interstellar extinction.</p></li>
+<li><p>There are now interfaces to include your own model in  . Use
+<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">user</span></code> for additive models and <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">musr</span></code> for multiplicative
+models. Examples of how to use this model component are shown in the
+revised SPEX Cookbook. It also allows you to call Xspec models from
+ .</p></li>
+<li><p>We added a line emission/absorption model with a Voigt profile
+(<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">line</span></code>) to model individual lines.</p></li>
+<li><p>Contour plots of <img class="math" src="_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> values from the <code class="docutils literal notranslate"><span class="pre">steppar</span></code> command
+can now be plotted using the <code class="docutils literal notranslate"><span class="pre">stepcontour</span></code> task. The <code class="docutils literal notranslate"><span class="pre">steppar</span></code>
+command can now export the results to an ASCII file that
+<code class="docutils literal notranslate"><span class="pre">stepcontour</span></code> can convert into a quick contour plot (or QDP file).</p></li>
+<li><p>The SPEX syntax has been slightly changed. From now on, all ranges
+can be written with a ’:’ in between to improve the consistency of
+the syntax. For example, changing the X axis of a plot can now be
+written as: <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">rx</span> <span class="pre">0.1:10</span></code>. Affected commands are <code class="docutils literal notranslate"><span class="pre">plot</span></code>,
+<code class="docutils literal notranslate"><span class="pre">egrid</span></code>, <code class="docutils literal notranslate"><span class="pre">elim</span></code>, <code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">chireg</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">...</span> <span class="pre">range</span></code>. If possible, the old syntax was also kept alive.
+Check the manual for details.</p></li>
+<li><p>C-statistics, the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJ...691.1540B/abstract">Bryans et al. (2009)</a>
+ionization balance and the proto-solar abundances by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009LanB...4B..712L/abstract">Lodders et al. (2009)</a>
+are now the default in SPEX. The abundance table and the ionisation
+balance can now be queried using the commands <code class="docutils literal notranslate"><span class="pre">abun</span> <span class="pre">show</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ibal</span> <span class="pre">show</span></code>, respectively.</p></li>
+</ul>
+<div class="section" id="version-3-01-00">
+<h2>9.1. Version 3.01.00<a class="headerlink" href="#version-3-01-00" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To optimize for calculation speed, in the new line list, one can
+select ions that should be calculated the old way (<code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">old</span></code>) or
+the new way (<code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">new</span></code>). The syntax is the same as the
+<code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span></code> and <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span></code> commands.</p></li>
+<li><p>Added sorting option to the command <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">...</span> <span class="pre">line</span></code> to sort
+lines based on emissivity.</p></li>
+<li><p>In version 3.00.00 (using the new line database, <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code>),
+we had also included dielectronic satellite lines of He-like ions of
+the type 1s2 <img class="math" src="_images/math/2df12a00725a6f3c2b4eae368344e9c70ae2568c.svg" alt="=&gt;" style="vertical-align: 0px"/> 2s 2p2, which actually are trielectronic
+recombination lines. The 2s 2p2 levels decay rapidly through
+radiation of a photon (2p to 1s transition) to the 1s 2s 2p level,
+which decays further by a similar transition to the 1s2 2s ground
+state of Li-like iron. Therefore, our model predicts relatively
+strong satellite lines from these transitions, stronger than present
+in corresponding EBIT spectra. We have resolved this issue by for
+this moment omitting transitions from these triply excited states
+from the calculations. Note they were/are absent in SPEX version 2.0
+or all APEC versions.</p></li>
+<li><p>The new CIE model did not reproduce the x/y line ratio in He-like
+iron very well. The x &amp; y lines are the two intercombination lines in
+this ion. We traced this problem down to some confusion caused by
+different notations for line levels. The NIST database, the Cowan
+code, Chianti use different notations for the same transition: some
+use 1s2s(3S)2p 2P1/2, others 1s2s(1S)2p 2P1/2 for the same transition
+(same if you compare the values of the corresponding energy levels).
+Some others couple the 2s and 2p electrons first, leading to P
+states, and then attach the 1s electron to it, leading to again
+different notations. This confusion led to an interchange of
+collisonal and radiative rates between some levels, thereby affecting
+the x/y line intensities. This has now been fixed.</p></li>
+<li><p>The innershell levels and related auger and radiative transitions for
+Fe XIX to Fe XXIII are added using the data from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003A%26A...410..359P/abstract">Palmeri et al. (2003)</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="version-3-02-00">
+<h2>9.2. Version 3.02.00<a class="headerlink" href="#version-3-02-00" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated pion model (details will be described soon).</p></li>
+<li><p>Re-installed the tri-electronic recombination transistions (details
+will be described soon).</p></li>
+<li><p>Introduced the SPEXACT naming and versioning for the atomic code and
+tables in SPEX.</p></li>
+</ul>
+</div>
+<div class="section" id="version-3-03-00">
+<h2>9.3. Version 3.03.00<a class="headerlink" href="#version-3-03-00" title="Permalink to this headline">¶</a></h2>
+<p>In SPEX 3.03.00:</p>
+<ul class="simple">
+<li><p>Fixed bug related to opening many fits files.</p></li>
+<li><p>Fixed bug in data merge regarding the deallocation of the derivative
+array.</p></li>
+<li><p>Fixed bug in the calculation of the average exposure time in data
+show.</p></li>
+</ul>
+<p>In SPEXACT 3.03.00:</p>
+<ul class="simple">
+<li><p>Fixed bug in generation of atomic data files.</p></li>
+<li><p>Added Auger rates for O V, Ne VII, Fe XIII.</p></li>
+<li><p>Ionization limits added for Mg IX, Si XI, S XIII, Ar XV.</p></li>
+<li><p>Atomic data extended including autoionisation for Be-like ions.</p></li>
+<li><p>Added correction for auto-ionization for excitation and inner-shell
+ionisation to doubly excited levels.</p></li>
+<li><p>Update and bugfix for CX model (H-H collision).</p></li>
+<li><p>Updated ionisation balance for U16.</p></li>
+</ul>
+</div>
+<div class="section" id="version-3-04-00">
+<h2>9.4. Version 3.04.00<a class="headerlink" href="#version-3-04-00" title="Permalink to this headline">¶</a></h2>
+<p>In SPEX 3.04.00:</p>
+<ul class="simple">
+<li><p>The ionisation balance is now by default <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A%26A...601A..85U/abstract">Urdampilleta et al. (2017)</a>
+The actual data did not change, but the paper was published in 2017.
+The command <code class="docutils literal notranslate"><span class="pre">ibal</span> <span class="pre">u16</span></code> still works, but gives a warning message
+that the actual command is <code class="docutils literal notranslate"><span class="pre">ibal</span> <span class="pre">u17</span></code> from now on.</p></li>
+<li><p>Fixed bug in stepcontour program related to logarithmic grids.</p></li>
+</ul>
+<p>In SPEXACT 3.04.00:</p>
+<ul class="simple">
+<li><p>Fixed bugs in the CIE, NEIJ, CX and PION models.</p></li>
+<li><p>Included radiative recombination cooling following <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A%26A...599A..10M/abstract">Mao et al. (2017)</a>.</p></li>
+<li><p>Updates of PION model.</p></li>
+<li><p>Updated Auger rates for Be-like to C-like Fe.</p></li>
+<li><p>Ni XXI of the O-like added and some Fe ions extended.</p></li>
+<li><p>Now we multiply the emission measure by n<img class="math" src="_images/math/a2240d3aee5f503012de1fe529dbd97f2723915b.svg" alt="_e" style="vertical-align: -2px"/>/n:math:<cite>_H</cite> in
+the pion model. This will result in typically 20% more emission from
+the pion model.</p></li>
+<li><p>Added the tmod option to the pion model (see [sec:pion]), allowing to
+set the temperature and not solve for energy balance (useful for hot
+stars, the WHIM etc.).</p></li>
+<li><p>Allowed to use multiple solutions in the pion model (fmod and soln
+parameters).</p></li>
+<li><p>Allowed for external heating source in the pion model (exth
+parameter).</p></li>
+<li><p>Extended the pion model with all elements from Z=1 to Z=30.</p></li>
+<li><p>Fe XX levels modified to Nist5.</p></li>
+<li><p>Bug fix: Now we use the proper argument 2 (y) in the call to the
+integrated Voigt function sivf. The Lorentzian component is now 2x
+narrower than before, which does affect the CIE emission spectra. It
+does not affect “old” xabs, hot calculations etc.</p></li>
+<li><p>Extended data for Fe XXI, Fe XXII, and Fe XXIII.</p></li>
+</ul>
+</div>
+<div class="section" id="version-3-05-00">
+<h2>9.5. Version 3.05.00<a class="headerlink" href="#version-3-05-00" title="Permalink to this headline">¶</a></h2>
+<p>In SPEX 3.05.00:</p>
+<ul class="simple">
+<li><p>Bug in sector copy fixed.</p></li>
+<li><p>Fixed additional page problem in postscript output of plot.</p></li>
+<li><p>Introduced W-statistics (not recommended for use).</p></li>
+<li><p>Xabsinput can now handle SEDs with more than 1024 bins.</p></li>
+<li><p>New version of trafo that adds the Ext_rate column to a .spo file.
+This column is necessary to properly simulate a spectrum when there
+is a background spectrum present. The Ext_rate column shows the
+ratio of the backscales of the source and background spectrum.</p></li>
+<li><p>Simulate command syntax changed.</p></li>
+<li><p>When calculating errors of multiple parameters with one error
+command, parameters of the best fit found across all parameters are
+written to <code class="docutils literal notranslate"><span class="pre">spex_lower_chi.com</span></code>, if a better minimum was found.</p></li>
+<li><p>Spectra dumped with <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">adum</span></code> now contain a ’NO’ to separate the
+spectra.</p></li>
+<li><p>The sector command can now dump a model to a text file that can be
+read in by the SPEX file model. This could be helpful when one wants
+to model the background without evaluating the model each time.</p></li>
+<li><p>Added correlation information in the output of the <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code>
+command.</p></li>
+<li><p>Added the instrument normalisation to the output of <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span></code>.</p></li>
+<li><p>Replaced a few proprietary math routines with open source
+alternatives.</p></li>
+<li><p>Applied GPL license to SPEX and prepared source code for publication.</p></li>
+<li><p>Added first version of SPEX tests to the source code directory.</p></li>
+<li><p>Fixed bug in the check of the number of free instrument
+normalisations in the model.</p></li>
+</ul>
+<p>SPEXACT 3.05.00:</p>
+<ul class="simple">
+<li><p>Bug and stability fixes for the pion model.</p></li>
+<li><p>Bugfix in the temperature grid of the cooling-flow model. Mass
+deposition rates are now consistent with other cooling-flow models.</p></li>
+<li><p>Stability issue with the free-bound calculation resolved.</p></li>
+<li><p>Fixed small issue in the charge exchange model for Fe XXIII.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">8. Exercises</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-01-00">9.1. Version 3.01.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-02-00">9.2. Version 3.02.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-03-00">9.3. Version 3.03.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-04-00">9.4. Version 3.04.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-05-00">9.5. Version 3.05.00</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="exercises/ex7.html" title="previous chapter">8.7. AGN winds</a></li>
+      <li>Next: <a href="credits.html" title="next chapter">10. Credits</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

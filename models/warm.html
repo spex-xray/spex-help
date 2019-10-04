@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.39. Warm: continuous photoionised absorption model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.40. Wdem: power law differential emission measure model" href="wdem.html" />
+    <link rel="prev" title="4.1.38. Vpro: velocity profile broadening model" href="vpro.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="warm-continuous-photoionised-absorption-model">
+<h1>4.1.39. Warm: continuous photoionised absorption model<a class="headerlink" href="#warm-continuous-photoionised-absorption-model" title="Permalink to this headline">¶</a></h1>
+<p>The <em>warm</em> model is a multi-component version of the <em>xabs</em> model. In
+the <em>warm</em> model, we construct a model for a continuous distribution of
+column density <img class="math" src="../_images/math/0b919b210fa90074cf729813b68a05162c34fbf1.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. It is
+in some sense comparable to the differential emission measure models
+used to model the emission from multi-temperature gas. Here we have
+absorption from multi-ionization gas. Depending upon the physics of the
+source, this may be a better approximation than just the sum of a few
+<em>xabs</em> components. A disadvantage of the model may be (but this also
+depends upon the physics of the source), that all dynamical parameters
+for each value of <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> are the same, like the outflow velocity
+and turbulent broadening. If this appears to be the case in a given
+source, one may of course avoid this problem by taking multiple,
+non-overlapping <em>warm</em> components.</p>
+<p>The model assumes a logarithmic grid of <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> equidistant values of
+<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/>, between a lower limit <img class="math" src="../_images/math/28fb4947a704b79c33616e5aed902c5620457040.svg" alt="\xi_1" style="vertical-align: -3px"/> and an upper limit
+<img class="math" src="../_images/math/2a6e8873d115e8ed24fdf2098ee7b87bdbd96f4c.svg" alt="\xi_2" style="vertical-align: -3px"/>. For each of the grid points <img class="math" src="../_images/math/59ec09376cc88aee91645676a4a79f78d8a1dcbb.svg" alt="\xi_i" style="vertical-align: -3px"/>, a value of
+<img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/> can be adjusted; here <img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/> is given as
+<img class="math" src="../_images/math/ec85639170a958654f17db765d89b9cfb29a404f.svg" alt="f_i={\mathrm d}N_{\mathrm H}/{\mathrm d}\ln\xi" style="vertical-align: -4px"/> evaluated at
+<img class="math" src="../_images/math/59ec09376cc88aee91645676a4a79f78d8a1dcbb.svg" alt="\xi_i" style="vertical-align: -3px"/>, where the differential column density is assumed to be a
+continuous function of <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. At each intermediate point, the
+value of <img class="math" src="../_images/math/d4726ae3d482d037d69cc0df9900fe7f8065d4ee.svg" alt="{\mathrm d}N_{\mathrm H}/{\mathrm
+d}\ln\xi" style="vertical-align: -4px"/> is then determined by doing cubic spline interpolation in the
+<img class="math" src="../_images/math/c4f23f51846d61beeb7189758f007f83a4788cef.svg" alt="\ln f" style="vertical-align: -3px"/> – <img class="math" src="../_images/math/f662179a5a092ce5645721444285cc3759e4f5aa.svg" alt="\ln\xi" style="vertical-align: -3px"/> space. In order not to consume too much
+computer time, the step size for numerical integration
+<img class="math" src="../_images/math/e06bc0bddaa160fc029786d6c727db056315ef51.svg" alt="\Delta\log\xi" style="vertical-align: -3px"/> can be set. A typical, recommended value for this
+(the default) is 0.2.</p>
+<p>For more information on this model, the atomic data and parameters we
+refer to Section <a class="reference external" href="#sect:abs_models">Absorption models</a>.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xil1</span></code> : <img class="math" src="../_images/math/a9bf91476c34c810da22d2ffec8df433ca15d7b7.svg" alt="\log\xi_1" style="vertical-align: -3px"/> of the lower limit of the ionisation
+parameter range in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: -4.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xil2</span></code> : <img class="math" src="../_images/math/8b59c24436e2eea78b478038a67f528e01ae8c50.svg" alt="\log\xi_2" style="vertical-align: -3px"/> of the upper limit of the ionisation
+parameter range in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 5.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">npol</span></code> : The number of grid points for the <img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> grid,
+including the end points for <img class="math" src="../_images/math/28fb4947a704b79c33616e5aed902c5620457040.svg" alt="\xi_1" style="vertical-align: -3px"/>. Default value: 19; lower
+values are generally recommended; minimum value is 2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dxi</span></code> : step size for numerical integration <img class="math" src="../_images/math/e06bc0bddaa160fc029786d6c727db056315ef51.svg" alt="\Delta\log\xi" style="vertical-align: -3px"/>.
+Default value: 0.2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f01...f19</span></code> : Values of
+<img class="math" src="../_images/math/d139a35ddb46bcf46560180b5eb249242c33cb51.svg" alt="f_i={\mathrm d}N_{\mathrm H}/{\mathrm
+d}\ln\xi" style="vertical-align: -4px"/> at the grid points. Default values <img class="math" src="../_images/math/40af090ec6e39fe71369e3ed12abc1f696af9a0e.svg" alt="10^{-6}" style="vertical-align: 0px"/>. When
+npol<img class="math" src="../_images/math/6a759bd26291f57d6d3d11f0a8ecff267c623e9c.svg" alt="&lt;19" style="vertical-align: 0px"/>, the remaining values of <img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/> are simply
+ignored.</div>
+<div class="line">The following parameters are common to all our absorption models:
+<code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
+covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
+<div class="line">The following parameter is the same as for the xabs-model (see there
+for a description): <code class="docutils literal notranslate"><span class="pre">col</span></code> : File name for the photoionisation
+balance parameters</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...432..453S/abstract">Steenbrugge et al. (2005)</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="vpro.html" title="previous chapter">4.1.38. Vpro: velocity profile broadening model</a></li>
+      <li>Next: <a href="wdem.html" title="next chapter">4.1.40. Wdem: power law differential emission measure model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

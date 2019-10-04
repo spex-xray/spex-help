@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.28. Syserr: systematic errors &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.29. System: call system executables" href="system.html" />
+    <link rel="prev" title="3.1.27. Step: Grid search for spectral fits" href="step.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="syserr-systematic-errors">
+<span id="sec-syserr"></span><h1>3.1.28. Syserr: systematic errors<a class="headerlink" href="#syserr-systematic-errors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.28.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This command calculates a new error, adding the systematic error of the
+source and the background to the Poissonian error in quadrature. One
+must specify both the systematic error as a fraction of the source
+spectrum as well as of the subtracted background spectrum. The total of
+these fractions can either be less or greater than 1.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This command mixes two fundamentally different types of
+errors: statistical (random fluctuations) and systematic (offset). The
+resulting uncertainties are unjustly treated as being statistical,
+which can lead to wrong results when the systematic offsets are
+substantial. Syserr should therefore be used with extreme caution.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One should first rebin the data, before running syserr.
+Run syserr however before fitting the data or finding errors on the
+fit.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Running syserr multiple times will increase the error
+every time. If the input to syserr is wrong one should restart
+SPEX and rerun syserr with the correct values to calculate the total
+error correctly.</p>
+</div>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.28.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">syserr</span> <span class="pre">#i:</span> <span class="pre">#r1</span> <span class="pre">#r2</span></code> : The shortest version of this command. #i: is
+the range in data channels for which the systematic error is to be
+calculated and added (in quadrature) to the Poissonian error. #r1 is
+then the the relative systematic error due to the source and #r2 the
+relative systematic error due to the background.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">syserr</span> <span class="pre">[instrument</span> <span class="pre">#i1:]</span> <span class="pre">[region</span> <span class="pre">#i2:]</span> <span class="pre">#i3:</span> <span class="pre">#r1</span> <span class="pre">#r2</span></code> : In this
+syntax one can also specify the instrument and the region one wants to
+calculate the combined error for. Both can be ranges as well. #i3: has
+the same role as #i: in the above command, and #r1 and #r2 are the
+same as above.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">syserr</span> <span class="pre">[instrument</span> <span class="pre">#i1:]</span> <span class="pre">[region</span> <span class="pre">#i2:]</span> <span class="pre">#i3:</span> <span class="pre">#r1</span> <span class="pre">#r2</span> <span class="pre">[unit</span> <span class="pre">#a]</span></code> :
+Exact same command as above, except that now the data range (#i3:) for
+which the errors are to be calculated are given in units different
+than data channels. These units can be Å (ang), eV (ev), keV (kev),
+Rydbergs (ryd), Joules (j), Hertz (hz) and nanometers (nm). This is
+the most general command.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.28.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">syserr</span> <span class="pre">1:100000</span> <span class="pre">0.3</span> <span class="pre">0.5</span></code> : Calculates the combined Poissonian and
+systematic error for data channels 1:100000, where the fraction of the
+systematic error of the source is 0.3 and the background is 0.5.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">syserr</span> <span class="pre">0:2000</span> <span class="pre">0.3</span> <span class="pre">0.5</span> <span class="pre">unit</span> <span class="pre">ev</span></code> : The same as the above command,
+expect that now the error calculation is performed between 0 and 2000
+eV instead of data channels.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">syserr</span> <span class="pre">instrument</span> <span class="pre">2</span> <span class="pre">region</span> <span class="pre">1</span> <span class="pre">0:2000</span> <span class="pre">0.3</span> <span class="pre">0.5</span> <span class="pre">unit</span> <span class="pre">ev</span></code> : The same as
+the above command, but now the error calculation is only performed for
+the data set from the second instrument and the first region thereof.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="step.html" title="previous chapter">3.1.27. Step: Grid search for spectral fits</a></li>
+      <li>Next: <a href="system.html" title="next chapter">3.1.29. System: call system executables</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

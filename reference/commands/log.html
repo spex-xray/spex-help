@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.16. Log: Making and using command files &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.17. Menu: Menu settings" href="menu.html" />
+    <link rel="prev" title="3.1.15. Ion: select ions for the plasma models" href="ions.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="log-making-and-using-command-files">
+<span id="sec-log"></span><h1>3.1.16. Log: Making and using command files<a class="headerlink" href="#log-making-and-using-command-files" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.16.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In many circumstances a user of SPEX wants to repeat his analysis for a
+different set of parameters. For example, after having analysed the
+spectrum of source A, a similar spectral model and analysis could be
+tried on source B. In order to facilitate such analysis, SPEX offers the
+opportunity to save the commands that were used in a session to an
+ascii-file. This ascii-file in turn can then be read by SPEX to execute
+the same list of commands again, or the file may be edited by hand.</p>
+<p>The command files can be nested. Thus, at any line of the command file
+the user can invoke the execution of another command file, which is
+executed completely before execution with the current command file is
+resumed. Using nested command files may help to keep complex analyses
+manageable, and allow the user easy modification of the commands.</p>
+<p>In order to facilitate the readability of the command files, the user
+can put comment lines in the command files. Comment lines are recognized
+by the first character, that must be #. Also blank lines are allowed in
+the command file, in order to enhance (human) readability.</p>
+</div>
+<div class="section" id="saving-commands-to-file">
+<h2>3.1.16.2. Saving commands to file<a class="headerlink" href="#saving-commands-to-file" title="Permalink to this headline">¶</a></h2>
+<p>After the command <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">#a</span></code> is given on the SPEX command line
+(<code class="docutils literal notranslate"><span class="pre">#a</span></code> is the file name), all the following commands entered by the
+user (NOT the ones before) are stored on the command file until the
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">out</span></code> command is given. Exceptions are the commands read
+from a nested command file (it is not necessary to save these commands,
+since they are already in the nested command file). Also, help calls and
+the command to open the file (“log save #a”) are not stored.</p>
+<p>All commands are expanded to the full keywords before they are saved in
+the file. However, for execution this is not important, since the
+interpreter can read both abbrevated and full keywords.</p>
+<p>Saving the commands to the command file can be stopped by giving the
+command <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">save</span></code>. The file with the saved commands is closed
+and remains at the specified path. SPEX will automatically append the
+extension “.com” to the filename.</p>
+</div>
+<div class="section" id="saving-output-to-file">
+<h2>3.1.16.3. Saving output to file<a class="headerlink" href="#saving-output-to-file" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to store all the output that is printed on the
+screen to a file. This is usefull for long sessions or for computer
+systems with a limited screen buffer. The output saved this way could be
+inspected later by (other programs of) the user. It is also useful if
+SPEX is run in a kind of batch-mode. The command to save the output is
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">out</span> <span class="pre">#a</span></code>, where <code class="docutils literal notranslate"><span class="pre">#a</span></code> should be the filename without extension.
+SPEX will automatically append the extension “.out” to the filename.</p>
+</div>
+<div class="section" id="executing-commands-from-file">
+<h2>3.1.16.4. Executing commands from file<a class="headerlink" href="#executing-commands-from-file" title="Permalink to this headline">¶</a></h2>
+<p>ASCII files with the .com extension containing SPEX commands can be
+executed in SPEX using the command <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">execute</span> <span class="pre">#a</span></code>, where <code class="docutils literal notranslate"><span class="pre">#a</span></code>
+stands for the file name without the “.com” extension. When a command
+file is read and the end of file is reached, the text “Normal end of
+command file encountered” is printed on the screen, and execution of the
+calling command file is resumed, or if the command file was opened from
+the terminal, control is passed over to the terminal again.</p>
+<p>For example, the user may have a command file named <em>run</em> which does his
+entire analysis. This command file might start with the line “log exe
+mydata” that will run the command file <em>mydata</em> that contains all
+information regarding to the data sets read, further data selection or
+binning etc. This could be followed by a second line in <em>run</em> like “log
+exe mymodel” that runs the command file <em>mymodel</em> which could contain
+the set-up for the spectral model and/or parameters. Also, often used
+plot settings (e.g. stacking of different plot types) could easily
+placed in separate command files.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.16.5. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply for command files:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span> <span class="pre">#a</span></code> : Execute the commands from the file #a. The suffix
+“.com” will be automatically appended to this filename.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span> <span class="pre">[append]</span></code> : Store all subsequent commands
+on the file #a. The suffix “.com” will be automatically appended to
+this filename. The optional argument “overwrite” will allow to
+overwrite an already existing file with the same name. The argument
+“append” indicates that if the file already exists, the new commands
+will be appended at the end of this file.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">save</span></code> : Close the current command file where commands are
+stored. No further commands will be written to this file.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">out</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span> <span class="pre">[append]</span></code> : Store all subsequent screen
+output on the file #a. The suffix “.out” will be automatically
+appended to this filename. The optional argument “overwrite” will
+allow to overwrite an already existing file with the same name. The
+argument “append” indicates that if the file already exists, the new
+output will be appended at the end of this file.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">output</span></code> : Close the current ascii file where screen
+output is stored. No further output will be written to this file.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.16.6. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">myrun</span></code> : writes all subsequent commands to a new file
+named “myrun.com”. However, in case the file already exists, nothing
+is written but the user gets a warning instead.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">myrun</span> <span class="pre">append</span></code> : as above, but appends it to an existing
+file</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">myrun</span> <span class="pre">overwrite</span></code> : as above, but now overwrites without
+warning any already existing file with the same name.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">save</span></code> : close the file where commands are stored.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span> <span class="pre">myrun</span></code> : executes the commands in file myrun.com.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">output</span> <span class="pre">myrun</span></code> : writes all subsequent output to file myrun.out.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">output</span></code> : closes the file above.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="ions.html" title="previous chapter">3.1.15. Ion: select ions for the plasma models</a></li>
+      <li>Next: <a href="menu.html" title="next chapter">3.1.17. Menu: Menu settings</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

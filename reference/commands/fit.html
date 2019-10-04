@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.12. Fit: spectral fitting &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.13. Ibal: set type of ionisation balance" href="ibal.html" />
+    <link rel="prev" title="3.1.11. Error: Calculate the errors of the fitted parameters" href="error.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="fit-spectral-fitting">
+<span id="sec-fit"></span><h1>3.1.12. Fit: spectral fitting<a class="headerlink" href="#fit-spectral-fitting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.12.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>With this command one fits the spectral model to the data. Only
+parameters that are thawn are changed during the fitting process.
+Options allow you to do a weighted fit (according to the model or the
+data), have the fit parameters and plot printed and updated during the
+fit, and limit the number of iterations done.</p>
+<p>At the moment SPEX uses two types of fit statistic, <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> and
+C-stat. We first treat the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic, because
+historically that has been most widely used. However, in the present
+version of SPEX  C-stat is the default because in the far majority of
+the cases it gives more robust results.</p>
+</div>
+<div class="section" id="chi-squared-fitting">
+<h2>3.1.12.2. Chi-squared fitting<a class="headerlink" href="#chi-squared-fitting" title="Permalink to this headline">¶</a></h2>
+<p>First we make a few remarks about proper data weighting. <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>
+is usually calculated as the sum over all data bins <img class="math" src="../../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> of
+<img class="math" src="../../_images/math/5e4e4a776c2e53ecb2aed10a359745bf61ae9588.svg" alt="(N_i - s_i)^2 / \sigma_i^2" style="vertical-align: -4px"/>, i.e.</p>
+<div class="math">
+<p><img src="../../_images/math/b820a78b048bf7b234eb5b6f53f4df2c824a34bf.svg" alt="\chi^2 = \sum_{i=1}^{n} \frac{(N_i - s_i)^2}{\sigma_i^2},"/></p>
+</div><p>where <img class="math" src="../../_images/math/988f488f834c7f4df7eee4e1636c9fd37a010beb.svg" alt="N_i" style="vertical-align: -2px"/> is the observed number of source plus background
+counts, <img class="math" src="../../_images/math/8bffb9d505ad087c5f8bbf7167dd1dbb68488eef.svg" alt="s_i" style="vertical-align: -2px"/> the expected number of source plus background counts
+of the fitted model, and for Poissonian statistics usually one takes
+<img class="math" src="../../_images/math/8e2ee228f7c7db7df90657b198aa868029e46639.svg" alt="\sigma_i^2=N_i" style="vertical-align: -4px"/>. Take care that the spectral bins contain
+sufficient counts (either source or background), recommended is e.g. to
+use at least <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>10 counts per bin. If this is not the case,
+first rebin the data set whenever you have a “continuum” spectrum. For
+line spectra you cannot do this of course without loosing important
+information! Note however that this method has inaccuracies if
+<img class="math" src="../../_images/math/988f488f834c7f4df7eee4e1636c9fd37a010beb.svg" alt="N_i" style="vertical-align: -2px"/> is less than <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>100.</p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract">Wheaton et al. (1995)</a>
+have shown that the classical <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> method becomes inaccurate
+for spectra with less than <img class="math" src="../../_images/math/10c745bf543dc1a3e388627bf9dcd7b2e2573b05.svg" alt="\sim 100" style="vertical-align: 0px"/> counts per bin. This is <em>not</em>
+due to the approximation of the Poisson statistic by a normal distribution,
+but due to using the <em>observed</em> number of counts <img class="math" src="../../_images/math/988f488f834c7f4df7eee4e1636c9fd37a010beb.svg" alt="N_i" style="vertical-align: -2px"/> as weights
+in the calculation of <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>. <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract">Wheaton et al. (1995)</a>
+showed that the problem can be resolved by using instead
+<img class="math" src="../../_images/math/a05e2c2aaa708252b983b0c8f7b3642660dc481a.svg" alt="\sigma_i^2 = s_i" style="vertical-align: -4px"/>, i.e. the <em>expected</em> number of counts
+from the best fit model.</p>
+<p>The option “fit weight model” allows to use these modified weights. By
+selecting it, the expected number of counts (both source plus
+background) of the current spectral model is used onwards in calculating
+the fit statistic. <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract">Wheaton et al. (1995)</a>
+suggest to do the following 3-step process, which we also recommend to the user of
+SPEX who uses this option:</p>
+<ol class="arabic simple">
+<li><p>first fit the spectrum using the data errors as weights (the default
+of SPEX).</p></li>
+<li><p>After completing this fit, select the “fit weight model” option and
+do again a fit</p></li>
+<li><p>then repeat this step once more by again selecting “fit weight model”
+in order to replace <img class="math" src="../../_images/math/8bffb9d505ad087c5f8bbf7167dd1dbb68488eef.svg" alt="s_i" style="vertical-align: -2px"/> of the first step by <img class="math" src="../../_images/math/8bffb9d505ad087c5f8bbf7167dd1dbb68488eef.svg" alt="s_i" style="vertical-align: -2px"/> of
+the second step in the weights. The result should now have been
+converged (under the assumption that the fitted model gives a
+reasonable description of the data, if your spectral model is way off
+you are in trouble anyway!).</p></li>
+</ol>
+</div>
+<div class="section" id="c-stat">
+<h2>3.1.12.3. C-stat<a class="headerlink" href="#c-stat" title="Permalink to this headline">¶</a></h2>
+<p>There is yet another option to try for spectral fitting with low count
+rate statistics and that is maximum likelyhood fitting. It can be shown
+that a good alternative to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> in that limit is</p>
+<div class="math">
+<p><img src="../../_images/math/1d2abc2fa8d0827ed35a251f9e9b445d2446ff2e.svg" alt="C = 2 \sum_{i=1}^{n} s_i - N_i + N_i \ln (N_i/s_i)."/></p>
+</div><p>This is strictly valid in the limit of Poissonian statistics. If you
+have a background subtracted spectrum, take care that the subtracted
+number of background counts is properly stored in the spectral data
+file, so that raw number of counts can be reconstructed.</p>
+<p>This statistic was originally proposed in some other form by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979ApJ...228..939C/abstract">Cash (1979)</a>
+and in the present form sometimes attributed to Castor. However, it appears
+that it was already introduced and well explained by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984NIMPR.221..437B/abstract">Baker et al. (1994)</a> .</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that for a spectrum with many counts per bin
+<img class="math" src="../../_images/math/88fe175fced4bfeef6eac868fae37051810a2b2d.svg" alt="C\rightarrow\chi^2" style="vertical-align: -3px"/>, but if the predicted number of counts per
+bin is small, the expected value for <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/> can be substantially
+smaller than the number of bins <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>.</p>
+</div>
+<p>To help the user to see if a <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/>-value corresponds to an
+acceptable fit, SPEX gives, after spectral fitting, the expected value
+of <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/> and its r.m.s. spread, based on the best-fit model. Both
+quantities are simply determined by adding the expected contributions
+and their variances over all bins. See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A&amp;A...605A..51K/abstract">Kaastra et al. (2017)</a>
+for more details.</p>
+<div class="figure align-default" id="fig-cstat">
+<img alt="Expected value of the contribution per bin to :math:`C`, and its r.m.s. uncertainty, as a function of the mean expected number of counts :math:`\mu`." src="../../_images/cstat.png" />
+<p class="caption"><span class="caption-text">Expected value of the contribution per bin to <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/>, and its
+r.m.s. uncertainty, as a function of the mean expected number of
+counts <img class="math" src="../../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/>.</span><a class="headerlink" href="#fig-cstat" title="Permalink to this image">¶</a></p>
+</div>
+<p>The expected value <img class="math" src="../../_images/math/79a0ceeed4231ac9fe78e3c88117e93f37208df2.svg" alt="C_{\rm e}" style="vertical-align: -2px"/> for <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/> in a bin <img class="math" src="../../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/>
+and its variance <img class="math" src="../../_images/math/76ee3295c937d0ab35058fbd97d85410a54cf1d7.svg" alt="C_{\rm v}" style="vertical-align: -2px"/> are given by:</p>
+<div class="math">
+<p><img src="../../_images/math/405d4b149d69ba578806497817f6f679ecdfa3fa.svg" alt="C_{e} = 2 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu)),"/></p>
+</div><div class="math">
+<p><img src="../../_images/math/ee4dde538907f364dba96f2f01f9177567598432.svg" alt="S_{v} = 4 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu))^2,"/></p>
+</div><div class="math">
+<p><img src="../../_images/math/b8d27d4d31f9860ed38f7ed09f82673c7a69cd81.svg" alt="C_{v} = S_{v} - C_{e}^2,"/></p>
+</div><p>with <img class="math" src="../../_images/math/46c09bdabd5bc0e09aedfef0b540f8f9300d8c1f.svg" alt="P_k(\mu)" style="vertical-align: -4px"/> the Poisson distribution:</p>
+<div class="math">
+<p><img src="../../_images/math/ee996a92c61822ccb2bd92db7c7d587a5b200125.svg" alt="P_k(\mu) = {e}^{\displaystyle{-\mu}} \mu^k / k!"/></p>
+</div><p>and <img class="math" src="../../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/> the expected number of counts. We show both quantities
+in Fig. <a class="reference external" href="#fig:cstat">1</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For a proper use of C-stat, it is needed that the
+background (if present) is also a model for the background, not a scaled
+background observation. Unfortunately, the fast majority of instrument
+software packeges provide spectra with such a scaled (and therefore
+noisy) background). By experimenting it can be shown that in situations
+where the source is (much) weaker that the subtracted background, this
+can give bias in the fitted flux (it will be over-estimated). Rebinning
+the spectrum resolves the problem (because it is some kind of smoothing)
+but at the expense of spectral resolution. This is undesired. We
+therefore offer an auxiliary program called backfilter that can filter
+the subtracted background. It works on a .spo file and creates an
+improved .spo file. See the documentation of backfilter for more
+details.</p>
+</div>
+</div>
+<div class="section" id="w-stat">
+<h2>3.1.12.4. W-stat<a class="headerlink" href="#w-stat" title="Permalink to this headline">¶</a></h2>
+<p>The above problem is mitigated in the Xspec package by introducing the
+so-called W-statistic. See the Xspec manual for more details. We provide
+here the option to fit using W-stat for compatibility reasons,</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>But we do not recommend to use it, but instead use C-stat
+with background filtering (see above) where needed.</p>
+</div>
+<p>The W-stat first calculates a background estimate for each bin using
+maximum likelihood techniques. This background depends on the number of
+counts in the background region, the number of counts in the source
+region, the predicted number of source counts from the spectral model,
+and the exposure times of the source region and background region (or,
+equivalently, incorporating any background area scaling ratio). Using
+these background estimates, W-stat is then evaluated, and this can be
+used in the algorithm to find the best-fit set of source parameters.</p>
+<p>The Xspec manual notes that for weak sources it can generate an
+obviously wrong best fit”, and they advice to rebin to at least one
+count per bin to mitigate. This however may degrade the spectral
+resolution too much. Moreover, for a simple case (blackbody fit to an
+isolated neutron star), we found that the fitting procedure can show
+non-monotonous behaviour of W-stat versus iteration, with annoying
+oscillatory behaviour. Also, a full fit with error search of that
+spectrum required four times more model evaluations compared with C-stat
+fitting with filtered background.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.12.5. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Execute a spectral fit to the data.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">#i</span></code> : Printing the intermediate results during the
+fitting to the screen for every <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>-th step, with <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>=#i
+(most useful for <img class="math" src="../../_images/math/183b0bf6c297834da6f52057ad17109769dfb4ac.svg" alt="n=1" style="vertical-align: 0px"/>). Default value: 0 which implies no
+printing of intermediate steps.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">iter</span> <span class="pre">#i</span></code> : Stop the fitting process after #i iterations,
+regardless convergence or not. This is useful to get a first
+impression for very cpu-intensive models. To return to the default
+stop criterion, type fit iter 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">weight</span> <span class="pre">model</span></code> : Use the current spectral model as a basis for
+the statistical weight in all subsequent spectral fitting.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">weight</span> <span class="pre">data</span></code> : Use the errors in the spectral data file as a
+basis for the statistical weight in all subsequent spectral fitting.
+This is the default at the start of SPEX.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">method</span> <span class="pre">classical</span></code> : Use the classical Levenberg-Marquardt
+minimisation as the fitting method.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Use the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic for the
+minimisation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Use the C-statistics for the minimisation.
+This is the default at start-up.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">wstat</span></code> : Use the W-statistics for the minimisation.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.12.6. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Performs a spectral fit. At the end the list of best fit
+parameters is printed, and if there is a plot this will be updated.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">1</span></code> : If followed by the above fit command, the
+intermediate fit results are printed to the screen, and the plot of
+spectrum, model or residuals is updated (provided a plot is selected).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">iter</span> <span class="pre">10</span></code> : Stop the after 10 iterations or earlier if
+convergence is reached before ten iterations are completed.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">iter</span> <span class="pre">0</span></code> : Stop fitting only after full convergence (default).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">weight</span> <span class="pre">model</span></code> : Instead of using the data for the statistical
+weights in the fit, use the current model.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">weight</span> <span class="pre">data</span></code> : Use the data instead for the statistical weights
+in the fit.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">method</span> <span class="pre">clas</span></code> : Use the classical Leveberg-Marquardt method to
+find minima. At this moment the only option.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Switch from C-statistics to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Switch back to C-statistics.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="error.html" title="previous chapter">3.1.11. Error: Calculate the errors of the fitted parameters</a></li>
+      <li>Next: <a href="ibal.html" title="next chapter">3.1.13. Ibal: set type of ionisation balance</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.2. Ascdump: ascii output of plasma properties &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.3. Bin: rebin the spectrum" href="bin.html" />
+    <link rel="prev" title="3.1.1. Abundance: standard abundances" href="abundance.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ascdump-ascii-output-of-plasma-properties">
+<span id="sec-ascdump"></span><h1>3.1.2. Ascdump: ascii output of plasma properties<a class="headerlink" href="#ascdump-ascii-output-of-plasma-properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.2.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>One of the drivers in developing SPEX is the desire to be able to get
+insight into the astrophysics of X-ray sources, beyond merely deriving a
+set of best-fit parameters like temperature or abundances. The general
+user might be interested to know ionic concentrations, recombination
+rates etc. In order to facilitate this SPEX contains options for
+ascii-output.</p>
+<p>Ascii-output of plasma properties can be obtained for any spectral
+component that uses the basic plasma code of SPEX; for all other
+components (like power law spectra, gaussian lines, etc.) this
+sophistication is not needed and therefore not included. There is a
+choice of properties that can be displayed, and the user can either
+display these properties on the screen or write it to file.</p>
+<p>The possible output types are listed below. Depending on the specific
+spectral model, not all types are allowed for each spectral component.
+The keyword in front of each item is the one that should be used for the
+appropriate syntax.</p>
+<dl class="simple">
+<dt>plas:</dt><dd><p>basic plasma properties like temperature, electron density etc.</p>
+</dd>
+<dt>abun:</dt><dd><p>elemental abundances and average charge per element.</p>
+</dd>
+<dt>icon:</dt><dd><p>ion concentrations, both with respect to Hydrogen and the relevant
+elemental abundance.</p>
+</dd>
+<dt>rate:</dt><dd><p>total ionization, recombination and charge-transfer rates specified
+per ion.</p>
+</dd>
+<dt>rion:</dt><dd><p>ionization rates per atomic subshell, specified according to the
+different contributing processes.</p>
+</dd>
+<dt>pop:</dt><dd><p>the occupation numbers as well as upwards/downwards loss and gain
+rates to all quantum levels included.</p>
+</dd>
+<dt>lev:</dt><dd><p>the contributions to the pouplation of the energy levels by various
+processes: positive for gain, negative for loss</p>
+</dd>
+<dt>elex:</dt><dd><p>the collisional excitation and de-excitation rates for each level,
+due to collisions with electrons.</p>
+</dd>
+<dt>prex:</dt><dd><p>the collisional excitation and de-excitation rates for each level,
+due to collisions with protons.</p>
+</dd>
+<dt>rad:</dt><dd><p>the radiative transition rates from each level.</p>
+</dd>
+<dt>two:</dt><dd><p>the two-photon emission transition rates from each level.</p>
+</dd>
+<dt>grid:</dt><dd><p>the energy and wavelength grid used in the last evaluation of the
+spectrum.</p>
+</dd>
+<dt>clin:</dt><dd><p>the continuum, line and total spectrum for each energy bin for the
+last plasma layer of the model.</p>
+</dd>
+<dt>line:</dt><dd><p>the line energy and wavelength, as well as the total line emission
+(photons/s) for each line contributing to the spectrum, for the last
+plasma layer of the model. Also given is the natural line width and
+the Doppler broadening (including thermal and turbulent broadening),
+expressed as a FWHM in keV. Optionally, the results can be sorted
+according to various columns as follows (first description, between
+brackets the acronym): energy (ener), wavelength (wav), ion (ion),
+line power (powe), natural line width (wid).</p>
+</dd>
+<dt>con:</dt><dd><p>list of the ions that contribute to the free-free, free-bound and
+two-photon continuum emission, followed by the free-free, free-bound,
+two-photon and total continuum spectrum, for the last plasma layer of
+the model.</p>
+</dd>
+<dt>tcl:</dt><dd><p>the continuum, line and total spectrum for each energy bin added for
+all plasma layers of the model.</p>
+</dd>
+<dt>tlin:</dt><dd><p>the line energy and wavelength, as well as the total line emission
+(photons/s) for each line contributing to the spectrum, added for all
+plasma layers of the model.</p>
+</dd>
+<dt>tcon:</dt><dd><p>list of the ions that contribute to the free-free, free-bound and
+two-photon continuum emission, followed by the free-free, free-bound,
+two-photon and total continuum spectrum, added for all plasma layers
+of the model.</p>
+</dd>
+<dt>cnts:</dt><dd><p>the number of counts produced by each line. Needs an instrument to be
+defined before.</p>
+</dd>
+<dt>nei:</dt><dd><p>the history of ionisation parameter and temperature in NEI
+calculations.</p>
+</dd>
+<dt>snr:</dt><dd><p>hydrodynamical and other properties of the supernova remnant (only
+for supernova remnant models such as Sedov, Chevalier etc.).</p>
+</dd>
+<dt>heat:</dt><dd><p>plasma heating rates (only for photoionized plasmas).</p>
+</dd>
+<dt>ebal:</dt><dd><p>the energy balance contributions of each layer (only for photoionized
+plasmas).</p>
+</dd>
+<dt>dem:</dt><dd><p>the emission measure distribution (for the pdem model)</p>
+</dd>
+<dt>col:</dt><dd><p>the ionic column densities for the hot, pion, slab, xabs and warm
+models</p>
+</dd>
+<dt>tran:</dt><dd><p>the transmission and equivalent width of absorption lines and
+absorption edges for the hot, pion, slab, xabs and warm models.
+Optionally, the results (lines only) can be sorted according to
+various columns as follows (first description, between brackets the
+acronym): energy (ener), wavelength (wav), ion (ion), optical depth
+at line center (tau), equivalent width in keV (ewk), equivalent width
+in Å (ewa), Voigt a parameter (avo).</p>
+</dd>
+<dt>warm:</dt><dd><p>the column densities, effective ionization parameters and
+temperatures of the <em>warm</em> model</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.2.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply for ascii output:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">terminal</span> <span class="pre">#i1</span> <span class="pre">#i2</span> <span class="pre">#a</span></code> : Dump the output for sky sector #i1
+and component #i2 to the terminal screen; the type of output is
+described by the parameter #a which is listed in the table above.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">file</span> <span class="pre">#a1</span> <span class="pre">#i1</span> <span class="pre">#i2</span> <span class="pre">#a2</span></code> : As above, but output written to a
+file with its name given by the parameter #a1. The suffix “.asc” will
+be appended automatically to this filename.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">terminal</span> <span class="pre">#i1</span> <span class="pre">#i2</span> <span class="pre">#a1</span> <span class="pre">sort</span> <span class="pre">#a2</span></code> : Dump the output for sky
+sector #i1 and component #i2 to the terminal screen; the type of
+output is described by the parameter #a1 which is listed in the table
+above; the results are sorted according to parameter #a2. Sorting is
+only possible for the “line” and “tran” options; see there for allowed
+entries.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">file</span> <span class="pre">#a1</span> <span class="pre">#i1</span> <span class="pre">#i2</span> <span class="pre">#a2</span></code> : As above, but output written to a
+file with its name given by the parameter #a1. The suffix “.asc” will
+be appended automatically to this filename.</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Any existing files with the same name will be overwritten.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Sorting only possible for the line and tran options.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.2.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">terminal</span> <span class="pre">3</span> <span class="pre">2</span> <span class="pre">icon</span></code> : dumps the ion concentrations of
+component 2 of sky sector 3 to the terminal screen.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">file</span> <span class="pre">mydump</span> <span class="pre">3</span> <span class="pre">2</span> <span class="pre">icon</span></code> : dumps the ion concentrations of
+component 2 of sky sector 3 to a file named mydump.asc.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">terminal</span> <span class="pre">3</span> <span class="pre">2</span> <span class="pre">line</span> <span class="pre">sort</span> <span class="pre">pow</span></code> : dumps the emission line power
+of component 2 of sky sector 3 to the terminal screen, sorted
+according to line strength.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="abundance.html" title="previous chapter">3.1.1. Abundance: standard abundances</a></li>
+      <li>Next: <a href="bin.html" title="next chapter">3.1.3. Bin: rebin the spectrum</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

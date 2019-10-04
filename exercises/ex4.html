@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.4. Stellar Spectra &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.5. Supernova remnants" href="ex5.html" />
+    <link rel="prev" title="8.3. Statistics, binning and more" href="ex3.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="stellar-spectra">
+<h1>8.4. Stellar Spectra<a class="headerlink" href="#stellar-spectra" title="Permalink to this headline">¶</a></h1>
+<p>We examine a high resolution spectrum of a nearby star at a distance of
+10 pc. The files <a class="reference download internal" download="" href="../_downloads/1424381597df2b2bd65a26e1ddc7d8a7/corona.spo"><code class="xref download docutils literal notranslate"><span class="pre">corona.spo</span></code></a>
+and <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a> contain the spectrum
+and instrumental response of this source. This spectrum has been
+simulated using a RGS-like response. We do not provide real data files,
+because of their size and because of the time constraints of the course.
+You can use <a class="reference download internal" download="" href="../_downloads/4916787850cf5325169518cffd78e4e4/plot_rgs.com"><code class="xref download docutils literal notranslate"><span class="pre">plot_rgs.com</span></code></a>
+for plotting, but it is more instructive and easier to plot manually!</p>
+<ol class="arabic">
+<li><p>Read the data into SPEX and plot it in unit Å. The data ranges
+roughly from 8 to 38 Å. Hint: you may issue successively the commands
+<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">set</span> <span class="pre">all</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">line</span> <span class="pre">disp</span> <span class="pre">t</span></code> to get a connecting line
+through the data for better visibility.</p></li>
+<li><p>Determine the wavelength of the two strongest lines in the spectrum
+and use this table to identify them:
+<a class="reference external" href="http://www.sron.nl/~kaastra/leiden2018/line_new.pdf">http://www.sron.nl/~kaastra/leiden2018/line_new.pdf</a>.
+Can you give a rough estimate of the temperature (in keV) of the
+corona from the fact that you see these lines? Note: The
+temperatures listed in the line list are in log Kelvin
+(<img class="math" src="../_images/math/f4c34db7ac6399528fa8b0b7fccbf3d5857ce83b.svg" alt="k_b = 8.617 \times 10^{-8}" style="vertical-align: -2px"/> <img class="math" src="../_images/math/256df7e216e8c5e95f7e9609e0de586ba22a7bb2.svg" alt="\mathrm{keV} \ \mathrm{K}^{-1}" style="vertical-align: 0px"/>).</p></li>
+<li><p>Load a model with just one component called CIE (<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">cie</span></code>) which
+means Collisional Ionization Equilibrium. Fit the spectrum and
+calculate the error. Was your temperature estimate right?</p></li>
+<li><p>There is one line that is not fitted correctly. Use the line table
+from exercise 2 to see which element is emitting this line. Set this
+element to <code class="docutils literal notranslate"><span class="pre">thawn</span></code> and fit again. Is the fit better?</p></li>
+<li><p>Now you can also free the iron and oxygen abundance and fit the
+spectrum again. What are the values for the abundance? The values in
+the fit are relative to solar abundances (more details can be
+obtained with the command <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">abun</span></code>, see <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma properties</span></a>).
+Calculate the errors. Are the fitted abundances consistent with solar abundances?</p>
+<p>These kind of spectra (with a low continuum) often produce wrong
+abundances because of the low S/N of the continuum and the bias
+produced by <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistics (Humphrey, Liu &amp; Buote, 2008).
+In SPEX we can switch from C-statistics to <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistics
+to test this. This is accomplished by issuing the command
+<code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">stat</span> <span class="pre">chi</span></code> before doing another fit.</p>
+</li>
+<li><p>Fit the spectrum using <code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">stat</span> <span class="pre">chi</span></code>. Are the abundances the same
+as before? Calculate the errors. Are the new values consistent with
+solar abundances? Switch back to C-statistics after this step.</p></li>
+<li><p>Fix all abundances and free the ion temperature. Fit the spectrum and
+calculate the error on the ion temperature. Is it well constrained?
+Find out what the ion temperature does with the lines for values 1,
+10, 100, and 1000 (change the value in the model and calculate the
+model by typing <code class="docutils literal notranslate"><span class="pre">calc</span></code>. Do not fit!). What happens?</p></li>
+<li><p>Plot the spectrum from 21 Å to 23 Å. These lines are called the
+oxygen triplet. The lines depend strongly on electron density. Play
+around with the electron density in the same way as you did with the
+broadening (ion temperature). What happens with these lines?
+Calculate the error. Can you give an upper limit for the density of
+the plasma?</p></li>
+<li><p>There are a lot of lines in this spectrum. You can learn also which
+lines belong to a certain element by putting its abundance to 0 and
+calculate. Do this for O, Ne and Fe. If you like, you can also try it
+out for other elements. Finally, SPEX can also provide a list with
+all the present ions: <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">icon</span></code>.</p></li>
+</ol>
+<p>Note: SPEX can provide a lot of information about the plasma or an
+absorber through the command <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span></code>. See the SPEX manual for more
+output options.</p>
+<p><strong>Learning goals:</strong></p>
+<p>After having done this spectrum, you should know:</p>
+<ul class="simple">
+<li><p>How to plot a spectrum in wavelength units.</p></li>
+<li><p>How to identify spectral lines.</p></li>
+<li><p>How to get physical parameters from a thermal X-ray spectrum.</p></li>
+<li><p>How to measure abundances from an X-ray spectrum.</p></li>
+<li><p>How to measure electron density from an X-ray spectrum.</p></li>
+<li><p>How to use the “asc” command in SPEX (<a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma properties</span></a>).</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../exercises.html">8. Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ex1.html">8.1. Powerlaw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex2.html">8.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex3.html">8.3. Statistics, binning and more</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.4. Stellar Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex5.html">8.5. Supernova remnants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex6.html">8.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex7.html">8.7. AGN winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../exercises.html">8. Exercises</a><ul>
+      <li>Previous: <a href="ex3.html" title="previous chapter">8.3. Statistics, binning and more</a></li>
+      <li>Next: <a href="ex5.html" title="next chapter">8.5. Supernova remnants</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

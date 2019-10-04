@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.9. Dbb: disk blackbody model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.10. Delt: delta line model" href="delt.html" />
+    <link rel="prev" title="4.1.8. Dabs: dust absorption model" href="dabs.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dbb-disk-blackbody-model">
+<h1>4.1.9. Dbb: disk blackbody model<a class="headerlink" href="#dbb-disk-blackbody-model" title="Permalink to this headline">¶</a></h1>
+<p>We take the model for a standard Shakura-Sunyaev accretion disk. The
+radiative losses from such a disk are given by</p>
+<div class="math">
+<p><img src="../_images/math/bc07288f392dbad5fef3b7ec330eb0ad916f018b.svg" alt="Q = \frac{3GM\dot{M}(1-\sqrt{r_i/r}) }{ 8\pi r^3},"/></p>
+</div><p>where <img class="math" src="../_images/math/2763862cd8b3a041974705e955e791ce53a4da76.svg" alt="Q" style="vertical-align: -3px"/> is the loss term in W m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/> at radius
+<img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/f785b2f8d2748dce753f1ea193a3c030348b1950.svg" alt="M" style="vertical-align: 0px"/> the mass of the central object, <img class="math" src="../_images/math/072e830cdbb6a381bda1bb3479b30b1cbdbd01bd.svg" alt="\dot{M}" style="vertical-align: 0px"/> the
+accretion rate through the disk and <img class="math" src="../_images/math/2c5249e021015b42581fad6c7338430d1c0469b2.svg" alt="r_i" style="vertical-align: -2px"/> the inner radius. If
+this energy loss is radiated as a blackbody, we have</p>
+<div class="math">
+<p><img src="../_images/math/334a207ed382c0cede1991bdc95525d6edf1278a.svg" alt="Q = \sigma T^4"/></p>
+</div><p>with <img class="math" src="../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/> the constant of Stefan-Boltzmann and <img class="math" src="../_images/math/0214d4e85cd07b407645801fc875d9760d6dca89.svg" alt="T(r)" style="vertical-align: -4px"/>
+the local temperature of the blackbody. The total spectrum of such a
+disk is then obtained by integration over all radii. We do this
+integration numerically. Note that for large <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/>,
+<img class="math" src="../_images/math/bb999402ef47f0e2c7877300c6a46b8dd1abb437.svg" alt="T\sim r^{-3/4}" style="vertical-align: 0px"/>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A popular disk model (diskbb in XSPEC) assumes this
+temperature dependence over the full disk. However, we correct it using
+the factor <img class="math" src="../_images/math/7fd575f4d66ac344adeea80f8f27576bd8c81f18.svg" alt="(1-\sqrt{r_i/r})" style="vertical-align: -4px"/> in <img class="math" src="../_images/math/2763862cd8b3a041974705e955e791ce53a4da76.svg" alt="Q" style="vertical-align: -3px"/> which corresponds to
+the torque-free condition at the inner boundary of the disk.</p>
+</div>
+<p>The photon spectrum of the disk is now given by</p>
+<div class="math">
+<p><img src="../_images/math/2ba32e615268f1e2a0369d90b52c43daa69cb65f.svg" alt="N(E) = \frac{8\pi^2E^2r_i^2\cos i }{ h^3c^2} f_d(E/kT_i,r_o/r_i),"/></p>
+</div><p>where <img class="math" src="../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> is the inclination of the disk (0 degrees for face-on
+disk, 90 degrees for an edge-on disk), <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> the photon energy,
+<img class="math" src="../_images/math/b0f57d616141f0472caa75a67fab2584609a84dc.svg" alt="r_o" style="vertical-align: -2px"/> the outer edge of the disk, and <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> is defined by</p>
+<div class="math" id="equation-tidisk">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-tidisk" title="Permalink to this equation">¶</a></span><img src="../_images/math/e3cd9eaf66bc44fa38196df300ebec3534858b5c.svg" alt="T_i^4 = 3GM\dot{M}/8\pi r_i^3\sigma"/></p>
+</div><p>and further the function <img class="math" src="../_images/math/403d99baa4a13013824362fe9a25a4b90d0388f5.svg" alt="f_d(y,r)" style="vertical-align: -4px"/> is defined by</p>
+<div class="math">
+<p><img src="../_images/math/5dd204423e6aa14158f9d64ef6f22be13d2f2a30.svg" alt="f_d(y,r) = \int_{1}^{r} \frac{x{\mathrm d}x }{ e^{y/\tau} - 1}"/></p>
+</div><p>where <img class="math" src="../_images/math/9aadedfd920458f81970752041af5e201ca1679d.svg" alt="\tau(x)" style="vertical-align: -4px"/> is defined by
+<img class="math" src="../_images/math/988df7f60f0c4b45d8608f131b714f36d8643edd.svg" alt="\tau^4(x) = (1-1/\sqrt{x})/x^3" style="vertical-align: -4px"/>.</p>
+<p>In addition to calculating the spectrum, the model also allows to
+calculate the average radius of emission <img class="math" src="../_images/math/4aca4737b99e92f6ddca50be9a8beb6bcca9851a.svg" alt="R_e" style="vertical-align: -2px"/> at a specified
+energy <img class="math" src="../_images/math/79e322b56e90813016fd55d1d3a20cc208015958.svg" alt="E_r" style="vertical-align: -2px"/>. This is sometimes useful for time variability
+studies (softer photons emerging from the outer parts of the disk).</p>
+<p>Given the fit parameters <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/2c5249e021015b42581fad6c7338430d1c0469b2.svg" alt="r_i" style="vertical-align: -2px"/>, using
+<a class="reference internal" href="#equation-tidisk">(1)</a> it is straightforward to calculate the
+product <img class="math" src="../_images/math/c2e77001d025e045e9076b59901eb8a6d2851b7a.svg" alt="M\dot{M}" style="vertical-align: 0px"/>. Further note that if <img class="math" src="../_images/math/10cc3fbda3fa7ba33380e06aa5fcc2413de0012a.svg" alt="r_i=6GM/c^2" style="vertical-align: -4px"/>, it
+is possible to find both <img class="math" src="../_images/math/f785b2f8d2748dce753f1ea193a3c030348b1950.svg" alt="M" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/072e830cdbb6a381bda1bb3479b30b1cbdbd01bd.svg" alt="\dot{M}" style="vertical-align: 0px"/>, provided the
+inclination angle <img class="math" src="../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> is known.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> (<img class="math" src="../_images/math/806f4ff08edb300d0c21ba63bafdfdc5512fa115.svg" alt="=r_i^2\cos i" style="vertical-align: -4px"/>), in units of
+<img class="math" src="../_images/math/a0236e3d3ceabddd953324dad75f50c1f83ce39e.svg" alt="10^{16}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/a2f52727d3e768c764e302637e431c1b5a694488.svg" alt="^2" style="vertical-align: 0px"/>. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : The nominal temperature <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> in keV. Default value: 1
+keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ro</span></code> : The ratio of outer to inner disk radius, <img class="math" src="../_images/math/a68f2ec36e5338c3b2b2deab71e057425ed0edb7.svg" alt="r_o/r_i" style="vertical-align: -4px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ener</span></code> : Energy <img class="math" src="../_images/math/79e322b56e90813016fd55d1d3a20cc208015958.svg" alt="E_r" style="vertical-align: -2px"/> at which the average radius of emission
+will be calculated</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rav</span></code> : Average radius <img class="math" src="../_images/math/4aca4737b99e92f6ddca50be9a8beb6bcca9851a.svg" alt="R_e" style="vertical-align: -2px"/> of all emission at energy
+<img class="math" src="../_images/math/79e322b56e90813016fd55d1d3a20cc208015958.svg" alt="E_r" style="vertical-align: -2px"/> specified by the parameter above. Note that this is not a
+free parameter, it is calculated each time the model is evaluated.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1973A%26A....24..337S/abstract">Shakura &amp; Sunyaev (1973)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="dabs.html" title="previous chapter">4.1.8. Dabs: dust absorption model</a></li>
+      <li>Next: <a href="delt.html" title="next chapter">4.1.10. Delt: delta line model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

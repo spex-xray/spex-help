@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.27. Step: Grid search for spectral fits &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.28. Syserr: systematic errors" href="syserr.html" />
+    <link rel="prev" title="3.1.26. Simulate: Simulation of data" href="simulate.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="step-grid-search-for-spectral-fits">
+<span id="sec-step"></span><h1>3.1.27. Step: Grid search for spectral fits<a class="headerlink" href="#step-grid-search-for-spectral-fits" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.27.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A grid search can be performed of <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> versus 1, 2, 3 or 4
+parameters. The minimum, maximum and number of steps for each parameter
+may be adjusted. Steps may be linear or logarithmic. For each set of
+parameters, a spectral fit is made, using the last spectral fit executed
+before this command as the starting point. For each step, the parameters
+and <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> are displayed. This option is useful in case of doubt
+about the position of the best fit in the parameter space, or in cases
+where the usual error search is complicated. Further it can be useful
+incases of complicated correlations between parameters.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Take care to do a spectral fit first!</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Beware of the cpu-time if you have a fine grid or many dimensions!</p>
+</div>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.27.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">dimension</span> <span class="pre">#i</span></code> : Define the number of axes for the search
+(between 1–4).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">#i1</span> <span class="pre">parameter</span> <span class="pre">[[#i2]</span> <span class="pre">#i3]</span> <span class="pre">#a</span> <span class="pre">range</span> <span class="pre">#r1:#r2</span> <span class="pre">n</span> <span class="pre">#i4</span></code> : Set
+for axis #i1, optional sector #i2, optional component #i3 and
+parameter with name #a the range to the number specified by #r1 and
+#r2, with a number of steps <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> given by #i4. If <img class="math" src="../../_images/math/71559fe267665625380a58adfe3e53983fd44966.svg" alt="n&gt;0" style="vertical-align: 0px"/>, a
+linear mesh between #r1 and #r2 will be taken, for <img class="math" src="../../_images/math/3f8183b97edcbce37cb7b737804e97345dcaa0cd.svg" alt="n&lt;0" style="vertical-align: 0px"/>, a
+logarithmic grid will be taken.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span></code> : Do the step search. Take care to do first the “step
+dimension” command, followed by as many “step axis” commands as you
+entered the number of dimensions.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">file</span> <span class="pre">example</span></code> : Do the step search and also write the results
+to an .stp file used by the stepcontour program (see
+<a class="reference external" href="#sec:stepcontour">Stepcontour</a>).</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The step file command will overwrite existing .stp files
+with the same name by default.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.27.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Below we give a worked out example for a CIE model where we took as free
+parameters the normalization “norm”, temperature “t”, Si abundance “14”
+and Fe abundance “26”. To do a 3-dimensional grid search on the
+temperature (logarithmic between 0.1 and 10 keV with 21 steps), Fe
+abundace (linear between 0.0 and 1.0 with 11 steps) and Si abundance
+(linear between 0.0 and 2.0 with 5 steps, i.e. values 0.0, 0.4, 0.8,
+1.2, 1.6 and 2.0) the following commands should be issued:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Do not forget to do first a fit</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">dimension</span> <span class="pre">3</span></code> : We will do a three-dimensional grid search</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">1</span> <span class="pre">parameter</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">t</span> <span class="pre">range</span> <span class="pre">0.1:10.0</span> <span class="pre">n</span> <span class="pre">-21</span></code> : The logarithmic
+grid for the first axis, temperature; note the <img class="math" src="../../_images/math/358db901b314da12f74911a8f1cedc92213c342b.svg" alt="-" style="vertical-align: -1px"/> before the
+21!</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">2</span> <span class="pre">par</span> <span class="pre">26</span> <span class="pre">range</span> <span class="pre">0:1</span> <span class="pre">n</span> <span class="pre">11</span></code> : The grid for axis 2, Fe
+abundance</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">3</span> <span class="pre">par</span> <span class="pre">14</span> <span class="pre">range</span> <span class="pre">0:2</span> <span class="pre">n</span> <span class="pre">5</span></code> : Idem for the 3rd axis, Silicon</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span></code> : Now do the grid search. Output is in the form of ascii data
+on your screen (and/or output file if you opened one).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">file</span> <span class="pre">example</span></code> : Grid search with output to your screen and
+.stp output file for use with the stepcontour task.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="simulate.html" title="previous chapter">3.1.26. Simulate: Simulation of data</a></li>
+      <li>Next: <a href="syserr.html" title="next chapter">3.1.28. Syserr: systematic errors</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.7. DEM: differential emission measure analysis[sec:dem] &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.8. Distance: set the source distance" href="distance.html" />
+    <link rel="prev" title="3.1.6. Data: read response file and spectrum" href="data.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dem-differential-emission-measure-analysis-sec-dem">
+<h1>3.1.7. DEM: differential emission measure analysis[sec:dem]<a class="headerlink" href="#dem-differential-emission-measure-analysis-sec-dem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.7.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>SPEX offers the opportunity to do a differential emission measure
+analysis. This is an effective way to model multi-temperature plasmas in
+the case of continuous temperature distributions or a large number of
+discrete temperature components.</p>
+<p>The spectral model can only have one additive component: the DEM
+component that corresponds to a multi-temperature structure. There are
+no restrictions to the number of multiplicative components. For a
+description of the DEM analysis method see document SRON/SPEX/TRPB05 (in
+the documentation for version 1.0 of SPEX),
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ASPC...64...41M/abstract">Mewe et al. (1994)</a>,
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A&amp;A...296..477M/abstract">Mewe et al. (1995)</a>
+and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996A&amp;A...314..547K/abstract">Kaastra et al. (1996)</a>.</p>
+<p>SPEX has 5 different dem analysis methods implemented, as listed shortly
+below. We refer to the above papers for more details.</p>
+<ol class="arabic simple">
+<li><p>reg – Regularization method (minimizes second order derivative of the
+DEM; advantage: produces error bars; disadvantage: needs fine-tuning
+with a regularization parameter and can produce negative emission
+measures.</p></li>
+<li><p>clean – Clean method: uses the clean method that is widely used in
+radio astronomy. Useful for “spiky emission measure distributions.</p></li>
+<li><p>poly – Polynomial method: approximates the DEM by a polynomial in the
+<img class="math" src="../../_images/math/753d93136d0c99a53ceddb4164a91de3f47c7c2b.svg" alt="\log T -- \log Y" style="vertical-align: -3px"/> plane, where <img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> is the emission
+measure. Works well if the DEM is smooth.</p></li>
+<li><p>mult – Multi-temperature method: tries to fit the DEM to the sum of
+Gaussian components as a function of <img class="math" src="../../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/>. Good for
+discrete and slightly broadened components, but may not always
+converge.</p></li>
+<li><p>gene – Genetic algorithm: using a genetic algorithm try to find the
+best solution. Advantage: rather robust for avoiding local
+subminima.Disadvantage: may require a lot of cpu time, and each run
+produces slightly different results (due to randomization).</p></li>
+</ol>
+<p>In practice to use the DEM methods the user should do the following
+steps:</p>
+<ol class="arabic simple">
+<li><p>Read and prepare the spectral data that should be analysed</p></li>
+<li><p>Define the dem model with the “comp dem” command</p></li>
+<li><p>Define any multiplicative models (absorption, redshifts, etc.) that
+should be applied to the additive model</p></li>
+<li><p>Define the parameters of the dem model: number of temperature bins,
+temperature range, abundances etc.</p></li>
+<li><p>give the “dem lib” command to create a library of isothermal spectra.</p></li>
+<li><p>do the dem method of choice (each one of the five methods outlined
+above)</p></li>
+<li><p>For different abundances or parameters of any of the spectral
+components, first the “dem lib” command must be re-issued!</p></li>
+</ol>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.7.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">lib</span></code> : Create the basic DEM library of isothermal spectra</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span></code> : Do DEM analysis using the regularization method,
+using an automatic search of the optimum regularization parameter. It
+determines the regularisation parameter <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/> in such a way that
+<img class="math" src="../../_images/math/ac97ed518accc3176c0fa7d5d548aacca0daaf17.svg" alt="\chi^2(R) =
+ \chi^2(0) [1 + s \sqrt{2/(n-n_{\mathrm T}}]" style="vertical-align: -4px"/> where the scaling factor
+<img class="math" src="../../_images/math/b36c9eae45473b7d7f00eb71bf532a6a6d8dfd02.svg" alt="s=1" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> is the number of spectral bins in the data set
+and <img class="math" src="../../_images/math/1984ffeaa7eed72cc82dd61c13f80e368ba7a706.svg" alt="n_{\mathrm T}" style="vertical-align: -2px"/> is the number of temperature components in
+the DEM library.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span> <span class="pre">#r</span></code> : As above, but for the scaling factor <img class="math" src="../../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/>
+set to #r.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">#r</span></code> : Do DEM analysis using the regularization method,
+using a fixed regularization parameter <img class="math" src="../../_images/math/21eabc612663f0e28ca6517d1161a8f06cc8b1ad.svg" alt="R =" style="vertical-align: 0px"/>#r.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">chireg</span> <span class="pre">#r1:#r2</span> <span class="pre">#i</span></code> : Do a grid search over the regularization
+parameter <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/>, with #i steps and <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/> distributed
+logarithmically between #r1 and #r2. Useful to scan the
+<img class="math" src="../../_images/math/7f4f72c9d6e9ba4cbe0f1538e4758bed12ac2d8b.svg" alt="\chi^2(R)" style="vertical-align: -4px"/> curve whenever it is complicated and to see how much
+“penalty’ (negative DEM values) there are for each value of <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">clean</span></code> : Do DEM analysis using the clean method</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">poly</span> <span class="pre">#i</span></code> : Do DEM analysis using the polynomial method, where
+#i is the degree of the polynomial</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">mult</span> <span class="pre">#i</span></code> : Do DEM analysis using the multi-temperature method,
+where #i is the number of broad components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">gene</span> <span class="pre">#i1</span> <span class="pre">#i2</span></code> : Do DEM analysis using the genetic algorithm,
+using a population size given by #i1 (maximum value 1024) and #i2 is
+the number of generations (no limit, in practice after
+<img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>100 generations not much change in the solution.
+Experiment with these numbers for your practical case.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">read</span> <span class="pre">#a</span></code> : Read a DEM distribution from a file named #a which
+automatically gets the extension “.dem”. It is an ascii file with at
+least two columns, the first column is the temperature in keV and the
+second column the differential emission measure, in units of
+<img class="math" src="../../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m:math:<cite>^{-3}</cite> keV:math:<cite>^{-1}</cite>. The maximum number of
+data points in this file is 8192. Temperature should be in increasing
+order. The data will be interpolated to match the temperature grid
+defined in the dem model (which is set by the user).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">save</span> <span class="pre">#a</span></code> : Save the DEM to a file #a with extension “.dem”. The
+same format as above is used for the file. A third column has the
+corresponding error bars on the DEM as determined by the DEM method
+used (not always relevant or well defined, exept for the
+regularization method).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">smooth</span> <span class="pre">#r</span></code> : Smoothes a DEM previously determined by any DEM
+method using a block filter/ Here #r is the full width of the filter
+expressed in <img class="math" src="../../_images/math/bc16cb2471360bb4aa9a7f3fed9c63cd439f6fe3.svg" alt="^{10}\log T" style="vertical-align: -3px"/>. Note that this smoothing will in
+principle worsen the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> of the solution, but it is
+sometimes useful to “wash out” some residual noise in the DEM
+distribution, preserving total emission measure.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.7.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">lib</span></code> : create the DEM library</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span></code> : use the automatic regularization method</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">10.</span></code> : use a regularization parameter of <img class="math" src="../../_images/math/a3b73cd936e701f14e1fe0bfa7c566fa8fffab77.svg" alt="R=10" style="vertical-align: 0px"/> in
+the regularization method</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">chireg</span> <span class="pre">1.e-5:1.e5</span> <span class="pre">11</span></code> : do a grid search using 11
+regularisation parameters <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/> given by <img class="math" src="../../_images/math/373534238f84ddb3c99a028005ff5f9c61d9f2bc.svg" alt="10^{-5}" style="vertical-align: 0px"/>,
+<img class="math" src="../../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/>, 0.001, 0.01, 0.1, 1, 10, 100, 1000, <img class="math" src="../../_images/math/57ee462f2d69ae200ca8e70947ea719113cc159c.svg" alt="10^4" style="vertical-align: 0px"/>,
+<img class="math" src="../../_images/math/bb87a13002fce52f836ad81368f55ea74b5c1910.svg" alt="10^5" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">clean</span></code> : use the clean method</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">poly</span> <span class="pre">7</span></code> : use a 7th degree polynomial method</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">gene</span> <span class="pre">512</span> <span class="pre">128</span></code> : use the genetic algorithm with a population of
+512 and 128 generations</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">save</span> <span class="pre">mydem</span></code> : save the current dem on a file named mydem.dem</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">read</span> <span class="pre">modeldem</span></code> : read the dem from a file named modeldem.dem</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">smooth</span> <span class="pre">0.3</span></code> : smooth the DEM to a temperature width of 0.3 in
+<img class="math" src="../../_images/math/bc16cb2471360bb4aa9a7f3fed9c63cd439f6fe3.svg" alt="^{10}\log T" style="vertical-align: -3px"/> (approximately a factor of 2 in temperature
+range).</div>
+<div class="line">Recommended citation: <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A&amp;A...296..477M/abstract">Mewe et al. (1995)</a>.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="data.html" title="previous chapter">3.1.6. Data: read response file and spectrum</a></li>
+      <li>Next: <a href="distance.html" title="next chapter">3.1.8. Distance: set the source distance</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

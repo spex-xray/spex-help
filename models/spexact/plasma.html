@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.3. Plasma model in SPEX 3.0 &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.4. Absorption model theory" href="absmodels.html" />
+    <link rel="prev" title="4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)" href="intro.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plasma-model-in-spex-3-0">
+<span id="chap-plasmamodel"></span><h1>4.3. Plasma model in SPEX 3.0<a class="headerlink" href="#plasma-model-in-spex-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-core-of-the-plasma-model">
+<h2>4.3.1. The core of the plasma model<a class="headerlink" href="#the-core-of-the-plasma-model" title="Permalink to this headline">¶</a></h2>
+<p>The old plasma code used by  in version 2.0 and below is essentially the
+same plasma code as developed originally by Rolf Mewe and colleagues,
+with relatively minor updates to the atomic data (like wavelength
+improvements, corrections of a few typo’s, improvements for Fe XVII).</p>
+<p>Its basis were precalculated and parametrized line emissivities for each
+spectral line, as a function of temperature, with for relevant lines
+empirical density corrections. For some transitiuons, like the He-like
+triplets, the calculations were rather complex and required several
+correction factors to account for the full density dependence.</p>
+<p>In the new approach presented here, the basic plasma processes are
+evaluated for each individual level, and then the occupation numbers of
+the excited states are calculated for the full ion, solving a matrix
+equation. This has the great advantage that with the same effort a
+multitude of processes can be taken into account, including effects of
+photo-excitation and photo-ionisation. From the occupation numbers and
+the radiative transition probabilities it is then straightforward to
+calculate the emitted spectrum.</p>
+<p>In order to keep the code fast and flexible, we have chosen for a
+procedure to parametrise all relevant processes, and using simple
+analytical formulae with a limited number of parameters for each
+process. This is beneficial both in terms of computation time and
+storage demands and formed the basis for the succes of Mewe’s original
+work.</p>
+<p>The production of the relevant files is not yet complete, but in the
+first release of version 3.0 we incorporate the data for the H, He, and
+Li iso-electronic sequences, and some data for the other sequences,
+including the Fe-L ions. For an overview of what is in the code see
+Section <a class="reference internal" href="#sect-newsequences"><span class="std std-ref">Ions for which updated calculations are available</span></a> below.</p>
+<p>By default, the plasma code is the old version 2.0 code, but by giving
+the command “var calc new”, for the ions for which new data are
+available, the new code is used. This leads in principle to higher
+accuracy and many more spectral lines. A disadvantage is of course that
+the computations become somewhat slower. For spectral fitting, one could
+envision a procedure where in a first run the old code is used to get
+close to the best parameters, and then to refine using the new plasma
+core.</p>
+<p>If you want to use the new plasma model, it is
+important to make sure the ionisation balance is the
+new <em>u17</em> balance. This new balance has improved
+collisional ionisation rates and allows to calculate
+properly inner-shell transitions that are needed for
+the new calculations. See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A%26A...601A..85U/abstract">Urdampilleta et al.
+(2017)</a>
+for details.</p>
+<p>Finally, it is advised that the users have a look to the various
+ascii-output options that are available for the plasma models, allowing
+to get deeper insight into the physical process and parameters that are
+being used.</p>
+</div>
+<div class="section" id="ions-for-which-updated-calculations-are-available">
+<span id="sect-newsequences"></span><h2>4.3.2. Ions for which updated calculations are available<a class="headerlink" href="#ions-for-which-updated-calculations-are-available" title="Permalink to this headline">¶</a></h2>
+<p>Below we list for each iso-electronic sequence what data is available
+for the new plasma calculations. Each line corresponds to one ion, with
+<em>ii, iz and jz</em> corresponding to the iso-electronic sequence, nuclear
+charge and ionisation stage, respectively. Then for a number of process
+we list two quantities: <img class="math" src="../../_images/math/102ede67fa109b003c437414855466fdd4c5d990.svg" alt="N" style="vertical-align: 0px"/>, the number of entries we have (e.g.,
+number of energy levels or transition rates), and <img class="math" src="../../_images/math/6f14d116d8a58747b2f4795efca6ee109e74f2ff.svg" alt="n_{\mathrm max}" style="vertical-align: -2px"/>
+the maximum principal quantum number for wich we use data for that ion
+and process. Note that <img class="math" src="../../_images/math/6f14d116d8a58747b2f4795efca6ee109e74f2ff.svg" alt="n_{\mathrm max}" style="vertical-align: -2px"/> refers to the highest level
+included for a transition between two levels.</p>
+<p>The processes incorporated and shown in the table are:</p>
+<ol class="arabic simple">
+<li><p><em>levels</em> – Energy levels</p></li>
+<li><p><em>Arad</em> – Radiative transition probabilities (Einstein coefficients)</p></li>
+<li><p><em>Atwo</em> – Two-photon processes</p></li>
+<li><p><em>El col</em> – Electron collisional excitation</p></li>
+<li><p><em>Pr col</em> – Proton collisional excitation</p></li>
+<li><p><em>Aug</em> – Auger rates (auto-ionisation, needed for dielectronic
+recombination)</p></li>
+<li><p><em>CX</em> – Charge exchange recombination</p></li>
+<li><p><em>RR</em> – Radiative recombination</p></li>
+<li><p><em>II</em> – Inner-shell processes (this is merely the number of quantum
+states after ionisation; the number of fluorescent lines will be
+larger)</p></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../models.html">4. Spectral models</a><ul>
+      <li>Previous: <a href="intro.html" title="previous chapter">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+      <li>Next: <a href="absmodels.html" title="next chapter">4.4. Absorption model theory</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

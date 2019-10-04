@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.16. File: model read from a file &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.17. Gaus: gaussian line model" href="gaus.html" />
+    <link rel="prev" title="4.1.15. Euve: EUVE absorption model" href="euve.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="file-model-read-from-a-file">
+<h1>4.1.16. File: model read from a file<a class="headerlink" href="#file-model-read-from-a-file" title="Permalink to this headline">¶</a></h1>
+<p>This model reads a spectrum from a file. The user inputs a spectrum at
+<img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> energy bins (<img class="math" src="../_images/math/043012d39a9c8b433307070ef772f1499e57d7a5.svg" alt="n&gt;1" style="vertical-align: 0px"/>). The file containing the spectrum
+should have the follwing format:</p>
+<ul class="simple">
+<li><p>first line: <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/></p></li>
+<li><p>second line: <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/21270a332aad9264b7882b42ace281e9f0a2a585.svg" alt="S_1" style="vertical-align: -2px"/></p></li>
+<li><p>third line: <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/5cb5c7132b4eba2bf5e029d5eaa58fadda37993c.svg" alt="S_2" style="vertical-align: -2px"/></p></li>
+<li><p><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/></p></li>
+<li><p>last line: <img class="math" src="../_images/math/729b9fcf5a5a7e7ef7f066a92aea3f26c52e33f2.svg" alt="E_n" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/13474afa7adedcb984b8b78714b20fbe0b227cce.svg" alt="S_n" style="vertical-align: -2px"/></p></li>
+</ul>
+<p>Here <img class="math" src="../_images/math/f97bd4708860cf07e8b83ef8f71883cd0e0e1a9a.svg" alt="E_i" style="vertical-align: -2px"/> is the energy of a photon in keV, and <img class="math" src="../_images/math/6d5bf55ddb8be94676328cb15b6303da031f7255.svg" alt="S_i" style="vertical-align: -2px"/> is
+the spectrum in units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/>
+photons s<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/> keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>. All energies <img class="math" src="../_images/math/f97bd4708860cf07e8b83ef8f71883cd0e0e1a9a.svg" alt="E_i" style="vertical-align: -2px"/> must
+be positive, and the grid must be monotonically increasing (two
+subsequent energies may not have the same value). Also, the spectrum
+<img class="math" src="../_images/math/6d5bf55ddb8be94676328cb15b6303da031f7255.svg" alt="S_i" style="vertical-align: -2px"/> must be strictly positive (i.e. <img class="math" src="../_images/math/69396103ec5af375e2319be2313744521d209139.svg" alt="S_i=0" style="vertical-align: -2px"/> is not
+allowed).</p>
+<p>SPEX then calculates the spectrum by linear interpolation in the
+<img class="math" src="../_images/math/f4970f1d4070f9af10ee9dbc3b78f9b2749ef416.svg" alt="\log E - \log S" style="vertical-align: -3px"/> plane (this is why fluxes must be positive). For <img class="math" src="../_images/math/470031933a315dc7c3779faf17136c3b04e60fc7.svg" alt="E&lt;E_1" style="vertical-align: -2px"/>
+and <img class="math" src="../_images/math/f05bcf19ce6639e62cbf050dd9e56350b60bebf5.svg" alt="E&gt;E_n" style="vertical-align: -2px"/> however, the spectrum is put to zero. Finally, the
+spectrum is multiplied by the scale factor <img class="math" src="../_images/math/102ede67fa109b003c437414855466fdd4c5d990.svg" alt="N" style="vertical-align: 0px"/> prescribed by the
+user.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation factor <img class="math" src="../_images/math/102ede67fa109b003c437414855466fdd4c5d990.svg" alt="N" style="vertical-align: 0px"/>.Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : The file name of the file containing the spectrum</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="euve.html" title="previous chapter">4.1.15. Euve: EUVE absorption model</a></li>
+      <li>Next: <a href="gaus.html" title="next chapter">4.1.17. Gaus: gaussian line model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.6. Data: read response file and spectrum &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.7. DEM: differential emission measure analysis[sec:dem]" href="dem.html" />
+    <link rel="prev" title="3.1.5. Comp: create, delete and relate spectral components" href="component.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-read-response-file-and-spectrum">
+<span id="sec-data"></span><h1>3.1.6. Data: read response file and spectrum<a class="headerlink" href="#data-read-response-file-and-spectrum" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.6.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In order to fit an observed spectrum, SPEX needs a spectral data file
+and a response matrix. These data are stored in FITS format, tailored
+for SPEX (see section <a class="reference external" href="#sec:resp:formats">Response formats</a>). The
+data files need not necessarily be located in the same directory, one
+can also give a pathname plus filename in this command.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Filenames should be entered in the data command without their
+extension. For the files response.res and spectrum.spo, the
+data command would look like: data response spectrum.</p>
+</div>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.6.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">The following syntax rules apply:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">#a1</span> <span class="pre">#a2</span></code> : Read response matrix #a1 and spectrum #a2</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">delete</span> <span class="pre">instrument</span> <span class="pre">#i</span></code> : Remove instrument #i from the data set</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">merge</span> <span class="pre">sum</span> <span class="pre">#i:</span></code> : Merge instruments in range #i: to a single
+spectrum and response matrix, by adding the data and matrices</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">merge</span> <span class="pre">aver</span> <span class="pre">#i:</span></code> : Merge instruments in range #i: to a single
+spectrum and response matrix, by averaging the data and matrices</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">save</span> <span class="pre">#i</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span></code> : Save data #a from instrument #i with
+the option to overwrite the existent file. SPEX automatically tags the
+.spo extension to the given file name. No response file is saved.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">show</span></code> : Shows the data input given, as well as the count
+(rates) for source and background, the energy range for which there is
+data the response groups and data channels. Also the integration time
+and the standard plotting options are given.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.6.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">mosresp</span> <span class="pre">mosspec</span></code> : read a spectral response file named
+mosresp.res and the corresponding spectral file mosspec.spo. Hint,
+although 2 different names are used here for ease of understanding, it
+is eased if the spectrum and response file have the same name, with
+the appropriate extension.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">delete</span> <span class="pre">instrument</span> <span class="pre">1</span></code> : delete the first instrument</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">merge</span> <span class="pre">aver</span> <span class="pre">3:5</span></code> : merge instruments 3–5 into a single new
+instrument 3 (replacing the old instrument 3), by averaging the
+spectra. Spectra 3–5 could be spectra taken with the same instrument
+at different epochs.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">merge</span> <span class="pre">sum</span> <span class="pre">1:2</span></code> : add spectra of instruments 1–2 into a single
+new instrument 1 (replacing the old instrument 1), by adding the
+spectra. Useful for example in combining XMM-Newton MOS1 and MOS2
+spectra.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">save</span> <span class="pre">1</span> <span class="pre">mydata</span></code> : Saves the data from instrument 1 in the
+working directory under the filename of mydata.spo</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">/mydir/data/mosresp</span> <span class="pre">/mydir/data/mosspec</span></code> : read the spectrum
+and response from the directory /mydir/data/</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="component.html" title="previous chapter">3.1.5. Comp: create, delete and relate spectral components</a></li>
+      <li>Next: <a href="dem.html" title="next chapter">3.1.7. DEM: differential emission measure analysis[sec:dem]</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

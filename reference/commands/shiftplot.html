@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.25. Shiftplot: shift the plotted spectrum for display purposes &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.26. Simulate: Simulation of data" href="simulate.html" />
+    <link rel="prev" title="3.1.24. Sector: creating, copying and deleting of a sector[sec:sector]" href="sector.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="shiftplot-shift-the-plotted-spectrum-for-display-purposes">
+<span id="sec-shiftplot"></span><h1>3.1.25. Shiftplot: shift the plotted spectrum for display purposes<a class="headerlink" href="#shiftplot-shift-the-plotted-spectrum-for-display-purposes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.25.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This command shifts the observed spectrum as well as the model spectrum
+by adding a constant or by multiplying a constant, as far as plots are
+concerned. The true data files do not change, so the shift is only for
+representational purposes.</p>
+<p>There are basically two options, indicated by the mode variable
+<em>plotshift</em>: For <em>plotshift</em>=1, a constant <em>shift</em> is added to the
+plotted spectrum of a given part of the data, for <em>plotshift</em>=2 the
+plotted spectrum is multiplied by the constant <em>shift</em>.</p>
+<p>The multiplicative constant shift (<em>plotshift</em>=2) is generally
+preferred for log-log plots, while for linear plots a constant additive
+shift (<em>plotshift</em>=1) is preferred.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the case of addition (<em>plotshift</em>=1), the addition
+constant is given in counts/s. This thus leads to a different
+(energy-dependent) constant being added to the plotted spectrum if the
+units are not in counts/s. For the multiplicative case this is of course
+not the case.</p>
+</div>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.25.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">shiftplot</span> <span class="pre">#i</span> <span class="pre">#r</span></code> : #i indicates whether a constant should be added
+(#i=1) or multiplied (#i=2) to the spectrum and model. #r is then the
+constant to be added or multiplied by.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">shiftplot</span> <span class="pre">[instrument</span> <span class="pre">#i1:]</span>&#160; <span class="pre">[region</span> <span class="pre">#i2:]</span>&#160; <span class="pre">#i3</span> <span class="pre">#r</span></code> : Shift the
+plot using a factor #r. Here #i3 (<em>= plotshift</em>) determines whether
+the constant is added (<em>plotshift=1</em>) or multiplied (<em>plotshift=2</em>).
+The optional instrument range #i1: can be used to select a single
+instrument or range of instruments for which the shift needs to be
+applied, and the optional region range #i2: the region for these
+instruments.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.25.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">shiftplot</span> <span class="pre">1</span> <span class="pre">2.0</span></code> : Adds 2 counts/s to the plotted spectrum. Since
+no instrument or region is specified, this applies for all spectra.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">shiftplot</span> <span class="pre">2</span> <span class="pre">10.0</span></code> : Multiplies the plotted spectrum by a factor of
+10.0</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">shiftplot</span> <span class="pre">instrument</span> <span class="pre">1</span> <span class="pre">region</span> <span class="pre">2</span> <span class="pre">1</span> <span class="pre">2</span></code> : Adds 2 counts/s to the
+plotted spectrum for the data from instrument 1 and region 2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">shiftplot</span> <span class="pre">region</span> <span class="pre">2:3</span> <span class="pre">1</span> <span class="pre">2</span></code> : Adds 2 counts/s to the plotted spectrum
+for the data for all instruments and regions 2<img class="math" src="../../_images/math/358db901b314da12f74911a8f1cedc92213c342b.svg" alt="-" style="vertical-align: -1px"/>3.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="sector.html" title="previous chapter">3.1.24. Sector: creating, copying and deleting of a sector[sec:sector]</a></li>
+      <li>Next: <a href="simulate.html" title="next chapter">3.1.26. Simulate: Simulation of data</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

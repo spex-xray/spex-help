@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.1. Powerlaw &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.2. Powerlaw with a Gaussian line" href="ex2.html" />
+    <link rel="prev" title="8. Exercises" href="../exercises.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="powerlaw">
+<h1>8.1. Powerlaw<a class="headerlink" href="#powerlaw" title="Permalink to this headline">¶</a></h1>
+<p>Before doing this exercise, we advise you to read <a class="reference internal" href="../getstarted/runspex.html#sec-intro"><span class="std std-ref">How to run SPEX</span></a>.</p>
+<p>The spectrum in the files <a class="reference download internal" download="" href="../_downloads/13ba9af4117a226392d8e1e8b991bebf/powerl.spo"><code class="xref download docutils literal notranslate"><span class="pre">powerl.spo</span></code></a>
+and <a class="reference download internal" download="" href="../_downloads/7ec8ed54f0334eec606cd8dd3dd340e4/powerl.res"><code class="xref download docutils literal notranslate"><span class="pre">powerl.res</span></code></a> was recorded
+from a source at 6 kpc distance.</p>
+<ol class="arabic simple">
+<li><p>Load the spectrum into SPEX and plot it.</p></li>
+<li><p>The calibration of the instrument is not very accurate for energies
+below 0.3 keV and above 10 keV. Ignore those parts of the spectrum.</p></li>
+<li><p>How many data bins do you have in the spectrum? Now try to apply
+optimal binning to the spectrum. How many bins are left?</p></li>
+<li><p>Set up an absorbed powerlaw model. Do not forget to set the distance
+to the source.</p></li>
+<li><p>Next step: fit the spectrum. Is it a good fit?</p></li>
+<li><p>Calculate the errors on all free parameters and save your results in
+a text file.</p></li>
+<li><p>It may be wise to save the commands that you entered in SPEX to a
+command file, so you can repeat the analysis where needed. Try to
+make such a command file.</p></li>
+</ol>
+<p><strong>Learning goals:</strong></p>
+<p>After having done this spectrum, you should know:</p>
+<ul class="simple">
+<li><p>How to read a spectrum in SPEX (using <a class="reference internal" href="../reference/commands/data.html#sec-data"><span class="std std-ref">Data: read response file and spectrum</span></a>).</p></li>
+<li><p>How to use the basic plot functionalities (using <a class="reference internal" href="../reference/commands/plot.html#sec-plot"><span class="std std-ref">Plot: Plotting data and models</span></a>).</p></li>
+<li><p>How to ignore parts of the spectrum (using <a class="reference internal" href="../reference/commands/ignore.html#sec-ignore"><span class="std std-ref">Ignore: ignoring part of the spectrum</span></a>).</p></li>
+<li><p>How to rebin a spectrum (using <a class="reference internal" href="../reference/commands/bin.html#sec-bin"><span class="std std-ref">Bin: rebin the spectrum</span></a>).</p></li>
+<li><p>How to set-up a simple spectral model (using <a class="reference internal" href="../reference/commands/component.html#sec-comp"><span class="std std-ref">Comp: create, delete and relate spectral components</span></a>).</p></li>
+<li><p>How to set the distance (using <a class="reference internal" href="../reference/commands/distance.html#sec-distance"><span class="std std-ref">Distance: set the source distance</span></a>).</p></li>
+<li><p>How to do spectral fitting (using <a class="reference internal" href="../reference/commands/fit.html#sec-fit"><span class="std std-ref">Fit: spectral fitting</span></a>).</p></li>
+<li><p>How to determine errors on parameters (using <a class="reference internal" href="../reference/commands/error.html#sec-error"><span class="std std-ref">Error: Calculate the errors of the fitted parameters</span></a>).</p></li>
+<li><p>How to save your commands &amp; results (using <a class="reference internal" href="../reference/commands/log.html#sec-log"><span class="std std-ref">Log: Making and using command files</span></a>).</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../exercises.html">8. Exercises</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. Powerlaw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex2.html">8.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex3.html">8.3. Statistics, binning and more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex4.html">8.4. Stellar Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex5.html">8.5. Supernova remnants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex6.html">8.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex7.html">8.7. AGN winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../exercises.html">8. Exercises</a><ul>
+      <li>Previous: <a href="../exercises.html" title="previous chapter">8. Exercises</a></li>
+      <li>Next: <a href="ex2.html" title="next chapter">8.2. Powerlaw with a Gaussian line</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

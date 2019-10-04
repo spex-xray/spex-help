@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.14. Ignore: ignoring part of the spectrum &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.15. Ion: select ions for the plasma models" href="ions.html" />
+    <link rel="prev" title="3.1.13. Ibal: set type of ionisation balance" href="ibal.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ignore-ignoring-part-of-the-spectrum">
+<span id="sec-ignore"></span><h1>3.1.14. Ignore: ignoring part of the spectrum<a class="headerlink" href="#ignore-ignoring-part-of-the-spectrum" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.14.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>If one wants to ignore part of a data set in fitting the input model, as
+well as in plotting this command should be used. The spectral range one
+wants to ignore can be specified as a range in data channels or a range
+in wavelength or energy. Note that the first number in the range must
+always be smaller or equal to the second number given. If multiple
+instruments are used, one must specify the instrument as well. If the
+data set contains multiple regions, one must specify the region as well.
+So per instrument/region one needs to specify which range to ignore. The
+standard unit chosen for the range of data to ignore is data channels.
+To undo ignore, see the use command (see
+section <a class="reference external" href="#sec:use">Use</a>).</p>
+<p>The range to be ignored can be specified either as a channel range (no
+units required) or in either any of the following units: keV, eV,
+Rydberg, Joule, Hertz, Å, nanometer, with the following abbrevations:
+kev, ev, ryd, j, hz, ang, nm.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.14.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">[instrument</span> <span class="pre">#i1]</span> <span class="pre">[region</span> <span class="pre">#i2]</span> <span class="pre">#r</span></code> : Ignore a certain range
+#r given in data channels of instrument #i1 and region #i2. The
+instrument and region need to be specified if there are more than 1
+data sets in one instrument data set or if there are more than 1 data
+set from different instruments.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">[instrument</span> <span class="pre">#i1]</span> <span class="pre">[region</span> <span class="pre">#i2]</span> <span class="pre">#r</span> <span class="pre">unit</span> <span class="pre">#a</span></code> : Same as the
+above, but now one also specifies the unites #a in which the range #r
+of data points to be ignored are given. The units can be either Å(ang)
+or (k)eV.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.14.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">1000:1500</span></code> : Ignores data channels 1000 till 1500.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">region</span> <span class="pre">1</span> <span class="pre">1000:1500</span></code> : Ignore data channels 1000 till 1500
+for region 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">instrument</span> <span class="pre">1</span> <span class="pre">region</span> <span class="pre">1</span> <span class="pre">1000:1500</span></code> : Ignores the data channels
+1000 till 1500 of region 1 from the first instrument.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">instrument</span> <span class="pre">1</span> <span class="pre">region</span> <span class="pre">1</span> <span class="pre">1:8</span> <span class="pre">unit</span> <span class="pre">ang</span></code> : Same as the above
+example, but now the range is specified in units of Å instead of in
+data channels.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ignore</span> <span class="pre">1:8</span> <span class="pre">unit</span> <span class="pre">ang</span></code> : Ignores the data from 1 to 8 Å, only works
+if there is only one instrument and one region included in the data
+sets.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="ibal.html" title="previous chapter">3.1.13. Ibal: set type of ionisation balance</a></li>
+      <li>Next: <a href="ions.html" title="next chapter">3.1.15. Ion: select ions for the plasma models</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

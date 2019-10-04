@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.4. Cf: isobaric cooling flow differential emission measure model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.5. Cie: collisional ionisation equilibrium model" href="cie.html" />
+    <link rel="prev" title="4.1.3. Bb: blackbody model" href="bb.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="cf-isobaric-cooling-flow-differential-emission-measure-model">
+<h1>4.1.4. Cf: isobaric cooling flow differential emission measure model<a class="headerlink" href="#cf-isobaric-cooling-flow-differential-emission-measure-model" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the spectrum of a standard isobaric cooling flow.
+The differential emission measure distribution
+<img class="math" src="../_images/math/b164fcf8907ccdb9a0bef517e230f91a1fa78ef3.svg" alt="\mathrm{d}Y(T)/\mathrm{d}T" style="vertical-align: -4px"/> for the isobaric cooling flow model can be
+written as</p>
+<div class="math">
+<p><img src="../_images/math/86805c4a38fe13cb27290304e3d5f479ae23c7f1.svg" alt="D(T)\equiv \mathrm{d}Y(T)/\mathrm{d}T = \frac{5\dot{M}k}{2\mu m_{\mathrm{H}} \Lambda(T)},"/></p>
+</div><p>where <img class="math" src="../_images/math/072e830cdbb6a381bda1bb3479b30b1cbdbd01bd.svg" alt="\dot{M}" style="vertical-align: 0px"/> is the mass deposition rate, <img class="math" src="../_images/math/f4b0bb36ce2976a36a5f7c013cfee44b193b72a1.svg" alt="k" style="vertical-align: 0px"/> is
+Boltzmann’s constant, <img class="math" src="../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/> the mean molecular weight (0.618 for a
+plasma with 0.5 times solar abundances), <img class="math" src="../_images/math/bcde598ddfec2fcddc492972163986a0bda7115c.svg" alt="m_{\mathrm{H}}" style="vertical-align: -2px"/> is the mass
+of a hydrogen atom, and <img class="math" src="../_images/math/15e3e5e33b50abb863c399a529cc42afb9f650fd.svg" alt="\Lambda(T)" style="vertical-align: -4px"/> is the cooling function. We
+have calculated the cooling function <img class="math" src="../_images/math/e40048d8ef555d09db7cadcd69d6a3196f78166d.svg" alt="\Lambda" style="vertical-align: 0px"/> using our own
+SPEX code for a grid of temperatures and for 0.5 times solar abundances.
+The spectrum is evaluated by integrating the above differential emission
+measure distribution between a lower temperature boundary <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>
+and a high temperature boundary <img class="math" src="../_images/math/bd7a300accb8c96f503d41daaf495c4cab829f33.svg" alt="T_n" style="vertical-align: -2px"/>. We do this by creating a
+temperature grid with <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> bins and calculating the spectrum for
+each temperature.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Take care that <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> is not too small in case the
+relevant temperature is large; on the other hand if <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> is large,
+the computational time increases. Usually a spacing with temperature
+differences between adjacent bins of 0.1 (in <img class="math" src="../_images/math/44f1c8477eade18e958206a6f72190a35eeb2faf.svg" alt="\log" style="vertical-align: -3px"/>) is sufficient
+and optimal.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The physical relevance of this model is a matter of debate.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : The mass deposition rate <img class="math" src="../_images/math/072e830cdbb6a381bda1bb3479b30b1cbdbd01bd.svg" alt="\dot{M}" style="vertical-align: 0px"/> in
+<img class="math" src="../_images/math/ac2c62948be630a191205b31b861caf206d45721.svg" alt="\mathrm{M}_{\odot}" style="vertical-align: -4px"/> <img class="math" src="../_images/math/bba16a6aa4f4e54f01c971ea890a5fe23693fa48.svg" alt="\mathrm{yr}^{-1}" style="vertical-align: -3px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t1</span></code> : Lower temperature cut-off temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>. Default:
+0.1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tn</span></code> : Upper temperature cut-off temperature <img class="math" src="../_images/math/bd7a300accb8c96f503d41daaf495c4cab829f33.svg" alt="T_n" style="vertical-align: -2px"/>. Default:
+1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nr</span></code> : Number of temperature bins <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> used in the integration.
+Default value: 16</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">p</span></code> : Slope <img class="math" src="../_images/math/a20edc735b1660a384ffb5719af919dfdf97e920.svg" alt="p=1/\alpha" style="vertical-align: -4px"/>. Default: 0.25 (<img class="math" src="../_images/math/21a9f958d1e4f1b0ace488f8ce67daedce40f360.svg" alt="\alpha = 4" style="vertical-align: 0px"/>).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cut</span></code> : Lower temperature cut-off, in units of <img class="math" src="../_images/math/a672077fefab873fb739a6ec7b93ed28b07c1791.svg" alt="T_{\max}" style="vertical-align: -2px"/>.
+Default value: 0.1.</div>
+<div class="line">The following parameters are the same as for the cie-model: <code class="docutils literal notranslate"><span class="pre">ed</span></code> :
+Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m:math:<cite>^{-3}</cite></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : Micro turbulent velocity in km/s</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..415K/abstract">Kaastra et al. (2004)</a>
+and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984Natur.310..733F/abstract">Fabian et al. (1984)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="bb.html" title="previous chapter">4.1.3. Bb: blackbody model</a></li>
+      <li>Next: <a href="cie.html" title="next chapter">4.1.5. Cie: collisional ionisation equilibrium model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

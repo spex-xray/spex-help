@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.5. Rgsvprof &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.6. RGS_fluxcombine" href="rgsfluxcombine.html" />
+    <link rel="prev" title="5.4. Hydro driver" href="hydro_driver.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rgsvprof">
+<span id="sect-rgsvprof"></span><h1>5.5. Rgsvprof<a class="headerlink" href="#rgsvprof" title="Permalink to this headline">¶</a></h1>
+<p>In SPEX, the <em>lpro</em> component (see <a class="reference internal" href="../models/lpro.html#sec-lpro"><span class="std std-ref">Lpro: spatial broadening model</span></a>) can be used to fold
+the spectrum with a user defined broadening profile. This is
+particularly useful for the analysis of extended sources with grating
+spectrometers, like RGS aboard XMM-Newton. The rgsvprof program creates
+an input file (usually called vprof.dat) for the <em>lpro</em> component from a
+MOS1 detector image.</p>
+<p>The program will ask for the following input:</p>
+<ul class="simple">
+<li><p>MOS1 detector image. In order to obtain a profile along the
+dispersion direction of RGS within the same field of view, the
+program asks for a MOS1 image of the source in detector coordinates
+(DETX,DETY) created by, for example, the XMM-Newton SAS task
+<em>evselect</em>. Rgsvprof does not require a particular resolution for the
+image, but a resolution of about 1/3 of the XMM-Newton PSF, i.e.
+<img class="math" src="../_images/math/2ae27404b7e218bf7d6e01dfbdd08c80426fd5ea.svg" alt="4^{\prime\prime}" style="vertical-align: 0px"/>, is recommended. It is recommended to
+extract an image using events with energies falling in the RGS band:
+<img class="math" src="../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>0.3-2.0 keV.</p></li>
+<li><p>Cross-dispersion selection region. If the RGS spectrum is extracted
+from a certain area in the cross-dispersion direction, then provide
+the lower and upper boundary here in arcminutes with respect to the
+centre of the field of view. The full RGS strip corresponds to a
+range between -2.5 and 2.5 arcminutes.</p></li>
+<li><p>Source width in the dispersion direction. This parameter determines
+the boundaries of the resulting profile in wavelength space. Rgsvprof
+asks for the width of the source in arcmin centred on the peak of the
+emission. Choose this width to be somewhat larger than the actual
+width of the source to be sure that the brightest parts are included
+in the profile. A width of <img class="math" src="../_images/math/cf8ae84949bf6a1140e931ec2149e295a32ea947.svg" alt="&gt;" style="vertical-align: 0px"/>10 arcmin is typically enough,
+but a larger width will increase the size of the vprof.dat file and
+increase processing times.</p></li>
+<li><p>Output file name. The name of the output file (usually vprof.dat).
+Note that rgsvprof does not overwrite files that already exist.</p></li>
+</ul>
+<p>Rgsvprof creates an ASCII file with two columns. The left column
+consists of the grid of wavelengths that the profile is based upon and
+the right column gives the normalised cumulative profile over this range
+starting with 0 and ending at 1. The profile will be centred on the peak
+of the emission.</p>
+<p>Note: The cross-dispersion axis in RGS is parallel to the DETX
+coordinate axis in MOS1 and has the same direction. This is particularly
+helpful when one extracts spatial regions in the cross-dispersion
+direction of RGS.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This program works best for bright extended sources,
+where the background contribution is negligible. For sources with a low
+surface brightness, in principle a background subtracted image should be
+used. This program, however, cannot deal with negative values in the
+MOS1 image.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This program does not take into account vignetting and
+chip gaps. For offset observations or very extended sources, this may
+start to play a role.</p>
+</div>
+<div class="section" id="theory">
+<h2>5.5.1. Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>The wavelength scale corresponding to the angular width of the source in
+RGS can be calculated using the dispersion equation defined in e.g.
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004ApJ...615..545P/abstract">Peterson et al. (2004)</a>:</p>
+<div class="math">
+<p><img src="../_images/math/7adb84d72d82af0294cb74054a5dc1cef41a4403.svg" alt="m\lambda = d ( \mathrm{cos} \beta - \mathrm{cos} \alpha ),"/></p>
+</div><p>where <img class="math" src="../_images/math/13a9a7bb4a4c30c9a9543cb771fc9cce192c661c.svg" alt="m" style="vertical-align: 0px"/> is the spectral order, <img class="math" src="../_images/math/76566000ccc091eb223afe3a02d385191b144e7e.svg" alt="\lambda" style="vertical-align: 0px"/> the wavelength,
+<img class="math" src="../_images/math/5ac673113d00676b08c46a209eb6b5d862c02609.svg" alt="d" style="vertical-align: 0px"/> the grating spacing, <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> the incidence angle of a
+photon, and <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> the diffracted angle. The wavelength shift
+<img class="math" src="../_images/math/5b83c4f943a4f5c6be0d7e7dae2e0be4246321c2.svg" alt="\Delta\lambda" style="vertical-align: 0px"/> due to an offset angle <img class="math" src="../_images/math/eb3e02101c8aba7624d96a7dac66a0e0924aea13.svg" alt="\Delta\theta" style="vertical-align: 0px"/>
+relative to the telescope boresight can be derived by differentiating
+the equation above with respect to
+<img class="math" src="../_images/math/46fbc4934b313598090e4253baa9d978d0e12bf5.svg" alt="\theta = \frac{F}{L} (\alpha - \alpha_{0})" style="vertical-align: -6px"/>, where <img class="math" src="../_images/math/a052ec7803b9567160e97a6584ad6a2ee2f01f39.svg" alt="F" style="vertical-align: 0px"/> is
+the distance between the gratings (RGA) and the camera (RFC), <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/>
+the focal length of the telescope, and <img class="math" src="../_images/math/5a235db46a15d64509d55e216b364368cc95d4a2.svg" alt="\alpha_{0}" style="vertical-align: -2px"/> the incidence
+angle corresponding to the telescope boresight. The resulting relation
+for <img class="math" src="../_images/math/5b83c4f943a4f5c6be0d7e7dae2e0be4246321c2.svg" alt="\Delta\lambda" style="vertical-align: 0px"/> is:</p>
+<div class="math">
+<p><img src="../_images/math/6503dd13454a47f73db3748ab2ae913c9998b228.svg" alt="\Delta\lambda = \frac{dL}{mF} \mathrm{sin}(\alpha_{0}) \Delta\theta."/></p>
+</div><p>We then use the following numbers from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001A%26A...365L...7D/abstract">den Herder et al. (2001)</a>:
+<img class="math" src="../_images/math/5ac673113d00676b08c46a209eb6b5d862c02609.svg" alt="d" style="vertical-align: 0px"/> is 1/645.6 mm, <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> is 7.5 m, <img class="math" src="../_images/math/a052ec7803b9567160e97a6584ad6a2ee2f01f39.svg" alt="F" style="vertical-align: 0px"/> is 6.7 m, and
+<img class="math" src="../_images/math/5a235db46a15d64509d55e216b364368cc95d4a2.svg" alt="\alpha_{0}" style="vertical-align: -2px"/> is 1.5762<img class="math" src="../_images/math/8fb686924f0d91098648e11ea26e25139af6df06.svg" alt="^{\circ}" style="vertical-align: 0px"/> to calculate the
+typical conversion factor from <img class="math" src="../_images/math/eb3e02101c8aba7624d96a7dac66a0e0924aea13.svg" alt="\Delta\theta" style="vertical-align: 0px"/> in arcmin:</p>
+<div class="math">
+<p><img src="../_images/math/bc1a7a04de6f0904eb4b88b3d01b6d54671b28fa.svg" alt="\Delta\lambda = 0.1387~\mathrm{\AA} \ \Delta\theta"/></p>
+</div><p>Note that the value in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004ApJ...615..545P/abstract">Peterson et al. (2004)</a> is not
+correct, because the factor <img class="math" src="../_images/math/64560328873987ced01af5a74712a6de5889e312.svg" alt="\frac{L}{F}" style="vertical-align: -6px"/> was not applied. The
+value in the above equation is used in rgsvprof to convert the spatial
+profile from arcminute scales to wavelength scales.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tools.html">5. Additional tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trafo.html">5.1. Trafo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stepcontour.html">5.2. Stepcontour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xabsinput.html">5.3. Xabsinput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hydro_driver.html">5.4. Hydro driver</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.5. Rgsvprof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsfluxcombine.html">5.6. RGS_fluxcombine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgs_fmat.html">5.7. RGS_fmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortcall.html">5.8. Calling SPEX from Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspextools.html">5.9. Python tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tools.html">5. Additional tools</a><ul>
+      <li>Previous: <a href="hydro_driver.html" title="previous chapter">5.4. Hydro driver</a></li>
+      <li>Next: <a href="rgsfluxcombine.html" title="next chapter">5.6. RGS_fluxcombine</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

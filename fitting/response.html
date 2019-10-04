@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>7.2. Optimal definition of respons matrices &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Exercises" href="../exercises.html" />
+    <link rel="prev" title="7.1. Spectral fitting" href="fitting.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="optimal-definition-of-respons-matrices">
+<span id="sect-matrices"></span><h1>7.2. Optimal definition of respons matrices<a class="headerlink" href="#optimal-definition-of-respons-matrices" title="Permalink to this headline">¶</a></h1>
+<p>The SPEX FITS format allows us to bin spectra and response matrices on
+arbitrary grids, which enables us to bin spectra and responses in an optimal way.
+In <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...587A.151K/abstract">Kaastra &amp; Bleeker (2016)</a>
+a theoretical framework is developed in order
+to estimate the optimum binning of X-ray spectra. Expressions are
+derived for the optimum bin size for the model spectra as well as
+for the observed data using different levels of sophistication.
+It is shown that by not only taking into account the number of
+photons in a given spectral model bin but also its average energy
+(not necessarily equal to the bin center)
+the number of model energy bins and the size of the response matrix
+can be reduced by a factor of 10-100. The response matrix should then
+not only contain the response at the bin center, but also its derivative
+with respect to the incoming photon energy. In the coming sections
+we describe practical guidelines how to construct the optimum energy
+grids as well as how to structure the response matrix. Finally a few
+examples are given to illustrate the present methods.</p>
+<div class="section" id="proposed-file-formats">
+<h2>7.2.1. Proposed file formats<a class="headerlink" href="#proposed-file-formats" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...587A.151K/abstract">Kaastra &amp; Bleeker (2016)</a>
+it was shown how the optimum data
+and model binning can be determined, and what the corresponding optimum
+way to create the instrumental response is. Now I focus upon the
+possible data formats for these files.</p>
+<p>For large data sets, the fastest and most transparant way to save a
+response matrix to a file would be to use direct fortran or C write
+statements. Unfortunately not all computer systems use the same binary
+data representation. Therefore the FITS-format has become the <em>de facto</em>
+standard in many fields of astronomical data analysis. For that reason I
+propose here to save the response matrix in FITS-format.</p>
+<p>A widely used response matrix format is NASAs OGIP format. This is used
+e.g. as the data format for XSPEC. There are a few reasons that we
+propose <em>not</em> to adhere to the OGIP format here, as listed below:</p>
+<ol class="arabic simple">
+<li><p>The OGIP response file format as it is currently defined does not
+account for the possibility of response derivatives. As was shown in
+the previous sections, these derivatives are needed for the optimum
+binning. Thus, the OGIP format would need to be updated.</p></li>
+<li><p>In the later versions of OGIP new possibilities of defining the
+energy grid have been introduced that are prone to errors. In
+particular the possibility of letting grids start at another index
+than 1 may (and has led) often to errors. The software also becomes
+unncessarily complicated, having to account for different possible
+starting indices. Moreover, the splitting into arf and rmf files
+makes it necessary to check if the indexing in both files is
+consistent, and also if the indexing in the corresponding spectra is
+consistent.</p></li>
+<li><p>There are some redundant quantities in the OGIP format, like the
+âareascalâ keyword. When the effective area should be scaled by a
+given factor, this can be done explicitly in the matrix.</p></li>
+<li><p>As was shown in this work, it is more efficient to do the grouping
+within the response matrix differently, splitting the matrix into
+components where each component may have its own energy grid. This is
+not possible within the present OGIP format.</p></li>
+</ol>
+<div class="section" id="proposed-response-format">
+<h3>7.2.1.1. Proposed response format<a class="headerlink" href="#proposed-response-format" title="Permalink to this headline">¶</a></h3>
+<p>I propose to give all response files the extension <code class="docutils literal notranslate"><span class="pre">.res</span></code>, in order not
+to confuse with the <code class="docutils literal notranslate"><span class="pre">.rmf</span></code> or <code class="docutils literal notranslate"><span class="pre">.arf</span></code> files used within the OGIP format.</p>
+<p>The file consists of the mandatory primary array that will remain empty,
+plus a number of extensions. In principle, we could define an extension
+for each response component. However, this may result into practical
+problems. For example, the fitsio-package allows a maximum of 1000
+extensions. The documentation of fitsio says that this number can be
+increased, but that the access time to later extensions in the file may
+become very long.</p>
+<p>In principle we want to allow for data sets with an unlimited number of
+response components. For example, when a cluster spectrum is analysed in
+4 quadrants and 10 radial annuli, one might want to extract the spectrum
+in 40 detector regions and model the spectrum in 40 sky sectors,
+resulting in principle in at least 1600 response components (this may be
+more if the response for each sky sector and detector region has more
+components).</p>
+<p>Therefore I propose to use only three additional and mandatory
+extensions.</p>
+<p>The first extension is a binary table with 4 columns and contains for
+each component the number of data channels, model energy bins, sky
+sector number and detector region number (see table below).</p>
+<p>The second extension is a binary table with 5 columns and contains for
+each model energy bin for each component the lower model energy bin
+boundary (keV), the upper model energy bin boundary (keV), the starting
+data channel, end data channel and total number of data channels for the
+response group (see table below).</p>
+<p>The third extension is a binary table with 2 columns and contains for
+each data channel, for each model energy bin for each component the
+value of the response at the bin center and its derivative with respect
+to energy (see table below). SI units are mandatory (i.e.
+<img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/> for the response, <img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>
+<img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> for the response derivative).</p>
+<p><strong>First extension to the response file</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>keyword</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EXTNAME (=RESP_INDEX)</p></td>
+<td><p>Contains the basic indices for the components in the form of a binary table</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAXIS1 = 16</p></td>
+<td><p>There are 16 bytes in one row</p></td>
+</tr>
+<tr class="row-even"><td><p>NAXIS2 =</p></td>
+<td><p>This number corresponds to the total number of components (the number of rows in the table)</p></td>
+</tr>
+<tr class="row-odd"><td><p>NSECTOR =</p></td>
+<td><p>This 4-byte integer is the number of sky sectors used.</p></td>
+</tr>
+<tr class="row-even"><td><p>NREGION =</p></td>
+<td><p>This 4-byte integer is the number of detector regions used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NCOMP =</p></td>
+<td><p>This 4-byte integer is the totalnumber of response components used (should be equal to NAXIS2).</p></td>
+</tr>
+<tr class="row-even"><td><p>TFIELDS = 4</p></td>
+<td><p>The table has 4 columns; all columns are written as 4-byte integers (TFORM=1J)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE1 = NCHAN</p></td>
+<td><p>First column contains the number of data channels for each component. Not necessarily the same for all components, but it must agree with the number of data channels as present in the corresponding spectrum file.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE2 = NEG</p></td>
+<td><p>Second column contains the number of model energy grid bins for each component. Not necessarily the same for all components.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE3 = SECTOR</p></td>
+<td><p>Third column contains the sky sector number as defined by the user for this component. In case of simple spectra, this number should be 1.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE4 = REGION</p></td>
+<td><p>Fourth column contains the detector region number as defined by the user for this component. In case of simple spectra, this number should be 1.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Second extension to the response file</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>keyword</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EXTNAME (=RESP_COMP)</p></td>
+<td><p>Binary table with for each row relevant index information for a single energy of a component; stored sequentially, starting at the lowest component and within each component at the lowest energy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAXIS1 = 20</p></td>
+<td><p>There are 20 bytes in one row</p></td>
+</tr>
+<tr class="row-even"><td><p>NAXIS2 =</p></td>
+<td><p>This number must be the sum of the number of model energy bins added for all components (the number of rows in the table).</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFIELDS = 5</p></td>
+<td><p>The table has 5 columns</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE1 = EG1</p></td>
+<td><p>The lower energy (keV) as a 4-byte real of the relevant model energy bin</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE2 = EG2</p></td>
+<td><p>The upper energy (keV) as a 4-byte real of the relevant model energy bin</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE3 = IC1</p></td>
+<td><p>The lowest data channel number (as a 4-byte integer) for which the response at this model energy bin will be given. The response for all data channels below IC1 is zero. Note that IC1 should be at least 1 (i.e. start counting at channel 1!).</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE4 = IC2</p></td>
+<td><p>The highest data channel number (as a 4-byte integer) for which the response at this model energy bin will be given. The response for all data channels above IC2 is zero.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE5 = NC</p></td>
+<td><p>The total number of non-zero response elements for this model energy bin (as a 4-byte integer). NC is redundant, and should equal IC2-IC1+1, but it is convenient to have directly available in order to allocate memory for the response group.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Third extension to the response file</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>keyword</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EXTNAME (=RESP_RESP)</p></td>
+<td><p>Contains the response matrix elements and their derivatives with respect to model energy. The data are stored sequentially, starting at the lowest component, within each component at the lowest energy bin, and within each energy bin at the lowest channel number.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAXIS1 = 8</p></td>
+<td><p>There are 8 bytes in one row</p></td>
+</tr>
+<tr class="row-even"><td><p>NAXIS2 =</p></td>
+<td><p>This number must be the sum of the NC values, added for all model energy bins and all components (the number of rows in the table).</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFIELDS = 2</p></td>
+<td><p>The table has 2 columns</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE1 = Response</p></td>
+<td><p>The response values <img class="math" src="../_images/math/aae2491fe259bc56940c83afed7aa9e8214e432e.svg" alt="R_{ij,0}" style="vertical-align: -5px"/>, stored as a 4-byte real <strong>in SI units</strong> i.e. in units of <img class="math" src="../_images/math/7989f6a8d73f65524e5969e62a3e16c18fd7b8ed.svg" alt="m^{2}" style="vertical-align: 0px"/>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE1 = Response_Der</p></td>
+<td><p>The response derivative values <img class="math" src="../_images/math/c734e7c13092a2ef552223f806ebb46430c63a27.svg" alt="R_{ij,1}" style="vertical-align: -5px"/>, stored as a 4-byte real <strong>in SI units</strong> i.e. in units of <img class="math" src="../_images/math/7989f6a8d73f65524e5969e62a3e16c18fd7b8ed.svg" alt="m^{2}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/718123740ae6ee2473f4d0f92cbf597338eae3db.svg" alt="keV^{-1}" style="vertical-align: 0px"/>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Any other information that is not needed for the spectral analysis may
+be put into additional file extensions, but will be ignored by the
+spectral analysis program.</p>
+<p>Finally I note that the proposed response format is used as the standard
+format by version 2.0 of the SPEX spectral analysis package.</p>
+</div>
+<div class="section" id="proposed-spectral-file-format">
+<h3>7.2.1.2. Proposed spectral file format<a class="headerlink" href="#proposed-spectral-file-format" title="Permalink to this headline">¶</a></h3>
+<p>There exists also a standard OGIP FITS-type format for spectra. As for
+the OGIP response file format, this format has a few redundant
+parameters and not absolutely necessary options.</p>
+<p>There is some information that is absolutely necessary to have. In the
+first place the <em>net source count rate</em> <img class="math" src="../_images/math/6d5bf55ddb8be94676328cb15b6303da031f7255.svg" alt="S_i" style="vertical-align: -2px"/> (counts/s) and <em>its
+statistical uncertainty</em> <img class="math" src="../_images/math/adbc1b961dad8bc1cc4ae885c2618c7104eae8bf.svg" alt="\Delta S_i" style="vertical-align: -2px"/> (counts/s) are needed. These
+quantities are used e.g. in a classical <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>-minimization
+procedure during spectral fitting.</p>
+<p>In some cases the count rate may be rather low; for example, in a
+thermal plasma model at high energies the source flux is low, resulting
+in only a few counts per data channel. In such cases it is often
+desirable to use different statistics for the spectral fitting, for
+example maximum likelihood fitting. Such methods are often based upon
+the number of counts; in particular the difference between Poissonian
+and Gaussian statistics might be taken into account. In order to allow
+for these situations, also the <em>exposure time</em> <img class="math" src="../_images/math/8af375c710a0926c7eea53ab4a64342586e8f7ef.svg" alt="t_i" style="vertical-align: -2px"/> per data
+channel is needed. This exposure time needs not to be the same for all
+data channels; for example, a part of the detector might be switched off
+during a part of the observation, or the observer might want to use only
+a part of the data for some reason.</p>
+<p>Further, in several situations the spectrum will contain a contribution
+from background events. The observed spectrum can be corrected for this
+by subtracting the <em>background spectrum</em> <img class="math" src="../_images/math/3d215d5de44f0512bb5382dd4455df4fa47a7c5b.svg" alt="B_i" style="vertical-align: -2px"/> scaled at the
+source position. In cases where one needs to use Poissonian statistics,
+including the background level, this subtracted background <img class="math" src="../_images/math/3d215d5de44f0512bb5382dd4455df4fa47a7c5b.svg" alt="B_i" style="vertical-align: -2px"/>
+must be available to the spectral fitting program. Also for spectral
+simulations it is necessary to include the background in the statistics.</p>
+<p>The background can be determined in different ways, depending upon the
+instrument. For the spectrum of a point-source obtained by an imaging
+detector one could extract the spectrum for example from a circular
+region, and the background from a surrounding annulus and scale the
+background to be subtracted using the area fractions. Alternatively, one
+could take an observation of an <cite>empty</cite> field, and using a similar
+extraction region as for ther source spectrum, one could use the empty
+field observation scaled by the exposure times to estimate the
+background.</p>
+<p>The background level <img class="math" src="../_images/math/3d215d5de44f0512bb5382dd4455df4fa47a7c5b.svg" alt="B_i" style="vertical-align: -2px"/> may also contain noise, e.g. due to
+Poissonion noise in the background observation. In some cases (e.g. when
+the raw background count rate is low) it is sometimes desirable to
+smooth the background to be subtracted first; in this case the <em>nominal
+background uncertainty</em> <img class="math" src="../_images/math/fa989baf8e6362f34595770984ddb66769c1b171.svg" alt="\Delta
+B_i" style="vertical-align: -2px"/> no longer has a Poissonian distribution, but its value can
+nevertheless be determined. In spectral simulations one may account for
+the background uncertainty by e.g. simply assuming that the square of
+the background signal-to-noise ratio <img class="math" src="../_images/math/22f00857c2037ed1ca006db3c90a6b474e71940f.svg" alt="(B_i/\Delta B_i)^2" style="vertical-align: -4px"/> has a
+Poissonian distribution.</p>
+<p>For spectral simulations, however, one should be able to know the
+<em>expected</em> background. This cannot be derived from the observed
+(Poissonian) background if by chance a data channel has zero background
+counts. To alleviate that problem, we have introduced an additional
+column in the spectral file that represents the exposure ratio of the
+background region divided by that of the source region, where the
+exposure is the product of exposure time times extraction area.</p>
+<p>Furthermore, there may be systematic calibration uncertainties, for
+example in the instrumental effective area or in the background
+subtraction. These systematic errors may be expressed as a fraction of
+the source count rate (such that the total <em>systematic source
+uncertainty</em> is <img class="math" src="../_images/math/e69c0f106a7c4b5c9ddc8a9ea47740bcb680520b.svg" alt="\epsilon_{si}S_i" style="vertical-align: -2px"/>) and/or as a fraction of the
+subtracted background (such that the total <em>systematic background
+uncertainty</em> is <img class="math" src="../_images/math/613ecfbe6674edd3ece9b91db102ac0f71bd5646.svg" alt="\epsilon_{bi}B_i" style="vertical-align: -2px"/>). Again, these systematic
+errors may vary from data channel to data channel. They should also be
+treated different than the statistical errors in spectral simulations:
+they must be applied to the simulated spectra <em>after</em> that the
+statistical errors have been taken into account by drawing random
+realisations. Also, whenever spectral rebinning is done, the systematic
+errors should be averaged and applied to the rebinned spectrum: a 10%
+systematic uncertainty over a given spectral range may not become 1% by
+just rebinning by a factor of 100, but remains 10%, while a statistical
+error of 10% becomes 1% after rebinning by a factor of 100.</p>
+<p>In the previous sections we have shown how to choose the optimal data
+binning. The observer may want to rebin further in order to increase the
+significance of some low-statistics regions in the spectrum, or may want
+to inspect the unbinned spectrum. Also, during spectral analysis or
+beforehand the observer may wish to discard certain parts of the
+spectrum, e.g. data with bad quality or parts of the spectrum that he is
+not interested in. For these reasons it is also usefull to have the
+proposed rebinning scheme available in the spectral file.</p>
+<p>I propose to add to each data channel three logical flags (either true
+or false): first, if the data channel is the <em>first channel</em> of a group
+(<img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/>); next, if the data channel is the <em>last channel</em> of a
+group (<img class="math" src="../_images/math/ca91603c1eacff7f2a07c1ae6d34245efe1950a2.svg" alt="l_i" style="vertical-align: -2px"/>); and finally, if the data channel is <em>to be used</em>
+(<img class="math" src="../_images/math/0bdca0b59627daf4790a6601b0364fbaca949a10.svg" alt="u_i" style="vertical-align: -2px"/>). A channel may be both first and last of a rebinning group
+(<img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/ca91603c1eacff7f2a07c1ae6d34245efe1950a2.svg" alt="l_i" style="vertical-align: -2px"/> both true) in the case of no rebinning. The
+first data channel <img class="math" src="../_images/math/578e05ffe81a9c7f8b5f8b614f9e3c8672d9973c.svg" alt="i=1" style="vertical-align: 0px"/> always <em>must</em> have <img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/> true, and
+the last data channel <img class="math" src="../_images/math/ca91603c1eacff7f2a07c1ae6d34245efe1950a2.svg" alt="l_i" style="vertical-align: -2px"/> true. Whenever there are data channels
+that are not used (<img class="math" src="../_images/math/0bdca0b59627daf4790a6601b0364fbaca949a10.svg" alt="u_i" style="vertical-align: -2px"/> false), the programmer should check that
+the first data channel after this bin that is used gets <img class="math" src="../_images/math/f25e262e6549b38e8d9ee276d121ec8af20a2527.svg" alt="f_i" style="vertical-align: -3px"/> true
+and the last data channel before this bin taht is used gets <img class="math" src="../_images/math/ca91603c1eacff7f2a07c1ae6d34245efe1950a2.svg" alt="l_i" style="vertical-align: -2px"/>
+true. The spectral analysis package needs also to check for these
+conditions upon reading a data set, and to return an error condition
+whenever this is violated.</p>
+<p>Finally, I propose to add the nominal energies of the data bin
+boundaries <img class="math" src="../_images/math/98764830634224720e1a27b3e2c964e74c15d04c.svg" alt="c_{i1}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/8d6bc7cbd93a8580e7ca1d05f29fb7a11aa1cf06.svg" alt="c_{i2}" style="vertical-align: -2px"/> to the data file. This is
+very useful if for example the observed spectrum is plotted outside the
+spectral fitting program. In the OGIP format, this information is
+contained in the response matrix. I know that sometimes objections are
+made against the use of these data bin boundaries, expressed as
+energies. Of course, formally speaking the observed data bin boundaries
+often do not have energy units; it may be for example a detector
+voltage, or for grating spectra a detector position. However, given a
+proper response. However given a corresponding response matrix there is
+a one-to-one mapping of photon energy to data channel with maximum
+response, and it is this mapping that needs to be given here. In the
+case of only a single data channel (e.g. the DS detector of EUVE) one
+might simply put here the energies corresponding to the FWHM of the
+response. Another reason to put the data bin boundaries in the spectral
+file and not in the response file is that the response file might
+contain several components, all of which relate to the same data bins.
+And finally, it is impossible to analyse a spectrum without knowing
+simultaneously the response. Therefore, the spectral analysis program
+should read the spectrum and response together.</p>
+<p>As a last step we must deal with multiple spectra, i.e. spectra of
+different detector regions that are related through the response matrix.
+In this case the maximum number of FITS-file extensions of 1000 is a
+much smaller problem then for the response matrix. It is hard to imagine
+that anybody might wish to fit more than 1000 spectra simultaneously;
+but maybe future will prove me to be wrong. An example could be the
+following. The supernova remnant Cas A has a radius of about 3”. With a
+spatial resolution of 10”, this would offer the possibility of analysing
+XMM-EPIC spectra of 1018 detector regions. At the scale of 10” the
+responses of neighbouring regions overlap so fitting all spectra
+simultaneously could be an option.</p>
+<p>Therefore it is wise to stay here on the conservative side, and to write
+the all spectra of different detector regions into one extension. As a
+result we propose the following spectral file format.</p>
+<p>After the null primary array the first extension contains the number of
+regions for the spectra, as well as a binary table with the number of
+data channels per region (see table below). This helps to allocate
+memory for the spectra, that are stored as one continuous block in the
+second extension (see table below).</p>
+<p><strong>First extension to the spectrum file</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>keyword</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EXTNAME (=SPEC_REGIONS)</p></td>
+<td><p>Contains the spectral regions in the form of a binary table</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAXIS1 = 4</p></td>
+<td><p>There are 4 bytes in one row</p></td>
+</tr>
+<tr class="row-even"><td><p>NAXIS2 =</p></td>
+<td><p>This number corresponds to the total number of regions (spectra) contained in the file (the number of rows in the table)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFIELDS = 1</p></td>
+<td><p>The table has 1 column, written as 4-byte integer (TFORM=1J).</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE1 = NCHAN</p></td>
+<td><p>Number of data channels for this spectrum.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Second extension to the spectrum file</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>keyword</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EXTNAME (=SPEC_SPECTRUM)</p></td>
+<td><p>Contains the basic spectral data in the form of a binary table</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAXIS1 = 28</p></td>
+<td><p>There are 28 bytes in one row</p></td>
+</tr>
+<tr class="row-even"><td><p>NAXIS2 =</p></td>
+<td><p>This number corresponds to the total number of data channels as added over all regions (the number of rows in the table)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFIELDS = 12</p></td>
+<td><p>The table has 12 columns.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE1 = Lower_Energy</p></td>
+<td><p>Nominal lower energy of the data channel <img class="math" src="../_images/math/98764830634224720e1a27b3e2c964e74c15d04c.svg" alt="c_{i1}" style="vertical-align: -2px"/> in keV; 4-byte real.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE2 = Upper_Energy</p></td>
+<td><p>Nominal upper energy of the data channel <img class="math" src="../_images/math/8d6bc7cbd93a8580e7ca1d05f29fb7a11aa1cf06.svg" alt="c_{i2}" style="vertical-align: -2px"/> in keV; 4-byte real.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE3 = Exposure_Time</p></td>
+<td><p>Net exposure time <img class="math" src="../_images/math/8af375c710a0926c7eea53ab4a64342586e8f7ef.svg" alt="t_i" style="vertical-align: -2px"/> in s; 4-byte real.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE4 = Source_Rate</p></td>
+<td><p>Background-subtracted source count rate <img class="math" src="../_images/math/6d5bf55ddb8be94676328cb15b6303da031f7255.svg" alt="S_i" style="vertical-align: -2px"/> of the data channel in counts/s; 4-byte real.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE5 = Err_Source_Rate</p></td>
+<td><p>Background-subtracted source count rate error <img class="math" src="../_images/math/adbc1b961dad8bc1cc4ae885c2618c7104eae8bf.svg" alt="\Delta S_i" style="vertical-align: -2px"/> of the data channel in counts/s (i.e. the statistical error on Source_Rate); 4-byte real.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE6 = Back_Rate</p></td>
+<td><p>The background count rate <img class="math" src="../_images/math/3d215d5de44f0512bb5382dd4455df4fa47a7c5b.svg" alt="B_i" style="vertical-align: -2px"/> that was subtracted from the raw source count rate in order to get the net source count rate <img class="math" src="../_images/math/6d5bf55ddb8be94676328cb15b6303da031f7255.svg" alt="S_i" style="vertical-align: -2px"/>; in counts/s; 4-byte real.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE7 = Err_Back_Rate</p></td>
+<td><p>The statistical uncertainty <img class="math" src="../_images/math/5765a01c92ae2ad3c683b37feb7c51a14a6697b3.svg" alt="\Delta B_i" style="vertical-align: -2px"/> of Back_Rate in counts/s; 4-byte real.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE8 = Exp_Rate</p></td>
+<td><p>ratio of the exposures (time <img class="math" src="../_images/math/9627f71134500639d1efd8b199e72cf802d0cf21.svg" alt="\times" style="vertical-align: -1px"/> area) for the background region divided by that of the source region; dimensionless; 4-byte real.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE9 = Sys_Source</p></td>
+<td><p>Systematic uncertainty <img class="math" src="../_images/math/10fca681b704850cc31d69cc3f73520bb95023df.svg" alt="\epsilon_{si}" style="vertical-align: -2px"/> as a fraction of the net source count rate <img class="math" src="../_images/math/6d5bf55ddb8be94676328cb15b6303da031f7255.svg" alt="S_i" style="vertical-align: -2px"/>; dimensionless; 4-byte real.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE10 = Sys_Back</p></td>
+<td><p>Systematic uncertainty <img class="math" src="../_images/math/df4aa60492a19eb42f3f67ec6d95179dd7bdb10d.svg" alt="\epsilon_{bi}" style="vertical-align: -2px"/> as a fraction of the subtracted background count rate <img class="math" src="../_images/math/3d215d5de44f0512bb5382dd4455df4fa47a7c5b.svg" alt="B_i" style="vertical-align: -2px"/>; dimensionless; 4-byte real.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE11 = First</p></td>
+<td><p>True if it is the first channel of a group; otherwise false. 4-byte logical.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTYPE12 = Last</p></td>
+<td><p>True if it is the last channel of a group; otherwise false. 4-byte logical.</p></td>
+</tr>
+<tr class="row-even"><td><p>TTYPE13 = Used</p></td>
+<td><p>True if the channel is to be used; otherwise false. 4-byte logical.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fitting.html">7.1. Spectral fitting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.2. Optimal definition of respons matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../fitting.html">7. Spectral fitting theory</a><ul>
+      <li>Previous: <a href="fitting.html" title="previous chapter">7.1. Spectral fitting</a></li>
+      <li>Next: <a href="../exercises.html" title="next chapter">8. Exercises</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.24. Sector: creating, copying and deleting of a sector[sec:sector] &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.25. Shiftplot: shift the plotted spectrum for display purposes" href="shiftplot.html" />
+    <link rel="prev" title="3.1.23. Quit: finish the program" href="quit.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sector-creating-copying-and-deleting-of-a-sector-sec-sector">
+<h1>3.1.24. Sector: creating, copying and deleting of a sector[sec:sector]<a class="headerlink" href="#sector-creating-copying-and-deleting-of-a-sector-sec-sector" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.24.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This allows one to create, delete, copy, and show the number of sectors,
+used for the analysis of the data. Sectors are designed to allow
+modeling of different sources of radiation with its own spectral model.
+This way, common components can be fit simultaneously, while the
+observed spectra are of a different origin. One can create a sector for
+another (unresolved) source in the spectrum, for modeling particle
+background, or for spectra extracted in a different time interval for a
+time variable source. See for more details about sectors and regions
+in the Section <a class="reference external" href="#sec:sectorsandregions">Sectors and Regions</a>.</p>
+<p>For doing spectral fitting of data sets, the sectors need to be
+specified in the response matrix of the data: the response file should
+tell which sector number corresponds to a given part of the matrix.</p>
+<p>The sector command features also a spectral dump mode (adump) that
+writes the model spectrum to an ascii file, formatted such that it is
+suited for the SPEX file model. The first line of the output file is an
+integer showing the number of bins, and the following lines show the
+energy bin centroid and the luminosity in <img class="math" src="../../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.24.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">new</span></code> : Creates a new sector, which can have its own model.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">show</span></code> : Gives the number of sectors that are currently used.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">copy</span> <span class="pre">#i</span></code> : Copies the model for sector #i to a new sector.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">delete</span> <span class="pre">#i</span></code> : Deletes sector #i.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adump</span> <span class="pre">#i</span> <span class="pre">#a</span> <span class="pre">overwrite</span></code> : Writes the model spectrum of sector
+number #i to an ASCII file with name #a.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.24.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">new</span></code> : Creates a new sector.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">copy</span> <span class="pre">2</span></code> : Creates a new sector, with the same spectral model
+as used in sector 2. This can be useful if the spectra of the
+different sectors are very similar in composition.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">delete</span> <span class="pre">3</span></code> : Deletes sector number 3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adump</span> <span class="pre">1</span> <span class="pre">model.txt</span></code> : Dumps the spectrum in sector 1 to
+model.txt</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="quit.html" title="previous chapter">3.1.23. Quit: finish the program</a></li>
+      <li>Next: <a href="shiftplot.html" title="next chapter">3.1.25. Shiftplot: shift the plotted spectrum for display purposes</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

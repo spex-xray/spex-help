@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.18. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.19. Hyd: model with user-own hydrodynamical simulation" href="hyd.html" />
+    <link rel="prev" title="4.1.17. Gaus: gaussian line model" href="gaus.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hot-collisional-ionisation-equilibrium-absorption-model">
+<h1>4.1.18. Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the transmission of a plasma in collisional
+ionisation equilibrium with cosmic abundances.</p>
+<p>For a given temperature and set of abundances, the model calculates the
+ionisation balance and then determines all ionic column densities by
+scaling to the prescribed total hydrogen column density. Using this set
+of column densities, the transmission of the plasma is calculated by
+multiplying the transmission of the individual ions.</p>
+<p>The transmission includes both continuum and line opacity. For a
+description of what is currently in the absorption line database, we
+refer to Section <a class="reference external" href="#sect:absmodels">Absorption models</a>. You can mimick
+the transmission of a neutral plasma very easy by putting the
+temperature to 0.5 eV (5 10<img class="math" src="../_images/math/9823eb43abb374e40d1b9afa3e82af43bb83157d.svg" alt="^{-4}" style="vertical-align: 0px"/> keV).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For solar abundances, do not take the temperature much
+lower than 0.0005 keV, because if the plasma is completely neutral, the
+code will crash; a tiny fraction of ions such as Fe  or Na  will help to
+keep a few free electrons in the gas without affecting the transmission
+too much. You can check the ion concentrations by giving an “asc ter
+<img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> icon” command. Fill in the sector and component number of
+the hot component for the … in the “asc ter … icon” command to get the
+values for the right component.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+latitudes).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default
+value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rt</span></code> : the ratio of ionization balance to electron temperature,
+<img class="math" src="../_images/math/86dd84fbdc6943c38ddfdd03cf9b0c65ec0f0ed6.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
+value: 1.</div>
+<div class="line">The following parameters are common to all our absorption models:
+<code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (full
+covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
+<div class="line">The following parameters are the same as for the cie-model (see there
+for a description): <code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...423...49D/abstract">de Plaa et al. (2004)</a> and
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract">Steenbrugge et al. (2005)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="gaus.html" title="previous chapter">4.1.17. Gaus: gaussian line model</a></li>
+      <li>Next: <a href="hyd.html" title="next chapter">4.1.19. Hyd: model with user-own hydrodynamical simulation</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

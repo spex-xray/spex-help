@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.6. Non-equilibrium ionisation (NEI) calculations &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.7. Non-thermal electron distributions" href="nonthermal.html" />
+    <link rel="prev" title="4.5. Atomic database for the absorbers" href="atomicabs.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="non-equilibrium-ionisation-nei-calculations">
+<span id="sec-nei"></span><h1>4.6. Non-equilibrium ionisation (NEI) calculations<a class="headerlink" href="#non-equilibrium-ionisation-nei-calculations" title="Permalink to this headline">¶</a></h1>
+<p>Our current implementation of time-dependent, non-equilibrium ionisation
+spectra is based upon the work of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993A%26AS...97..873K/abstract">Kaastra &amp; Jansen (1993)</a>, KJ
+hereafter. The method consists essentially upon calculating the
+transition matrix (containing ionisation and recombination rates) for a
+grid of temperatures, calculating the eigenvalues and eigenvectors of
+these matrices and also the inverse eigenvector matrix, and storing
+those on disk. The ionisation balance is calculated then by dividing the
+temperature history in several steps, with the steps defined in such a
+way that the temperature over each time interval is close to one
+temperature grid point. Then for each step the time evolution of the
+plasma is calculated using eigenvalue decomposition and using the
+pre-calculated coefficients for the relevant temperature. For more
+details see KJ.</p>
+<p>Here we make a few changes with respect to KJ. First, KJ adopted a
+prescribed history of the Hydrogen density, and calculate the
+corresponding electron density at each time from the ion concentrations
+at that time. This was motivated by the argument that for a fixed plasma
+element the number of Hydrogen atoms remains constant over time, while
+the number of electrons depends upon the degree of ionisation and may be
+time-dependent, thus not known before the ionisation balance has beeen
+solved completely. But the situation is slightly more complicated. If
+the plasma is not (nearly) completely ionised, then for normal
+abundances there must be a considerable population of neutral Hydrogen
+or Helium. But in that case charge exchange reactions become important,
+and should be taken into account in the transition matrix. This however
+is impossible to incorporate in the KJ method, since in this case there
+are 3 free parameters (<img class="math" src="../../_images/math/7a423c6f83325dace7fddc07bb41b3ac80945334.svg" alt="n_{\mathrm e}/n_{\mathrm H}" style="vertical-align: -4px"/>, <img class="math" src="../../_images/math/a1da7540d396601e6ddda97470493991e39511e5.svg" alt="n_{\mathrm
+e}/n_{\mathrm He}" style="vertical-align: -4px"/> and <img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>) instead of 1 (<img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>), and storage of
+matrices etc. becomes physically impossible. Knowing that the method of
+KJ becomes inaccurate for low ionisation rates we decided to leave the
+prescribed <img class="math" src="../../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> concept and return to the prescribed
+<img class="math" src="../../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> concept. This has the advantage that the equations for
+the ionisation balance of each chemical element can be calculated
+independently from the other elements; KJ need to calculate the
+concentrations of all elements for each time step in order to determine
+the conversion from Hydrogen to electron density.</p>
+<p>Another rationale behind the above-mentioned modification is the
+following. For self-similar supernova remnants, a class of problems
+where non-equilibrium ionisation applies, the hydrodynamics is
+inconsistent with a time- or place varying electron/Hydrogen ratio: that
+would introduce another scale length and destroy the assumptions behind
+self-similarity. Thus, for SNR models it is necessary to assume that the
+plasma is (almost) completely ionised in order to assure
+self-consistency. We will neglect small changes in the electron/Hydrogen
+ratio of SNRs therefore.</p>
+<p>The second modification concerns the temperature grid. Contrary to KJ,
+we use a keV grid instead of a K grid. Further, since we now include 30
+chemical elements instead of 15, we had to reduce the step size
+<img class="math" src="../../_images/math/6f9cefe9e20e56872ed9330a00a13f76cdde82e3.svg" alt="h" style="vertical-align: 0px"/> of the grid from 0.05 in <img class="math" src="../../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/> to 0.10, in order not
+to get disk storage problems. This change however is compensated by a
+better interpolation technique used here. KJ just rounded all
+temperatures to the nearest grid point. Here we interpolate the
+calculated concentrations between two temperature grid points linearly,
+which is one order of magnitude (<img class="math" src="../../_images/math/6f9cefe9e20e56872ed9330a00a13f76cdde82e3.svg" alt="h" style="vertical-align: 0px"/>) better. A rough estimate
+learns that the error in the method of KJ per decade is <img class="math" src="../../_images/math/3eb19f095b371b4a681497ff31f009a69bca2711.svg" alt="nh^2" style="vertical-align: 0px"/>
+which gives for <img class="math" src="../../_images/math/e23729704ca293646bef006257edd1887b623117.svg" alt="n=1/h" style="vertical-align: -4px"/> an error of order 0.05, while the current
+implementation has typical errors per decade of <img class="math" src="../../_images/math/d98dbea09e5245be1be311440640016f321a6ba9.svg" alt="nh^3" style="vertical-align: 0px"/> which gives
+a typical error of 0.01 per decade.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../models.html">4. Spectral models</a><ul>
+      <li>Previous: <a href="atomicabs.html" title="previous chapter">4.5. Atomic database for the absorbers</a></li>
+      <li>Next: <a href="nonthermal.html" title="next chapter">4.7. Non-thermal electron distributions</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

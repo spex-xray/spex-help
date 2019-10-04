@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.2. Solving SPEX problems &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3. Find known issues" href="known_issues.html" />
+    <link rel="prev" title="6.1. Commandline help" href="commandline.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="solving-spex-problems">
+<span id="sec-problemsolve"></span><h1>6.2. Solving SPEX problems<a class="headerlink" href="#solving-spex-problems" title="Permalink to this headline">¶</a></h1>
+<p>In case you encounter a problem with SPEX, like a command does not do what you want,
+you get unexpected results or in the worst case the program crashes, then you arrived
+at the right page. Here we provide a checklist which may either allow you to solve the
+problem yourself or provide us with enough information to help you.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Does SPEX give you an error message? Although not all error messages clearly identify
+the problem, they do contain information about what is wrong. If the error message is
+not obvious, then entering the error message in Google or any other search engine may
+reveal solutions for your problem found by other people.</p></li>
+<li><p>If there is no clear error message, then it is important to know at which step in the
+process the problem appears to occur. Are you unable to start a program, or does the
+program quit after reading in files? The exact moment can give important hints about
+what may go wrong. If the problem occurs in SPEX, you could create a .com file with
+the commands that cause the issue and see at which command the error occurs.</p>
+<p>SPEX can also provide information about which subroutine SPEX is running. With the
+command watch sub true, SPEX will print out the subroutines for all following commands.
+Putting this line in the top of your .com file will make it easier to identify where
+the program fails.</p>
+</li>
+<li><p>Check the <a class="reference internal" href="known_issues.html#sec-knownissues"><span class="std std-ref">Find known issues</span></a> page how to search our Github page for similar problems.
+There may be very recent problems reported that are not indexed by search machines yet.</p></li>
+<li><p>When the points above do not lead you to a solution, please submit an issue to our issue
+tracker on Github. The <a class="reference internal" href="report_issues.html#sec-reportissues"><span class="std std-ref">Report issues</span></a> page contains instructions on how to do that.</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="advanced-debugging">
+<h2>6.2.1. Advanced debugging<a class="headerlink" href="#advanced-debugging" title="Permalink to this headline">¶</a></h2>
+<p>If SPEX crashes with a segmentation fault, then it may help to run a debugger on the
+SPEX program. We do not expect you to do this for each problem, but we may ask you to
+run SPEX trough a debugger if you submitted an issue.</p>
+<p>A very general debugger is the GDB program, which is available on most platforms.
+On the command line, you can enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>linux:~/spex&gt; gdb $SPEX90/bin/spex
+
+GNU gdb (Debian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-linux-gnu&quot;.
+Type &quot;show configuration&quot; for configuration details.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+&lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+For help, type &quot;help&quot;.
+Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...
+Reading symbols from /spex/bin/spex...done.
+(gdb)
+</pre></div>
+</div>
+<p>When GDB is started, you can type run to start SPEX:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(gdb) run
+Starting program: /spex/bin/spex
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib/x86_64-linux-gnu/libthread_db.so.1&quot;.
+ Welcome user to SPEX version 3.05.00
+
+ NEW in this version of SPEX:
+11-06-2018 Added Ext_Rate column to new spo files
+18-12-2018 SPEX is now using the GPL license
+
+ Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
+
+SPEX&gt;
+</pre></div>
+</div>
+<p>In the next step, you can enter the SPEX commands that lead to the problem.
+Having the commands in a .com file would be most practical:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">log</span> <span class="n">exe</span> <span class="n">bug</span>
+</pre></div>
+</div>
+<p>The GDB program will run slower than usual. When the error occurs, GDB will show
+more detailed error messages related to the crash. If you want even more information,
+you can give the bt command to backtrace where the error occurs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">bt</span>
+</pre></div>
+</div>
+<p>This output can be a bit intimidating, but it should show in which line of the code
+things go wrong. This kind of information is very helpful to us in solving programming
+errors.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="commandline.html">6.1. Commandline help</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.2. Solving SPEX problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known_issues.html">6.3. Find known issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="report_issues.html">6.4. Report issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../help.html">6. Help &amp; troubleshooting</a><ul>
+      <li>Previous: <a href="commandline.html" title="previous chapter">6.1. Commandline help</a></li>
+      <li>Next: <a href="known_issues.html" title="next chapter">6.3. Find known issues</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

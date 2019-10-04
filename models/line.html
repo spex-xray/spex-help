@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.22. Line: transmission model for a single spectral line &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.23. Lpro: spatial broadening model" href="lpro.html" />
+    <link rel="prev" title="4.1.21. Laor: relativistic line broadening model" href="laor.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="line-transmission-model-for-a-single-spectral-line">
+<h1>4.1.22. Line: transmission model for a single spectral line<a class="headerlink" href="#line-transmission-model-for-a-single-spectral-line" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the transmission <img class="math" src="../_images/math/ac4c0d4818cb65f349bb02ec5b07f1f7062f6bbc.svg" alt="T(E)" style="vertical-align: -4px"/> for a single
+spectral emission or absorption model. It is used as a multiplicative
+component, and can be used both for absorption and emission lines. The
+line profile is a Voigt profile (the convolution between a Gaussian and
+a Lorentzian profile):</p>
+<div class="math">
+<p><img src="../_images/math/94713d7b48d0b90e1f6e1f9c420755cfc1c4fa6f.svg" alt="T(E) = e^{-\tau(E)},"/></p>
+</div><p>with the optical depth <img class="math" src="../_images/math/bd753a97a8afa4db2f2b2a14a8aaf724c6595d1d.svg" alt="\tau(E)" style="vertical-align: -4px"/> given by:</p>
+<div class="math">
+<p><img src="../_images/math/c5ef94c659b07d0d89b9997009f4f3b636c7734a.svg" alt="\tau(E) = \tau_0 K(x,y),"/></p>
+</div><p>where <img class="math" src="../_images/math/0419b89584932812ebdaf2330f1657474e3f0752.svg" alt="K(x,y)" style="vertical-align: -4px"/> is the Voigt profile given by</p>
+<div class="math">
+<p><img src="../_images/math/5d779174d4d830b4b9ba6f0e338bab0f0ec79e10.svg" alt="K(x,y) = \frac{y}{\pi} \int_{-\infty}^{\infty}
+\frac{e^{\displaystyle{-t^2}}}{y^2+(x-t)^2} \mathrm{d}t,"/></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../_images/math/de0267b6dba21c615019a02c66b034ae796fdb7b.svg" alt="x = \frac{2\sqrt{\ln{2}}}{F_{\mathrm g}}  (E-E_0)"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../_images/math/ae4cb557f4cb2f53ddafc3ae637077b781458cb3.svg" alt="y = \sqrt{\ln{2}} \frac{F_{\mathrm l}}{F_{\mathrm d}}"/></p>
+</div><p>where <img class="math" src="../_images/math/5de22bb7730427f3704fbda812a21b7a25c1f04f.svg" alt="F_{\mathrm g}" style="vertical-align: -5px"/> and <img class="math" src="../_images/math/15a82724f5de056a5bce24a5ebb1f0d32cf523d0.svg" alt="F_{\mathrm l}" style="vertical-align: -2px"/> are the Full Width at Half
+Maximum of the Gaussian and Lorentzian components, respectively.
+Further, <img class="math" src="../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/> is the line centroid.</p>
+<p>The program also calculates the equivalent width of the line.</p>
+<p>The model can be used both in energy (keV) mode or wavelength (Å) mode.
+In each case, the quantities for the other scaling (centroid, equivalent
+width, and FWHMs of the Gaussian and Lorentzian components) are
+calculated. In addition, like all SPEX absorption models, also the
+covering factor can be varied.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The equivalent width is calculated at the energy grid in
+use for SPEX. Line flux outside this range is not taken into account.
+That may be important in the case of strong Lorentzian wings.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The parameter <img class="math" src="../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> only represents the optical
+depth at the line centre for a pure Gaussian case. When the Lorentzian
+component becomes important, the “true” depth at line center is
+smaller.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When changing from energy to wavelength units, take care
+about the frozen/thawn status of the line centroid and FWHM.*</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You need to do a “calc” or “fit” command to get an update
+of the wavelength (for type=0) or energy (type=1).</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tau0</span></code> : Optical depth <img class="math" src="../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> at line center. Default value:
+1. Positive values correspond to absorption lines, negative values to
+emission lines.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">el</span></code> : Line center energy <img class="math" src="../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/> (keV). Default value: 6.4 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fwhg</span></code> : FWHM of the Gaussian component <img class="math" src="../_images/math/331fa882392567c70149c59ab130b388b38f5ba7.svg" alt="F_g" style="vertical-align: -5px"/> in keV. Default
+value: 0.1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fwhl</span></code> : FWHM of the Lorentzian component <img class="math" src="../_images/math/59afd4a4d9a74d99fa84716bcacf2ecaa172d163.svg" alt="F_l" style="vertical-align: -2px"/> in keV.
+Default value: 0.1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">type</span></code> : Type of calculation. Type=0: energy units; type=1:
+wavelength units.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">wl</span></code> : Line center wavelength <img class="math" src="../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/> (Å). Default value: 20 Å.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">awhg</span></code> : FWHM of the Gaussian component <img class="math" src="../_images/math/331fa882392567c70149c59ab130b388b38f5ba7.svg" alt="F_g" style="vertical-align: -5px"/> in Å. Default
+value: 0.1 Å.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">awhl</span></code> : FWHM of the Lorentzian component <img class="math" src="../_images/math/59afd4a4d9a74d99fa84716bcacf2ecaa172d163.svg" alt="F_l" style="vertical-align: -2px"/> in Å. Default
+value: 0.1 Å.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ewk</span></code> : Equivalent width of the line in keV. Calculated by the
+program, not an input variable.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ewa</span></code> : Equivalent width of the line in Å. Calculated by the
+program, not an input variable.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorption/emission line.
+Default value: 1 (full covering).</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="laor.html" title="previous chapter">4.1.21. Laor: relativistic line broadening model</a></li>
+      <li>Next: <a href="lpro.html" title="next chapter">4.1.23. Lpro: spatial broadening model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

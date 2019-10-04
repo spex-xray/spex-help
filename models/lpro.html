@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.23. Lpro: spatial broadening model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.24. Mbb: modified blackbody model" href="mbb.html" />
+    <link rel="prev" title="4.1.22. Line: transmission model for a single spectral line" href="line.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="lpro-spatial-broadening-model">
+<span id="sec-lpro"></span><h1>4.1.23. Lpro: spatial broadening model<a class="headerlink" href="#lpro-spatial-broadening-model" title="Permalink to this headline">¶</a></h1>
+<p>This multiplicative model broadens an arbitrary additive component with
+an arbitrarily shaped spatial profile, in the case of dispersive
+spectrometers such as the RGS of XMM-Newton. In many instances, the
+effects of a spatially extended source can be approximated by making use
+of the fact that for small off-axis angles <img class="math" src="../_images/math/f2d4466de7f146d7f2443be2c088836876ef8290.svg" alt="\theta" style="vertical-align: 0px"/> the expression
+<img class="math" src="../_images/math/02138174502a41fca023416630aa0b9ec8aa8938.svg" alt="{\mathrm d}\lambda / {\mathrm d}\theta" style="vertical-align: -4px"/> is almost independent of
+wavelength <img class="math" src="../_images/math/76566000ccc091eb223afe3a02d385191b144e7e.svg" alt="\lambda" style="vertical-align: 0px"/>. This holds for example for the RGS of
+XMM-Newton (for which
+<img class="math" src="../_images/math/9826e876dddda4e5f51aa00a790849f648b3e8f3.svg" alt="{\mathrm d}\lambda / {\mathrm d}\theta = 0.138 /
+m" style="vertical-align: -4px"/> Å/arcmin, with <img class="math" src="../_images/math/13a9a7bb4a4c30c9a9543cb771fc9cce192c661c.svg" alt="m" style="vertical-align: 0px"/> the spectral order).</p>
+<p>We can utilize this for a grating spectrum as follows. Make an image
+<img class="math" src="../_images/math/0516fa56005a6e1759ab8419fc85df125bc3f4d0.svg" alt="I(\Delta\theta)" style="vertical-align: -4px"/> of your source projected onto the dispersion
+axis, as a function of the off-axis angle <img class="math" src="../_images/math/eb3e02101c8aba7624d96a7dac66a0e0924aea13.svg" alt="\Delta\theta" style="vertical-align: 0px"/>. From the
+properties of your instrument, this can be transformed into an intensity
+<img class="math" src="../_images/math/9e90520b099402baac26a24c7149fb3bea008424.svg" alt="I(\Delta\lambda)" style="vertical-align: -4px"/> as function of wavelength using
+<img class="math" src="../_images/math/5349aa18a6b53e19fb08d45fdf4e09384795ee79.svg" alt="\Delta\lambda = \Delta\theta {\mathrm d}\lambda /
+{\mathrm d}\theta" style="vertical-align: -4px"/>. Assume that the spatial profile <img class="math" src="../_images/math/f874e55a0709323742ffb9e3e70bfed1245f28d9.svg" alt="I(\theta)" style="vertical-align: -4px"/> is
+only non-zero within a given angular range (i.e. the source has a finite
+extent). Then we can transform <img class="math" src="../_images/math/9e90520b099402baac26a24c7149fb3bea008424.svg" alt="I(\Delta\lambda)" style="vertical-align: -4px"/> into a
+probability distribution <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> with <img class="math" src="../_images/math/7605d5a14b3a7d35a544c8831cb96d4de66ed6b9.svg" alt="f=0" style="vertical-align: -3px"/> for very small or
+large values of <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> (here and further we put
+<img class="math" src="../_images/math/8473c82b2b1a107ab5614176dfcc4b998622c010.svg" alt="x=\Delta\lambda" style="vertical-align: 0px"/>). The auxilliary task rgsvprof (see
+Section <a class="reference external" href="#sect:rgsvprof">RGSvprof</a>) is able to create an
+input file for the lpro component from a MOS1 image.</p>
+<p>The resulting spatially convolved spectrum <img class="math" src="../_images/math/9a8af925790f3d6f3f21b47d9014cb39d7ebc03e.svg" alt="S_c(\lambda)" style="vertical-align: -4px"/> is
+calculated from the original spectrum <img class="math" src="../_images/math/f2b9022669d6f90847878dc7e9888c9165331b29.svg" alt="S(\lambda)" style="vertical-align: -4px"/> as</p>
+<div class="math">
+<p><img src="../_images/math/02fa4f2d367059ed3aed4d316ff576aa9a3514dc.svg" alt="S_c(\lambda) = \int f(\lambda-\lambda_0)
+S(\lambda_0) {\mathrm d}\lambda_0."/></p>
+</div><p>The function <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> must correspond to a probability function,
+i.e. for all values of <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> we have</p>
+<div class="math">
+<p><img src="../_images/math/0801b5e16c42597c2bc8fa6dc877ff32951f8bf1.svg" alt="f(x)\ge 0"/></p>
+</div><p>and furthermore</p>
+<div class="math">
+<p><img src="../_images/math/7966def58b63f5351c6b1493475e7a4b6188d896.svg" alt="\int_{-\infty}^{\infty} f(x) {\mathrm d}x = 1."/></p>
+</div><p>In our implementation, we do not use <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> but instead the
+cumulative probability density function <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/>, which is related
+to <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> by</p>
+<div class="math">
+<p><img src="../_images/math/1567f977ad33f4c88346f99997d28447f703d69e.svg" alt="F(x)\equiv \int_{-\infty}^{x} f(y){\mathrm d}y,"/></p>
+</div><p>where obviously <img class="math" src="../_images/math/f542e7c5985dc6b16c529804c19090be8e6dee32.svg" alt="F(-\infty)=0" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/8f5053054693f1283a6bc468d3f2efefc192d5c4.svg" alt="F(\infty)=1" style="vertical-align: -4px"/>. The reason
+for using the cumulative distribution is that this allows easier
+interpolation and conservation of photons in the numerical integrations.</p>
+<p>If this component is used, you must have a file available which we call
+here “vprof.dat” (but any name is allowed). This is a simple ascii file,
+with <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> lines, and at each line two numbers: a value for
+<img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> and the corresponding <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/>. The lines must be sorted
+in ascending order in <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>, and for <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/> to be a proper
+probability distribution, it must be a non-decreasing function i.e. if
+<img class="math" src="../_images/math/d663c76dc5a05bbddb4afc1218febbd449431950.svg" alt="F(x_{i})\le F(x_{i+1})" style="vertical-align: -4px"/> for all values of <img class="math" src="../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> between 1 and
+<img class="math" src="../_images/math/56f2cd919d38c59c9ed884f94fa03eaa33675f41.svg" alt="n-1" style="vertical-align: -1px"/>. Furthermore, we demand that <img class="math" src="../_images/math/a1cd0e05302146fd8d607e4fe0fc282911a852e3.svg" alt="F(x_1)\equiv 0" style="vertical-align: -4px"/> and
+<img class="math" src="../_images/math/6595e7c9b09ea6def55b93745f531fac17fb5a28.svg" alt="F(x_n)\equiv 1" style="vertical-align: -4px"/>.</p>
+<p>Note that <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/> is dimensionless. In addition, we allow for two
+other parameters: a scale factor <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> and an offset
+<img class="math" src="../_images/math/3e099ea6c929a3520c655671f206c196cba429a9.svg" alt="\lambda_o" style="vertical-align: -2px"/>. Usually, <img class="math" src="../_images/math/b36c9eae45473b7d7f00eb71bf532a6a6d8dfd02.svg" alt="s=1" style="vertical-align: 0px"/>, but if <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> is varied the
+resulting broadening scales proportional to <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/>. This is useful if
+for example one has an idea of the shape of the spatial profile, but
+wants to measure its width directly from the observed grating spectrum.
+In addition, the parameter <img class="math" src="../_images/math/3e099ea6c929a3520c655671f206c196cba429a9.svg" alt="\lambda_o" style="vertical-align: -2px"/> can be varied if the
+absolute position of the source is unknown and a small linear shift in
+wavelength is necessary.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This model can be applied to grating spectra (like RGS),
+but if you include in your fit also other data (for example EPIC), the
+same broadening will also be applied to that other data SET. This can be
+avoided by using a separate sector for each detector type.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above approximation of spatially extended sources
+assumes that there are no intrinsic spectral variations over the surface
+area of the X-ray source. Only total intensity variations over the
+surface area are taken into account. Whenever there are spatial
+variations in spectral shape (not in intensity) our method is strictly
+speaking not valid, but still gives more accurate results than a
+point-source approximation. In principle in those cases a more
+complicated analysis is needed.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">s</span></code> : Scale parameter <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/>, dimensionless. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dlam</span></code> : Offset parameter <img class="math" src="../_images/math/3e099ea6c929a3520c655671f206c196cba429a9.svg" alt="\lambda_o" style="vertical-align: -2px"/>, in Å. Default value:
+0 Å.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Ascii character string, containing the actual name of the
+vprof.dat file</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...420..135T/abstract">Tamura et al. (2004)</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="line.html" title="previous chapter">4.1.22. Line: transmission model for a single spectral line</a></li>
+      <li>Next: <a href="mbb.html" title="next chapter">4.1.24. Mbb: modified blackbody model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.2.8. Plot axis units and scales &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Spectral models" href="../../models.html" />
+    <link rel="prev" title="3.2.7. Plot symbols" href="marker.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plot-axis-units-and-scales">
+<span id="sect-plotaxes"></span><h1>3.2.8. Plot axis units and scales<a class="headerlink" href="#plot-axis-units-and-scales" title="Permalink to this headline">¶</a></h1>
+<p id="sect-plotunits">Different units can be chosen for the quantities that are plotted. Which
+units are available depends upon the plot type that is used, for example
+an observed spectrum (data), a Differential Emission Measure
+distribution (DEM) etc. For the available plot types see
+Section <a class="reference internal" href="types.html#sect-plottypes"><span class="std std-ref">Plot types</span></a>.</p>
+<p>Note also that depending upon the plot type, there are two or three axes
+available, the x-axis, y-axis and z-axis. The last axis is only used for
+contour maps or images, and corresponds to the quantity that is being
+plotted in the contours or image.</p>
+<div class="section" id="x-axis-units">
+<h2>3.2.8.1. X-axis units<a class="headerlink" href="#x-axis-units" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="x-axis-units-for-plot-type-model-data-chi-area-fwhm-and-spec">
+<h3>3.2.8.1.1. X-axis units for plot type model, data, chi, area, fwhm and spec<a class="headerlink" href="#x-axis-units-for-plot-type-model-data-chi-area-fwhm-and-spec" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>kev</p></td>
+<td><p>keV (kilo-electronvolt), default value</p></td>
+</tr>
+<tr class="row-odd"><td><p>ev</p></td>
+<td><p>eV (electronvolt)</p></td>
+</tr>
+<tr class="row-even"><td><p>ryd</p></td>
+<td><p>Rydberg units</p></td>
+</tr>
+<tr class="row-odd"><td><p>hz</p></td>
+<td><p>Hertz</p></td>
+</tr>
+<tr class="row-even"><td><p>ang</p></td>
+<td><p>Å (Ångstrom)</p></td>
+</tr>
+<tr class="row-odd"><td><p>nm</p></td>
+<td><p>nm (nanometer)</p></td>
+</tr>
+<tr class="row-even"><td><p>vel</p></td>
+<td><p><img class="math" src="../../_images/math/0705855c2288e92051a961666ceb6a43ada03286.svg" alt="\mathrm{km} \ \mathrm{s}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: when using the velocity scale, negative values correspond to a
+blueshift, positive values to a redshift. Also note that in this case
+one needs to provide the reference energy or wavelength.</p>
+</div>
+<div class="section" id="x-axis-units-for-plot-type-dem">
+<h3>3.2.8.1.2. X-axis units for plot type dem<a class="headerlink" href="#x-axis-units-for-plot-type-dem" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>kev</p></td>
+<td><p>keV (kilo-electronvolt), default value</p></td>
+</tr>
+<tr class="row-odd"><td><p>ev</p></td>
+<td><p>eV (electronvolt)</p></td>
+</tr>
+<tr class="row-even"><td><p>ryd</p></td>
+<td><p>Rydberg units</p></td>
+</tr>
+<tr class="row-odd"><td><p>k</p></td>
+<td><p>K (Kelvin)</p></td>
+</tr>
+<tr class="row-even"><td><p>mk</p></td>
+<td><p>MK (Mega-Kelvin)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="y-axis-units">
+<h2>3.2.8.2. Y-axis units<a class="headerlink" href="#y-axis-units" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="y-axis-units-for-plot-type-model-spec">
+<h3>3.2.8.2.1. Y-axis units for plot type model, spec<a class="headerlink" href="#y-axis-units-for-plot-type-model-spec" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Photon numbers:</p></td>
+</tr>
+<tr class="row-even"><td><p>cou</p></td>
+<td><p><img class="math" src="../../_images/math/e5f48bf1625d426d3710674ddef4c6e5950d0831.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{bin}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>kev</p></td>
+<td><p><img class="math" src="../../_images/math/e44bd03358c2a3211667718b0cf184e4983bb31e.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{keV}^{-1}" style="vertical-align: 0px"/>
+(default value)</p></td>
+</tr>
+<tr class="row-even"><td><p>ev</p></td>
+<td><p><img class="math" src="../../_images/math/2bff8b7ee193604d9329f440ac99ef9c035bfa0c.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{eV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>ryd</p></td>
+<td><p><img class="math" src="../../_images/math/d9201465903b8667fef509b5654ce425f0e22e31.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{Ryd}^{-1}" style="vertical-align: -3px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>hz</p></td>
+<td><p><img class="math" src="../../_images/math/d8051b0d10680b87e4d78535f31daa12ead873d5.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{Hz}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>ang</p></td>
+<td><p><img class="math" src="../../_images/math/03c159e865a21802f19982749ca26acd84c806b3.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{Å}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>nm</p></td>
+<td><p><img class="math" src="../../_images/math/298e60d4b831ebdc5aeef71d34dd4ba493a66f13.svg" alt="\mathrm{Photons} \ \mathrm{m}^{-2} \mathrm{s}^{-1}  \mathrm{nm}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Energy units:</p></td>
+</tr>
+<tr class="row-even"><td><p>wkev</p></td>
+<td><p><img class="math" src="../../_images/math/81be680785cee53f62fe81b8e992bd472ccce367.svg" alt="\mathrm{W} \ \mathrm{m}^{-2} \ \mathrm{keV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>wev</p></td>
+<td><p><img class="math" src="../../_images/math/e6f0aa9370bcb7b006e0167cc692e749ec456c50.svg" alt="\mathrm{W}\ \mathrm{m}^{-2} \ \mathrm{eV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>wryd</p></td>
+<td><p><img class="math" src="../../_images/math/8c4e85924af4db048501c72d020b01dce795b762.svg" alt="\mathrm{W}\ \mathrm{m}^{-2} \ \mathrm{Ryd}^{-1}" style="vertical-align: -3px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>whz</p></td>
+<td><p><img class="math" src="../../_images/math/44adc857b0fee94c8f1f8eb577e1570d2881b3ae.svg" alt="\mathrm{W}\ \mathrm{m}^{-2} \ \mathrm{Hz}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>wang</p></td>
+<td><p><img class="math" src="../../_images/math/0e5ee9c0a7c657db966b99de3f22c6ec2f368437.svg" alt="\mathrm{W}\ \mathrm{m}^{-2} \ \mathrm{Å}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>wnm</p></td>
+<td><p><img class="math" src="../../_images/math/f9abad1c7748e2958b4a106c7657f568116b6a87.svg" alt="\mathrm{W}\ \mathrm{m}^{-2} \ \mathrm{nm}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>jans</p></td>
+<td><p>Jansky (<img class="math" src="../../_images/math/374a8b566c7dc0c0fc0cb88025dc2e8e317b8156.svg" alt="10^{-26} \  \mathrm{W}\ \mathrm{m}^{-2} \ \mathrm{Hz}^{-1}" style="vertical-align: 0px"/>)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><img class="math" src="../../_images/math/11476306c1eaeaa28608a7374eac7a2df0712c8c.svg" alt="\nu F_{\nu}" style="vertical-align: -2px"/> units:</p></td>
+</tr>
+<tr class="row-even"><td><p>iw</p></td>
+<td><p><img class="math" src="../../_images/math/f41cde8a026e410924ebd436880729adaf76859b.svg" alt="\mathrm{W} \ \mathrm{m}^{-2}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>ij</p></td>
+<td><p>Jansky Hz (<img class="math" src="../../_images/math/6b541a81e86ba7e880ec3eece42ce9bcc64186fc.svg" alt="10^{-26} \  \mathrm{W}\ \mathrm{m}^{-2}" style="vertical-align: 0px"/>)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Various:</p></td>
+</tr>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-axis-units-for-plot-type-data">
+<h3>3.2.8.2.2. Y-axis units for plot type data<a class="headerlink" href="#y-axis-units-for-plot-type-data" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>cou</p></td>
+<td><p><img class="math" src="../../_images/math/76bbbd570ae4281e142766c91808e0a1a944d714.svg" alt="\mathrm{Counts}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>cs</p></td>
+<td><p><img class="math" src="../../_images/math/344437674e27dd01bbe362bba9caea0503361fcd.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>kev</p></td>
+<td><p><img class="math" src="../../_images/math/3e267a1ecc09274589e863f930b755276054d244.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{keV}^{-1}" style="vertical-align: 0px"/>
+(default value)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ev</p></td>
+<td><p><img class="math" src="../../_images/math/bfc408d9005f034c6e877debffe8ce0e33f4650c.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{eV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>ryd</p></td>
+<td><p><img class="math" src="../../_images/math/d6d2e082e3251baeb74b61c0bf219d35a801a67c.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{Ryd}^{-1}" style="vertical-align: -3px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>hz</p></td>
+<td><p><img class="math" src="../../_images/math/c8091220c177834f79a5fbb1787f24f27b38af67.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{Hz}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>ang</p></td>
+<td><p><img class="math" src="../../_images/math/af8743d30a65ca2d7b5aba679cf2f94e50e7d039.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{Å}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>nm</p></td>
+<td><p><img class="math" src="../../_images/math/cd660f45a319401897a4c40d515e7f5e12fbf8f8.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{nm}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>fkev</p></td>
+<td><p><img class="math" src="../../_images/math/3e7a5828c888822b1bf6b286dad6e96ed9f31366.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{keV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>fev</p></td>
+<td><p><img class="math" src="../../_images/math/2a5f1085e03aa2f49e6d25d802340d9c7bd78853.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{eV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>fryd</p></td>
+<td><p><img class="math" src="../../_images/math/4d03a56f81606fefe646ed84abfc052a28d4a4c2.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{Ryd}^{-1}" style="vertical-align: -3px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>fhz</p></td>
+<td><p><img class="math" src="../../_images/math/1283c1384aaf498f9d7cfc8e5b2725695d3ca7a9.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{Hz}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>fang</p></td>
+<td><p><img class="math" src="../../_images/math/cff57e1de3a96c8abaf3edfd49e822d92aff26aa.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{Å}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>fnm</p></td>
+<td><p><img class="math" src="../../_images/math/f7de06c7ab1438bbc26009174049973f6eaf260f.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{nm}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-axis-units-for-plot-type-chi">
+<h3>3.2.8.2.3. Y-axis units for plot type chi<a class="headerlink" href="#y-axis-units-for-plot-type-chi" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>cou</p></td>
+<td><p><img class="math" src="../../_images/math/76bbbd570ae4281e142766c91808e0a1a944d714.svg" alt="\mathrm{Counts}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>cs</p></td>
+<td><p><img class="math" src="../../_images/math/344437674e27dd01bbe362bba9caea0503361fcd.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>kev</p></td>
+<td><p><img class="math" src="../../_images/math/3e267a1ecc09274589e863f930b755276054d244.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{keV}^{-1}" style="vertical-align: 0px"/>
+(default value)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ev</p></td>
+<td><p><img class="math" src="../../_images/math/bfc408d9005f034c6e877debffe8ce0e33f4650c.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{eV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>ryd</p></td>
+<td><p><img class="math" src="../../_images/math/d6d2e082e3251baeb74b61c0bf219d35a801a67c.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{Ryd}^{-1}" style="vertical-align: -3px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>hz</p></td>
+<td><p><img class="math" src="../../_images/math/c8091220c177834f79a5fbb1787f24f27b38af67.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{Hz}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>ang</p></td>
+<td><p><img class="math" src="../../_images/math/af8743d30a65ca2d7b5aba679cf2f94e50e7d039.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{Å}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>nm</p></td>
+<td><p><img class="math" src="../../_images/math/cd660f45a319401897a4c40d515e7f5e12fbf8f8.svg" alt="\mathrm{Counts} \ \mathrm{s}^{-1} \ \mathrm{nm}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>fkev</p></td>
+<td><p><img class="math" src="../../_images/math/3e7a5828c888822b1bf6b286dad6e96ed9f31366.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{keV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>fev</p></td>
+<td><p><img class="math" src="../../_images/math/2a5f1085e03aa2f49e6d25d802340d9c7bd78853.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{eV}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>fryd</p></td>
+<td><p><img class="math" src="../../_images/math/4d03a56f81606fefe646ed84abfc052a28d4a4c2.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{Ryd}^{-1}" style="vertical-align: -3px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>fhz</p></td>
+<td><p><img class="math" src="../../_images/math/1283c1384aaf498f9d7cfc8e5b2725695d3ca7a9.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{Hz}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>fang</p></td>
+<td><p><img class="math" src="../../_images/math/cff57e1de3a96c8abaf3edfd49e822d92aff26aa.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{Å}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>fnm</p></td>
+<td><p><img class="math" src="../../_images/math/f7de06c7ab1438bbc26009174049973f6eaf260f.svg" alt="\mathrm{Counts} \ \mathrm{m}^2 \ \mathrm{s}^{-1} \ \mathrm{nm}^{-1}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>dchi</p></td>
+<td><p>(Observed - Model) / Error (default)</p></td>
+</tr>
+<tr class="row-odd"><td><p>rel</p></td>
+<td><p>(Observed - Model) / Model</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-axis-units-for-plot-type-area">
+<h3>3.2.8.2.4. Y-axis units for plot type area<a class="headerlink" href="#y-axis-units-for-plot-type-area" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>m2</p></td>
+<td><p><img class="math" src="../../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>
+(default)</p></td>
+</tr>
+<tr class="row-odd"><td><p>cm2</p></td>
+<td><p><img class="math" src="../../_images/math/0d09693e7e5dd201d01f8be8b7ef7864411d35d6.svg" alt="\mathrm{cm}^2" style="vertical-align: 0px"/></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-axis-units-for-plot-type-fwhm">
+<h3>3.2.8.2.5. Y-axis units for plot type fwhm<a class="headerlink" href="#y-axis-units-for-plot-type-fwhm" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>kev</p></td>
+<td><p>keV (kilo-electronvolt), default value</p></td>
+</tr>
+<tr class="row-odd"><td><p>ev</p></td>
+<td><p>eV (electronvolt)</p></td>
+</tr>
+<tr class="row-even"><td><p>ryd</p></td>
+<td><p>Rydberg units</p></td>
+</tr>
+<tr class="row-odd"><td><p>hz</p></td>
+<td><p>Hertz</p></td>
+</tr>
+<tr class="row-even"><td><p>ang</p></td>
+<td><p>Å (Ångstrom)</p></td>
+</tr>
+<tr class="row-odd"><td><p>nm</p></td>
+<td><p>nm (nanometer)</p></td>
+</tr>
+<tr class="row-even"><td><p>de/e</p></td>
+<td><p><img class="math" src="../../_images/math/47787c275100559aa5a3e364d946620e0f22710e.svg" alt="\Delta E / E" style="vertical-align: -4px"/></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="y-axis-units-for-plot-type-dem">
+<h3>3.2.8.2.6. Y-axis units for plot type dem<a class="headerlink" href="#y-axis-units-for-plot-type-dem" title="Permalink to this headline">¶</a></h3>
+<p>The emission measure <img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> is
+defined as <img class="math" src="../../_images/math/817e480731c63599a82bb492b7faba107819e737.svg" alt="Y \equiv n_{\mathrm e}n_{\mathrm H}V" style="vertical-align: -2px"/> and is expressed
+in units of <img class="math" src="../../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. Here
+<img class="math" src="../../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> is the electron density, <img class="math" src="../../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> is
+the Hydrogen density and <img class="math" src="../../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> the emitting volume.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>bin</p></td>
+<td><p>Bin number</p></td>
+</tr>
+<tr class="row-even"><td><p>em</p></td>
+<td><p><img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> (default)</p></td>
+</tr>
+<tr class="row-odd"><td><p>demk</p></td>
+<td><p><img class="math" src="../../_images/math/204ca92d163ed4d80c018d75465c738be13d8cc9.svg" alt="{\mathrm d}Y/{\mathrm d}T" style="vertical-align: -4px"/>, per keV</p></td>
+</tr>
+<tr class="row-even"><td><p>demd</p></td>
+<td><p><img class="math" src="../../_images/math/204ca92d163ed4d80c018d75465c738be13d8cc9.svg" alt="{\mathrm d}Y/{\mathrm d}T" style="vertical-align: -4px"/>, per K</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="plot-axis-scales">
+<span id="sect-plotscales"></span><h2>3.2.8.3. Plot axis scales<a class="headerlink" href="#plot-axis-scales" title="Permalink to this headline">¶</a></h2>
+<p>The axes in a plot can be plot in different ways, either linear or
+logarithmic.</p>
+<p>For the y-axis we also have made an option for a mixed linear and
+logarithmic scale. The lower part of the plot will be on a linear scale,
+the upper part on a logarithmic scale. This option is useful for example
+for plotting a background-subtracted spectrum. Often there are bins with
+a low count rate which scatter around zero after background suntraction;
+for those channels a linear plot is most suited as a logarithmic scaling
+cannot deal with negative numbers. On the other hand, other parts of the
+spectrum may have a high count rate, on various intemsity scales, and in
+that case a logarithmic representation might be optimal. The mixed
+scaling allows the user to choose below which y-value the plot will be
+linear, and also which fraction of the plotting surface the linear part
+will occupy. For an example see the figure below.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/mix.png"><img alt="Example of the mixed y-axis scale. Simulation of a Chandra LETGS spectrum for a thermal plasma with a temperature of 1 keV." src="../../_images/mix.png" style="width: 100.0%;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../plot.html">3.2. Plotting reference</a><ul>
+      <li>Previous: <a href="marker.html" title="previous chapter">3.2.7. Plot symbols</a></li>
+      <li>Next: <a href="../../models.html" title="next chapter">4. Spectral models</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

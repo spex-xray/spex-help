@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.38. Vpro: velocity profile broadening model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.39. Warm: continuous photoionised absorption model" href="warm.html" />
+    <link rel="prev" title="4.1.37. Vgau: gaussian velocity broadening model" href="vgau.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="vpro-velocity-profile-broadening-model">
+<h1>4.1.38. Vpro: velocity profile broadening model<a class="headerlink" href="#vpro-velocity-profile-broadening-model" title="Permalink to this headline">¶</a></h1>
+<p>This multiplicative model broadens an arbitrary additive component with
+an arbitrarily shaped Doppler profile, characterized by the half-width
+<img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> and a profile shape <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/>. The resulting spectrum
+<img class="math" src="../_images/math/a4666767c038e5474f997c1f1f8c39d8e03d1433.svg" alt="S_c(E)" style="vertical-align: -4px"/> is calculated from the original spectrum <img class="math" src="../_images/math/bd130e7119bf6f7665124f207621303ba16e6406.svg" alt="S(E)" style="vertical-align: -4px"/> as</p>
+<div class="math">
+<p><img src="../_images/math/175fb5b78134a74a909f51d90ccf4d907bb64c82.svg" alt="S_c(E) = \int f \bigl( \frac{E-E_0}{E_0} \frac{v}{c}  \bigr)
+S(E_0) {\mathrm d}E_0."/></p>
+</div><p>The function <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> must correspond to a probability function,
+i.e. for all values of <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> we have</p>
+<div class="math">
+<p><img src="../_images/math/0801b5e16c42597c2bc8fa6dc877ff32951f8bf1.svg" alt="f(x)\ge 0"/></p>
+</div><p>and furthermore</p>
+<div class="math">
+<p><img src="../_images/math/7966def58b63f5351c6b1493475e7a4b6188d896.svg" alt="\int_{-\infty}^{\infty} f(x) {\mathrm d}x = 1."/></p>
+</div><p>In our implementation, we do not use <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> but instead the
+cumulative probability density function <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/>, which is related
+to <img class="math" src="../_images/math/4f963519834b22c43cfde2e4d0edcdac3084442c.svg" alt="f(x)" style="vertical-align: -4px"/> by</p>
+<div class="math">
+<p><img src="../_images/math/1567f977ad33f4c88346f99997d28447f703d69e.svg" alt="F(x)\equiv \int_{-\infty}^{x} f(y){\mathrm d}y,"/></p>
+</div><p>where obviously <img class="math" src="../_images/math/f542e7c5985dc6b16c529804c19090be8e6dee32.svg" alt="F(-\infty)=0" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/8f5053054693f1283a6bc468d3f2efefc192d5c4.svg" alt="F(\infty)=1" style="vertical-align: -4px"/>. The reason
+for using the cumulative distribution is that this allows easier
+interpolation and conservation of photons in the numerical integrations.</p>
+<p>If this component is used, you must have a file available which we call
+here <code class="docutils literal notranslate"><span class="pre">vprof.dat</span></code> (but any name is allowed). This is a simple ascii file,
+with <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> lines, and at each line two numbers: a value for
+<img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> and the corresponding <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/>. The lines must be sorted
+in ascending order in <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>, and for <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/> to be a proper
+probability distribution, it must be a non-decreasing function i.e. if
+<img class="math" src="../_images/math/d663c76dc5a05bbddb4afc1218febbd449431950.svg" alt="F(x_{i})\le F(x_{i+1})" style="vertical-align: -4px"/> for all values of <img class="math" src="../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> between 1 and
+<img class="math" src="../_images/math/56f2cd919d38c59c9ed884f94fa03eaa33675f41.svg" alt="n-1" style="vertical-align: -1px"/>. Furthermore, we demand that <img class="math" src="../_images/math/a1cd0e05302146fd8d607e4fe0fc282911a852e3.svg" alt="F(x_1)\equiv 0" style="vertical-align: -4px"/> and
+<img class="math" src="../_images/math/6595e7c9b09ea6def55b93745f531fac17fb5a28.svg" alt="F(x_n)\equiv 1" style="vertical-align: -4px"/>.</p>
+<p>Note that both <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/6bd850096aedbfc58164a50c02e3a944c103cc71.svg" alt="F(x)" style="vertical-align: -4px"/> are dimensionless. The
+parameter <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> serves as a scaling parameter for the total amount
+of broadening. Of course for a given profile there is freedom for the
+choice of both the <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>-scale as well as the value of <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/>, as
+long as e.g. <img class="math" src="../_images/math/7fce0e3bac4bbc5827bb37f8615b7719013406cc.svg" alt="x_n v" style="vertical-align: -2px"/> remains constant. In practice it is better to
+make a logical choice. For example, for a rectangular velocity
+broadening (equivalent to the <em>vblo</em> broadening model) one would choose
+<img class="math" src="../_images/math/cc36491d2eeb7d3b0f743df4361530a95f4862d5.svg" alt="n=2" style="vertical-align: 0px"/> with <img class="math" src="../_images/math/21e815fabf442ec68741b5b6c8c470f660b2fdcf.svg" alt="x_1=-1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/e706a2201081ad25e0f0defa2772db949e22102f.svg" alt="x_2=1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/f42d850cceaf5d056bf268ed04adfbca8aeedb41.svg" alt="F(x_1)=0" style="vertical-align: -4px"/> and
+<img class="math" src="../_images/math/8f1a23347a6e9b1358b0a194e09ac7974f798a5c.svg" alt="F(x_2)=1" style="vertical-align: -4px"/>, and then let <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> do the scaling (this also
+allows you to have <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> as a free parameter in spectral fits). If
+one would instead want to describe a Gaussian profile (for which of
+course also the <em>vgau</em> model exists), one could for example approximate
+the profile by taking the <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>-scale in units of the standard
+deviation; an example with a resolution of 0.1 standard deviation and a
+cut-off approximation at 5 standard deviations would be <img class="math" src="../_images/math/18f9347ccb9bc3b3bfd927b46e58df5cbc93ddf7.svg" alt="x=" style="vertical-align: 0px"/>-5,
+-4.9, -4.8, <img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/>, 4.8, 4.9, 5.0 with corresponding values for
+<img class="math" src="../_images/math/a052ec7803b9567160e97a6584ad6a2ee2f01f39.svg" alt="F" style="vertical-align: 0px"/> given by <img class="math" src="../_images/math/b9a143df37dcf5cf691621c9f152f2b72a4828b1.svg" alt="F=" style="vertical-align: 0px"/> 0, 0.00000048, 0.00000079, <img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/>,
+0.99999921, 0.99999952, 1.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Velocity broadening parameter <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/>, in km/s. Default
+value: 1 km/s.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Ascii character string, containing the actual name of the
+vprof.dat file</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="vgau.html" title="previous chapter">4.1.37. Vgau: gaussian velocity broadening model</a></li>
+      <li>Next: <a href="warm.html" title="next chapter">4.1.39. Warm: continuous photoionised absorption model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

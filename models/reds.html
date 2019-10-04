@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.30. Reds: redshift model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.31. Refl: reflection model" href="refl.html" />
+    <link rel="prev" title="4.1.29. Pow: power law model" href="pow.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="reds-redshift-model">
+<h1>4.1.30. Reds: redshift model<a class="headerlink" href="#reds-redshift-model" title="Permalink to this headline">¶</a></h1>
+<p>This multiplicative model applies a redshift <img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/> to an arbitrary
+additive component. If a photon is emitted at energy <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>, the
+redshift model will put it at energy <img class="math" src="../_images/math/14a3aff337d35d7de3cb4cb51060e741eadf3a48.svg" alt="(1+z)E" style="vertical-align: -4px"/>. In addition, a time
+dilatation correction is applied such that the spectrum <img class="math" src="../_images/math/bd130e7119bf6f7665124f207621303ba16e6406.svg" alt="S(E)" style="vertical-align: -4px"/>
+(expressed as photons/s per bin) is divided by <img class="math" src="../_images/math/e4ebd41677ecd85b052754ed0a5e35a5897dc9e5.svg" alt="1+z" style="vertical-align: -1px"/>.</p>
+<p>However, it is necessary to distinguish two different cases:</p>
+<p>case 1 (flag=0): the redshift component can be used to calculate the
+effects of the cosmological redshift. The cosmological redshift has the
+effect of the energy shift and the time dilatation as outlined above.
+Therefore, the above procedure is essentially correct and this is what
+was used in older versions of SPEX (before version 2.00.10). However,
+what was overlooked there is that in the determination of the finally
+observed spectrum/flux as seen on Earth, a division by <img class="math" src="../_images/math/a4aa9364aac22c4c7073119a178bc7d26a353dfe.svg" alt="4\pi d^2" style="vertical-align: 0px"/>
+is necessary. For this distance <img class="math" src="../_images/math/5ac673113d00676b08c46a209eb6b5d862c02609.svg" alt="d" style="vertical-align: 0px"/>, we took the luminosity
+distance. However, the factors <img class="math" src="../_images/math/394f61ded90db8ecf8dbac79d92667bd59bad107.svg" alt="(1+z)^2" style="vertical-align: -4px"/> are absorbed into the
+definition of the luminosity distance. Therefore, in the older versions
+all fluxes were too small by a factor of <img class="math" src="../_images/math/394f61ded90db8ecf8dbac79d92667bd59bad107.svg" alt="(1+z)^2" style="vertical-align: -4px"/>. Since we want
+to retain the luminosity distance as the natural distance measure for
+spectra, it appears necessary to multiply the spectrum as calculated by
+the original subroutine by a factor of <img class="math" src="../_images/math/394f61ded90db8ecf8dbac79d92667bd59bad107.svg" alt="(1+z)^2" style="vertical-align: -4px"/>. But in the other
+case (redshifts caused by the motion of a source at any distance), this
+re-correction should not be done, reason why we introduce the other
+option. <em>in summary, for redshift components corresponding to
+cosmological redshifts, the option flag=0 (default) must be used</em>.</p>
+<p>case 2 (flag=1): this is the old case for a source with a redshift
+caused by motion away from us. It should be used for any velocity fields
+other than the Hubble flow.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that this component should be used in tandem with the
+distance command (Section <a class="reference external" href="#sec:distance">Distance</a>) to
+take into account the cosmological redshift and its influence on the
+flux completely.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">z</span></code> : Redshift <img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/>. Default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">flag</span></code> : Flag: 0 (cosmological redshift) or 1 (velocity redshift).
+Default value: 0.</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="pow.html" title="previous chapter">4.1.29. Pow: power law model</a></li>
+      <li>Next: <a href="refl.html" title="next chapter">4.1.31. Refl: reflection model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

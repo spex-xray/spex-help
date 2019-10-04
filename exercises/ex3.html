@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.3. Statistics, binning and more &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.4. Stellar Spectra" href="ex4.html" />
+    <link rel="prev" title="8.2. Powerlaw with a Gaussian line" href="ex2.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="statistics-binning-and-more">
+<h1>8.3. Statistics, binning and more<a class="headerlink" href="#statistics-binning-and-more" title="Permalink to this headline">¶</a></h1>
+<p>The files <a class="reference download internal" download="" href="../_downloads/b224c9124502ff9ab1131e05f7b73c35/nustar.spo"><code class="xref download docutils literal notranslate"><span class="pre">nustar.spo</span></code></a> and
+<a class="reference download internal" download="" href="../_downloads/d5344b1f18fcef4b1025a470cf9426ee/nustar.res"><code class="xref download docutils literal notranslate"><span class="pre">nustar.res</span></code></a> contains the observed (not
+simulated!) spectrum of the pulsar PSR J1813-1246 as observed by the
+NuSTAR satellite. You can adopt a distance of 2.5 kpc to this source.
+You can assume that the spectrum is a simple power law with Galactic
+foreground absorption.</p>
+<ol class="arabic">
+<li><p>Load the spectrum into SPEX, and rebin the spectrum properly. No need
+to ignore any data here.</p></li>
+<li><p>Define the proper model and make a fit.</p></li>
+<li><p>We will make a few alternative fits. Make a table and note down the
+following numbers for each fit starting with your current one: the
+best-fit parameters and their error bars of the three free parameters
+of your model; the correlation between these parameters; and the fit
+statistic with its expected values; your current fit is model A.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 56%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Model A</p></th>
+<th class="head"><p>Model B</p></th>
+<th class="head"><p>Model C</p></th>
+<th class="head"><p>Model D</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Norm</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Luminosity</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>corr norm-<img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>corr norm-<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>corr <img class="math" src="../_images/math/a1c09e4f5e9f3a692716339340e750178ac613e0.svg" alt="n_{\mathrm H} - \Gamma" style="vertical-align: -2px"/></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C-stat or <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Exp. C-stat or dof</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Same as before, but now use the 3-80 keV luminosity as free parameter
+instead of the norm (change “type” for the power law model and the
+status of some parameters). This is model B.</p></li>
+<li><p>As above, but now instead the 3-20 keV luminosity (model C).</p></li>
+<li><p>As above, but now change the fit statistic from C-stat to
+<img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> (model D). Be shocked by the bias in fit parameters
+that you will see!</p></li>
+</ol>
+<p><strong>Learning goals:</strong></p>
+<p>After having done this spectrum, you should know:</p>
+<ul class="simple">
+<li><p>How to change from normalisation ot luminosity.</p></li>
+<li><p>See the importance of “pivot” point for the luminosity /
+normalisation.</p></li>
+<li><p>Understand the danger of using <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>-fitting.</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../exercises.html">8. Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ex1.html">8.1. Powerlaw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex2.html">8.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.3. Statistics, binning and more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex4.html">8.4. Stellar Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex5.html">8.5. Supernova remnants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex6.html">8.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex7.html">8.7. AGN winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../exercises.html">8. Exercises</a><ul>
+      <li>Previous: <a href="ex2.html" title="previous chapter">8.2. Powerlaw with a Gaussian line</a></li>
+      <li>Next: <a href="ex4.html" title="next chapter">8.4. Stellar Spectra</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.1. Modeling particle background &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2. Import UV/Optical data" href="../uv.html" />
+    <link rel="prev" title="2. Analysis threads" href="../../threads.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="modeling-particle-background">
+<h1>2.1. Modeling particle background<a class="headerlink" href="#modeling-particle-background" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal">
+<h2>2.1.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>Time dependent particle backgrounds in X-ray spectra are very difficult
+to correctly subtract, especially for extended sources. Many times, a
+quiescent particle background remains present in the spectrum after
+flare filtering. In this example, we show how to model the quiescent
+soft-proton contribution in a spectrum extracted from an annulus around
+the core of a cluster of galaxies. The difficulty here is that the
+effective area for soft protons is very different from the effective
+area for X-rays. Please note that the example provided is not
+necessarily scientifically correct. The goal of this example is to show
+a general method to deal with these kind of problems in SPEX. The choice
+of models probably needs to be different in other cases.</p>
+</div>
+<div class="section" id="spex-solution">
+<h2>2.1.2. SPEX solution<a class="headerlink" href="#spex-solution" title="Permalink to this headline">¶</a></h2>
+<p>The basic problem we have to solve here, is that we need a number of
+model components that are folded through the ARF (the cosmic X-rays) and
+a few components describing the particle background, which are not
+folded through the ARF. In SPEX, this can be solved using sectors.
+Sectors are essentially model groups representing different areas or
+different components on the sky. In this case, we will create two
+sectors: one for the cosmic X-rays and one for the particle background.
+The second sector should not be folded through the ARF. To archieve
+this, we have to create a special spectrum and response file with
+<code class="docutils literal notranslate"><span class="pre">trafo</span></code> in which we define the sectors.</p>
+<div class="figure align-default" id="fig-sectreg">
+<img alt="../../_images/sectreg.png" src="../../_images/sectreg.png" />
+<p class="caption"><span class="caption-text">Schematic representation of the sectors and regions in this example.
+We load two spectra with trafo and we define two sectors (left). The
+exact model components are later defined in SPEX. The models for
+sectors 1 and 2 are folded through the response matrix separately.
+The result of the folding is added and applied to the first spectrum
+(region 1 on the right) only.</span><a class="headerlink" href="#fig-sectreg" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="running-trafo">
+<h3>2.1.2.1. Running trafo<a class="headerlink" href="#running-trafo" title="Permalink to this headline">¶</a></h3>
+<p>In this trafo run, we will actually load the same spectrum twice. One
+for every sector. Here we use a MOS1 spectrum extracted from an annulus
+between 6 and 9 arcmin from the cluster core. The background spectrum
+was extracted using the XMM Extended Source Analysis Software by Snowden
+&amp; Kuntz. After starting <code class="docutils literal notranslate"><span class="pre">trafo</span></code> we have to tell it that we want to
+transform two spectra in two sectors:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Program trafo: transform data to SPEX 2.0 format
+This is version 1.02, of trafo
+
+ Are your data in OGIP format            : type=1
+ Old (Version 1.10 and below) SPEX format: type=2
+
+ Enter the type: 1
+ Enter the number of spectra you want to transform: 2
+ Enter the maximum number of response groups per energy per spectrum: 1000000
+ Enter the number of sectors you want to create: 2
+</pre></div>
+</div>
+<p>The region number respresents the spectral data that we will fit.
+Because we want to add the cosmic X-ray spectrum and the particle
+background spectrum, we want both sectors to point to region 1. First,
+we enter the spectra for the first sector. We only show the most
+relevant input/output lines here.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter the sector and region number: 1 1
+How should the matrix be partioned?
+Option 1: keep as provided (1 component, no re-arrangements)
+Option 2: rearrange into contiguous groups
+Option 3: split into N roughly equal-sized components
+Enter your preferred option (1,2,3): 1
+Enter filename spectrum to be read: M1_annulus.pi
+Read nevertheless a background file? (y/n) [no]: y
+Enter filename background spectrum to be read: M1_annulus_bkg.pi
+Shall we ignore bad channels? (y/n) [no]:y
+Enter filename response matrix to be read: M1_annulus.rmf
+Enter new bin boundary values manually: 3.E-5 5.E-3
+Enter shift to response array (1 recommended, but some cases may be 0):1
+Read nevertheless an effective area file? (y/n) [no]: y
+Enter filename arf-file to be read: M1_annulus.arf
+</pre></div>
+</div>
+<p>The first spectrum is now read in, including an ARF file. Now we enter
+the same spectrum again, but now without ARF. The region number here is
+1, because we want the models in this sector to be added to the models
+of sector 1.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter the sector and region number: 2 1
+Enter your preferred option (1,2,3): 1
+Enter filename spectrum to be read: M1_annulus.pi
+Read nevertheless a background file? (y/n) [no]: y
+Enter filename background spectrum to be read: M1_annulus_bkg.pi
+Enter filename response matrix to be read: M1_annulus.rmf
+Read nevertheless an effective area file? (y/n) [no]: n
+</pre></div>
+</div>
+<p>Save the spectrum by providing convenient names for the res and spo
+files.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter filename spectrum to be saved (without .spo): M1_annulus
+Enter filename response to be saved (without .res): M1_annulus
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-spex">
+<h3>2.1.2.2. Running SPEX<a class="headerlink" href="#running-spex" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="fig-partbkg-s1">
+<img alt="../../_images/spectrum1.png" src="../../_images/spectrum1.png" />
+<p class="caption"><span class="caption-text">XMM-Newton MOS1 spectrum extracted from a 6–9 arcmin annulus around a
+cluster of galaxies.</span><a class="headerlink" href="#fig-partbkg-s1" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the res and spo files are created, we are ready to run <code class="docutils literal notranslate"><span class="pre">spex</span></code>. In
+this description, we skip some very basic commands about, for example,
+plotting. See Chapter <a class="reference external" href="#chap:intro">[chap:intro]</a> for an overview
+of a basic SPEX session. Note that the procedure for SPEX version 2.02
+is exactly the same as for SPEX version 2.01, which is shown here.
+First, we load the spectrum and plot it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Welcome user to SPEX version 2.01.05
+
+SPEX&gt; data M1_annulus M1_annulus
+...
+SPEX&gt; plot
+</pre></div>
+</div>
+<p>Figure <a class="reference external" href="#fig:partbkg-s1">1.2</a> shows a plot of the spectrum. For
+presentation purposes we rebin the spectrum here with the <code class="docutils literal notranslate"><span class="pre">obin</span></code>
+command. If C-statistics are used, binning is not strictly necessary. An
+important thing to remember at this point is to ignore the spectrum in
+region number 2:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ign reg 2 1:1000000
+</pre></div>
+</div>
+<p>We ignore region 2 from channel 1 to 1000000, which should be more then
+enough to make sure no data is left in the region. Of course, some data
+at very low and high energies also need to be ignored in region 1.</p>
+<div class="figure align-default" id="fig-partbkg-s2">
+<img alt="../../_images/spectrum2.png" src="../../_images/spectrum2.png" />
+<p class="caption"><span class="caption-text">A fit without modeling the particle background is not successful.
+Especially, the high-energy region in the spectrum is not fitted well
+due to soft protons.</span><a class="headerlink" href="#fig-partbkg-s2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Now, we set up the cosmic X-ray model for sector 1. We can just load the
+components normally, because they are automatically added to the first
+sector:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com reds
+SPEX&gt; com abs
+SPEX&gt; com cie
+SPEX&gt; com cie
+SPEX&gt; com po
+SPEX&gt; com rel 3 1,2
+SPEX&gt; com rel 5 1,2
+</pre></div>
+</div>
+<p>In this model, we put a cosmological redshift, interstellar absorption,
+and a single-temperature model to describe the cluster emission. In
+addition, we put a single-temperature model with a fixed temperature of
+0.2 keV to model the emission from the local hot bubble, and a power law
+with a gamma value of 1.41 to account for the Cosmic X-ray Backgound
+(CXB) due to unresolved point sources.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 4 t v 0.2
+SPEX&gt; par 1 4 t s f
+SPEX&gt; par 1 5 gamm v 1.41
+SPEX&gt; par 1 5 gamm s f
+</pre></div>
+</div>
+<div class="figure align-default" id="fig-partbkg-s3">
+<img alt="../../_images/spectrum3.png" src="../../_images/spectrum3.png" />
+<p class="caption"><span class="caption-text">Here, we plot the particle background model. We ignore the cluster
+model components for now. It is clear to see that the power law is
+not folded through the arf.</span><a class="headerlink" href="#fig-partbkg-s3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Just to show what happens if we fit the data now, we plot the result in
+Figure <a class="reference external" href="#fig:partbkg-s2">1.3</a>. It is clear that the spectrum is not
+well fitted at low and high energies. A contribution of soft protons is
+visible at the high-energy end of the spectrum. In addition, we see that
+the instrumental fluoresence lines of Al and Si at <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>1.49
+and <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>1.75 keV are not fitted. To model these features, we
+need to use the second sector and define an additional model there.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; sector new
+SPEX&gt; com 2 po
+SPEX&gt; com 2 delt
+SPEX&gt; com 2 delt
+SPEX&gt; par 2 1 gamm v 0.2
+SPEX&gt; par 2 2 e v 1.49
+SPEX&gt; par 2 2 e s f
+SPEX&gt; par 2 3 e v 1.75
+SPEX&gt; par 2 3 e s f
+</pre></div>
+</div>
+<p>In this sequence of commands, we define a new sector (number 2) and add
+a power-law and two delta-line components to it. The slope of the
+gamma-parameter is initially set to <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>0.2. In
+Figure <a class="reference external" href="#fig:partbkg-s3">1.4</a>, we put the components in sector 1 to
+zero to show the particle background model that we have just defined.
+The flat shape of the power-law model confirms that these components are
+not folded through the arf.</p>
+<div class="figure align-default" id="fig-partbkg-s4">
+<img alt="../../_images/spectrum4.png" src="../../_images/spectrum4.png" />
+<p class="caption"><span class="caption-text">Best fit model to our example spectrum. The particle background model
+has been able to fit the discrepancies at high energies.</span><a class="headerlink" href="#fig-partbkg-s4" title="Permalink to this image">¶</a></p>
+</div>
+<p>When we reset the components in sector 1 to their initial values we can
+start fitting. In Figure <a class="reference external" href="#fig:partbkg-s4">1.5</a>, we show the best
+fit using this model. The contribution of soft-protons at high energies
+is now being accounted for by the power law.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The example above uses a simplified model of the X-ray
+background. Background subtraction for extended sources is
+complicated and subject of continuous research. Please be
+very careful in selecting model components and deciding
+which parameters can be left free.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Modeling particle background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.2. Import UV/Optical data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../threads.html">2. Analysis threads</a><ul>
+      <li>Previous: <a href="../../threads.html" title="previous chapter">2. Analysis threads</a></li>
+      <li>Next: <a href="../uv.html" title="next chapter">2.2. Import UV/Optical data</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

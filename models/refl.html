@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.31. Refl: reflection model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.32. Rrc: radiative recombination continuum model" href="rrc.html" />
+    <link rel="prev" title="4.1.30. Reds: redshift model" href="reds.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="refl-reflection-model">
+<h1>4.1.31. Refl: reflection model<a class="headerlink" href="#refl-reflection-model" title="Permalink to this headline">¶</a></h1>
+<p>This model was kindly provided by Piotr Zycki. The related programs in
+XSPEC are felipl ans ferfschw. The first one gives the reflected
+continuum (i.e. pexrav/pexriv) plus the line with correct energy and
+intensity, the second one is the first one with the relativistic
+smearing added. Both are combined into the single refl model in SPEX.</p>
+<p>It is a model of reflection from a constant density X-ray illuminated
+atmosphere. It computes the Compton-reflected continuum
+(<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995MNRAS.273..837M/abstract">Magdziarz &amp; Zdziarski (1995)</a>;
+and the iron K alpha line <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994MNRAS.266..653Z/abstract">Zycki &amp; Czerny (1994)</a>,
+as described in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999MNRAS.305..231Z/abstract">Zicky et al. (1999)</a>
+In addition, it can be convolved with a relativistic diskline model
+(for Schwarzschild geometry).</p>
+<p>Chemical elements taken into account in this model are H, He, C, N, O,
+Ne, Mg, Si, S and Fe. The standard abundances are taken from
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract">Morrison &amp; McCammon (1983)</a>.</p>
+<p>The incoming spectrum is characterized by:</p>
+<div class="math">
+<p><img src="../_images/math/f9ea0bac4fc8dd12ec0ab0fda1227547600f4876.svg" alt="N_i(E) = A E^{-\Gamma}\exp \left[ -E/E_c \right],"/></p>
+</div><p>where <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/e44df1486803275ee83ba47bd609801c8be701f7.svg" alt="N_i(E)" style="vertical-align: -4px"/> the number
+of photons per per second per keV, <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> is the photon index
+and <img class="math" src="../_images/math/b5784ba166daa27a5450bdf80ba656c56fff214f.svg" alt="E_c" style="vertical-align: -2px"/> a cut-off energy. The normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> is in
+units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> photons s<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/> keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/> at
+1 keV, just the same as in the standard power law model. The total
+spectrum <img class="math" src="../_images/math/49315f01a4b09d24ed3bc0776b30d12a3f5b9ecd.svg" alt="N(E)" style="vertical-align: -4px"/> is then given by</p>
+<div class="math">
+<p><img src="../_images/math/af6bbded54a90ca27e3f613156bf1bcb09de41d3.svg" alt="N(E) = N_i(E) + s R(E),"/></p>
+</div><p>where <img class="math" src="../_images/math/fe26cb6f9c3eddac1865fe28098573dfb90aa329.svg" alt="R(E)" style="vertical-align: -4px"/> is the reflected spectrum and <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> is a scaling
+factor.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> of the power law.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gamm</span></code> : The photon index <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> of the ionising spectrum.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ecut</span></code> : The cut-off energy (keV) of the ionising spectrum. If no
+cut-off is desired, take this parameter zero (and keep it frozen!).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pow</span></code> : If pow=1, the incoming power law is added to the spectrum
+(default); if pow=0, only the reflected spectrum is given.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">disk</span></code> : If disk=1, the spectrum will be convolved with an accretion
+disk profile (default); if disk=0, this is not done.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fgr</span></code> : Full general relativity used (default, for fgr=1).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : Temperature of the reflector (disk) in keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : Ionisation parameter <img class="math" src="../_images/math/ab4d2b1f6df066c75d4fd2d9a0caa9034e2885db.svg" alt="\xi=L/nr^2" style="vertical-align: -4px"/> in the usual (c.g.s.
+based) units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">abun</span></code> : The abundance of all metals excluding H and He, in solar
+units</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">feab</span></code> : The iron abundance with respect to the other metals</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cosi</span></code> : The cosine of the inclination angle of the disk.
+<img class="math" src="../_images/math/bc1bbe71dff66ab6f4b63b82c4a7769bf0023162.svg" alt="\cos i=0" style="vertical-align: 0px"/> (<img class="math" src="../_images/math/6098a42b7ebee8c6c121ac02f32fede62c4f54fd.svg" alt="i=\pi/2" style="vertical-align: -4px"/>) corresponds to edge-on</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">scal</span></code> : Scale <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> for reflection. For an isotropic source
+above the disk <img class="math" src="../_images/math/b36c9eae45473b7d7f00eb71bf532a6a6d8dfd02.svg" alt="s=1" style="vertical-align: 0px"/>. This value corresponds to seeing equal
+contributions from the reflected and direct spectra.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">q</span></code> : Emissivity index for the accretion disk; default value -3 (the
+emissivity scales with <img class="math" src="../_images/math/2bd6a638b2d481e5d5b477182c6ab8c0908e437e.svg" alt="r^{+q}" style="vertical-align: 0px"/> at large radii, so <img class="math" src="../_images/math/a51c1c06233eb3a0ebca41d381996f55a21b2c03.svg" alt="q=-3" style="vertical-align: -3px"/>
+means <img class="math" src="../_images/math/09a269b07971eac46fffea6b06070d059b92080e.svg" alt="r^-3" style="vertical-align: 0px"/>. Note the sign difference with the Laor model.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r1</span></code> : Inner radius of the disk in units of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Default:
+10.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r2</span></code> : Outer radius of the disk in units of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Default:
+<img class="math" src="../_images/math/57ee462f2d69ae200ca8e70947ea719113cc159c.svg" alt="10^4" style="vertical-align: 0px"/>.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995MNRAS.273..837M/abstract">Magdziarz &amp; Zdziarski (1995)</a> and
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999MNRAS.305..231Z/abstract">Zicky et al. (1999)</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="reds.html" title="previous chapter">4.1.30. Reds: redshift model</a></li>
+      <li>Next: <a href="rrc.html" title="next chapter">4.1.32. Rrc: radiative recombination continuum model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.40. Wdem: power law differential emission measure model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.41. Xabs: photoionised absorption model" href="xabs.html" />
+    <link rel="prev" title="4.1.39. Warm: continuous photoionised absorption model" href="warm.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wdem-power-law-differential-emission-measure-model">
+<h1>4.1.40. Wdem: power law differential emission measure model<a class="headerlink" href="#wdem-power-law-differential-emission-measure-model" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the spectrum of a power law distribution of the
+differential emission measure distribution. It appears to be a good
+empirical approximation for the spectrum in cooling cores of clusters of
+galaxies. It was first introduced by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..415K/abstract">Kaastra et al. (2004)</a>
+and is defined as follows:</p>
+<div class="math" id="equation-demalpha">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-demalpha" title="Permalink to this equation">¶</a></span><img src="../_images/math/fa05d5e04ee7d075cad88bbb630263ca863ac62f.svg" alt="\frac{ {\mathrm d}Y }{ {\mathrm d}T } = \left\{
+\begin{array}{ll}
+0            &amp; \qquad \mathrm{if} \quad T \leq \beta T_{\max} ; \\
+cT^{\alpha}  &amp; \qquad \mathrm{if} \quad \beta T_{\max} &lt; T &lt; T_{\max} ;\\
+0            &amp; \qquad \mathrm{if} \quad T \geq T_{\max} .
+\end{array} \right."/></p>
+</div><p>Here <img class="math" src="../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> is the emission measure
+<img class="math" src="../_images/math/51094921c7d1ae9e9017609a47eb9aac21eabd11.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>, where <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> are the electron and Hydrogen densities and
+<img class="math" src="../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> the volume of the source.</p>
+<p>For <img class="math" src="../_images/math/083039a27f4499354b67d4037a0f1decc99b34ec.svg" alt="\alpha\rightarrow\infty" style="vertical-align: 0px"/>, we obtain the isothermal model, for
+large <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> a steep temperature decline is recovered while for
+<img class="math" src="../_images/math/bbd14ed4452661ca39e88c96dd5c025df28c7ede.svg" alt="\alpha=0" style="vertical-align: 0px"/> the emission measure distribution is flat. Note that
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003ApJ...590..207P/abstract">Peterson et al. (2003)</a>
+use a similar parameterisation but then for the differential luminosity
+distribution). In practice, we have implemented the model <a class="reference internal" href="#equation-demalpha">(1)</a> by
+using the integrated emission measure <img class="math" src="../_images/math/9f56102ea552b1c46b2484faf07acfb096748d21.svg" alt="Y_{\mathrm{tot}}" style="vertical-align: -2px"/> instead of
+<img class="math" src="../_images/math/d3b9cae74c16a962ba8209e5b9b21828b5fb5c4e.svg" alt="c" style="vertical-align: 0px"/> for the normalisation, and instead of <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> its
+inverse <img class="math" src="../_images/math/a20edc735b1660a384ffb5719af919dfdf97e920.svg" alt="p=1/\alpha" style="vertical-align: -4px"/>, so that we can test isothermality by taking
+<img class="math" src="../_images/math/bb76315467163fcbd012b9559f7e46d7e3b09dc8.svg" alt="p=0" style="vertical-align: -3px"/>. The emission measure distribution for the model is binned
+to bins with logarithmic steps of 0.10 in <img class="math" src="../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/>, and for each
+bin the spectrum is evaluated at the emission measure averaged
+temperature and with the integrated emission measure for the relevant
+bin (this is needed since for large <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> the emission measure
+weighted temperature is very close to the upper temperature limit of the
+bin, and not to the bin centroid). Instead of using <img class="math" src="../_images/math/4e67e4d3339732928711ba22d82419988fa48162.svg" alt="T_{\min}" style="vertical-align: -2px"/>
+directly as the lower temperature cut-off, we use a scaled cut-off
+<img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> such that <img class="math" src="../_images/math/bc5102b2fdc7ebd45b18b3491077ee96af802a43.svg" alt="T_{\min} = \beta T_{\max}" style="vertical-align: -3px"/>.</p>
+<p>From the parameters of the wdem model, the emission weighted mean
+temperature <img class="math" src="../_images/math/61c09e6aea13284681eeef5101f9ba2b26cb3cf2.svg" alt="kT_{\mathrm{mean}}" style="vertical-align: -2px"/> can be calculated
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2006A%26A...452..397D/abstract">de Plaa et al. (2006)</a>:</p>
+<div class="math">
+<p><img src="../_images/math/ed85bce1392d856eaa59ffe758c2a601d746927d.svg" alt="T_{\mathrm{mean}} = \frac{(1+\alpha)}{(2+\alpha)}
+                   \frac{(1 - \beta^{2+\alpha})}{(1 - \beta^{1+\alpha})} ~T_{\mathrm{max}}"/></p>
+</div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Take care that <img class="math" src="../_images/math/d9a6e97607f074bf07b6f1672012246d83a3bb5c.svg" alt="\beta&lt;1" style="vertical-align: -3px"/>. For <img class="math" src="../_images/math/52ef52c1a29c4077da16ec218fbf7f00ce2cff08.svg" alt="\beta=1" style="vertical-align: -3px"/>, the
+model becomes isothermal, regardless the value of <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/>. The
+model also becomes isothermal for <img class="math" src="../_images/math/8d5c5e4a7c18c86ae9398b9240d30e1f4c88b6e3.svg" alt="p" style="vertical-align: -3px"/>=0, regardless of the value
+of <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For low resolution spectra, the <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> parameters are not entirely independent, which could lead
+to degeneracies in the fit.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Integrated emission measure between <img class="math" src="../_images/math/4e67e4d3339732928711ba22d82419988fa48162.svg" alt="T_{\min}" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/a672077fefab873fb739a6ec7b93ed28b07c1791.svg" alt="T_{\max}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t0</span></code> : Maximum temperature <img class="math" src="../_images/math/a672077fefab873fb739a6ec7b93ed28b07c1791.svg" alt="T_{\max}" style="vertical-align: -2px"/>, in keV. Default: 1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">p</span></code> : Slope <img class="math" src="../_images/math/a20edc735b1660a384ffb5719af919dfdf97e920.svg" alt="p=1/\alpha" style="vertical-align: -4px"/>. Default: 0.25 (<img class="math" src="../_images/math/21a9f958d1e4f1b0ace488f8ce67daedce40f360.svg" alt="\alpha = 4" style="vertical-align: 0px"/>).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cut</span></code> : Lower temperature cut-off <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> , in units of
+<img class="math" src="../_images/math/a672077fefab873fb739a6ec7b93ed28b07c1791.svg" alt="T_{\max}" style="vertical-align: -2px"/>. Default value: 0.1.</div>
+</div>
+<p>The following parameters are the same as for the cie-model:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ed</span></code> : Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : Micro turbulent velocity in km/s</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..415K/abstract">Kaastra et al. (2004)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="warm.html" title="previous chapter">4.1.39. Warm: continuous photoionised absorption model</a></li>
+      <li>Next: <a href="xabs.html" title="next chapter">4.1.41. Xabs: photoionised absorption model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.26. Simulate: Simulation of data &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.27. Step: Grid search for spectral fits" href="step.html" />
+    <link rel="prev" title="3.1.25. Shiftplot: shift the plotted spectrum for display purposes" href="shiftplot.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="simulate-simulation-of-data">
+<span id="sec-simulate"></span><h1>3.1.26. Simulate: Simulation of data<a class="headerlink" href="#simulate-simulation-of-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.26.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This command is used for spectral simulations. The user should start
+with a spectral model and a spectral data set (both matrix and
+spectrum). After giving the “simulate” command, the observed spectrum
+will be replaced by the simulated spectrum in SPEX. Note that the
+original spectrum file (with the .spo extension) is not overwritten by
+this command, so no fear to destroy your input data!</p>
+<p>Different options exist and several parameters can be set:</p>
+<ul class="simple">
+<li><p>Instrument, region: the instrument(s) and region(s) for which the
+simulation should be done (i.e., if you have more instruments you can
+do the simulation only for one or a few instruments)</p></li>
+<li><p>time: set the exposure time <img class="math" src="../../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> (s) of the source spectrum as
+well as the background error scale factor <img class="math" src="../../_images/math/f6464fe554380c363d27ffaeb06439c57d088622.svg" alt="f_b" style="vertical-align: -3px"/>. This last
+option allows you to see what happens if for example the background
+would have a ten times higher accuracy (for <img class="math" src="../../_images/math/7bf8694e5f342b749a776e3208cd13a705576b56.svg" alt="f_b=0.1" style="vertical-align: -3px"/>).</p></li>
+<li><p>syserr: add a systematic error to both the source and background
+spectrum. An alternative way to introduce systematic errors is of
+course to use the syserr command
+(Section <a class="reference external" href="#sec:syserr">Syserr</a>). Take care not to set the
+systematic errors twice, and remember that rebinning your spectrum
+later will reduce the systematic errors, as these will be added in
+quadrature to the statistical errors. So first rebin and then add
+systematics!</p></li>
+<li><p>noise: either randomize your data or just calculate the expected
+values</p></li>
+<li><p>bnoise: randomize your background model (generally not recommended to
+do)</p></li>
+<li><p>seed: set the random seed either to a specific number or generate it
+from the system clock. By default, SPEX initializes the random number
+generator based on the system clock, but through this command a
+specific seed can be set. The command will show the seeds used for
+the maximum number of expected threads.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A response matrix and spectrum of the region and the
+instrument you want to simulate are necessary, because SPEX needs the
+response matrix as well as the background to be subtracted for the
+simulations.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you include systematic errors in the simulation (by
+putting the “syserr” to non-zero values), you cannot use anymore
+Poissonian statistics hence the C-stat for fitting, but you have to use
+the “fit meth chi” to use Gaussian errors and <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>-fitting,
+with all thr disadvantages of that.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you use bnoise<img class="math" src="../../_images/math/c578bff78b2e08f9772e927a6caff8462abd16d8.svg" alt="=" style="vertical-align: 0px"/>true, your subtracted
+background (the scaled background from the background region) will be
+randomized, and the pure C-stat cannot be used; the W-stat can be used
+as alternative but has serious drawbacks and is not recommended to be
+used).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>(obsolete) If your background is taken from the same
+observation as your source, and you multiply the original exposure time
+with a factor of <img class="math" src="../../_images/math/48d4bef401100837082e815e844eb99c27f38322.svg" alt="S" style="vertical-align: 0px"/>, you should put <img class="math" src="../../_images/math/f6464fe554380c363d27ffaeb06439c57d088622.svg" alt="f_b" style="vertical-align: -3px"/> to
+<img class="math" src="../../_images/math/0f6981d456974ab46a38e3db7eb4920ee56cc661.svg" alt="S^{-0.5}" style="vertical-align: 0px"/>, reflecting the fact that with increasing source
+statistics the background statistics also improves. This is the case for
+an imaging observation where a part of the image is used to determine
+the background. If instead you use a deep field to subtract the
+background, then the exposure time of your background will probably not
+change and you can safely put <img class="math" src="../../_images/math/310c90b3011aabf691fa6563511cf768a994ef4a.svg" alt="f_b=1" style="vertical-align: -3px"/> for any exposure time
+<img class="math" src="../../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>(obsolete) If your subtracted background (one of the
+columns in the .spo file) is derived from a low statistics Poissonian
+variable (for example a measured count rate with few counts per
+channel), then scaling the background is slightly inaccurate as it takes
+the observed instead of expected number of background counts as the
+starting point for the simulation.</p>
+</div>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.26.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>Note that only the “simulate” keyword followed by a number (the exposure
+time will do the actual simulation. All other syntax rules just set some
+parameters. The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">#r</span></code> : Does the simulation, with #r the exposure time
+<img class="math" src="../../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> in seconds.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">instrument</span> <span class="pre">#i1</span></code> : Specify the instrument (range) to be
+used in the simulation. Default values are 1 (just the first
+instrument).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">region</span> <span class="pre">#i1</span></code> : Specify the region (range) to be used in the
+simulation. Default values are 1 (just the first region). For
+simulating everything you have, you can put this range to a large
+value: the simulation will simply ignore non-existent regions. If you
+use complex settings, like only region 3 for instrument 1 and region 2
+for instrument 2, you may have to run the simulation separately for
+each entity.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">syserr</span> <span class="pre">#r1</span> <span class="pre">#r2</span></code> : Specify the systematic errors as a
+fraction of the source and background spectrum, respectively; both
+should be specified together. Default values are 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">noise</span> <span class="pre">#l</span></code> : If #l is true, Poissonian noise will be added
+(this is the default).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">bnoise</span> <span class="pre">#l</span></code> : If #l is false, no Poissonian noise will be
+added to the model background (this is the default).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">seed</span> <span class="pre">#i</span></code> : Set random seed to a particular number.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">seed</span> <span class="pre">random</span></code> : Set random seed randomly based on system
+clock.</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.26.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">10000.</span></code> : This simulates a new spectrum/dataset with
+10 000 s exposure time.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">noise</span> <span class="pre">f</span></code> : Set simulation flag to simulate without
+Poissonian noise. The nominal error bars will still plotted.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">syserr</span> <span class="pre">0.1</span> <span class="pre">0.2</span></code> : Set simulation for a systematic error of
+10 % of the source spectrum and 20 % of the subtracted background
+spectrum added in quadrature.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">instrument</span> <span class="pre">2:4</span></code> : Set simulation for a spectrum for
+instruments 2–4 only</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">region</span> <span class="pre">2</span></code> : Set simulation for only region 2 (of every
+instrument involved</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">seed</span> <span class="pre">2</span></code> : Set random number seed to 2.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="shiftplot.html" title="previous chapter">3.1.25. Shiftplot: shift the plotted spectrum for display purposes</a></li>
+      <li>Next: <a href="step.html" title="next chapter">3.1.27. Step: Grid search for spectral fits</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

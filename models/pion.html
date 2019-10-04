@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.28. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.29. Pow: power law model" href="pow.html" />
+    <link rel="prev" title="4.1.27. Pdem: DEM models" href="pdem.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pion-spex-photoionised-plasma-model">
+<span id="sec-pion"></span><h1>4.1.28. Pion: SPEX photoionised plasma model<a class="headerlink" href="#pion-spex-photoionised-plasma-model" title="Permalink to this headline">¶</a></h1>
+<p>The <em>pion</em> model calculates the transmission and emission of a slab of
+photo-ionized plasma, where all ionic column densities are linked
+through a photoionisation model. The relevant parameter is the
+ionization parameter <img class="math" src="../_images/math/c19ef854df1a92ba39d56396dc0579f7632c0f6d.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> the source
+luminosity, <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> the hydrogen density and <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> the distance
+from the ionizing source. The major difference is that while for the
+<em>xabs</em> model the photoionisation equilibrium is pre-calculated for a
+grid of <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>-values by an external code, for instances Cloudy or
+XSTAR (or even with the present <em>pion</em> model <img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/>), in the
+present <em>pion</em> model the photoionisation equilibrium is calculated
+self-consistently using the available plasma routines of SPEX.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default energy grid in SPEX has 8192 bins between
+0.001 and 100 keV. This may not be sufficient for the pion model when
+you use it without data. Recommended is a logarithmic grid between
+<img class="math" src="../_images/math/cdf56c770855488e761662df0277fc43fe35c756.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV with a step size of 0.005. You can get this
+by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV”.
+Note that if you have read in data, SPEX automatically expands the
+energy grid to this range and resolution, plus including all energy
+boundaries from the response matrix.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This model is still under development and not all atomic
+data is fully updated. For instance, no cooling by collisional
+excitation for ions of the K- to Zn-isolelectronic sequences is taken
+into account yet. So use with care!</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When setting up the model, be aware that the pion model is
+both additive and multiplicative (even if you put the emission to zero).
+Therefore, the pion model needs the same com rel sequence as you use for
+your absorption component. Example: <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">pow</span></code> — <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">reds</span></code> — <code class="docutils literal notranslate"><span class="pre">com</span>
+<span class="pre">pion</span></code> — <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span> <span class="pre">1</span> <span class="pre">3,2</span></code> (a powerlaw that powers a pion model and is then redshifted)
+needs as next command <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span> <span class="pre">3</span> <span class="pre">2</span></code>, telling SPEX that the pion emission
+model is also redshifted.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please note that all PION components must be multiplied by
+at least one continuum component (using the usual comp rel command).
+Otherwise, photoionisation cannot be calculated and SPEX may crash. A
+typical AGN SED spanning optical to X-ray energies can be set up with
+three continuum components in SPEX: pow (primary hard X-ray power-law
+emission), refl (reflected power-law emission), comt (thermal optical/UV
+disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
+in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract">Mehdipour et al. (2015)</a>.</p>
+</div>
+<p>The main advantage, however, is that the user can define his own
+ionising continuum by combining any additive components of SPEX, and
+that ionising spectrum is fed through the <em>pion</em> component to get the
+transmitted spectrum. In addition, multiple <em>pion</em> components can be
+used, with the light leaking from one layer to the next. And it allows
+for spectral fitting, where the parameters of the ionising continuum are
+determined simultaneously with the parameters of the absorbing layer.
+The number of parameters is therefore unlimited (well, the memory and
+cpu speed of the computer will be the true limiting factors).</p>
+<p>Prior to fitting a PION component, it is best to first calculate the
+model spectrum with your initial parameter values (see <code class="docutils literal notranslate"><span class="pre">calculate</span></code>
+command). This helps to see if the initial values are reasonable numbers
+and the model is not too far off the data.</p>
+<div class="section" id="emission-from-the-pion-model">
+<h2>4.1.28.1. Emission from the <em>pion</em> model<a class="headerlink" href="#emission-from-the-pion-model" title="Permalink to this headline">¶</a></h2>
+<p>We have now incorporated a first version of emission
+from the same layer. We cannot give you any guarantee at the moment that
+it is bug-free. We know at the moment that the source has probelms when
+the density gets too high; this is different for each ion; so unless you
+limit the density in fitting, SPEX may encounter a situation where you
+surpass the critical density and you may get a warning message. Here is
+an example. For a photoionised case, with <img class="math" src="../_images/math/82dd1e89a2107837d4f13aef80dd55aa7c3d0250.svg" alt="\log \xi = 3" style="vertical-align: -3px"/>
+(resulting <img class="math" src="../_images/math/dc58d8a8fb2ae6fca038bfea175e56007e35cbe3.svg" alt="kT=0.64" style="vertical-align: 0px"/> keV) the nominal occupation of the ground
+state of H  becomes negative for a density
+<img class="math" src="../_images/math/c08e913a42b919d987f6a4949804e9d7249ef565.svg" alt="&gt;0.15\times 10^{20}" style="vertical-align: -1px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. This can be traced down to
+incomplete atomic data. For H , we include collisional excitation and
+de-excitation up to principal quantum number <img class="math" src="../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/> but not above.
+As a result, in this example the 1s–5s levels are mainly
+populated/depopulated by collisions, while 6s–16s are mainly populated
+by radiative recombination and depopulated by radiative cascades
+downward or photon absorption. The nominal occupation of 1s–5s then
+decreases from 0.035 (1s) to 0.0024 (5s), while for 6s–16s they increase
+slowly from 0.020 to 0.027. This is of course physically unacceptable.
+It causes the lower levels to leak to the higher levels, with eventually
+the catastrophe of negative occupation for the ground state. We mitigate
+this by replacing the level populations by the LTE populations and
+issueing a warning. Without this mitigation, SPEX would crash.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can get the emission by putting the covering factor
+(omeg) to a non-zero value; it will slow down the calculations compared
+to absorption-only calculations, so be aware.</p>
+</div>
+<p>Normally, to calculate the emission from a full thin shell surrounding
+an ionising source, you should set the parameter <em>omeg</em> to unity (a full
+shell of 4<img class="math" src="../_images/math/ca65d522f2c0ec7d09491c8590ad21dc686289a8.svg" alt="\pi" style="vertical-align: 0px"/> steradians). Smaller factors could be associated
+e.g. to ionisation cones; values larger than unity make physically no
+sense but you can formally play around with it (for very large values,
+the emitted spectrum would start dominating the absorbed primary
+continuum, but if you want to suppress the primary continuum in the
+observed spectrum, it is better to define your model like the example
+below as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">com</span> <span class="nb">pow</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">com</span> <span class="n">pion</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">com</span> <span class="n">etau</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">com</span> <span class="n">rel</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">com</span> <span class="n">rel</span> <span class="mi">2</span> <span class="mi">0</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">par</span> <span class="mi">3</span> <span class="n">tau</span> <span class="n">v</span> <span class="mf">1e10</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">par</span> <span class="mi">3</span> <span class="n">a</span> <span class="n">v</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>In this example, the powerlaw goes through the <em>pion</em> component and is
+killed afterwards by the <em>etau</em> component, while the emission from the
+<em>pion</em> component is not attenuated by <em>etau</em>.</p>
+<p>You can vary the new parameter <em>mix</em> to get a different ratio of
+forwards to backwards emission. Putting it to 1 (default) means you get
+the forward emission, putting it to 0 the backwards emission, and
+intermediate values give you a mix.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The emission model uses currently only one layer. When the
+continuum optical depth of the absorbed continuum, weighted with the
+incoming flux, becomes of order unity, the layer will become
+inhomogeneous in terms of temperature structure, and our single-layer
+approximation will break down.</p>
+</div>
+<p>In order to make a PION component produce emission only, fix the
+covering fraction (cf) parameter to zero so that no absorption is
+produced. Then fit the omega parameter. Note that any PION component
+with a non-zero omega acts as an additive component in SPEX. Therefore,
+multiply these components with your multiplicative components (like the
+Galactic absorption) using the <code class="docutils literal notranslate"><span class="pre">comp</span> <span class="pre">rel</span></code> command.</p>
+<p>For more information on this model, the atomic data and parameters we
+refer to Section <a class="reference external" href="#sect:abs_models">Absorption models</a>.</p>
+</div>
+<div class="section" id="more-options">
+<h2>4.1.28.2. More options<a class="headerlink" href="#more-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="no-energy-balance-solution-needed">
+<h3>4.1.28.2.1. No energy balance solution needed<a class="headerlink" href="#no-energy-balance-solution-needed" title="Permalink to this headline">¶</a></h3>
+<p>The default option (<em>tmod=0</em>) for the <em>pion</em> model is to solve
+simultaneously for the ionisation balance and the energy balance
+equations. This option is useful for e.g. photoionised winds of AGN or
+X-ray binaries.</p>
+<p>However, there are situations where photo-ionisation or photo-excitation
+play a role but do not determine the thermal structure. Examples are
+winds of hot stars, where shocks heat the wind but UV radiation from the
+star can affect He-like triplet line emission ratios. Another example
+are the most teneous parts of the WHIM, where photoionisation by the
+cosmic background can be important compared to collisional ionisations.</p>
+<p>For such cases, the user can set the parameter <em>tmod=1</em>; in that case,
+the user should also provide the temperature <em>tinp</em> of the plasma. In
+this case, only the ionisation balance equation is solved, and there is
+in general no energy balance (this can be checked by using the
+ascii-output option <em>heat</em>). Do not forget to set the parameter <em>omeg</em>
+to a finite value (the default is zero), otherwise the emitted spectrum
+is zero.</p>
+</div>
+<div class="section" id="external-heat-sources">
+<h3>4.1.28.2.2. External heat sources<a class="headerlink" href="#external-heat-sources" title="Permalink to this headline">¶</a></h3>
+<p>In some cases there may be an other external heat or cooling source,
+like shock heating, magnetic reconnection, adiabatic expansion etc. If
+one wishes to solve for the photoionisation equilibrium, then this
+additional heat source can be used by putting the parameter <em>exth</em> to
+the proper value (units: W m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. A negative value would mean
+a cooling contribution.</p>
+</div>
+<div class="section" id="multiple-solutions">
+<h3>4.1.28.2.3. Multiple solutions<a class="headerlink" href="#multiple-solutions" title="Permalink to this headline">¶</a></h3>
+<p>There are situations where there is not a unique solution to the energy
+balance equations. A simple example can be obtained as follows: take a
+logarithmic energy grid between <img class="math" src="../_images/math/239744e80301f8983928bd3eaf79a843600616cc.svg" alt="10^{-6}-10^6" style="vertical-align: -1px"/> keV, use a powerlaw
+with photon index 1.5, apply the pion model to it and put <em>exth</em> to
+<img class="math" src="../_images/math/1287824b2e1158de7db8f35060dc0dad4735e1b8.svg" alt="5\times 10^{-25}" style="vertical-align: -1px"/> W m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. In this case there are 3
+solutions. SPEX chooses by default the hottest solution. You can see all
+solutions by putting the parameter <em>fmod=1</em> and using the <em>heat</em> ascii
+output option. Or check the behaviour of the hating balance by issuing
+the <em>ebal</em> ascii output option. You can select which solution you want
+to use in SPEX by setting the <em>soln</em> parameter. Default is 0 (hottest
+solution), and for the above case of 3 solutions values of 1, 2 and 3
+renders you the coldest, second ant hottest solution. Test this with the
+<em>heat</em> or <em>plas</em> output options.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you set soln to a non-zero value, use fmod=1,
+otherwise SPEX may crash.</p>
+</div>
+</div>
+<div class="section" id="no-equilibrium-solution">
+<h3>4.1.28.2.4. No equilibrium solution<a class="headerlink" href="#no-equilibrium-solution" title="Permalink to this headline">¶</a></h3>
+<p>There are also situations where there is no equilibrium solution to the
+energy balance equations. This may happen for instance if you put so
+much heat in the plasma that it cannot be balanced anymore by cooling.
+Another example is a too hard powerlaw without high energy cut-off,
+where Compton-heating might be very strong. In this case SPEX renders an
+error message, and you cannot trust the result of the calculation
+anymore. The only remedie is to adjust your model parameters or the
+allowed range for them in case of spectral fitting or error searches.</p>
+</div>
+<div class="section" id="adiabatic-cooling">
+<h3>4.1.28.2.5. Adiabatic cooling<a class="headerlink" href="#adiabatic-cooling" title="Permalink to this headline">¶</a></h3>
+<p>The effects of adiabatic cooling can be taken into account by setting
+the parameter <em>tadi</em>. This represents the adiabatic cooling time
+<img class="math" src="../_images/math/31e6eed419aca284f026c0f48dc96f22573508f1.svg" alt="t_{\mathrm adi}" style="vertical-align: -2px"/>. The associated cooling rate is calculated as
+<img class="math" src="../_images/math/fd0ff3f59ce4288d889ba63f1cbc8dffcb71fa79.svg" alt="R_{\mathrm adi}= \frac{3}{2} nkT / t_{\mathrm adi}" style="vertical-align: -6px"/>, where <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> is
+the total particle density (electrons and ions). The default setting is
+such that this process can be neglected. If the user takes this process
+into account, it should be verified afterwards that the physlical
+conditions for adiabatic cooling are met, i.e. energy losses by
+radiation or heat conduction must be small compared with those by the
+adiabatic expansion. Check this for example by running the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span>
+<span class="pre">...</span> <span class="pre">heat</span></code> output.</p>
+</div>
+<div class="section" id="radiative-acceleration">
+<h3>4.1.28.2.6. Radiative acceleration<a class="headerlink" href="#radiative-acceleration" title="Permalink to this headline">¶</a></h3>
+<p>The radiative acceleration caused by the absorption or scattering of the
+incoming radiation on the layer is calculated, and given as output
+parameter <em>acc</em>. Physically, it is given by the following equation,
+which can be easily derived:</p>
+<div class="math">
+<p><img src="../_images/math/2e8c72a548364e1317aced301890d962c9e7dc77.svg" alt="a =F_{\mathrm abs}/c f m_{\mathrm p} N_{\mathrm H},"/></p>
+</div><p>where <img class="math" src="../_images/math/e1309177b72a61a0fceb0dcc16d45a60dc3137e5.svg" alt="F_{\mathrm abs}=\int F(E)(1-T(E)){\mathrm d}E" style="vertical-align: -5px"/> is the absorbed flux
+(<img class="math" src="../_images/math/4e75baca327f5d78e2c78539450adba6c21b8faf.svg" alt="F(E)" style="vertical-align: -4px"/> is the incoming flux in W m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/> keV and
+<img class="math" src="../_images/math/ac4c0d4818cb65f349bb02ec5b07f1f7062f6bbc.svg" alt="T(E)" style="vertical-align: -4px"/> the transmission of the layer), <img class="math" src="../_images/math/d3b9cae74c16a962ba8209e5b9b21828b5fb5c4e.svg" alt="c" style="vertical-align: 0px"/> the speed of
+light, <img class="math" src="../_images/math/7ee834b6882cddba80e1d7f6a32c255176c47069.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> the proton mass, <img class="math" src="../_images/math/0b919b210fa90074cf729813b68a05162c34fbf1.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> the hydrogen
+column density and <img class="math" src="../_images/math/b64208741b9a9e6ab720243d59875b9d1f993ebb.svg" alt="f" style="vertical-align: -3px"/> is a dimension less quantity determined
+from <img class="math" src="../_images/math/9bdb620ff04491643dee2af5cab32c13a4f1b939.svg" alt="\rho = f n_{\mathrm H} m_{\mathrm p}" style="vertical-align: -5px"/> with <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> the
+hydrogen density and <img class="math" src="../_images/math/aa5c13ff92a8ff10b24ef9c9ec6f485ff7548125.svg" alt="\rho" style="vertical-align: -3px"/> the mass density (kg m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>)
+of the plasma, for example <img class="math" src="../_images/math/fb5b7eccef10eff979b5cb1cff6131a554baf120.svg" alt="f=1.4287" style="vertical-align: -3px"/> for the present default
+abundances of SPEX (you can check this number from the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span>
+<span class="pre">...</span> <span class="pre">plas</span></code> ascii output option).</p>
+</div>
+</div>
+<div class="section" id="model-parameters">
+<h2>4.1.28.3. Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h2>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+latitudes).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/a659fde1f7b28c8cbbd7b1c4d9578fed05602079.svg" alt="^{10}" style="vertical-align: 0px"/>log of the ionisation parameter
+<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">u</span></code> : the Davidson (Cloudy) ionisation parameter <img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/>
+(dimensionless). This is calculated from the SED and the value of
+<img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. Not fittable, just output.</div>
+</div>
+<p>The following parameters are common to all our absorption models:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
+covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
+<div class="line">The following parameters are the same as for the cie-model (see there
+for a description): <code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01...28</span></code> : Abundances of H to Ni; only here we take H, He, C,
+N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : File name for the electron distribution (in case of a sum
+of Maxwellians distribution)</div>
+<div class="line">The following parameters are unique for the <em>pion</em> model: <code class="docutils literal notranslate"><span class="pre">type</span></code> :
+If type equals 0 (default value), it uses <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> as its main
+parameter; if type equals 1, it uses lixi (see next parameter) as its
+main parameter</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">lixi</span></code> : Optional alternative ionisation parameter, defines as
+<img class="math" src="../_images/math/daf7edb256caf9317e32119fc137b18aee0f376e.svg" alt="L_{\mathrm
+{ion}}/\xi" style="vertical-align: -4px"/> in units of <img class="math" src="../_images/math/ad1d05c200ce3b4ac3239e98111209c7eec1141a.svg" alt="10^{39}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>. This is useful
+for time-variable spectra where <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> has been determined from
+one spectrum and where one wants to calculated the transmitted
+spectrum for fixed <img class="math" src="../_images/math/7a6c8a00bd5f07fd540b0a94269dec9242b8ffd6.svg" alt="nr^2" style="vertical-align: 0px"/> for a different ionising spectrum; in
+that case lixi can be kept constant.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">omeg</span></code> : Covering factor <img class="math" src="../_images/math/a1aa980ef56ef599a227772fdfeabc8b5715878d.svg" alt="\Omega/4\pi" style="vertical-align: -4px"/>, needed for emission.
+At this stage, keep it to zero, please.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mix</span></code> : Fraction of emitted spectrum to the forward direction
+relative to the total. default value: 1 (all emission forward). A
+value of 0 means SPEX gives all backwards emission.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">exth</span></code> : External heating in W m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fmod</span></code> : Show all solutions in ascii output of the heating (fmod=1).
+Default is fmod=0. Set fmod=1 also when you set soln<img class="math" src="../_images/math/54341706363c96ef9250da3f09241d411b03f0ee.svg" alt="&gt;0" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">soln</span></code> : The temperature solution to be used, from low to high
+values. Default value is 0 (hottest solution). If this parameter is
+larger than the hootest solution, it adopts the hottest solution
+instead. Should be used with fmod=1 in case soln<img class="math" src="../_images/math/54341706363c96ef9250da3f09241d411b03f0ee.svg" alt="&gt;0" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tmod</span></code> : Temperature mode. Default value: 0 (solve for the
+temperature that provides energy balance). If tmod=1, use <em>tinp</em>
+instead as temperature and do not solve for energy balance.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tinp</span></code> : Temperature of the plasma in keV. Default: 1 keV. Only
+relevant if <em>tmod=1</em>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tadi</span></code> : Adiabatic cooling time scale (s). See description above.
+Default value: <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705370e0544.svg" alt="10^{30}" style="vertical-align: 0px"/> s.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">acc</span></code> : Radiative acceleration. See description above. Note: only
+output.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract">Mehdipour et al. (2015)</a>
+and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015Natur.526..542M/abstract">Miller et al. (2015)</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="pdem.html" title="previous chapter">4.1.27. Pdem: DEM models</a></li>
+      <li>Next: <a href="pow.html" title="next chapter">4.1.29. Pow: power law model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

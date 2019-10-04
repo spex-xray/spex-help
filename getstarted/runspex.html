@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1.2. How to run SPEX &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3. How to convert spectra to SPEX format" href="runtrafo.html" />
+    <link rel="prev" title="1.1. How to install SPEX" href="install.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-run-spex">
+<span id="sec-intro"></span><h1>1.2. How to run SPEX<a class="headerlink" href="#how-to-run-spex" title="Permalink to this headline">¶</a></h1>
+<p>SPEX is a spectral fitting program used to fit high-resolution X-ray
+spectra. The code contains several simple and detailed models that are
+able to deal with the radiative processes observed in the X-ray band.
+Because SPEX has a command-line interface, a first-time user should get
+familiar with the syntax of the commands to be able to work with it.
+This chapter provides some basic commands and threads to fit X-ray
+spectra.</p>
+<div class="section" id="the-spex-data-format">
+<h2>1.2.1. The SPEX data format<a class="headerlink" href="#the-spex-data-format" title="Permalink to this headline">¶</a></h2>
+<p>The data files containing the spectrum of the source and the response
+need to be in the correct format. In the SPEX installation, we provide a
+program called <code class="docutils literal notranslate"><span class="pre">trafo</span></code> to convert OGIP standard fits files into SPEX
+format (see <a class="reference internal" href="runtrafo.html#sect-runtrafo"><span class="std std-ref">How to convert spectra to SPEX format</span></a> for an explanation of how to use
+trafo). In this chapter, we assume that you already have spectra in SPEX
+format. For example, the demo spectra from the SPEX web site.</p>
+<p>SPEX needs two files per spectrum:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;.spo</span></code> – This file contains the countrate per energy bin
+for the source (<img class="math" src="../_images/math/13485ffe3248edec11056857c751156400b4226c.svg" alt="D_i" style="vertical-align: -2px"/>), as well as the background countrate and
+the errors (<img class="math" src="../_images/math/96e30581229345b49b851ea161695c137bd08232.svg" alt="\sigma_i" style="vertical-align: -2px"/>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;.res</span></code> – This file contains the instrumental response:
+the energy redistribution and effective area (<img class="math" src="../_images/math/1a27fc20bb3f1727d0f439921252d09799ab59cc.svg" alt="R_{ij}~ A_j" style="vertical-align: -5px"/>).</p></li>
+</ul>
+<p>In order to calculate the observed model spectrum, SPEX uses this
+integral equation to account for the imperfections caused by the
+instrument:</p>
+<div class="math" id="equation-eq-data">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-eq-data" title="Permalink to this equation">¶</a></span><img src="../_images/math/6a479790c75e05f6da82d8f87c4d0cbbbd173a86.svg" alt="D(c) =  \int R(c,E) A(E) S(E) dE"/></p>
+</div><div class="math">
+<p><img src="../_images/math/f1d9acfbb9f05f9d4dedc55addfb0e85f9cfb514.svg" alt="D_i =  \sum_{j=1}^n R_{ij} A_j S_j"/></p>
+</div><p>The <code class="docutils literal notranslate"><span class="pre">.res</span></code> and <code class="docutils literal notranslate"><span class="pre">.spo</span></code> files are so-called FITS files. This is a data
+format widely used in Astronomy. FITS files can contain images as well
+as data tables. The software package FTOOLS provided by NASA contains a
+large number of tools to manipulate FITS files (see references). If you
+are interested, then you can launch <code class="docutils literal notranslate"><span class="pre">flaunch</span></code> to see which tools are
+available. For more information about the SPEX spectrum and response
+format see <a class="reference internal" href="../fitting/response.html#sect-matrices"><span class="std std-ref">Optimal definition of respons matrices</span></a>.</p>
+</div>
+<div class="section" id="loading-spectra-into-spex">
+<h2>1.2.2. Loading spectra into SPEX<a class="headerlink" href="#loading-spectra-into-spex" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX program is started by entering <code class="docutils literal notranslate"><span class="pre">spex</span></code> in a linux terminal
+window. In the following sections we describe one run of the program. To
+start SPEX do this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
+ Welcome user to SPEX version 3.00.00
+
+SPEX&gt;
+</pre></div>
+</div>
+<p>First, we have to load the data files. This is done using the <code class="docutils literal notranslate"><span class="pre">data</span></code> command
+(<a class="reference internal" href="../reference/commands/data.html#sec-data"><span class="std std-ref">Data: read response file and spectrum</span></a>). It is a general thing in SPEX that filename extensions are not
+typed explicitly when issuing a command. If you have a file called
+<code class="docutils literal notranslate"><span class="pre">filename.spo</span></code> and <code class="docutils literal notranslate"><span class="pre">filename.res</span></code> then you type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; data filename filename
+</pre></div>
+</div>
+<p>The responsefile (.res) is entered first and then the file containing
+the spectrum (.spo). You can avoid confusion by giving the same filename
+to both .res and .spo files. Remember that the order of the words in the
+commands is very important!</p>
+<p>To save you from typing a lot, many commands can be abbreviated by
+typing just the first few characters. For example, <code class="docutils literal notranslate"><span class="pre">da</span></code> is equivalent
+to <code class="docutils literal notranslate"><span class="pre">dat</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</div>
+<div class="section" id="plotting-the-data">
+<h2>1.2.3. Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h2>
+<p>If the <code class="docutils literal notranslate"><span class="pre">data</span></code> command was successful, we can now have a look at the
+spectra. SPEX offers a lot of different plot commands (see <a class="reference internal" href="../reference/commands/plot.html#sec-plot"><span class="std std-ref">Plot: Plotting data and models</span></a>).
+Using default settings, the easiest way of plotting a spectrum is as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot dev xs
+SPEX&gt; plot type data
+SPEX&gt; plot
+</pre></div>
+</div>
+<p>The sequence above opens a PGPLOT window (<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">dev</span> <span class="pre">xs</span></code>) and tells SPEX that we
+want to plot the spectral data (<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">type</span> <span class="pre">data</span></code>). This will create a linear-linear
+plot in keV units.</p>
+<p>The plot can be tailored to your wishes. Below is an example to change the
+plot to a linear-linear plot in Å and add a title to the plot:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot x lin
+SPEX&gt; plot y lin
+SPEX&gt; plot ux a
+SPEX&gt; plot uy a
+SPEX&gt; plot rx 8.:35.
+SPEX&gt; plot ry 0.:0.05
+SPEX&gt; plot set 1
+SPEX&gt; plot cap ut text &quot;This is my plot&quot;
+SPEX&gt; plot cap lt disp false
+SPEX&gt; plot cap id disp false
+SPEX&gt; plot
+</pre></div>
+</div>
+<p>To make sure the axes are linear, we give the commands (<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">x</span> <span class="pre">lin</span></code> and
+<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">y</span> <span class="pre">lin</span></code>) and change the axes to unit Å  (<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">uy</span> <span class="pre">a</span></code>).
+The commands <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">rx</span> <span class="pre">8.:35.</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ry</span> <span class="pre">0.:0.05</span></code> change the
+ranges on the x and y axes, respectively. Then the color of the data,
+background spectrum and model are set. The last commands beginning with
+<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span></code> remove some standard titles and other text around the plot.
+After you define the plot like in the example above, you can plot it
+with a single <code class="docutils literal notranslate"><span class="pre">plot</span></code> command.</p>
+<p>The y-axis in this plot is in <img class="math" src="../_images/math/9539ebf44290b50da1cb570a2ac079f18903fc47.svg" alt="\mathrm{counts}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>
+<img class="math" src="../_images/math/c150a27e9c8848fa3f1871e7042657bb74306c68.svg" alt="\mathrm{Å}^{-1}" style="vertical-align: 0px"/>. Ångstrom is not the only unit used in high-energy
+astrophysics. Usually, the energy of the photons is expressed in keV.
+In SPEX you can use keV by writing <code class="docutils literal notranslate"><span class="pre">k</span></code> instead of <code class="docutils literal notranslate"><span class="pre">a</span></code> in all commands.
+For example, <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">k</span></code> to use keV for the x-axis. An overview of
+possible units is provided in <a class="reference internal" href="../reference/plot/axes.html#sect-plotaxes"><span class="std std-ref">Plot axis units and scales</span></a>.</p>
+</div>
+<div class="section" id="ignoring-and-rebinning">
+<h2>1.2.4. Ignoring and rebinning<a class="headerlink" href="#ignoring-and-rebinning" title="Permalink to this headline">¶</a></h2>
+<p>High-resolution X-ray spectra from Chandra and XMM-Newton are usually
+oversampled (e.g. the energy bins are much smaller than the spectral
+resolution) and contain a lot more channels then is useful. Therefore,
+it is necessary to remove wavelength intervals which contain bad data
+and rebin your spectrum. The SPEX command to ignore parts of the spectrum
+is called <code class="docutils literal notranslate"><span class="pre">ignore</span></code> (<a class="reference internal" href="../reference/commands/ignore.html#sec-ignore"><span class="std std-ref">Ignore: ignoring part of the spectrum</span></a>) and the command to rebin is called
+<code class="docutils literal notranslate"><span class="pre">bin</span></code> (<a class="reference internal" href="../reference/commands/bin.html#sec-bin"><span class="std std-ref">Bin: rebin the spectrum</span></a>). In the next example we bin the spectrum over
+the 8–35 Å range with a factor of 5 and ignore the rest of the
+spectrum:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ign 0:8 unit a
+ign 35:100 unit a
+bin 8:35 5 unit a
+</pre></div>
+</div>
+<p>The words <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">a</span></code> tells SPEX that the ranges (for example 8.0:35.0)
+are given in Å. If you work with more than one spectrum (from more than
+one instrument), you can add an extra instrument statement:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ign ins 1:2 0:8 unit a
+ign ins 1:2 35:100 unit a
+bin ins 1:2 8:35 5 unit a
+</pre></div>
+</div>
+<p>Here, instrument 1 to 2 are binned with a factor of 5 over the 8–35 Å
+range.</p>
+</div>
+<div class="section" id="defining-a-model">
+<h2>1.2.5. Defining a model<a class="headerlink" href="#defining-a-model" title="Permalink to this headline">¶</a></h2>
+<p>Now we have a clean and rebinned spectrum that is ready to fit. Before
+we can start fitting, we first need to define a model. It’s equivalent
+to <img class="math" src="../_images/math/bd130e7119bf6f7665124f207621303ba16e6406.svg" alt="S(E)" style="vertical-align: -4px"/> in Eq. <a class="reference internal" href="#equation-eq-data">(1)</a>. The model can contain
+one or more of these components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">absm</span></code> Model for interstellar absorption.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reds</span></code> Redshift.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">po</span></code> Powerlaw.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ga</span></code> Gaussian.</p></li>
+</ul>
+<p>And there are more (see <a class="reference internal" href="../models/over.html#chap-specmod"><span class="std std-ref">Overview of spectral components</span></a>)! The following command sequence
+defines a simple powerlaw model at a certain redshift and absorbed by
+the interstellar medium. The individual components of the model are
+loaded one-by-one with the <code class="docutils literal notranslate"><span class="pre">com</span></code> command (<a class="reference internal" href="../reference/commands/component.html#sec-comp"><span class="std std-ref">Comp: create, delete and relate spectral components</span></a>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com reds
+SPEX&gt; com absm
+SPEX&gt; com po
+SPEX&gt; com rel 3 1,2
+</pre></div>
+</div>
+<p>The last command (<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span> <span class="pre">3</span> <span class="pre">1,2</span></code>) tells SPEX that component 3, the
+powerlaw, is first redshifted by component 1 and then absorbed by
+component 2. The order of the 1 and the 2 is important! Always think
+what happens in which order on the way from the source to the telescope.</p>
+<p>For most sources the distance is more or less known. To get a right
+luminosity estimate for the source, the expected distance has to be
+provided to SPEX. This is done with the <code class="docutils literal notranslate"><span class="pre">distance</span></code> command
+(<a class="reference internal" href="../reference/commands/distance.html#sec-distance"><span class="std std-ref">Distance: set the source distance</span></a>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; dist 0.1 z
+Distances assuming H0 =  50.0 km/s/Mpc and q0 = 0.500
+Sector    m      A.U.        ly        pc       kpc       Mpc  redshift        cz
+---------------------------------------------------------------------------------
+1 1.894E+25 1.266E+14 2.002E+09 6.139E+08 6.139E+05  613.8689    0.1000   29979.2
+---------------------------------------------------------------------------------
+</pre></div>
+</div>
+<p>With this command, the distance to the source is set to a redshift of
+0.1. The derived distances for this cosmology are in the output of the
+<code class="docutils literal notranslate"><span class="pre">dist</span></code> command.</p>
+<p>Now we have to estimate the initial parameters. With the command
+<code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code> we can see which parameters there are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par show
+----------------------------------------------------------------------------------
+sect comp mod  acro parameter with unit     value      status    minimum   maximum
+
+   1    1 reds z    Redshift              0.000000     frozen   -1.0      1.00E+10
+
+   1    2 absm nh   Column (1E28/m**2)   9.9999997E-05 thawn     0.0      1.00E+20
+   1    2 absm f    Covering fraction     1.000000     frozen    0.0       1.0
+
+   1    3 pow  norm Norm (1E44 ph/s/keV)  1.000000     thawn     0.0      1.00E+20
+   1    3 pow  gamm Photon index          2.000000     thawn    -10.       10.
+   1    3 pow  dgam Photon index break    0.000000     frozen   -10.       10.
+   1    3 pow  e0   Break energy (keV)   1.0000000E+10 frozen    0.0      1.00E+20
+   1    3 pow  b    Break strength        0.000000     frozen    0.0       10.
+   1    3 pow  type Type of norm          0.000000     frozen    0.0       1.0
+   1    3 pow  elow Low flux limit (keV)  2.000000     frozen   1.00E-20  1.00E+10
+   1    3 pow  eupp Upp flux limit (keV)  10.00000     frozen   1.00E-20  1.00E+10
+   1    3 pow  lum  Luminosity (1E30 W)   1.000000     frozen    0.0      1.00E+20
+
+--------------------------------------------------------------------------------
+Fluxes and restframe luminosities between   2.0000     and    10.000     keV
+
+ sect comp mod   photon flux   energy flux nr of photons    luminosity
+            (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+    1    3 pow    0.00000       0.00000       0.00000       0.00000
+</pre></div>
+</div>
+<p>We can set the parameters using the <code class="docutils literal notranslate"><span class="pre">par</span></code> command (<a class="reference internal" href="../reference/commands/par.html#sec-par"><span class="std std-ref">Par: Input and output of model parameters</span></a>). The first “1” in
+column “sect” can usually be ignored. The commands then look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 z val 0.1
+SPEX&gt; par 2 nh val 2.E-3
+SPEX&gt; par 3 norm val 1.E+10
+SPEX&gt; par gamm val 1.5
+</pre></div>
+</div>
+<p>The last component number used is saved, so in the last line we can skip
+typing the number 3 after <code class="docutils literal notranslate"><span class="pre">par</span></code>. Then, we run <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code> again to
+see what happened:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par show
+----------------------------------------------------------------------------------
+sect comp mod  acro parameter with unit     value      status    minimum   maximum
+
+   1    1 reds z    Redshift              0.100000     frozen   -1.0      1.00E+10
+
+   1    2 absm nh   Column (1E28/m**2)   2.0000001E-03 thawn     0.0      1.00E+20
+   1    2 absm f    Covering fraction     1.000000     frozen    0.0       1.0
+
+   1    3 pow  norm Norm (1E44 ph/s/keV)  1.000000E+10 thawn     0.0      1.00E+20
+   1    3 pow  gamm Photon index          1.500000     thawn    -10.       10.
+   1    3 pow  dgam Photon index break    0.000000     frozen   -10.       10.
+   1    3 pow  e0   Break energy (keV)   1.0000000E+10 frozen    0.0      1.00E+20
+   1    3 pow  b    Break strength        0.000000     frozen    0.0       10.
+   1    3 pow  type Type of norm          0.000000     frozen    0.0       1.0
+   1    3 pow  elow Low flux limit (keV)  2.000000     frozen   1.00E-20  1.00E+10
+   1    3 pow  eupp Upp flux limit (keV)  10.00000     frozen   1.00E-20  1.00E+10
+   1    3 pow  lum  Luminosity (1E30 W)  5.6014867E+08 frozen    0.0      1.00E+20
+
+--------------------------------------------------------------------------------
+Fluxes and restframe luminosities between   2.0000     and    10.000     keV
+
+ sect comp mod   photon flux   energy flux nr of photons    luminosity
+            (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+    1    3 pow    0.00000       0.00000       0.00000       0.00000
+</pre></div>
+</div>
+<p>Finding the right initial values for the parameters is a game of trial
+and error. To see whether you are going in the right direction, you can
+calculate the model with the command <code class="docutils literal notranslate"><span class="pre">calc</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span></code> again (<a class="reference internal" href="../reference/commands/calculate.html#sec-calculate"><span class="std std-ref">Calculate: evaluate the spectrum</span></a>).
+If you see the model appear in your screen, then the model is close enough to
+be fitted. Especially the normalization of the powerlaw (<code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">norm</span></code>) can
+vary a lot depending on the countrate of the source.</p>
+</div>
+<div class="section" id="fitting-the-data">
+<h2>1.2.6. Fitting the data<a class="headerlink" href="#fitting-the-data" title="Permalink to this headline">¶</a></h2>
+<p>We are ready to fit the data! SPEX has a nice feature to look at the
+progress of the fit. To activate this feature you have to give the
+command <code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">1</span></code> (see <a class="reference internal" href="../reference/commands/fit.html#sec-fit"><span class="std std-ref">Fit: spectral fitting</span></a>). If your initial parameters
+were acceptable, you can see the model converge to the data in the plot
+window after you entered the <code class="docutils literal notranslate"><span class="pre">fit</span></code> command. When the fit is done, then
+the parameters and C-stat are printed on screen. If the C-stat value is
+close to the expected C-stat value, then your fit is acceptable.
+Sometimes more runs of the command <code class="docutils literal notranslate"><span class="pre">fit</span></code> are necessary after changing
+some initial parameters. This is especially true when using complex
+models. Again this is a game of trial and error.</p>
+<p>You also might want to fix or free certain parameters to see if they can
+be constrained. In SPEX fixing is <code class="docutils literal notranslate"><span class="pre">f</span></code> (frozen) and freeing is <code class="docutils literal notranslate"><span class="pre">t</span></code>
+(thawn). You can free the redshift and fix the <img class="math" src="../_images/math/2ca2412a682071b94302b4706694ce62a608d576.svg" alt="N_{\mathrm{H}}" style="vertical-align: -2px"/> by
+the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 z stat t
+SPEX&gt; par 2 nh stat f
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculating-errors">
+<h2>1.2.7. Calculating errors<a class="headerlink" href="#calculating-errors" title="Permalink to this headline">¶</a></h2>
+<p>When the fit is acceptable, you might want to know the uncertainties on
+your fitted parameters. Errors are determined one-by-one by fixing the
+parameter to some value and calculate the <img class="math" src="../_images/math/0f88e0d9f7840194bf955de5e6dab99b5c8af626.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat with
+respect to the best fit. If you want to know the 1<img class="math" src="../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/> error
+on the parameter, you need to know its values at <img class="math" src="../_images/math/0f88e0d9f7840194bf955de5e6dab99b5c8af626.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat =
+1. This is done by the <code class="docutils literal notranslate"><span class="pre">error</span></code> command (<a class="reference internal" href="../reference/commands/error.html#sec-error"><span class="std std-ref">Error: Calculate the errors of the fitted parameters</span></a>). You
+can calculate the error for each parameter. For example redshift:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; error 1 z
+</pre></div>
+</div>
+<p>If you need another <img class="math" src="../_images/math/0f88e0d9f7840194bf955de5e6dab99b5c8af626.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat limit (not recommended), then
+you can set the desired <img class="math" src="../_images/math/0f88e0d9f7840194bf955de5e6dab99b5c8af626.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat in SPEX using the command:
+<code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">dchi</span> <span class="pre">1.</span></code></p>
+</div>
+<div class="section" id="making-life-easier">
+<h2>1.2.8. Making life easier<a class="headerlink" href="#making-life-easier" title="Permalink to this headline">¶</a></h2>
+<p>In this short manual you have seen a lot of commands, but to avoid
+typing too much you want to use some identical series of commands every
+time you fit a certain spectrum. For example, you don’t want to type all
+plot commands again when making a plot. Therefore, the program has a
+command to solve this problem called <code class="docutils literal notranslate"><span class="pre">log</span></code> (see <a class="reference internal" href="../reference/commands/log.html#sec-log"><span class="std std-ref">Log: Making and using command files</span></a>).
+With the command <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span> <span class="pre">filename</span></code> you
+can execute a number of commands at the same time. The numbers are read
+from a normal text file with (in this case) the name <code class="docutils literal notranslate"><span class="pre">filename.com</span></code>.
+Again the extension <code class="docutils literal notranslate"><span class="pre">.com</span></code> should not be typed explicitly. Below is an
+example to setup a plot for an EPIC spectrum (range 0.2–10.0 keV) with a
+small frame that shows residuals. Note that you can put any command in
+such a command file and you can make comment lines by putting a # sign
+in front of the line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># This is a command file that creates a plot with residuals.
+plot dev xs
+plot type data
+plot x log
+plot y log
+plot rx 0.2:10.
+plot ry 0.0001:10.
+plot back disp t
+plot set 1
+plot data col 1
+plot model col 2
+plot back col 1
+plot set all
+plot frame new
+plot frame 2
+plot type chi
+plot uy rel
+plot x log
+plot rx 0.2:10.
+plot ry -0.5:0.5
+plot view def f
+plot view x 0.08:0.92
+plot view y 0.1:0.3
+plot cap y text &quot;Rel. Error&quot;
+plot cap ut disp f
+plot cap lt disp f
+plot cap id disp f
+plot frame 1
+plot view def f
+plot view x 0.08:0.92
+plot view y 0.3:0.9
+plot cap x disp f
+plot cap id disp f
+plot cap ut disp f
+plot box numlab bot f
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-your-work">
+<h2>1.2.9. Saving your work<a class="headerlink" href="#saving-your-work" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways in SPEX you can save your work. Below you find a
+few examples to save your commands, output or plots.</p>
+<div class="section" id="saving-a-plot">
+<h3>1.2.9.1. Saving a plot<a class="headerlink" href="#saving-a-plot" title="Permalink to this headline">¶</a></h3>
+<p>These commands open a PostScript plot device with filename
+<code class="docutils literal notranslate"><span class="pre">filename.ps</span></code>, then they plot your figure in the PS file and closes
+the device:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot dev cps filename.ps
+SPEX&gt; plot
+SPEX&gt; plot close 2
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-commands">
+<h3>1.2.9.2. Saving commands<a class="headerlink" href="#saving-commands" title="Permalink to this headline">¶</a></h3>
+<p>If you want to save all commands that you execute to an ASCII file
+(<code class="docutils literal notranslate"><span class="pre">filename.com</span></code>), then type <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">filename</span></code> (see also <a class="reference internal" href="../reference/commands/log.html#sec-log"><span class="std std-ref">Log: Making and using command files</span></a>).
+Do not forget to close the file at the end of the session by typing
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">save</span></code>. The saved commands in the textfile can be executed again by the
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span> <span class="pre">filename</span></code> command.</p>
+</div>
+<div class="section" id="saving-output">
+<h3>1.2.9.3. Saving output<a class="headerlink" href="#saving-output" title="Permalink to this headline">¶</a></h3>
+<p>In the same way as in the previous example, you can also save the output
+on your screen by typing <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">out</span> <span class="pre">filename</span></code> (the file will be an ASCII
+file called <code class="docutils literal notranslate"><span class="pre">filename.out</span></code>). You can close the file with
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">close</span> <span class="pre">out</span></code>. This command is very useful to save your parameters
+and errors.</p>
+</div>
+</div>
+<div class="section" id="quitting-the-program">
+<h2>1.2.10. Quitting the program<a class="headerlink" href="#quitting-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Just type <code class="docutils literal notranslate"><span class="pre">quit</span></code> (see <a class="reference internal" href="../reference/commands/quit.html#sec-quit"><span class="std std-ref">Quit: finish the program</span></a>).</p>
+</div>
+<div class="section" id="tips-tricks">
+<h2>1.2.11. Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If you make a typo in a command or you want to do the same command
+again, then push the <code class="docutils literal notranslate"><span class="pre">arrow-up</span></code> button on your keyboard. There is
+an entire history of your commands there.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Tab</span></code> key is able to automatically complete the command you are
+typing. In case there are more possibilities, it shows them all.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../getstarted.html">1. Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">1.1. How to install SPEX</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. How to run SPEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtrafo.html">1.3. How to convert spectra to SPEX format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../getstarted.html">1. Getting started</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter">1.1. How to install SPEX</a></li>
+      <li>Next: <a href="runtrafo.html" title="next chapter">1.3. How to convert spectra to SPEX format</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

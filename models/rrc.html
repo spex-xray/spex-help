@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.32. Rrc: radiative recombination continuum model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.33. Slab: thin slab absorption model" href="slab.html" />
+    <link rel="prev" title="4.1.31. Refl: reflection model" href="refl.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rrc-radiative-recombination-continuum-model">
+<h1>4.1.32. Rrc: radiative recombination continuum model<a class="headerlink" href="#rrc-radiative-recombination-continuum-model" title="Permalink to this headline">¶</a></h1>
+<p>This is a simplified model, aimed to calculate radiative recombination
+continua for photoionized plasmas. It is a simple, limited shortcut to a
+more fully complete model for the emission from a recombining plasma.</p>
+<p>The user essentially prescribes the emission measure for each ion as
+well as the radiation temperature, and then this model calculates the
+<em>continuum</em> emission corresponding to this temperature and set of ionic
+emission measures. Line radiation is <em>not</em> taken into account. However,
+for physical self-consistency, we take account of all three continuum
+emission components: Bremsstrahlung, two photon emission and free-bound
+radiation (= the RRC).</p>
+<p>The reason for having no physical model to couple the ionic emission
+measures (contrary to for example the CIE model), is that this allows
+the user to fit these emission measures without making a priori
+assumptions about the ionization equilibrium. The user might then
+combine later the set of derived emission measures with any of his
+relevant models.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Take care that for too high temperatures, two photon
+emission might be stronger than the free-bound (RRC) emission!</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Take care that the fit parameters are emission measures of
+a given ion, while the radiation occurs in the next ion. For example
+radiative recombination of O XI to O VIII is proportional to the emission
+measure of O IX (<img class="math" src="../_images/math/2580a04e63a4ba5474dda50dcaeeb7f226de6d87.svg" alt="n_{\mathrm e} n_{\mathrm{{O\,{\mathrm{IX}}}}} V" style="vertical-align: -2px"/>), but
+produces an emission edge in O VIII at 14.22 Å.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>No recombination is possible to neutrals, so therefore
+there is no H , O  or Fe  in this model.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : The temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">h2</span></code> : The H  emission measure <img class="math" src="../_images/math/dcd918aa1a888157663ab7326ae16a7f5c33ed08.svg" alt="n_{\mathrm e}
+ n_{\mathrm{{ H\,{\mathrm{II}}}}} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. Default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">he2</span></code> : The He  emission measure <img class="math" src="../_images/math/e1f12dd1e6ff6029d946417f63e197586ad12a65.svg" alt="n_{\mathrm e}
+ n_{\mathrm{{ He\,{\mathrm{II}}}}} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. Default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">he3</span></code> : The He  emission measure <img class="math" src="../_images/math/b79a4f835dac9b2785e46f2304b4924d575fc218.svg" alt="n_{\mathrm e}
+ n_{\mathrm{{ He\,{\mathrm{III}}}}} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. Default value: 0.</div>
+<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">ni29</span></code> : The Ni  emission measure
+<img class="math" src="../_images/math/8608e5e45eacca9367568b714c3a1b9c38e3e3eb.svg" alt="n_{\mathrm e}
+ n_{\mathrm{{ Ni\,{\mathrm{XXIX}}}}} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. Default value: 0.</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="refl.html" title="previous chapter">4.1.31. Refl: reflection model</a></li>
+      <li>Next: <a href="slab.html" title="next chapter">4.1.33. Slab: thin slab absorption model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.8. Dabs: dust absorption model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.9. Dbb: disk blackbody model" href="dbb.html" />
+    <link rel="prev" title="4.1.7. CX: model for charge exchange plasmas" href="cx.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dabs-dust-absorption-model">
+<h1>4.1.8. Dabs: dust absorption model<a class="headerlink" href="#dabs-dust-absorption-model" title="Permalink to this headline">¶</a></h1>
+<p>This model allows the user to maake a zeroth order approximation to the
+effects of dust on an X-ray absorption spectrum. basically, compared to
+absorption by atomic gas, the effects of dust are two-fold:</p>
+<ul class="simple">
+<li><p>Modifications to the fine structure near the edge</p></li>
+<li><p>Reduced opacity due to self-shielding in grains</p></li>
+</ul>
+<p>The <em>dabs</em> model only accounts for the second effect, reduced opacity
+due to self-shielding. The formalism of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms et al. (2000)</a>
+is followed, and we refer to that paper for a full explanation.</p>
+<p>In the set of abundances, we use the depletion factors of
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms et al. (2000)</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>H</p></td>
+<td><p>He</p></td>
+<td><p>Li</p></td>
+<td><p>Be</p></td>
+<td><p>B</p></td>
+<td><p>C</p></td>
+<td><p>N</p></td>
+<td><p>O</p></td>
+<td><p>F</p></td>
+<td><p>Ne</p></td>
+<td><p>Na</p></td>
+<td><p>Mg</p></td>
+<td><p>Al</p></td>
+<td><p>Si</p></td>
+<td><p>P</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.5</p></td>
+<td><p>0</p></td>
+<td><p>0.4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.75</p></td>
+<td><p>0.8</p></td>
+<td><p>0.98</p></td>
+<td><p>0.9</p></td>
+<td><p>0.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>S</p></td>
+<td><p>Cl</p></td>
+<td><p>Ar</p></td>
+<td><p>K</p></td>
+<td><p>Ca</p></td>
+<td><p>Sc</p></td>
+<td><p>Ti</p></td>
+<td><p>V</p></td>
+<td><p>Cr</p></td>
+<td><p>Mn</p></td>
+<td><p>Fe</p></td>
+<td><p>Co</p></td>
+<td><p>Ni</p></td>
+<td><p>Cu</p></td>
+<td><p>Zn</p></td>
+</tr>
+<tr class="row-even"><td><p>0.4</p></td>
+<td><p>0.5</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.997</p></td>
+<td><p>0</p></td>
+<td><p>0.998</p></td>
+<td><p>0</p></td>
+<td><p>0.97</p></td>
+<td><p>0.93</p></td>
+<td><p>0.7</p></td>
+<td><p>0.95</p></td>
+<td><p>0.96</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>The numbers represent the fraction of the atoms that are bound in dust
+grains. Noble gases like Ne and Ar are chemically inert hence are
+generally not bound in dust grains, but other elements like Ca exist
+predominantly in dust grains.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For a realistic model, it is advised to combine the <em>dabs</em>
+model with a <em>hot</em> model, where (for Solar abundances), the hot model
+should contain the elements <em>not</em> bound in the dust.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Finally, we note that the <em>amol</em> model can deal with the modified
+structure near the oxygen edge, but that model does not take
+self-shielding into account.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Nominal hydrogen column density in
+<img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>. Default value: <img class="math" src="../_images/math/666b75d1364162b4753449ad6b918b826bcb659b.svg" alt="1" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">amin</span></code> : Minimum grain size in <img class="math" src="../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/>m. Default value: 0.025.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">amax</span></code> : Minimum grain size in <img class="math" src="../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/>m. Default value: 0.25.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">p</span></code> : Power index grain size distribution. Default value: 3.5.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rho</span></code> : Mean density of the grains in units of
+1000 kg m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. Default value: 3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference atom. Default value: 3 (Lithium). because dust,
+according to the depletion factors used, does not contain hydrogen, we
+substitute here formally Lithium. The user is advisednot to change
+this.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn. See the remark on depletion
+factors above.</div>
+<div class="line">The following parameters are common to all our absorption models:
+<code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
+covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract">Wilms et al. (2000)</a> and
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009A%26A...497..291K/abstract">Kaastra et al. (2009)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="cx.html" title="previous chapter">4.1.7. CX: model for charge exchange plasmas</a></li>
+      <li>Next: <a href="dbb.html" title="next chapter">4.1.9. Dbb: disk blackbody model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

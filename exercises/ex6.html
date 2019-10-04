@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.6. Relativistic lines &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.7. AGN winds" href="ex7.html" />
+    <link rel="prev" title="8.5. Supernova remnants" href="ex5.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="relativistic-lines">
+<h1>8.6. Relativistic lines<a class="headerlink" href="#relativistic-lines" title="Permalink to this headline">¶</a></h1>
+<p>The file <a class="reference download internal" download="" href="../_downloads/f27181c19ed13de7f51176696b8d4058/agnrel.spo"><code class="xref download docutils literal notranslate"><span class="pre">agnrel.spo</span></code></a> contains
+a spectrum of an AGN at 1 Mpc distance. The response matrix to be used
+is <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>. The two features that are
+visible in the spectrum are the O VIII L<img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/>
+(<img class="math" src="../_images/math/b83acf5769715b190370dc99a21c3b498ba7acac.svg" alt="\lambda=18.969" style="vertical-align: 0px"/> Å)and N VII L<img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/>
+(<img class="math" src="../_images/math/66bcd7be63ee8aa5a84483a7aa83b1096775f2d9.svg" alt="\lambda=24.781" style="vertical-align: 0px"/> Å) lines. Because the emission from the disk is
+influenced by general relativistic effects, the lines appear to be broad
+and asymmetric. In SPEX we can model these lines by convolving a delta
+line with a so-called Laor profile (<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">laor</span></code>) and learn a lot about
+the geometry of the system.</p>
+<p>In this exercise we fix the <img class="math" src="../_images/math/05406ee1cddcf9b43e8d5d688616995e0ca40f1f.svg" alt="\mathrm{N}_{\mathrm{H}}" style="vertical-align: -2px"/> to
+<img class="math" src="../_images/math/1913c00e53eb6e7f5ffce2f3a1b33be98e2585a0.svg" alt="1 \times 10^{20} \ \mathrm{cm}^{-2}" style="vertical-align: -1px"/>. The continuum emission can be well
+described with a powerlaw. The response file is <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>.</p>
+<ol class="arabic">
+<li><p>First start with the most simple model components: <code class="docutils literal notranslate"><span class="pre">pow</span></code> and
+Galactic foreground absorption. Plot the data. Hint: it may be useful
+to plot the flux as counts/<img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>/s/Å versus wavelength in Å.
+Try first to get a reasonable model spectrum for the continuum. You
+may do this by ignoring the part of the spectrum where you see lines.</p></li>
+<li><p>Set up next the full model by adding lines with <code class="docutils literal notranslate"><span class="pre">delt</span></code> and
+relativistic broadening by <code class="docutils literal notranslate"><span class="pre">laor</span></code>. Do not forget to use all data
+again, and it may be wise at this stage to freeze the parameters for
+the continuum (but do not forget to thaw them for your final fits).</p></li>
+<li><p>Fit the spectrum. Hint: do not thaw all parameters at the same time,
+but step by step.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">laor</span></code> component you can free the parameters <code class="docutils literal notranslate"><span class="pre">r1</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>,
+<code class="docutils literal notranslate"><span class="pre">q</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code>. You can find the line energies of the oxygen and
+nitrogen lines also in the SPEX line list. Is the fit acceptable?
+Look at the residuals of the fit and check wether the lines are well
+fitted. If not, try to find out which parameter of the <code class="docutils literal notranslate"><span class="pre">laor</span></code>
+component should be altered.</p>
+</li>
+<li><p>The inner radius of the disk <code class="docutils literal notranslate"><span class="pre">r1</span></code> tells you immediately the spin of
+the black hole. A non-spinning black hole has <img class="math" src="../_images/math/6c0ddade3b9641e252dfd9ec39b464d26d9117f2.svg" alt="r_1=6" style="vertical-align: -2px"/>, a
+maximally spinning black hole has <img class="math" src="../_images/math/fd92bbd7fd99b71733eef4f40d76442ff7b57a44.svg" alt="r_1\rightarrow 1" style="vertical-align: -2px"/>. What can
+you tell about the spin of the black hole?</p></li>
+<li><p>Vary the parameters <code class="docutils literal notranslate"><span class="pre">r1</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">q</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> to see how they
+influence the line profile (give them manually a different value and
+issue the “calc” command followed by the “plot” command).</p></li>
+</ol>
+<p><strong>Learning goals:</strong></p>
+<p>After having done this spectrum, you should know:</p>
+<ul class="simple">
+<li><p>How to create a complex model with relativistic emission lines.</p></li>
+<li><p>The usefullness of freezing parameters or omitting initially parts of
+the spectrum to get a first-step estimate of the spectrum.</p></li>
+<li><p>How X-ray spectra tell you something about spinning black holes.</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../exercises.html">8. Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ex1.html">8.1. Powerlaw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex2.html">8.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex3.html">8.3. Statistics, binning and more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex4.html">8.4. Stellar Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex5.html">8.5. Supernova remnants</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex7.html">8.7. AGN winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../exercises.html">8. Exercises</a><ul>
+      <li>Previous: <a href="ex5.html" title="previous chapter">8.5. Supernova remnants</a></li>
+      <li>Next: <a href="ex7.html" title="next chapter">8.7. AGN winds</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

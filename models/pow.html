@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.29. Pow: power law model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.30. Reds: redshift model" href="reds.html" />
+    <link rel="prev" title="4.1.28. Pion: SPEX photoionised plasma model" href="pion.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pow-power-law-model">
+<h1>4.1.29. Pow: power law model<a class="headerlink" href="#pow-power-law-model" title="Permalink to this headline">¶</a></h1>
+<p>The power law spectrum as given here is a generalization of a simple
+power law with the possibility of a break, such that the resultant
+spectrum in the <img class="math" src="../_images/math/15c1260a719561bae9d58eca3c5ed854fefef63b.svg" alt="\log F - \log E" style="vertical-align: -3px"/> plane is a hyperbola.</p>
+<p>The spectrum is given by:</p>
+<div class="math">
+<p><img src="../_images/math/5f93040df987f0f45f69e4f6cedf984d960579a6.svg" alt="F(E) = A E^{-\Gamma}e^{\eta(E)},"/></p>
+</div><p>where <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/a052ec7803b9567160e97a6584ad6a2ee2f01f39.svg" alt="F" style="vertical-align: 0px"/> the photon flux
+in units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph s<img class="math" src="../_images/math/eb187bd73735aa36a99814aed4ef9abd8cfce4f2.svg" alt="^{-1}\," style="vertical-align: 0px"/>keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>, and
+the function <img class="math" src="../_images/math/693465e1aa74ee1f4c6c82bcc768d8dffdee94ff.svg" alt="\eta(E)" style="vertical-align: -4px"/> is given by</p>
+<div class="math">
+<p><img src="../_images/math/2f612726af271e224a7e6ccdd9e93fae5c83f061.svg" alt="\eta(E) = \frac{r\xi + \sqrt{r^2\xi^2+b^2(1-r^2)} }{1-r^2},"/></p>
+</div><p>with <img class="math" src="../_images/math/8a38d8aca88d4a761246dec1095c3e2d172a7355.svg" alt="\xi \equiv \ln (E/E_0)" style="vertical-align: -4px"/>, and <img class="math" src="../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/8aaf558a717020bc124866266e87da264d553c11.svg" alt="b" style="vertical-align: 0px"/> adjustable parameters. For high energies, <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> becomes
+large and then <img class="math" src="../_images/math/bd747d9b660c0de772ed6e4d74198dc074e26e6f.svg" alt="\eta" style="vertical-align: -3px"/> approaches <img class="math" src="../_images/math/60c59bb062776ffa171110ecf31f8b0b5fb6e852.svg" alt="2r\xi/(1-r^2)" style="vertical-align: -4px"/>, while for
+low energies <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> approaches <img class="math" src="../_images/math/66512afb7bac662a366962fb6a8a6fd73d0df853.svg" alt="-\infty" style="vertical-align: -1px"/> and as a consequence
+<img class="math" src="../_images/math/bd747d9b660c0de772ed6e4d74198dc074e26e6f.svg" alt="\eta" style="vertical-align: -3px"/> goes to zero. Therefore the break <img class="math" src="../_images/math/bfd15723d1e57cb42bfee8bfcdaede14c1eea690.svg" alt="\Delta\Gamma" style="vertical-align: 0px"/> in
+the spectrum is <img class="math" src="../_images/math/977d79ce384d5f06285148793a00ba4f2285b8b3.svg" alt="\Delta\Gamma=2r\xi/(1-r^2)" style="vertical-align: -4px"/>. Inverting this we
+have</p>
+<div class="math">
+<p><img src="../_images/math/af63543551916b3e7efadbefa8ccc0b26dab3941.svg" alt="r = \frac{\sqrt{1+(\Delta\Gamma)^2} - 1 }{\vert \Delta\Gamma \vert}."/></p>
+</div><p>The parameter <img class="math" src="../_images/math/8aaf558a717020bc124866266e87da264d553c11.svg" alt="b" style="vertical-align: 0px"/> gives the distance (in logarithmic units) from
+the interception point of the asymptotes of the hyperbola to the
+hyperbola. A value of <img class="math" src="../_images/math/72d0030c70608cdc3c99201c829b08a080d7dc7d.svg" alt="b=0" style="vertical-align: 0px"/> therefore means a sharp break, while
+for larger values of <img class="math" src="../_images/math/8aaf558a717020bc124866266e87da264d553c11.svg" alt="b" style="vertical-align: 0px"/> the break gets smoother.</p>
+<p>The simple power law model is obtained by having <img class="math" src="../_images/math/b8a7926f8ec89bc168fdd42dcd73a9eaca3f3439.svg" alt="\Delta\Gamma=0" style="vertical-align: 0px"/>,
+or the break energy <img class="math" src="../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/> put to a very large value.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, the allowed range for the photon index
+<img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> is (-10,10). If you manually increase the limits, you may
+run the risk that SPEX crashes due to overflow for very large photon
+indices.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note the sign of <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/>: positive values
+correspond to spectra decreasing with energy. A spectrum with
+<img class="math" src="../_images/math/b9abf2b4c60b31bbd7d9dfd2fa5462e05c189d46.svg" alt="\Delta\Gamma&gt;0" style="vertical-align: 0px"/> therefore steepens/softens at high energies, for
+<img class="math" src="../_images/math/2499db7a27ba90f000fa0b3e0af5ced201133f14.svg" alt="\Delta\Gamma&lt;0" style="vertical-align: 0px"/> it hardens.</p>
+</div>
+<p>As an extension, we allow for a different normalisation, namely the
+integrated luminosity <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> in a given energy band
+<img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/>–<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>. If you choose this option, the parameter “type”
+should be set to 1. The reason for introducing this option is that in
+several cases you may have a spectrum that does not include energies
+around 1 keV. In that case the energy at which the normalisation
+<img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> is determined is outside your fit range, and the nominal error
+bars on <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> can be much larger than the actual flux uncertainty
+over the fitted range. Note that the parameters <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> act independently from whatever range you specify using the
+“elim” command. Also, the luminosity is purely the luminosity of the
+power law, not corrected for any transmission effects that you may have
+specified in other spectral components.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you do spectral fitting, you <strong>must</strong> keep either
+<img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> or <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> a fixed parameter! The other parameter will then
+be calculated automatically whenever you give the calculate or fit
+command. SPEX does not check this for you! If you do not do this, you
+may get unexpected results / crashes.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The conversion factor between <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> is
+calculated numerically and not analytically (because of the possible
+break). In the power law model, photon fluxes above the nominal limit
+(currently <img class="math" src="../_images/math/5ed23edf28d9d3c798bf739df57716e3398fe512.svg" alt="e^{34}=5.8\times 10^{14}" style="vertical-align: -1px"/> in unscaled units) are put
+to the maximum value in order to prevent numerical overflow. This
+implies that you get inaccurate results for low energies, for example
+for a simple power law with <img class="math" src="../_images/math/a592273a0009c5f46f65aa6203e87336d81b5660.svg" alt="\Gamma=2" style="vertical-align: 0px"/> the results (including
+conversion factors) for <img class="math" src="../_images/math/6e0f0991faeb5680237ee910b58a2bf1ff4d15d4.svg" alt="E&lt;10^{-7}" style="vertical-align: 0px"/> keV become inaccurate.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that when you include a break, the value of
+<img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> is the photon index at energies below the break. Also,
+the normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> is the nominal normalisation of this
+low-energy part. In such a case of a break, the true flux at 1 keV may
+be different from the value of A! Of course, you can always calculate
+the flux in a given band separately.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> of the power law, in units of
+<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph s<img class="math" src="../_images/math/eb187bd73735aa36a99814aed4ef9abd8cfce4f2.svg" alt="^{-1}\," style="vertical-align: 0px"/>keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/> at 1 keV.
+Default value: 1. When <img class="math" src="../_images/math/bfd15723d1e57cb42bfee8bfcdaede14c1eea690.svg" alt="\Delta\Gamma" style="vertical-align: 0px"/> is not equal to 0, it is
+the asymptotic value at 1 keV of the low-energy branch.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gamm</span></code> : The photon index <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> of the spectrum. Default
+value: 2. When <img class="math" src="../_images/math/bfd15723d1e57cb42bfee8bfcdaede14c1eea690.svg" alt="\Delta\Gamma" style="vertical-align: 0px"/> is not equal to 0, it is the slope
+of the low-energy branch.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dgam</span></code> : The photon index break <img class="math" src="../_images/math/bfd15723d1e57cb42bfee8bfcdaede14c1eea690.svg" alt="\Delta\Gamma" style="vertical-align: 0px"/> of the
+spectrum. Default value: 0. and frozen. If no break is desired, keep
+this parameter 0 (and frozen!).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">e0</span></code> : The break energy <img class="math" src="../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/> (keV) of the spectrum. Default
+value: <img class="math" src="../_images/math/bff85759d426d8b65b46eb92e59a711fc87d0ef7.svg" alt="10^{10}" style="vertical-align: 0px"/> and frozen.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">b</span></code> : Smoothness of the break <img class="math" src="../_images/math/8aaf558a717020bc124866266e87da264d553c11.svg" alt="b" style="vertical-align: 0px"/>. Default: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">type</span></code> : Type of normalisation. Type<img class="math" src="../_images/math/b2690b7f97fb15aad1cff2a7d3bb6dcecf8df178.svg" alt="=0" style="vertical-align: 0px"/> (default): use
+<img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/>; type<img class="math" src="../_images/math/f6cc0ee6a0e4262026ab2dcd1d602f15a576daba.svg" alt="=1" style="vertical-align: 0px"/>: use <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">elow</span></code> : <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> in keV, the lower limit for the luminosity
+calculation. Default value: 2 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">eupp</span></code> : <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> in keV, the upper limit for the luminosity
+calculation. Default value: 10 keV. Take care that <img class="math" src="../_images/math/79534f4b7d99a2e800fbd1ebb8b45c65092ff7db.svg" alt="E_2&gt;E_1" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">lum</span></code> : Luminosity <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> between <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>, in
+units of <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705370e0544.svg" alt="10^{30}" style="vertical-align: 0px"/> W.</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="pion.html" title="previous chapter">4.1.28. Pion: SPEX photoionised plasma model</a></li>
+      <li>Next: <a href="reds.html" title="next chapter">4.1.30. Reds: redshift model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.4. Absorption model theory &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.5. Atomic database for the absorbers" href="atomicabs.html" />
+    <link rel="prev" title="4.3. Plasma model in SPEX 3.0" href="plasma.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="absorption-model-theory">
+<span id="sect-absmodels"></span><h1>4.4. Absorption model theory<a class="headerlink" href="#absorption-model-theory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>4.4.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In most astrophysical situations we have to take into account
+absorption of photons between the emitting region and the observer.
+Apart from a few standard models like the ones by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract">Morrison &amp; McCammon
+(1983)</a>
+(our <code class="docutils literal notranslate"><span class="pre">absm</span></code> model) and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994AJ....107.2108R/abstract">Rumph et al.
+(1994)</a>
+(our <code class="docutils literal notranslate"><span class="pre">euve</span></code> model) we have constructed our own absorption models based
+upon the atomic database used by SPEX.</p>
+<p>Essentially, we adopt a few steps, which will be described below. First,
+we produce a set of column densities, in different ways for the diferent
+absorption models (see <a class="reference internal" href="#sect-abs-models"><span class="std std-ref">Different types of absorption models</span></a>). Next, using a dynamical
+model for the absorber we calculate its transmission (<a class="reference internal" href="#sect-abs-transm"><span class="std std-ref">Dynamical model for the absorbers</span></a>).
+For these calculations, we use our atomic database as described
+in <a class="reference internal" href="atomicabs.html#sect-abs-database"><span class="std std-ref">Atomic database for the absorbers</span></a>.</p>
+<p>A basic assumption in all the absorption models is that there is no
+re-emission, i.e. we look through an absorbing nmedium that has a very
+small solid angle as seen from the X-ray source. This allows essentially
+to calculate the transmission simply as <img class="math" src="../../_images/math/76584c27b1f19e870ae910893ed124bb9b819483.svg" alt="e^{-\tau(E)}" style="vertical-align: 0px"/> with
+<img class="math" src="../../_images/math/bd753a97a8afa4db2f2b2a14a8aaf724c6595d1d.svg" alt="\tau(E)" style="vertical-align: -4px"/> the optical depth.</p>
+</div>
+<div class="section" id="thomson-scattering">
+<span id="sect-thomson-scattering"></span><h2>4.4.2. Thomson scattering<a class="headerlink" href="#thomson-scattering" title="Permalink to this headline">¶</a></h2>
+<p>The above approach also allows us to include Thomson-scattering in the
+transmission. Any source photon aimed at the observer but that suffers
+from Thomson scattering is scattered out of the line of sight and hanec
+in this approximation is not seen by the observer. We have included not
+simply the Thomson cross-section <img class="math" src="../../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> but have taken the
+Klein-Nishina correction into account (see <a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman 1986</a>, eqn. 7.5 (exact expression)
+and 7.6 (approximations)). The evaluation of the exact formula for the cross
+section is non-trivial, as terms up to the third power in
+<img class="math" src="../../_images/math/f9800b7275b8cdb96396bf1f3c9b48d30357aa7b.svg" alt="x=E/m_{\mathrm e}c^2" style="vertical-align: -4px"/> cancel; we have extended the low-energy
+polynomial approximation (7.6.a) of Rybicki &amp; Lightman by comparing to
+quadruple precision calculations using the exact formula, and made the
+following approximation that has a relative accuracy of better than
+<img class="math" src="../../_images/math/98711c6d7dbc0f1583749152c680ab8fd38cc569.svg" alt="3\times 10^{-4}" style="vertical-align: -1px"/> for all energies, when evaluated using single
+precision arithmetics:</p>
+<div class="math">
+<p><img src="../../_images/math/db6748fa1f054090d1a2e68f02742c39075a8004.svg" alt="\sigma = \left\{
+{
+\begin{array}{ll}
+\sigma_T (1-2x+5.2x^2-13.3x^3+32.685x^4) &amp; \qquad x &lt; 0.05;\\
+0.75\sigma_T
+\left[
+\frac{1+x}{x^3}
+\left\{
+\frac{2x(1+x)}{1+2x} - \ln (1+2x)
+\right\}
++ \frac{\ln (1+2x)}{2x} - \frac{1+3x}{(1+2x)^2}
+\right]
+ &amp; \qquad 0.05 &lt; x &lt; 5000;\\
+0.375\sigma_T (\ln(2x) + 0.5)/x &amp; \qquad x&gt;5000.
+\end{array}
+}
+\right."/></p>
+</div></div>
+<div class="section" id="different-types-of-absorption-models">
+<span id="sect-abs-models"></span><h2>4.4.3. Different types of absorption models<a class="headerlink" href="#different-types-of-absorption-models" title="Permalink to this headline">¶</a></h2>
+<p>We have a set of spectral models available with different levels of
+sophistication and applicability, that we list below.</p>
+<div class="section" id="slab-model">
+<h3>4.4.3.1. Slab model<a class="headerlink" href="#slab-model" title="Permalink to this headline">¶</a></h3>
+<p>The <em>slab</em> model calculates the transmission of a slab of material,
+where all ionic column densities can be chosen independently. This has
+the advantage that a spectrum can be fit without any knowledge of the
+ionisation balance of the slab. After a spectral fit has been made, one
+may try to explain the observed column densities by comparing the with
+predictions from any model (as calculated by , Cloudy, XSTAR, ION or any
+other existing (photo)ionization code).</p>
+</div>
+<div class="section" id="xabs-model">
+<h3>4.4.3.2. Xabs model<a class="headerlink" href="#xabs-model" title="Permalink to this headline">¶</a></h3>
+<p>In the <em>xabs</em> model, the ionic column densities are not independent
+quantities, but are linked through a set of runs using a photo
+ionization code. See the description of the <em>xabs</em> model for more
+details about this. The relevant parameter is the ionization parameter
+<img class="math" src="../../_images/math/c19ef854df1a92ba39d56396dc0579f7632c0f6d.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>
+the hydrogen density and <img class="math" src="../../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
+source. The advantage of the <em>xabs</em> model over the <em>slab</em> model is that
+all relevant ions are taken into account, also those which would be
+detected only with marginal significance using the <em>slab</em> model. In some
+circumstances, the combined effect of many weak absorption features
+still can be significant. A disadvantage of the <em>xabs</em> model happens of
+course when the ionization balance of the source is different from the
+ionization balance that was used to produce the set of runs with the
+photo ionization code. In that case the <em>xabs</em> model may fail to give an
+acceptable fit, while the <em>slab</em> model may perform better.</p>
+</div>
+<div class="section" id="warm-model">
+<h3>4.4.3.3. Warm model<a class="headerlink" href="#warm-model" title="Permalink to this headline">¶</a></h3>
+<p>In the <em>warm</em> model, we construct a model for a continuous distribution
+of column density <img class="math" src="../../_images/math/0b919b210fa90074cf729813b68a05162c34fbf1.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. It
+is in some sense comparable to the differential emission measure models
+used to model the emission from multi-temperature gas. Here we have
+absorption from multi-ionization gas. Depending upon the physics of the
+source, this may be a better approximation than just the sum of a few
+<em>xabs</em> components. A disadvantage of the model may be (but this also
+depends upon the physics of the source), that all dynamical parameters
+for each value of <img class="math" src="../../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> are the same, like the outflow velocity
+and turbulent broadening. If this appears to be the case in a given
+source, one may of course avoid this problem by taking multiple,
+non-overlapping <em>warm</em> components.</p>
+</div>
+<div class="section" id="hot-model">
+<h3>4.4.3.4. Hot model<a class="headerlink" href="#hot-model" title="Permalink to this headline">¶</a></h3>
+<p>In the <em>hot</em> model, we link the different ionic column densities simply
+by using a collisional ionsation (CIE) plasma. It may be useful in
+situations where photoionisation is relatively unimportant but the
+source has a non-negligible optical depth. A special application is of
+course the case for a low temperature, where it can be used to mimick
+the absorption of (almost) neutral gas.</p>
+</div>
+<div class="section" id="pion-model">
+<h3>4.4.3.5. Pion model<a class="headerlink" href="#pion-model" title="Permalink to this headline">¶</a></h3>
+<p>Finally we have in  the pion model, which does a self-consistent photo
+ionization calculation of the slab of material.</p>
+</div>
+</div>
+<div class="section" id="dynamical-model-for-the-absorbers">
+<span id="sect-abs-transm"></span><h2>4.4.4. Dynamical model for the absorbers<a class="headerlink" href="#dynamical-model-for-the-absorbers" title="Permalink to this headline">¶</a></h2>
+<p>For each of the absorption models described in the previous section, we
+have the freedom to prescribe the dynamics of the source. The way we
+have implemented this in  is described below.</p>
+<p>The transmission <img class="math" src="../../_images/math/a7dac3d6b8e65cc6c16f53077871b2269ca80bbe.svg" alt="T(\lambda)" style="vertical-align: -4px"/> of the slab is simply calculated as</p>
+<div class="math">
+<p><img src="../../_images/math/7dc42d02b8c35f16be4331e341a9c3e5b3da5225.svg" alt="T(\lambda)=\exp[{-\tau_c(\lambda)-\tau_l(\lambda)}]"/></p>
+</div><p>with <img class="math" src="../../_images/math/e11551cf930b0b405e18b489b486255db280ac9f.svg" alt="\tau_c" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/04da5b3e46baaa320f01646a05e75a821b50bfd9.svg" alt="\tau_l" style="vertical-align: -2px"/> the total continuum and line
+optical depth, respectively. As long as the thickness of the slab is not
+too large, this most simple approximation allows a fast computation of
+the spectrum, which is desirable for spectral fitting.</p>
+<p>In particular UV observations of AGN show that the absorption lines can
+often be decomposed into multiple velocity components. In the X-ray band
+these are not always fully resolvable, which led us to the following
+approach. Each absorption line is split into different velocity
+components, using</p>
+<div class="math">
+<p><img src="../../_images/math/19e73deb3d67f2015b9eae73a5b3682a4747b638.svg" alt="\tau_l(v) = \sum_{i}^{}\tau_i \exp\left[
+-(v-v_i)^2/2\sigma_{\mathrm v}^2
+   \right]"/></p>
+</div><p>(or the equivalent generalisation to the Voigt profile). Further, we
+take</p>
+<div class="math">
+<p><img src="../../_images/math/68cd50d89eb3214abeddd2753a8e7d85650187df.svg" alt="v_i = v_0 + i\,\Delta v,"/></p>
+</div><div class="math">
+<p><img src="../../_images/math/0829d443770c4095305df6a2f6238c59aab95aa8.svg" alt="\label{eqn:taui}
+\tau_i = K \exp\left[ -v_i^2/2 \sigma_{\mathrm b}^2 \right],"/></p>
+</div><p>where <img class="math" src="../../_images/math/54015b54ab09a58dd0423d50f6c91c1c0fa4830e.svg" alt="v_0" style="vertical-align: -2px"/> is the average velocity of the blend (a negative value
+corresponds to a blue-shift or outflow), <img class="math" src="../../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> is the
+separation between the velocity components, and the r.m.s. width of the
+blend <img class="math" src="../../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> is in general larger than the intrinsic
+width <img class="math" src="../../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/> of the components (do never confuse
+both <img class="math" src="../../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/>’s!). The normalization <img class="math" src="../../_images/math/f17e7b21e997c367e6c550b81e7f1896e772558f.svg" alt="K" style="vertical-align: 0px"/> is defined in
+such a way that <img class="math" src="../../_images/math/3bb0c7e83f200eae067534a164c745e12b251a79.svg" alt="\sum \tau_i = \tau_0" style="vertical-align: -4px"/>. Finally, the total optical
+depth <img class="math" src="../../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> is given by</p>
+<div class="math">
+<p><img src="../../_images/math/c04841b059d796b32db99cb4fc901f97e8345726.svg" alt="\label{eqn:tau}
+\tau_0 = 0.106 f N_{20} \lambda / \sigma_{\mathrm v,100}."/></p>
+</div><p>Here <img class="math" src="../../_images/math/b64208741b9a9e6ab720243d59875b9d1f993ebb.svg" alt="f" style="vertical-align: -3px"/> is the oscillator strength, <img class="math" src="../../_images/math/76566000ccc091eb223afe3a02d385191b144e7e.svg" alt="\lambda" style="vertical-align: 0px"/> the
+wavelength in Å, <img class="math" src="../../_images/math/7c78bb8ce29616df9c8ae8b566a746e886128cf8.svg" alt="\sigma_{\mathrm v,100}" style="vertical-align: -5px"/> the velocity dispersion in
+units of <img class="math" src="../../_images/math/af8a8cb90b925525357bbe936462c3ef3ab04367.svg" alt="100" style="vertical-align: 0px"/> km/s and <img class="math" src="../../_images/math/2ea213babc0b8f329d376d5a6c141aaa3aadefcb.svg" alt="N_{20}" style="vertical-align: -2px"/> the total column density of
+the ion in units of <img class="math" src="../../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.</p>
+<p>This dynamical structure offers the user a broad range of applicability.
+However, we advise the user to use the extension with
+<img class="math" src="../../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> with caution! Always start with the most
+simple case. The default values for  are defined in such a way that
+<img class="math" src="../../_images/math/e0ed43f05c81f83c87b3cffb0f34353b0df4055c.svg" alt="\sigma_{\mathrm b} = 0" style="vertical-align: -2px"/>. This will produce the “normal” case of
+single absorption lines. In that case, the velocity separation
+<img class="math" src="../../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> is an irrelevant parameter.</p>
+<p>Finally, we make a remark on the r.m.s. line width of individual lines,
+<img class="math" src="../../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/>. In our code, this <em>only</em> includes the
+turbulent broadening of the lines. The thermal broadening due to motion
+of the ions is included by adding it in quadrature to the tutbulent
+broadening. The only exception is the <em>slab</em> model, where of course due
+to the lack of underlying physics the thermal broadening is unknown, and
+therefore in using the slab model one should be aware that
+<img class="math" src="../../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/> also includes a thermal contribution.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../models.html">4. Spectral models</a><ul>
+      <li>Previous: <a href="plasma.html" title="previous chapter">4.3. Plasma model in SPEX 3.0</a></li>
+      <li>Next: <a href="atomicabs.html" title="next chapter">4.5. Atomic database for the absorbers</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

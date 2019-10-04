@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.24. Mbb: modified blackbody model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.25. Musr: User defined multiplicative model" href="musr.html" />
+    <link rel="prev" title="4.1.23. Lpro: spatial broadening model" href="lpro.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mbb-modified-blackbody-model">
+<h1>4.1.24. Mbb: modified blackbody model<a class="headerlink" href="#mbb-modified-blackbody-model" title="Permalink to this headline">¶</a></h1>
+<p>This model describes the spectrum of a blackbody mdified by coherent
+Compton scattering. This is in several instances a much better
+description than a simple blackbody (for example accretion disk spectra
+of AGN). The physical background is described for example by
+<a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman (1986)</a>,
+pages 218–219. The formulae that we use here with a derivation are given by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989A%26A...226...59K/abstract">Kaastra &amp; Barr (1989)</a>.
+From that work we derive the spectrum (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> photons/s/keV):</p>
+<div class="math">
+<p><img src="../_images/math/96d86c61b7cce8910bb66e97e1c13fc66eee1f1c.svg" alt="N(E) = 1358. \frac{A E^{0.25} }{ e^{E/T} (e^{E/T}-1)}"/></p>
+</div><p>where <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> the temperature
+in keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> the normalisation in units of
+<img class="math" src="../_images/math/eee001ced025872b6c8700b002fac1c650a74de3.svg" alt="10^{26}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/f600d134978ab8579bde69080d8817efc4172a77.svg" alt="^{0.5}" style="vertical-align: 0px"/>, defined by</p>
+<div class="math">
+<p><img src="../_images/math/81e653e81283d8271caf2261f63afa541646b097.svg" alt="A = n_{\mathrm e}^{0.5}O"/></p>
+</div><p>with <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> the electron density (units:
+<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/07872deda91e0a79433faaed619be0ad1ff6e6bd.svg" alt="O" style="vertical-align: 0px"/> the emitting source area
+(units: <img class="math" src="../_images/math/a0236e3d3ceabddd953324dad75f50c1f83ce39e.svg" alt="10^{16}" style="vertical-align: 0px"/> m).</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> (in units of
+<img class="math" src="../_images/math/eee001ced025872b6c8700b002fac1c650a74de3.svg" alt="10^{26}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/f600d134978ab8579bde69080d8817efc4172a77.svg" alt="^{0.5}" style="vertical-align: 0px"/>). Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : The temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 1 keV.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989A%26A...226...59K/abstract">Kaastra &amp; Barr (1989)</a> and
+<a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman (1986)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="lpro.html" title="previous chapter">4.1.23. Lpro: spatial broadening model</a></li>
+      <li>Next: <a href="musr.html" title="next chapter">4.1.25. Musr: User defined multiplicative model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

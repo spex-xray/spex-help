@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.33. Slab: thin slab absorption model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.34. Spln: spline continuum model" href="spln.html" />
+    <link rel="prev" title="4.1.32. Rrc: radiative recombination continuum model" href="rrc.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="slab-thin-slab-absorption-model">
+<span id="sec-slab"></span><h1>4.1.33. Slab: thin slab absorption model<a class="headerlink" href="#slab-thin-slab-absorption-model" title="Permalink to this headline">¶</a></h1>
+<p>The <em>slab</em> model calculates the transmission of a slab of material,
+where all ionic column densities can be chosen independently. This has
+the advantage that a spectrum can be fit without any knowledge of the
+ionisation balance of the slab. After a spectral fit has been made, one
+may try to explain the observed column densities by comparing the with
+predictions from any model (as calculated by SPEX, Cloudy, XSTAR, ION or
+any other existing (photo)ionisation code).</p>
+<p>For more information on this model, the atomic data and parameters we
+refer to Section <a class="reference external" href="#sect:abs_models">Absorption models</a>. Below we do
+not list all the parameters of the model, but for each ion of H, He, C,
+N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe and Ni there is a parameter,
+namely the logarithm (base 10) of the column density in SI units
+(m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>). So, a H  column of <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>
+(<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> cm<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/> should be entered as 28.0. The default
+values of 1 therefore correspond to an almost negligible column.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We do include here fully stripped ions, as their free
+electrons do produce Thomson scattering. However, the user is advised
+not to take more than one column density of a bare nucleus as a free
+parameter, as the shape of the Thomson scattering contribution is the
+same for all electrons, regardless from which ion they came from. In the
+spectral fitting, there would be 100% correlations between the column
+densities of these bare ions, which is undesirable.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">h1</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of H . Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">h2</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of H . Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">he1</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of He . Default value:
+1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">he2</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of He . Default value:
+1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">he2</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of He . Default value:
+1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">c1</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of H . Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$\ldots$</span></code> :</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ni27</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of Ni . Default value:
+1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ni28</span></code> : log column density (m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>) of Ni . Default value:
+1.</div>
+<div class="line">The following parameters are common to all our absorption models:
+<code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
+covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
+components</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A%26A...386..427K/abstract">Kaastra et al. (2002)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="rrc.html" title="previous chapter">4.1.32. Rrc: radiative recombination continuum model</a></li>
+      <li>Next: <a href="spln.html" title="next chapter">4.1.34. Spln: spline continuum model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1. Commandline help &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.2. Solving SPEX problems" href="trouble.html" />
+    <link rel="prev" title="6. Help &amp; troubleshooting" href="../help.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="commandline-help">
+<h1>6.1. Commandline help<a class="headerlink" href="#commandline-help" title="Permalink to this headline">¶</a></h1>
+<p>If you are unsure about the syntax of a command or you forgot the exact name of a command,
+then the command-line help function in SPEX can help you. Simply entering <code class="docutils literal notranslate"><span class="pre">help</span></code> on the
+commandline explains the basic usage of <code class="docutils literal notranslate"><span class="pre">help</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; help
+Usage:
+   SPEX&gt; help &lt;command&gt;
+
+For a list of available help files, type &#39;help index&#39;.
+
+See also the SPEX Reference manual and the SPEX Cookbook on:
+http://www.sron.nl/spex
+</pre></div>
+</div>
+<div class="section" id="list-of-commands">
+<h2>6.1.1. List of commands<a class="headerlink" href="#list-of-commands" title="Permalink to this headline">¶</a></h2>
+<p>When you type <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">index</span></code>, SPEX will display all the commands for which a help text is
+available. From there you can pick the command that you want to see a simple help text for:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; help index
+Help files are available for these commands:
+
+  abundance     elim    log         simulate
+  ascdump       error   model       step
+  bin           fit     multiply    syserr
+  calculate     help    obin        system
+  comp          ibal    par         use
+  data          ignore  plot        var
+  dem           index   sector      vbin
+  distance      ions    shiftplot   watch
+  egrid
+
+Usage:
+  SPEX&gt; help &lt;command&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-help-for-command">
+<h2>6.1.2. Print help for command<a class="headerlink" href="#print-help-for-command" title="Permalink to this headline">¶</a></h2>
+<p>When you know the command that you need help for, just type <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">&lt;command&gt;</span></code>, for
+example we show the help for the abundance command below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; help abundance
+This command changes the used set of elemental abundances.
+
+Usage:
+  SPEX&gt; abundance &lt;set&gt;
+
+where &lt;set&gt; is the set of abundances used. Allowed sets:
+
+  reset    - default set, currently Lodders et al. 2009
+  ag       - Anders &amp; Grevesse 1989
+  allen    - Allen 1973
+  ra       - Ross &amp; Aller 1976
+  grevesse - Grevesse et al 1992
+  gs       - Grevesse &amp; Sauval 1998
+  lodders  - Lodders proto-Solar 2003
+  solar    - Lodders Solar photospheric 2003
+
+To show the current abundance set in use:
+  SPEX&gt; abun show
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Commandline help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trouble.html">6.2. Solving SPEX problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known_issues.html">6.3. Find known issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="report_issues.html">6.4. Report issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../help.html">6. Help &amp; troubleshooting</a><ul>
+      <li>Previous: <a href="../help.html" title="previous chapter">6. Help &amp; troubleshooting</a></li>
+      <li>Next: <a href="trouble.html" title="next chapter">6.2. Solving SPEX problems</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

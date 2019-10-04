@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.9. Egrid: define model energy grids &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.10. Elim: set flux energy limits" href="elim.html" />
+    <link rel="prev" title="3.1.8. Distance: set the source distance" href="distance.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="egrid-define-model-energy-grids">
+<span id="sec-egrid"></span><h1>3.1.9. Egrid: define model energy grids<a class="headerlink" href="#egrid-define-model-energy-grids" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.9.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>SPEX operates essentially in two modes: with an observational data set
+(read using the data commands), or without data, i.e. theoretical model
+spectra. In the first case, the energy grid neede to evaluate the
+spectra is taken directly from the data set. In the second case, the
+user can choose his own energy grid.</p>
+<p>The energy grid can be a linear grid, a logarithmic grid or an arbitrary
+grid read from an ascii-file. It is also possible to save the current
+energy grid, whatever that may be. In case of a linear or logarithmic
+grid, the lower and upper limit, as well as the number of bins or the
+step size must be given.</p>
+<p>The following units can be used for the energy or wavelength: keV (the
+default), eV, Ryd, J, Hz, Å, nm.</p>
+<p>When the energy grid is read or written from an ascii-file, the file
+must have the extension “.egr”, and contains the bin boundaries in keV,
+starting from the lower limit of the first bin and ending with the upper
+limit for the last bin. Thus, the file has 1 entry more than the number
+of bins! In general, the energy grid must be increasing in energy and it
+is not allowed that two neighbouring boundaries have the same value.</p>
+<p>Finally, the default energy grid at startup of SPEX is a logarithmic
+grid between 0.001 and 100 keV, with 8192 energy bins.</p>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.9.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">lin</span> <span class="pre">#r1:#r2</span> <span class="pre">#i</span> <span class="pre">[#a]</span></code> : Create a linear energy grid between
+#r1 and #r2, in units given by #a (as listed above). If no unit is
+given, it is assumed that the limits are in keV. The number of energy
+bins is given by #i</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">lin</span> <span class="pre">#r1:#r2</span> <span class="pre">step</span> <span class="pre">#r3</span> <span class="pre">[#a]</span></code> : as above, but do not prescribe
+the number of bins, but the bin width #r3. In case the difference
+between upper and lower energy is not a multiple of the bin width, the
+upper boundary of the last bin will be taken as close as possible to
+the upper boundary (but cannot be equal to it).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">log</span> <span class="pre">#r1:#r2</span> <span class="pre">#i</span> <span class="pre">[#a]</span></code> : Create a logarithmic energy grid
+between #r1 and #r2, in units given by #a (as listed above). If no
+unit is given, it is assumed that the limits are in keV. The number of
+energy bins is given by #i</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">log</span> <span class="pre">#r1:#r2</span> <span class="pre">step</span> <span class="pre">#r3</span> <span class="pre">[#a]</span></code> : as above, but do not prescribe
+the number of bins, but the bin width (in log <img class="math" src="../../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>) #r3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">read</span> <span class="pre">#a</span></code> : Read the energy grid from file #a.egr</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">save</span> <span class="pre">#a</span></code> : Save the current energy grid to file #a.egr</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The lower limit of the energy grid must be positive, and
+the upper limit must always be larger than the lower limit.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.9.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">lin</span> <span class="pre">5:38</span> <span class="pre">step</span> <span class="pre">0.02</span> <span class="pre">a</span></code> : create a linear energy grid between
+<img class="math" src="../../_images/math/c1a783b8f4947f8a094b13754c069933d39d101c.svg" alt="5 -
+38" style="vertical-align: -1px"/> Å, with a step size of 0.02 Å.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">log</span> <span class="pre">2:10</span> <span class="pre">1000</span></code> : create a logarithmic energy grid with 1000
+bins between <img class="math" src="../../_images/math/a5df2c58721eeacb9c308916f49dc371b15deedd.svg" alt="2-10" style="vertical-align: -1px"/> keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">log</span> <span class="pre">2:10</span> <span class="pre">1000</span> <span class="pre">ev</span></code> : create a logarithmic energy grid with
+1000 bins between <img class="math" src="../../_images/math/2937b264d18fac80c3d24af716e44b27861c0f4b.svg" alt="0.002-0.010" style="vertical-align: -1px"/> keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">read</span> <span class="pre">mygrid</span></code> : read the energy grid from the file mygrid.egr.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">save</span> <span class="pre">mygrid</span></code> : save the current energy grid to file
+mygrid.egr.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="distance.html" title="previous chapter">3.1.8. Distance: set the source distance</a></li>
+      <li>Next: <a href="elim.html" title="next chapter">3.1.10. Elim: set flux energy limits</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

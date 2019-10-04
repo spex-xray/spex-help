@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1.32. Vbin: variable rebinning of the data &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.33. Watch" href="watch.html" />
+    <link rel="prev" title="3.1.31. Var: various settings for the plasma models" href="var.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="vbin-variable-rebinning-of-the-data">
+<span id="sec-vbin"></span><h1>3.1.32. Vbin: variable rebinning of the data<a class="headerlink" href="#vbin-variable-rebinning-of-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>3.1.32.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This command rebins (a part of) the data (thus both the spectrum and the
+response) such that the signal to noise ratio in that part of the
+spectrum is at least a given constant. Thus instead of taking a fixed
+number of data channels for binning, the number of data channels binned
+is here variable as is the bin width. On top of specifying the S/N
+ratio, you also specify the minimal bin width. This is useful for
+rebinning low count data, which have no strong or sharp features or
+lines in it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For high resolution spectra with sharp and strong lines,
+this binning can lead to very wrong results. In this case either the
+emission lines or the continuum (in case of absorption lines) have a
+much higher signal to noise ratio than the other component. As a result
+this function will try to bin the line and continuum together, resulting
+in a smoothing out of the lines.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is not always guaranteed that the minimum
+signal-to-noise ratio is obtained in all channels. This is an effect of
+the applied algorithm. Channels with the highest S/N ratio and
+neighboring bins are merged until sufficient S/N ratio is obtained. This
+process is continued for the remaining number of bins. At the end of the
+process a few bins with a low S/N ratio will remain. These are merged
+with their neighbors, resulting in a possibly lower S/N ratio for that
+bin.</p>
+</div>
+</div>
+<div class="section" id="syntax">
+<h2>3.1.32.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p>The following syntax rules apply:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">#i1:</span> <span class="pre">#i2</span> <span class="pre">#r</span></code> : Simplest command allowed. #i1: is the range in
+data channels over which the binning needs to take place. #i2 in the
+minimum amount of data channels that need to be binned, and #r is the
+minimal S/N ratio one wants the complete data set to have.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">#r1:</span> <span class="pre">#i</span> <span class="pre">#r2</span> <span class="pre">unit</span> <span class="pre">#a</span></code> : The same command as above, except that
+now the ranges over which the data is to be binned (#r1:) are
+specified in units (#a) different from data channels. These units can
+be eV, keV, Å, as well as in units of Rydberg (ryd), Joules (j), Hertz
+(hz) and nanometers (nm).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">[instrument</span> <span class="pre">#i1:]</span> <span class="pre">[region</span> <span class="pre">#i2:]</span> <span class="pre">#i3:</span> <span class="pre">#i4</span> <span class="pre">#r</span></code> : Here #i3: and
+#i4 are the same as #i1: and #i2 in the first command, also #r is the
+minimal S/N ratio required. However, here one can specify the
+instrument range #i1: and the region range #i2: as well, so that the
+binning only is performed for a certain data set.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">[instrument</span> <span class="pre">#i1:]</span> <span class="pre">[region</span> <span class="pre">#i2:]</span> <span class="pre">#r1:</span> <span class="pre">#i2</span> <span class="pre">#r2</span> <span class="pre">[unit</span> <span class="pre">#a]</span></code> : This
+command is the same as the above, except that here one can specify the
+range over which the binning should occur in the units specified by
+#a. These units can be eV, Å, keV, as well as in units of Rydberg
+(ryd), Joules (j), Hertz (hz) and nanometers (nm).</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3.1.32.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">1:10000</span> <span class="pre">3</span> <span class="pre">10</span></code> : Bins the data channels 1:10000 with a minimal
+bin width of 3 data channels, and a minimum S/N ratio of 10.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">1:4000</span> <span class="pre">3</span> <span class="pre">10</span> <span class="pre">unit</span> <span class="pre">ev</span></code> : Does the same as the above, but now the
+data range to be binned is given in eV, from 1<img class="math" src="../../_images/math/358db901b314da12f74911a8f1cedc92213c342b.svg" alt="-" style="vertical-align: -1px"/>4000 eV,
+instead of in data channels.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vbin</span> <span class="pre">instrument</span> <span class="pre">1</span> <span class="pre">region</span> <span class="pre">1</span> <span class="pre">1:19</span> <span class="pre">3</span> <span class="pre">10</span> <span class="pre">unit</span> <span class="pre">a</span></code> : Bins the data from
+instrument 1 and region 1 between 1 and 19 Å with the same minimum bin
+width and S/N as above.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html">3. Command overview</a><ul>
+  <li><a href="../commands.html">3.1. Command syntax</a><ul>
+      <li>Previous: <a href="var.html" title="previous chapter">3.1.31. Var: various settings for the plasma models</a></li>
+      <li>Next: <a href="watch.html" title="next chapter">3.1.33. Watch</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

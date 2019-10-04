@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.2. Powerlaw with a Gaussian line &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.3. Statistics, binning and more" href="ex3.html" />
+    <link rel="prev" title="8.1. Powerlaw" href="ex1.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="powerlaw-with-a-gaussian-line">
+<h1>8.2. Powerlaw with a Gaussian line<a class="headerlink" href="#powerlaw-with-a-gaussian-line" title="Permalink to this headline">¶</a></h1>
+<p>The files <a class="reference download internal" download="" href="../_downloads/23f1f0b265b084ffe0c7b1355306b86d/powgaus.spo"><code class="xref download docutils literal notranslate"><span class="pre">powgaus.spo</span></code></a>
+and <a class="reference download internal" download="" href="../_downloads/5d942827afc6fdd8003686660fb32b2e/powgaus.res"><code class="xref download docutils literal notranslate"><span class="pre">powgaus.res</span></code></a> contain an absorbed
+powerlaw spectrum with a Gaussian line. From an optical observation of
+the source we know that this source has a redshift of <img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/> =
+0.0345. There is also Galactic foreground absorption. The source has
+been observed with the same instrument as exercise 1.</p>
+<ol class="arabic">
+<li><p>Load the spectrum into SPEX, select the proper energy range and rebin
+the spectrum properly. Set up a model with the right components (a
+gaussian is added with the command <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">gaus</span></code>) and fit the
+spectrum.</p></li>
+<li><p>You may want to fit first with the line flux set to zero (freeze or
+fix some parameter of the line, make a fit, and then fine-tune the
+line by releasing the relevant parameters.</p>
+<p>You can find the absorbed and unabsorbed fluxes and luminosity just
+above the fit statistics. The energy limits can be changed by the
+command <code class="docutils literal notranslate"><span class="pre">elim</span></code>. To change the energy range over which the fluxes
+are calculated, type <code class="docutils literal notranslate"><span class="pre">elim</span> <span class="pre">0.2</span> <span class="pre">10.</span></code>. This changes the range to
+0.2–10 keV.</p>
+</li>
+<li><p>What is the 2–10 keV luminosity of the source? What is the difference
+between absorbed and unabsorbed flux? Find out which of the columns
+in the table (listed above the fit statistic values) is absorbed.</p></li>
+<li><p>What is the energy of the centroid of the line? Calculate the
+equivalent width of the line (by hand). (equivalent width is the
+ratio <img class="math" src="../_images/math/3f6db9f8a58fc08389d5bde157a5147a96475151.svg" alt="\frac{F_{\ell}}{F_c}" style="vertical-align: -7px"/>, where <img class="math" src="../_images/math/621b8754a213e6d485992e9b2614d6d93103170f.svg" alt="F_{\ell}" style="vertical-align: -2px"/> is the
+photon flux of the line in unit <img class="math" src="../_images/math/82e2a0254b039a30cb113fafa33daed6e7ffdd23.svg" alt="\mathrm{photons}" style="vertical-align: -3px"/>
+<img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/635b725d0b9d42b1a9bff1a3c641a7b963241a21.svg" alt="F_c" style="vertical-align: -2px"/> is the flux per unit of energy of the continuum at the
+energy of the line in unit <img class="math" src="../_images/math/82e2a0254b039a30cb113fafa33daed6e7ffdd23.svg" alt="\mathrm{photons}" style="vertical-align: -3px"/> <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>
+<img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/>)</p></li>
+<li><p>Calculate the errors on all free parameters. What is the error in the
+equivalent width you calculated?</p></li>
+</ol>
+<p><strong>Learning goals:</strong></p>
+<p>After having done this spectrum, you should know:</p>
+<ul class="simple">
+<li><p>How to make complex spectral models</p></li>
+<li><p>How to freeze or thaw parameters (using <a class="reference internal" href="../reference/commands/par.html#sec-par"><span class="std std-ref">Par: Input and output of model parameters</span></a>)</p></li>
+<li><p>How to obtain fluxes &amp; luminosities</p></li>
+<li><p>How to calculate the equivalent width of a line</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../exercises.html">8. Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ex1.html">8.1. Powerlaw</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex3.html">8.3. Statistics, binning and more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex4.html">8.4. Stellar Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex5.html">8.5. Supernova remnants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex6.html">8.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex7.html">8.7. AGN winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../exercises.html">8. Exercises</a><ul>
+      <li>Previous: <a href="ex1.html" title="previous chapter">8.1. Powerlaw</a></li>
+      <li>Next: <a href="ex3.html" title="next chapter">8.3. Statistics, binning and more</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

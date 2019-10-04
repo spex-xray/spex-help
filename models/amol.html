@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.2. Amol: oxygen edge molecules absorption model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.3. Bb: blackbody model" href="bb.html" />
+    <link rel="prev" title="4.1.1. Absm: Morrison &amp; McCammon absorption model" href="absm.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="amol-oxygen-edge-molecules-absorption-model">
+<h1>4.1.2. Amol: oxygen edge molecules absorption model<a class="headerlink" href="#amol-oxygen-edge-molecules-absorption-model" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the transmission of various molecules.</p>
+<p>The following compounds are presently taken into account (see
+<a class="reference external" href="#tab:amol">the table below</a>).</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Molecules present in the amol model.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 10%" />
+<col style="width: 74%" />
+<col style="width: 8%" />
+<col style="width: 3%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>108</p></td>
+<td><p>molecular oxygen</p></td>
+<td><p>O<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>a</p></td>
+</tr>
+<tr class="row-even"><td><p>114</p></td>
+<td><p>silicon crystal</p></td>
+<td><p>Si</p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>126</p></td>
+<td><p>metallic iron</p></td>
+<td><p>Fe</p></td>
+<td><p>Fe 1s,2p</p></td>
+<td><p>i,j</p></td>
+</tr>
+<tr class="row-even"><td><p>2001</p></td>
+<td><p>water</p></td>
+<td><p>H<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O</p></td>
+<td><p>O 1s</p></td>
+<td><p>c</p></td>
+</tr>
+<tr class="row-odd"><td><p>2002</p></td>
+<td><p>crystalline ice</p></td>
+<td><p>H<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O</p></td>
+<td><p>O 1s</p></td>
+<td><p>d</p></td>
+</tr>
+<tr class="row-even"><td><p>2003</p></td>
+<td><p>amorphous ice</p></td>
+<td><p>H<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O</p></td>
+<td><p>O 1s</p></td>
+<td><p>d</p></td>
+</tr>
+<tr class="row-odd"><td><p>2010</p></td>
+<td><p>carbon monoxide</p></td>
+<td><p>CO</p></td>
+<td><p>O 1s</p></td>
+<td><p>a</p></td>
+</tr>
+<tr class="row-even"><td><p>2011</p></td>
+<td><p>carbon dioxide</p></td>
+<td><p>CO<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>a</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020</p></td>
+<td><p>laughing gas</p></td>
+<td><p>N<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O</p></td>
+<td><p>O 1s</p></td>
+<td><p>a,b</p></td>
+</tr>
+<tr class="row-even"><td><p>2100</p></td>
+<td><p>silicon carbide</p></td>
+<td><p>SiC</p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>2101</p></td>
+<td><p>silicon nitrite</p></td>
+<td><p>Si<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-even"><td><p>2102</p></td>
+<td><p>silicon monoxide</p></td>
+<td><p>SiO</p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>2103</p></td>
+<td><p>quartz</p></td>
+<td><p>SiO<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-even"><td><p>2104</p></td>
+<td><p>silica</p></td>
+<td><p>SiO<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>2200</p></td>
+<td><p>eskolaite</p></td>
+<td><p>Cr<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>2300</p></td>
+<td><p>iron monoxide</p></td>
+<td><p>FeO</p></td>
+<td><p>Fe 1s</p></td>
+<td><p>i</p></td>
+</tr>
+<tr class="row-odd"><td><p>2301</p></td>
+<td><p>iron oxide</p></td>
+<td><p>Fe<img class="math" src="../_images/math/c1c0c67941dc14920d07e9d866c7bf509079428b.svg" alt="_{1-x}" style="vertical-align: -4px"/>O</p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>2302</p></td>
+<td><p>magnetite</p></td>
+<td><p>Fe<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>O, Fe 1s</p></td>
+<td><p>e,i</p></td>
+</tr>
+<tr class="row-odd"><td><p>2303</p></td>
+<td><p>hematite</p></td>
+<td><p>Fe<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>O, Fe 1s; Fe 2p</p></td>
+<td><p>e,i,j</p></td>
+</tr>
+<tr class="row-even"><td><p>2304</p></td>
+<td><p>iron sulfite</p></td>
+<td><p>FeS<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>Fe 1s</p></td>
+<td><p>i</p></td>
+</tr>
+<tr class="row-odd"><td><p>2400</p></td>
+<td><p>nickel monoxide</p></td>
+<td><p>NiO</p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>2500</p></td>
+<td><p>cupric oxide</p></td>
+<td><p>CuO</p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p>3001</p></td>
+<td><p>adenine</p></td>
+<td><p>C<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>H<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>f</p></td>
+</tr>
+<tr class="row-even"><td><p>3100</p></td>
+<td><p>enstatite</p></td>
+<td><p>MgSiO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>3101</p></td>
+<td><p>enstatite_alfa</p></td>
+<td><p>MgSiO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-even"><td><p>3102</p></td>
+<td><p>enstatite_chondrite</p></td>
+<td><p>Mg<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>Si<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/f1da3ecdb5001cefa32876b38563e0166e1b4db9.svg" alt="_6" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>3103</p></td>
+<td><p>pyroxene</p></td>
+<td><p>MgSiO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>k</p></td>
+</tr>
+<tr class="row-even"><td><p>3200</p></td>
+<td><p>calcite</p></td>
+<td><p>CaCO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>Ca 1s</p></td>
+<td><p>g</p></td>
+</tr>
+<tr class="row-odd"><td><p>3201</p></td>
+<td><p>aragonite</p></td>
+<td><p>CaCO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>Ca 1s</p></td>
+<td><p>g</p></td>
+</tr>
+<tr class="row-even"><td><p>3202</p></td>
+<td><p>vaterite</p></td>
+<td><p>CaCO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>Ca 1s</p></td>
+<td><p>g</p></td>
+</tr>
+<tr class="row-odd"><td><p>3203</p></td>
+<td><p>perovskite</p></td>
+<td><p>CaTiO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>3300</p></td>
+<td><p>hercynite</p></td>
+<td><p>FeAl<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p>3301</p></td>
+<td><p>lepidocrocite</p></td>
+<td><p>FeO(OH)</p></td>
+<td><p>Fe 2p</p></td>
+<td><p>j</p></td>
+</tr>
+<tr class="row-even"><td><p>3302</p></td>
+<td><p>fayalite</p></td>
+<td><p>Fe<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>SiO<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>Fe 1s, 2p</p></td>
+<td><p>i,j</p></td>
+</tr>
+<tr class="row-odd"><td><p>3303</p></td>
+<td><p>iron sulfate</p></td>
+<td><p>FeSO<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>Fe 2p</p></td>
+<td><p>j</p></td>
+</tr>
+<tr class="row-even"><td><p>3304</p></td>
+<td><p>ilmenite</p></td>
+<td><p>FeTiO<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p>3305</p></td>
+<td><p>chromite</p></td>
+<td><p>FeCr<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>4001</p></td>
+<td><p>guanine</p></td>
+<td><p>C<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>H<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>O</p></td>
+<td><p>O,N 1s</p></td>
+<td><p>f</p></td>
+</tr>
+<tr class="row-odd"><td><p>4002</p></td>
+<td><p>cytosine</p></td>
+<td><p>C<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/>H<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>O</p></td>
+<td><p>O,N 1s</p></td>
+<td><p>f</p></td>
+</tr>
+<tr class="row-even"><td><p>4003</p></td>
+<td><p>thymine</p></td>
+<td><p>C<img class="math" src="../_images/math/e1751462d69d89a9ef6744c5365b8205db5ac37e.svg" alt="_5" style="vertical-align: -2px"/>H<img class="math" src="../_images/math/f1da3ecdb5001cefa32876b38563e0166e1b4db9.svg" alt="_6" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>O,N 1s</p></td>
+<td><p>f</p></td>
+</tr>
+<tr class="row-odd"><td><p>4004</p></td>
+<td><p>uracil</p></td>
+<td><p>C<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/>H<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>O,N 1s</p></td>
+<td><p>f</p></td>
+</tr>
+<tr class="row-even"><td><p>4100</p></td>
+<td><p>andradite</p></td>
+<td><p>Ca<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>Fe<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>Si<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/c94fe69f6c12d6cabef46d1c6c2e68801988dc7a.svg" alt="_{12}" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p>4101</p></td>
+<td><p>acmite</p></td>
+<td><p>NaFeSi<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/f1da3ecdb5001cefa32876b38563e0166e1b4db9.svg" alt="_6" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>4102</p></td>
+<td><p>franklinite</p></td>
+<td><p>Zn<img class="math" src="../_images/math/1697eb4ba791140c5cfd9538255050e98de4dc91.svg" alt="_{0.6}" style="vertical-align: -2px"/>Mn<img class="math" src="../_images/math/cdcdd4581eea8e98004ad76600240044fa9a1b43.svg" alt="_{0.8}" style="vertical-align: -2px"/>Fe<img class="math" src="../_images/math/b3f9f765b9e1aab123f5912be191496c713b7d19.svg" alt="_{1.6}" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p>4103</p></td>
+<td><p>olivine</p></td>
+<td><p>Mg<img class="math" src="../_images/math/b3f9f765b9e1aab123f5912be191496c713b7d19.svg" alt="_{1.6}" style="vertical-align: -2px"/>Fe<img class="math" src="../_images/math/8efd54ae32e574e2b70f86559eb826d6d3f847c6.svg" alt="_{0.4}" style="vertical-align: -2px"/>SiO<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>4104</p></td>
+<td><p>almandine</p></td>
+<td><p>Fe<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>Al<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>(SiO<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/>)<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-odd"><td><p>4105</p></td>
+<td><p>hedenbergite</p></td>
+<td><p>CaFeSi<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/f1da3ecdb5001cefa32876b38563e0166e1b4db9.svg" alt="_6" style="vertical-align: -2px"/></p></td>
+<td><p>O 1s</p></td>
+<td><p>e</p></td>
+</tr>
+<tr class="row-even"><td><p>5001</p></td>
+<td><p>dna (herring sperm)</p></td>
+<td><p>C<img class="math" src="../_images/math/1a8c329385dbaf71e3b7953bd72663859137b670.svg" alt="_{39}" style="vertical-align: -2px"/>H<img class="math" src="../_images/math/0a4e68f36188ed63e99094905eb60a0ce66fdc1c.svg" alt="_{61}" style="vertical-align: -2px"/>N<img class="math" src="../_images/math/a95376819c9abdc641955308b071ea237179aa39.svg" alt="_{15}" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/f1450f8eb0f3891cbbe5863f808a43ce596b6ab9.svg" alt="_{36}" style="vertical-align: -2px"/>P<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/></p></td>
+<td><p>O,N 1s</p></td>
+<td><p>f</p></td>
+</tr>
+<tr class="row-odd"><td><p>6001</p></td>
+<td><p>montmorillonite</p></td>
+<td><p>Na<img class="math" src="../_images/math/09bf6a7ed02ce767c080e80cd154084f0323a29e.svg" alt="_{0.2}" style="vertical-align: -2px"/>Ca<img class="math" src="../_images/math/b556ed8ba4a2b0d6066bcf3f0cd1ea4a498ce62e.svg" alt="_{0.1}" style="vertical-align: -2px"/>Al<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>Si<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/>O<img class="math" src="../_images/math/deccf5837b5ed05accf405333fb401f5a0005fb4.svg" alt="_{10}" style="vertical-align: -2px"/>(OH<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>)(H<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O)<img class="math" src="../_images/math/deccf5837b5ed05accf405333fb401f5a0005fb4.svg" alt="_{10}" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-even"><td><p>6002</p></td>
+<td><p>nontronite</p></td>
+<td><p>Na<img class="math" src="../_images/math/af4f33b5703858f9833bf21e85ed0c7c63e18249.svg" alt="_{0.3}" style="vertical-align: -2px"/>Fe<img class="math" src="../_images/math/97b793764a8e8da6e8309540204c0f285ca5fae4.svg" alt="_2^{3+}" style="vertical-align: -4px"/>Si<img class="math" src="../_images/math/8000332caa11bbd4a8ac2560f9cb0a5463a12c6d.svg" alt="_3" style="vertical-align: -2px"/>AlO<img class="math" src="../_images/math/deccf5837b5ed05accf405333fb401f5a0005fb4.svg" alt="_{10}" style="vertical-align: -2px"/>(OH)<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/> <img class="math" src="../_images/math/973faee73b8f68019547f66fc5fce45f2bd37383.svg" alt="\bullet" style="vertical-align: 0px"/> (H<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O)</p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>7001</p></td>
+<td><p>enstatite_paulite</p></td>
+<td><p>Ca<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>Mg<img class="math" src="../_images/math/05b312a1ffd6b7cd237fba58b49d710d5a3853fa.svg" alt="_4" style="vertical-align: -2px"/>Al<img class="math" src="../_images/math/12e6008dba689a8fd82e9a8d72194493e9510592.svg" alt="_{0.75}" style="vertical-align: -2px"/>Fe<img class="math" src="../_images/math/72d13fd4f7d7016c1dfc1bed5b637ae844f90715.svg" alt="_{0.25}" style="vertical-align: -2px"/>(Si<img class="math" src="../_images/math/589dc1d30a955ac08a8a483c05fa33575bc13feb.svg" alt="_7" style="vertical-align: -2px"/>AlO<img class="math" src="../_images/math/488e7bdddd5e2679f25280e3c83f76e5feed3548.svg" alt="_{22}" style="vertical-align: -2px"/>)(OH)<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/></p></td>
+<td><p>Si 1s</p></td>
+<td><p>h</p></td>
+</tr>
+</tbody>
+</table>
+<p>The chemical composition of these minerals was mainly taken from the
+Mineralogy Database of David Barthelmy <a class="footnote-reference brackets" href="#id7" id="id1">1</a>. For DNA we assume equal
+contributions of adenine, cytosine, guanine and thymine, plus for each
+of these on average one phosphate and one 2-deoxyribose molecule. We
+take the cross-sections from the references as listed in
+<a class="reference external" href="#tab:amol">the table above</a> in the energy interval where these
+are given, and use the cross section for free atoms <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract">Verner &amp; Yakovlev (1995)</a>
+outside this range.</p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a>
+do not list the precise composition of iron oxide. We assume here that <img class="math" src="../_images/math/9d6839438c9e91ff2ae2f20789e64e52ea6aba96.svg" alt="x=0.5" style="vertical-align: 0px"/>.</p>
+<p>Some remarks about the data from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a>: not
+all lines are given in their tables, because they suffered from
+instrumental effects (finite thickness absorber combined with finite
+spectral resolution). However, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a> have
+estimated the peak intensities of the lines based on measurements with
+different column densities, and they also list the FWHM of these
+transitions. We have included these lines in the table of cross sections
+and joined smoothly with the tabulated values.</p>
+<p>For N<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>O, the fine structure lines are not well resolved by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a>.
+Instead we take here the relative peaks
+from <a class="reference external" href="https://doi.org/10.1016/0368-2048(74)80010-1">Wight et al. (1974)</a>,
+that have a relative ratio of 1.00
+: 0.23 : 0.38 : 0.15 for peaks 1, 2, 3, and 4, respectively. We adopted
+equal FWHMs of 1.2 eV for these lines, as measured typically for line 1
+from the plot of Wight. We scale the intensities to the peak listed by
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a>.</p>
+<p>Further, we subtract the C and N parts of the cross section as well as
+the oxygen 2s/2p part, using the cross sections of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract">Verner &amp; Yakovlev (1995)</a>.
+At low energy, a very small residual
+remains, that we corrected for by subtracting a constant fitted to the
+510–520 eV range of the residuals. The remaining cross section at 600 eV
+is about 10 % above the Verner cross section; it rapidly decreases; we
+approximate the high-E behaviour by extrapolating linearly the average
+slope of the ratio between 580 and 600 eV to the point where it becomes
+1. The remaining cross section at 600 eV is about 10% above the
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract">Verner &amp; Yakovlev (1995)</a>
+cross section; it rapidly decreases; we
+approximate the high-E behaviour therefore by extrapolating linearly the
+average slope of the ratio between 580 and 600 eV to the point where it
+becomes 1.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The normalisation is the total <em>molecular</em> column density.
+Thus, a value of <img class="math" src="../_images/math/d90578b5ce915e53b597c4245b41f650ff1b9035.svg" alt="10^{-7}" style="vertical-align: 0px"/> for CO<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/> means
+<img class="math" src="../_images/math/88e120309aa0ccf6a73259fc18cc2bd95bf322bd.svg" alt="10^{21}" style="vertical-align: 0px"/> CO<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/> molecules <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, but of course
+<img class="math" src="../_images/math/aeed25dd0afe4adca1b1a97d8a31b53859a5c1a7.svg" alt="2\times 10^{21}" style="vertical-align: -1px"/> O atoms <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, because each
+CO<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/> molecule contains 2 oxygen atoms.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Table above shows for which edges and atoms the XAFS
+are taken into account. For all other edges and atoms not listed there,
+we simply use the pure atomic cross-section (without absorption lines).
+Note that for almost all constituents this may give completely wrong
+cross sections in the optical/UV band, as at these low energies the
+effects of chemical binding, crystal structure etc. are very important
+for the optical transmission constants. This is contrary to the
+SPEX models for pure atomic or ionised gas, where our models can be used
+in the optical band.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is possible to change the values of the output atomic
+column densities of H–Zn, that are shown when you issue the “show par”
+command of SPEX. However, SPEX completely ignores this and when you
+issue the “calc” or “fit” commands, they will be reset to the proper
+values. Morale: just read of those parameters, don’t touch them!</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">n1--n4</span></code> : Molecular column density in
+<img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> for molecules 1–4. Default value:
+<img class="math" src="../_images/math/40af090ec6e39fe71369e3ed12abc1f696af9a0e.svg" alt="10^{-6}" style="vertical-align: 0px"/> for molecule 1, and zero for the others.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">i1--i4</span></code> : the molecule numbers for molecules 1–4 in the list
+(<a class="reference external" href="#tab:amol">Table above</a>). Default value: 108 (O<img class="math" src="../_images/math/4288e823bdfcaac537ec33650c12482980aae3e6.svg" alt="_2" style="vertical-align: -2px"/>)
+for molecule 1, zero for the others. A value of zero indicates that
+for that number no molecule will be taken into account. Thus, for only
+1 molecule, keep <em>i2–i4</em> <img class="math" src="../_images/math/b2690b7f97fb15aad1cff2a7d3bb6dcecf8df178.svg" alt="=0" style="vertical-align: 0px"/>.</div>
+</div>
+<div class="line-block">
+<div class="line">The following parameters are common to all our absorption models:</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (fullcovering)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</p></li>
+</ul>
+<div class="line-block">
+<div class="line">The following parameters are <em>only</em> output parameters:</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">h--zn</span></code> : The column densities in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> for
+all <em>atoms</em> added together for the all molecules that are present in
+this component.</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2010A%26A...521A..79P/abstract">Pinto et al. (2010)</a>.</div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://webmineral.com/">http://webmineral.com/</a></p>
+</dd>
+</dl>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="absm.html" title="previous chapter">4.1.1. Absm: Morrison &amp; McCammon absorption model</a></li>
+      <li>Next: <a href="bb.html" title="next chapter">4.1.3. Bb: blackbody model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

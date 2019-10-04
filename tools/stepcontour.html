@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.2. Stepcontour &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.3. Xabsinput" href="xabsinput.html" />
+    <link rel="prev" title="5.1. Trafo" href="trafo.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="stepcontour">
+<span id="sec-stepcontour"></span><h1>5.2. Stepcontour<a class="headerlink" href="#stepcontour" title="Permalink to this headline">¶</a></h1>
+<p>The stepcontour task produces 1D and contour plots of step searches
+produced using the <code class="docutils literal notranslate"><span class="pre">step</span></code> commands. At the end of the step command
+definitions (see <a class="reference internal" href="../reference/commands/step.html#sec-step"><span class="std std-ref">Step: Grid search for spectral fits</span></a>), add the text <code class="docutils literal notranslate"><span class="pre">file</span></code> and a file name to
+the step command to write out the step results to a .stp file.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">dimension</span> <span class="mi">2</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">axis</span> <span class="mi">1</span> <span class="n">parameter</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">norm</span> <span class="nb">range</span> <span class="mf">0.5</span> <span class="mf">1.5</span> <span class="n">n</span> <span class="mi">10</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">axis</span> <span class="mi">2</span> <span class="n">parameter</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">t</span> <span class="nb">range</span> <span class="mf">0.75</span> <span class="mf">1.25</span> <span class="n">n</span> <span class="mi">10</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">file</span> <span class="n">norm</span><span class="o">-</span><span class="n">kt</span>
+</pre></div>
+</div>
+<p>These commands will produce a norm-kt.stp file. Subsequently, the
+<code class="docutils literal notranslate"><span class="pre">stepcontour</span></code> command can be run from the command line or the SPEX&gt;
+prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="p">:</span><span class="o">~&gt;</span> <span class="n">stepcontour</span>
+
+<span class="ow">or</span>
+
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">sys</span> <span class="n">exe</span> <span class="s2">&quot;spexcontour&quot;</span>
+</pre></div>
+</div>
+<p>The program will start and ask the user for the name of the .stp file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Program</span> <span class="n">stepcontour</span> <span class="n">version</span> <span class="mf">1.0</span><span class="o">.</span>
+<span class="n">Use</span> <span class="n">this</span> <span class="n">program</span> <span class="n">to</span> <span class="n">plot</span> <span class="n">contours</span> <span class="kn">from</span> <span class="nn">SPEX</span> <span class="n">steppar</span> <span class="p">(</span><span class="o">.</span><span class="n">stp</span><span class="p">)</span> <span class="n">files</span><span class="o">.</span>
+
+<span class="n">Enter</span> <span class="n">filename</span> <span class="n">of</span> <span class="n">SPEX</span> <span class="n">steppar</span> <span class="n">file</span> <span class="p">(</span><span class="o">.</span><span class="n">stp</span><span class="p">):</span> <span class="n">norm</span><span class="o">-</span><span class="n">kt</span><span class="o">.</span><span class="n">stp</span>
+</pre></div>
+</div>
+<p>Then provide a PGPLOT device to show the plot. For example ’/xw’ for X
+output or ’file.ps/ps’ for Postscript plots:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Number of axes in your steppar file:            2
+Graphics device/type (? to see list, default /NULL): /xw
+PGPLOT device type: XWINDOW
+Plotting contours for: 68.3%, 90%, 95.4%, 99%, 99.99%.
+</pre></div>
+</div>
+<p>If you would like to write the plot data to QDP format, say yes to the
+following question:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Would you like to write this plot to a QDP file (y/n)? y
+</pre></div>
+</div>
+<p>The program asks for an output QDP filename and writes the data to that
+file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The stepcontour program does not support logarithmic axes
+on 2D plots. Use another program to plot these or perform the step
+command on a linear grid.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tools.html">5. Additional tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trafo.html">5.1. Trafo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. Stepcontour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xabsinput.html">5.3. Xabsinput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hydro_driver.html">5.4. Hydro driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsvprof.html">5.5. Rgsvprof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsfluxcombine.html">5.6. RGS_fluxcombine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgs_fmat.html">5.7. RGS_fmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortcall.html">5.8. Calling SPEX from Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspextools.html">5.9. Python tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tools.html">5. Additional tools</a><ul>
+      <li>Previous: <a href="trafo.html" title="previous chapter">5.1. Trafo</a></li>
+      <li>Next: <a href="xabsinput.html" title="next chapter">5.3. Xabsinput</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

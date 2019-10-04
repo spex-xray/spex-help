@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>8.5. Supernova remnants &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.6. Relativistic lines" href="ex6.html" />
+    <link rel="prev" title="8.4. Stellar Spectra" href="ex4.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="supernova-remnants">
+<h1>8.5. Supernova remnants<a class="headerlink" href="#supernova-remnants" title="Permalink to this headline">¶</a></h1>
+<p>Up to now we have only fitted an object which was in collisional
+ionization equilibrium (CIE), but when there are plasma shocks in a (low
+density) medium, equilibrium might not be reached yet. This is often the
+case in supernova remnants. We will illustrate this with the following
+spectrum: <a class="reference download internal" download="" href="../_downloads/74fad87746212c1b10f6ff2e63af04dd/nei.spo"><code class="xref download docutils literal notranslate"><span class="pre">nei.spo</span></code></a>. Again the
+response is the same as <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>.
+Adopt a source distance of 3 kpc, and fix the Galactic foreground
+absorption to <img class="math" src="../_images/math/c9ea427c91b1f1045fb79d416257fb9bfeb6a737.svg" alt="5 \times 10^{24}  \mathrm{m}^{-2}" style="vertical-align: -1px"/>. Define your spectral model.</p>
+<ol class="arabic simple">
+<li><p>Fit the spectrum with a CIE model. Is the fit acceptable?</p></li>
+<li><p>With the parameter <code class="docutils literal notranslate"><span class="pre">rt</span></code>, which is the ratio between the temperature
+in ionization balance and spectral temperature, we can obtain a
+better fit. Set the parameter to thawn, but be aware that this ratio
+is not allowed to get too close to 0! Is the fit acceptable?</p></li>
+<li><p>In SPEX there is also a component which can fit a non-equilibrium
+spectrum called <code class="docutils literal notranslate"><span class="pre">neij</span></code>. The most important parameter is <img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/>.
+It is defined as follows: <img class="math" src="../_images/math/2f62ece975d5c4133c61e69fc369676cc6068ccb.svg" alt="U = \int_{t_0}^{t_n} n_e dt" style="vertical-align: -7px"/>. When
+<img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/> is big, it means the ionization is in equilibrium. Fit the
+spectrum with <code class="docutils literal notranslate"><span class="pre">neij</span></code>. What is the temperature after the shock?</p></li>
+<li><p>Now vary the pre-shock temperature. Does that make any difference?</p></li>
+<li><p>In order to see the effect of Non-Equilibrium Ionisation (NEI), make
+the parameter “U” of the <code class="docutils literal notranslate"><span class="pre">neij</span></code> model 10 times smaller and 10 times
+larger than your best-fit value (leave all other parameters the
+same!), calculate the spectrum using the “calc” command (no fitting
+here!) and plot the spectrum. You will see large differences.</p></li>
+</ol>
+<p><strong>Learning goals:</strong></p>
+<p>After having done this spectrum, you should know:</p>
+<ul class="simple">
+<li><p>How to check your data for Non-Equilibrium Ionisation (NEI) effects
+by using the parameter RT.</p></li>
+<li><p>How to use proper NEI models and get a basic understanding of these
+spectra.</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../exercises.html">8. Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ex1.html">8.1. Powerlaw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex2.html">8.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex3.html">8.3. Statistics, binning and more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex4.html">8.4. Stellar Spectra</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.5. Supernova remnants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex6.html">8.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex7.html">8.7. AGN winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../exercises.html">8. Exercises</a><ul>
+      <li>Previous: <a href="ex4.html" title="previous chapter">8.4. Stellar Spectra</a></li>
+      <li>Next: <a href="ex6.html" title="next chapter">8.6. Relativistic lines</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

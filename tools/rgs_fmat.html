@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.7. RGS_fmat &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.8. Calling SPEX from Fortran" href="fortcall.html" />
+    <link rel="prev" title="5.6. RGS_fluxcombine" href="rgsfluxcombine.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rgs-fmat">
+<span id="sect-rgsfmat"></span><h1>5.7. RGS_fmat<a class="headerlink" href="#rgs-fmat" title="Permalink to this headline">¶</a></h1>
+<p>Program <em>RGS_fmat</em> produces a response matrix for a fluxed spectrum
+created by the XMM-Newton SAS task <em>rgsfluxer</em>.</p>
+<p>The user should provide an FITS file that is the output of the
+<em>rgsfluxer</em> program. That program <em>must</em> be run with 3600 equidistant
+wavelength bins between 4 and 40 Å. The program takes this fluxed
+spectrum, and creates a response matrix with effective area
+1 <img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/> for each wavelength, and a redistribution function
+normalised to unity for each wavelength.</p>
+<p>This redistribution function is slightly different for RGS1 and RGS2,
+and also different for the second order spectra. Hence, the user must
+provide <em>RGS_fmat</em> the information about which RGS and spectral order
+is used.</p>
+<p>In addition, it is also possible to make a single response matrix for
+combined RGS1 and RGS2 data, first and second order. In this case, first
+the program <em>RGS_fluxcombine</em> must have been run with option=2. That
+program then creates the <em>rgsfluxer</em>-compatible file, with the addition
+of four extra columns, containing for each wavelength the relative
+weight of the different instrument/order to the total spectrum. These
+weights are used to weigh the redistribution functions in the combined
+spectra.</p>
+<p>The redistribution function has been parametrised as the sum of three
+(first order) or 4 (second order) Gaussians, with wavelength-dependent
+width and relative normalisations. These parametrisations have been
+obtained by fitting the “true” redistribution function as it is in SAS
+in 2014 after having re-investigated the RGS line-spread-function by the
+RGS consortium.</p>
+<p>The model energy grid used for the matrix has a uniform spacing of 1/9th
+of the instrumental FWHM, approxinmated here simply by
+0.06/<img class="math" src="../_images/math/c2690dfc5f8627719aa8b5643679aaf1963b690e.svg" alt="\vert m\vert" style="vertical-align: -4px"/>, where <img class="math" src="../_images/math/13a9a7bb4a4c30c9a9543cb771fc9cce192c661c.svg" alt="m" style="vertical-align: 0px"/> is the spectral order. The
+matrix is fully -compatible, in the sense that it also uses the
+derivatives of the matrix with respect to energy to get the most
+accurate results. There is no way back from this to OGIP-typs spectra!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The redistribution function is limited to
+<img class="math" src="../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/>1 Å around the central wavelength. For most continuum and
+absorption line spectra this is sufficient. In a few rare cases of very
+bright emission line sources, the user is advised to compare the
+resulting fit with a direct fit using the original SAS response matrices
+and spectral files.</p>
+</div>
+<p>The matrix is much smaller: the combined RGS matrix has a size of 8.2
+Mbyte. This should be compared to the total size of the four matrices in
+OGIP format, which is over 200 Mbyte.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tools.html">5. Additional tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trafo.html">5.1. Trafo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stepcontour.html">5.2. Stepcontour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xabsinput.html">5.3. Xabsinput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hydro_driver.html">5.4. Hydro driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsvprof.html">5.5. Rgsvprof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rgsfluxcombine.html">5.6. RGS_fluxcombine</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.7. RGS_fmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortcall.html">5.8. Calling SPEX from Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspextools.html">5.9. Python tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tools.html">5. Additional tools</a><ul>
+      <li>Previous: <a href="rgsfluxcombine.html" title="previous chapter">5.6. RGS_fluxcombine</a></li>
+      <li>Next: <a href="fortcall.html" title="next chapter">5.8. Calling SPEX from Fortran</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

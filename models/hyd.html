@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1.19. Hyd: model with user-own hydrodynamical simulation &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.20. Knak: segmented power law transmission model" href="knak.html" />
+    <link rel="prev" title="4.1.18. Hot: collisional ionisation equilibrium absorption model" href="hot.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hyd-model-with-user-own-hydrodynamical-simulation">
+<h1>4.1.19. Hyd: model with user-own hydrodynamical simulation<a class="headerlink" href="#hyd-model-with-user-own-hydrodynamical-simulation" title="Permalink to this headline">¶</a></h1>
+<p>This model calculates the spectrum of a plasma with a given set of ion
+concentrations. It allows users to calculate the X-ray spectrum
+corresponding to his own hydrodynamical simulation results. The basic
+usage is that the user first runs own calculations to obtain the ion
+concentrations, and stores them in an ascii file. The name should be
+either of “spexicon_abs.dat” or “spexicon_rel.dat”. Then the user runs
+SPEX and loads the Hyd model to calculate the spectrum.</p>
+<p>For users who are familiar with Fortran, we offer the supporting
+fortran90 subroutine, <em>hydro_driver</em>, to make the ion concentration file
+conveniently. The usage of the <em>hydro_driver</em> is described in
+Section <a class="reference external" href="#sect:hydrodriver">Hydrodriver</a>.</p>
+<p>For more general cases users can directly load the Hyd model and just
+calculate the spectrum. The model has two modes to specify the format
+for the ion concentrations: absolute (mode 1) or relative (mode 2). For
+mode 1, the input file must have the name “spexicon_abs.dat”, and the
+values are treated as absolute ion concentrations (relative to
+hydrogen). In this mode the parameters of the elemental abundances do
+not affect the ion concentration nor the spectrum at all (they are
+ignored). For the case that users wish to treat elemental abundances as
+fitting parameters, mode=2 can be used. In this mode the input file must
+have the name “spexicon_rel.dat”, which contains the ion concentrations
+relative to the concentration of the relevant chemical element.</p>
+<div class="line-block">
+<div class="line">The parameters of the model are: <code class="docutils literal notranslate"><span class="pre">hyd</span></code> : Hydrogen density in
+<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code> : Mode of the model. Mode=1: read absolute ion concentration
+from <code class="docutils literal notranslate"><span class="pre">spexicon_abs.dat</span></code>. mode=2: read relative ion concentration from
+<code class="docutils literal notranslate"><span class="pre">spexicon_rel.dat</span></code>.</div>
+<div class="line">The following parameters are the same as for the cie-model: <code class="docutils literal notranslate"><span class="pre">norm</span></code> :
+the normalisation, which is the emission measure
+<img class="math" src="../_images/math/bc4c52be7765356c479ac3a6dfe4451c0ee2e89c.svg" alt="Y \equiv  n_{\mathrm e} n_{\mathrm H} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>, where <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> are the electron and Hydrogen densities and
+<img class="math" src="../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> the volume of the source. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default
+value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : Micro turbulent velocity in km/s</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, SPEX starts with “var calc old” (see the var
+menu for explanation). If you want to use this model with the latest
+atomic database, you should set the ionisation balance to U16. Note
+that this is only used to calculate inner-shell ionisation rates for
+the spectral evaluation, it will not affect the ion concentrations
+that the user provides.</p>
+</div>
+<p><em>Recommended citation (first use):</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.449.1441K/abstract">Kosenko et al. (2015)</a>.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/intro.html">4.2. The SPEX Atomic Code &amp; Tables (SPEXACT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/plasma.html">4.3. Plasma model in SPEX 3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/absmodels.html">4.4. Absorption model theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/atomicabs.html">4.5. Atomic database for the absorbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nei.html">4.6. Non-equilibrium ionisation (NEI) calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/nonthermal.html">4.7. Non-thermal electron distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spexact/snr.html">4.8. Supernova remnant model theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
+      <li>Previous: <a href="hot.html" title="previous chapter">4.1.18. Hot: collisional ionisation equilibrium absorption model</a></li>
+      <li>Next: <a href="knak.html" title="next chapter">4.1.20. Knak: segmented power law transmission model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

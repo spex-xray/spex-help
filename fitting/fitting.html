@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>7.1. Spectral fitting &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.2. Optimal definition of respons matrices" href="response.html" />
+    <link rel="prev" title="7. Spectral fitting theory" href="../fitting.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="spectral-fitting">
+<h1>7.1. Spectral fitting<a class="headerlink" href="#spectral-fitting" title="Permalink to this headline">¶</a></h1>
+<p>This chapter explains the procedure used in SPEX for the spectral modelling.
+In the following paragraphs we deal with the necessary information
+needed to start with the spectral modellinzation about first, sectors
+and regions and then different spectral components.</p>
+<div class="section" id="spectral-modelling">
+<h2>7.1.1. Spectral Modelling<a class="headerlink" href="#spectral-modelling" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/trpb01.png"><img alt="Processing Flow Diagram for Spectral Modelling of optically thin plasmas (from Mewe 1992)." src="../_images/trpb01.png" style="width: 80.0%;" /></a>
+</div>
+<p>To infer relevant physical parameters from observed X-ray spectra,
+physical models are needed. The models need to calculate the expected
+X-ray spectrum based on physical parameters, like the electron
+temperature, emission measure and density distributions, ion and
+elemental abundances, mass motions, and the nature of the ambient
+radiation field. Unfortunately, the physical models cannot be compared
+directly to the measured spectra, because the instruments used to obtain
+the spectra change the spectrum for example by adding background
+components (instrument noise), change the continuum shape due to the
+sensitivity of the mirror (effective area), and blur spectral lines due
+to the instruments spectral resolution.</p>
+<p>To take these instrumental components into account, the usual procedure
+is to apply a forward modelling technique by convolving theoretical
+model spectra with the instrumental response and to vary the model
+parameters in order to optimize the fit of the model to the
+observational data. A common approach is to consider first a simplified
+plasma model for the X-ray source, neglecting much of the complexity of
+the temperature and density structure and of the effects of opacity, and
+to synthesize such models into successively more sophisticated
+approximations of the source model.</p>
+<p>In Figure <a class="reference external" href="#fig:1">1</a> we give in a processing flow diagram
+schematically the process of spectral modelling for the case of
+optically thin coronal plasmas. The synthetic spectra program is fed
+with input parameters from the spectral model (atomic data for
+ionization and line and continuum excitation), the instrumental model,
+and from the assumed plasma model for the source. The synthetic spectra
+code generates spectra which can be compared to the observations and
+tested by means of statistical fitting procedures.</p>
+</div>
+<div class="section" id="sectors-and-regions">
+<span id="sec-sectorsandregions"></span><h2>7.1.2. Sectors and regions<a class="headerlink" href="#sectors-and-regions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>7.1.2.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>In many cases an observer analysis the observed spectrum of a single
+X-ray source. There are however situations with more complex geometries.</p>
+<p>Example 1: An extended source, where the spectrum may be extracted from
+different regions of the detector, but where these spectra need to be
+analysed simultaneously due to the overlap in point-spread function from
+one region to the other. This situation is e.g. encountered in the
+analysis of cluster data with ASCA or BeppoSAX.</p>
+<p>Example 2: For the RGS detector of XMM-Newton, the actual data-space in
+the dispersion direction is actually two-dimensional: the position
+<img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/> where a photon lands on the detector and its energy or pulse
+height <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> as measured with the CCD detector. X-ray sources that
+are extended in the direction of the dispersion axis <img class="math" src="../_images/math/759f4f011fb2cc75fb10fbee0f935cc98598af2f.svg" alt="\phi" style="vertical-align: -3px"/> are
+characterised by spectra that are a function of both the energy
+<img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> and off-axis angle <img class="math" src="../_images/math/759f4f011fb2cc75fb10fbee0f935cc98598af2f.svg" alt="\phi" style="vertical-align: -3px"/>. The sky photon distribution
+as a function of (<img class="math" src="../_images/math/759f4f011fb2cc75fb10fbee0f935cc98598af2f.svg" alt="\phi" style="vertical-align: -3px"/>,<img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>) is then mapped onto the
+(<img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/>,<img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>)-plane. By defining appropriate regions in both
+planes and evaluating the correct (overlapping) responses, one may
+analyse extended sources.</p>
+<p>Example 3: One may also fit simultaneously several time-dependent
+spectra using the same response, e.g. data obtained during a stellar
+flare.</p>
+<p>It is relatively easy to model all these situations (provided that the
+instrument is understood sufficiently, of course), as we show below.</p>
+</div>
+<div class="section" id="sky-sectors">
+<h3>7.1.2.2. Sky sectors<a class="headerlink" href="#sky-sectors" title="Permalink to this headline">¶</a></h3>
+<p>First, the relevant part of the sky is subdivided into sectors, each
+sector corresponding to a particular region of the source, for example a
+circular annulus centered around the core of a cluster, or an
+arbitrarily shaped piece of a supernova remnant, etc.</p>
+<p>A sector may also be a point-like region on the sky. For example if
+there is a bright point source superimposed upon the diffuse emission of
+the cluster, we can define two sectors: an extended sector for the
+cluster emission, and a point-like sector for the point source. Both
+sectors might even overlap, as this example shows!</p>
+<p>Another example: the two nearby components of the close binary
+<img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> Centauri observed with the XMM-Newton instruments, with
+overlapping point-spread-functions of both components. In that case we
+would have two point-like sky sectors, each sector corresponding to one
+of the double star’s components.</p>
+<p>The model spectrum for each sky sector may and will be different in
+general. For example, in the case of an AGN superimposed upon a cluster
+of galaxies, one might model the spectrum of the point-like AGN sector
+using a power law, and the spectrum from the surrounding cluster
+emission using a thermal plasma model.</p>
+</div>
+<div class="section" id="detector-regions">
+<h3>7.1.2.3. Detector regions<a class="headerlink" href="#detector-regions" title="Permalink to this headline">¶</a></h3>
+<p>The observed count rate spectra are extracted in practice in different
+regions of the detector. It is necessary here to distinguish clearly the
+(sky) sectors and (detector) regions. A detector region for the XMM EPIC
+camera would be for example a rectangular box, spanning a certain number
+of pixels in the <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>- and <img class="math" src="../_images/math/da3d5a93edea243a09f9e0b6771fc54167121192.svg" alt="y" style="vertical-align: -3px"/>-directions. It may also be a
+circular or annular extraction region centered around a particular pixel
+of the detector, or whatever spatial filter is desired. For the XMM RGS
+it could be a specific “banana” part of the detector-coordinate CCD
+pulse-height plane (<img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/>,<img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>).</p>
+<p>Note that the detector regions need not to coincide with the sky
+sectors, neither should their number to be equal! A good example of this
+is again the example of an AGN superimposed upon a cluster of galaxies.
+The sky sector corresponding to the AGN is simply a point, while, for a
+finite instrumental psf, its extraction region at the detector is for
+example a circular region centered around the pixel corresponding to the
+sky position of the source.</p>
+<p>Also, one could observe the same source with a number of different
+instruments and analyse the data simultaneously. In this case one would
+have only one sky sector but more detector regions, namely one for each
+participating instrument.</p>
+</div>
+</div>
+<div class="section" id="different-types-of-spectral-components">
+<span id="sec-modeltypes"></span><h2>7.1.3. Different types of spectral components<a class="headerlink" href="#different-types-of-spectral-components" title="Permalink to this headline">¶</a></h2>
+<p>In a spectral model  uses three different types of components, called
+<em>additive</em>, <em>multiplicative</em>, and <em>hybrid</em> components respectively.
+Additive components have a normalisation that determines the flux level.
+Multiplicative components operate on additive components. The pion model
+is a hybrid model that models both the absorption and emission from an
+intervening slab of plasma. A delta line or a power law are typical
+examples of additive components. Interstellar absorption is a typical
+example of a multiplicative component.</p>
+<p>The redshift component is treated as a multiplicative component, since
+it operates on additive components.</p>
+<p>Additive components can be divided into two classes: simple components
+(like power law, blackbody etc.) and plasma components, that use our
+atomic code. For the plasma components it is possible to plot or list
+specific properties, while for the simple models this is not applicable.</p>
+<p>Multiplicative components can be divided into 3 classes. First, there
+are the absorption-type components, like interstellar absorption. These
+components simply are an energy-dependent multiplication of the original
+source spectrum.  has both simple absorption components as well as
+absorption components based upon our plasma code. The second class
+consists of shifts: redshift (either due to Doppler shifts or due to
+cosmology) is the prototype of this. The third class consists of
+convolution-type operators. An example is Gaussian velocity broadening.</p>
+<p>For more information about the currently defined spectral components in,
+see Chapter <a class="reference internal" href="../models/over.html#chap-specmod"><span class="std std-ref">Overview of spectral components</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../fitting.html">7. Spectral fitting theory</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.1. Spectral fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">7.2. Optimal definition of respons matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../fitting.html">7. Spectral fitting theory</a><ul>
+      <li>Previous: <a href="../fitting.html" title="previous chapter">7. Spectral fitting theory</a></li>
+      <li>Next: <a href="response.html" title="next chapter">7.2. Optimal definition of respons matrices</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>
