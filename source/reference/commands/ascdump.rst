@@ -48,7 +48,7 @@ pop:
    rates to all quantum levels included.
 
 lev:
-   the contributions to the pouplation of the energy levels by various
+   the contributions to the population of the energy levels by various
    processes: positive for gain, negative for loss
 
 elex:
