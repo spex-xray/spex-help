@@ -75,6 +75,39 @@ region number. Therefore, freeing the normalisation of the third region
 of the fourth instrument is done with the command:
 ``par -4 3 norm stat thawn``.
 
+.. _sec:parshow:
+
+Par show
+~~~~~~~~
+
+The ``par show`` command shows an overview of the model parameters,
+coupled parameters, the fluxes and luminosities, the fit statistics,
+and, if necessary, the correlation matrix. For complicated models,
+this can result in a long list of parameters. In order for the user
+to make selections what they want to see, the ``par show`` command
+contains a couple of additional keywords:
+
+- ``free`` : Show only free parameters.
+
+- ``couple`` : Show an overview of the coupled parameters.
+
+- ``flux`` : Show the fluxes and luminosities.
+
+- ``stat`` : Show the best-fit statistics.
+
+- ``corr`` : Show the correlation matrix.
+
+- ``all`` : Show all of the above.
+
+Or if specific sectors or components are desired, provide the sector
+and component numbers:
+
+- ``par show #i:`` : Show a range of sectors
+- ``par show #i: #i:`` : Show a range of sectors and components
+
+For example, ``par show 1 3:5`` will show the parameters for components 3 to 5 for
+sector number 1.
+
 Syntax
 ~~~~~~
 
@@ -112,12 +145,10 @@ The following syntax rules apply:
 | ``par [#i1:] [#i2:] #a: decouple`` : Decouples the parameter(s) #a: of
   (optional) components #i2: of of (optional) sector(s) #i1:. Inverse
   operation of the couple command.
-| ``par show [free]`` : Shows on the display screen all parameters of
-  all components. If the optional keyword free is given, shows only
-  parameters with fit status "T" (true, thawn), i.e., the free
-  parameters in a spectral fit.
-| ``par show corr #l`` : Display the correlations between parameters
-  after fitting if this flag is true (default)
+| ``par show [#a:]`` : Shows on the display screen all parameters of
+  all components. See :ref:`sec:parshow` for more options.
+| ``par show [#i:] [#i:]`` : Show the parameters for a range of components
+  or sectors.
 | ``par write #a [overwrite]`` : Writes all parameters to a SPEX command
   file #a. #a should be specified without extension, SPEX automatically
   adds the .com extension. If the optional overwrite command is given,
@@ -178,6 +209,7 @@ Examples
   attenuation.
 | ``par show free`` : As above, but only displays the parameters that
   have the status thawn.
+| ``par show couple`` : Displays a list with coupled parameters.
 | ``par write mypar overwrite`` : SPEX writes all parameters for the
   model to a file named mypar.com. Any previously existing file
   mypar.com is overwritten.

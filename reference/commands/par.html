@@ -97,8 +97,33 @@ region number. Therefore, freeing the normalisation of the third region
 of the fourth instrument is done with the command:
 <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">-4</span> <span class="pre">3</span> <span class="pre">norm</span> <span class="pre">stat</span> <span class="pre">thawn</span></code>.</p>
 </div>
+<div class="section" id="par-show">
+<span id="sec-parshow"></span><h2>3.1.21.2. Par show<a class="headerlink" href="#par-show" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code> command shows an overview of the model parameters,
+coupled parameters, the fluxes and luminosities, the fit statistics,
+and, if necessary, the correlation matrix. For complicated models,
+this can result in a long list of parameters. In order for the user
+to make selections what they want to see, the <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code> command
+contains a couple of additional keywords:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">free</span></code> : Show only free parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">couple</span></code> : Show an overview of the coupled parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flux</span></code> : Show the fluxes and luminosities.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stat</span></code> : Show the best-fit statistics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">corr</span></code> : Show the correlation matrix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code> : Show all of the above.</p></li>
+</ul>
+<p>Or if specific sectors or components are desired, provide the sector
+and component numbers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">#i:</span></code> : Show a range of sectors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">#i:</span> <span class="pre">#i:</span></code> : Show a range of sectors and components</p></li>
+</ul>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">1</span> <span class="pre">3:5</span></code> will show the parameters for components 3 to 5 for
+sector number 1.</p>
+</div>
 <div class="section" id="syntax">
-<h2>3.1.21.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2>3.1.21.3. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">[#a1:]</span> <span class="pre">avalue</span> <span class="pre">#a2</span></code> : Assign the value #a2 to the
@@ -133,12 +158,10 @@ above, but couple using a scaling factor #r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">[#i1:]</span> <span class="pre">[#i2:]</span> <span class="pre">#a:</span> <span class="pre">decouple</span></code> : Decouples the parameter(s) #a: of
 (optional) components #i2: of of (optional) sector(s) #i1:. Inverse
 operation of the couple command.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">[free]</span></code> : Shows on the display screen all parameters of
-all components. If the optional keyword free is given, shows only
-parameters with fit status “T” (true, thawn), i.e., the free
-parameters in a spectral fit.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">corr</span> <span class="pre">#l</span></code> : Display the correlations between parameters
-after fitting if this flag is true (default)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">[#a:]</span></code> : Shows on the display screen all parameters of
+all components. See <a class="reference internal" href="#sec-parshow"><span class="std std-ref">Par show</span></a> for more options.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">[#i:]</span> <span class="pre">[#i:]</span></code> : Show the parameters for a range of components
+or sectors.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span></code> : Writes all parameters to a SPEX command
 file #a. #a should be specified without extension, SPEX automatically
 adds the .com extension. If the optional overwrite command is given,
@@ -146,7 +169,7 @@ then the file #a will be overwritten with the new values.</div>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>3.1.21.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>3.1.21.4. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">val</span> <span class="pre">10</span></code> : Sets the value of the current parameter to 10.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">t</span> <span class="pre">val</span> <span class="pre">4</span></code> : Sets the parameter named “t” to 4.</div>
@@ -200,6 +223,7 @@ and luminosity (W) are all as emitted by the source, without any
 attenuation.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">free</span></code> : As above, but only displays the parameters that
 have the status thawn.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span> <span class="pre">couple</span></code> : Displays a list with coupled parameters.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span> <span class="pre">mypar</span> <span class="pre">overwrite</span></code> : SPEX writes all parameters for the
 model to a file named mypar.com. Any previously existing file
 mypar.com is overwritten.</div>
