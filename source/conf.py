@@ -135,6 +135,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     'logo': 'logo-wide.png',
     'logo_name': 'SPEX',
+    'font_family': 'Times, serif',
     #'page_width': '75%'
 }
 
