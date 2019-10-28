@@ -1,3 +1,5 @@
+.. _sec:uvoptdata:
+
 Import UV/Optical data
 ======================
 
@@ -32,3 +34,8 @@ https://heasarc.nasa.gov/lheasoft/ftools/fhelp/ftflx2xsp.html
 This program reads a text file containing the spectrum with the specified units,
 and creates the corresponding PHA and RSP files. These files can be then converted
 to SPEX format using TRAFO as usual.
+
+The SPEX equivalent of ``ftflx2xsp`` is :ref:`sec:uvtospex`. Please follow
+the link to find a brief manual for this tool. It creates a SPEX format spectrum
+and response matrix based on the fluxes as function of wavelength stored in a
+text file. The instrument resolution is needed in units of km/s (FWHM).
