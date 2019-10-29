@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/uv.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Command overview" href="../reference.html" />
@@ -33,7 +34,7 @@
           <div class="body" role="main">
             
   <div class="section" id="import-uv-optical-data">
-<h1>2.2. Import UV/Optical data<a class="headerlink" href="#import-uv-optical-data" title="Permalink to this headline">¶</a></h1>
+<span id="sec-uvoptdata"></span><h1>2.2. Import UV/Optical data<a class="headerlink" href="#import-uv-optical-data" title="Permalink to this headline">¶</a></h1>
 <p>For some applications it would be helpful to include non-X-ray data into
 the spectral fit. For example, this can be an optical/UV spectrum that
 the user wants to fit simultaneously with the X-ray spectrum using the
@@ -58,6 +59,10 @@ webpage of <code class="docutils literal notranslate"><span class="pre">ftflx2xs
 <p>This program reads a text file containing the spectrum with the specified units,
 and creates the corresponding PHA and RSP files. These files can be then converted
 to SPEX format using TRAFO as usual.</p>
+<p>The SPEX equivalent of <code class="docutils literal notranslate"><span class="pre">ftflx2xsp</span></code> is <a class="reference internal" href="../tools/uvtospex.html#sec-uvtospex"><span class="std std-ref">Uvtospex</span></a>. Please follow
+the link to find a brief manual for this tool. It creates a SPEX format spectrum
+and response matrix based on the fluxes as function of wavelength stored in a
+text file. The instrument resolution is needed in units of km/s (FWHM).</p>
 </div>
 
 

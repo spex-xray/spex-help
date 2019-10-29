@@ -11,5 +11,6 @@ Additional tools
    tools/rgsvprof
    tools/rgsfluxcombine
    tools/rgs_fmat
+   tools/uvtospex
    tools/fortcall
    tools/pyspextools

@@ -104,10 +104,6 @@ tcon:
    two-photon and total continuum spectrum, added for all plasma layers
    of the model.
 
-cnts:
-   the number of counts produced by each line. Needs an instrument to be
-   defined before.
-
 nei:
    the history of ionisation parameter and temperature in NEI
    calculations.
