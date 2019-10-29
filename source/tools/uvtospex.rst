@@ -1,3 +1,5 @@
+.. highlight:: none
+
 .. _sec:uvtospex:
 
 Uvtospex
