@@ -1,5 +1,5 @@
-DEM: differential emission measure analysis[sec:dem] 
-=====================================================
+DEM: differential emission measure analysis
+===========================================
 
 Overview
 ~~~~~~~~

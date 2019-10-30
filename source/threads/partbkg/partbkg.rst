@@ -1,3 +1,5 @@
+.. _sec:modpartbkg:
+
 Modeling particle background
 ============================
 
