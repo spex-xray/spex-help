@@ -65,3 +65,6 @@ To see what happens in a specific case, you can plot the model spectrum, put on 
 the energy in keV, and choose ``plot uy bin`` which gives you the bin number. Also
 issue the command ``plot ux kev`` to re-determine the min/max energies of the grid.
 This should show the binning of your response matrix/matrices as well as the extension.
+
+Another method to inspect the energy grid is running the ``egrid save`` command
+(:ref:`sec:egrid`). This will save the full energy grid to file.
