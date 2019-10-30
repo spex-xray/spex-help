@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>7.2.3. Sectors and regions &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/fitting/sectors.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.2.4. Spectral Fitting" href="fitting.html" />
+    <link rel="prev" title="7.2.2. Different types of spectral components" href="modtype.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sectors-and-regions">
+<span id="sec-sectorsandregions"></span><h1>7.2.3. Sectors and regions<a class="headerlink" href="#sectors-and-regions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>7.2.3.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In many cases an observer analyses the observed spectrum of a single
+X-ray source with a single instrument. There are however situations
+with more complex geometries or multiple instruments involved that
+require a more complicated setup of model components and data.</p>
+<p>Example 1: An extended source, where the spectrum may be extracted from
+different regions of the detector, but where these spectra need to be
+analysed simultaneously due to the overlap in point-spread function from
+one region to the other. This situation is e.g. encountered in the
+analysis of cluster data with ASCA or BeppoSAX.</p>
+<p>Example 2: For the RGS detector of XMM-Newton, the actual data-space in
+the dispersion direction is actually two-dimensional: the position
+<img class="math" src="../../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/> where a photon lands on the detector and its energy or pulse
+height <img class="math" src="../../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> as measured with the CCD detector. X-ray sources that
+are extended in the direction of the dispersion axis <img class="math" src="../../_images/math/759f4f011fb2cc75fb10fbee0f935cc98598af2f.svg" alt="\phi" style="vertical-align: -3px"/> are
+characterised by spectra that are a function of both the energy
+<img class="math" src="../../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> and off-axis angle <img class="math" src="../../_images/math/759f4f011fb2cc75fb10fbee0f935cc98598af2f.svg" alt="\phi" style="vertical-align: -3px"/>. The sky photon distribution
+as a function of (<img class="math" src="../../_images/math/759f4f011fb2cc75fb10fbee0f935cc98598af2f.svg" alt="\phi" style="vertical-align: -3px"/>,<img class="math" src="../../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>) is then mapped onto the
+(<img class="math" src="../../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/>,<img class="math" src="../../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>)-plane. By defining appropriate regions in both
+planes and evaluating the correct (overlapping) responses, one may
+analyse extended sources.</p>
+<p>Example 3: One may also fit simultaneously several time-dependent
+spectra using the same response, e.g. data obtained during a stellar
+flare.</p>
+<p>Example 4: When one wants to fit the instrumental and/or particle
+background simultaneously with the source spectrum, the particle
+background needs to be folded with a different response function.</p>
+<p>These examples can be modeled and fitted using the SPEX concept
+of sectors and regions.</p>
+</div>
+<div class="section" id="sectors">
+<h2>7.2.3.2. Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">¶</a></h2>
+<p>Sectors are a way in SPEX to organize or group model components
+that are related to each other. For example, we may put components
+related to the source spectrum and components related to the
+(particle) background into separate sectors.</p>
+<p>A sector may also contain the components for different sources on the sky.
+For example if there is a bright point source superimposed upon the
+diffuse emission of the cluster, we can define two sectors: an
+sector for the cluster emission, and sector for the point source. Both
+sectors might even overlap, as this example shows!</p>
+<p>Another example: the two nearby components of the close binary
+<img class="math" src="../../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> Centauri observed with the XMM-Newton instruments, with
+overlapping point-spread-functions of both components. In that case we
+would have two sectors that each describe one of the double star’s
+components.</p>
+<p>The model spectrum for each sector may and will be different in
+general. For example, in the case of an AGN superimposed upon a cluster
+of galaxies, one might model the spectrum of the point-like AGN sector
+using a power law, and the spectrum from the surrounding cluster
+emission using a thermal plasma model.</p>
+<p>Sectors can be defined using the command <a class="reference internal" href="../../reference/commands/sector.html#sec-sector"><span class="std std-ref">Sector: creating, copying and deleting of a sector</span></a> in combination
+with the <a class="reference internal" href="../../reference/commands/component.html#sec-comp"><span class="std std-ref">Comp: create, delete and relate spectral components</span></a> command.</p>
+</div>
+<div class="section" id="regions-and-instruments">
+<h2>7.2.3.3. Regions and instruments<a class="headerlink" href="#regions-and-instruments" title="Permalink to this headline">¶</a></h2>
+<p>The observed count rate spectra are extracted in practice in different
+regions of the detector. It is necessary here to distinguish clearly the
+model sectors and detector regions. A detector region for the XMM EPIC
+camera would be for example a rectangular box, spanning a certain number
+of pixels in the <img class="math" src="../../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>- and <img class="math" src="../../_images/math/da3d5a93edea243a09f9e0b6771fc54167121192.svg" alt="y" style="vertical-align: -3px"/>-directions. It may also be a
+circular or annular extraction region centered around a particular pixel
+of the detector, or whatever spatial filter is desired. For the XMM RGS
+it could be a specific “banana” part of the detector-coordinate CCD
+pulse-height plane (<img class="math" src="../../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/>,<img class="math" src="../../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>).</p>
+<p>Note that the detector regions need not to coincide with the
+sectors, neither should their number to be equal! A good example of this
+is again the example of an AGN superimposed upon a cluster of galaxies.
+The sky sector corresponding to the AGN is simply a point, while, for a
+finite instrumental psf, its extraction region at the detector is for
+example a circular region centered around the pixel corresponding to the
+sky position of the source.</p>
+<p>Also, one could observe the same source with a number of different
+instruments and analyse the data simultaneously. In this case one would
+have only one sky sector but more detector regions, namely one for each
+participating instrument.</p>
+<p>Regions and instruments have a very similar role in SPEX. The subtle
+difference is that regions usually have the same or similar response
+properties, while different instruments have different responses.
+Although this difference exists, in practice instruments and regions
+are often mixed.</p>
+</div>
+<div class="section" id="including-sectors-and-regions-in-trafo">
+<h2>7.2.3.4. Including sectors and regions in trafo<a class="headerlink" href="#including-sectors-and-regions-in-trafo" title="Permalink to this headline">¶</a></h2>
+<p>If certain model components need to be applied to particular spectra,
+the <code class="docutils literal notranslate"><span class="pre">trafo</span></code> program (<a class="reference internal" href="../../tools/trafo.html#sect-trafo"><span class="std std-ref">Trafo</span></a>) can be used to predefine
+the sector and region numbers in the .res and .spo files. This can be
+helpful in the case of modelling particle background simultaneously with
+the source spectrum. In trafo, two sectors can be defined to contain the
+source and background components, to make sure that the background
+components are folded with a different response than the source
+components. In addition, model spectra from both sectors can be
+added and applied to one detector region. This example is explained in
+more detail in <a class="reference internal" href="../../threads/partbkg/partbkg.html#sec-modpartbkg"><span class="std std-ref">Modeling particle background</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../theory.html">7. SPEX Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../spexact.html">7.1. SPEX Atomic Code &amp; Tables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../fitting.html">7.2. Modelling and fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../response.html">7.3. Optimal definition of respons matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../theory.html">7. SPEX Theory</a><ul>
+  <li><a href="../fitting.html">7.2. Modelling and fitting</a><ul>
+      <li>Previous: <a href="modtype.html" title="previous chapter">7.2.2. Different types of spectral components</a></li>
+      <li>Next: <a href="fitting.html" title="next chapter">7.2.4. Spectral Fitting</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

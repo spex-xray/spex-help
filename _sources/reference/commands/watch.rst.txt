@@ -1,7 +1,7 @@
 .. _sec:watch:
 
-Watch
-=====
+Watch: track time and subroutines
+=================================
 
 Overview
 ~~~~~~~~

@@ -20,9 +20,9 @@ self-consistently using the available plasma routines of SPEX.
    you use it without data. Recommended is a logarithmic grid between
    :math:`10^{-6}-10^{6}` keV with a step size of 0.005. You can get this
    by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV".
-   Note that if you have read in data, SPEX automatically expands the
-   energy grid to this range and resolution, plus including all energy
-   boundaries from the response matrix.
+   Note that if you have read in data, SPEX automatically uses the resolution
+   of the response matrix within its energy range and expands the
+   total energy grid to :math:`10^{-6}-10^{6}` keV.
 
 .. Warning:: This model is still under development and not all atomic
    data is fully updated. For instance, no cooling by collisional

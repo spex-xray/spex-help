@@ -1,5 +1,7 @@
-Sector: creating, copying and deleting of a sector[sec:sector]
-==============================================================
+.. _sec:sector:
+
+Sector: creating, copying and deleting of a sector
+==================================================
 
 Overview
 ~~~~~~~~
