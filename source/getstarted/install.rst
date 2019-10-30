@@ -1,3 +1,5 @@
+.. _sec:install:
+
 How to install SPEX
 ===================
 
