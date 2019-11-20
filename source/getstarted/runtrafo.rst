@@ -19,7 +19,7 @@ files in your working directory.
           (PYSPEX). This program takes the necessary input from the
           command line and is easy for scripting. More information
           about ogip2spex can be found on the `Pyspex Github
-          documentation page <https://spex-xray.github.io/pyspex/tutorials/ogip2spex.html>`__.
+          documentation page <https://spex-xray.github.io/pyspextools/tutorials/ogip2spex.html>`__.
 
 Starting trafo
 --------------
