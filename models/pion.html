@@ -34,7 +34,7 @@
           <div class="body" role="main">
             
   <div class="section" id="pion-spex-photoionised-plasma-model">
-<span id="sec-pion"></span><h1>4.1.28. Pion: SPEX photoionised plasma model<a class="headerlink" href="#pion-spex-photoionised-plasma-model" title="Permalink to this headline">¶</a></h1>
+<span id="sec-pion"></span><h1>4.1.28. Pion: SPEX photoionised plasma model<a class="headerlink" href="#pion-spex-photoionised-plasma-model" title="Permalink to this headline">¶</a></h1>
 <p>The <em>pion</em> model calculates the transmission and emission of a slab of
 photo-ionized plasma, where all ionic column densities are linked
 through a photoionisation model. The relevant parameter is the
@@ -48,14 +48,14 @@ present <em>pion</em> model the photoionisation equilibrium is calculated
 self-consistently using the available plasma routines of SPEX.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The default energy grid in SPEX has 8192 bins between
-0.001 and 100 keV. This may not be sufficient for the pion model when
+<p>The default energy grid in SPEX has 8192 bins between
+0.001 and 100 keV. This may not be sufficient for the pion model when
 you use it without data. Recommended is a logarithmic grid between
-<img class="math" src="../_images/math/cdf56c770855488e761662df0277fc43fe35c756.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV with a step size of 0.005. You can get this
+<img class="math" src="../_images/math/cdf56c770855488e761662df0277fc43fe35c756.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV with a step size of 0.005. You can get this
 by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV”.
-Note that if you have read in data, SPEX automatically uses the resolution
+Note that if you have read in data, SPEX automatically uses the resolution
 of the response matrix within its energy range and expands the
-total energy grid to <img class="math" src="../_images/math/cdf56c770855488e761662df0277fc43fe35c756.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV.</p>
+total energy grid to <img class="math" src="../_images/math/cdf56c770855488e761662df0277fc43fe35c756.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -71,7 +71,7 @@ both additive and multiplicative (even if you put the emission to zero).
 Therefore, the pion model needs the same com rel sequence as you use for
 your absorption component. Example: <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">pow</span></code> — <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">reds</span></code> — <code class="docutils literal notranslate"><span class="pre">com</span>
 <span class="pre">pion</span></code> — <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span> <span class="pre">1</span> <span class="pre">3,2</span></code> (a powerlaw that powers a pion model and is then redshifted)
-needs as next command <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span> <span class="pre">3</span> <span class="pre">2</span></code>, telling SPEX that the pion emission
+needs as next command <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span> <span class="pre">3</span> <span class="pre">2</span></code>, telling SPEX that the pion emission
 model is also redshifted.</p>
 </div>
 <div class="admonition warning">
@@ -107,9 +107,9 @@ the density gets too high; this is different for each ion; so unless you
 limit the density in fitting, SPEX may encounter a situation where you
 surpass the critical density and you may get a warning message. Here is
 an example. For a photoionised case, with <img class="math" src="../_images/math/82dd1e89a2107837d4f13aef80dd55aa7c3d0250.svg" alt="\log \xi = 3" style="vertical-align: -3px"/>
-(resulting <img class="math" src="../_images/math/dc58d8a8fb2ae6fca038bfea175e56007e35cbe3.svg" alt="kT=0.64" style="vertical-align: 0px"/> keV) the nominal occupation of the ground
+(resulting <img class="math" src="../_images/math/dc58d8a8fb2ae6fca038bfea175e56007e35cbe3.svg" alt="kT=0.64" style="vertical-align: 0px"/> keV) the nominal occupation of the ground
 state of H  becomes negative for a density
-<img class="math" src="../_images/math/c08e913a42b919d987f6a4949804e9d7249ef565.svg" alt="&gt;0.15\times 10^{20}" style="vertical-align: -1px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. This can be traced down to
+<img class="math" src="../_images/math/c08e913a42b919d987f6a4949804e9d7249ef565.svg" alt="&gt;0.15\times 10^{20}" style="vertical-align: -1px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. This can be traced down to
 incomplete atomic data. For H , we include collisional excitation and
 de-excitation up to principal quantum number <img class="math" src="../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/> but not above.
 As a result, in this example the 1s–5s levels are mainly
@@ -198,28 +198,28 @@ is zero.</p>
 like shock heating, magnetic reconnection, adiabatic expansion etc. If
 one wishes to solve for the photoionisation equilibrium, then this
 additional heat source can be used by putting the parameter <em>exth</em> to
-the proper value (units: W m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. A negative value would mean
+the proper value (units: W <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. A negative value would mean
 a cooling contribution.</p>
 </div>
 <div class="section" id="multiple-solutions">
 <h3>4.1.28.2.3. Multiple solutions<a class="headerlink" href="#multiple-solutions" title="Permalink to this headline">¶</a></h3>
 <p>There are situations where there is not a unique solution to the energy
 balance equations. A simple example can be obtained as follows: take a
-logarithmic energy grid between <img class="math" src="../_images/math/239744e80301f8983928bd3eaf79a843600616cc.svg" alt="10^{-6}-10^6" style="vertical-align: -1px"/> keV, use a powerlaw
+logarithmic energy grid between <img class="math" src="../_images/math/239744e80301f8983928bd3eaf79a843600616cc.svg" alt="10^{-6}-10^6" style="vertical-align: -1px"/> keV, use a powerlaw
 with photon index 1.5, apply the pion model to it and put <em>exth</em> to
-<img class="math" src="../_images/math/1287824b2e1158de7db8f35060dc0dad4735e1b8.svg" alt="5\times 10^{-25}" style="vertical-align: -1px"/> W m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. In this case there are 3
-solutions. SPEX chooses by default the hottest solution. You can see all
+<img class="math" src="../_images/math/1287824b2e1158de7db8f35060dc0dad4735e1b8.svg" alt="5\times 10^{-25}" style="vertical-align: -1px"/> W <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. In this case there are 3
+solutions. SPEX chooses by default the hottest solution. You can see all
 solutions by putting the parameter <em>fmod=1</em> and using the <em>heat</em> ascii
 output option. Or check the behaviour of the hating balance by issuing
 the <em>ebal</em> ascii output option. You can select which solution you want
-to use in SPEX by setting the <em>soln</em> parameter. Default is 0 (hottest
+to use in SPEX by setting the <em>soln</em> parameter. Default is 0 (hottest
 solution), and for the above case of 3 solutions values of 1, 2 and 3
 renders you the coldest, second ant hottest solution. Test this with the
 <em>heat</em> or <em>plas</em> output options.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When you set soln to a non-zero value, use fmod=1,
-otherwise SPEX may crash.</p>
+otherwise SPEX may crash.</p>
 </div>
 </div>
 <div class="section" id="no-equilibrium-solution">
@@ -228,7 +228,7 @@ otherwise SPEX may crash.</p>
 energy balance equations. This may happen for instance if you put so
 much heat in the plasma that it cannot be balanced anymore by cooling.
 Another example is a too hard powerlaw without high energy cut-off,
-where Compton-heating might be very strong. In this case SPEX renders an
+where Compton-heating might be very strong. In this case SPEX renders an
 error message, and you cannot trust the result of the calculation
 anymore. The only remedie is to adjust your model parameters or the
 allowed range for them in case of spectral fitting or error searches.</p>
@@ -256,12 +256,12 @@ which can be easily derived:</p>
 <div class="math">
 <p><img src="../_images/math/2e8c72a548364e1317aced301890d962c9e7dc77.svg" alt="a =F_{\mathrm abs}/c f m_{\mathrm p} N_{\mathrm H},"/></p>
 </div><p>where <img class="math" src="../_images/math/e1309177b72a61a0fceb0dcc16d45a60dc3137e5.svg" alt="F_{\mathrm abs}=\int F(E)(1-T(E)){\mathrm d}E" style="vertical-align: -5px"/> is the absorbed flux
-(<img class="math" src="../_images/math/4e75baca327f5d78e2c78539450adba6c21b8faf.svg" alt="F(E)" style="vertical-align: -4px"/> is the incoming flux in W m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/> keV and
+(<img class="math" src="../_images/math/4e75baca327f5d78e2c78539450adba6c21b8faf.svg" alt="F(E)" style="vertical-align: -4px"/> is the incoming flux in W <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> keV and
 <img class="math" src="../_images/math/ac4c0d4818cb65f349bb02ec5b07f1f7062f6bbc.svg" alt="T(E)" style="vertical-align: -4px"/> the transmission of the layer), <img class="math" src="../_images/math/d3b9cae74c16a962ba8209e5b9b21828b5fb5c4e.svg" alt="c" style="vertical-align: 0px"/> the speed of
 light, <img class="math" src="../_images/math/7ee834b6882cddba80e1d7f6a32c255176c47069.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> the proton mass, <img class="math" src="../_images/math/0b919b210fa90074cf729813b68a05162c34fbf1.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> the hydrogen
 column density and <img class="math" src="../_images/math/b64208741b9a9e6ab720243d59875b9d1f993ebb.svg" alt="f" style="vertical-align: -3px"/> is a dimension less quantity determined
 from <img class="math" src="../_images/math/9bdb620ff04491643dee2af5cab32c13a4f1b939.svg" alt="\rho = f n_{\mathrm H} m_{\mathrm p}" style="vertical-align: -5px"/> with <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> the
-hydrogen density and <img class="math" src="../_images/math/aa5c13ff92a8ff10b24ef9c9ec6f485ff7548125.svg" alt="\rho" style="vertical-align: -3px"/> the mass density (kg m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>)
+hydrogen density and <img class="math" src="../_images/math/aa5c13ff92a8ff10b24ef9c9ec6f485ff7548125.svg" alt="\rho" style="vertical-align: -3px"/> the mass density (kg <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>)
 of the plasma, for example <img class="math" src="../_images/math/fb5b7eccef10eff979b5cb1cff6131a554baf120.svg" alt="f=1.4287" style="vertical-align: -3px"/> for the present default
 abundances of SPEX (you can check this number from the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span>
 <span class="pre">...</span> <span class="pre">plas</span></code> ascii output option).</p>
@@ -271,12 +271,12 @@ abundances of SPEX (you can check this number from the <code class="docutils lit
 <h2>4.1.28.3. Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h2>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>.
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
 Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
 latitudes).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/a659fde1f7b28c8cbbd7b1c4d9578fed05602079.svg" alt="^{10}" style="vertical-align: 0px"/>log of the ionisation parameter
-<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 1.</div>
+<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">u</span></code> : the Davidson (Cloudy) ionisation parameter <img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/>
 (dimensionless). This is calculated from the SED and the value of
 <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. Not fittable, just output.</div>
@@ -303,7 +303,7 @@ parameter; if type equals 1, it uses lixi (see next parameter) as its
 main parameter</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">lixi</span></code> : Optional alternative ionisation parameter, defines as
 <img class="math" src="../_images/math/daf7edb256caf9317e32119fc137b18aee0f376e.svg" alt="L_{\mathrm
-{ion}}/\xi" style="vertical-align: -4px"/> in units of <img class="math" src="../_images/math/ad1d05c200ce3b4ac3239e98111209c7eec1141a.svg" alt="10^{39}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>. This is useful
+{ion}}/\xi" style="vertical-align: -4px"/> in units of <img class="math" src="../_images/math/ad1d05c200ce3b4ac3239e98111209c7eec1141a.svg" alt="10^{39}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/341698122769724b5ed35a9706394d6075716ee7.svg" alt="\mathrm{m}^{-1}" style="vertical-align: 0px"/>. This is useful
 for time-variable spectra where <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> has been determined from
 one spectrum and where one wants to calculated the transmitted
 spectrum for fixed <img class="math" src="../_images/math/7a6c8a00bd5f07fd540b0a94269dec9242b8ffd6.svg" alt="nr^2" style="vertical-align: 0px"/> for a different ionising spectrum; in
@@ -313,7 +313,7 @@ At this stage, keep it to zero, please.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">mix</span></code> : Fraction of emitted spectrum to the forward direction
 relative to the total. default value: 1 (all emission forward). A
 value of 0 means SPEX gives all backwards emission.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">exth</span></code> : External heating in W m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>. default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">exth</span></code> : External heating in W <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. default value: 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fmod</span></code> : Show all solutions in ascii output of the heating (fmod=1).
 Default is fmod=0. Set fmod=1 also when you set soln<img class="math" src="../_images/math/54341706363c96ef9250da3f09241d411b03f0ee.svg" alt="&gt;0" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">soln</span></code> : The temperature solution to be used, from low to high
@@ -323,10 +323,10 @@ instead. Should be used with fmod=1 in case soln<img class="math" src="../_image
 <div class="line"><code class="docutils literal notranslate"><span class="pre">tmod</span></code> : Temperature mode. Default value: 0 (solve for the
 temperature that provides energy balance). If tmod=1, use <em>tinp</em>
 instead as temperature and do not solve for energy balance.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">tinp</span></code> : Temperature of the plasma in keV. Default: 1 keV. Only
+<div class="line"><code class="docutils literal notranslate"><span class="pre">tinp</span></code> : Temperature of the plasma in keV. Default: 1 keV. Only
 relevant if <em>tmod=1</em>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">tadi</span></code> : Adiabatic cooling time scale (s). See description above.
-Default value: <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705370e0544.svg" alt="10^{30}" style="vertical-align: 0px"/> s.</div>
+Default value: <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705370e0544.svg" alt="10^{30}" style="vertical-align: 0px"/> s.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">acc</span></code> : Radiative acceleration. See description above. Note: only
 output.</div>
 </div>

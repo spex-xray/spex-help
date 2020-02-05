@@ -94,7 +94,7 @@ of the ionisation parameter after <img class="math" src="../_images/math/0218832
 u-U &amp;=&amp; \int_{t_{\mathrm br}} n(t) dt = \int_{t_{\mathrm br}} n_{\mathrm e} (t/t_{\mathrm br})^{\beta} dt \\
 &amp;=&amp; n_{\mathrm e} t_{\mathrm br} ~\int_{1} (t/t_{\mathrm br})^{\beta} ~d(t/t_{\mathrm br}) \\
 &amp;=&amp; U / (\beta+1) \cdot [(t/t_{\mathrm br})^{\beta+1} - 1], \label{eq:tauevo}\end{aligned}"/></p>
-</div><p>Then, by combining equations <a class="reference internal" href="#equation-tevo">(1)</a> and
+</div><p>Then, by combining equations <a class="reference internal" href="#equation-tevo">(1)</a> and
 <a class="reference internal" href="#equation-tauevo">(2)</a>, we obtain:</p>
 <div class="math">
 <p><img src="../_images/math/2574f60e08faf08ada2af4efe100ec9a41c0156d.svg" alt="\begin{aligned}
@@ -113,12 +113,12 @@ the ratio <img class="math" src="../_images/math/f80f3682bd66b64d59529501eec7d16
 <p>In some rare cases with a large negative <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/7de06fe93bc246b0fd662f83d7a7bca9c853f0eb.svg" alt="T_3" style="vertical-align: -2px"/> can
 get an unphysical value (<img class="math" src="../_images/math/35d5c17a217d1047dcc83f0b23d2bb45b0823971.svg" alt="T_3 &lt; 0" style="vertical-align: -2px"/>). In such a case the
 calculation will automatically be stopped at a lower-limit of
-<img class="math" src="../_images/math/f99c1c499878fd3437a0838b6826a59216e1cb32.svg" alt="T(u) = 10^{-4}" style="vertical-align: -4px"/> keV.</p>
+<img class="math" src="../_images/math/f99c1c499878fd3437a0838b6826a59216e1cb32.svg" alt="T(u) = 10^{-4}" style="vertical-align: -4px"/> keV.</p>
 <p>For mode 2, the user may enter an ascii-file with <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>- and
 <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>-values. The format of this file is as follows: the first line
 contains the number of data pairs (<img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>). The next lines
 contain the values of <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/> (in the SPEX units of
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> s m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> (in keV). Note that
+<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> s <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> (in keV). Note that
 <img class="math" src="../_images/math/b906f6b850497c174f453e291bb2c9f89829eedc.svg" alt="u_1=0" style="vertical-align: -2px"/> is a requirement, all <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> should be positive, and
 the array of <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>-values should be in ascending order. The pairs
 (<img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>) determine the ionisation history, starting from
@@ -126,14 +126,14 @@ the array of <img class="math" src="../_images/math/a507cd4db8638f040798b10db939
 temperature is the temperature of the last bin.</p>
 <div class="line-block">
 <div class="line">The parameters of the model are: <code class="docutils literal notranslate"><span class="pre">t1</span></code> : Temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>
-before the sudden change in temperature, in keV. Default: 0.002 keV.</div>
+before the sudden change in temperature, in keV. Default: 0.002 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t2</span></code> : Temperature <img class="math" src="../_images/math/bf26e4bae14dd22607ad0a45e0c90a06202675ae.svg" alt="T_2" style="vertical-align: -2px"/> after the sudden change in
-temperature, in keV. Default: 1 keV.</div>
+temperature, in keV. Default: 1 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">u</span></code> : Ionization parameter <img class="math" src="../_images/math/533ad0851699fc5930d476effdc1e3c002c9ee90.svg" alt="U=n_{\mathrm e}t" style="vertical-align: -2px"/> before the
-“break”, in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/> s. Default:
+“break”, in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/> s. Default:
 <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">du</span></code> : Ionization parameter <img class="math" src="../_images/math/c808e5e61487c2cef6df1b84bef84aa177f03bcc.svg" alt="dU" style="vertical-align: 0px"/> after the “break” in
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/> s. Default value is 0 (no break).</div>
+<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> s. Default value is 0 (no break).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">alfa</span></code> : Slope <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> of the <img class="math" src="../_images/math/5c0f05712e1204de935b51dc41d32501e036a38f.svg" alt="T(t)" style="vertical-align: -4px"/> curve after the
 “break”. Default value is 0 (constant <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">beta</span></code> : Slope <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> of the <img class="math" src="../_images/math/b98e3c2bcb5c9ea2b824a07915dae01675e5e482.svg" alt="n(t)" style="vertical-align: -4px"/> curve after the
@@ -144,7 +144,7 @@ temperature, in keV. Default: 1 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">hisu</span></code> : Filename with the <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> values. Only used when
 mode=2.</div>
 <div class="line">The following parameters are the same as for the cie-model: <code class="docutils literal notranslate"><span class="pre">ed</span></code> :
-Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/></div>
+Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : Micro turbulent velocity in km/s</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>

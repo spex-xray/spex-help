@@ -49,7 +49,7 @@ The parameters of the model are:
   npol\ :math:`<19`, the remaining values of :math:`f_i` are simply
   ignored.
 | The following parameters are common to all our absorption models:
-  ``fcov`` : The covering factor of the absorber. Default value: 1 (full
+| ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend
@@ -58,7 +58,8 @@ The parameters of the model are:
   components
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
 | The following parameter is the same as for the xabs-model (see there
-  for a description): ``col`` : File name for the photoionisation
+  for a description): 
+| ``col`` : File name for the photoionisation
   balance parameters
 
 *Recommended citation:* `Steenbrugge et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005A%26A...432..453S/abstract>`_

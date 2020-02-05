@@ -45,7 +45,7 @@ SPEX and loads the Hyd model to calculate the spectrum.</p>
 <p>For users who are familiar with Fortran, we offer the supporting
 fortran90 subroutine, <em>hydro_driver</em>, to make the ion concentration file
 conveniently. The usage of the <em>hydro_driver</em> is described in
-Section <a class="reference external" href="#sect:hydrodriver">Hydrodriver</a>.</p>
+Section <a class="reference external" href="#sect:hydrodriver">Hydrodriver</a>.</p>
 <p>For more general cases users can directly load the Hyd model and just
 calculate the spectrum. The model has two modes to specify the format
 for the ion concentrations: absolute (mode 1) or relative (mode 2). For
@@ -59,14 +59,14 @@ have the name “spexicon_rel.dat”, which contains the ion concentrations
 relative to the concentration of the relevant chemical element.</p>
 <div class="line-block">
 <div class="line">The parameters of the model are: <code class="docutils literal notranslate"><span class="pre">hyd</span></code> : Hydrogen density in
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/></div>
+<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code> : Mode of the model. Mode=1: read absolute ion concentration
 from <code class="docutils literal notranslate"><span class="pre">spexicon_abs.dat</span></code>. mode=2: read relative ion concentration from
 <code class="docutils literal notranslate"><span class="pre">spexicon_rel.dat</span></code>.</div>
 <div class="line">The following parameters are the same as for the cie-model: <code class="docutils literal notranslate"><span class="pre">norm</span></code> :
 the normalisation, which is the emission measure
 <img class="math" src="../_images/math/bc4c52be7765356c479ac3a6dfe4451c0ee2e89c.svg" alt="Y \equiv  n_{\mathrm e} n_{\mathrm H} V" style="vertical-align: -2px"/> in units of
-<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>, where <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, where <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and
 <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> are the electron and Hydrogen densities and
 <img class="math" src="../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> the volume of the source. Default value: 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default

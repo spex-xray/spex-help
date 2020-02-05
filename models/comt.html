@@ -38,7 +38,7 @@
 <p>This is the model for Comptonisation of soft photons in a hot plasma,
 developed by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...434..570T/abstract">Titarchuk (1994)</a>.
 See the XSPEC manual for more details. The code was substantially
-improved and brought to the SPEX standards.</p>
+improved and brought to the SPEX standards.</p>
 <div class="section" id="some-modifications">
 <h2>4.1.6.1. Some modifications<a class="headerlink" href="#some-modifications" title="Permalink to this headline">¶</a></h2>
 <p>Titarchuk (1994) gives an analytical approximation for
@@ -46,7 +46,7 @@ improved and brought to the SPEX standards.</p>
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1985A%26A...143..374S/abstract">Sunyaev &amp; Titarchuk (1985)</a>
 for <img class="math" src="../_images/math/16ebcfbed0a82a22b7b7c486eae81924cb622e21.svg" alt="0.1&lt;\tau&lt;10" style="vertical-align: 0px"/>. Their
 approximation has the proper asymptotic behaviour for small and large
-values of <img class="math" src="../_images/math/7c2a99dd4fdef887e19dd3a680c0d431480df75f.svg" alt="\tau" style="vertical-align: 0px"/>, but unfortunately has deviations up to 7 % over
+values of <img class="math" src="../_images/math/7c2a99dd4fdef887e19dd3a680c0d431480df75f.svg" alt="\tau" style="vertical-align: 0px"/>, but unfortunately has deviations up to 7 % over
 the <img class="math" src="../_images/math/babc4696cc93f9208d02e6ac9b256d70c09804c7.svg" alt="0.1-10" style="vertical-align: -1px"/> range for <img class="math" src="../_images/math/7c2a99dd4fdef887e19dd3a680c0d431480df75f.svg" alt="\tau" style="vertical-align: 0px"/>. The approximation by
 Titarchuk is given in their equations (27) and (28) by</p>
 <div class="math">
@@ -57,7 +57,7 @@ Titarchuk is given in their equations (27) and (28) by</p>
 \mbox{sphere:} \beta &amp;=&amp;
 \frac{\pi^2}{ 3(\tau+2/3)^2} (1-{\mathrm e}^{\displaystyle{-0.7\tau}})
 +{\mathrm e}^{\displaystyle{-1.4\tau}}\ln \frac{4}{3\tau}.\end{aligned}"/></p>
-</div><p>We found an approximation that is better than 1 % using a slight
+</div><p>We found an approximation that is better than 1 % using a slight
 modification of the above equations. We use these new approximations in
 our calculations:</p>
 <div class="math">
@@ -76,8 +76,9 @@ XSPEC manual; see also <a class="reference external" href="https://ui.adsabs.har
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> of the power law, in units of
-<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/e7c5b62e15f1ef4dc6cb389e77a0f607826a18b2.svg" alt="{\mathrm ph}" style="vertical-align: -3px"/> <img class="math" src="../_images/math/f073246ca9dded62cff1f3a62b92f8b74952c075.svg" alt="\mathrm{s}^{-1}\," style="vertical-align: 0px"/>keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>. Due to the way the model is calculated, this is not
-the flux at 1 keV! Default value: 1.</div>
+<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/7f450a4757b62a8a515152dab28974f13ba452cf.svg" alt="\mathrm{ph}" style="vertical-align: -3px"/> <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>
+<img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/>. Due to the way the model is calculated, this is not
+the flux at 1 keV! Default value: 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t0</span></code> : The temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> of the seed photons in keV. Default
 value: 1 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t1</span></code> : The plasma temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 100

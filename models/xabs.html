@@ -53,24 +53,23 @@ acceptable fit, while the <em>slab</em> model may perform better.</p>
 a file (see parameter “col” in the parameter list), but there is also a
 default file in SPEX that is read if the user does not provide a
 separate file. The default is based on a run with Cloudy, using the
-spectral energy distribution of NGC 5548 as used in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract">Steenbrugge et al. (2005)</a>.
+spectral energy distribution of NGC 5548 as used in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract">Steenbrugge et al. (2005)</a>.
 Such an ascii-files contains a pre-calculated list of ionic column
 densities versus ionisation parameter, as well as electron temperatures
 versus ionisation parameter (needed for the thermal line broadening).
 If you want to produce such a file, you can use the auxiliary program
 <em>xabsinput</em>, that will run Cloudy for you and make the file to be used
-in SPEX. See Section <a class="reference external" href="#sect:xabsinput">Xabsinput</a> for more details how to
+in SPEX. See Section <a class="reference external" href="#sect:xabsinput">Xabsinput</a> for more details how to
 use that program.</p>
 <p>For more information on this model, the atomic data and parameters we
-refer to Section <a class="reference external" href="#sect:abs_models">Absorption models</a>.</p>
+refer to Section <a class="reference external" href="#sect:abs_models">Absorption models</a>.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>.
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
 Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/846d4c25e1b4aa985c7f5cc8331c075f6de9c4a8.svg" alt="^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
 latitudes).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/a659fde1f7b28c8cbbd7b1c4d9578fed05602079.svg" alt="^{10}" style="vertical-align: 0px"/>log of the ionisation parameter
-<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/59acb0fda8dc009b34c095c819f8ebbeb39f030f.svg" alt="{ }^{10}" style="vertical-align: 0px"/>logxi` in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> Wm. Default value: 1.</div>
 <div class="line">The following parameters are common to all our absorption models:
 <code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
 covering)</div>

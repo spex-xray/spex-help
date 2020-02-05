@@ -42,7 +42,7 @@ spectrum in the <img class="math" src="../_images/math/15c1260a719561bae9d58eca3
 <div class="math">
 <p><img src="../_images/math/5f93040df987f0f45f69e4f6cedf984d960579a6.svg" alt="F(E) = A E^{-\Gamma}e^{\eta(E)},"/></p>
 </div><p>where <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/a052ec7803b9567160e97a6584ad6a2ee2f01f39.svg" alt="F" style="vertical-align: 0px"/> the photon flux
-in units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph s<img class="math" src="../_images/math/eb187bd73735aa36a99814aed4ef9abd8cfce4f2.svg" alt="^{-1}\," style="vertical-align: 0px"/>keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>, and
+in units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/><img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/>, and
 the function <img class="math" src="../_images/math/693465e1aa74ee1f4c6c82bcc768d8dffdee94ff.svg" alt="\eta(E)" style="vertical-align: -4px"/> is given by</p>
 <div class="math">
 <p><img src="../_images/math/2f612726af271e224a7e6ccdd9e93fae5c83f061.svg" alt="\eta(E) = \frac{r\xi + \sqrt{r^2\xi^2+b^2(1-r^2)} }{1-r^2},"/></p>
@@ -65,7 +65,7 @@ or the break energy <img class="math" src="../_images/math/a3fac7908ac5466af7b50
 <p class="admonition-title">Warning</p>
 <p>By default, the allowed range for the photon index
 <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> is (-10,10). If you manually increase the limits, you may
-run the risk that SPEX crashes due to overflow for very large photon
+run the risk that SPEX crashes due to overflow for very large photon
 indices.</p>
 </div>
 <div class="admonition warning">
@@ -93,7 +93,7 @@ specified in other spectral components.</p>
 <p>When you do spectral fitting, you <strong>must</strong> keep either
 <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> or <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> a fixed parameter! The other parameter will then
 be calculated automatically whenever you give the calculate or fit
-command. SPEX does not check this for you! If you do not do this, you
+command. SPEX does not check this for you! If you do not do this, you
 may get unexpected results / crashes.</p>
 </div>
 <div class="admonition warning">
@@ -105,7 +105,7 @@ break). In the power law model, photon fluxes above the nominal limit
 to the maximum value in order to prevent numerical overflow. This
 implies that you get inaccurate results for low energies, for example
 for a simple power law with <img class="math" src="../_images/math/a592273a0009c5f46f65aa6203e87336d81b5660.svg" alt="\Gamma=2" style="vertical-align: 0px"/> the results (including
-conversion factors) for <img class="math" src="../_images/math/6e0f0991faeb5680237ee910b58a2bf1ff4d15d4.svg" alt="E&lt;10^{-7}" style="vertical-align: 0px"/> keV become inaccurate.</p>
+conversion factors) for <img class="math" src="../_images/math/6e0f0991faeb5680237ee910b58a2bf1ff4d15d4.svg" alt="E&lt;10^{-7}" style="vertical-align: 0px"/> keV become inaccurate.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -119,7 +119,7 @@ the flux in a given band separately.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> of the power law, in units of
-<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph s<img class="math" src="../_images/math/eb187bd73735aa36a99814aed4ef9abd8cfce4f2.svg" alt="^{-1}\," style="vertical-align: 0px"/>keV<img class="math" src="../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/> at 1 keV.
+<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> at 1 keV.
 Default value: 1. When <img class="math" src="../_images/math/bfd15723d1e57cb42bfee8bfcdaede14c1eea690.svg" alt="\Delta\Gamma" style="vertical-align: 0px"/> is not equal to 0, it is
 the asymptotic value at 1 keV of the low-energy branch.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">gamm</span></code> : The photon index <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> of the spectrum. Default
@@ -134,11 +134,11 @@ value: <img class="math" src="../_images/math/bff85759d426d8b65b46eb92e59a711fc8
 <div class="line"><code class="docutils literal notranslate"><span class="pre">type</span></code> : Type of normalisation. Type<img class="math" src="../_images/math/b2690b7f97fb15aad1cff2a7d3bb6dcecf8df178.svg" alt="=0" style="vertical-align: 0px"/> (default): use
 <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/>; type<img class="math" src="../_images/math/f6cc0ee6a0e4262026ab2dcd1d602f15a576daba.svg" alt="=1" style="vertical-align: 0px"/>: use <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">elow</span></code> : <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> in keV, the lower limit for the luminosity
-calculation. Default value: 2 keV.</div>
+calculation. Default value: 2 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">eupp</span></code> : <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> in keV, the upper limit for the luminosity
-calculation. Default value: 10 keV. Take care that <img class="math" src="../_images/math/79534f4b7d99a2e800fbd1ebb8b45c65092ff7db.svg" alt="E_2&gt;E_1" style="vertical-align: -2px"/>.</div>
+calculation. Default value: 10 keV. Take care that <img class="math" src="../_images/math/79534f4b7d99a2e800fbd1ebb8b45c65092ff7db.svg" alt="E_2&gt;E_1" style="vertical-align: -2px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">lum</span></code> : Luminosity <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> between <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>, in
-units of <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705370e0544.svg" alt="10^{30}" style="vertical-align: 0px"/> W.</div>
+units of <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705370e0544.svg" alt="10^{30}" style="vertical-align: 0px"/> W.</div>
 </div>
 </div>
 
@@ -186,7 +186,7 @@ units of <img class="math" src="../_images/math/ed82ac0c14439a6e375b85d58ccb6705
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html">4. Spectral models</a><ul>
   <li><a href="over.html">4.1. Overview of spectral components</a><ul>
-      <li>Previous: <a href="pion.html" title="previous chapter">4.1.28. Pion: SPEX photoionised plasma model</a></li>
+      <li>Previous: <a href="pion.html" title="previous chapter">4.1.28. Pion: SPEX photoionised plasma model</a></li>
       <li>Next: <a href="reds.html" title="next chapter">4.1.30. Reds: redshift model</a></li>
   </ul></li>
   </ul></li>

@@ -46,7 +46,7 @@ Boltzmann’s constant, <img class="math" src="../_images/math/31ab6a6bbd42adebf
 plasma with 0.5 times solar abundances), <img class="math" src="../_images/math/bcde598ddfec2fcddc492972163986a0bda7115c.svg" alt="m_{\mathrm{H}}" style="vertical-align: -2px"/> is the mass
 of a hydrogen atom, and <img class="math" src="../_images/math/15e3e5e33b50abb863c399a529cc42afb9f650fd.svg" alt="\Lambda(T)" style="vertical-align: -4px"/> is the cooling function. We
 have calculated the cooling function <img class="math" src="../_images/math/e40048d8ef555d09db7cadcd69d6a3196f78166d.svg" alt="\Lambda" style="vertical-align: 0px"/> using our own
-SPEX code for a grid of temperatures and for 0.5 times solar abundances.
+SPEX code for a grid of temperatures and for 0.5 times solar abundances.
 The spectrum is evaluated by integrating the above differential emission
 measure distribution between a lower temperature boundary <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>
 and a high temperature boundary <img class="math" src="../_images/math/bd7a300accb8c96f503d41daaf495c4cab829f33.svg" alt="T_n" style="vertical-align: -2px"/>. We do this by creating a
@@ -67,18 +67,19 @@ and optimal.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : The mass deposition rate <img class="math" src="../_images/math/072e830cdbb6a381bda1bb3479b30b1cbdbd01bd.svg" alt="\dot{M}" style="vertical-align: 0px"/> in
-<img class="math" src="../_images/math/ac2c62948be630a191205b31b861caf206d45721.svg" alt="\mathrm{M}_{\odot}" style="vertical-align: -4px"/> <img class="math" src="../_images/math/bba16a6aa4f4e54f01c971ea890a5fe23693fa48.svg" alt="\mathrm{yr}^{-1}" style="vertical-align: -3px"/>.</div>
+<img class="math" src="../_images/math/ac2c62948be630a191205b31b861caf206d45721.svg" alt="\mathrm{M}_{\odot}" style="vertical-align: -4px"/> <img class="math" src="../_images/math/bba16a6aa4f4e54f01c971ea890a5fe23693fa48.svg" alt="\mathrm{yr}^{-1}" style="vertical-align: -3px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t1</span></code> : Lower temperature cut-off temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>. Default:
-0.1 keV.</div>
+0.1 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">tn</span></code> : Upper temperature cut-off temperature <img class="math" src="../_images/math/bd7a300accb8c96f503d41daaf495c4cab829f33.svg" alt="T_n" style="vertical-align: -2px"/>. Default:
-1 keV.</div>
+1 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">nr</span></code> : Number of temperature bins <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> used in the integration.
 Default value: 16</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">p</span></code> : Slope <img class="math" src="../_images/math/a20edc735b1660a384ffb5719af919dfdf97e920.svg" alt="p=1/\alpha" style="vertical-align: -4px"/>. Default: 0.25 (<img class="math" src="../_images/math/21a9f958d1e4f1b0ace488f8ce67daedce40f360.svg" alt="\alpha = 4" style="vertical-align: 0px"/>).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">cut</span></code> : Lower temperature cut-off, in units of <img class="math" src="../_images/math/a672077fefab873fb739a6ec7b93ed28b07c1791.svg" alt="T_{\max}" style="vertical-align: -2px"/>.
 Default value: 0.1.</div>
-<div class="line">The following parameters are the same as for the cie-model: <code class="docutils literal notranslate"><span class="pre">ed</span></code> :
-Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m:math:<cite>^{-3}</cite></div>
+<div class="line">The following parameters are the same as for the cie-model:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ed</span></code> :
+Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">vmic</span></code> : Micro turbulent velocity in km/s</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
