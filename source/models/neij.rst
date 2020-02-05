@@ -81,7 +81,7 @@ of the ionisation parameter after :math:`t=t_{\mathrm br}` as follows:
    &=& U / (\beta+1) \cdot [(t/t_{\mathrm br})^{\beta+1} - 1], \label{eq:tauevo}\end{aligned}
    :label: tauevo
 
-Then, by combining equations :eq:`tevo` and
+Then, by combining equations :eq:`tevo` and
 :eq:`tauevo`, we obtain:
 
 .. math::
@@ -107,13 +107,13 @@ the ratio :math:`dU/U` rather than :math:`dU` itself. The user can check
 In some rare cases with a large negative :math:`\beta`, :math:`T_3` can
 get an unphysical value (:math:`T_3 < 0`). In such a case the
 calculation will automatically be stopped at a lower-limit of
-:math:`T(u) = 10^{-4}` keV.
+:math:`T(u) = 10^{-4}` keV.
 
 For mode 2, the user may enter an ascii-file with :math:`u`- and
 :math:`T`-values. The format of this file is as follows: the first line
 contains the number of data pairs (:math:`u`, :math:`T`). The next lines
 contain the values of :math:`u` (in the SPEX units of
-:math:`10^{20}`�s :math:`\mathrm{m}^{-3}`) and :math:`T` (in keV). Note that
+:math:`10^{20}` s :math:`\mathrm{m}^{-3}`) and :math:`T` (in keV). Note that
 :math:`u_1=0` is a requirement, all :math:`T_i` should be positive, and
 the array of :math:`u`-values should be in ascending order. The pairs
 (:math:`u`, :math:`T`) determine the ionisation history, starting from
@@ -121,11 +121,11 @@ the array of :math:`u`-values should be in ascending order. The pairs
 temperature is the temperature of the last bin.
 
 | The parameters of the model are: ``t1`` : Temperature :math:`T_1`
-  before the sudden change in temperature, in keV. Default: 0.002 keV.
+  before the sudden change in temperature, in keV. Default: 0.002 keV.
 | ``t2`` : Temperature :math:`T_2` after the sudden change in
-  temperature, in keV. Default: 1 keV.
+  temperature, in keV. Default: 1 keV.
 | ``u`` : Ionization parameter :math:`U=n_{\mathrm e}t` before the
-  “break”, in :math:`10^{20}` m\ :math:`^{-3}` s. Default:
+  “break”, in :math:`10^{20}` m\ :math:`^{-3}` s. Default:
   :math:`10^{-4}`.
 | ``du`` : Ionization parameter :math:`dU` after the “break” in
   :math:`10^{20}` :math:`\mathrm{m}^{-3}` s. Default value is 0 (no break).
@@ -139,7 +139,7 @@ temperature is the temperature of the last bin.
 | ``hisu`` : Filename with the :math:`T(u)` values. Only used when
   mode=2.
 | The following parameters are the same as for the cie-model: ``ed`` :
-  Electron density in :math:`10^{20}`� :math:`\mathrm{m}^{-3}`
+  Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
 | ``it`` : Ion temperature in keV
 | ``vmic`` : Micro turbulent velocity in km/s
 | ``ref`` : Reference element

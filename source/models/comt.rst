@@ -5,7 +5,7 @@ This is the model for Comptonisation of soft photons in a hot plasma,
 developed by `Titarchuk (1994)
 <https://ui.adsabs.harvard.edu/abs/1994ApJ...434..570T/abstract>`_.
 See the XSPEC manual for more details. The code was substantially
-improved and brought to the SPEX standards.
+improved and brought to the SPEX standards.
 
 Some modifications
 ------------------
@@ -16,7 +16,7 @@ Titarchuk (1994) gives an analytical approximation for
 <https://ui.adsabs.harvard.edu/abs/1985A%26A...143..374S/abstract>`_
 for :math:`0.1<\tau<10`. Their
 approximation has the proper asymptotic behaviour for small and large
-values of :math:`\tau`, but unfortunately has deviations up to 7 % over
+values of :math:`\tau`, but unfortunately has deviations up to 7 % over
 the :math:`0.1-10` range for :math:`\tau`. The approximation by
 Titarchuk is given in their equations (27) and (28) by
 
@@ -30,7 +30,7 @@ Titarchuk is given in their equations (27) and (28) by
    \frac{\pi^2}{ 3(\tau+2/3)^2} (1-{\mathrm e}^{\displaystyle{-0.7\tau}})
    +{\mathrm e}^{\displaystyle{-1.4\tau}}\ln \frac{4}{3\tau}.\end{aligned}
 
-We found an approximation that is better than 1 % using a slight
+We found an approximation that is better than 1 % using a slight
 modification of the above equations. We use these new approximations in
 our calculations:
 
@@ -53,7 +53,7 @@ The parameters of the model are:
 | ``norm`` : Normalisation :math:`A` of the power law, in units of
   :math:`10^{44}` :math:`\mathrm{ph}` :math:`\mathrm{s}^{-1}`
   :math:`\mathrm{keV}^{-1}`. Due to the way the model is calculated, this is not
-  the flux at 1�keV! Default value: 1.
+  the flux at 1 keV! Default value: 1.
 | ``t0`` : The temperature :math:`T` of the seed photons in keV. Default
   value: 1 keV.
 | ``t1`` : The plasma temperature :math:`T` in keV. Default value: 100

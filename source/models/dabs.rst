@@ -40,12 +40,12 @@ predominantly in dust grains.
 The parameters of the model are:
 
 | ``nh`` : Nominal hydrogen column density in
-  :math:`10^{28}` :math:`\mathrm{m}^{-2}`. Default value: :math:`1`.
+  :math:`10^{28}` :math:`\mathrm{m}^{-2}`. Default value: :math:`1`.
 | ``amin`` : Minimum grain size in :math:`\mu`\ m. Default value: 0.025.
 | ``amax`` : Minimum grain size in :math:`\mu`\ m. Default value: 0.25.
 | ``p`` : Power index grain size distribution. Default value: 3.5.
 | ``rho`` : Mean density of the grains in units of
-  1000 kg :math:`\mathrm{m}^{-3}`. Default value: 3.
+  1000 kg :math:`\mathrm{m}^{-3}`. Default value: 3.
 | ``ref`` : Reference atom. Default value: 3 (Lithium). because dust,
   according to the depletion factors used, does not contain hydrogen, we
   substitute here formally Lithium. The user is advisednot to change

@@ -12,7 +12,7 @@ SPEX and loads the Hyd model to calculate the spectrum.
 For users who are familiar with Fortran, we offer the supporting
 fortran90 subroutine, *hydro_driver*, to make the ion concentration file
 conveniently. The usage of the *hydro_driver* is described in
-SectionÂ `Hydrodriver <#sect:hydrodriver>`__.
+Section `Hydrodriver <#sect:hydrodriver>`__.
 
 For more general cases users can directly load the Hyd model and just
 calculate the spectrum. The model has two modes to specify the format
@@ -34,7 +34,7 @@ relative to the concentration of the relevant chemical element.
 | The following parameters are the same as for the cie-model: ``norm`` :
   the normalisation, which is the emission measure
   :math:`Y \equiv  n_{\mathrm e} n_{\mathrm H} V` in units of
-  :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where :math:`n_{\mathrm e}` and
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where :math:`n_{\mathrm e}` and
   :math:`n_{\mathrm H}` are the electron and Hydrogen densities and
   :math:`V` the volume of the source. Default value: 1.
 | ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default

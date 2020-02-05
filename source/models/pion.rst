@@ -1,6 +1,6 @@
 .. _sec:pion:
 
-Pion: SPEX photoionised plasma model
+Pion: SPEX photoionised plasma model
 ====================================
 
 The *pion* model calculates the transmission and emission of a slab of
@@ -15,14 +15,14 @@ XSTAR (or even with the present *pion* model :math:`\ldots`), in the
 present *pion* model the photoionisation equilibrium is calculated
 self-consistently using the available plasma routines of SPEX.
 
-.. Warning:: The default energy grid in SPEX has 8192 bins between
-   0.001 and 100 keV. This may not be sufficient for the pion model when
+.. Warning:: The default energy grid in SPEX has 8192 bins between
+   0.001 and 100 keV. This may not be sufficient for the pion model when
    you use it without data. Recommended is a logarithmic grid between
-   :math:`10^{-6}-10^{6}`Â keV with a step size of 0.005. You can get this
+   :math:`10^{-6}-10^{6}` keV with a step size of 0.005. You can get this
    by issuing the following command: â€Egrid log 1E-6 : 1E6 step 0.005 keV".
    Note that if you have read in data, SPEX automatically uses the resolution
    of the response matrix within its energy range and expands the
-   total energy grid to :math:`10^{-6}-10^{6}`Â keV.
+   total energy grid to :math:`10^{-6}-10^{6}` keV.
 
 .. Warning:: This model is still under development and not all atomic
    data is fully updated. For instance, no cooling by collisional
@@ -34,7 +34,7 @@ self-consistently using the available plasma routines of SPEX.
    Therefore, the pion model needs the same com rel sequence as you use for
    your absorption component. Example: ``com pow`` â€” ``com reds`` â€” ``com
    pion`` â€” ``com rel 1 3,2`` (a powerlaw that powers a pion model and is then redshifted)
-   needs as next command ``com rel 3 2``, telling SPEXÂ that the pion emission
+   needs as next command ``com rel 3 2``, telling SPEX that the pion emission
    model is also redshifted.
 
 .. Warning:: Please note that all PION components must be multiplied by
@@ -71,7 +71,7 @@ the density gets too high; this is different for each ion; so unless you
 limit the density in fitting, SPEX may encounter a situation where you
 surpass the critical density and you may get a warning message. Here is
 an example. For a photoionised case, with :math:`\log \xi = 3`
-(resulting :math:`kT=0.64`Â keV) the nominal occupation of the ground
+(resulting :math:`kT=0.64` keV) the nominal occupation of the ground
 state of Hâ€† becomes negative for a density
 :math:`>0.15\times 10^{20}` :math:`\mathrm{m}^{-3}`. This can be traced down to
 incomplete atomic data. For Hâ€†, we include collisional excitation and
@@ -175,20 +175,20 @@ Multiple solutions
 
 There are situations where there is not a unique solution to the energy
 balance equations. A simple example can be obtained as follows: take a
-logarithmic energy grid between :math:`10^{-6}-10^6`Â keV, use a powerlaw
+logarithmic energy grid between :math:`10^{-6}-10^6` keV, use a powerlaw
 with photon index 1.5, apply the pion model to it and put *exth* to
-:math:`5\times 10^{-25}`Â W :math:`\mathrm{m}^{-3}`. In this case there are 3
-solutions. SPEX chooses by default the hottest solution. You can see all
+:math:`5\times 10^{-25}` W :math:`\mathrm{m}^{-3}`. In this case there are 3
+solutions. SPEX chooses by default the hottest solution. You can see all
 solutions by putting the parameter *fmod=1* and using the *heat* ascii
 output option. Or check the behaviour of the hating balance by issuing
 the *ebal* ascii output option. You can select which solution you want
-to use in SPEX by setting the *soln* parameter. Default is 0 (hottest
+to use in SPEX by setting the *soln* parameter. Default is 0 (hottest
 solution), and for the above case of 3 solutions values of 1, 2 and 3
 renders you the coldest, second ant hottest solution. Test this with the
 *heat* or *plas* output options.
 
 .. Warning:: When you set soln to a non-zero value, use fmod=1,
-   otherwise SPEX may crash.
+   otherwise SPEX may crash.
 
 No equilibrium solution
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,7 +197,7 @@ There are also situations where there is no equilibrium solution to the
 energy balance equations. This may happen for instance if you put so
 much heat in the plasma that it cannot be balanced anymore by cooling.
 Another example is a too hard powerlaw without high energy cut-off,
-where Compton-heating might be very strong. In this case SPEX renders an
+where Compton-heating might be very strong. In this case SPEX renders an
 error message, and you cannot trust the result of the calculation
 anymore. The only remedie is to adjust your model parameters or the
 allowed range for them in case of spectral fitting or error searches.
@@ -243,12 +243,12 @@ Model parameters
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
+  :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
 | ``xi`` : the :math:`^{10}`\ log of the ionisation parameter
-  :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
+  :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
 | ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
@@ -295,10 +295,10 @@ The following parameters are common to all our absorption models:
 | ``tmod`` : Temperature mode. Default value: 0 (solve for the
   temperature that provides energy balance). If tmod=1, use *tinp*
   instead as temperature and do not solve for energy balance.
-| ``tinp`` : Temperature of the plasma in keV. Default: 1 keV. Only
+| ``tinp`` : Temperature of the plasma in keV. Default: 1 keV. Only
   relevant if *tmod=1*.
 | ``tadi`` : Adiabatic cooling time scale (s). See description above.
-  Default value: :math:`10^{30}` s.
+  Default value: :math:`10^{30}` s.
 | ``acc`` : Radiative acceleration. See description above. Note: only
   output.
 

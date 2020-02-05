@@ -23,7 +23,7 @@ subsequent energies may not have the same value). Also, the spectrum
 :math:`S_i` must be strictly positive (i.e. :math:`S_i=0` is not
 allowed).
 
-SPEX then calculates the spectrum by linear interpolation in the
+SPEX then calculates the spectrum by linear interpolation in the
 :math:`\log E - \log S` plane (this is why fluxes must be positive). For :math:`E<E_1`
 and :math:`E>E_n` however, the spectrum is put to zero. Finally, the
 spectrum is multiplied by the scale factor :math:`N` prescribed by the
