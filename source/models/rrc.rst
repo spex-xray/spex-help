@@ -37,14 +37,14 @@ The parameters of the model are:
 | ``t`` : The temperature :math:`T` in keV. Default value: 1 keV.
 | ``h2`` : The H  emission measure :math:`n_{\mathrm e}
    n_{\mathrm{{ H\,{\mathrm{II}}}}} V` in units of
-  :math:`10^{64}` m\ :math:`^{-3}`. Default value: 0.
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 0.
 | ``he2`` : The He  emission measure :math:`n_{\mathrm e}
    n_{\mathrm{{ He\,{\mathrm{II}}}}} V` in units of
-  :math:`10^{64}` m\ :math:`^{-3}`. Default value: 0.
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 0.
 | ``he3`` : The He  emission measure :math:`n_{\mathrm e}
    n_{\mathrm{{ He\,{\mathrm{III}}}}} V` in units of
-  :math:`10^{64}` m\ :math:`^{-3}`. Default value: 0.
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 0.
 | :math:`\ldots` ``ni29`` : The Ni  emission measure
   :math:`n_{\mathrm e}
    n_{\mathrm{{ Ni\,{\mathrm{XXIX}}}}} V` in units of
-  :math:`10^{64}` m\ :math:`^{-3}`. Default value: 0.
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 0.

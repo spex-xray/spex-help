@@ -32,7 +32,7 @@ experiments (see a full list in Table 1 of `Gu et al. (2016)
 and fitted them with Eq.2 of `Gu et al. (2016)
 <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_ in the energy
 range of interests. In typical astrophysical velocity range
-(:math:`\sim 100-5000` km s\ :math:`^{-1}`), the useful CHART data are
+(:math:`\sim 100-5000` km :math:`\mathrm{s}^{-1}`), the useful CHART data are
 usually from molecular-orbital and atomic-orbital close-coupling
 methods, and a few classical trajectory Monte Carlo calculations. All
 the above data are dependent on collision energy, and resolved to levels
@@ -86,7 +86,7 @@ The parameters of the CX model are:
   end. Default value: 0
 | ``logt`` : Switch between linear and logarithmic temperature scale for
   the gaussian emission measure profile. Default value: 1 (logarithmic)
-| ``zv`` : Collision velocity in unit of km s\ :math:`^{-1}`, used when
+| ``zv`` : Collision velocity in unit of km :math:`\mathrm{s}^{-1}`, used when
   mode is set to 2. Default value: 100
 | ``op`` : Switch between single and multiple collisions for each ion.
   In multiple collision case, one ion would continuously undergo CX and

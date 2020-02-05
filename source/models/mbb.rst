@@ -19,13 +19,13 @@ in keV and :math:`A` the normalisation in units of
 .. math:: A = n_{\mathrm e}^{0.5}O
 
 with :math:`n_{\mathrm e}` the electron density (units:
-:math:`10^{20}`Â m\ :math:`^{-3}`) and :math:`O` the emitting source area
-(units: :math:`10^{16}`Â m).
+:math:`10^{20}`Â :math:`\mathrm{m}^{-3}`) and :math:`O` the emitting source area
+(units: :math:`10^{16}` m).
 
 The parameters of the model are:
 
 | ``norm`` : Normalisation :math:`A` (in units of
-  :math:`10^{26}`Â m\ :math:`^{0.5}`). Default value: 1.
+  :math:`10^{26}` :math:`\mathrm{m}^{0.5}`). Default value: 1.
 | ``t`` : The temperature :math:`T` in keV. Default value: 1 keV.
 
 *Recommended citation:* `Kaastra & Barr (1989)

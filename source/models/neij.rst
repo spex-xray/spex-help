@@ -113,7 +113,7 @@ For mode 2, the user may enter an ascii-file with :math:`u`- and
 :math:`T`-values. The format of this file is as follows: the first line
 contains the number of data pairs (:math:`u`, :math:`T`). The next lines
 contain the values of :math:`u` (in the SPEX units of
-:math:`10^{20}` s m\ :math:`^{-3}`) and :math:`T` (in keV). Note that
+:math:`10^{20}`�s :math:`\mathrm{m}^{-3}`) and :math:`T` (in keV). Note that
 :math:`u_1=0` is a requirement, all :math:`T_i` should be positive, and
 the array of :math:`u`-values should be in ascending order. The pairs
 (:math:`u`, :math:`T`) determine the ionisation history, starting from
@@ -128,7 +128,7 @@ temperature is the temperature of the last bin.
   “break”, in :math:`10^{20}` m\ :math:`^{-3}` s. Default:
   :math:`10^{-4}`.
 | ``du`` : Ionization parameter :math:`dU` after the “break” in
-  :math:`10^{20}` m\ :math:`^{-3}` s. Default value is 0 (no break).
+  :math:`10^{20}` :math:`\mathrm{m}^{-3}` s. Default value is 0 (no break).
 | ``alfa`` : Slope :math:`\alpha` of the :math:`T(t)` curve after the
   “break”. Default value is 0 (constant :math:`T`).
 | ``beta`` : Slope :math:`\beta` of the :math:`n(t)` curve after the
@@ -139,7 +139,7 @@ temperature is the temperature of the last bin.
 | ``hisu`` : Filename with the :math:`T(u)` values. Only used when
   mode=2.
 | The following parameters are the same as for the cie-model: ``ed`` :
-  Electron density in :math:`10^{20}` m\ :math:`^{-3}`
+  Electron density in :math:`10^{20}`� :math:`\mathrm{m}^{-3}`
 | ``it`` : Ion temperature in keV
 | ``vmic`` : Micro turbulent velocity in km/s
 | ``ref`` : Reference element

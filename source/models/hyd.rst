@@ -27,14 +27,14 @@ have the name “spexicon_rel.dat”, which contains the ion concentrations
 relative to the concentration of the relevant chemical element.
 
 | The parameters of the model are: ``hyd`` : Hydrogen density in
-  :math:`10^{20}` m\ :math:`^{-3}`
+  :math:`10^{20}` :math:`\mathrm{m}^{-3}`
 | ``mode`` : Mode of the model. Mode=1: read absolute ion concentration
   from ``spexicon_abs.dat``. mode=2: read relative ion concentration from
   ``spexicon_rel.dat``.
 | The following parameters are the same as for the cie-model: ``norm`` :
   the normalisation, which is the emission measure
   :math:`Y \equiv  n_{\mathrm e} n_{\mathrm H} V` in units of
-  :math:`10^{64}` m\ :math:`^{-3}`, where :math:`n_{\mathrm e}` and
+  :math:`10^{64}`�:math:`\mathrm{m}^{-3}`, where :math:`n_{\mathrm e}` and
   :math:`n_{\mathrm H}` are the electron and Hydrogen densities and
   :math:`V` the volume of the source. Default value: 1.
 | ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default

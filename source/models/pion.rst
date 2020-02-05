@@ -1,6 +1,6 @@
 .. _sec:pion:
 
-Pion: SPEX photoionised plasma model
+Pion: SPEX�photoionised plasma model
 ====================================
 
 The *pion* model calculates the transmission and emission of a slab of
@@ -15,12 +15,12 @@ XSTAR (or even with the present *pion* model :math:`\ldots`), in the
 present *pion* model the photoionisation equilibrium is calculated
 self-consistently using the available plasma routines of SPEX.
 
-.. Warning:: The default energy grid in SPEX has 8192 bins between
-   0.001 and 100 keV. This may not be sufficient for the pion model when
+.. Warning:: The default energy grid in SPEX�has 8192 bins between
+   0.001 and 100�keV. This may not be sufficient for the pion model when
    you use it without data. Recommended is a logarithmic grid between
    :math:`10^{-6}-10^{6}` keV with a step size of 0.005. You can get this
    by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV".
-   Note that if you have read in data, SPEX automatically uses the resolution
+   Note that if you have read in data, SPEX automatically uses the resolution
    of the response matrix within its energy range and expands the
    total energy grid to :math:`10^{-6}-10^{6}` keV.
 
@@ -73,7 +73,7 @@ surpass the critical density and you may get a warning message. Here is
 an example. For a photoionised case, with :math:`\log \xi = 3`
 (resulting :math:`kT=0.64` keV) the nominal occupation of the ground
 state of H  becomes negative for a density
-:math:`>0.15\times 10^{20}` m\ :math:`^{-3}`. This can be traced down to
+:math:`>0.15\times 10^{20}` :math:`\mathrm{m}^{-3}`. This can be traced down to
 incomplete atomic data. For H , we include collisional excitation and
 de-excitation up to principal quantum number :math:`n=5` but not above.
 As a result, in this example the 1s–5s levels are mainly
@@ -167,7 +167,7 @@ In some cases there may be an other external heat or cooling source,
 like shock heating, magnetic reconnection, adiabatic expansion etc. If
 one wishes to solve for the photoionisation equilibrium, then this
 additional heat source can be used by putting the parameter *exth* to
-the proper value (units: W m\ :math:`^{-3}`. A negative value would mean
+the proper value (units: W :math:`\mathrm{m}^{-3}`. A negative value would mean
 a cooling contribution.
 
 Multiple solutions
@@ -177,18 +177,18 @@ There are situations where there is not a unique solution to the energy
 balance equations. A simple example can be obtained as follows: take a
 logarithmic energy grid between :math:`10^{-6}-10^6` keV, use a powerlaw
 with photon index 1.5, apply the pion model to it and put *exth* to
-:math:`5\times 10^{-25}` W m\ :math:`^{-3}`. In this case there are 3
-solutions. SPEX chooses by default the hottest solution. You can see all
+:math:`5\times 10^{-25}` W :math:`\mathrm{m}^{-3}`. In this case there are 3
+solutions. SPEX�chooses by default the hottest solution. You can see all
 solutions by putting the parameter *fmod=1* and using the *heat* ascii
 output option. Or check the behaviour of the hating balance by issuing
 the *ebal* ascii output option. You can select which solution you want
-to use in SPEX by setting the *soln* parameter. Default is 0 (hottest
+to use in SPEX�by setting the *soln* parameter. Default is 0 (hottest
 solution), and for the above case of 3 solutions values of 1, 2 and 3
 renders you the coldest, second ant hottest solution. Test this with the
 *heat* or *plas* output options.
 
 .. Warning:: When you set soln to a non-zero value, use fmod=1,
-   otherwise SPEX may crash.
+   otherwise SPEX�may crash.
 
 No equilibrium solution
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,7 +197,7 @@ There are also situations where there is no equilibrium solution to the
 energy balance equations. This may happen for instance if you put so
 much heat in the plasma that it cannot be balanced anymore by cooling.
 Another example is a too hard powerlaw without high energy cut-off,
-where Compton-heating might be very strong. In this case SPEX renders an
+where Compton-heating might be very strong. In this case SPEX�renders an
 error message, and you cannot trust the result of the calculation
 anymore. The only remedie is to adjust your model parameters or the
 allowed range for them in case of spectral fitting or error searches.
@@ -228,12 +228,12 @@ which can be easily derived:
 .. math:: a =F_{\mathrm abs}/c f m_{\mathrm p} N_{\mathrm H},
 
 where :math:`F_{\mathrm abs}=\int F(E)(1-T(E)){\mathrm d}E` is the absorbed flux
-(:math:`F(E)` is the incoming flux in W m\ :math:`^{-2}` keV and
+(:math:`F(E)` is the incoming flux in W :math:`\mathrm{m}^{-2}` keV and
 :math:`T(E)` the transmission of the layer), :math:`c` the speed of
 light, :math:`m_{\mathrm p}` the proton mass, :math:`N_{\mathrm H}` the hydrogen
 column density and :math:`f` is a dimension less quantity determined
 from :math:`\rho = f n_{\mathrm H} m_{\mathrm p}` with :math:`n_{\mathrm H}` the
-hydrogen density and :math:`\rho` the mass density (kg m\ :math:`^{-3}`)
+hydrogen density and :math:`\rho` the mass density (kg :math:`\mathrm{m}^{-3}`)
 of the plasma, for example :math:`f=1.4287` for the present default
 abundances of SPEX (you can check this number from the ``asc ter
 ... plas`` ascii output option).
@@ -243,12 +243,12 @@ Model parameters
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` m\ :math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}`�:math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` m\ :math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}`�:math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
 | ``xi`` : the :math:`^{10}`\ log of the ionisation parameter
-  :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
+  :math:`\log\xi` in units of :math:`10^{-9}`�W m. Default value: 1.
 | ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
@@ -275,7 +275,7 @@ The following parameters are common to all our absorption models:
   main parameter
 | ``lixi`` : Optional alternative ionisation parameter, defines as
   :math:`L_{\mathrm
-  {ion}}/\xi` in units of :math:`10^{39}` m\ :math:`^{-1}`. This is useful
+  {ion}}/\xi` in units of :math:`10^{39}` :math:`\mathrm{m}^{-1}`. This is useful
   for time-variable spectra where :math:`\xi` has been determined from
   one spectrum and where one wants to calculated the transmitted
   spectrum for fixed :math:`nr^2` for a different ionising spectrum; in
@@ -285,7 +285,7 @@ The following parameters are common to all our absorption models:
 | ``mix`` : Fraction of emitted spectrum to the forward direction
   relative to the total. default value: 1 (all emission forward). A
   value of 0 means SPEX gives all backwards emission.
-| ``exth`` : External heating in W m\ :math:`^{-3}`. default value: 0.
+| ``exth`` : External heating in W :math:`\mathrm{m}^{-3}`. default value: 0.
 | ``fmod`` : Show all solutions in ascii output of the heating (fmod=1).
   Default is fmod=0. Set fmod=1 also when you set soln\ :math:`>0`.
 | ``soln`` : The temperature solution to be used, from low to high
@@ -295,10 +295,10 @@ The following parameters are common to all our absorption models:
 | ``tmod`` : Temperature mode. Default value: 0 (solve for the
   temperature that provides energy balance). If tmod=1, use *tinp*
   instead as temperature and do not solve for energy balance.
-| ``tinp`` : Temperature of the plasma in keV. Default: 1 keV. Only
+| ``tinp`` : Temperature of the plasma in keV. Default: 1�keV. Only
   relevant if *tmod=1*.
 | ``tadi`` : Adiabatic cooling time scale (s). See description above.
-  Default value: :math:`10^{30}` s.
+  Default value: :math:`10^{30}`�s.
 | ``acc`` : Radiative acceleration. See description above. Note: only
   output.
 

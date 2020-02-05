@@ -28,8 +28,8 @@ The incoming spectrum is characterized by:
 where :math:`E` is the photon energy in keV, :math:`N_i(E)` the number
 of photons per per second per keV, :math:`\Gamma` is the photon index
 and :math:`E_c` a cut-off energy. The normalisation :math:`A` is in
-units of :math:`10^{44}` photons s\ :math:`^{-1}` keV\ :math:`^{-1}` at
-1 keV, just the same as in the standard power law model. The total
+units of :math:`10^{44}`�photons :math:`\mathrm{s}^{-1}` :math:`\mathrm{keV}^{-1}` at
+1�keV, just the same as in the standard power law model. The total
 spectrum :math:`N(E)` is then given by
 
 .. math:: N(E) = N_i(E) + s R(E),
@@ -50,7 +50,7 @@ The parameters of the model are:
 | ``fgr`` : Full general relativity used (default, for fgr=1).
 | ``t`` : Temperature of the reflector (disk) in keV.
 | ``xi`` : Ionisation parameter :math:`\xi=L/nr^2` in the usual (c.g.s.
-  based) units of :math:`10^{-9}` W m.
+  based) units of :math:`10^{-9}`�W m.
 | ``abun`` : The abundance of all metals excluding H and He, in solar
   units
 | ``feab`` : The iron abundance with respect to the other metals

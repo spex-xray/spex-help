@@ -32,7 +32,7 @@ each temperature.
 The parameters of the model are:
 
 | ``norm`` : The mass deposition rate :math:`\dot{M}` in
-  :math:`\mathrm{M}_{\odot}` :math:`\mathrm{yr}^{-1}`.
+  :math:`\mathrm{M}_{\odot}` :math:`\mathrm{yr}^{-1}`.
 | ``t1`` : Lower temperature cut-off temperature :math:`T_1`. Default:
   0.1 keV.
 | ``tn`` : Upper temperature cut-off temperature :math:`T_n`. Default:
@@ -43,7 +43,7 @@ The parameters of the model are:
 | ``cut`` : Lower temperature cut-off, in units of :math:`T_{\max}`.
   Default value: 0.1.
 | The following parameters are the same as for the cie-model: ``ed`` :
-  Electron density in :math:`10^{20}` m:math:`^{-3}`
+  Electron density in :math:`10^{20}`�:math:`\mathrm{m}^{-3}`
 | ``it`` : Ion temperature in keV
 | ``vmic`` : Micro turbulent velocity in km/s
 | ``ref`` : Reference element

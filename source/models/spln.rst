@@ -22,7 +22,7 @@ SPEX then creates a grid :math:`x_1,\,x_2,\,\ldots,\,x_n` with uniform
 spacing in :math:`b` (see below for details). The spectrum at these grid
 points is contained in the corresponding array
 :math:`y_1,\,y_2,\,\ldots,\,y_n`. These have the usual units of
-:math:`10^{44}` photons s\ :math:`^{-1}` keV\ :math:`^{-1}` used throughout
+:math:`10^{44}` photons :math:`\mathrm{s}^{-1}` :math:`\mathrm{keV}^{-1}` used throughout
 SPEX, and is the spectrum emitted at the source. The parameters
 :math:`y_i` can be adjusted during the spectral fitting, but
 :math:`b_1`, :math:`b_2` and :math:`n` and thereby :math:`x_i` remain

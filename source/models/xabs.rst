@@ -37,12 +37,12 @@ refer to Section `Absorption models <#sect:abs_models>`__.
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` m\ :math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` m\ :math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}`�:math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
-| ``xi`` : the :math:`^{10}`\ log of the ionisation parameter
-  :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
+| ``xi`` : the :math:`{ }^{10}`log of the ionisation parameter
+  :math:`\log\xi` in units of :math:`10^{-9}`�Wm. Default value: 1.
 | The following parameters are common to all our absorption models:
   ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)

@@ -14,7 +14,7 @@ The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
 refer to Section `Absorption models <#sect:absmodels>`__. You can mimick
 the transmission of a neutral plasma very easy by putting the
-temperature to 0.5 eV (5 10\ :math:`^{-4}` keV).
+temperature to 0.5 eV (5 :math:`10^{-4}` keV).
 
 .. warning:: For solar abundances, do not take the temperature much
    lower than 0.0005 keV, because if the plasma is completely neutral, the
@@ -27,9 +27,9 @@ temperature to 0.5 eV (5 10\ :math:`^{-4}` keV).
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` m\ :math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}` m\ :math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}`�:math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
 | ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
   value: 1.

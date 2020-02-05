@@ -25,9 +25,9 @@ slab in collisional ionisation equilibrium.
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}`Â m:math:`^{-2}`.
+| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
-  :math:`10^{24}`Â m:math:`^{-2}`, a typical value at low Galactic
+  :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
 | ``f`` : The covering factor of the absorber. Default value: 1 (full
   covering)
