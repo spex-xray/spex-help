@@ -1,3 +1,5 @@
+.. _sect:pyspex_commands:
+
 Basic PYSPEX commands
 =====================
 
