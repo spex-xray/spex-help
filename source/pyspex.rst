@@ -37,7 +37,7 @@ Advanced class descriptions
 
 .. toctree::
    :maxdepth: 2
-   
+
    pyspex/data
    pyspex/model
    pyspex/optimize
