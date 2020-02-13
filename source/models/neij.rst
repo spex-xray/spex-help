@@ -141,7 +141,7 @@ temperature is the temperature of the last bin.
 | The following parameters are the same as for the cie-model: ``ed`` :
   Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
 | ``it`` : Ion temperature in keV
-| ``vmic`` : Micro turbulent velocity in km/s
+| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element
 | ``01...30`` : Abundances of H to Zn
 | ``file`` : Filename for the nonthermal electron distribution

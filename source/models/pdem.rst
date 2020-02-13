@@ -31,7 +31,7 @@ the total emission measure :math:`Y` that went into the model.
 The parameters of the model are:
 
 | ``norm`` : Normalisation, i.e. total integrated emission measure
-  :math:`Y` in units of :math:`10^{64}` :math:`\mathrm{m}^{-3}`.
+  :math:`Y` in units of :math:`10^{64}` :math:`\mathrm{m}^{-3}`.
 | ``t1`` : Lower temperature :math:`T_1` in keV.
 | ``tn`` : Upper temperature :math:`T_n` in keV.
 | ``npol`` : Number of temperature grid points :math:`n`; minimum value
@@ -42,10 +42,9 @@ The parameters of the model are:
   :math:`T_8`; note that the higher contributions :math:`y_i` are
   neglected if :math:`i>n`.
 | The following parameters are the same as for the cie-model: 
-| ``ed`` :
-  Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+| ``ed`` : Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
 | ``it`` : Ion temperature in keV.
-| ``vmic`` : Micro turbulent velocity in km/s.
+| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element.
 | ``01...30`` : Abundances of H to Zn.
 | ``file`` : Filename for the nonthermal electron distribution

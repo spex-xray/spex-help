@@ -197,8 +197,7 @@ The parameters of the model are:
 | ``rt`` : the ratio of ionization balance to electron temperature,
   :math:`R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}` in keV. Default
   value: 1.
-| ``vmic`` : the (micro)turbulent velocity :math:`v_{\mathrm{micro}}`,
-  in km/s. Default value 0.
+| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : reference element. Default value 1 (hydrogen). See above for
   more details. The value corresponds to the atomic number of the
   reference element.

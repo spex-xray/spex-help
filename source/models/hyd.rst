@@ -40,7 +40,7 @@ relative to the concentration of the relevant chemical element.
 | ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
   value: 1.
 | ``it`` : Ion temperature in keV
-| ``vmic`` : Micro turbulent velocity in km/s
+| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element
 | ``01...30`` : Abundances of H to Zn
 | ``file`` : Filename for the nonthermal electron distribution
