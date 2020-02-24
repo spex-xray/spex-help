@@ -20,6 +20,9 @@ information safely.
 Descriptions of the classes behind the object variables in __init__ can be found by clicking the link
 behind the variable.
 
+.. Warning:: You can only start one PYSPEX session during a python session. Unfortunately, the Fortran to
+             Python interface that we use cannot handle multiple sessions properly.
+
 Session class commands
 ----------------------
 
