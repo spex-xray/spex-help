@@ -7,3 +7,4 @@ SPEX Theory
    theory/spexact
    theory/fitting
    theory/response
+   theory/turbulence

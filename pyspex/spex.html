@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.2. Basic usage of PYSPEX &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/spex.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.3. Basic PYSPEX commands" href="commands.html" />
+    <link rel="prev" title="6.1.1. Install PYSPEX" href="install.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-usage-of-pyspex">
+<h1>6.1.2. Basic usage of PYSPEX<a class="headerlink" href="#basic-usage-of-pyspex" title="Permalink to this headline">¶</a></h1>
+<p>The PYSPEX python module offers a python interface to the SPEX program. This means that you can
+use SPEX directly either in interactive python mode and in python scripts. In this short tutorial,
+we assume you are using PYSPEX in interactive mode.</p>
+<p>The structure of PYSPEX is chosen such that for many SPEX commands, there is an equivalent class
+in PYSPEX. These classes contain the functions that copy the functionality of the SPEX command,
+and if applicable, the classes contain also the output parameters of the SPEX command. This makes
+it easy to incorporate the SPEX results inside your own program.</p>
+<p>In addition to the classes, you can also simply send a SPEX command-line command using the
+<code class="docutils literal notranslate"><span class="pre">command</span></code> function (see Section below).</p>
+<div class="section" id="start-a-pyspex-session">
+<h2>6.1.2.1. Start a PYSPEX session<a class="headerlink" href="#start-a-pyspex-session" title="Permalink to this headline">¶</a></h2>
+<p>For this example PYSPEX session in python, we use the interactive mode of python. We simply start
+python from the Linux command line (making sure that the environment is set using a spexdist script
+located in the SPEX install directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="p">:</span><span class="o">~&gt;</span> <span class="n">source</span> <span class="n">spex</span><span class="o">/</span><span class="n">spexdist</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">linux</span><span class="p">:</span><span class="o">~&gt;</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">13</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>If the PYTHONPATH variable is correctly set, we should now be able to import spex from pyspex:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyspex</span> <span class="k">import</span> <span class="n">spex</span>
+</pre></div>
+</div>
+<p>From here, we can start a SPEX session easily:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span><span class="n">spex</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="go"> Welcome user to SPEX version 3.05.00</span>
+
+<span class="go"> NEW in this version of SPEX:</span>
+<span class="go">11-06-2018 Added Ext_Rate column to new spo files</span>
+<span class="go">18-12-2018 SPEX is now using the GPL license</span>
+
+<span class="go">Currently using SPEXACT version 2.07.00. Type `help var calc` for details.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">s</span></code> object now contains all the functions and commands that are available to control
+the SPEX session. For example, we can send SPEX the following command-line commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;var calc new&#39;</span><span class="p">)</span>
+<span class="go"> Now using SPEXACT version 3.05.00</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="go"> You have defined    1 component.</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">calc</span><span class="p">()</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>With these commands SPEX calculates a CIE spectrum for a temperature of 1 keV.</p>
+<p>Although it is possible to call <code class="docutils literal notranslate"><span class="pre">s.command('quit')</span></code>, the session will be terminated
+automatically once python is closed or <code class="docutils literal notranslate"><span class="pre">s</span></code> is reassigned.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">command</span></code> function only does not provide an advantage over the regular command line
+of SPEX. To really benefit from PYSPEX, you need to use the additional classes which are described
+in the next sections.</p>
+</div>
+<div class="section" id="the-command-function">
+<h2>6.1.2.2. The command function<a class="headerlink" href="#the-command-function" title="Permalink to this headline">¶</a></h2>
+<p>The PYSPEX module contains a general function to send SPEX commands to the SPEX session. This
+function is especially helpful for SPEX commands that have not been implemented (yet) in PYSPEX.
+The function returns 0 when the command was successfully executed. If not a non-zero value is
+returned.</p>
+<span class="target" id="module-pyspex.spex"></span><dl class="method">
+<dt id="pyspex.spex.Session.command">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">command</code><span class="sig-paren">(</span><em class="sig-param">comm</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a command to SPEX. The command string uses the same syntax as the SPEX commands on the command line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>comm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – SPEX command.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter">6.1.1. Install PYSPEX</a></li>
+      <li>Next: <a href="commands.html" title="next chapter">6.1.3. Basic PYSPEX commands</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

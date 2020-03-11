@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.3.1. Session class structure &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/session.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3.2. Data class structure" href="data.html" />
+    <link rel="prev" title="6.2.1. Jupyter Notebooks" href="threads.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="session-class-structure">
+<h1>6.3.1. Session class structure<a class="headerlink" href="#session-class-structure" title="Permalink to this headline">¶</a></h1>
+<p>The PYSPEX session class is the top-level class for PYSPEX and the most important class managing
+user interaction. When the class is initialized, a SPEX session is started for the duration of the
+Python session. All subsequent commands communicate with this SPEX session in the background.</p>
+<p>The start of a SPEX session is managed by the __init__ method. At the same time, objects are created
+to contain much of the internal SPEX data that pyspex can access. These objects are instances of the
+Data, Model, Optimization, Ascdump and Log classes that are explained later in this Chapter.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.spex.Session">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.spex.</code><code class="sig-name descname">Session</code><a class="reference internal" href="../_modules/pyspex/spex.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class contains all the classes and commands that are available in a pySPEX session.</p>
+<dl class="method">
+<dt id="pyspex.spex.Session.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to initialize the PYSPEX session. It starts an instance of SPEX in the background.
+Furthermore, it initializes a set of objects containing information about the loaded data,
+model values, optimization and logs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The SPEX version number</p></li>
+<li><p><strong>dataset</strong> (<a class="reference internal" href="data.html#pyspex.data.Data" title="pyspex.data.Data"><em>data.Data</em></a>) – Class containing the data information</p></li>
+<li><p><strong>mod_abundance</strong> (<a class="reference internal" href="model.html#pyspex.model.Abundance" title="pyspex.model.Abundance"><em>model.Abundance</em></a>) – Model class for the abundance setting</p></li>
+<li><p><strong>mod_distance</strong> (<a class="reference internal" href="model.html#pyspex.model.Distance" title="pyspex.model.Distance"><em>model.Distance</em></a>) – Model class containing distance tools</p></li>
+<li><p><strong>mod_egrid</strong> (<a class="reference internal" href="model.html#pyspex.model.Egrid" title="pyspex.model.Egrid"><em>model.Egrid</em></a>) – Model class for the definition of energy grids</p></li>
+<li><p><strong>mod_flux</strong> (<a class="reference internal" href="model.html#pyspex.model.Fluxes" title="pyspex.model.Fluxes"><em>model.Fluxes</em></a>) – Model class containing flux and luminosity information</p></li>
+<li><p><strong>mod_ibal</strong> (<a class="reference internal" href="model.html#pyspex.model.Ibal" title="pyspex.model.Ibal"><em>model.Ibal</em></a>) – Model class for the ionisation balance setting</p></li>
+<li><p><strong>mod_ions</strong> (<a class="reference internal" href="model.html#pyspex.model.Ions" title="pyspex.model.Ions"><em>model.Ions</em></a>) – Model class for setting the used ions</p></li>
+<li><p><strong>mod_var</strong> (<a class="reference internal" href="model.html#pyspex.model.Var" title="pyspex.model.Var"><em>model.Var</em></a>) – Model class for plasma model settings</p></li>
+<li><p><strong>mod_spectrum</strong> (<a class="reference internal" href="model.html#pyspex.model.Spectrum" title="pyspex.model.Spectrum"><em>model.Spectrum</em></a>) – Model class containing commands to extract model results from SPEX</p></li>
+<li><p><strong>mod</strong> (<a class="reference internal" href="model.html#pyspex.model.Model" title="pyspex.model.Model"><em>model.Model</em></a>) – Model class containing sectors, components and parameters.</p></li>
+<li><p><strong>opt_fit</strong> (<a class="reference internal" href="optimize.html#pyspex.optimize.Fit" title="pyspex.optimize.Fit"><em>optimize.Fit</em></a>) – Initialize the Fit class for spectral fitting</p></li>
+<li><p><strong>asc</strong> (<em>ascdump.Ascdump</em>) – Class for the Ascdump output</p></li>
+<li><p><strong>logs</strong> (<a class="reference internal" href="log.html#pyspex.log.Log" title="pyspex.log.Log"><em>log.Log</em></a>) – Class for Log saving and execution</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p>During the SPEX session, the object variables can be used to obtain values from the SPEX session in the
+background. Please note that for most of these there are existing PYSPEX commands to retrieve the
+information safely.</p>
+<p>Descriptions of the classes behind the object variables in __init__ can be found by clicking the link
+behind the variable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can only start one PYSPEX session during a python session. Unfortunately, the Fortran to
+Python interface that we use cannot handle multiple sessions properly.</p>
+</div>
+<div class="section" id="session-class-commands">
+<h2>6.3.1.1. Session class commands<a class="headerlink" href="#session-class-commands" title="Permalink to this headline">¶</a></h2>
+<p>The Session class also contains the main PYSPEX commands listed in <a class="reference internal" href="commands.html#sect-pyspex-commands"><span class="std std-ref">Basic PYSPEX commands</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+      <li>Previous: <a href="threads.html" title="previous chapter">6.2.1. Jupyter Notebooks</a></li>
+      <li>Next: <a href="data.html" title="next chapter">6.3.2. Data class structure</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

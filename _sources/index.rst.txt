@@ -42,6 +42,7 @@ or ask your question though our issue-tracker_.
    reference
    models
    tools
+   pyspex
    help
    theory
    exercises

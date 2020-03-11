@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.1. Modeling particle background &#8212; SPEX Help Center 3.05 documentation</title>
+    <title>2.2. Modeling particle background &#8212; SPEX Help Center 3.05 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/partbkg/partbkg.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.2. Import UV/Optical data" href="../uv.html" />
-    <link rel="prev" title="2. Analysis threads" href="../../threads.html" />
+    <link rel="next" title="2.3. Import UV/Optical data" href="../uv.html" />
+    <link rel="prev" title="2.1. Fitting a CCD spectrum" href="../ccdspectrum/ccdspectrum.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,9 +34,9 @@
           <div class="body" role="main">
             
   <div class="section" id="modeling-particle-background">
-<span id="sec-modpartbkg"></span><h1>2.1. Modeling particle background<a class="headerlink" href="#modeling-particle-background" title="Permalink to this headline">¶</a></h1>
+<span id="sec-modpartbkg"></span><h1>2.2. Modeling particle background<a class="headerlink" href="#modeling-particle-background" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goal">
-<h2>2.1.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
 <p>Time dependent particle backgrounds in X-ray spectra are very difficult
 to correctly subtract, especially for extended sources. Many times, a
 quiescent particle background remains present in the spectrum after
@@ -50,7 +50,7 @@ a general method to deal with these kind of problems in SPEX. The choice
 of models probably needs to be different in other cases.</p>
 </div>
 <div class="section" id="spex-solution">
-<h2>2.1.2. SPEX solution<a class="headerlink" href="#spex-solution" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.2. SPEX solution<a class="headerlink" href="#spex-solution" title="Permalink to this headline">¶</a></h2>
 <p>The basic problem we have to solve here, is that we need a number of
 model components that are folded through the ARF (the cosmic X-rays) and
 a few components describing the particle background, which are not
@@ -71,7 +71,7 @@ The result of the folding is added and applied to the first spectrum
 (region 1 on the right) only.</span><a class="headerlink" href="#fig-sectreg" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="running-trafo">
-<h3>2.1.2.1. Running trafo<a class="headerlink" href="#running-trafo" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.2.1. Running trafo<a class="headerlink" href="#running-trafo" title="Permalink to this headline">¶</a></h3>
 <p>In this trafo run, we will actually load the same spectrum twice. One
 for every sector. Here we use a MOS1 spectrum extracted from an annulus
 between 6 and 9 arcmin from the cluster core. The background spectrum
@@ -133,7 +133,7 @@ Enter filename response to be saved (without .res): M1_annulus
 </div>
 </div>
 <div class="section" id="running-spex">
-<h3>2.1.2.2. Running SPEX<a class="headerlink" href="#running-spex" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.2.2. Running SPEX<a class="headerlink" href="#running-spex" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="fig-partbkg-s1">
 <img alt="../../_images/spectrum1.png" src="../../_images/spectrum1.png" />
 <p class="caption"><span class="caption-text">XMM-Newton MOS1 spectrum extracted from a 6–9 arcmin annulus around a
@@ -270,18 +270,20 @@ which parameters can be left free.</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Modeling particle background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.2. Import UV/Optical data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Modeling particle background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.3. Import UV/Optical data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">6. Help &amp; troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory.html">7. SPEX Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">8. Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">9. Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../credits.html">10. Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
 </ul>
 
 <div class="relations">
@@ -289,8 +291,8 @@ which parameters can be left free.</p>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../threads.html">2. Analysis threads</a><ul>
-      <li>Previous: <a href="../../threads.html" title="previous chapter">2. Analysis threads</a></li>
-      <li>Next: <a href="../uv.html" title="next chapter">2.2. Import UV/Optical data</a></li>
+      <li>Previous: <a href="../ccdspectrum/ccdspectrum.html" title="previous chapter">2.1. Fitting a CCD spectrum</a></li>
+      <li>Next: <a href="../uv.html" title="next chapter">2.3. Import UV/Optical data</a></li>
   </ul></li>
   </ul></li>
 </ul>

@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.1. Fitting a CCD spectrum &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/ccdspectrum/ccdspectrum.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2. Modeling particle background" href="../partbkg/partbkg.html" />
+    <link rel="prev" title="2. Analysis threads" href="../../threads.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="fitting-a-ccd-spectrum">
+<span id="sec-ccdspectrum"></span><h1>2.1. Fitting a CCD spectrum<a class="headerlink" href="#fitting-a-ccd-spectrum" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal">
+<h2>2.1.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>To load and fit a CCD spectrum (e.g. MOS1 aboard XMM-Newton) into SPEX.</p>
+</div>
+<div class="section" id="preparation">
+<h2>2.1.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To be able to fit a spectrum, you need a spectrum and response file in SPEX format. To convert spectra from OGIP
+format (e.g. pha, arf, rmf) to SPEX format, please use the <code class="docutils literal notranslate"><span class="pre">trafo</span></code> program like described in <a class="reference internal" href="../../getstarted/runtrafo.html#sect-runtrafo"><span class="std std-ref">How to convert spectra to SPEX format</span></a>.
+If you have the <a class="reference external" href="https://github.com/spex-xray/pyspextools">Pyspextools package</a> installed, then you can use
+<a class="reference external" href="https://spex-xray.github.io/pyspextools/tutorials/ogip2spex.html">ogip2spex</a> as an alternative to <code class="docutils literal notranslate"><span class="pre">trafo</span></code>.</p>
+<p>Using the commands above, you can obtain a .spo and .res file containing your spectrum. To follow this thread, you
+can also download example files here: <a class="reference download internal" download="" href="../../_downloads/0b78cefb1034f7e8e6922ce55e769b42/mos.spo"><code class="xref download docutils literal notranslate"><span class="pre">mos.spo</span></code></a> and <a class="reference download internal" download="" href="../../_downloads/b53723ccef774b4ed874f9554e07d788/mos.res"><code class="xref download docutils literal notranslate"><span class="pre">mos.res</span></code></a>.</p>
+</div>
+<div class="section" id="starting-spex">
+<h2>2.1.3. Starting SPEX<a class="headerlink" href="#starting-spex" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX program is started by entering <code class="docutils literal notranslate"><span class="pre">spex</span></code> in a linux terminal window. In the following sections we describe
+one run of the program. To start SPEX do this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
+ Welcome user to SPEX version 3.05.00
+
+SPEX&gt;
+</pre></div>
+</div>
+<p>If SPEX does not run, please check if you set the <code class="docutils literal notranslate"><span class="pre">SPEX90</span></code> variable right and sourced <code class="docutils literal notranslate"><span class="pre">spexdist.(c)sh</span></code>
+as explained in <a class="reference internal" href="../../getstarted/install.html#sec-install"><span class="std std-ref">How to install SPEX</span></a>.</p>
+</div>
+<div class="section" id="loading-data">
+<h2>2.1.4. Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<p>Then, we have to load the data files. This is done using the <code class="docutils literal notranslate"><span class="pre">data</span></code> command (<a class="reference internal" href="../../reference/commands/data.html#sec-data"><span class="std std-ref">Data: read response file and spectrum</span></a>). It is a general thing
+in SPEX that filename extensions are not typed explicitly when issuing a command. If you have a file called
+<code class="docutils literal notranslate"><span class="pre">mos.spo</span></code> and <code class="docutils literal notranslate"><span class="pre">mos.res</span></code> then you type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; data mos mos
+</pre></div>
+</div>
+<p>The respons file (<code class="docutils literal notranslate"><span class="pre">mos.res</span></code>) is entered first and then the file containing the spectrum (<code class="docutils literal notranslate"><span class="pre">mos.spo</span></code>). You can avoid
+confusion by giving the same filename to both .res and .spo files. Remember that the order of the words in the commands
+is very important!</p>
+</div>
+<div class="section" id="plot-the-data">
+<h2>2.1.5. Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">¶</a></h2>
+<p>It really helps to see the spectrum while we are working on it, so we need a plot window and tell spex that we want
+to see a plot of the data.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot dev xs           # Open plot device `X server`
+SPEX&gt; plot type data        # Choose the plot type `data`
+SPEX&gt; plot
+</pre></div>
+</div>
+<p>The commands above open a PGPLOT window and set the plot type to <code class="docutils literal notranslate"><span class="pre">data</span></code>, which means that the observed spectrum
+and the model (folded through the response matrix) will be shown. The last <code class="docutils literal notranslate"><span class="pre">plot</span></code> command tells SPEX to
+refresh the plot.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd1.png"><img alt="../../_images/ccd1.png" src="../../_images/ccd1.png" style="width: 600px;" /></a>
+</div>
+<p>Usually CCD spectra benefit from a logarithmic scale on both the X and Y axes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot x log
+SPEX&gt; plot y log
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd2.png"><img alt="../../_images/ccd2.png" src="../../_images/ccd2.png" style="width: 600px;" /></a>
+</div>
+<p>By default, the ranges of the axes are usually too broad. For this spectrum, the X axis range is good between 0.1 and
+10 keV and the Y axis range between 1E-4 and 10.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot rx 0.1:10.
+SPEX&gt; plot ry 1E-4:10.
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd3.png"><img alt="../../_images/ccd3.png" src="../../_images/ccd3.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="define-the-model">
+<h2>2.1.6. Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Next we can define the model that we want to fit. In this case, we are looking at a MOS spectrum of a
+galaxy cluster. The simplest model that we can try is a single temperature spectrum absorbed by gas in
+the ISM. We also add a redshift component <code class="docutils literal notranslate"><span class="pre">reds</span></code> to shift the energy of the model spectrum with the
+right amount:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com reds
+You have defined    1 component.
+SPEX&gt; com hot
+You have defined    2 components.
+SPEX&gt; com cie
+You have defined    3 components.
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">hot</span></code> model is actually a gas in equilibrium in absorption, which is a fair representation of the
+neutral gas phase of the ISM. Later we will put the temperature of this component to <img class="math" src="../../_images/math/6f33adba9d23db12b19748eeb0244a7b99e8bd9a.svg" alt="5 \times 10^{-4}" style="vertical-align: -1px"/> keV
+to emulate a neutral plasma.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cie</span></code> model represents a single temperature plasma in collisional ionisation equilibrium, which is commonly used
+for clusters.</p>
+<p>Then the components need to be related to each other, which means you need to specify how the multiplicative models
+should be applied to the additive models. The multiplicative components should be listed in order from the source to
+the observer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 3 1,2
+</pre></div>
+</div>
+<p>This means that the emitted CIE component (#3) will be first redshifted by component #1 and then absorbed by component
+#2. If you have multiple additive components, this should be done for each one. It is possible to supply a range of
+components.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; calc
+SPEX&gt; plot
+</pre></div>
+</div>
+<p>Calculating and plotting the model unsurprisingly results in a curve that is not near to the data.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd4.png"><img alt="../../_images/ccd4.png" src="../../_images/ccd4.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="initial-guess-of-parameters">
+<h2>2.1.7. Initial guess of parameters<a class="headerlink" href="#initial-guess-of-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To help the spectral fitting process, it is good to provide initial guesses for the model parameters. This way, the
+spectral fit starts already with a model that is in the right direction. As a more experienced user, you usually have
+a rough idea what the parameters should be by looking at the raw spectrum. For this cluster, for example, the
+redshift is around 0.05, the absorption column is small, and the temperature of the cluster is around 3 keV.
+We can set the guess parameters as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 1 z v 0.05
+SPEX&gt; par 1 1 z s t
+SPEX&gt; par 1 2 t v 5E-4
+SPEX&gt; par 1 2 t s f
+SPEX&gt; par 1 2 nh v 1E-4
+SPEX&gt; par 1 3 norm v 1000.
+SPEX&gt; par 1 3 t v 3.0
+SPEX&gt; ca
+SPEX&gt; pl
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd5.png"><img alt="../../_images/ccd5.png" src="../../_images/ccd5.png" style="width: 600px;" /></a>
+</div>
+<p>As we can see from the image, the first guess of the model is already in the right direction.</p>
+<p>In this example, we assume that the exact redshift is unknown. However, if you do have an accurate measurement of
+the distance, it is wise to set that distance in SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; dist 0.05 z
+</pre></div>
+</div>
+<p>The command above sets the distance to 0.05 z and makes sure that the luminosities are correctly calculated.
+Note that this distance change also affects the values of the normalisation of the models!</p>
+</div>
+<div class="section" id="fit-the-model">
+<h2>2.1.8. Fit the model<a class="headerlink" href="#fit-the-model" title="Permalink to this headline">¶</a></h2>
+<p>We are now ready to fit the spectrum. To see the fitting steps, we can give the command <code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">1</span></code>. This needs
+to be set only once per session. A subsequent <code class="docutils literal notranslate"><span class="pre">fit</span></code> command starts to optimize the parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; fit print 1
+SPEX&gt; fit
+   50865.8      5.000E-02  1.000E-04  1.000E+03   3.00
+   6159.59      5.225E-02  3.728E-04   485.       2.21
+   5298.40      5.318E-02  3.756E-04   543.       2.30
+   5280.39      5.503E-02  3.791E-04   545.       2.29
+   5273.64      5.579E-02  3.774E-04   545.       2.30
+   5271.29      5.634E-02  3.784E-04   545.       2.30
+   5269.85      5.656E-02  3.784E-04   545.       2.30
+   5269.84      5.651E-02  3.784E-04   545.       2.30
+   5269.81      5.652E-02  3.783E-04   545.       2.30
+   5269.81      5.652E-02  3.783E-04   545.       2.30
+--------------------------------------------------------------------------------------------------
+sect comp mod  acro parameter with unit     value      status    minimum   maximum lsec lcom lpar
+
+   1    1 reds z    Redshift             5.6520663E-02 thawn    -1.0      1.00E+10
+   1    1 reds flag Flag: cosmo=0, vel=1  0.000000     frozen    0.0       1.0
+
+   1    2 hot  nh   X-Column (1E28/m**2) 3.7826155E-04 thawn     0.0      1.00E+20
+   1    2 hot  t    Temperature (keV)    5.0000002E-04 frozen   5.00E-04  1.00E+03
+   1    2 hot  rt   T(balance) / T(spec)  1.000000     frozen   1.00E-04  1.00E+04
+   1    2 hot  fcov Covering fraction     1.000000     frozen    0.0       1.0
+   1    2 hot  v    RMS Velocity (km/s)   100.0000     frozen    0.0      3.00E+05
+   1    2 hot  rms  RMS blend    (km/s)   0.000000     frozen    0.0      1.00E+05
+   1    2 hot  dv   Vel. separ. (km/s)    100.0000     frozen    0.0      1.00E+05
+   1    2 hot  zv   Average vel. (km/s)   0.000000     frozen  -1.00E+05  1.00E+05
+   1    2 hot  ref  Reference atom        1.000000     frozen    1.0       30.
+   1    2 hot  01   Abundance H           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  02   Abundance He          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  03   Abundance Li          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  04   Abundance Be          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  05   Abundance B           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  06   Abundance C           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  07   Abundance N           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  08   Abundance O           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  09   Abundance F           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  10   Abundance Ne          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  11   Abundance Na          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  12   Abundance Mg          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  13   Abundance Al          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  14   Abundance Si          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  15   Abundance P           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  16   Abundance S           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  17   Abundance Cl          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  18   Abundance Ar          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  19   Abundance K           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  20   Abundance Ca          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  21   Abundance Sc          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  22   Abundance Ti          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  23   Abundance V           1.000000     frozen    0.0      1.00E+10
+   1    2 hot  24   Abundance Cr          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  25   Abundance Mn          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  26   Abundance Fe          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  27   Abundance Co          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  28   Abundance Ni          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  29   Abundance Cu          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  30   Abundance Zn          1.000000     frozen    0.0      1.00E+10
+   1    2 hot  file File electr.distrib.
+
+   1    3 cie  norm ne nX V (1E64/m**3)   545.4489     thawn     0.0      1.00E+20
+   1    3 cie  t    Temperature (keV)     2.300449     thawn    5.00E-04  1.00E+03
+   1    3 cie  sig  Sigma                 0.000000     frozen    0.0      1.00E+04
+   1    3 cie  sup  Sigma up              0.000000     frozen    0.0      1.00E+04
+   1    3 cie  logt T grid (lin/log)      1.000000     frozen    0.0       1.0
+   1    3 cie  ed   El  dens (1E20/m**3) 9.9999998E-15 frozen   1.00E-22  1.00E+10
+   1    3 cie  it   Ion temp  (keV)       1.000000     frozen   1.00E-04  1.00E+07
+   1    3 cie  rt   T(balance) / T(spec)  1.000000     frozen   1.00E-04  1.00E+04
+   1    3 cie  vmic Microturb vel (km/s)  0.000000     frozen    0.0      3.00E+05
+   1    3 cie  ref  Reference atom        1.000000     frozen    1.0       30.
+   1    3 cie  01   Abundance H           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  02   Abundance He          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  03   Abundance Li          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  04   Abundance Be          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  05   Abundance B           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  06   Abundance C           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  07   Abundance N           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  08   Abundance O           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  09   Abundance F           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  10   Abundance Ne          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  11   Abundance Na          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  12   Abundance Mg          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  13   Abundance Al          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  14   Abundance Si          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  15   Abundance P           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  16   Abundance S           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  17   Abundance Cl          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  18   Abundance Ar          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  19   Abundance K           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  20   Abundance Ca          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  21   Abundance Sc          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  22   Abundance Ti          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  23   Abundance V           1.000000     frozen    0.0      1.00E+10
+   1    3 cie  24   Abundance Cr          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  25   Abundance Mn          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  26   Abundance Fe          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  27   Abundance Co          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  28   Abundance Ni          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  29   Abundance Cu          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  30   Abundance Zn          1.000000     frozen    0.0      1.00E+10
+   1    3 cie  file File electr.distrib.
+   1    3 cie  x1   T1/T0                 1.000000     frozen    1.0      1.00E+10
+   1    3 cie  y1   N1/N0                 0.000000     frozen    0.0      1.00E+10
+
+
+Instrument     1 region    1 has norm    1.00000E+00 and is frozen
+---------------------------------------------------------------------------------------------
+sect comp mod  acro parameter with unit      sect comp mod  acro parameter with unit  correl.
+
+   1    1 reds z    Redshift             &lt;-&gt;    1    2 hot  nh   X-Column (1E28/m**2)   0.006
+   1    1 reds z    Redshift             &lt;-&gt;    1    3 cie  norm ne nX V (1E64/m**3)    0.035
+   1    1 reds z    Redshift             &lt;-&gt;    1    3 cie  t    Temperature (keV)      0.200
+   1    2 hot  nh   X-Column (1E28/m**2) &lt;-&gt;    1    3 cie  norm ne nX V (1E64/m**3)    0.582
+   1    2 hot  nh   X-Column (1E28/m**2) &lt;-&gt;    1    3 cie  t    Temperature (keV)     -0.173
+   1    3 cie  norm ne nX V (1E64/m**3)  &lt;-&gt;    1    3 cie  t    Temperature (keV)      0.069
+
+
+--------------------------------------------------------------------------------
+ Fluxes and restframe luminosities between   2.0000     and    10.000     keV
+
+ sect comp mod   photon flux   energy flux nr of photons    luminosity
+              (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+    1    3 cie    4.23975      2.265908E-15  5.845445E+45  3.101105E+30
+
+ Fit method        : Classical Levenberg-Marquardt
+ Fit statistic     : C-statistic
+ C-statistic       :      5269.81
+ Expected C-stat   :       660.01 +/-        34.94
+ Chi-squared value :   2307566.25
+ Degrees of freedom:       791
+ W-statistic       :         0.00
+</pre></div>
+</div>
+<p>At the end of the optimization step, SPEX prints out an overview of the fit parameters and the fit statistics. Here we
+can see that the fit improved, but there is still a lot of room for improvement.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd6.png"><img alt="../../_images/ccd6.png" src="../../_images/ccd6.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="do-additional-selections-on-the-data">
+<h2>2.1.9. Do additional selections on the data<a class="headerlink" href="#do-additional-selections-on-the-data" title="Permalink to this headline">¶</a></h2>
+<p>In the beginning, we did not ignore possible bad energy intervals in the spectrum. For MOS1, for example, we know that
+the calibration is valid for the energy range between roughly 0.3 keV and 10 keV. To fit only the good spectral
+interval, we need to ignore the parts at low and high energies.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ignore 0:0.3 unit kev
+SPEX&gt; ignore 10:100 unit kev
+SPEX&gt; plot
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd7.png"><img alt="../../_images/ccd7.png" src="../../_images/ccd7.png" style="width: 600px;" /></a>
+</div>
+<p>The plot shows that the data points below 0.3 keV have disappeared. When we fit again, the C-statistics value improves
+a lot:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; fit
+ ...
+ Fit method        : Classical Levenberg-Marquardt
+ Fit statistic     : C-statistic
+ C-statistic       :       798.47
+ Expected C-stat   :       615.03 +/-        33.31
+ Chi-squared value :      3421.64
+ Degrees of freedom:       643
+ W-statistic       :         0.00
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd8.png"><img alt="../../_images/ccd8.png" src="../../_images/ccd8.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="fitting-abundances">
+<h2>2.1.10. Fitting abundances<a class="headerlink" href="#fitting-abundances" title="Permalink to this headline">¶</a></h2>
+<p>Although the C-statistics improved, there are still residuals in the spectrum, especially around the strongest spectral
+lines. This is because the metal abundances in the gas are still fixed to 1.0. We can let the abundances vary in the
+optimization by setting them to thawn:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 3 08 s t
+SPEX&gt; par 1 3 12 s t
+SPEX&gt; par 1 3 14 s t
+SPEX&gt; par 1 3 16 s t
+SPEX&gt; par 1 3 18 s t
+SPEX&gt; par 1 3 20 s t
+SPEX&gt; par 1 3 26 s t
+SPEX&gt; par 1 3 28 s t
+SPEX&gt; fit
+</pre></div>
+</div>
+<p>The optimization leads to an even better fit:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd9.png"><img alt="../../_images/ccd9.png" src="../../_images/ccd9.png" style="width: 600px;" /></a>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Fit method        : Classical Levenberg-Marquardt
+Fit statistic     : C-statistic
+C-statistic       :       654.72
+Expected C-stat   :       614.18 +/-        33.29
+Chi-squared value :      3157.79
+Degrees of freedom:       635
+W-statistic       :         0.00
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculating-errors">
+<h2>2.1.11. Calculating errors<a class="headerlink" href="#calculating-errors" title="Permalink to this headline">¶</a></h2>
+<p>When we have the best fit, we can calculate the errors. This has to be done per parameter. Below we calculate,
+for example, the error on the best fit temperature:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; error 1 3 t
+ parameter          C-stat      Delta          Delta
+   value            value       parameter     C-stat
+----------------------------------------------------
+   2.34612          655.90     -2.367735E-02    1.18
+   2.34973          655.56     -2.005935E-02    0.84
+   2.34806          655.60     -2.173662E-02    0.89
+   2.34709          655.83     -2.270699E-02    1.12
+   2.34757          655.78     -2.222180E-02    1.06
+   2.34781          655.72     -2.197933E-02    1.01
+   2.34793          655.68     -2.186084E-02    0.96
+   2.39347          655.50      2.367735E-02    0.79
+   2.41715          658.33      4.735494E-02    3.62
+   2.39347          655.50      2.367735E-02    0.79
+   2.39526          655.67      2.547121E-02    0.95
+   2.39577          655.74      2.597785E-02    1.03
+   2.39553          655.69      2.574086E-02    0.97
+ Parameter   1    3 t   :    2.3698     Errors:  -2.18608E-02 ,   2.57409E-02
+</pre></div>
+</div>
+<p>The error command reports the best fit value for the temperature and the lower and upper 1 sigma (68%) confidence
+level.</p>
+<p>Usually, the error calculation stage is the end point of a spectral analysis. In this example,
+we can quit SPEX now:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; quit
+Thank you for using SPEX!
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Fitting a CCD spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partbkg/partbkg.html">2.2. Modeling particle background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.3. Import UV/Optical data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../threads.html">2. Analysis threads</a><ul>
+      <li>Previous: <a href="../../threads.html" title="previous chapter">2. Analysis threads</a></li>
+      <li>Next: <a href="../partbkg/partbkg.html" title="next chapter">2.2. Modeling particle background</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

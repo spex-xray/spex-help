@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.3.5. Log commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_log.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.2.1. Jupyter Notebooks" href="threads.html" />
+    <link rel="prev" title="6.1.3.4. Plot commands" href="com_plot.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="log-commands">
+<h1>6.1.3.5. Log commands<a class="headerlink" href="#log-commands" title="Permalink to this headline">¶</a></h1>
+<p>Being an interactive program, SPEX has facilities to save commands, execute lists of commands and
+save outputs to files. This is arranged through the <code class="docutils literal notranslate"><span class="pre">log</span></code> commands.</p>
+<div class="section" id="log-execute">
+<h2>6.1.3.5.1. Log execute<a class="headerlink" href="#log-execute" title="Permalink to this headline">¶</a></h2>
+<p>Executing lists of SPEX commands can be done using the <code class="docutils literal notranslate"><span class="pre">log_exe</span></code> method, similar to the
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span></code> command in SPEX:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.log_exe">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">log_exe</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_exe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.log_exe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute log file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Filename of the ASCII file with the SPEX commands (including .com extension).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">filename</span></code> should include a .com extension.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_exe</span><span class="p">(</span><span class="s1">&#39;mysource.com&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="log-save">
+<h2>6.1.3.5.2. Log save<a class="headerlink" href="#log-save" title="Permalink to this headline">¶</a></h2>
+<p>To save the commands typed into SPEX (or passed through the <code class="docutils literal notranslate"><span class="pre">command</span></code> function in
+PYSPEX or the API), one can use the <code class="docutils literal notranslate"><span class="pre">log_save</span></code> command.</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.log_save">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">log_save</code><span class="sig-paren">(</span><em class="sig-param">savefile</em>, <em class="sig-param">status=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.log_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the commands for a session in an ascii file. The status is optional and either overwrite or append.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>savefile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Filename of the output command file (including .com extension).</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Overwrite or append an existing file name. String can be ‘overwrite’ or ‘append’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">savefile</span></code> should have the .com extension included in the name. Optionally, the status
+<code class="docutils literal notranslate"><span class="pre">overwrite</span></code> or <code class="docutils literal notranslate"><span class="pre">append</span></code> can be added.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_save</span><span class="p">(</span><span class="s1">&#39;mycommands.com&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_save</span><span class="p">(</span><span class="s1">&#39;session_01.com&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="log-output">
+<h2>6.1.3.5.3. Log output<a class="headerlink" href="#log-output" title="Permalink to this headline">¶</a></h2>
+<p>The terminal output can be saved in another file with the .out extension using the method
+<code class="docutils literal notranslate"><span class="pre">log_out</span></code>:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.log_out">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">log_out</code><span class="sig-paren">(</span><em class="sig-param">outfile</em>, <em class="sig-param">status=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_out"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.log_out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save SPEX terminal output to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Filename of the output file (including .out extension).</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Overwrite or append an existing file name. String can be ‘overwrite’ or ‘append’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">outfile</span></code> should have the .out extension included in the name. Optionally, the status
+<code class="docutils literal notranslate"><span class="pre">overwrite</span></code> or <code class="docutils literal notranslate"><span class="pre">append</span></code> can be added.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_out</span><span class="p">(</span><span class="s1">&#39;session.out&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_out</span><span class="p">(</span><span class="s1">&#39;mylog.out&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;overwrite&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="log-close">
+<h2>6.1.3.5.4. Log close<a class="headerlink" href="#log-close" title="Permalink to this headline">¶</a></h2>
+<p>The logging done by the <code class="docutils literal notranslate"><span class="pre">log_save</span></code> or <code class="docutils literal notranslate"><span class="pre">log_out</span></code> methods can be stopped by calling the
+<code class="docutils literal notranslate"><span class="pre">log_close</span></code> method:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.log_close">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">log_close</code><span class="sig-paren">(</span><em class="sig-param">logtype</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.log_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the save or output file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logtype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – String indicating the type of log to close (‘save’ or ‘out’).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>where <code class="docutils literal notranslate"><span class="pre">logtype</span></code> is either <code class="docutils literal notranslate"><span class="pre">save</span></code> or <code class="docutils literal notranslate"><span class="pre">out</span></code>.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_close</span><span class="p">(</span><span class="s1">&#39;out&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_close</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_plot.html" title="previous chapter">6.1.3.4. Plot commands</a></li>
+      <li>Next: <a href="threads.html" title="next chapter">6.2.1. Jupyter Notebooks</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6. Python Interface &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6.1.1. Install PYSPEX" href="pyspex/install.html" />
+    <link rel="prev" title="5.9. Calling SPEX from Fortran" href="tools/fortcall.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="python-interface">
+<h1>6. Python Interface<a class="headerlink" href="#python-interface" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the documentation of PYSPEX, the Python interface to SPEX. Since version
+3.06.00 we provide a Python interface layer to the SPEX program. This documentation
+section explains how to use this interface, which is an alternative for the standard
+command-line interface of SPEX.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since this is the first public release of pyspex, the amount of testing
+in the field has been limited. Be critical and expect errors. Please report issues
+at <a class="reference external" href="https://github.com/spex-xray/spex-help/issues">our Github page</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As an alternative to some auxilliary programs of SPEX (e.g. trafo), we offer
+a separate Python package called pyspextools. Please see the <a class="reference external" href="https://spex-xray.github.io/pyspextools/">Pyspextools documentation</a> for more information.</p>
+</div>
+<div class="section" id="basic-commands">
+<h2>6.1. Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/install.html">6.1.1. Install PYSPEX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/install.html#dependencies">6.1.1.1. Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/spex.html">6.1.2. Basic usage of PYSPEX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/spex.html#start-a-pyspex-session">6.1.2.1. Start a PYSPEX session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/spex.html#the-command-function">6.1.2.2. The command function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/commands.html">6.1.3. Basic PYSPEX commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_data.html">6.1.3.1. Data related commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_model.html">6.1.3.2. Model related commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_opt.html">6.1.3.3. Optimization commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_plot.html">6.1.3.4. Plot commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_log.html">6.1.3.5. Log commands</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="analysis-threads">
+<h2>6.2. Analysis threads<a class="headerlink" href="#analysis-threads" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/threads.html">6.2.1. Jupyter Notebooks</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="advanced-class-descriptions">
+<h2>6.3. Advanced class descriptions<a class="headerlink" href="#advanced-class-descriptions" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/session.html">6.3.1. Session class structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/session.html#session-class-commands">6.3.1.1. Session class commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/data.html">6.3.2. Data class structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/data.html#spectral-response-data">6.3.2.1. Spectral &amp; response data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/data.html#spectral-binning-and-data-selection">6.3.2.2. Spectral binning and data selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/data.html#simulate-spectra">6.3.2.3. Simulate spectra</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/model.html">6.3.3. Model class structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#model">6.3.3.1. Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#sector">6.3.3.2. Sector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#component">6.3.3.3. Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#parameter">6.3.3.4. Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#abundance">6.3.3.5. Abundance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#distance">6.3.3.6. Distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#energy-grids">6.3.3.7. Energy grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#fluxes-and-luminosities">6.3.3.8. Fluxes and luminosities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#ionisation-balance">6.3.3.9. Ionisation balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#ion-selection">6.3.3.10. Ion selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#model-spectra">6.3.3.11. Model spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/model.html#plasma-parameters">6.3.3.12. Plasma parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/optimize.html">6.3.4. Optimization functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/optimize.html#fitting-spectra">6.3.4.1. Fitting spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/optimize.html#error-calculation">6.3.4.2. Error calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/plot.html">6.3.5. Plot functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/plot.html#model-spectrum-plots">6.3.5.1. Model spectrum plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/plot.html#data-plots">6.3.5.2. Data plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/plot.html#effective-area-plots">6.3.5.3. Effective area plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/ascdump.html">6.3.6. Ascdump classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#plas-basic-plasma-properties">6.3.6.1. PLAS: Basic plasma properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#abun-elemental-abundances">6.3.6.2. ABUN: Elemental abundances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#icon-ion-concentrations">6.3.6.3. ICON: Ion concentrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#rate-total-ionisation-recombination-and-charge-transfer-rates">6.3.6.4. RATE: Total ionisation, recombination and charge transfer rates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#rion-ionisation-rates-per-atomic-subshell">6.3.6.5. RION: Ionisation rates per atomic subshell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#grid-energy-and-wavelength-grid">6.3.6.6. GRID: Energy and wavelength grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#clin-continuum-line-and-total-spectrum">6.3.6.7. CLIN: Continuum, line and total spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#con-ions-contributing-to-the-continuum">6.3.6.8. CON: Ions contributing to the continuum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tcl-layer-added-continuum-line-and-total-spectrum">6.3.6.9. TCL: Layer added continuum, line and total spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tcon-ions-contributing-to-the-continuum-added-layers">6.3.6.10. TCON: Ions contributing to the continuum (added layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#nei-history-of-ionisation-parameter-and-temperature">6.3.6.11. NEI: History of ionisation parameter and temperature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#heat-plasma-heating-rates">6.3.6.12. HEAT: Plasma heating rates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#col-ionic-column-densities">6.3.6.13. COL: Ionic column densities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#warm-column-densities-ionisation-parameters-and-temperatures">6.3.6.14. WARM: Column densities, ionisation parameters and temperatures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/log.html">6.3.7. Logging commands</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Python Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tools/fortcall.html" title="previous chapter">5.9. Calling SPEX from Fortran</a></li>
+      <li>Next: <a href="pyspex/install.html" title="next chapter">6.1.1. Install PYSPEX</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

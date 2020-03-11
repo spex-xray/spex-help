@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pyspex.ascdump &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/_modules/pyspex/ascdump.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pyspex.ascdump</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
+
+<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
+
+<span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="k">class</span> <span class="nc">Ascdump</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="Plas"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Plas">[docs]</a><span class="k">class</span> <span class="nc">Plas</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output for the command ascdump plas.</span>
+
+<span class="sd">    :ivar t: Electron temperature (keV).</span>
+<span class="sd">    :vartype t: float</span>
+<span class="sd">    :ivar elden: Electron density/1E20 (/m**3).</span>
+<span class="sd">    :vartype elden: float</span>
+<span class="sd">    :ivar hden: Hydrogen density/1E20 (/m**3).</span>
+<span class="sd">    :vartype hden: float</span>
+<span class="sd">    :ivar ed: Electron/Hydrogen density.</span>
+<span class="sd">    :vartype ed: float</span>
+<span class="sd">    :ivar pdion: (Electron + Ion)/Hydrogen density.</span>
+<span class="sd">    :vartype pdion: float</span>
+<span class="sd">    :ivar denmas: Mass density / (n_H * m_p).</span>
+<span class="sd">    :vartype denmas: float</span>
+<span class="sd">    :ivar cs: Sound speed (km/s).</span>
+<span class="sd">    :vartype cs: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.</span>       <span class="c1"># Electron temperature (keV)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elden</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Electron density/1E20 (/m**3)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hden</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c1"># Hydrogen density/1E20 (/m**3)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ed</span> <span class="o">=</span> <span class="mf">0.</span>      <span class="c1"># Electron/Hydrogen density</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pdion</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># (Electron + Ion)/Hydrogen density</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">denmas</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Mass density / (n_H * m_p)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="mf">0.</span>      <span class="c1"># Sound speed (km/s)</span>
+
+<div class="viewcode-block" id="Plas.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Plas.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the plasma parameters from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_t</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elden</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_elden</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hden</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_hden</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ed</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_ed</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pdion</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_pdion</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">denmas</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_denmas</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_plas</span><span class="o">.</span><span class="n">plas_cs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Abun"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Abun">[docs]</a><span class="k">class</span> <span class="nc">Abun</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output for the command ascdump abun.</span>
+
+<span class="sd">    :ivar nz: Number of elements.</span>
+<span class="sd">    :vartype nz: int</span>
+<span class="sd">    :ivar atom: Atomic number.</span>
+<span class="sd">    :vartype atom: numpy.ndarray</span>
+<span class="sd">    :ivar name: Element name.</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar relabn: Abundance in solar units.</span>
+<span class="sd">    :vartype relabn: numpy.ndarray</span>
+<span class="sd">    :ivar absabn: Absolute abundance.</span>
+<span class="sd">    :vartype absabn: numpy.ndarray</span>
+<span class="sd">    :ivar charge: Average charge.</span>
+<span class="sd">    :vartype charge: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nz</span> <span class="o">=</span> <span class="mi">0</span>                    <span class="c1"># Number of elements</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relabn</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Abundance in solar units</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">absabn</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Absolute abundance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charge</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Average charge</span>
+
+<div class="viewcode-block" id="Abun.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Abun.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the abundance information from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nz</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_nz</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">relabn</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">absabn</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">charge</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_element</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">relabn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_relabun</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">absabn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_conele</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_charge</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_abun</span><span class="o">.</span><span class="n">abun_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Icon"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Icon">[docs]</a><span class="k">class</span> <span class="nc">Icon</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Ascdump output containing the ion concentrations.</span>
+
+<span class="sd">    :ivar nline: Number of entries</span>
+<span class="sd">    :vartype nline: int</span>
+<span class="sd">    :ivar atom: Atomic number.</span>
+<span class="sd">    :vartype atom: numpy.ndarray</span>
+<span class="sd">    :ivar ion: Ionisation stage.</span>
+<span class="sd">    :vartype ion: numpy.ndarray</span>
+<span class="sd">    :ivar name: Element name.</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar roman: Ionisation stage (Roman).</span>
+<span class="sd">    :vartype roman: numpy.ndarray</span>
+<span class="sd">    :ivar charge: Ion charge.</span>
+<span class="sd">    :vartype charge: numpy.ndarray</span>
+<span class="sd">    :ivar conrel: Relative ion concentration.</span>
+<span class="sd">    :vartype conrel: numpy.ndarray</span>
+<span class="sd">    :ivar conabs: Absolute ion concentration.</span>
+<span class="sd">    :vartype conabs: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Ionisation stage (Roman)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charge</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Ion charge</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conrel</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Relative ion concentration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conabs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Absolute ion concentration</span>
+
+<div class="viewcode-block" id="Icon.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Icon.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the ion concentrations from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_nline</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conrel</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conabs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">charge</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">roman</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">conrel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_conrel</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">conabs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_conion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_charge</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_icon</span><span class="o">.</span><span class="n">icon_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Rate"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Rate">[docs]</a><span class="k">class</span> <span class="nc">Rate</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output for the command ascdump rate.</span>
+
+<span class="sd">    :ivar nline: Number of entries.</span>
+<span class="sd">    :vartype nline: int</span>
+<span class="sd">    :ivar atom: Atomic number.</span>
+<span class="sd">    :vartype atom: numpy.ndarray</span>
+<span class="sd">    :ivar ion: Ionisation stage.</span>
+<span class="sd">    :vartype ion: numpy.ndarray</span>
+<span class="sd">    :ivar name: Element name.</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar roman: Ionisation stage (Roman).</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar irate: Ionisation rate.</span>
+<span class="sd">    :vartype irate: numpy.ndarray</span>
+<span class="sd">    :ivar rrate: Recombination rate.</span>
+<span class="sd">    :vartype rrate: numpy.ndarray</span>
+<span class="sd">    :ivar ceirate: Charge transfer ionisation rate.</span>
+<span class="sd">    :vartype ceirate: numpy.ndarray</span>
+<span class="sd">    :ivar cerrate: Charge transfer recombination rate.</span>
+<span class="sd">    :vartype cerrate: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Ionisation stage (Roman)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">irate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Ionisation rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rrate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Recombination rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ceirate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Charge transfer ionisation rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cerrate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Charge transfer recombination rate</span>
+
+<div class="viewcode-block" id="Rate.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Rate.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the rates from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_nline</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">irate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rrate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ceirate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cerrate</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">roman</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">irate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_siont</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rrate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_alfa</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ceirate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_ceirat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cerrate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_cerrat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rate</span><span class="o">.</span><span class="n">rate_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Rion"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Rion">[docs]</a><span class="k">class</span> <span class="nc">Rion</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Ionisation rates per subshell.</span>
+
+<span class="sd">    :ivar nline: Number of entries</span>
+<span class="sd">    :vartype nline: int</span>
+<span class="sd">    :ivar atom: Atomic number</span>
+<span class="sd">    :vartype atom: numpy.ndarray</span>
+<span class="sd">    :ivar name: Element name</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar ion: Ionisation stage</span>
+<span class="sd">    :vartype ion: numpy.ndarray</span>
+<span class="sd">    :ivar roman: Ionisation stage (Roman)</span>
+<span class="sd">    :vartype roman: numpy.ndarray</span>
+<span class="sd">    :ivar shell: Shell number</span>
+<span class="sd">    :vartype shell: numpy.ndarray</span>
+<span class="sd">    :ivar shname: Shell name</span>
+<span class="sd">    :vartype shname: numpy.ndarray</span>
+<span class="sd">    :ivar phion: Photon ionisation rate (/s/ion)</span>
+<span class="sd">    :vartype phion: numpy.ndarray</span>
+<span class="sd">    :ivar cpion: Compton ionisation rate (/s/ion)</span>
+<span class="sd">    :vartype cpion: numpy.ndarray</span>
+<span class="sd">    :ivar elion: Electron ionisation rate (/s/ion)</span>
+<span class="sd">    :vartype elion: numpy.ndarray</span>
+<span class="sd">    :ivar phheat: Photon heating (keV/ion)</span>
+<span class="sd">    :vartype phheat: numpy.ndarray</span>
+<span class="sd">    :ivar cpheat: Compton heating (keV/ion)</span>
+<span class="sd">    :vartype cpheat: numpy.ndarray</span>
+<span class="sd">    :ivar elcool: Electron cooling (kev/ion)</span>
+<span class="sd">    :vartype elcool: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Ionisation stage (Roman)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shell</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Shell number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shname</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Shell name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Photon ionisation rate (/s/ion)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Compton ionisation rate (/s/ion)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Electron ionisation rate (/s/ion)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phheat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Photon heating (keV/ion)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpheat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Compton heating (keV/ion)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elcool</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Electron cooling (kev/ion)</span>
+
+<div class="viewcode-block" id="Rion.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Rion.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the ionisation rates per subshell.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_nline</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shell</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shname</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">phion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cpion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">phheat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cpheat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elcool</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">roman</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_shell</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">shname</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atomshell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">phion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_phion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cpion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_cpion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_elion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">phheat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_phheat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cpheat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_cpheat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elcool</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_elcool</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rion</span><span class="o">.</span><span class="n">rion_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output the last used energy/wavelength grid used in the model.</span>
+
+<span class="sd">    :ivar nbin: Number of energy bins.</span>
+<span class="sd">    :vartype nbin: int</span>
+<span class="sd">    :ivar ibin: Bin number.</span>
+<span class="sd">    :vartype ibin: numpy.ndarray</span>
+<span class="sd">    :ivar elow: Low energy boundary of bin (keV).</span>
+<span class="sd">    :vartype elow: numpy.ndarray</span>
+<span class="sd">    :ivar eupp: Upper energy boundary of bin (keV).</span>
+<span class="sd">    :vartype eupp: numpy.ndarray</span>
+<span class="sd">    :ivar ewidth: Width of the bin (keV).</span>
+<span class="sd">    :vartype ewidth: numpy.ndarray</span>
+<span class="sd">    :ivar emean: Mean energy of the bin (keV).</span>
+<span class="sd">    :vartype emean: numpy.ndarray</span>
+<span class="sd">    :ivar wave: Wavelength of the bin (Angstrom).</span>
+<span class="sd">    :vartype wave: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c1"># Number of energy bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Bin number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elow</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Low energy boundary of bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eupp</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Upper energy boundary of bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ewidth</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Width of the bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Mean energy of the bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wave</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Wavelength of the bin</span>
+
+<div class="viewcode-block" id="Grid.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Grid.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the energy grid from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_nbin</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elow</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eupp</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ewidth</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wave</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_bin</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elow</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_elow</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">eupp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_eupp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ewidth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_ewidth</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">emean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_emean</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">wave</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_wave</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_grid</span><span class="o">.</span><span class="n">grid_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Clin"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Clin">[docs]</a><span class="k">class</span> <span class="nc">Clin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output the continuum, line and total flux for each energy bin.</span>
+
+<span class="sd">    :ivar nbin: Number of energy bins.</span>
+<span class="sd">    :vartype nbin: int</span>
+<span class="sd">    :ivar ibin: Bin number.</span>
+<span class="sd">    :vartype ibin: numpy.ndarray</span>
+<span class="sd">    :ivar emean: Mean energy of the bin (keV).</span>
+<span class="sd">    :vartype emean: numpy.ndarray</span>
+<span class="sd">    :ivar fluxcon: Continuum flux (:math:`10^{44}` ph/s/keV).</span>
+<span class="sd">    :vartype fluxcon: numpy.ndarray</span>
+<span class="sd">    :ivar fluxlin: Line flux (:math:`10^{44}` ph/s/keV).</span>
+<span class="sd">    :vartype fluxlin: numpy.ndarray</span>
+<span class="sd">    :ivar flux: Total flux (:math:`10^{44}` ph/s/keV).</span>
+<span class="sd">    :vartype flux: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># Number of energy bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>      <span class="c1"># Bin number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Mean energy of the bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fluxcon</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Continuum flux</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fluxlin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Line flux</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flux</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Total flux</span>
+        
+<div class="viewcode-block" id="Clin.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Clin.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the continuum, line and total fluxes from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_nbin</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fluxcon</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fluxlin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flux</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_bin</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">emean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_emean</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fluxcon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_flxcon</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fluxlin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_flxlin</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_flx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_clin</span><span class="o">.</span><span class="n">clin_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Con"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Con">[docs]</a><span class="k">class</span> <span class="nc">Con</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;List of the ions that contribute to the free-free, free-bound and two-photon continuum emission, followed by</span>
+<span class="sd">    the free-free, free-bound, two-photon and total continuum spectrum for the last plasma layer of the model.</span>
+
+<span class="sd">    :ivar ff_nion: Number of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_nion: int</span>
+<span class="sd">    :ivar ff_atom: Atomic numbers of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_atom: numpy.ndarray</span>
+<span class="sd">    :ivar ff_ion: Ion numbers of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_ion: numpy.ndarray</span>
+<span class="sd">    :ivar ff_name: Ion names of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_name: numpy.ndarray</span>
+
+<span class="sd">    :ivar fb_nion: Number of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_nion: int</span>
+<span class="sd">    :ivar fb_atom: Atomic numbers of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_atom: numpy.ndarray</span>
+<span class="sd">    :ivar fb_ion: Ion numbers of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_ion: numpy.ndarray</span>
+<span class="sd">    :ivar fb_name: Ion names of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_name: numpy.ndarray</span>
+
+<span class="sd">    :ivar tf_nion: Number of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_nion: int</span>
+<span class="sd">    :ivar tf_atom: Atomic numbers of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_atom: numpy.ndarray</span>
+<span class="sd">    :ivar tf_ion: Ion numbers of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_ion: numpy.ndarray</span>
+<span class="sd">    :ivar tf_name: Ion names of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_name: numpy.ndarray</span>
+
+<span class="sd">    :ivar nbin: Number of spectral bins.</span>
+<span class="sd">    :vartype nbin: int</span>
+<span class="sd">    :ivar ener: Mean energy (keV).</span>
+<span class="sd">    :vartype ener: numpy.ndarray</span>
+<span class="sd">    :ivar ff: Free-Free continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype ff: numpy.ndarray</span>
+<span class="sd">    :ivar fb: Free-Bound continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype fb: numpy.ndarray</span>
+<span class="sd">    :ivar tf: Two-photon continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype tf: numpy.ndarray</span>
+<span class="sd">    :ivar tot: Total continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype tot: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ener</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tot</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<div class="viewcode-block" id="Con.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Con.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the continuum contributions from SPEX.&quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Free-Free </span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_ff_nion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_ff_elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_ff_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            
+            <span class="c1"># Free-Bound</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_fb_nion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_fb_elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_fb_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                
+            <span class="c1"># Two-photon</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_tf_nion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_tf_elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_tf_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="c1"># Spectrum</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_nbin</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">ener</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tot</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ener</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_ener</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_ff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_fb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_tf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_tot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_con</span><span class="o">.</span><span class="n">con_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+
+<div class="viewcode-block" id="Tcl"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Tcl">[docs]</a><span class="k">class</span> <span class="nc">Tcl</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output the continuum, line and total flux for each energy bin summed for all plasma layers of the model.</span>
+
+<span class="sd">    :ivar nbin: Number of energy bins.</span>
+<span class="sd">    :vartype nbin: int</span>
+<span class="sd">    :ivar ibin: Bin number.</span>
+<span class="sd">    :vartype ibin: numpy.ndarray</span>
+<span class="sd">    :ivar emean: Mean energy of the bin (keV).</span>
+<span class="sd">    :vartype emean: numpy.ndarray</span>
+<span class="sd">    :ivar fluxcon: Continuum flux (:math:`10^{44}` ph/s/keV).</span>
+<span class="sd">    :vartype fluxcon: numpy.ndarray</span>
+<span class="sd">    :ivar fluxlin: Line flux (:math:`10^{44}` ph/s/keV).</span>
+<span class="sd">    :vartype fluxlin: numpy.ndarray</span>
+<span class="sd">    :ivar flux: Total flux (:math:`10^{44}` ph/s/keV).</span>
+<span class="sd">    :vartype flux: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># Number of energy bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>      <span class="c1"># Bin number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Mean energy of the bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fluxcon</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Continuum flux</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fluxlin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Line flux</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flux</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Total flux</span>
+
+<div class="viewcode-block" id="Tcl.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Tcl.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the continuum, line and total fluxes from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_nbin</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fluxcon</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fluxlin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flux</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_bin</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">emean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_emean</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fluxcon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_slxcon</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fluxlin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_slxlin</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_slx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcl</span><span class="o">.</span><span class="n">tcl_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Tcon"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Tcon">[docs]</a><span class="k">class</span> <span class="nc">Tcon</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;List of the ions that contribute to the free-free, free-bound and two-photon continuum emission, followed by</span>
+<span class="sd">    the free-free, free-bound, two-photon and total continuum spectrum added for all plasma layers of the model.</span>
+
+<span class="sd">    :ivar ff_nion: Number of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_nion: int</span>
+<span class="sd">    :ivar ff_atom: Atomic numbers of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_atom: numpy.ndarray</span>
+<span class="sd">    :ivar ff_ion: Ion numbers of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_ion: numpy.ndarray</span>
+<span class="sd">    :ivar ff_name: Ion names of ions contributing to free-free continuum.</span>
+<span class="sd">    :vartype ff_name: numpy.ndarray</span>
+<span class="sd">    :ivar ff_layer: Number of layers in the model</span>
+<span class="sd">    :vartype ff_layer: numpy.ndarray</span>
+
+<span class="sd">    :ivar fb_nion: Number of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_nion: int</span>
+<span class="sd">    :ivar fb_atom: Atomic numbers of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_atom: numpy.ndarray</span>
+<span class="sd">    :ivar fb_ion: Ion numbers of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_ion: numpy.ndarray</span>
+<span class="sd">    :ivar fb_name: Ion names of ions contributing to free-bound continuum.</span>
+<span class="sd">    :vartype fb_name: numpy.ndarray</span>
+<span class="sd">    :ivar fb_layer: Number of layers in the model</span>
+<span class="sd">    :vartype fb_layer: numpy.ndarray</span>
+
+<span class="sd">    :ivar tf_nion: Number of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_nion: int</span>
+<span class="sd">    :ivar tf_atom: Atomic numbers of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_atom: numpy.ndarray</span>
+<span class="sd">    :ivar tf_ion: Ion numbers of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_ion: numpy.ndarray</span>
+<span class="sd">    :ivar tf_name: Ion names of ions contributing to two-photon continuum.</span>
+<span class="sd">    :vartype tf_name: numpy.ndarray</span>
+<span class="sd">    :ivar tf_layer: Number of layers in the model</span>
+<span class="sd">    :vartype tf_layer: numpy.ndarray</span>
+
+<span class="sd">    :ivar nbin: Number of spectral bins.</span>
+<span class="sd">    :vartype nbin: int</span>
+<span class="sd">    :ivar ener: Mean energy (keV).</span>
+<span class="sd">    :vartype ener: numpy.ndarray</span>
+<span class="sd">    :ivar ff: Free-Free continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype ff: numpy.ndarray</span>
+<span class="sd">    :ivar fb: Free-Bound continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype fb: numpy.ndarray</span>
+<span class="sd">    :ivar tf: Two-photon continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype tf: numpy.ndarray</span>
+<span class="sd">    :ivar tot: Total continuum (1E44 ph/s/keV).</span>
+<span class="sd">    :vartype tot: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff_layer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb_layer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_layer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ener</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ff</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fb</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tot</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<div class="viewcode-block" id="Tcon.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Tcon.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the continuum contributions from SPEX.&quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Free-Free</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_ff_nion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff_layer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_ff_elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_ff_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff_layer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_ff_layer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># Free-Bound</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_fb_nion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb_layer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_nion</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_fb_elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_fb_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fb_atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">fb_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb_layer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_fb_layer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># Two-photon</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_tf_nion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf_layer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_nion</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_tf_elem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_tf_ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf_layer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_tf_layer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># Spectrum</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_nbin</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">ener</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ff</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fb</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tf</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tot</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ener</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_ener</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_ff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_fb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_tf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_tot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_tcon</span><span class="o">.</span><span class="n">tcon_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Nei"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Nei">[docs]</a><span class="k">class</span> <span class="nc">Nei</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output the history of ionisation parameter and temperature for NEI models.</span>
+
+<span class="sd">    :ivar nbin: Number of histogram bins.</span>
+<span class="sd">    :vartype nbin: int</span>
+<span class="sd">    :ivar u: Ionisation parameter (1E20 s/m**3).</span>
+<span class="sd">    :vartype u: numpy.ndarray</span>
+<span class="sd">    :ivar kt: Temperature (keV).</span>
+<span class="sd">    :vartype kt: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of histogram bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation parameter (1E20 s/m**3)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Temperature (keV)</span>
+
+<div class="viewcode-block" id="Nei.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Nei.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the history of the ionisation parameter from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_nei</span><span class="o">.</span><span class="n">nei_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_nei</span><span class="o">.</span><span class="n">nei_nbin</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_nei</span><span class="o">.</span><span class="n">nei_u</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_nei</span><span class="o">.</span><span class="n">nei_kt</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_nei</span><span class="o">.</span><span class="n">nei_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Heat"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Heat">[docs]</a><span class="k">class</span> <span class="nc">Heat</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Plasma heating rates (only for photoionized plasmas).</span>
+
+<span class="sd">    :ivar heat: Total heating</span>
+<span class="sd">    :vartype heat: float</span>
+<span class="sd">    :ivar heatcom: Heating by Compton scattering</span>
+<span class="sd">    :vartype heatcom: float</span>
+<span class="sd">    :ivar heatffa: Heating by free-free absorption</span>
+<span class="sd">    :vartype heatffa: float</span>
+<span class="sd">    :ivar heatphi: Heating by photo-electrons</span>
+<span class="sd">    :vartype heatphi: float</span>
+<span class="sd">    :ivar heatcio: Heating by Compton ionisation</span>
+<span class="sd">    :vartype heatcio: float</span>
+<span class="sd">    :ivar heataug: Heating by Auger electrons</span>
+<span class="sd">    :vartype heataug: float</span>
+<span class="sd">    :ivar heatdex: Heating by collisional de-excitation</span>
+<span class="sd">    :vartype heatdex: float</span>
+<span class="sd">    :ivar heatext: Heating by external source</span>
+<span class="sd">    :vartype heatext: float</span>
+<span class="sd">    :ivar cool: Total cooling</span>
+<span class="sd">    :vartype cool: float</span>
+<span class="sd">    :ivar coolcom: Cooling by inverse Compton scattering</span>
+<span class="sd">    :vartype coolcom: float</span>
+<span class="sd">    :ivar coolion: Cooling by electron ionisation</span>
+<span class="sd">    :vartype coolion: float</span>
+<span class="sd">    :ivar coolrec: Cooling by radiative recombination</span>
+<span class="sd">    :vartype coolrec: float</span>
+<span class="sd">    :ivar coolffe: Cooling by free-free emission</span>
+<span class="sd">    :vartype coolffe: float</span>
+<span class="sd">    :ivar coolexc: Cooling by collisional excitation</span>
+<span class="sd">    :vartype coolexc: float</span>
+<span class="sd">    :ivar cooldr: Cooling by dielectronic recombination</span>
+<span class="sd">    :vartype cooldr: float</span>
+<span class="sd">    :ivar cooladi: Cooling by adiabatic expansion</span>
+<span class="sd">    :vartype cooladi: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heat</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># Total heating</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heatcom</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by Compton scattering</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heatffa</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by free-free absorption</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heatphi</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by photo-electrons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heatcio</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by Compton ionisation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heataug</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by Auger electrons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heatdex</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by collisional de-excitation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heatext</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by external source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cool</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># Total cooling</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coolcom</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Cooling by inverse Compton scattering</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coolion</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Cooling by electron ionisation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coolrec</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Cooling by radiative recombination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coolffe</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Cooling by free-free emission</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coolexc</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Cooling by collisional excitation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cooldr</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Cooling by dielectronic recombination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cooladi</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Cooling by adiabatic expansion</span>
+
+<div class="viewcode-block" id="Heat.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Heat.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain plasma heating rates from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heat</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heatcom</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heatcom</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heatffa</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heatffa</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heatphi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heatphi</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heatcio</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heatcio</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heataug</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heataug</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heatdex</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heatdex</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">heatext</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_heatext</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cool</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_cool</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coolcom</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_coolcom</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coolion</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_coolion</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coolrec</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_coolrec</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coolffe</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_coolffe</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coolexc</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_coolexc</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cooldr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_cooldr</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cooladi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_heat</span><span class="o">.</span><span class="n">heat_cooladi</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Col"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Col">[docs]</a><span class="k">class</span> <span class="nc">Col</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Output the ionic column densities.</span>
+
+<span class="sd">    :ivar nline: Number of lines.</span>
+<span class="sd">    :vartype nline: int</span>
+<span class="sd">    :ivar atom: Atomic number.</span>
+<span class="sd">    :vartype atom: numpy.ndarray</span>
+<span class="sd">    :ivar ion: Ionisation stage.</span>
+<span class="sd">    :vartype ion: numpy.ndarray</span>
+<span class="sd">    :ivar name: Element name.</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar roman: Ionisation stage (Roman).</span>
+<span class="sd">    :vartype roman: numpy.ndarray</span>
+<span class="sd">    :ivar column: Column density (1E28/m**2).</span>
+<span class="sd">    :vartype column: numpy.ndarray</span>
+<span class="sd">    :ivar logcol: Recombination rate (/m**2).</span>
+<span class="sd">    :vartype logcol: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Ionisation stage (Roman)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Column density (1E28/m**2)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logcol</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Recombination rate (/m**2)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fname</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<div class="viewcode-block" id="Col.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Col.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the ionic column denstities from SPEX.</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_nline</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logcol</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">roman</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_column</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logcol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_logcol</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_col</span><span class="o">.</span><span class="n">col_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Warm"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Warm">[docs]</a><span class="k">class</span> <span class="nc">Warm</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Column densities, ionisation parameters and temperatures of the warm model.</span>
+
+<span class="sd">    :ivar nline: Number of lines.</span>
+<span class="sd">    :vartype nline: int</span>
+<span class="sd">    :ivar atom: Atomic number.</span>
+<span class="sd">    :vartype atom: numpy.ndarray</span>
+<span class="sd">    :ivar ion: Ionisation stage.</span>
+<span class="sd">    :vartype ion: numpy.ndarray</span>
+<span class="sd">    :ivar name: Element name.</span>
+<span class="sd">    :vartype name: numpy.ndarray</span>
+<span class="sd">    :ivar roman: Ionisation stage (Roman).</span>
+<span class="sd">    :vartype roman: numpy.ndarray</span>
+<span class="sd">    :ivar xi: Log Xi (1E-9 Wm).</span>
+<span class="sd">    :vartype xi: numpy.ndarray</span>
+<span class="sd">    :ivar t: Log T (keV).</span>
+<span class="sd">    :vartype t: numpy.ndarray</span>
+<span class="sd">    :ivar col: dN/d ln Xi.</span>
+<span class="sd">    :vartype col: numpy.ndarray</span>
+
+<span class="sd">    :ivar nxil: Number of Xi grid points.</span>
+<span class="sd">    :vartype nxil: int</span>
+<span class="sd">    :ivar xilgrid: Xi (1E-9 Wm).</span>
+<span class="sd">    :vartype xilgrid: numpy.ndarray</span>
+<span class="sd">    :ivar dndlnxi: dN/d ln Xi</span>
+<span class="sd">    :vartype dndlnxi: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Ionisation stage (Roman)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>      <span class="c1"># Log Xi (1E-9 Wm)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>       <span class="c1"># Log T (keV)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># dN/d ln Xi</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nxil</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># Number of Xi grid points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xilgrid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># Xi (1E-9 Wm)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dndlnxi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>  <span class="c1"># dN/d ln Xi</span>
+
+<div class="viewcode-block" id="Warm.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Warm.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the column densities, ionisation parameters and temperatures of the warm model from SPEX.&quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Elements</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_nline</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">roman</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nline</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">atom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">roman</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atom</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_xi_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_t_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_col_ion</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">nxil</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_nxil</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xilgrid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nxil</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dndlnxi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nxil</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nxil</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">xilgrid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_xilgrid</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dndlnxi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_dndlnxi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_warm</span><span class="o">.</span><span class="n">warm_final</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

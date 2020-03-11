@@ -61,13 +61,21 @@ the observed reddened flux (<img class="math" src="../_images/math/e55464a8c4b59
 Note that at energies above the Lyman limit, the transmission of the
 model is set to 1 in SPEX, thus it can be used alongside the Galactic
 interstellar X-ray absorption models in SPEX.</p>
+<p>This extinction model is currently the best model for the Milky Way.
+However, the extinction curve of the Milky Way has a famous broad bump
+at 2175 <img class="math" src="../_images/math/c1058e8dccbf6b0bcd82329cff62cbc8a3c7d841.svg" alt="\mathrm{\AA}" style="vertical-align: 0px"/>. The origin of this bump is still not fully
+understood. Interestingly, this feature (due to dust) is seen in the
+Milky Way and not in other galaxies like in AGN. If one would use the <code class="docutils literal notranslate"><span class="pre">ebv</span></code>
+model to correct for extinction in the host galaxy of an AGN, it is best
+to remove this bump from the model as it can have an effect on the fit
+to the data. The bump can be removed by setting the <code class="docutils literal notranslate"><span class="pre">mway</span></code> parameter to 0.</p>
 <div class="line-block">
 <div class="line">The parameters of the model are:</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ebv</span></code> : The colour excess <img class="math" src="../_images/math/7cc9b5d920e706062dcab0d8e176047664eee497.svg" alt="E(B-V)" style="vertical-align: -4px"/>. The value is set by the
 user.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rv</span></code> : The scalar <img class="math" src="../_images/math/39fb57cfda40e102e4c279adcf0146d92923b8c7.svg" alt="R_{V}" style="vertical-align: -2px"/>. Default (recommended) value: 3.1</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
-covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full covering)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mway</span></code> : Include the Milky Way broad bump (1 = Yes, 0 = No).</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989ApJ...345..245C/abstract">Cardelli et al. (1989)</a> and
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...422..158O/abstract">O’Donnell et al. (1994)</a>.</p>
@@ -104,11 +112,12 @@ covering)</div>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../help.html">6. Help &amp; troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory.html">7. SPEX Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exercises.html">8. Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">9. Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../credits.html">10. Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
 </ul>
 
 <div class="relations">

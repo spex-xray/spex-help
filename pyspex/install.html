@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.1. Install PYSPEX &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/install.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.2. Basic usage of PYSPEX" href="spex.html" />
+    <link rel="prev" title="6. Python Interface" href="../pyspex.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="install-pyspex">
+<h1>6.1.1. Install PYSPEX<a class="headerlink" href="#install-pyspex" title="Permalink to this headline">¶</a></h1>
+<p>PYSPEX is currently available in a special branch of the SPEX source code (pyspex), but
+not necessarily installed by default. PYSPEX can be enabled by compiling the source again
+while indicating the Python major version number. The version number can be set in the cmake
+command prior to compilation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="p">:</span><span class="o">~/</span><span class="n">spex</span><span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">.</span> <span class="o">-</span><span class="n">DPYTHON</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>for python version 2 series and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="p">:</span><span class="o">~/</span><span class="n">spex</span><span class="o">&gt;</span> <span class="n">cmake</span> <span class="o">.</span> <span class="o">-</span><span class="n">DPYTHON</span><span class="o">=</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>for python version 3. CMake should automatically find the dependencies of PYSPEX, which are
+<code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">future</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Make sure that these python modules are installed for
+the right python version (see below in the Section “Dependencies”).</p>
+<p>The CMake installation should create a <code class="docutils literal notranslate"><span class="pre">spexdist.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">spexdist.csh</span></code> script to set the
+necessary environment variables. These are the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>, which needs to be set to
+<code class="docutils literal notranslate"><span class="pre">$SPEX90/lib</span></code> and the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>, which is set to <code class="docutils literal notranslate"><span class="pre">$SPEX90/python</span></code>.</p>
+<div class="section" id="dependencies">
+<h2>6.1.1.1. Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>PYSPEX depends on the <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">future</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> python modules. The current
+numpy versions should include the f2py program that is necessary to create the Fortran to python
+interface.</p>
+<p>Please take care that both modules are often distributed in a python 2 and python 3 version.
+If you compile SPEX for python 3, then also the python3 versions of the modules need to be
+installed. In Linux distributions, packages often have the python version in the name. In
+Debian, for example, the python 2 version of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is called <code class="docutils literal notranslate"><span class="pre">python-numpy</span></code> and the python 3
+version <code class="docutils literal notranslate"><span class="pre">python3-numpy</span></code>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+      <li>Previous: <a href="../pyspex.html" title="previous chapter">6. Python Interface</a></li>
+      <li>Next: <a href="spex.html" title="next chapter">6.1.2. Basic usage of PYSPEX</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

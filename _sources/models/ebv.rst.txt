@@ -33,12 +33,21 @@ Note that at energies above the Lyman limit, the transmission of the
 model is set to 1 in SPEX, thus it can be used alongside the Galactic
 interstellar X-ray absorption models in SPEX.
 
+This extinction model is currently the best model for the Milky Way.
+However, the extinction curve of the Milky Way has a famous broad bump
+at 2175 :math:`\mathrm{\AA}`. The origin of this bump is still not fully
+understood. Interestingly, this feature (due to dust) is seen in the
+Milky Way and not in other galaxies like in AGN. If one would use the ``ebv``
+model to correct for extinction in the host galaxy of an AGN, it is best
+to remove this bump from the model as it can have an effect on the fit
+to the data. The bump can be removed by setting the ``mway`` parameter to 0.
+
 | The parameters of the model are:
 | ``ebv`` : The colour excess :math:`E(B-V)`. The value is set by the
   user.
 | ``rv`` : The scalar :math:`R_{V}`. Default (recommended) value: 3.1
-| ``fcov`` : The covering factor of the absorber. Default value: 1 (full
-  covering)
+| ``fcov`` : The covering factor of the absorber. Default value: 1 (full covering)
+| ``mway`` : Include the Milky Way broad bump (1 = Yes, 0 = No).
 
 *Recommended citation:* `Cardelli et al. (1989)
 <https://ui.adsabs.harvard.edu/abs/1989ApJ...345..245C/abstract>`_ and

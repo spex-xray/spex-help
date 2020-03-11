@@ -84,8 +84,9 @@ or ask your question though our <a class="reference external" href="https://gith
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="threads.html">2. Analysis threads</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="threads/partbkg/partbkg.html">2.1. Modeling particle background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="threads/uv.html">2.2. Import UV/Optical data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threads/ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threads/partbkg/partbkg.html">2.2. Modeling particle background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threads/uv.html">2.3. Import UV/Optical data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">3. Command overview</a><ul>
@@ -107,45 +108,51 @@ or ask your question though our <a class="reference external" href="https://gith
 <li class="toctree-l2"><a class="reference internal" href="tools/rgs_fmat.html">5.7. RGS_fmat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools/uvtospex.html">5.8. Uvtospex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools/fortcall.html">5.9. Calling SPEX from Fortran</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools/pyspextools.html">5.10. Python tools</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">6. Help &amp; troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="help/commandline.html">6.1. Commandline help</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/trouble.html">6.2. Solving SPEX problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/known_issues.html">6.3. Find known issues</a></li>
-<li class="toctree-l2"><a class="reference internal" href="help/report_issues.html">6.4. Report issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex.html">6. Python Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html">7. SPEX Theory</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="theory/spexact.html">7.1. SPEX Atomic Code &amp; Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory/fitting.html">7.2. Modelling and fitting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory/response.html">7.3. Optimal definition of respons matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">7. Help &amp; troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help/commandline.html">7.1. Commandline help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/trouble.html">7.2. Solving SPEX problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/known_issues.html">7.3. Find known issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help/report_issues.html">7.4. Report issues</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="exercises.html">8. Exercises</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex1.html">8.1. Powerlaw</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex2.html">8.2. Powerlaw with a Gaussian line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex3.html">8.3. Statistics, binning and more</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex4.html">8.4. Stellar Spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex5.html">8.5. Supernova remnants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex6.html">8.6. Relativistic lines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/ex7.html">8.7. AGN winds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">8. SPEX Theory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="theory/spexact.html">8.1. SPEX Atomic Code &amp; Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory/fitting.html">8.2. Modelling and fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory/response.html">8.3. Optimal definition of respons matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory/turbulence.html">8.4. Definition of the micro-turbulent velocity in SPEX</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">9. Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-01-00">9.1. Version 3.01.00</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-02-00">9.2. Version 3.02.00</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-03-00">9.3. Version 3.03.00</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-04-00">9.4. Version 3.04.00</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-05-00">9.5. Version 3.05.00</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">9. Exercises</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex1.html">9.1. Powerlaw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex2.html">9.2. Powerlaw with a Gaussian line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex3.html">9.3. Statistics, binning and more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex4.html">9.4. Stellar Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex5.html">9.5. Supernova remnants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex6.html">9.6. Relativistic lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/ex7.html">9.7. AGN winds</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">10. Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="credits.html#software">10.1. Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="credits.html#plasma-model">10.2. Plasma model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="credits.html#spex-models">10.3. SPEX models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="credits.html#documentation">10.4. Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-01-00">10.1. Version 3.01.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-02-00">10.2. Version 3.02.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-03-00">10.3. Version 3.03.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-04-00">10.4. Version 3.04.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-3-05-00">10.5. Version 3.05.00</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">11. Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credits.html#software">11.1. Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credits.html#plasma-model">11.2. Plasma model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credits.html#spex-models">11.3. SPEX models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credits.html#documentation">11.4. Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -189,11 +196,12 @@ or ask your question though our <a class="reference external" href="https://gith
 <li class="toctree-l1"><a class="reference internal" href="reference.html">3. Command overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">4. Spectral models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">5. Additional tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">6. Help &amp; troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html">7. SPEX Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exercises.html">8. Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">9. Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">10. Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">11. Credits</a></li>
 </ul>
 
 <div class="relations">

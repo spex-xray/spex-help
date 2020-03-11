@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.3.4. Plot commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_plot.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.3.5. Log commands" href="com_log.html" />
+    <link rel="prev" title="6.1.3.3. Optimization commands" href="com_opt.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plot-commands">
+<h1>6.1.3.4. Plot commands<a class="headerlink" href="#plot-commands" title="Permalink to this headline">¶</a></h1>
+<p>Next to the PGPLOT plotting system of SPEX, the python interface can also be used for plotting.
+In this section, we provide a list of commands for plotting spectral models, the effective area and
+spectral data (including residuals).</p>
+<div class="section" id="plot-spectral-model">
+<h2>6.1.3.4.1. Plot spectral model<a class="headerlink" href="#plot-spectral-model" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX plot type ‘model’ plots the model spectrum as a function of energy. In PYSPEX there is a
+function to obtain the same plot using matplotlib:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.plot_model">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_model</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='SPEX Model Spectrum'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the spectral model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Plot object and optionally the matplotlib plt object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="plot.html#pyspex.plot.PlotModel" title="pyspex.plot.PlotModel">pyspex.plot.PlotModel</a>, matplotlib.pyplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>This function plots the model spectrum as a function of energy (keV). The axis can be made
+logarithmic by setting <code class="docutils literal notranslate"><span class="pre">xlog=True</span></code> and <code class="docutils literal notranslate"><span class="pre">ylog=True</span></code> for the x and y axis, respectively.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_model</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_model</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-data">
+<h2>6.1.3.4.2. Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX data plot type plots the observed spectrum, the folded model and background spectrum.
+In PYSPEX, this is done with one command called <code class="docutils literal notranslate"><span class="pre">plot_data</span></code>:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.plot_data">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_data</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='SPEX'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the observed spectrum with the convolved model for all instruments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Plot object and optionally the matplotlib plt object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="plot.html#pyspex.plot.PlotData" title="pyspex.plot.PlotData">pyspex.plot.PlotData</a>, matplotlib.pyplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>This function plots the observed spectra in black, the convolved model in red, and the background
+spectrum as a dashed blue line. The axis can be made logarithmic by setting <code class="docutils literal notranslate"><span class="pre">xlog=True</span></code>
+and <code class="docutils literal notranslate"><span class="pre">ylog=True</span></code> for the x and y axis, respectively.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="plot-data-with-residuals">
+<h3>6.1.3.4.2.1. Plot data with residuals<a class="headerlink" href="#plot-data-with-residuals" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to attach a subplot with residuals to the main data plot. To do this,
+one uses the <code class="docutils literal notranslate"><span class="pre">plot_chi</span></code> command:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.plot_chi">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_chi</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">chi='dchi'</em>, <em class="sig-param">title='SPEX'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_chi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_chi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the observed spectrum with the convolved model and their residuals for all instruments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Type of residual, either ‘dchi’ or ‘rel’.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Plot object and optionally the matplotlib plt object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="plot.html#pyspex.plot.PlotData" title="pyspex.plot.PlotData">pyspex.plot.PlotData</a>, matplotlib.pyplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>In addition to the xlog and ylog parameter, this function can also set the residual type.
+Currently, <code class="docutils literal notranslate"><span class="pre">dchi</span></code> and <code class="docutils literal notranslate"><span class="pre">rel</span></code> are implemented.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_chi</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_chi</span><span class="p">(</span><span class="n">chi</span><span class="o">=</span><span class="s1">&#39;rel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-data-with-model-components">
+<h3>6.1.3.4.2.2. Plot data with model components<a class="headerlink" href="#plot-data-with-model-components" title="Permalink to this headline">¶</a></h3>
+<p>For models with multiple additive components, it is possible in PYSPEX to plot the total model and
+the contributions from the individual additive components with the <code class="docutils literal notranslate"><span class="pre">plot_comp</span></code> method.</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.plot_comp">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_comp</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='SPEX'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_comp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_comp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the individual model components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Plot object and optionally the matplotlib plt object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="plot.html#pyspex.plot.PlotData" title="pyspex.plot.PlotData">pyspex.plot.PlotData</a>, matplotlib.pyplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">(</span><span class="n">ylog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spectral components&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-effective-area">
+<h2>6.1.3.4.3. Plot effective area<a class="headerlink" href="#plot-effective-area" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX plot type ‘area’ plots the effective area as a function of energy. In PYSPEX there is a
+function to obtain the same plot using matplotlib:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.plot_area">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_area</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='Effective Area'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the effective area of all instruments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Plot object and optionally the matplotlib plt object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="plot.html#pyspex.plot.PlotArea" title="pyspex.plot.PlotArea">pyspex.plot.PlotArea</a>, matplotlib.pyplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>This function plots the effective area as a function of energy (keV). The axis can be made
+logarithmic by setting <code class="docutils literal notranslate"><span class="pre">xlog=True</span></code> and <code class="docutils literal notranslate"><span class="pre">ylog=True</span></code> for the x and y axis, respectively.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_area</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_area</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_opt.html" title="previous chapter">6.1.3.3. Optimization commands</a></li>
+      <li>Next: <a href="com_log.html" title="next chapter">6.1.3.5. Log commands</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

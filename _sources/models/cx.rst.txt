@@ -100,8 +100,7 @@ The parameters of the CX model are:
   These empirical functions are defined in Eqs. :math:`4-8` of
   `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_,
   and will be selected when wt is set to :math:`2-6`, respectively. Default: 1
-| ``vmic`` : the (micro)turbulent velocity :math:`v_{\mathrm{micro}}`,
-  in km/s. Default value 0.
+| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : reference element. Default value 1 (hydrogen). See above for
   more details. The value corresponds to the atomic number of the
   reference element.

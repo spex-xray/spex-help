@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pyspex.data &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/_modules/pyspex/data.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pyspex.data</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
+
+<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
+
+<span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<div class="viewcode-block" id="Data"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Data">[docs]</a><span class="k">class</span> <span class="nc">Data</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Main data class used to set and get observed data.</span>
+
+<span class="sd">    :ivar ninst: Number of instruments loaded.</span>
+<span class="sd">    :vartype ninst: int</span>
+<span class="sd">    :ivar inst: Python list of instrument objects.</span>
+<span class="sd">    :vartype inst: list of objects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ninst</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Number of instruments loaded.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inst</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Python list of instrument objects.</span>
+
+<div class="viewcode-block" id="Data.update"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Data.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the number of instruments.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ninst</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">api_instrument_n</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ninst</span><span class="p">):</span>
+            <span class="n">ins</span> <span class="o">=</span> <span class="n">Instrument</span><span class="p">()</span>
+            <span class="n">ins</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ins</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Data.load"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Data.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resfile</span><span class="p">,</span> <span class="n">spofile</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a new set of spectrum and response file to the dataset. Provide the</span>
+<span class="sd">        full filename including extension!</span>
+
+<span class="sd">        :param resfile: SPEX response file name (including .res extension).</span>
+<span class="sd">        :type resfile: str</span>
+<span class="sd">        :param spofile: SPEX spectrum file name (including .spo extension).</span>
+<span class="sd">        :type spofile: str</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">resfile</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">resfile</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">rext</span> <span class="o">!=</span> <span class="s1">&#39;.res&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Response file does not have the proper .res extension.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">spo</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">spofile</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">spofile</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">sext</span> <span class="o">!=</span> <span class="s1">&#39;.spo&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Spectrum file does not have the proper .spo extension.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;data </span><span class="si">{:s}</span><span class="s1"> </span><span class="si">{:s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">spo</span><span class="p">)</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Data.delete"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Data.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete instrument with number `ins`.</span>
+
+<span class="sd">        :param ins: Instrument number to delete.</span>
+<span class="sd">        :type ins: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s2">&quot;data delete inst </span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ins</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">ier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Data.save"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Data.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">spofile</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save a spectrum to a .spo file.</span>
+
+<span class="sd">        :param ins: Instrument number to save.</span>
+<span class="sd">        :type ins: int</span>
+<span class="sd">        :param spofile: Output filename for SPEX output file (including .spo extension).</span>
+<span class="sd">        :type spofile: str</span>
+<span class="sd">        :param overwrite: (Optional) Overwrite an existing .spo file with the same name.</span>
+<span class="sd">        :type overwrite: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">spo</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">spofile</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">spofile</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">sext</span> <span class="o">!=</span> <span class="s1">&#39;.spo&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Spectrum file does not have the proper .spo extension.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">overwrite</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s2">&quot;data save </span><span class="si">{:d}</span><span class="s2"> </span><span class="si">{:s}</span><span class="s2"> overwrite&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ins</span><span class="p">,</span> <span class="n">spo</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s2">&quot;data save </span><span class="si">{:d}</span><span class="s2"> </span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ins</span><span class="p">,</span> <span class="n">spo</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Instrument"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Instrument">[docs]</a><span class="k">class</span> <span class="nc">Instrument</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Properties of an instrument.</span>
+
+<span class="sd">    :ivar nsector: Number of sectors in instrument.</span>
+<span class="sd">    :vartype nsector: int</span>
+<span class="sd">    :ivar nregion: Number of data regions in response.</span>
+<span class="sd">    :vartype nsector: int</span>
+<span class="sd">    :ivar nreg: Number of regions in data.</span>
+<span class="sd">    :vartype nreg: int</span>
+<span class="sd">    :ivar ncomp: Number of response components.</span>
+<span class="sd">    :vartype ncomp: int</span>
+<span class="sd">    :ivar index: Index number of this instrument.</span>
+<span class="sd">    :vartype index: int</span>
+<span class="sd">    :ivar sponame: Filename of .spo file.</span>
+<span class="sd">    :vartype sponame: str</span>
+<span class="sd">    :ivar resname: Filename of .res file</span>
+<span class="sd">    :vartype resname: str</span>
+<span class="sd">    :ivar reg: List of regions for this instrument.</span>
+<span class="sd">    :vartype reg: list of objects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Index number of this instrument.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nsector</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Number of sectors in instrument</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nregion</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Number of data regions in response</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nreg</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># Number of regions in data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ncomp</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Number of response components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sponame</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>   <span class="c1"># Filename of .spo file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resname</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>   <span class="c1"># Filename of .res file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># List of regions for this instrument</span>
+
+<div class="viewcode-block" id="Instrument.update"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Instrument.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iins</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the instrument information.</span>
+<span class="sd">        </span>
+<span class="sd">        :param iins: Instrument number to update.</span>
+<span class="sd">        :type iins: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">iins</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">api_instrument_update</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">iins</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nsector</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">inst_nsector</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nregion</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">inst_nregion</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nreg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">inst_nreg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ncomp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">inst_ncomp</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sponame</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">inst_sponame</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S252&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resname</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_instrument</span><span class="o">.</span><span class="n">inst_resname</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S252&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nreg</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">Region</span><span class="p">()</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">iins</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Region"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Region">[docs]</a><span class="k">class</span> <span class="nc">Region</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Properties of one region.</span>
+<span class="sd">    </span>
+<span class="sd">    :ivar index: Region number.</span>
+<span class="sd">    :vartype index: int</span>
+<span class="sd">    :ivar emin: Min data energy range (keV).</span>
+<span class="sd">    :vartype emin: float</span>
+<span class="sd">    :ivar emax: Max data energy range (keV).</span>
+<span class="sd">    :vartype emax: float</span>
+<span class="sd">    :ivar srccount: Net source counts.</span>
+<span class="sd">    :vartype srccount: float</span>
+<span class="sd">    :ivar srccerr: Net source count error.</span>
+<span class="sd">    :vartype srccerr: float</span>
+<span class="sd">    :ivar bkgcount: Subtracted background counts.</span>
+<span class="sd">    :vartype bkgcount: float</span>
+<span class="sd">    :ivar bkgcerr: Error subtracted background counts.</span>
+<span class="sd">    :vartype bkgcerr: float</span>
+<span class="sd">    :ivar srcrate: Net source count rate (counts/s).</span>
+<span class="sd">    :vartype srcrate: float</span>
+<span class="sd">    :ivar srcrerr: Net source count rate error (counts/s).</span>
+<span class="sd">    :vartype srcrerr: float</span>
+<span class="sd">    :ivar bkgrate: Background count rate subtracted.</span>
+<span class="sd">    :vartype bkgrate: float</span>
+<span class="sd">    :ivar bkgrerr: Error background count rate subtracted.</span>
+<span class="sd">    :vartype bkgrerr: float</span>
+
+<span class="sd">    :ivar mbkgrate: Model background count rate.</span>
+<span class="sd">    :vartype mbkgrate: float</span>
+
+<span class="sd">    :ivar tintmin: Minimum integration time per channel.</span>
+<span class="sd">    :vartype tintmin: float</span>
+<span class="sd">    :ivar tintmax: Maximum integration time per channel.</span>
+<span class="sd">    :vartype tintmax: float</span>
+<span class="sd">    :ivar tintaver: Average integration time per channel.</span>
+<span class="sd">    :vartype tintaver: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Region number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emin</span> <span class="o">=</span> <span class="mf">0.</span>      <span class="c1"># Min data energy range (keV)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emax</span> <span class="o">=</span> <span class="mf">0.</span>      <span class="c1"># Max data energy range (keV)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srccount</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Net source counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srccerr</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Net source count error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgcount</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Subtracted background counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgcerr</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Error subtracted background counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srcrate</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Net source count rate (counts/s)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srcrerr</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Net source count rate error (counts/s)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgrate</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Background count rate subtracted</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgrerr</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Error background count rate subtracted</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mbkgrate</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Model background count rate</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tintmin</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Minimum integration time per channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tintmax</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Maximum integration time per channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tintaver</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Average integration time per channel</span>
+
+<div class="viewcode-block" id="Region.update"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Region.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iins</span><span class="p">,</span> <span class="n">ireg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the region properties.</span>
+
+<span class="sd">        :param iins: Instrument number.</span>
+<span class="sd">        :type iins: int</span>
+<span class="sd">        :param ireg: Region number to update.</span>
+<span class="sd">        :type ireg: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ireg</span><span class="p">)</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">api_reg_update</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">iins</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">ireg</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_edmin</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_edmax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srccount</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_sc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srccerr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_sce</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgcount</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_bc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgcerr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_dbc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srcrate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_scs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">srcrerr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_scse</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgrate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_bce</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bkgrerr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_dbce</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mbkgrate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_bmce</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tintmin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_tintmin</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tintmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_tintmax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tintaver</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_region</span><span class="o">.</span><span class="n">reg_tintaver</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Simulate"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate">[docs]</a><span class="k">class</span> <span class="nc">Simulate</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class to simulate spectra.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Simulate.simulate"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.simulate">[docs]</a>    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extime</span><span class="p">,</span> <span class="n">inst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ssys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bsys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bnoise</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simulate a spectrum for exposure time extime and optionally with a number of options.</span>
+
+<span class="sd">        :param extime: Exposure time to simulate.</span>
+<span class="sd">        :type extime: float</span>
+<span class="sd">        :param inst: (Optional) Instrument range to simulate (default all)</span>
+<span class="sd">        :type inst: str</span>
+<span class="sd">        :param reg: (Optional) Region range to simulate (default all)</span>
+<span class="sd">        :type reg: str</span>
+<span class="sd">        :param ssys: (Optional) Add a systematic error to the source spectrum (Default 0).</span>
+<span class="sd">        :type ssys: float</span>
+<span class="sd">        :param bsys: (Optional) Add a systematic error to the background spectrum (Default 0).</span>
+<span class="sd">        :type bsys: float</span>
+<span class="sd">        :param noise: (Optional) Add Poisson noise to the simulated source spectrum (Default True).</span>
+<span class="sd">        :type noise: bool</span>
+<span class="sd">        :param bnoise: (Optional) Add Poisson noise to the simulated background spectrum (Default False).</span>
+<span class="sd">        :type bnoise: bool</span>
+<span class="sd">        :param seed: (Optional) Set the random seed for the simulation (Default: system clock).</span>
+<span class="sd">        :type seed: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Instrument range</span>
+        <span class="k">if</span> <span class="n">inst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_instrument</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
+
+        <span class="c1"># Region range</span>
+        <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_region</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
+
+        <span class="c1"># Default values for systematic errors</span>
+        <span class="n">api_ssys</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">api_bsys</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">ssys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">api_ssys</span> <span class="o">=</span> <span class="n">ssys</span>
+        <span class="k">if</span> <span class="n">bsys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">api_bsys</span> <span class="o">=</span> <span class="n">bsys</span>
+        <span class="k">if</span> <span class="n">ssys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">bsys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_syserr</span><span class="p">(</span><span class="n">api_ssys</span><span class="p">,</span> <span class="n">api_bsys</span><span class="p">)</span>
+
+        <span class="c1"># Noise settings</span>
+        <span class="k">if</span> <span class="n">noise</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_noise</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bnoise</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_bnoise</span><span class="p">(</span><span class="n">bnoise</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_random</span><span class="p">()</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulate_exposure</span><span class="p">(</span><span class="n">extime</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_instrument"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_instrument">[docs]</a>    <span class="k">def</span> <span class="nf">set_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">irange</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Define the range of instruments to simulate.</span>
+
+<span class="sd">        :param irange: Instrument range to simulate (default all)</span>
+<span class="sd">        :type irange: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_instrument</span><span class="p">(</span><span class="n">irange</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_region"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_region">[docs]</a>    <span class="k">def</span> <span class="nf">set_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rrange</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Define the range of regions to simulate.</span>
+
+<span class="sd">        :param rrange: Region range to simulate (default all)</span>
+<span class="sd">        :type rrange: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_region</span><span class="p">(</span><span class="n">rrange</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_syserr"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_syserr">[docs]</a>    <span class="k">def</span> <span class="nf">set_syserr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">bkg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a systematic error to the source spectrum (src) and to the background spectrum (bkg).</span>
+
+<span class="sd">        :param src: Add a systematic error to the source spectrum.</span>
+<span class="sd">        :type src: float</span>
+<span class="sd">        :param bkg: Add a systematic error to the background spectrum.</span>
+<span class="sd">        :type bkg: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_syserr</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">bkg</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_noise"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_noise">[docs]</a>    <span class="k">def</span> <span class="nf">set_noise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add Poisson noise to the source spectrum (status is True or False).</span>
+
+<span class="sd">        :param status: Add Poisson noise to the simulated source spectrum.</span>
+<span class="sd">        :type status: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_noise</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_bnoise"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_bnoise">[docs]</a>    <span class="k">def</span> <span class="nf">set_bnoise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add Poisson noise to the background spectrum (status is True or False).</span>
+
+<span class="sd">        :param status: Add Poisson noise to the simulated background spectrum.</span>
+<span class="sd">        :type status: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_bnoise</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_random"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_random">[docs]</a>    <span class="k">def</span> <span class="nf">set_random</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the random seed to a random number (default).&quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_random</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.set_random_seed"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.set_random_seed">[docs]</a>    <span class="k">def</span> <span class="nf">set_random_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the random seed to an integer value.</span>
+
+<span class="sd">        :param seed: Set the random seed for the simulation.</span>
+<span class="sd">        :type seed: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_random_seed</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Simulate.simulate_exposure"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Simulate.simulate_exposure">[docs]</a>    <span class="k">def</span> <span class="nf">simulate_exposure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extime</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simulate the spectrum for the provided exposure time.</span>
+
+<span class="sd">        :param extime: Exposure time to simulate.</span>
+<span class="sd">        :type extime: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_simulate</span><span class="o">.</span><span class="n">api_simulate_exposure</span><span class="p">(</span><span class="n">extime</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+
+
+<div class="viewcode-block" id="Bins"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins">[docs]</a><span class="k">class</span> <span class="nc">Bins</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class containing the binning methods.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Bins.bin"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.bin">[docs]</a>    <span class="k">def</span> <span class="nf">bin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Bin the spectrum using a fixed factor.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        :param elow: Start point of energy/channel interval.</span>
+<span class="sd">        :type elow: float</span>
+<span class="sd">        :param ehigh: End point of energy/channel interval.</span>
+<span class="sd">        :type ehigh: float</span>
+<span class="sd">        :param factor: Binning factor</span>
+<span class="sd">        :type factor: int</span>
+<span class="sd">        :param unit: Unit of the energy/channel range, for example: &#39;kev&#39;, &#39;ev&#39;, &#39;ryd&#39;, &#39;j&#39;, &#39;hz&#39;, &#39;ang&#39;, &#39;nm&#39;</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_bin</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">factor</span><span class="p">),</span> <span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Bins.obin"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.obin">[docs]</a>    <span class="k">def</span> <span class="nf">obin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Bin the spectrum optimally given the instrument resolution and statistics.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        :param elow: Start point of energy/channel interval.</span>
+<span class="sd">        :type elow: float</span>
+<span class="sd">        :param ehigh: End point of energy/channel interval.</span>
+<span class="sd">        :type ehigh: float</span>
+<span class="sd">        :param unit: Unit of the energy/channel range, for example: &#39;kev&#39;, &#39;ev&#39;, &#39;ryd&#39;, &#39;j&#39;, &#39;hz&#39;, &#39;ang&#39;, &#39;nm&#39;</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_obin</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Bins.vbin"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.vbin">[docs]</a>    <span class="k">def</span> <span class="nf">vbin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">snr</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Bin the spectrum using a variable bin size, given a minimum bin factor and a minimum signal to noise ratio.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        :param elow: Start point of energy/channel interval.</span>
+<span class="sd">        :type elow: float</span>
+<span class="sd">        :param ehigh: End point of energy/channel interval.</span>
+<span class="sd">        :type ehigh: float</span>
+<span class="sd">        :param factor: Minimal binning factor</span>
+<span class="sd">        :type factor: int</span>
+<span class="sd">        :param snr: Minimal signal to noise for a data point after binning.</span>
+<span class="sd">        :type snr: float</span>
+<span class="sd">        :param unit: Unit of the energy/channel range, for example: &#39;kev&#39;, &#39;ev&#39;, &#39;ryd&#39;, &#39;j&#39;, &#39;hz&#39;, &#39;ang&#39;, &#39;nm&#39;</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_vbin</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">factor</span><span class="p">),</span> <span class="n">snr</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Bins.syserr"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.syserr">[docs]</a>    <span class="k">def</span> <span class="nf">syserr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">bkg</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add an additional error to the source and background spectrum.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        :param elow: Start point of energy/channel interval.</span>
+<span class="sd">        :type elow: float</span>
+<span class="sd">        :param ehigh: End point of energy/channel interval.</span>
+<span class="sd">        :type ehigh: float</span>
+<span class="sd">        :param src: Error value to be quadratically added to the current error bar of the source spectrum.</span>
+<span class="sd">        :type src: float</span>
+<span class="sd">        :param bkg: Error value to be quadratically added to the current error bar of the background spectrum.</span>
+<span class="sd">        :type bkg: float</span>
+<span class="sd">        :param unit: Unit of the energy/channel range, for example: &#39;kev&#39;, &#39;ev&#39;, &#39;ryd&#39;, &#39;j&#39;, &#39;hz&#39;, &#39;ang&#39;, &#39;nm&#39;</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_syserr</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">bkg</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Bins.use"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.use">[docs]</a>    <span class="k">def</span> <span class="nf">use</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use the bins given by the energy/channel range.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        :param elow: Start point of energy/channel interval.</span>
+<span class="sd">        :type elow: float</span>
+<span class="sd">        :param ehigh: End point of energy/channel interval.</span>
+<span class="sd">        :type ehigh: float</span>
+<span class="sd">        :param unit: Unit of the energy/channel range, for example: &#39;kev&#39;, &#39;ev&#39;, &#39;ryd&#39;, &#39;j&#39;, &#39;hz&#39;, &#39;ang&#39;, &#39;nm&#39;</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_use</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Bins.ignore"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.ignore">[docs]</a>    <span class="k">def</span> <span class="nf">ignore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ignore the bins given by the energy/channel range.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        :param elow: Start point of energy/channel interval.</span>
+<span class="sd">        :type elow: float</span>
+<span class="sd">        :param ehigh: End point of energy/channel interval.</span>
+<span class="sd">        :type ehigh: float</span>
+<span class="sd">        :param unit: Unit of the energy/channel range, for example: &#39;kev&#39;, &#39;ev&#39;, &#39;ryd&#39;, &#39;j&#39;, &#39;hz&#39;, &#39;ang&#39;, &#39;nm&#39;</span>
+<span class="sd">        :type unit: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_ignore</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Bins.reset"><a class="viewcode-back" href="../../pyspex/data.html#pyspex.data.Bins.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reset the binning and use status to use all with the original binning.</span>
+
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_use</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_data_bin</span><span class="o">.</span><span class="n">api_bin_bin</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">inst</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

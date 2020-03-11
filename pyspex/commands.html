@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.3. Basic PYSPEX commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/commands.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.3.1. Data related commands" href="com_data.html" />
+    <link rel="prev" title="6.1.2. Basic usage of PYSPEX" href="spex.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-pyspex-commands">
+<span id="sect-pyspex-commands"></span><h1>6.1.3. Basic PYSPEX commands<a class="headerlink" href="#basic-pyspex-commands" title="Permalink to this headline">¶</a></h1>
+<p>The main PYSPEX commands that can be used in Python are designed to follow the SPEX command names.
+The syntax, however, deviates slightly because it needs to follow the Python syntax. This page
+contains the full list of the basic PYSPEX commands that are available.</p>
+<p>This manual intents to show the basic usage of the commands intended for users already familiar
+with the SPEX syntax. If you need more information what the command does, please check the
+<a class="reference external" href="https://spex-xray.github.io/spex-help/index.html">SPEX reference manual</a>.
+For each command, the equivalent SPEX command will be mentioned for reference.</p>
+<p>In the examples below, we assume PYSPEX has been started in python as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyspex</span> <span class="k">import</span> <span class="n">spex</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">spex</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="go"> Welcome user to SPEX version 3.05.00</span>
+
+<span class="go"> NEW in this version of SPEX:</span>
+<span class="go">11-06-2018 Added Ext_Rate column to new spo files</span>
+<span class="go">18-12-2018 SPEX is now using the GPL license</span>
+
+<span class="go">Currently using SPEXACT version 2.07.00. Type `help var calc` for details.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that only one SPEX session can be used within one Python run or program.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Commands:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="com_data.html">6.1.3.1. Data related commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="com_data.html#data">6.1.3.1.1. Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_data.html#binning-and-data-selection">6.1.3.1.2. Binning and data selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_data.html#simulate">6.1.3.1.3. Simulate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="com_model.html">6.1.3.2. Model related commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#abundance">6.1.3.2.1. Abundance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#ascdump">6.1.3.2.2. Ascdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#calculate">6.1.3.2.3. Calculate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#components">6.1.3.2.4. Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#distance">6.1.3.2.5. Distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#energy-grid">6.1.3.2.6. Energy grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#flux-luminosity">6.1.3.2.7. Flux &amp; Luminosity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#ionisation-balance">6.1.3.2.8. Ionisation balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#ion-selection">6.1.3.2.9. Ion selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#setting-parameters">6.1.3.2.10. Setting parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#sectors">6.1.3.2.11. Sectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_model.html#plasma-model-parameters">6.1.3.2.12. Plasma model parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="com_opt.html">6.1.3.3. Optimization commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="com_opt.html#fit">6.1.3.3.1. Fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_opt.html#error">6.1.3.3.2. Error</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="com_plot.html">6.1.3.4. Plot commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="com_plot.html#plot-spectral-model">6.1.3.4.1. Plot spectral model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_plot.html#plot-data">6.1.3.4.2. Plot data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_plot.html#plot-effective-area">6.1.3.4.3. Plot effective area</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="com_log.html">6.1.3.5. Log commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="com_log.html#log-execute">6.1.3.5.1. Log execute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_log.html#log-save">6.1.3.5.2. Log save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_log.html#log-output">6.1.3.5.3. Log output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="com_log.html#log-close">6.1.3.5.4. Log close</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+      <li>Previous: <a href="spex.html" title="previous chapter">6.1.2. Basic usage of PYSPEX</a></li>
+      <li>Next: <a href="com_data.html" title="next chapter">6.1.3.1. Data related commands</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

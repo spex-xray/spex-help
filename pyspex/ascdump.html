@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.3.6. Ascdump classes &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/ascdump.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3.7. Logging commands" href="log.html" />
+    <link rel="prev" title="6.3.5. Plot functions" href="plot.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ascdump-classes">
+<h1>6.3.6. Ascdump classes<a class="headerlink" href="#ascdump-classes" title="Permalink to this headline">¶</a></h1>
+<p>Running an ascdump command to retrieve internal model parameters will return an object with the
+desired values. On this page, the structure of the object returned for a certain ascdump type is
+explained. Each section shows the variable names of the parameters such that the numbers can
+be accessed.</p>
+<div class="section" id="plas-basic-plasma-properties">
+<h2>6.3.6.1. PLAS: Basic plasma properties<a class="headerlink" href="#plas-basic-plasma-properties" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Plas">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Plas</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Plas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Plas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output for the command ascdump plas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Electron temperature (keV).</p></li>
+<li><p><strong>elden</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Electron density/1E20 (/m**3).</p></li>
+<li><p><strong>hden</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Hydrogen density/1E20 (/m**3).</p></li>
+<li><p><strong>ed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Electron/Hydrogen density.</p></li>
+<li><p><strong>pdion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – (Electron + Ion)/Hydrogen density.</p></li>
+<li><p><strong>denmas</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Mass density / (n_H * m_p).</p></li>
+<li><p><strong>cs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Sound speed (km/s).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Plas.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Plas.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Plas.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the plasma parameters from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="abun-elemental-abundances">
+<h2>6.3.6.2. ABUN: Elemental abundances<a class="headerlink" href="#abun-elemental-abundances" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Abun">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Abun</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Abun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Abun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output for the command ascdump abun.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of elements.</p></li>
+<li><p><strong>atom</strong> (<em>numpy.ndarray</em>) – Atomic number.</p></li>
+<li><p><strong>name</strong> (<em>numpy.ndarray</em>) – Element name.</p></li>
+<li><p><strong>relabn</strong> (<em>numpy.ndarray</em>) – Abundance in solar units.</p></li>
+<li><p><strong>absabn</strong> (<em>numpy.ndarray</em>) – Absolute abundance.</p></li>
+<li><p><strong>charge</strong> (<em>numpy.ndarray</em>) – Average charge.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Abun.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Abun.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Abun.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the abundance information from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="icon-ion-concentrations">
+<h2>6.3.6.3. ICON: Ion concentrations<a class="headerlink" href="#icon-ion-concentrations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Icon">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Icon</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Icon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ascdump output containing the ion concentrations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nline</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of entries</p></li>
+<li><p><strong>atom</strong> (<em>numpy.ndarray</em>) – Atomic number.</p></li>
+<li><p><strong>ion</strong> (<em>numpy.ndarray</em>) – Ionisation stage.</p></li>
+<li><p><strong>name</strong> (<em>numpy.ndarray</em>) – Element name.</p></li>
+<li><p><strong>roman</strong> (<em>numpy.ndarray</em>) – Ionisation stage (Roman).</p></li>
+<li><p><strong>charge</strong> (<em>numpy.ndarray</em>) – Ion charge.</p></li>
+<li><p><strong>conrel</strong> (<em>numpy.ndarray</em>) – Relative ion concentration.</p></li>
+<li><p><strong>conabs</strong> (<em>numpy.ndarray</em>) – Absolute ion concentration.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Icon.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Icon.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Icon.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the ion concentrations from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="rate-total-ionisation-recombination-and-charge-transfer-rates">
+<h2>6.3.6.4. RATE: Total ionisation, recombination and charge transfer rates<a class="headerlink" href="#rate-total-ionisation-recombination-and-charge-transfer-rates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Rate">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Rate</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output for the command ascdump rate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nline</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of entries.</p></li>
+<li><p><strong>atom</strong> (<em>numpy.ndarray</em>) – Atomic number.</p></li>
+<li><p><strong>ion</strong> (<em>numpy.ndarray</em>) – Ionisation stage.</p></li>
+<li><p><strong>name</strong> (<em>numpy.ndarray</em>) – Element name.</p></li>
+<li><p><strong>roman</strong> – Ionisation stage (Roman).</p></li>
+<li><p><strong>irate</strong> (<em>numpy.ndarray</em>) – Ionisation rate.</p></li>
+<li><p><strong>rrate</strong> (<em>numpy.ndarray</em>) – Recombination rate.</p></li>
+<li><p><strong>ceirate</strong> (<em>numpy.ndarray</em>) – Charge transfer ionisation rate.</p></li>
+<li><p><strong>cerrate</strong> (<em>numpy.ndarray</em>) – Charge transfer recombination rate.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Rate.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Rate.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Rate.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the rates from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="rion-ionisation-rates-per-atomic-subshell">
+<h2>6.3.6.5. RION: Ionisation rates per atomic subshell<a class="headerlink" href="#rion-ionisation-rates-per-atomic-subshell" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Rion">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Rion</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Rion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Rion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ionisation rates per subshell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nline</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of entries</p></li>
+<li><p><strong>atom</strong> (<em>numpy.ndarray</em>) – Atomic number</p></li>
+<li><p><strong>name</strong> (<em>numpy.ndarray</em>) – Element name</p></li>
+<li><p><strong>ion</strong> (<em>numpy.ndarray</em>) – Ionisation stage</p></li>
+<li><p><strong>roman</strong> (<em>numpy.ndarray</em>) – Ionisation stage (Roman)</p></li>
+<li><p><strong>shell</strong> (<em>numpy.ndarray</em>) – Shell number</p></li>
+<li><p><strong>shname</strong> (<em>numpy.ndarray</em>) – Shell name</p></li>
+<li><p><strong>phion</strong> (<em>numpy.ndarray</em>) – Photon ionisation rate (/s/ion)</p></li>
+<li><p><strong>cpion</strong> (<em>numpy.ndarray</em>) – Compton ionisation rate (/s/ion)</p></li>
+<li><p><strong>elion</strong> (<em>numpy.ndarray</em>) – Electron ionisation rate (/s/ion)</p></li>
+<li><p><strong>phheat</strong> (<em>numpy.ndarray</em>) – Photon heating (keV/ion)</p></li>
+<li><p><strong>cpheat</strong> (<em>numpy.ndarray</em>) – Compton heating (keV/ion)</p></li>
+<li><p><strong>elcool</strong> (<em>numpy.ndarray</em>) – Electron cooling (kev/ion)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Rion.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Rion.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Rion.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the ionisation rates per subshell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="grid-energy-and-wavelength-grid">
+<h2>6.3.6.6. GRID: Energy and wavelength grid<a class="headerlink" href="#grid-energy-and-wavelength-grid" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Grid">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Grid</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the last used energy/wavelength grid used in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nbin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of energy bins.</p></li>
+<li><p><strong>ibin</strong> (<em>numpy.ndarray</em>) – Bin number.</p></li>
+<li><p><strong>elow</strong> (<em>numpy.ndarray</em>) – Low energy boundary of bin (keV).</p></li>
+<li><p><strong>eupp</strong> (<em>numpy.ndarray</em>) – Upper energy boundary of bin (keV).</p></li>
+<li><p><strong>ewidth</strong> (<em>numpy.ndarray</em>) – Width of the bin (keV).</p></li>
+<li><p><strong>emean</strong> (<em>numpy.ndarray</em>) – Mean energy of the bin (keV).</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/wave.html#module-wave" title="(in Python v3.8)"><strong>wave</strong></a> (<em>numpy.ndarray</em>) – Wavelength of the bin (Angstrom).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Grid.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Grid.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Grid.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the energy grid from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="clin-continuum-line-and-total-spectrum">
+<h2>6.3.6.7. CLIN: Continuum, line and total spectrum<a class="headerlink" href="#clin-continuum-line-and-total-spectrum" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Clin">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Clin</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Clin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Clin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the continuum, line and total flux for each energy bin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nbin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of energy bins.</p></li>
+<li><p><strong>ibin</strong> (<em>numpy.ndarray</em>) – Bin number.</p></li>
+<li><p><strong>emean</strong> (<em>numpy.ndarray</em>) – Mean energy of the bin (keV).</p></li>
+<li><p><strong>fluxcon</strong> (<em>numpy.ndarray</em>) – Continuum flux (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV).</p></li>
+<li><p><strong>fluxlin</strong> (<em>numpy.ndarray</em>) – Line flux (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV).</p></li>
+<li><p><strong>flux</strong> (<em>numpy.ndarray</em>) – Total flux (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Clin.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Clin.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Clin.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the continuum, line and total fluxes from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="con-ions-contributing-to-the-continuum">
+<h2>6.3.6.8. CON: Ions contributing to the continuum<a class="headerlink" href="#con-ions-contributing-to-the-continuum" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Con">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Con</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Con" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of the ions that contribute to the free-free, free-bound and two-photon continuum emission, followed by
+the free-free, free-bound, two-photon and total continuum spectrum for the last plasma layer of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ff_nion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_atom</strong> (<em>numpy.ndarray</em>) – Atomic numbers of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_ion</strong> (<em>numpy.ndarray</em>) – Ion numbers of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_name</strong> (<em>numpy.ndarray</em>) – Ion names of ions contributing to free-free continuum.</p></li>
+<li><p><strong>fb_nion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_atom</strong> (<em>numpy.ndarray</em>) – Atomic numbers of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_ion</strong> (<em>numpy.ndarray</em>) – Ion numbers of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_name</strong> (<em>numpy.ndarray</em>) – Ion names of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>tf_nion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_atom</strong> (<em>numpy.ndarray</em>) – Atomic numbers of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_ion</strong> (<em>numpy.ndarray</em>) – Ion numbers of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_name</strong> (<em>numpy.ndarray</em>) – Ion names of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>nbin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of spectral bins.</p></li>
+<li><p><strong>ener</strong> (<em>numpy.ndarray</em>) – Mean energy (keV).</p></li>
+<li><p><strong>ff</strong> (<em>numpy.ndarray</em>) – Free-Free continuum (1E44 ph/s/keV).</p></li>
+<li><p><strong>fb</strong> (<em>numpy.ndarray</em>) – Free-Bound continuum (1E44 ph/s/keV).</p></li>
+<li><p><strong>tf</strong> (<em>numpy.ndarray</em>) – Two-photon continuum (1E44 ph/s/keV).</p></li>
+<li><p><strong>tot</strong> (<em>numpy.ndarray</em>) – Total continuum (1E44 ph/s/keV).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Con.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Con.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Con.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the continuum contributions from SPEX.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="tcl-layer-added-continuum-line-and-total-spectrum">
+<h2>6.3.6.9. TCL: Layer added continuum, line and total spectrum<a class="headerlink" href="#tcl-layer-added-continuum-line-and-total-spectrum" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Tcl">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Tcl</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Tcl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Tcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the continuum, line and total flux for each energy bin summed for all plasma layers of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nbin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of energy bins.</p></li>
+<li><p><strong>ibin</strong> (<em>numpy.ndarray</em>) – Bin number.</p></li>
+<li><p><strong>emean</strong> (<em>numpy.ndarray</em>) – Mean energy of the bin (keV).</p></li>
+<li><p><strong>fluxcon</strong> (<em>numpy.ndarray</em>) – Continuum flux (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV).</p></li>
+<li><p><strong>fluxlin</strong> (<em>numpy.ndarray</em>) – Line flux (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV).</p></li>
+<li><p><strong>flux</strong> (<em>numpy.ndarray</em>) – Total flux (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Tcl.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Tcl.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Tcl.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the continuum, line and total fluxes from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="tcon-ions-contributing-to-the-continuum-added-layers">
+<h2>6.3.6.10. TCON: Ions contributing to the continuum (added layers)<a class="headerlink" href="#tcon-ions-contributing-to-the-continuum-added-layers" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Tcon">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Tcon</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Tcon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Tcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of the ions that contribute to the free-free, free-bound and two-photon continuum emission, followed by
+the free-free, free-bound, two-photon and total continuum spectrum added for all plasma layers of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ff_nion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_atom</strong> (<em>numpy.ndarray</em>) – Atomic numbers of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_ion</strong> (<em>numpy.ndarray</em>) – Ion numbers of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_name</strong> (<em>numpy.ndarray</em>) – Ion names of ions contributing to free-free continuum.</p></li>
+<li><p><strong>ff_layer</strong> (<em>numpy.ndarray</em>) – Number of layers in the model</p></li>
+<li><p><strong>fb_nion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_atom</strong> (<em>numpy.ndarray</em>) – Atomic numbers of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_ion</strong> (<em>numpy.ndarray</em>) – Ion numbers of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_name</strong> (<em>numpy.ndarray</em>) – Ion names of ions contributing to free-bound continuum.</p></li>
+<li><p><strong>fb_layer</strong> (<em>numpy.ndarray</em>) – Number of layers in the model</p></li>
+<li><p><strong>tf_nion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_atom</strong> (<em>numpy.ndarray</em>) – Atomic numbers of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_ion</strong> (<em>numpy.ndarray</em>) – Ion numbers of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_name</strong> (<em>numpy.ndarray</em>) – Ion names of ions contributing to two-photon continuum.</p></li>
+<li><p><strong>tf_layer</strong> (<em>numpy.ndarray</em>) – Number of layers in the model</p></li>
+<li><p><strong>nbin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of spectral bins.</p></li>
+<li><p><strong>ener</strong> (<em>numpy.ndarray</em>) – Mean energy (keV).</p></li>
+<li><p><strong>ff</strong> (<em>numpy.ndarray</em>) – Free-Free continuum (1E44 ph/s/keV).</p></li>
+<li><p><strong>fb</strong> (<em>numpy.ndarray</em>) – Free-Bound continuum (1E44 ph/s/keV).</p></li>
+<li><p><strong>tf</strong> (<em>numpy.ndarray</em>) – Two-photon continuum (1E44 ph/s/keV).</p></li>
+<li><p><strong>tot</strong> (<em>numpy.ndarray</em>) – Total continuum (1E44 ph/s/keV).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Tcon.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Tcon.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Tcon.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the continuum contributions from SPEX.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="nei-history-of-ionisation-parameter-and-temperature">
+<h2>6.3.6.11. NEI: History of ionisation parameter and temperature<a class="headerlink" href="#nei-history-of-ionisation-parameter-and-temperature" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Nei">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Nei</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Nei"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Nei" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the history of ionisation parameter and temperature for NEI models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nbin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of histogram bins.</p></li>
+<li><p><strong>u</strong> (<em>numpy.ndarray</em>) – Ionisation parameter (1E20 s/m**3).</p></li>
+<li><p><strong>kt</strong> (<em>numpy.ndarray</em>) – Temperature (keV).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Nei.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Nei.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Nei.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the history of the ionisation parameter from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="heat-plasma-heating-rates">
+<h2>6.3.6.12. HEAT: Plasma heating rates<a class="headerlink" href="#heat-plasma-heating-rates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Heat">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Heat</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Heat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Heat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plasma heating rates (only for photoionized plasmas).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>heat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Total heating</p></li>
+<li><p><strong>heatcom</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by Compton scattering</p></li>
+<li><p><strong>heatffa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by free-free absorption</p></li>
+<li><p><strong>heatphi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by photo-electrons</p></li>
+<li><p><strong>heatcio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by Compton ionisation</p></li>
+<li><p><strong>heataug</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by Auger electrons</p></li>
+<li><p><strong>heatdex</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by collisional de-excitation</p></li>
+<li><p><strong>heatext</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Heating by external source</p></li>
+<li><p><strong>cool</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Total cooling</p></li>
+<li><p><strong>coolcom</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by inverse Compton scattering</p></li>
+<li><p><strong>coolion</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by electron ionisation</p></li>
+<li><p><strong>coolrec</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by radiative recombination</p></li>
+<li><p><strong>coolffe</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by free-free emission</p></li>
+<li><p><strong>coolexc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by collisional excitation</p></li>
+<li><p><strong>cooldr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by dielectronic recombination</p></li>
+<li><p><strong>cooladi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Cooling by adiabatic expansion</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Heat.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Heat.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Heat.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain plasma heating rates from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="col-ionic-column-densities">
+<h2>6.3.6.13. COL: Ionic column densities<a class="headerlink" href="#col-ionic-column-densities" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Col">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Col</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Col" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the ionic column densities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nline</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of lines.</p></li>
+<li><p><strong>atom</strong> (<em>numpy.ndarray</em>) – Atomic number.</p></li>
+<li><p><strong>ion</strong> (<em>numpy.ndarray</em>) – Ionisation stage.</p></li>
+<li><p><strong>name</strong> (<em>numpy.ndarray</em>) – Element name.</p></li>
+<li><p><strong>roman</strong> (<em>numpy.ndarray</em>) – Ionisation stage (Roman).</p></li>
+<li><p><strong>column</strong> (<em>numpy.ndarray</em>) – Column density (1E28/m**2).</p></li>
+<li><p><strong>logcol</strong> (<em>numpy.ndarray</em>) – Recombination rate (/m**2).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Col.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Col.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Col.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the ionic column denstities from SPEX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="warm-column-densities-ionisation-parameters-and-temperatures">
+<h2>6.3.6.14. WARM: Column densities, ionisation parameters and temperatures<a class="headerlink" href="#warm-column-densities-ionisation-parameters-and-temperatures" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.ascdump.Warm">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.ascdump.</code><code class="sig-name descname">Warm</code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Warm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Warm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column densities, ionisation parameters and temperatures of the warm model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nline</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of lines.</p></li>
+<li><p><strong>atom</strong> (<em>numpy.ndarray</em>) – Atomic number.</p></li>
+<li><p><strong>ion</strong> (<em>numpy.ndarray</em>) – Ionisation stage.</p></li>
+<li><p><strong>name</strong> (<em>numpy.ndarray</em>) – Element name.</p></li>
+<li><p><strong>roman</strong> (<em>numpy.ndarray</em>) – Ionisation stage (Roman).</p></li>
+<li><p><strong>xi</strong> (<em>numpy.ndarray</em>) – Log Xi (1E-9 Wm).</p></li>
+<li><p><strong>t</strong> (<em>numpy.ndarray</em>) – Log T (keV).</p></li>
+<li><p><strong>col</strong> (<em>numpy.ndarray</em>) – dN/d ln Xi.</p></li>
+<li><p><strong>nxil</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of Xi grid points.</p></li>
+<li><p><strong>xilgrid</strong> (<em>numpy.ndarray</em>) – Xi (1E-9 Wm).</p></li>
+<li><p><strong>dndlnxi</strong> (<em>numpy.ndarray</em>) – dN/d ln Xi</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.ascdump.Warm.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Warm.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.ascdump.Warm.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the column densities, ionisation parameters and temperatures of the warm model from SPEX.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+      <li>Previous: <a href="plot.html" title="previous chapter">6.3.5. Plot functions</a></li>
+      <li>Next: <a href="log.html" title="next chapter">6.3.7. Logging commands</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

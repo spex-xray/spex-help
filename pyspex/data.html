@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.3.2. Data class structure &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/data.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3.3. Model class structures" href="model.html" />
+    <link rel="prev" title="6.3.1. Session class structure" href="session.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyspex.data">
+<span id="data-class-structure"></span><h1>6.3.2. Data class structure<a class="headerlink" href="#module-pyspex.data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="spectral-response-data">
+<h2>6.3.2.1. Spectral &amp; response data<a class="headerlink" href="#spectral-response-data" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.data.Data">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.data.</code><code class="sig-name descname">Data</code><a class="reference internal" href="../_modules/pyspex/data.html#Data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main data class used to set and get observed data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of instruments loaded.</p></li>
+<li><p><strong>inst</strong> (<em>list of objects</em>) – Python list of instrument objects.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.data.Data.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">ins</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Data.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Data.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete instrument with number <cite>ins</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number to delete.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Data.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">resfile</em>, <em class="sig-param">spofile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Data.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Data.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new set of spectrum and response file to the dataset. Provide the
+full filename including extension!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – SPEX response file name (including .res extension).</p></li>
+<li><p><strong>spofile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – SPEX spectrum file name (including .spo extension).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Data.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">ins</em>, <em class="sig-param">spofile</em>, <em class="sig-param">overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Data.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Data.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a spectrum to a .spo file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number to save.</p></li>
+<li><p><strong>spofile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Output filename for SPEX output file (including .spo extension).</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Overwrite an existing .spo file with the same name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Data.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Data.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Data.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the number of instruments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyspex.data.Instrument">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.data.</code><code class="sig-name descname">Instrument</code><a class="reference internal" href="../_modules/pyspex/data.html#Instrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties of an instrument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of sectors in instrument.</p></li>
+<li><p><strong>nregion</strong> – Number of data regions in response.</p></li>
+<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of regions in data.</p></li>
+<li><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of response components.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Index number of this instrument.</p></li>
+<li><p><strong>sponame</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Filename of .spo file.</p></li>
+<li><p><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Filename of .res file</p></li>
+<li><p><strong>reg</strong> (<em>list of objects</em>) – List of regions for this instrument.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.data.Instrument.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">iins</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Instrument.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Instrument.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the instrument information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>iins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number to update.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyspex.data.Region">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.data.</code><code class="sig-name descname">Region</code><a class="reference internal" href="../_modules/pyspex/data.html#Region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties of one region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>emin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Min data energy range (keV).</p></li>
+<li><p><strong>emax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Max data energy range (keV).</p></li>
+<li><p><strong>srccount</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Net source counts.</p></li>
+<li><p><strong>srccerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Net source count error.</p></li>
+<li><p><strong>bkgcount</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Subtracted background counts.</p></li>
+<li><p><strong>bkgcerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Error subtracted background counts.</p></li>
+<li><p><strong>srcrate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Net source count rate (counts/s).</p></li>
+<li><p><strong>srcrerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Net source count rate error (counts/s).</p></li>
+<li><p><strong>bkgrate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Background count rate subtracted.</p></li>
+<li><p><strong>bkgrerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Error background count rate subtracted.</p></li>
+<li><p><strong>mbkgrate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Model background count rate.</p></li>
+<li><p><strong>tintmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Minimum integration time per channel.</p></li>
+<li><p><strong>tintmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Maximum integration time per channel.</p></li>
+<li><p><strong>tintaver</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Average integration time per channel.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyspex.data.Region.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">iins</em>, <em class="sig-param">ireg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Region.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Region.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the region properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>ireg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number to update.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="spectral-binning-and-data-selection">
+<h2>6.3.2.2. Spectral binning and data selection<a class="headerlink" href="#spectral-binning-and-data-selection" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.data.Bins">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.data.</code><code class="sig-name descname">Bins</code><a class="reference internal" href="../_modules/pyspex/data.html#Bins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class containing the binning methods.</p>
+<dl class="method">
+<dt id="pyspex.data.Bins.bin">
+<code class="sig-name descname">bin</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">factor</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bin the spectrum using a fixed factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Start point of energy/channel interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – End point of energy/channel interval.</p></li>
+<li><p><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Binning factor</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unit of the energy/channel range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Bins.ignore">
+<code class="sig-name descname">ignore</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.ignore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.ignore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ignore the bins given by the energy/channel range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Start point of energy/channel interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – End point of energy/channel interval.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unit of the energy/channel range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Bins.obin">
+<code class="sig-name descname">obin</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.obin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.obin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bin the spectrum optimally given the instrument resolution and statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Start point of energy/channel interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – End point of energy/channel interval.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unit of the energy/channel range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Bins.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the binning and use status to use all with the original binning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Bins.syserr">
+<code class="sig-name descname">syserr</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">src</em>, <em class="sig-param">bkg</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.syserr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.syserr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an additional error to the source and background spectrum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Start point of energy/channel interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – End point of energy/channel interval.</p></li>
+<li><p><strong>src</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Error value to be quadratically added to the current error bar of the source spectrum.</p></li>
+<li><p><strong>bkg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Error value to be quadratically added to the current error bar of the background spectrum.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unit of the energy/channel range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Bins.use">
+<code class="sig-name descname">use</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.use"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the bins given by the energy/channel range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Start point of energy/channel interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – End point of energy/channel interval.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unit of the energy/channel range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Bins.vbin">
+<code class="sig-name descname">vbin</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">factor</em>, <em class="sig-param">snr</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Bins.vbin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Bins.vbin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bin the spectrum using a variable bin size, given a minimum bin factor and a minimum signal to noise ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Start point of energy/channel interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – End point of energy/channel interval.</p></li>
+<li><p><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Minimal binning factor</p></li>
+<li><p><strong>snr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Minimal signal to noise for a data point after binning.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unit of the energy/channel range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="simulate-spectra">
+<h2>6.3.2.3. Simulate spectra<a class="headerlink" href="#simulate-spectra" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="class">
+<dt id="pyspex.data.Simulate">
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.data.</code><code class="sig-name descname">Simulate</code><a class="reference internal" href="../_modules/pyspex/data.html#Simulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to simulate spectra.</p>
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_bnoise">
+<code class="sig-name descname">set_bnoise</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_bnoise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_bnoise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Poisson noise to the background spectrum (status is True or False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Add Poisson noise to the simulated background spectrum.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_instrument">
+<code class="sig-name descname">set_instrument</code><span class="sig-paren">(</span><em class="sig-param">irange</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_instrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the range of instruments to simulate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>irange</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Instrument range to simulate (default all)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_noise">
+<code class="sig-name descname">set_noise</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Poisson noise to the source spectrum (status is True or False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Add Poisson noise to the simulated source spectrum.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_random">
+<code class="sig-name descname">set_random</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_random"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the random seed to a random number (default).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_random_seed">
+<code class="sig-name descname">set_random_seed</code><span class="sig-paren">(</span><em class="sig-param">seed</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_random_seed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_random_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the random seed to an integer value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Set the random seed for the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_region">
+<code class="sig-name descname">set_region</code><span class="sig-paren">(</span><em class="sig-param">rrange</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the range of regions to simulate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rrange</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Region range to simulate (default all)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.set_syserr">
+<code class="sig-name descname">set_syserr</code><span class="sig-paren">(</span><em class="sig-param">src</em>, <em class="sig-param">bkg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.set_syserr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.set_syserr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a systematic error to the source spectrum (src) and to the background spectrum (bkg).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Add a systematic error to the source spectrum.</p></li>
+<li><p><strong>bkg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Add a systematic error to the background spectrum.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.simulate">
+<code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param">extime</em>, <em class="sig-param">inst=None</em>, <em class="sig-param">reg=None</em>, <em class="sig-param">ssys=None</em>, <em class="sig-param">bsys=None</em>, <em class="sig-param">noise=None</em>, <em class="sig-param">bnoise=None</em>, <em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.simulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.simulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate a spectrum for exposure time extime and optionally with a number of options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extime</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Exposure time to simulate.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Instrument range to simulate (default all)</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Region range to simulate (default all)</p></li>
+<li><p><strong>ssys</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – (Optional) Add a systematic error to the source spectrum (Default 0).</p></li>
+<li><p><strong>bsys</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – (Optional) Add a systematic error to the background spectrum (Default 0).</p></li>
+<li><p><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Add Poisson noise to the simulated source spectrum (Default True).</p></li>
+<li><p><strong>bnoise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Add Poisson noise to the simulated background spectrum (Default False).</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – (Optional) Set the random seed for the simulation (Default: system clock).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.data.Simulate.simulate_exposure">
+<code class="sig-name descname">simulate_exposure</code><span class="sig-paren">(</span><em class="sig-param">extime</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/data.html#Simulate.simulate_exposure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.data.Simulate.simulate_exposure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate the spectrum for the provided exposure time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>extime</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Exposure time to simulate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+      <li>Previous: <a href="session.html" title="previous chapter">6.3.1. Session class structure</a></li>
+      <li>Next: <a href="model.html" title="next chapter">6.3.3. Model class structures</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

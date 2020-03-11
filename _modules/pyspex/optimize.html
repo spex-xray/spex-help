@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pyspex.optimize &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/_modules/pyspex/optimize.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pyspex.optimize</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
+
+<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
+
+<span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex</span>
+
+
+<div class="viewcode-block" id="Fit"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit">[docs]</a><span class="k">class</span> <span class="nc">Fit</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;This is the parent class of all fit related commands.</span>
+
+<span class="sd">    :ivar stat: Fit statistics.</span>
+<span class="sd">    :vartype stat: basestring</span>
+<span class="sd">    :ivar cstat: C-statistics value.</span>
+<span class="sd">    :vartype cstat: float</span>
+<span class="sd">    :ivar chisq: Chi-squared value.</span>
+<span class="sd">    :vartype chisq: float</span>
+<span class="sd">    :ivar wstat: W-statistics value (not recommended).</span>
+<span class="sd">    :vartype wstat: float</span>
+<span class="sd">    :ivar nfree: Degrees of freedom.</span>
+<span class="sd">    :vartype nfree: int</span>
+<span class="sd">    :ivar cstatexp: Expected C-statistics value (C-stat only).</span>
+<span class="sd">    :vartype cstatexp: float</span>
+<span class="sd">    :ivar cstatrms: RMS uncertainty on expected C-stat value.</span>
+<span class="sd">    :vartype cstatrms: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stat</span> <span class="o">=</span> <span class="s1">&#39;csta&#39;</span>  <span class="c1"># Fit statistics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstat</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># C-statistics value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chisq</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># Chi-square value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wstat</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># W-statistics value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nfree</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Degrees of freedom</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstatexp</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Expected C-statistics value (C-stat only)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstatrms</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># RMS uncertainty on expected C-stat value</span>
+
+        <span class="c1"># Set &#39;fit print 1&#39; automatically</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Fit.fit"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Execute the SPEX fit command. The maximum number of iterations (niter) can be optionally set.</span>
+
+<span class="sd">        :param niter: Number of fit iterations.</span>
+<span class="sd">        :type niter: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit</span><span class="p">(</span><span class="nb">iter</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">niter</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Fit.set_statistic"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.set_statistic">[docs]</a>    <span class="k">def</span> <span class="nf">set_statistic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stat</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the desired fit statistics.</span>
+
+<span class="sd">        :param stat: Abbreviation for the fit statistics to be used. For example: &#39;csta&#39;, &#39;chi2&#39;, &#39;wsta&#39;.</span>
+<span class="sd">        :type stat: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_set_statistics</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Fit.get_statistic"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.get_statistic">[docs]</a>    <span class="k">def</span> <span class="nf">get_statistic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stat</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_get_statistics</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Fit.print"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.print">[docs]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Print each fit iteration to screen (default is True). The status variable can be either True or False,</span>
+<span class="sd">        which means printing is on or off, respectively.</span>
+
+<span class="sd">        :param status: Set fit to high verbosity (True is yes, False is no).</span>
+<span class="sd">        :type status: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+            <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;fit print 1&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;fit print 0&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Fit.update"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the most recent statistics values from SPEX.&quot;&quot;&quot;</span>
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_update</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstat</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_cstat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chisq</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_chisq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wstat</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_wstat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nfree</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_nfree</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstatexp</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_cstatexp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cstatrms</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_cstatrms</span></div></div>
+
+
+<div class="viewcode-block" id="Error"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error">[docs]</a><span class="k">class</span> <span class="nc">Error</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class to calculate errors for free fit parameters.</span>
+
+<span class="sd">    :ivar sector: Sector number of parameter</span>
+<span class="sd">    :vartype sector: int</span>
+<span class="sd">    :ivar component: Component number of parameter</span>
+<span class="sd">    :vartype component: int</span>
+<span class="sd">    :ivar parameter: Parameter name</span>
+<span class="sd">    :vartype parameter: str</span>
+<span class="sd">    :ivar value: Parameter value</span>
+<span class="sd">    :vartype value: float</span>
+<span class="sd">    :ivar lerr: Lower error boundary</span>
+<span class="sd">    :vartype lerr: float</span>
+<span class="sd">    :ivar uerr: Upper error boundary</span>
+<span class="sd">    :vartype uerr: float</span>
+<span class="sd">    :ivar lc: Is there a lower C-stat or chi**2 value found?</span>
+<span class="sd">    :vartype lc: bool</span>
+<span class="sd">    :ivar cmin: Lowest C-stat or chi**2 value</span>
+<span class="sd">    :vartype cmin: float</span>
+<span class="sd">    :ivar pmin: Parameter value for which a better C-stat or Chi**2 was found</span>
+<span class="sd">    :vartype pmin: float</span>
+<span class="sd">    :ivar dchi: Delta C-stat or chi**2 to optimize for</span>
+<span class="sd">    :vartype dchi: float</span>
+<span class="sd">    :ivar calculated: Is the error calculated?</span>
+<span class="sd">    :vartype calculated: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sector</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># Sector number of parameter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">component</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Component number of parameter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># Parameter name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span>     <span class="c1"># Parameter value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lerr</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># Lower error boundary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uerr</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># Upper error boundary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lc</span> <span class="o">=</span> <span class="kc">False</span>      <span class="c1"># Is there a lower C-stat or chi**2 value found</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmin</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># Lowest C-stat or chi**2 value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pmin</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># Parameter value for which a better C-stat or Chi**2 was found</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dchi</span> <span class="o">=</span> <span class="mf">1.0</span>      <span class="c1"># Delta C-stat or chi**2 to optimize for</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calculated</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Is the error calculated?</span>
+
+<div class="viewcode-block" id="Error.error"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dchi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the error value for a particular parameter.</span>
+
+<span class="sd">        :param isect: Sector number of the parameter.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number of the parameter.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        :param name: Parameter name.</span>
+<span class="sd">        :type name: str</span>
+<span class="sd">        :param dchi: (Optional) :math:`\Delta\chi^2` value to optimize for (Default: 1.0, 68% errors)</span>
+<span class="sd">        :type dchi: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">dchi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_dchi</span><span class="p">(</span><span class="n">dchi</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ier</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error setting dchi for the error calculation.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">ier</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sector</span> <span class="o">=</span> <span class="n">isect</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">component</span> <span class="o">=</span> <span class="n">icomp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calculated</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lc</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">api_error_calc</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">isect</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">icomp</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_par</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lerr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_low</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uerr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_up</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_lc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lc</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cmin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_cmin</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pmin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_pmin</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Error.set_dchi"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error.set_dchi">[docs]</a>    <span class="k">def</span> <span class="nf">set_dchi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dchi</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the delta c-stat or delta chi**2 value that the error search should optimize for.</span>
+<span class="sd">        The default value is 1.0.</span>
+
+<span class="sd">        :param dchi: :math:`\Delta\chi^2` value to optimize for (Default: 1.0, 68% errors)</span>
+<span class="sd">        :type dchi: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">dchi</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;error dchi &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dchi</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: Delta C-stat or chi**2 needs to be positive.&#39;</span><span class="p">)</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Error.get_value"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error.get_value">[docs]</a>    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convenience function to return the parameter value and the errors.</span>
+
+<span class="sd">        :return: A tuple with the parameter value, lower error and upper error.</span>
+<span class="sd">        :rtype: tuple</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calculated</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Returning parameter &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sector</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">component</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameter</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lerr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uerr</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: Error is not calculated yet.&#39;</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

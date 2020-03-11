@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>6.1.3.3. Optimization commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_opt.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.3.4. Plot commands" href="com_plot.html" />
+    <link rel="prev" title="6.1.3.2. Model related commands" href="com_model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="optimization-commands">
+<h1>6.1.3.3. Optimization commands<a class="headerlink" href="#optimization-commands" title="Permalink to this headline">¶</a></h1>
+<p>Once the data have been read in and the model has been set, the model parameters can be optimized
+to fit the data. The methods in this section are used for the optimization and determination of
+the uncertainties in the fit.</p>
+<div class="section" id="fit">
+<h2>6.1.3.3.1. Fit<a class="headerlink" href="#fit" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX command to fit is simply <code class="docutils literal notranslate"><span class="pre">fit</span></code> and this has been implemented as <code class="docutils literal notranslate"><span class="pre">fit</span></code> in PYSPEX
+as well:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.fit">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">niter=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – (Optional) Maximum number of iterations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>This method can be called without any arguments. Optionally, the number of iteration steps can
+be given, but this is only useful in some particular cases. When done fitting, the values of the
+fit statistics can be found in the object <code class="docutils literal notranslate"><span class="pre">s.opt_fit</span></code>. See the Fit() class for details.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">niter</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="fit-results">
+<h3>6.1.3.3.1.1. Fit results<a class="headerlink" href="#fit-results" title="Permalink to this headline">¶</a></h3>
+<p>The resulting C-statistics/Chi-square value and degrees of freedom can be obtained with separate
+commands:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.fit_cstat">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_cstat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_cstat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_cstat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current C-statistics from the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple containing the C-stat value and the degrees of freedom.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyspex.spex.Session.fit_chisq">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_chisq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_chisq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_chisq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current Chi2-statistics from the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple containing the <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> value and the degrees of freedom.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>These commands return a tuple with the latest statistics value and the degrees of freedom.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cstat</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">fit_cstat</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cstat</span><span class="p">)</span>
+<span class="go">(2979.7792968, 3000)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chisq</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">fit_chisq</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">chisq</span><span class="p">)</span>
+<span class="go">(2997.3247823, 3000)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fit-statistics">
+<h3>6.1.3.3.1.2. Fit statistics<a class="headerlink" href="#fit-statistics" title="Permalink to this headline">¶</a></h3>
+<p>Although C-statistics is recommended for Poisson distributed data like X-ray spectra, sometimes
+it may be better to switch to chi^2 statistics. This can be done using the <code class="docutils literal notranslate"><span class="pre">fit_stat</span></code> method:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.fit_stat">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_stat</code><span class="sig-paren">(</span><em class="sig-param">stat</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_stat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_stat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the fit statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Fit statistics, for example: ‘csta’, ‘chi2’, ‘wsta’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>The statistics (<code class="docutils literal notranslate"><span class="pre">stat</span></code>) can be either <code class="docutils literal notranslate"><span class="pre">csta</span></code> (C-statistics), <code class="docutils literal notranslate"><span class="pre">chi2</span></code> (Chi-square statistics),
+or <code class="docutils literal notranslate"><span class="pre">wsta</span></code> (W-statistics). The W-statistics is added to SPEX for reference, but is not recommended
+for use in analysis.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">fit_stat</span><span class="p">(</span><span class="s1">&#39;chi2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fit-verbosity">
+<h3>6.1.3.3.1.3. Fit verbosity<a class="headerlink" href="#fit-verbosity" title="Permalink to this headline">¶</a></h3>
+<p>The intermediate results from the fit iterations can be shown in the terminal (and in a pgplot
+window). In PYSPEX, this feature is on by default. If you want to turn it off, then call</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.fit_print">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_print</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the fit output verbosity. Default is true.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Fit output verbosity setting.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>with <code class="docutils literal notranslate"><span class="pre">False</span></code> as <code class="docutils literal notranslate"><span class="pre">status</span></code>. The intermediate steps will not be printed anymore.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">fit_print</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="error">
+<h2>6.1.3.3.2. Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
+<p>The command for calculating errors on fitted parameters is <code class="docutils literal notranslate"><span class="pre">error</span></code> and has a direct equivalent
+in PYSPEX:</p>
+<blockquote>
+<div><dl class="method">
+<dt id="pyspex.spex.Session.error">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">dchi=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the error for a parameter (name) in sector (isect) and component (icomp).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component to calculate the error for.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number to calculate the error for.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Parameter name to calculate the error for.</p></li>
+<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Error object from pyspex.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="optimize.html#pyspex.optimize.Error" title="pyspex.optimize.Error">pyspex.optimize.Error</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>The method calculates the lower and upper error value for the parameter with name <code class="docutils literal notranslate"><span class="pre">name</span></code> in
+sector <code class="docutils literal notranslate"><span class="pre">isect</span></code> and component <code class="docutils literal notranslate"><span class="pre">icomp</span></code>. Optionally, the target delta-c-stat value can be set.
+By default, <code class="docutils literal notranslate"><span class="pre">dchi</span></code> is set to 1.0, which results in 68% (1 sigma) errors.</p>
+<p>The error command returns an object with the results of the error calculation. See the Error()
+class definition elsewhere in this manual.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">err_si</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">err_fe</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;26&#39;</span><span class="p">,</span><span class="n">dchi</span><span class="o">=</span><span class="mf">2.71</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">err_fe</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">err_fe</span><span class="o">.</span><span class="n">lerr</span><span class="p">,</span> <span class="n">err_fe</span><span class="o">.</span><span class="n">uerr</span><span class="p">)</span>
+<span class="go">1.023902 -0.119324 0.109223</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html">6. Python Interface</a><ul>
+  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_model.html" title="previous chapter">6.1.3.2. Model related commands</a></li>
+      <li>Next: <a href="com_plot.html" title="next chapter">6.1.3.4. Plot commands</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>
