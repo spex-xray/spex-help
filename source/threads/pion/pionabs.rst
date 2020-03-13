@@ -121,11 +121,11 @@ Next, we set the galactic absorption.
 
 Next, we set the intrinsic spectral-energy-distribution (SED) of the AGN
 above the Lyman limit along our line-of-sight. For a typical Seyfert 1 galaxy,
-the SED has three components:
-  - A Comptonization model.
-  - A power-law component
-  - A reflection component with a high-energy cut-off. The cut-off energy
-  is set to 300 keV here.
+the SED has three components `(Mehdipour et al. 2015)
+<https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_:
+  - A Comptonized disk component for optical to soft X-rays data
+  - A power-law component for X-ray data
+  - A neutral reflection component for hard X-rays data. Usually, the reflection component has an exponential cut-off energy (300 keV here).
 ::
 
     SPEX> com comt
@@ -154,9 +154,9 @@ the SED has three components:
     SPEX> par 1 5 scal val 1.
     SPEX> par 1 5 scal s f
 
-Next, we cut-off the power-law component of the SED below the Lyman limit
-and above the high-energy cut-off. Note that the ecut parameter in the
-refl component applies to the refl component only.
+Next, we apply exponential cut-off to the power-law component of the SED
+both below the Lyman limit and above the high-energy cut-off.
+Note that the ecut parameter in the ``refl`` component applies to itself only.
 
 ::
 
@@ -174,9 +174,14 @@ refl component applies to the refl component only.
     SPEX> par 1 7 tau s f
 
 Next, we set the PION (absorption) components. Here we introduce three PION
-components, with the third one reserved for spare (inactive by setting
-the covering factor fcov to zero). The parameters of the PION components are
-restricted to improve the efficiency of a realistic fitting process.
+components. The parameters of the PION components are restricted to improve
+the efficiency of a realistic fitting process. ``fcov=1`` refers to the PION
+component fully covers the line-of-sight. ``omeg=1.E-7`` refers to the PION
+component has a negligible extent (omeg = OMEGA / 4 pi) with respect to the
+nucleus. To see the density effect of the absorption features, it is necessary
+to set a non-zero ``omeg` value. Note that the third ``pion`` component is a
+spare one with ``fcov=0`` and ``omeg=0``. This is practical when analyzing
+real data without any prior knowledge of the number of PION components required.
 ::
 
     SPEX> com pion
@@ -188,7 +193,6 @@ restricted to improve the efficiency of a realistic fitting process.
     SPEX> com pion
     You have defined    10 components.
     ** Pion model: take care about proper COM REL use: check manual!
-
     SPEX> par 1 8:10 nh range 1.E-7:1.E1
     SPEX> par 1 8:10 xil range -5:5
     SPEX> par 1 8:10 omeg range 0:1
@@ -306,8 +310,11 @@ ionizing luminosity
 .. figure:: pionabs2.png
    :width: 600
 
-Finally, we finish our thread here.
+This thread ends here.
 ::
 
     SPEX> quit
     Thank you for using SPEX!
+
+A command file tailored for this thread to setup the model components
+and parameters is available here :download:`mdl_pa.com <mdl_pa.com>`.
