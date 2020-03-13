@@ -48,7 +48,7 @@ in SPEX that filename extensions are not typed explicitly when issuing a command
 
    SPEX> data mos mos
 
-The respons file (``mos.res``) is entered first and then the file containing the spectrum (``mos.spo``). You can avoid
+The response file (``mos.res``) is entered first and then the file containing the spectrum (``mos.spo``). You can avoid
 confusion by giving the same filename to both .res and .spo files. Remember that the order of the words in the commands
 is very important!
 
