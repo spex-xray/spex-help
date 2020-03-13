@@ -17,7 +17,7 @@ Preparation
 To follow this thread, you need to download the example files
 here: :download:`chl.spo <chl.spo>` and :download:`chl.res <chl.res>`.
 
-Starting SPEX
+Start SPEX
 -------------
 
 Start SPEX in a linux terminal window:
@@ -29,7 +29,7 @@ Start SPEX in a linux terminal window:
 
    SPEX>
 
-Loading data
+Load data
 ------------
 A command file tailored for this thread to load data is available here
 :download:`data.com <data.com>`
@@ -50,7 +50,7 @@ Load the above command file into SPEX:
 
    SPEX> log exe data
 
-Plot the data
+Plot data
 -------------
 A command file tailored for this thread to plot the data is available here
 :download:`plot.com <plot.com>`
@@ -82,7 +82,7 @@ Load the above command file into SPEX:
 .. figure:: pionabs1.png
    :width: 600
 
-Define the model components and component relations (step-by-step)
+Define model components and component relations (step-by-step)
 ------------------------------------------------------------------
 
 Here we are looking at the warm absorber in a nearby (z = 0.07) Seyfert 1
