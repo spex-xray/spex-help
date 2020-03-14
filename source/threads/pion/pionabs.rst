@@ -179,7 +179,7 @@ the efficiency of a realistic fitting process. ``fcov=1`` refers to the PION
 component fully covers the line-of-sight. ``omeg=1.E-7`` refers to the PION
 component has a negligible extent (omeg = OMEGA / 4 pi) with respect to the
 nucleus. To see the density effect of the absorption features, it is necessary
-to set a non-zero ``omeg` value. Note that the third ``pion`` component is a
+to set a non-zero ``omeg`` value. Note that the third ``pion`` component is a
 spare one with ``fcov=0`` and ``omeg=0``. This is practical when analyzing
 real data without any prior knowledge of the number of PION components required.
 ::
