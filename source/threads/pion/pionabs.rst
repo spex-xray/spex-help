@@ -212,6 +212,9 @@ Here we introduce three PION components. The parameters of the PION components a
 Step 7: Set the component relation for the intrinsic AGN SED above the Lyman limit along our line-of-sight.
 
 .. note:: Photons from both the Comptonized disk and power-law components are screened by the warm absorber components at the redshift of the target, as well as the galactic absorption before reaching the detector. Photons from the neutral reflection component is assumed not to be screened by the warm absorber for simplicity. It is still redshifted and requires the galactic absorption.
+.. figure:: pionabs2.png
+   :width: 600
+
 ::
 
     SPEX> com rel 3 8,9,10,1,2
@@ -221,8 +224,6 @@ Step 7: Set the component relation for the intrinsic AGN SED above the Lyman lim
 Step 8: Set the component relation for the PION components. Assuming that the warm absorber components closer to the central engine are defined first (with a smaller component index), photons emitted from the inner most warm absorber component (with a nonzero ``omeg`` value) is screened
 by all the outer warm absorber components at the redshift of the target, as well as the galactic absorption before reaching the detector.
 
-.. figure:: pionabs2.png
-   :width: 600
 ::
 
     SPEX> com rel 8 9,10,1,2
