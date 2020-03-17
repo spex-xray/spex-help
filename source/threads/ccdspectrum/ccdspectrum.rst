@@ -56,12 +56,12 @@ Plot the data
 -------------
 
 It really helps to see the spectrum while we are working on it, so we need a plot window and tell spex that we want
-to see a plot of the data.
+to see a plot of the data. (Note that the text after the # is a comment and should not be copied on the command line).
 
 ::
 
-   SPEX> plot dev xs           # Open plot device `X server`
-   SPEX> plot type data        # Choose the plot type `data`
+   SPEX> plot dev xs             # Open plot device `X server`
+   SPEX> plot type data          # Choose the plot type `data`
    SPEX> plot
 
 The commands above open a PGPLOT window and set the plot type to ``data``, which means that the observed spectrum

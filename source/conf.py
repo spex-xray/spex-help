@@ -138,7 +138,7 @@ html_theme_options = {
     'logo': 'logo-wide.png',
     'logo_name': 'SPEX',
     'font_family': 'Times, serif',
-    #'page_width': '75%'
+    'page_width': '1280px'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
