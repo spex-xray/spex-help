@@ -35,7 +35,7 @@ A command file tailored for this thread to load data is available here :download
 ::
 
    user@linux:~> cat data.com
-   # Observed data
+   # Simulated data
    #---------------
    # HRC/LETGS DATA
    data chl chl
@@ -221,8 +221,7 @@ Step 7: Set the component relation for the intrinsic AGN SED above the Lyman lim
     SPEX> com rel 4 6,7,8,9,10,1,2
     SPEX> com rel 5 1,2
 
-Step 8: Set the component relation for the PION components. Assuming that the warm absorber components closer to the central engine are defined first (with a smaller component index), photons emitted from the inner most warm absorber component (with a nonzero ``omeg`` value) is screened
-by all the outer warm absorber components at the redshift of the target, as well as the galactic absorption before reaching the detector.
+Step 8: Set the component relation for the PION components. Assuming that the warm absorber components closer to the central engine are defined first (with a smaller component index), photons transmitted from the inner PION components (with a nonzero ``omeg`` value) are screened by all the outer PION components at the redshift of the target, as well as the galactic absorption before reaching the detector.
 
 ::
 
@@ -261,50 +260,50 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
 
 
 
-    1    3 comt norm Norm (1E44 ph/s/keV) 3.0000001E+12 thawn     0.0      1.00E+20
-    1    3 comt t0   Wien temp (keV)      5.0000002E-04 thawn    1.00E-05  1.00E+10
-    1    3 comt t1   Plasma temp (keV)    0.1500000     thawn    1.00E-05  1.00E+10
-    1    3 comt tau  Optical depth         20.00000     thawn    1.00E-03  1.00E+03
+       1    3 comt norm Norm (1E44 ph/s/keV) 3.0000001E+12 thawn     0.0      1.00E+20
+       1    3 comt t0   Wien temp (keV)      5.0000002E-04 thawn    1.00E-05  1.00E+10
+       1    3 comt t1   Plasma temp (keV)    0.1500000     thawn    1.00E-05  1.00E+10
+       1    3 comt tau  Optical depth         20.00000     thawn    1.00E-03  1.00E+03
 
-    1    4 pow  norm Norm (1E44 ph/s/keV) 1.0000000E+09 thawn     0.0      1.00E+20
-    1    4 pow  gamm Photon index          1.700000     thawn    -10.       10.
-
-    1    5 refl scal Scale for reflection  1.000000     thawn     0.0      1.00E+10
+       1    4 pow  norm Norm (1E44 ph/s/keV) 1.0000000E+09 thawn     0.0      1.00E+20
+       1    4 pow  gamm Photon index          1.700000     thawn    -10.       10.
 
 
 
 
-    1    8 pion nh   X-Column (1E28/m**2) 4.9999999E-03 thawn    1.00E-07   10.
-    1    8 pion xil  Log xi (1E-9 Wm)      2.700000     thawn    -5.0       5.0
-    1    8 pion v    RMS Velocity (km/s)   100.0000     thawn     0.0      3.00E+05
-    1    8 pion zv   Average vel. (km/s)  -500.0000     thawn   -1.00E+05  1.00E+05
+       1    8 pion nh   X-Column (1E28/m**2) 4.9999999E-03 thawn    1.00E-07   10.
+       1    8 pion xil  Log xi (1E-9 Wm)      2.700000     thawn    -5.0       5.0
+       1    8 pion v    RMS Velocity (km/s)   100.0000     thawn     0.0      3.00E+05
+       1    8 pion zv   Average vel. (km/s)  -500.0000     thawn   -1.00E+05  1.00E+05
 
-    1    9 pion nh   X-Column (1E28/m**2) 2.0000001E-03 thawn    1.00E-07   10.
-    1    9 pion xil  Log xi (1E-9 Wm)      1.600000     thawn    -5.0       5.0
-    1    9 pion v    RMS Velocity (km/s)   50.00000     thawn     0.0      3.00E+05
-    1    9 pion zv   Average vel. (km/s)  -100.0000     thawn   -1.00E+05  1.00E+05
+       1    9 pion nh   X-Column (1E28/m**2) 2.0000001E-03 thawn    1.00E-07   10.
+       1    9 pion xil  Log xi (1E-9 Wm)      1.600000     thawn    -5.0       5.0
+       1    9 pion v    RMS Velocity (km/s)   50.00000     thawn     0.0      3.00E+05
+       1    9 pion zv   Average vel. (km/s)  -100.0000     thawn   -1.00E+05  1.00E+05
+
 
 
     Instrument     1 region    1 has norm    1.00000E+00 and is frozen
 
     --------------------------------------------------------------------------------
-    Fluxes and restframe luminosities between  1.36057E-02 and    13.606     keV
+     Fluxes and restframe luminosities between  1.36057E-02 and    13.606     keV
 
-    sect comp mod   photon flux   energy flux nr of photons    luminosity
-              (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
-    1    3 comt   9.79871      4.264683E-16  1.447224E+54  7.988849E+36
-    1    4 pow    242.314      6.233561E-14  2.869709E+54  1.021577E+38
-    1    5 refl   5.98556      7.190653E-15  6.284842E+51  7.467485E+36
-    1    8 pion  1.706942E-07  3.007797E-23  3.540241E+45  8.248552E+28
-    1    9 pion  1.751460E-06  1.557271E-22  1.947534E+47  1.167596E+30
+     sect comp mod   photon flux   energy flux nr of photons    luminosity
+                  (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+        1    3 comt   9.90871      4.310500E-16  1.447224E+54  7.988849E+36
+        1    4 pow    243.883      6.246949E-14  2.869709E+54  1.021577E+38
+        1    5 refl   5.98565      7.190691E-15  6.284842E+51  7.467485E+36
+        1    8 pion  1.711172E-07  3.011339E-23  3.540241E+45  8.248552E+28
+        1    9 pion  1.753678E-06  1.559744E-22  1.947966E+47  1.168208E+30
+        1   10 pion   0.00000       0.00000       0.00000       0.00000
 
- Fit method        : Classical Levenberg-Marquardt
- Fit statistic     : C-statistic
- C-statistic       :      2339.63
- Expected C-stat   :      2348.72 +/-        68.66
- Chi-squared value :      2521.26
- Degrees of freedom:         0
- W-statistic       :      2271.28
+     Fit method        : Classical Levenberg-Marquardt
+     Fit statistic     : C-statistic
+     C-statistic       :      2424.54
+     Expected C-stat   :      2348.67 +/-        68.66
+     Chi-squared value :      2531.73
+     Degrees of freedom:         0
+     W-statistic       :      2353.74
 
 .. figure:: pionabs3.png
    :width: 600

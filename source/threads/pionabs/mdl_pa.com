@@ -1,4 +1,4 @@
-# Latest update: March 13, 2020 by Junjie Mao
+# Latest update: March 19, 2020 by Junjie Mao
 #===========================================================
 # Distance
 dist 0.07 z
@@ -67,7 +67,7 @@ par 1 8:10 omeg range 0:1
 par 1 8 nh val 5.E-03
 par 1 8 xil val 2.7
 par 1 8 zv val -500
-par 1 8 zv s t 
+par 1 8 zv s t
 par 1 8 v val 100
 par 1 8 v s t
 par 1 8 omeg val 1.E-7
@@ -78,7 +78,7 @@ par 1 9 zv s t
 par 1 9 v val 50
 par 1 9 v s t
 par 1 9 omeg val 1.E-7
-# inactive PION absorption component(s)
+# inactive PION absorption component
 par 1 10 nh val 1.E-7
 par 1 10 nh s f
 par 1 10 xil val 0
@@ -96,7 +96,7 @@ com rel 4 6,7,8,9,10,1,2
 com rel 5 1,2
 #-----------------------------------------------------------
 # PION absorption components:
-com rel 8 9,10,1,2,
+com rel 8 9,10,1,2
 com rel 9 10,1,2
 com rel 10 1,2
 ############################################################
@@ -106,4 +106,3 @@ model show
 elim 1.E0:1.E3 ryd
 calc
 par show free
-
