@@ -310,6 +310,21 @@ Step 4g: Set the component relation for the PION components. Assuming that the
 Step 5: Set the components and component relations for line-of-sights #2 and #3.
 Step 5a: Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
 
+.. |br| note:: Here we assume that the photoionizing SED for the X-ray broad
+    emission PION component(s) is set to be the same as that for the obscuring
+    wind and warm absorber. This simplification assumes that the X-ray
+    broad-line region respond to the photoionizing SED instantaneously. Because
+    the X-ray broad-line region is typically a few lightdays away from the
+    central engine and it has a relatively high density. On the other hand, the
+    photoionizing SED for the X-ray narrow emission PION component(s) is set to
+    a long-term averaged SED. This simplification assumes that the X-ray
+    narrow-line region is in a steady state, i.e. it varies slightly around a
+    mean value corresponding to the mean flux level over time. Because the
+    X-ray narrow-line region is typically a few parsecs away from the central
+    engine and it has a relatively low density. Please refere to `Silva et al.
+    2016 <https://ui.adsabs.harvard.edu/abs/2016A%26A...596A..79S/abstract>`_
+    for a detailed spectral timing study.
+
 ::
 
     SPEX> com comt
@@ -396,8 +411,8 @@ are restricted to improve the efficiency of a realistic fitting process.
     SPEX> par 1 18 fcov val 0
     SPEX> par 1 18 omeg val 0
 
-Step 5c: Set the broadening due to macroscopic motion for the PION (emission)
-    components.
+Step 5d: Set the broadening due to macroscopic motion for the PION (emission)
+components.
 
 .. |br| note:: The ``v`` parameter in PION components refer to the microscopic
     (i.e. turbulent) motion. The macroscopic motion refers to the rotation
@@ -418,7 +433,7 @@ Step 5c: Set the broadening due to macroscopic motion for the PION (emission)
     SPEX> com vgau
     You have defined    23 components.
 
-Step 5d: Set the component relation for line-of-sights #2a and #3a.
+Step 5e: Set the component relation for line-of-sights #2a and #3a.
 
 .. |br| note:: Photons from both the Comptonized disk and power-law (with
     exponential low- and high-energy cut-offs) components are the photoionizing
@@ -427,18 +442,36 @@ Step 5d: Set the component relation for line-of-sights #2a and #3a.
 
 ::
 
-    SPEX> com rel 13 18,1,15
-    SPEX> com rel 14 6,7,18,1,15
-    SPEX> com rel 15 19,20,1,15
-    SPEX> com rel 16 6,7,19,20,1,15
+    SPEX> com rel 13 18,1,17
+    SPEX> com rel 14 6,7,18,1,17
+    SPEX> com rel 15 19,20,1,17
+    SPEX> com rel 16 6,7,19,20,1,17
 
-Step 5e: Set the component relation for the PION (emission) components.
+Step 5f: Set the component relation for the PION (emission) components.
+
+.. |br| note:: Here we assume that the obscuring wind is outside the X-ray
+    broad-line region and it screens photons emitted from the X-ray broad-line
+    region before it reaches us. On the other hand, since the obscuring wind
+    is closer to the central engine than the X-ray narrow-line region,
+    photons emitted from the X-ray narrow-line region are not screened by the
+    obscuring wind.
 
 ::
 
-    SPEX> com rel 18 21,8,9,1,2
-    SPEX> com rel 19 22,1,2
-    SPEX> com rel 20 23,1,2
+    SPEX> com rel 18 21,8,9,1,2,26
+    SPEX> com rel 19 22,1,2,26
+    SPEX> com rel 20 23,1,2,26
+
+Step 5g: Set the component relation for the AGN SED below the Lyman limit
+(optical/UV) along line-of-sight #1.
+
+::
+
+    SPEX> com rel 24 30,1,31,27
+    SPEX> com rel 25 6,7,30,1,31,27
+    SPEX> com rel 28 1
+    SPEX> com rel 29 1
+
 
 Next, we check the setting of the component relation
 ::
