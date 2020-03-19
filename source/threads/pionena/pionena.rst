@@ -15,13 +15,13 @@ Setup the PION model for the emission and absorption features in a nearby Seyfer
 Preparation
 -----------
 
-To follow this thread, you need to download the example files here: :download:`pion_ena.tar.gz <pion_ena.tar.gz>`.
+To follow this thread, you need to download the example files here: :download:`pionena.tar.gz <pionena.tar.gz>`.
 ::
 
    user@linux:~> cd /path/to/your/folder/
-   user@linux:~> mv ~/Downloads/pion_ena.tar.gz ./
-   user@linux:~> tar -xvf pion_ena.tar.gz
-   user@linux:~> cd pion_ena
+   user@linux:~> mv ~/Downloads/pionena.tar.gz ./
+   user@linux:~> tar -xvf pionena.tar.gz
+   user@linux:~> cd pionena
 
 
 Start SPEX
@@ -85,12 +85,12 @@ plot.com is the command file tailored for this thread to plot data.
    plot x log
    plot rx 1.2E0 1.E4
    plot y lin
-   plot ry 0 90
+   plot ry 0 50
    plot set 2
    plot da col 11
    plot mo col 3
    plot set 3:8
-   plot da col 5
+   plot da col 6
    plot set all
    plot back disp f
    plot
@@ -107,7 +107,7 @@ Define model components and component relations (step-by-step)
 
 Here we are receiving photons from three line-of-sights in a nearby (z = 0.07) Seyfert 1 galaxy.
 
-.. figure:: pionabs2.png
+.. figure:: pionena2.png
    :width: 600
 
 Step 1: Set the distance of the source.
@@ -120,9 +120,6 @@ Step 1: Set the distance of the source.
     ----------------------------------------------------------------------------------------------
     1 9.740E+24 6.511E+13 1.030E+09 3.157E+08 3.157E+05  315.6554    0.0700   20985.5 9.302E+08
     ----------------------------------------------------------------------------------------------
-    SPEX> com reds
-    You have defined    1 component.
-    SPEX> par 1 1 z val 0.07
 
 Step 2: Set the redshift component.
 ::
@@ -397,17 +394,39 @@ Next, we check the setting of the component relation
     SPEX> model show
     --------------------------------------------------------------------------------
     Number of sectors         :     1
-    Sector:    1 Number of model components:    10
-    Nr.    1: reds
-    Nr.    2: hot
-    Nr.    3: comt[8,9,10,1,2 ]
-    Nr.    4: pow [6,7,8,9,10,1,2 ]
-    Nr.    5: refl[1,2 ]
-    Nr.    6: etau
-    Nr.    7: etau
-    Nr.    8: pion[9,10,1,2 ]
-    Nr.    9: pion[10,1,2 ]
-    Nr.   10: pion[1,2 ]
+    Sector:    1 Number of model components:    31
+       Nr.    1: reds
+       Nr.    2: hot
+       Nr.    3: comt[8,9,10,11,12,1,2,26 ]
+       Nr.    4: pow [6,7,8,9,10,11,12,1,2,26 ]
+       Nr.    5: refl[1,2,26 ]
+       Nr.    6: etau
+       Nr.    7: etau
+       Nr.    8: pion[9,10,11,12,1,2,26 ]
+       Nr.    9: pion[10,11,12,1,2,26 ]
+       Nr.   10: pion[11,12,1,2,26 ]
+       Nr.   11: pion[12,1,2,26 ]
+       Nr.   12: pion[1,2,26 ]
+       Nr.   13: comt[18,1,17 ]
+       Nr.   14: pow [6,7,18,1,17 ]
+       Nr.   15: comt[19,20,1,17 ]
+       Nr.   16: pow [6,7,19,20,1,17 ]
+       Nr.   17: etau
+       Nr.   18: pion[21,8,9,1,2,26 ]
+       Nr.   19: pion[22,1,2,26 ]
+       Nr.   20: pion[23,1,2,26 ]
+       Nr.   21: vgau
+       Nr.   22: vgau
+       Nr.   23: vgau
+       Nr.   24: comt[]
+       Nr.   25: pow []
+       Nr.   26: etau
+       Nr.   27: etau
+       Nr.   28: file[1 ]
+       Nr.   29: file[1 ]
+       Nr.   30: ebv
+       Nr.   31: ebv
+
 
 
 Next, we check the setting of the free parameters and calculate the 1--1000 Ryd ionizing luminosity
@@ -422,50 +441,118 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
 
 
 
-    1    3 comt norm Norm (1E44 ph/s/keV) 3.0000001E+12 thawn     0.0      1.00E+20
-    1    3 comt t0   Wien temp (keV)      5.0000002E-04 thawn    1.00E-05  1.00E+10
-    1    3 comt t1   Plasma temp (keV)    0.1500000     thawn    1.00E-05  1.00E+10
-    1    3 comt tau  Optical depth         20.00000     thawn    1.00E-03  1.00E+03
+       1    3 comt norm Norm (1E44 ph/s/keV) 3.0000001E+12 thawn     0.0      1.00E+20
+       1    3 comt t0   Wien temp (keV)      5.0000002E-04 thawn    1.00E-05  1.00E+10
+       1    3 comt t1   Plasma temp (keV)    0.1500000     thawn    1.00E-05  1.00E+10
+       1    3 comt tau  Optical depth         20.00000     thawn    1.00E-03  1.00E+03
 
-    1    4 pow  norm Norm (1E44 ph/s/keV) 1.0000000E+09 thawn     0.0      1.00E+20
-    1    4 pow  gamm Photon index          1.700000     thawn    -10.       10.
-
-    1    5 refl scal Scale for reflection  1.000000     thawn     0.0      1.00E+10
+       1    4 pow  norm Norm (1E44 ph/s/keV) 1.0000000E+09 thawn     0.0      1.00E+20
+       1    4 pow  gamm Photon index          1.700000     thawn    -10.       10.
 
 
 
 
-    1    8 pion nh   X-Column (1E28/m**2) 4.9999999E-03 thawn    1.00E-07   10.
-    1    8 pion xil  Log xi (1E-9 Wm)      2.700000     thawn    -5.0       5.0
-    1    8 pion v    RMS Velocity (km/s)   100.0000     thawn     0.0      3.00E+05
-    1    8 pion zv   Average vel. (km/s)  -500.0000     thawn   -1.00E+05  1.00E+05
+       1    8 pion nh   X-Column (1E28/m**2) 5.0000001E-02 thawn    1.00E-07   10.
+       1    8 pion xil  Log xi (1E-9 Wm)      0.000000     thawn    -5.0       5.0
+       1    8 pion v    RMS Velocity (km/s)   1100.000     thawn     0.0      3.00E+05
+       1    8 pion zv   Average vel. (km/s)  -3000.000     thawn   -1.00E+05  1.00E+05
 
-    1    9 pion nh   X-Column (1E28/m**2) 2.0000001E-03 thawn    1.00E-07   10.
-    1    9 pion xil  Log xi (1E-9 Wm)      1.600000     thawn    -5.0       5.0
-    1    9 pion v    RMS Velocity (km/s)   50.00000     thawn     0.0      3.00E+05
-    1    9 pion zv   Average vel. (km/s)  -100.0000     thawn   -1.00E+05  1.00E+05
+
+       1   10 pion nh   X-Column (1E28/m**2) 4.9999999E-03 thawn    1.00E-07   10.
+       1   10 pion xil  Log xi (1E-9 Wm)      2.700000     thawn    -5.0       5.0
+       1   10 pion v    RMS Velocity (km/s)   100.0000     thawn     0.0      3.00E+05
+       1   10 pion zv   Average vel. (km/s)  -500.0000     thawn   -1.00E+05  1.00E+05
+
+       1   11 pion nh   X-Column (1E28/m**2) 2.0000001E-03 thawn    1.00E-07   10.
+       1   11 pion xil  Log xi (1E-9 Wm)      1.600000     thawn    -5.0       5.0
+       1   11 pion v    RMS Velocity (km/s)   50.00000     thawn     0.0      3.00E+05
+       1   11 pion zv   Average vel. (km/s)  -100.0000     thawn   -1.00E+05  1.00E+05
+
+
+
+
+
+
+
+       1   18 pion nh   X-Column (1E28/m**2) 7.9999998E-02 thawn    1.00E-07   10.
+       1   18 pion xil  Log xi (1E-9 Wm)     0.8000000     thawn    -5.0       5.0
+       1   18 pion omeg Scaling factor emis. 2.9999999E-02 thawn     0.0       1.0
+
+       1   19 pion nh   X-Column (1E28/m**2) 5.0000001E-02 thawn    1.00E-07   10.
+       1   19 pion xil  Log xi (1E-9 Wm)      2.300000     thawn    -5.0       5.0
+       1   19 pion v    RMS Velocity (km/s)   240.0000     thawn     0.0      3.00E+05
+       1   19 pion omeg Scaling factor emis. 5.0000001E-02 thawn     0.0       1.0
+
+
+       1   21 vgau sig  Sigma (km/s)          7000.000     thawn     0.0      3.00E+05
+
+
+
+
+
+
+
+       1   28 file norm Flux scale factor    0.3000000     thawn     0.0      1.00E+20
+
+       1   29 file norm Flux scale factor    0.4000000     thawn     0.0      1.00E+20
+
+       1   30 ebv  ebv  E(B-V)  (mag)        0.1000000     thawn     0.0      1.00E+20
+
+       1   31 ebv  ebv  E(B-V)  (mag)        0.1200000     thawn     0.0      1.00E+20
 
 
     Instrument     1 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     2 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     3 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     4 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     5 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     6 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     7 region    1 has norm    1.00000E+00 and is frozen
+    Instrument     8 region    1 has norm    1.00000E+00 and is frozen
 
     --------------------------------------------------------------------------------
-    Fluxes and restframe luminosities between  1.36057E-02 and    13.606     keV
+     Fluxes and restframe luminosities between  1.36057E-02 and    13.606     keV
 
-    sect comp mod   photon flux   energy flux nr of photons    luminosity
-              (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
-    1    3 comt   9.79871      4.264683E-16  1.447224E+54  7.988849E+36
-    1    4 pow    242.314      6.233561E-14  2.869709E+54  1.021577E+38
-    1    5 refl   5.98556      7.190653E-15  6.284842E+51  7.467485E+36
-    1    8 pion  1.706942E-07  3.007797E-23  3.540241E+45  8.248552E+28
-    1    9 pion  1.751460E-06  1.557271E-22  1.947534E+47  1.167596E+30
+     sect comp mod   photon flux   energy flux nr of photons    luminosity
+                  (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+        1    3 comt  7.891733E-04  1.775058E-19  1.447225E+54  7.988903E+36
+        1    4 pow    38.8452      3.366349E-14  2.869709E+54  1.021578E+38
+        1    5 refl   5.98573      7.190706E-15  6.284845E+51  7.467510E+36
+        1    8 pion   0.00000       0.00000       0.00000       0.00000
+        1    9 pion   0.00000       0.00000       0.00000       0.00000
+        1   10 pion  1.755872E-08  5.460370E-24  2.240611E+44  1.101832E+28
+        1   11 pion  7.859878E-10  9.875930E-26  3.169259E+45  7.940958E+27
+        1   12 pion   0.00000       0.00000       0.00000       0.00000
+        1   13 comt   1213.94      6.701157E-15  1.447225E+54  7.988903E+36
+        1   14 pow    1657.30      8.033095E-14  2.869709E+54  1.021578E+38
+        1   15 comt   0.00000       0.00000      1.106767E+53  5.268881E+35
+        1   16 pow    0.00000       0.00000      1.296679E+55  6.397146E+38
+        1   18 pion  2.157629E-03  5.832195E-19  1.541393E+54  9.503088E+36
+        1   19 pion   16.5069      2.323759E-15  2.587041E+53  5.126524E+36
+        1   20 pion   0.00000       0.00000       0.00000       0.00000
+        1   24 comt   1213.96      6.701122E-15  1.447251E+54  7.988922E+36
+        1   25 pow    2407.16      8.569090E-14  2.869727E+54  1.021578E+38
+        1   28 file   0.00000       0.00000       0.00000       0.00000
+        1   29 file   0.00000       0.00000       0.00000       0.00000
 
- Fit method        : Classical Levenberg-Marquardt
- Fit statistic     : C-statistic
- C-statistic       :      2339.63
- Expected C-stat   :      2348.72 +/-        68.66
- Chi-squared value :      2521.26
- Degrees of freedom:         0
- W-statistic       :      2271.28
+     Fit method        : Classical Levenberg-Marquardt
+     Fit statistic     : C-statistic
+     C-statistic       :      1546.28
+     Expected C-stat   :      1216.36 +/-        49.33
+     Chi-squared value :      1551.78
+     Degrees of freedom:         0
+     W-statistic       :         0.00
+     Contributions of instruments and regions:
+     Ins   Reg    Bins      C-stat  Exp C-stat  Rms C-stat      chi**2      W-stat
+       1     1     996     1035.34      996.36       44.65     1037.27        0.00
+       2     1     214      510.05      214.00       20.69      513.62        0.00
+       3     1       1        0.00        1.00        1.41        0.00        0.00
+       4     1       1        0.02        1.00        1.41        0.02        0.00
+       5     1       1        0.16        1.00        1.41        0.16        0.00
+       6     1       1        0.11        1.00        1.41        0.11        0.00
+       7     1       1        0.23        1.00        1.41        0.23        0.00
+       8     1       1        0.37        1.00        1.41        0.37        0.00
+
 
 .. figure:: pionabs3.png
    :width: 600
@@ -478,8 +565,12 @@ This thread ends here.
 
 Define model components and component relations (running scripts)
 ------------------------------------------------------------------
-A command file tailored for this thread to setup the model components and parameters is available here :download:`mdl_pa.com <mdl_pa.com>`.
+calc.com is the command file tailored for this thread.
 
 Load the above command file into SPEX:
 ::
-   SPEX> log exe mdl_pa
+
+   user@linux:~> spex
+   Welcome user to SPEX version 3.05.00
+
+   SPEX> log exe calc

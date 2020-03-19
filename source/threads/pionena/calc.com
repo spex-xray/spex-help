@@ -2,10 +2,11 @@
 log exe init
 # obs. data
 log exe data
+# plot setting
+log exe plot
 # model setting
 log exe mdl_pc
-# plot setting
-#log exe plot
-ca
-pl
+elim 1.E-3:1.E3 ryd
+calc
+plot
 par show free
