@@ -175,6 +175,7 @@ For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al. 
     SPEX> par 1 5 scal s f
 
 Step 4b: Apply exponential cut-off to the power-law component of the SED both below the Lyman limit and above the high-energy cut-off.
+
 .. note:: The ``ecut`` parameter in the ``refl`` component applies to itself only.
 
 ::
@@ -195,7 +196,10 @@ Step 4b: Apply exponential cut-off to the power-law component of the SED both be
 Step 4c: Set the PION (obscuring wind) components.
 
 Here we introduce two PION components. The parameters of the PION components are restricted to improve the efficiency of a realistic fitting process. ``fcov=1`` refers to the PION component fully covers the line-of-sight.
+
 .. note:: The second ``pion`` component is a spare one with ``fcov=0`` and ``omeg=0``. This is practical when analyzing real data without any prior knowledge of the number of PION components required.
+
+::
 
     SPEX> com pion
     You have defined    8 components.
@@ -223,6 +227,7 @@ Step 4d: Set the PION (warm absorber) components.
 Here we introduce three PION components. ``omeg=1.E-7`` refers to a negligible solid angle (:math:`\Omega`) subtended by the PION component with respect to the nucleus (omeg = :math:`\Omega / 4 \pi`).
 
 .. note:: To see the density effect of the absorption features, it is necessary to set a non-zero ``omeg`` value.
+
 ::
 
     SPEX> com pion
@@ -257,6 +262,7 @@ Here we introduce three PION components. ``omeg=1.E-7`` refers to a negligible s
     SPEX> par 1 12 omega val 0
 
 Step 4f: Set the component relation for line-of-sight #1.
+
 .. note:: Photons from both the Comptonized disk and power-law components are screened by the obscuring wind and warm absorber components at the redshift of the target, as well as the galactic absorption before reaching the detector. Photons from the neutral reflection component is assumed not to be screened by the obscuring wind and warm absorber for simplicity. It is still redshifted and requires the galactic absorption.
 
 ::
@@ -317,6 +323,7 @@ Step 5b: Apply exponential cut-off to the above AGN SEDs at all energies because
 Step 5c: Set the PION (emission) components.
 
 Here we introduce three PION components. The parameters of the PION components are restricted to improve the efficiency of a realistic fitting process. ``fcov=0`` for the emission PION components.
+
 .. note:: The first ``pion`` component refers to the X-ray broad-line region. The second ``pion`` component refers to the X-ray narrow-line region. The third ``pion`` component is a spare one with ``fcov=0`` and ``omeg=0``. This is practical when analyzing real data without any prior knowledge of the number of PION components required.
 
 ::
@@ -357,6 +364,7 @@ Here we introduce three PION components. The parameters of the PION components a
     SPEX> par 1 18 omeg val 0
 
 Step 5c: Set the broadening due to macroscopic motion for the PION (emission) components.
+
 .. note:: The ``v`` parameter in PION components refer to the microscopic (i.e. turbulent) motion. The macroscopic motion refers to the rotation around the black hole. For the X-ray broad emission lines, the macroscopic motion dominates the broadening. For the X-ray narrow emission lines, the microscopic and macroscopic motion are often degenerate (see Mao et al. 2018 for a discussion). The second and third ``vgau`` components are spare.
 
 ::
@@ -371,6 +379,7 @@ Step 5c: Set the broadening due to macroscopic motion for the PION (emission) co
     You have defined    23 components.
 
 Step 5d: Set the component relation for line-of-sights #2a and #3a.
+
 .. note:: Photons from both the Comptonized disk and power-law (with exponential low- and high-energy cut-offs) components are the photoionizing source of the PION emission components at the redshift of the target. While (reflected/reprocessed) photons from the PION emission components reach us,
 
 ::
@@ -554,7 +563,7 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
        8     1       1        0.37        1.00        1.41        0.37        0.00
 
 
-.. figure:: pionabs3.png
+.. figure:: pionena3.png
    :width: 600
 
 This thread ends here.
