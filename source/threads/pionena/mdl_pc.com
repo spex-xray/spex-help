@@ -253,6 +253,6 @@ com rel 29 1
 # check models
 model show
 # check parameters
-elim 1.E0:1.E3 ryd
+#elim 1.E0:1.E3 ryd
 #calc
 #par show free

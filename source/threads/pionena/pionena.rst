@@ -401,41 +401,39 @@ Next, we check the setting of the component relation
 
     SPEX> model show
     --------------------------------------------------------------------------------
-    Number of sectors         :     1
-    Sector:    1 Number of model components:    31
-       Nr.    1: reds
-       Nr.    2: hot
-       Nr.    3: comt[8,9,10,11,12,1,2,26 ]
-       Nr.    4: pow [6,7,8,9,10,11,12,1,2,26 ]
-       Nr.    5: refl[1,2,26 ]
-       Nr.    6: etau
-       Nr.    7: etau
-       Nr.    8: pion[9,10,11,12,1,2,26 ]
-       Nr.    9: pion[10,11,12,1,2,26 ]
-       Nr.   10: pion[11,12,1,2,26 ]
-       Nr.   11: pion[12,1,2,26 ]
-       Nr.   12: pion[1,2,26 ]
-       Nr.   13: comt[18,1,17 ]
-       Nr.   14: pow [6,7,18,1,17 ]
-       Nr.   15: comt[19,20,1,17 ]
-       Nr.   16: pow [6,7,19,20,1,17 ]
-       Nr.   17: etau
-       Nr.   18: pion[21,8,9,1,2,26 ]
-       Nr.   19: pion[22,1,2,26 ]
-       Nr.   20: pion[23,1,2,26 ]
-       Nr.   21: vgau
-       Nr.   22: vgau
-       Nr.   23: vgau
-       Nr.   24: comt[]
-       Nr.   25: pow []
-       Nr.   26: etau
-       Nr.   27: etau
-       Nr.   28: file[1 ]
-       Nr.   29: file[1 ]
-       Nr.   30: ebv
-       Nr.   31: ebv
-
-
+     Number of sectors         :     1
+     Sector:    1 Number of model components:    31
+        Nr.    1: reds
+        Nr.    2: hot
+        Nr.    3: comt[8,9,10,11,12,1,2,26 ]
+        Nr.    4: pow [6,7,8,9,10,11,12,1,2,26 ]
+        Nr.    5: refl[1,2,26 ]
+        Nr.    6: etau
+        Nr.    7: etau
+        Nr.    8: pion[9,10,11,12,1,2,26 ]
+        Nr.    9: pion[10,11,12,1,2,26 ]
+        Nr.   10: pion[11,12,1,2,26 ]
+        Nr.   11: pion[12,1,2,26 ]
+        Nr.   12: pion[1,2,26 ]
+        Nr.   13: comt[18,1,17 ]
+        Nr.   14: pow [6,7,18,1,17 ]
+        Nr.   15: comt[19,20,1,17 ]
+        Nr.   16: pow [6,7,19,20,1,17 ]
+        Nr.   17: etau
+        Nr.   18: pion[21,8,9,1,2,26 ]
+        Nr.   19: pion[22,1,2,26 ]
+        Nr.   20: pion[23,1,2,26 ]
+        Nr.   21: vgau
+        Nr.   22: vgau
+        Nr.   23: vgau
+        Nr.   24: comt[30,1,31,27 ]
+        Nr.   25: pow [6,7,30,1,31,27 ]
+        Nr.   26: etau
+        Nr.   27: etau
+        Nr.   28: file[1 ]
+        Nr.   29: file[1 ]
+        Nr.   30: ebv
+        Nr.   31: ebv
 
 Next, we check the setting of the free parameters and calculate the 1--1000 Ryd ionizing luminosity
 ::
@@ -523,43 +521,43 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
 
      sect comp mod   photon flux   energy flux nr of photons    luminosity
                   (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
-        1    3 comt  7.891731E-04  1.775057E-19  1.447225E+54  7.988903E+36
-        1    4 pow    38.8452      3.366348E-14  2.869709E+54  1.021578E+38
+        1    3 comt  7.891731E-04  1.775058E-19  1.447225E+54  7.988903E+36
+        1    4 pow    38.8452      3.366349E-14  2.869709E+54  1.021578E+38
         1    5 refl   5.98573      7.190706E-15  6.284845E+51  7.467510E+36
         1    8 pion   0.00000       0.00000       0.00000       0.00000
         1    9 pion   0.00000       0.00000       0.00000       0.00000
-        1   10 pion  1.755872E-08  5.460369E-24  2.240611E+44  1.101832E+28
-        1   11 pion  7.849864E-10  9.871685E-26  3.169251E+45  7.940835E+27
+        1   10 pion  1.755872E-08  5.460370E-24  2.240611E+44  1.101832E+28
+        1   11 pion  7.849879E-10  9.871699E-26  3.169252E+45  7.940836E+27
         1   12 pion   0.00000       0.00000       0.00000       0.00000
         1   13 comt   1213.94      6.701157E-15  1.447225E+54  7.988903E+36
         1   14 pow    1657.30      8.033095E-14  2.869709E+54  1.021578E+38
         1   15 comt   0.00000       0.00000      1.106767E+53  5.268881E+35
         1   16 pow    0.00000       0.00000      1.296679E+55  6.397146E+38
         1   18 pion  2.157629E-03  5.832195E-19  1.541392E+54  9.503085E+36
-        1   19 pion   3.30138      4.647511E-16  5.174083E+52  1.025305E+36
+        1   19 pion   3.30138      4.647512E-16  5.174083E+52  1.025305E+36
         1   20 pion   0.00000       0.00000       0.00000       0.00000
-        1   24 comt   1213.96      6.701122E-15  1.447251E+54  7.988922E+36
-        1   25 pow    2407.16      8.569090E-14  2.869727E+54  1.021578E+38
+        1   24 comt  0.501314      1.089752E-18  1.447225E+54  7.988903E+36
+        1   25 pow   0.193548      4.207327E-19  2.869709E+54  1.021578E+38
         1   28 file   0.00000       0.00000       0.00000       0.00000
         1   29 file   0.00000       0.00000       0.00000       0.00000
 
      Fit method        : Classical Levenberg-Marquardt
      Fit statistic     : C-statistic
-     C-statistic       :      1206.34
-     Expected C-stat   :      1217.37 +/-        49.35
-     Chi-squared value :      1209.08
+     C-statistic       :      1215.69
+     Expected C-stat   :      1212.71 +/-        49.26
+     Chi-squared value :      1221.23
      Degrees of freedom:         0
      W-statistic       :         0.00
      Contributions of instruments and regions:
        Ins   Reg    Bins      C-stat  Exp C-stat  Rms C-stat      chi**2      W-stat
-         1     1     996      980.19      996.36       44.65      982.68        0.00
-         2     1     215      221.60      215.00       20.74      221.82        0.00
-         3     1       1        0.00        1.00        1.41        0.00        0.00
-         4     1       1        0.03        1.00        1.41        0.03        0.00
-         5     1       1        0.63        1.00        1.41        0.63        0.00
-         6     1       1        3.78        1.00        1.41        3.81        0.00
-         7     1       1        0.03        1.00        1.41        0.03        0.00
-         8     1       1        0.08        1.00        1.41        0.08        0.00
+         1     1     996     1007.73      996.70       44.66     1012.35        0.00
+         2     1     210      197.87      210.01       20.49      198.61        0.00
+         3     1       1        3.06        1.00        1.41        3.22        0.00
+         4     1       1        0.01        1.00        1.41        0.01        0.00
+         5     1       1        0.31        1.00        1.41        0.32        0.00
+         6     1       1        0.20        1.00        1.41        0.20        0.00
+         7     1       1        4.62        1.00        1.41        4.67        0.00
+         8     1       1        1.89        1.00        1.41        1.87        0.00
 
 .. figure:: pionena3.png
    :width: 600
