@@ -321,8 +321,8 @@ Step 5a: Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
     narrow-line region is in a steady state, i.e. it varies slightly around a
     mean value corresponding to the mean flux level over time. Because the
     X-ray narrow-line region is typically a few parsecs away from the central
-    engine and it has a relatively low density. Please refere to `Silva et al.
-    2016 <https://ui.adsabs.harvard.edu/abs/2016A%26A...596A..79S/abstract>`_
+    engine and it has a relatively low density. Readers are referred to `Silva
+    et al. 2016 <https://ui.adsabs.harvard.edu/abs/2016A%26A...596A..79S/abstract>`_
     for a detailed spectral timing study.
 
 ::
