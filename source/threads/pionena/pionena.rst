@@ -195,8 +195,7 @@ Step 4b: Apply exponential cut-off to the power-law component of the SED both be
 
 Step 4c: Set the PION (obscuring wind) components.
 
-Here we introduce two PION components. The parameters of the PION components are restricted to improve the efficiency of a realistic fitting process. ``fcov=1`` refers to the PION component fully covers the line-of-sight.
-
+Here we introduce two PION components for the obscuring wind `(Kaastra et al. 2014) <https://ui.adsabs.harvard.edu/abs/2014Sci...345...64K/abstract>`_. The parameters of the PION components are restricted to improve the efficiency of a realistic fitting process.
 .. note:: The second ``pion`` component is a spare one with ``fcov=0`` and ``omeg=0``. This is practical when analyzing real data without any prior knowledge of the number of PION components required.
 
 ::
@@ -224,7 +223,7 @@ Here we introduce two PION components. The parameters of the PION components are
 
 Step 4d: Set the PION (warm absorber) components.
 
-Here we introduce three PION components. ``omeg=1.E-7`` refers to a negligible solid angle (:math:`\Omega`) subtended by the PION component with respect to the nucleus (omeg = :math:`\Omega / 4 \pi`).
+Here we introduce three PION components for the X-ray warm absorber. ``omeg=1.E-7`` refers to a negligible solid angle (:math:`\Omega`) subtended by the PION component with respect to the nucleus (omeg = :math:`\Omega / 4 \pi`).
 
 .. note:: To see the density effect of the absorption features, it is necessary to set a non-zero ``omeg`` value.
 
@@ -365,7 +364,7 @@ Here we introduce three PION components. The parameters of the PION components a
 
 Step 5c: Set the broadening due to macroscopic motion for the PION (emission) components.
 
-.. note:: The ``v`` parameter in PION components refer to the microscopic (i.e. turbulent) motion. The macroscopic motion refers to the rotation around the black hole. For the X-ray broad emission lines, the macroscopic motion dominates the broadening. For the X-ray narrow emission lines, the microscopic and macroscopic motion are often degenerate (see Mao et al. 2018 for a discussion). The second and third ``vgau`` components are spare.
+.. note:: The ``v`` parameter in PION components refer to the microscopic (i.e. turbulent) motion. The macroscopic motion refers to the rotation around the black hole. For the X-ray broad emission lines, the macroscopic motion dominates the broadening. For the X-ray narrow emission lines, the microscopic and macroscopic motion are often degenerate (`Mao et al. 2018 <https://ui.adsabs.harvard.edu/abs/2018A%26A...612A..18M/abstract>`_). The second and third ``vgau`` components are spare.
 
 ::
 
@@ -490,7 +489,7 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
        1   19 pion nh   X-Column (1E28/m**2) 5.0000001E-02 thawn    1.00E-07   10.
        1   19 pion xil  Log xi (1E-9 Wm)      2.300000     thawn    -5.0       5.0
        1   19 pion v    RMS Velocity (km/s)   240.0000     thawn     0.0      3.00E+05
-       1   19 pion omeg Scaling factor emis. 5.0000001E-02 thawn     0.0       1.0
+       1   19 pion omeg Scaling factor emis. 9.9999998E-03 thawn     0.0       1.0
 
 
        1   21 vgau sig  Sigma (km/s)          7000.000     thawn     0.0      3.00E+05
@@ -524,20 +523,20 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
 
      sect comp mod   photon flux   energy flux nr of photons    luminosity
                   (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
-        1    3 comt  7.891733E-04  1.775058E-19  1.447225E+54  7.988903E+36
-        1    4 pow    38.8452      3.366349E-14  2.869709E+54  1.021578E+38
+        1    3 comt  7.891731E-04  1.775057E-19  1.447225E+54  7.988903E+36
+        1    4 pow    38.8452      3.366348E-14  2.869709E+54  1.021578E+38
         1    5 refl   5.98573      7.190706E-15  6.284845E+51  7.467510E+36
         1    8 pion   0.00000       0.00000       0.00000       0.00000
         1    9 pion   0.00000       0.00000       0.00000       0.00000
-        1   10 pion  1.755872E-08  5.460370E-24  2.240611E+44  1.101832E+28
-        1   11 pion  7.859878E-10  9.875930E-26  3.169259E+45  7.940958E+27
+        1   10 pion  1.755872E-08  5.460369E-24  2.240611E+44  1.101832E+28
+        1   11 pion  7.849864E-10  9.871685E-26  3.169251E+45  7.940835E+27
         1   12 pion   0.00000       0.00000       0.00000       0.00000
         1   13 comt   1213.94      6.701157E-15  1.447225E+54  7.988903E+36
         1   14 pow    1657.30      8.033095E-14  2.869709E+54  1.021578E+38
         1   15 comt   0.00000       0.00000      1.106767E+53  5.268881E+35
         1   16 pow    0.00000       0.00000      1.296679E+55  6.397146E+38
-        1   18 pion  2.157629E-03  5.832195E-19  1.541393E+54  9.503088E+36
-        1   19 pion   16.5069      2.323759E-15  2.587041E+53  5.126524E+36
+        1   18 pion  2.157629E-03  5.832195E-19  1.541392E+54  9.503085E+36
+        1   19 pion   3.30138      4.647511E-16  5.174083E+52  1.025305E+36
         1   20 pion   0.00000       0.00000       0.00000       0.00000
         1   24 comt   1213.96      6.701122E-15  1.447251E+54  7.988922E+36
         1   25 pow    2407.16      8.569090E-14  2.869727E+54  1.021578E+38
@@ -546,24 +545,26 @@ Next, we check the setting of the free parameters and calculate the 1--1000 Ryd 
 
      Fit method        : Classical Levenberg-Marquardt
      Fit statistic     : C-statistic
-     C-statistic       :      1546.28
-     Expected C-stat   :      1216.36 +/-        49.33
-     Chi-squared value :      1551.78
+     C-statistic       :      1206.34
+     Expected C-stat   :      1217.37 +/-        49.35
+     Chi-squared value :      1209.08
      Degrees of freedom:         0
      W-statistic       :         0.00
      Contributions of instruments and regions:
-     Ins   Reg    Bins      C-stat  Exp C-stat  Rms C-stat      chi**2      W-stat
-       1     1     996     1035.34      996.36       44.65     1037.27        0.00
-       2     1     214      510.05      214.00       20.69      513.62        0.00
-       3     1       1        0.00        1.00        1.41        0.00        0.00
-       4     1       1        0.02        1.00        1.41        0.02        0.00
-       5     1       1        0.16        1.00        1.41        0.16        0.00
-       6     1       1        0.11        1.00        1.41        0.11        0.00
-       7     1       1        0.23        1.00        1.41        0.23        0.00
-       8     1       1        0.37        1.00        1.41        0.37        0.00
-
+       Ins   Reg    Bins      C-stat  Exp C-stat  Rms C-stat      chi**2      W-stat
+         1     1     996      980.19      996.36       44.65      982.68        0.00
+         2     1     215      221.60      215.00       20.74      221.82        0.00
+         3     1       1        0.00        1.00        1.41        0.00        0.00
+         4     1       1        0.03        1.00        1.41        0.03        0.00
+         5     1       1        0.63        1.00        1.41        0.63        0.00
+         6     1       1        3.78        1.00        1.41        3.81        0.00
+         7     1       1        0.03        1.00        1.41        0.03        0.00
+         8     1       1        0.08        1.00        1.41        0.08        0.00
 
 .. figure:: pionena3.png
+   :width: 600
+
+.. figure:: pionena4.png
    :width: 600
 
 This thread ends here.

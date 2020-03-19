@@ -147,7 +147,7 @@ par 1 18 fcov val 0
 par 1 18 fcov s f
 par 1 18 omeg val 3.E-2
 par 1 18 omeg s t
-par 1 19 nh val 5.E-02
+par 1 19 nh val 5.E-2
 par 1 19 xil val 2.3
 par 1 19 zv val 0
 par 1 19 zv s f
@@ -155,7 +155,7 @@ par 1 19 v val 240
 par 1 19 v s t
 par 1 19 fcov val 0
 par 1 19 fcov s f
-par 1 19 omeg val 5.E-2
+par 1 19 omeg val 1.E-2
 par 1 19 omeg s t
 # inactive PION emission component
 par 1 20 nh val 1.E-7

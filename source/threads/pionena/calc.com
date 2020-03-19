@@ -6,7 +6,7 @@ log exe data
 log exe plot
 # model setting
 log exe mdl_pc
-elim 1.E-3:1.E3 ryd
+elim 1:1.E3 ryd
 calc
 plot
 par show free
