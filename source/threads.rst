@@ -9,5 +9,5 @@ Analysis threads
    threads/ccdspectrum/ccdspectrum
    threads/partbkg/partbkg
    threads/uv
-   threads/pionabs
-   threads/pionena
+   threads/pionabs/pionabs
+   threads/pionena/pionena
