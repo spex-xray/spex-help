@@ -242,9 +242,9 @@ com rel 18 21,8,9,1,2,26
 com rel 19 22,1,2,26
 com rel 20 23,1,2,26
 ############################################################
-# AGN SED above the Lyman limit (optical/UV) along line-of-sight #1
-com rel 24 40,1,41,43,27
-com rel 25 1,41,43,27
+# AGN SED below the Lyman limit (optical/UV) along line-of-sight #1
+com rel 24 30,1,31,27
+com rel 25 6,7,30,1,31,27
 # host galaxy
 com rel 28 1
 # BEL/NEL in optical
