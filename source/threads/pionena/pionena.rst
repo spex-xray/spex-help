@@ -3,7 +3,9 @@
 PION setup for emission and absorption features in AGN
 ======================================================
 
-.. highlight :: none
+.. highlight:: none
+
+*By: Junjie Mao*
 
 Goal
 ----
@@ -11,15 +13,14 @@ Goal
 Setup the PION model for the emission and absorption features in a nearby
 Seyfert 1 galaxy observed with XMM-Newton (OM, RGS, and EPIC-pn).
 
-.. |br| note:: A simulated spectrum was used because this thread merely intends
-    to show the setup of the PION model.
+.. note:: A simulated spectrum was used because this thread merely intends
+   to show the setup of the PION model.
 
 Preparation
 -----------
 
 To follow this thread, you need to download the example files here:
-:download:`pionena.tar.gz <pionena.tar.gz>`.
-::
+:download:`pionena.tar.gz <pionena.tar.gz>`::
 
    user@linux:~> cd /path/to/your/folder/
    user@linux:~> mv ~/Downloads/pionena.tar.gz ./
@@ -28,11 +29,9 @@ To follow this thread, you need to download the example files here:
 
 
 Start SPEX
--------------
+----------
 
-Start SPEX in a linux terminal window:
-
-::
+Start SPEX in a linux terminal window::
 
    user@linux:~> spex
     Welcome user to SPEX version 3.05.00
@@ -40,9 +39,9 @@ Start SPEX in a linux terminal window:
    SPEX>
 
 Load data
-------------
-data.com is the command file tailored for this thread to load data.
-::
+---------
+
+``data.com`` is the command file tailored for this thread to load data::
 
    user@linux:~> cat data.com
    # RGS (inst 1)
@@ -67,17 +66,14 @@ data.com is the command file tailored for this thread to load data.
    ign inst 2 reg 1 8:1000 unit ang
    ign inst 2 reg 1 10:1000 unit kev
 
-Load the above command file into SPEX:
-
-::
+Load the above command file into SPEX::
 
    SPEX> log exe data
 
 Plot data
--------------
-plot.com is the command file tailored for this thread to plot data.
+---------
 
-::
+``plot.com`` is the command file tailored for this thread to plot data::
 
    user@linux:~> cat plot.com
    # plotting
@@ -98,15 +94,15 @@ plot.com is the command file tailored for this thread to plot data.
    plot back disp f
    plot
 
-Load the above command file into SPEX:
-::
+Load the above command file into SPEX::
+
    SPEX> log exe plot
 
 .. figure:: pionena1.png
    :width: 600
 
 Define model components and component relations (step-by-step)
-------------------------------------------------------------------
+--------------------------------------------------------------
 
 Here we are receiving photons from three line-of-sights in a nearby (z = 0.07)
 Seyfert 1 galaxy.
@@ -114,7 +110,8 @@ Seyfert 1 galaxy.
 .. figure:: pionena2.png
    :width: 600
 
-Step 1: Set the distance of the source.
+Step 1: Set the distance of the source
+''''''''''''''''''''''''''''''''''''''
 
 ::
 
@@ -125,14 +122,18 @@ Step 1: Set the distance of the source.
     1 9.740E+24 6.511E+13 1.030E+09 3.157E+08 3.157E+05  315.6554    0.0700   20985.5 9.302E+08
     ----------------------------------------------------------------------------------------------
 
-Step 2: Set the redshift component.
+Step 2: Set the redshift component
+''''''''''''''''''''''''''''''''''
+
 ::
 
     SPEX> com reds
     You have defined    1 component.
     SPEX> par 1 1 z val 0.07
 
-Step 3: Set the galactic absorption.
+Step 3: Set the galactic absorption
+'''''''''''''''''''''''''''''''''''
+
 ::
 
     SPEX> com hot
@@ -142,16 +143,20 @@ Step 3: Set the galactic absorption.
     SPEX> par 1 2 t s f
     SPEX> par 1 2 nh s f
 
-Step 4: Set the components and component relations for line-of-sight #1.
+Step 4: Set the components and component relations for line-of-sight #1
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-Step 4a: Set the intrinsic spectral-energy-distribution (SED) of the AGN above
+**(A)** Set the intrinsic spectral-energy-distribution (SED) of the AGN above
 the Lyman limit along line-of-sight #1.
 
 For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al.
 2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_:
+
   - A Comptonized disk component (``comt``) for optical to soft X-rays data
   - A power-law component (``pow``) for X-ray data
-  - A neutral reflection component (``refl``) for hard X-rays data. Usually, the reflection component has an exponential cut-off energy (300 keV here).
+  - A neutral reflection component (``refl``) for hard X-rays data. Usually, the
+    reflection component has an exponential cut-off energy (300 keV here).
+
 ::
 
     SPEX> com comt
@@ -180,11 +185,11 @@ For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al.
     SPEX> par 1 5 scal val 1.
     SPEX> par 1 5 scal s f
 
-Step 4b: Apply exponential cut-off to the power-law component of the SED both
+**(B)** Apply exponential cut-off to the power-law component of the SED both
 below the Lyman limit and above the high-energy cut-off.
 
-.. |br| note:: The ``ecut`` parameter in the ``refl`` component applies to
-    itself only.
+.. note:: The ``ecut`` parameter in the ``refl`` component applies to
+   itself only.
 
 ::
 
@@ -201,16 +206,16 @@ below the Lyman limit and above the high-energy cut-off.
     SPEX> par 1 7 tau val 3.3333E-3
     SPEX> par 1 7 tau s f
 
-Step 4c: Set the PION (obscuring wind) components.
+**(C)** Set the PION (obscuring wind) components.
 
 Here we introduce two PION components for the obscuring wind `(Kaastra et al.
 2014) <https://ui.adsabs.harvard.edu/abs/2014Sci...345...64K/abstract>`_.
 The parameters of the PION components are restricted to improve the efficiency
 of a realistic fitting process.
 
-.. |br| note:: The second ``pion`` component is a spare one with ``fcov=0``
-    and ``omeg=0``. This is practical when analyzing real data without any
-    prior knowledge of the number of PION components required.
+.. note:: The second ``pion`` component is a spare one with ``fcov=0``
+   and ``omeg=0``. This is practical when analyzing real data without any
+   prior knowledge of the number of PION components required.
 
 ::
 
@@ -235,14 +240,14 @@ of a realistic fitting process.
     SPEX> par 1 9 fcov val 0
     SPEX> par 1 9 omega val 0
 
-Step 4d: Set the PION (warm absorber) components.
+**(D)** Set the PION (warm absorber) components.
 
 Here we introduce three PION components for the X-ray warm absorber.
 ``omeg=1.E-7`` refers to a negligible solid angle (:math:`\Omega`) subtended by
 the PION component with respect to the nucleus (omeg = :math:`\Omega / 4 \pi`).
 
-.. |br| note:: To see the density effect of the absorption features, it is
-    necessary to set a non-zero ``omeg`` value.
+.. note:: To see the density effect of the absorption features, it is
+   necessary to set a non-zero ``omeg`` value.
 
 ::
 
@@ -277,14 +282,14 @@ the PION component with respect to the nucleus (omeg = :math:`\Omega / 4 \pi`).
     SPEX> par 1 12 fcov val 0
     SPEX> par 1 12 omega val 0
 
-Step 4f: Set the component relation for line-of-sight #1.
+**(E)** Set the component relation for line-of-sight #1.
 
-.. |br| note:: Photons from both the Comptonized disk and power-law components
-    are screened by the obscuring wind and warm absorber components at the
-    redshift of the target, as well as the galactic absorption before reaching
-    the detector. Photons from the neutral reflection component is assumed not
-    to be screened by the obscuring wind and warm absorber for simplicity.
-    It is still redshifted and requires the galactic absorption.
+.. note:: Photons from both the Comptonized disk and power-law components
+   are screened by the obscuring wind and warm absorber components at the
+   redshift of the target, as well as the galactic absorption before reaching
+   the detector. Photons from the neutral reflection component is assumed not
+   to be screened by the obscuring wind and warm absorber for simplicity.
+   It is still redshifted and requires the galactic absorption.
 
 ::
 
@@ -292,12 +297,12 @@ Step 4f: Set the component relation for line-of-sight #1.
     SPEX> com rel 4 6,7,8,9,10,11,12,1,2
     SPEX> com rel 5 1,2
 
-Step 4g: Set the component relation for the PION components. Assuming that the
-    obscuring wind and warm absorber components closer to the central engine
-    are defined first (with a smaller component index), photons transmitted
-    from the inner PION components (with a nonzero ``omeg`` value) are screened
-    by all the outer PION components at the redshift of the target, as well as
-    the galactic absorption before reaching the detector.
+**(F)** Set the component relation for the PION components. Assuming that the
+obscuring wind and warm absorber components closer to the central engine
+are defined first (with a smaller component index), photons transmitted
+from the inner PION components (with a nonzero ``omeg`` value) are screened
+by all the outer PION components at the redshift of the target, as well as
+the galactic absorption before reaching the detector.
 
 ::
 
@@ -307,10 +312,12 @@ Step 4g: Set the component relation for the PION components. Assuming that the
     SPEX> com rel 11 12,1,2
     SPEX> com rel 12 1,2
 
-Step 5: Set the components and component relations for line-of-sights #2 and #3.
-Step 5a: Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
+Step 5: Set the components and component relations for line-of-sights #2 and #3
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-.. |br| note:: Here we assume that the photoionizing SED for the X-ray broad
+**(A)** Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
+
+..  note:: Here we assume that the photoionizing SED for the X-ray broad
     emission PION component(s) is set to be the same as that for the obscuring
     wind and warm absorber. This simplification assumes that the X-ray
     broad-line region respond to the photoionizing SED instantaneously. Because
@@ -350,7 +357,7 @@ Step 5a: Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
     SPEX> par 1 16 gamm val 1.6
     SPEX> par 1 16 gamm s f
 
-Step 5b: Apply exponential cut-off to the above AGN SEDs at all energies
+**(B)** Apply exponential cut-off to the above AGN SEDs at all energies
 because these photons do not reach us (dashed gray lines in Figure 1).
 
 ::
@@ -362,13 +369,13 @@ because these photons do not reach us (dashed gray lines in Figure 1).
     SPEX> par 1 17 a val 0
     SPEX> par 1 17 a s f
 
-Step 5c: Set the PION (emission) components.
+**(C)** Set the PION (emission) components.
 
 Here we introduce three PION components. The parameters of the PION components
 are restricted to improve the efficiency of a realistic fitting process.
 ``fcov=0`` for the emission PION components.
 
-.. |br| note:: The first ``pion`` component refers to the X-ray broad-line
+..  note:: The first ``pion`` component refers to the X-ray broad-line
     region. The second ``pion`` component refers to the X-ray narrow-line
     region. The third ``pion`` component is a spare one with ``fcov=0`` and
     ``omeg=0``. This is practical when analyzing real data without any prior
@@ -411,10 +418,10 @@ are restricted to improve the efficiency of a realistic fitting process.
     SPEX> par 1 18 fcov val 0
     SPEX> par 1 18 omeg val 0
 
-Step 5d: Set the broadening due to macroscopic motion for the PION (emission)
+**(D)** Set the broadening due to macroscopic motion for the PION (emission)
 components.
 
-.. |br| note:: The ``v`` parameter in PION components refer to the microscopic
+..  note:: The ``v`` parameter in PION components refer to the microscopic
     (i.e. turbulent) motion. The macroscopic motion refers to the rotation
     around the black hole. For the X-ray broad emission lines, the macroscopic
     motion dominates the broadening. For the X-ray narrow emission lines, the
@@ -433,9 +440,9 @@ components.
     SPEX> com vgau
     You have defined    23 components.
 
-Step 5e: Set the component relation for line-of-sights #2a and #3a.
+**(E)** Set the component relation for line-of-sights #2a and #3a.
 
-.. |br| note:: Photons from both the Comptonized disk and power-law (with
+..  note:: Photons from both the Comptonized disk and power-law (with
     exponential low- and high-energy cut-offs) components are the photoionizing
     source of the PION emission components at the redshift of the target. While
     (reflected/reprocessed) photons from the PION emission components reach us.
@@ -447,9 +454,9 @@ Step 5e: Set the component relation for line-of-sights #2a and #3a.
     SPEX> com rel 15 19,20,1,17
     SPEX> com rel 16 6,7,19,20,1,17
 
-Step 5f: Set the component relation for the PION (emission) components.
+**(F)** Set the component relation for the PION (emission) components.
 
-.. |br| note:: Here we assume that the obscuring wind is outside the X-ray
+..  note:: Here we assume that the obscuring wind is outside the X-ray
     broad-line region and it screens photons emitted from the X-ray broad-line
     region before it reaches us. On the other hand, since the obscuring wind
     is closer to the central engine than the X-ray narrow-line region,
@@ -462,7 +469,7 @@ Step 5f: Set the component relation for the PION (emission) components.
     SPEX> com rel 19 22,1,2,26
     SPEX> com rel 20 23,1,2,26
 
-Step 5g: Set the component relation for the AGN SED below the Lyman limit
+**(G)** Set the component relation for the AGN SED below the Lyman limit
 (optical/UV) along line-of-sight #1.
 
 ::
@@ -472,9 +479,10 @@ Step 5g: Set the component relation for the AGN SED below the Lyman limit
     SPEX> com rel 28 1
     SPEX> com rel 29 1
 
+Step 6: Check settings and calculate
+------------------------------------
 
-Next, we check the setting of the component relation
-::
+We check the setting of the component relation::
 
     SPEX> model show
     --------------------------------------------------------------------------------
@@ -512,9 +520,7 @@ Next, we check the setting of the component relation
         Nr.   30: ebv
         Nr.   31: ebv
 
-Next, we check the setting of the free parameters and calculate the 1--1000 Ryd
-ionizing luminosity
-::
+We check the setting of the free parameters and calculate the 1--1000 Ryd ionizing luminosity::
 
     SPEX> elim 1.E0:1.E3 ryd
     SPEX> calc
@@ -643,15 +649,20 @@ ionizing luminosity
 .. figure:: pionena4.png
    :width: 600
 
-This thread ends here.
-::
+Final remarks
+-------------
+
+This is the end of this analysis thread. If you want, you can quit SPEX now::
 
     SPEX> quit
     Thank you for using SPEX!
 
+Below, we provide a useful command file.
+
 Define model components and component relations (running scripts)
-------------------------------------------------------------------
-calc.com is the command file tailored for this thread.
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+:download:`calc.com <calc.com>` is the command file tailored for this thread.
 
 Load the above command file into SPEX:
 ::
