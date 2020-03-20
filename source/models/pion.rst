@@ -304,5 +304,5 @@ The following parameters are common to all our absorption models:
 
 *Recommended citation:* `Miller et al. (2015) 
 <https://ui.adsabs.harvard.edu/abs/2015Natur.526..542M/abstract>`_
- and `Mehdipour et al. (2016)
+and `Mehdipour et al. (2016)
 <https://ui.adsabs.harvard.edu/abs/2016A%26A...596A..65M/abstract>`_
