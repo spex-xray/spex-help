@@ -8,7 +8,7 @@ plot y lin
 plot uy fa
 plot ry 0:20
 plot set 1
-plot back disp f
+plot model lw 3
 plot fill disp f
 plot back disp f
 plot cap id disp f

@@ -64,8 +64,9 @@ A command file tailored for this thread to plot the data is available here :down
    plot uy fa
    plot ry 0:20
    plot set 1
-   plot back disp f
+   plot mo lw 3
    plot fill disp f
+   plot back disp f
    plot cap id disp f
    plot cap ut disp f
    plot cap lt disp f
@@ -356,4 +357,3 @@ here :download:`mdl_pa.com <mdl_pa.com>`.
 Load the above command file into SPEX::
 
    SPEX> log exe mdl_pa
-
