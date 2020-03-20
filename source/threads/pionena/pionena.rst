@@ -5,7 +5,7 @@ PION setup for emission and absorption features in AGN
 
 .. highlight:: none
 
-*By: Junjie Mao*
+*By: Junjie Mao, Missagh Mehdipour, and Jelle Kaastra*
 
 Goal
 ----
@@ -113,7 +113,7 @@ Seyfert 1 galaxy.
 .. figure:: pionena2.png
    :width: 600
 
-Step 1: Set the distance of the source
+Set the distance of the source
 ''''''''''''''''''''''''''''''''''''''
 
 ::
@@ -125,7 +125,7 @@ Step 1: Set the distance of the source
     1 9.740E+24 6.511E+13 1.030E+09 3.157E+08 3.157E+05  315.6554    0.0700   20985.5 9.302E+08
     ----------------------------------------------------------------------------------------------
 
-Step 2: Set the redshift component
+Set the redshift component
 ''''''''''''''''''''''''''''''''''
 
 ::
@@ -134,7 +134,7 @@ Step 2: Set the redshift component
     You have defined    1 component.
     SPEX> par 1 1 z val 0.07
 
-Step 3: Set the galactic absorption
+Set the galactic absorption
 '''''''''''''''''''''''''''''''''''
 
 ::
@@ -146,7 +146,7 @@ Step 3: Set the galactic absorption
     SPEX> par 1 2 t s f
     SPEX> par 1 2 nh s f
 
-Step 4: Set the components and component relations for line-of-sight #1
+Set the components and component relations for line-of-sight #1
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 **(A)** Set the intrinsic spectral-energy-distribution (SED) of the AGN above
@@ -315,7 +315,7 @@ the galactic absorption before reaching the detector.
     SPEX> com rel 11 12,1,2
     SPEX> com rel 12 1,2
 
-Step 5: Set the components and component relations for line-of-sights #2 and #3
+Set the components and component relations for line-of-sights #2 and #3
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 **(A)** Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
@@ -482,7 +482,7 @@ components.
     SPEX> com rel 28 1
     SPEX> com rel 29 1
 
-Step 6: Check settings and calculate
+Check settings and calculate
 ------------------------------------
 
 We check the setting of the component relation::

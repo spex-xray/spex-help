@@ -5,7 +5,7 @@ PION setup for AGN warm absorber
 
 .. highlight:: none
 
-*By: Junjie Mao*
+*By: Junjie Mao, Missagh Mehdipour, and Jelle Kaastra*
 
 Goal
 ----
@@ -84,7 +84,7 @@ Define model components and component relations (step-by-step)
 
 Here we are looking at the warm absorber in a nearby (z = 0.07) Seyfert 1 galaxy.
 
-Step 1: Set the distance of the source
+Set the distance of the source
 ''''''''''''''''''''''''''''''''''''''
 
 ::
@@ -99,7 +99,7 @@ Step 1: Set the distance of the source
     You have defined    1 component.
     SPEX> par 1 1 z val 0.07
 
-Step 2: Set the redshift component
+Set the redshift component
 ''''''''''''''''''''''''''''''''''
 
 ::
@@ -108,7 +108,7 @@ Step 2: Set the redshift component
     You have defined    1 component.
     SPEX> par 1 1 z val 0.07
 
-Step 3: Set the galactic absorption
+Set the galactic absorption
 '''''''''''''''''''''''''''''''''''
 
 ::
@@ -120,7 +120,7 @@ Step 3: Set the galactic absorption
     SPEX> par 1 2 t s f
     SPEX> par 1 2 nh s f
 
-Step 4: Set the SED
+Set the SED
 '''''''''''''''''''
 
 Set the intrinsic spectral-energy-distribution (SED) of the AGN above the Lyman limit along our line-of-sight.
@@ -159,7 +159,7 @@ For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al. 
     SPEX> par 1 5 scal val 1.
     SPEX> par 1 5 scal s f
 
-Step 5: Apply an exponential cut-off to the power-law
+Apply an exponential cut-off to the power-law
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Apply exponential cut-off to the power-law component of the SED both below the Lyman limit and above the high-energy
@@ -182,7 +182,7 @@ cut-off.
     SPEX> par 1 7 tau val 3.3333E-3
     SPEX> par 1 7 tau s f
 
-Step 6: Set the PION (absorption) components
+Set the PION (absorption) components
 ''''''''''''''''''''''''''''''''''''''''''''
 
 Here we introduce three PION components. The parameters of the PION components are restricted to improve the efficiency
@@ -228,7 +228,7 @@ refers to a negligible solid angle (:math:`\Omega`) subtended by the PION compon
     SPEX> par 1 10 fcov val 0
     SPEX> par 1 10 omega val 0
 
-Step 7: Set component relation along our line of sight
+Set component relation along our line of sight
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Set the component relation for the intrinsic AGN SED above the Lyman limit along our line-of-sight.
@@ -247,7 +247,7 @@ Set the component relation for the intrinsic AGN SED above the Lyman limit along
     SPEX> com rel 4 6,7,8,9,10,1,2
     SPEX> com rel 5 1,2
 
-Step 8: Set the component relation for the PION components
+Set the component relation for the PION components
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Assuming that the warm absorber components closer to the central engine are defined first (with a smaller component
@@ -258,7 +258,7 @@ outer PION components at the redshift of the target, as well as the galactic abs
     SPEX> com rel 9 10,1,2
     SPEX> com rel 10 1,2
 
-Step 9: Check the model settings and calculate
+Check the model settings and calculate
 ''''''''''''''''''''''''''''''''''''''''''''''
 
 We check the setting of the component relation::
