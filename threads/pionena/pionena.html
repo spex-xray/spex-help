@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.5. PION setup for emission and absorption features in AGN &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/pionena/pionena.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Command overview" href="../../reference.html" />
+    <link rel="prev" title="2.4. PION setup for AGN warm absorber" href="../pionabs/pionabs.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pion-setup-for-emission-and-absorption-features-in-agn">
+<span id="sec-pionena"></span><h1>2.5. PION setup for emission and absorption features in AGN<a class="headerlink" href="#pion-setup-for-emission-and-absorption-features-in-agn" title="Permalink to this headline">¶</a></h1>
+<p><em>By: Junjie Mao, Missagh Mehdipour, and Jelle Kaastra</em></p>
+<div class="section" id="goal">
+<h2>2.5.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>Setup the PION model for the emission and absorption features in a nearby
+Seyfert 1 galaxy observed with XMM-Newton (OM, RGS, and EPIC-pn).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A simulated spectrum was used because this thread merely intends
+to show the setup of the PION model.</p>
+</div>
+</div>
+<div class="section" id="preparation">
+<h2>2.5.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To follow this thread, you need to download the example files here:
+<a class="reference download internal" download="" href="../../_downloads/d01c3718b586a0289e6ceb933d6f7e43/pionena.tar.gz"><code class="xref download docutils literal notranslate"><span class="pre">pionena.tar.gz</span></code></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cd /path/to/your/folder/
+user@linux:~&gt; mv ~/Downloads/pionena.tar.gz ./
+user@linux:~&gt; tar -xvf pionena.tar.gz
+user@linux:~&gt; cd pionena
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-spex">
+<h2>2.5.3. Start SPEX<a class="headerlink" href="#start-spex" title="Permalink to this headline">¶</a></h2>
+<p>Start SPEX in a linux terminal window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
+ Welcome user to SPEX version 3.05.00
+
+SPEX&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-data">
+<h2>2.5.4. Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">data.com</span></code> is the command file tailored for this thread to load data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat data.com
+# RGS (inst 1)
+data rgs rgs
+# EPIC-pn (inst 2)
+data pn pn
+# OM (inst 3:8)
+data om_UVW2 om_UVW2
+data om_UVM2 om_UVM2
+data om_UVW1 om_UVW1
+data om_U om_U
+data om_B om_B
+data om_V om_V
+# ign/use, binning
+# RGS (inst 1)
+bin inst 1 reg 1 0:1000 2 unit ang
+ign inst 1 reg 1 0:7 unit ang
+ign inst 1 reg 1 37:1000 unit ang
+# EPIC-pn (inst 2)
+obin inst 2 reg 1 1:100000
+ign inst 2 reg 1 0:0.3 unit kev
+ign inst 2 reg 1 8:1000 unit ang
+ign inst 2 reg 1 10:1000 unit kev
+</pre></div>
+</div>
+<p>Load the above command file into SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; log exe data
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-data">
+<h2>2.5.5. Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plot.com</span></code> is the command file tailored for this thread to plot data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat plot.com
+# plotting
+plot dev xw
+plot type data
+plot ux a
+plot uy fa
+plot x log
+plot rx 1.2E0 1.E4
+plot y lin
+plot ry 0 50
+plot set 1
+plot mo lw 3
+plot set 2
+plot da col 11
+plot mo col 3
+plot mo lw 3
+plot set 3:8
+plot da col 6
+plot set all
+plot back disp f
+plot
+</pre></div>
+</div>
+<p>Load the above command file into SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; log exe plot
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/pionena1.png"><img alt="../../_images/pionena1.png" src="../../_images/pionena1.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="define-model-components-and-component-relations-step-by-step">
+<h2>2.5.6. Define model components and component relations (step-by-step)<a class="headerlink" href="#define-model-components-and-component-relations-step-by-step" title="Permalink to this headline">¶</a></h2>
+<p>Here we are receiving photons from three line-of-sights in a nearby (z = 0.07)
+Seyfert 1 galaxy.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/pionena2.png"><img alt="../../_images/pionena2.png" src="../../_images/pionena2.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="set-the-distance-of-the-source">
+<h3>2.5.6.1. Set the distance of the source<a class="headerlink" href="#set-the-distance-of-the-source" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; dist 0.07 z
+Distances assuming H0 =  70.0 km/s/Mpc, Omega_m = 0.300 Omega_Lambda = 0.700 Omega_r = 0.000
+Sector       m      A.U.        ly        pc       kpc       Mpc  redshift        cz   age(yr)
+----------------------------------------------------------------------------------------------
+1 9.740E+24 6.511E+13 1.030E+09 3.157E+08 3.157E+05  315.6554    0.0700   20985.5 9.302E+08
+----------------------------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-the-redshift-component">
+<h3>2.5.6.2. Set the redshift component<a class="headerlink" href="#set-the-redshift-component" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com reds
+You have defined    1 component.
+SPEX&gt; par 1 1 z val 0.07
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-the-galactic-absorption">
+<h3>2.5.6.3. Set the galactic absorption<a class="headerlink" href="#set-the-galactic-absorption" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com hot
+You have defined    2 components.
+SPEX&gt; par 1 2 nh val 2.0e-4
+SPEX&gt; par 1 2 t val 5E-4
+SPEX&gt; par 1 2 t s f
+SPEX&gt; par 1 2 nh s f
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-the-components-and-component-relations-for-line-of-sight-1">
+<h3>2.5.6.4. Set the components and component relations for line-of-sight #1<a class="headerlink" href="#set-the-components-and-component-relations-for-line-of-sight-1" title="Permalink to this headline">¶</a></h3>
+<p><strong>(A)</strong> Set the intrinsic spectral-energy-distribution (SED) of the AGN above
+the Lyman limit along line-of-sight #1.</p>
+<p>For a typical Seyfert 1 galaxy, the SED has three components <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract">(Mehdipour et al.
+2015)</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A Comptonized disk component (<code class="docutils literal notranslate"><span class="pre">comt</span></code>) for optical to soft X-rays data</p></li>
+<li><p>A power-law component (<code class="docutils literal notranslate"><span class="pre">pow</span></code>) for X-ray data</p></li>
+<li><p>A neutral reflection component (<code class="docutils literal notranslate"><span class="pre">refl</span></code>) for hard X-rays data. Usually, the
+reflection component has an exponential cut-off energy (300 keV here).</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com comt
+You have defined    3 components.
+SPEX&gt; par 1 3 norm val 0.
+SPEX&gt; par 1 3 norm s f
+SPEX&gt; par 1 3 t0 val 5e-4
+SPEX&gt; par 1 3 t0 s f
+SPEX&gt; par 1 3 t1 val 0.15
+SPEX&gt; par 1 3 t1 s f
+SPEX&gt; par 1 3 tau val 20
+SPEX&gt; par 1 3 tau s f
+SPEX&gt; com pow
+You have defined    4 components.
+SPEX&gt; par 1 4 norm val 1.E+09
+SPEX&gt; par 1 4 norm s t
+SPEX&gt; par 1 4 gamm val 1.7
+SPEX&gt; par 1 4 gamm s t
+SPEX&gt; com refl
+You have defined    5 components.
+SPEX&gt; par 1 5 norm couple 1 4 norm
+SPEX&gt; par 1 5 gamm couple 1 4 gamm
+SPEX&gt; par 1 5 ecut val 300
+SPEX&gt; par 1 5 ecut s f
+SPEX&gt; par 1 5 pow:fgr v 0
+SPEX&gt; par 1 5 scal val 1.
+SPEX&gt; par 1 5 scal s f
+</pre></div>
+</div>
+<p><strong>(B)</strong> Apply exponential cut-off to the power-law component of the SED both
+below the Lyman limit and above the high-energy cut-off.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ecut</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">refl</span></code> component applies to
+itself only.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com etau
+You have defined    6 components.
+SPEX&gt; par 1 6 a val -1
+SPEX&gt; par 1 6 a s f
+SPEX&gt; par 1 6 tau val 1.3605E-2
+SPEX&gt; par 1 6 tau s f
+SPEX&gt; com etau
+You have defined    7 components.
+SPEX&gt; par 1 7 a val 1
+SPEX&gt; par 1 7 a s f
+SPEX&gt; par 1 7 tau val 3.3333E-3
+SPEX&gt; par 1 7 tau s f
+</pre></div>
+</div>
+<p><strong>(C)</strong> Set the PION (obscuring wind) components.</p>
+<p>Here we introduce two PION components for the obscuring wind <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2014Sci...345...64K/abstract">(Kaastra et al.
+2014)</a>.
+The parameters of the PION components are restricted to improve the efficiency
+of a realistic fitting process.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The second <code class="docutils literal notranslate"><span class="pre">pion</span></code> component is a spare one with <code class="docutils literal notranslate"><span class="pre">fcov=0</span></code>
+and <code class="docutils literal notranslate"><span class="pre">omeg=0</span></code>. This is practical when analyzing real data without any
+prior knowledge of the number of PION components required.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com pion
+You have defined    8 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; com pion
+You have defined    9 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; par 1 8:9 nh range 1.E-7:1.E1
+SPEX&gt; par 1 8:9 xil range -5:5
+SPEX&gt; par 1 8 nh val 5.E-02
+SPEX&gt; par 1 8 xil val 0.0
+SPEX&gt; par 1 8 zv val -3000
+SPEX&gt; par 1 8 zv s t
+SPEX&gt; par 1 8 v val 1100
+SPEX&gt; par 1 8 v s t
+SPEX&gt; par 1 9 nh val 1.E-7
+SPEX&gt; par 1 9 nh s f
+SPEX&gt; par 1 9 xil val 0
+SPEX&gt; par 1 9 xil s f
+SPEX&gt; par 1 9 fcov val 0
+SPEX&gt; par 1 9 omega val 0
+</pre></div>
+</div>
+<p><strong>(D)</strong> Set the PION (warm absorber) components.</p>
+<p>Here we introduce three PION components for the X-ray warm absorber.
+<code class="docutils literal notranslate"><span class="pre">omeg=1.E-7</span></code> refers to a negligible solid angle (<img class="math" src="../../_images/math/2dda58c26f7626b0f4cf7a30e39b0a76d1be62d4.svg" alt="\Omega" style="vertical-align: 0px"/>) subtended by
+the PION component with respect to the nucleus (omeg = <img class="math" src="../../_images/math/71a2254ba4e38c11739c83101fe0adbf0690a8be.svg" alt="\Omega / 4 \pi" style="vertical-align: -4px"/>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To see the density effect of the absorption features, it is
+necessary to set a non-zero <code class="docutils literal notranslate"><span class="pre">omeg</span></code> value.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com pion
+You have defined    10 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; com pion
+You have defined    11 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; com pion
+You have defined    12 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; par 1 10:12 nh range 1.E-7:1.E1
+SPEX&gt; par 1 10:12 xil range -5:5
+SPEX&gt; par 1 10:12 omeg range 0:1
+SPEX&gt; par 1 10 nh val 5.E-03
+SPEX&gt; par 1 10 xil val 2.7
+SPEX&gt; par 1 10 zv val -500
+SPEX&gt; par 1 10 zv s t
+SPEX&gt; par 1 10 v val 100
+SPEX&gt; par 1 10 v s t
+SPEX&gt; par 1 10 omeg val 1.E-7
+SPEX&gt; par 1 11 nh val 2.E-03
+SPEX&gt; par 1 11 xil val 1.6
+SPEX&gt; par 1 11 zv val -100
+SPEX&gt; par 1 11 zv s t
+SPEX&gt; par 1 11 v val 50
+SPEX&gt; par 1 11 v s t
+SPEX&gt; par 1 11 omeg val 1.E-7
+SPEX&gt; par 1 12 nh val 1.E-7
+SPEX&gt; par 1 12 xil val 0
+SPEX&gt; par 1 12 fcov val 0
+SPEX&gt; par 1 12 omega val 0
+</pre></div>
+</div>
+<p><strong>(E)</strong> Set the component relation for line-of-sight #1.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Photons from both the Comptonized disk and power-law components
+are screened by the obscuring wind and warm absorber components at the
+redshift of the target, as well as the galactic absorption before reaching
+the detector. Photons from the neutral reflection component is assumed not
+to be screened by the obscuring wind and warm absorber for simplicity.
+It is still redshifted and requires the galactic absorption.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 3 8,9,10,11,12,1,2
+SPEX&gt; com rel 4 6,7,8,9,10,11,12,1,2
+SPEX&gt; com rel 5 1,2
+</pre></div>
+</div>
+<p><strong>(F)</strong> Set the component relation for the PION components. Assuming that the
+obscuring wind and warm absorber components closer to the central engine
+are defined first (with a smaller component index), photons transmitted
+from the inner PION components (with a nonzero <code class="docutils literal notranslate"><span class="pre">omeg</span></code> value) are screened
+by all the outer PION components at the redshift of the target, as well as
+the galactic absorption before reaching the detector.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 8 9,10,11,12,1,2
+SPEX&gt; com rel 9 10,11,12,1,2
+SPEX&gt; com rel 10 11,12,1,2
+SPEX&gt; com rel 11 12,1,2
+SPEX&gt; com rel 12 1,2
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-the-components-and-component-relations-for-line-of-sights-2-and-3">
+<h3>2.5.6.5. Set the components and component relations for line-of-sights #2 and #3<a class="headerlink" href="#set-the-components-and-component-relations-for-line-of-sights-2-and-3" title="Permalink to this headline">¶</a></h3>
+<p><strong>(A)</strong> Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here we assume that the photoionizing SED for the X-ray broad
+emission PION component(s) is set to be the same as that for the obscuring
+wind and warm absorber. This simplification assumes that the X-ray
+broad-line region respond to the photoionizing SED instantaneously. Because
+the X-ray broad-line region is typically a few lightdays away from the
+central engine and it has a relatively high density. On the other hand, the
+photoionizing SED for the X-ray narrow emission PION component(s) is set to
+a long-term averaged SED. This simplification assumes that the X-ray
+narrow-line region is in a steady state, i.e. it varies slightly around a
+mean value corresponding to the mean flux level over time. Because the
+X-ray narrow-line region is typically a few parsecs away from the central
+engine and it has a relatively low density. Readers are referred to <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...596A..79S/abstract">Silva
+et al. 2016</a>
+for a detailed spectral timing study.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com comt
+You have defined    13 components.
+SPEX&gt; par 1 13 norm:type couple 1 3 norm:type
+SPEX&gt; com pow
+You have defined    14 components.
+SPEX&gt; par 1 14 norm:lum couple 1 4 norm:lum
+SPEX&gt; com comt
+You have defined    15 components.
+SPEX&gt; par 1 15 norm val 1.E12
+SPEX&gt; par 1 15 norm s f
+SPEX&gt; par 1 15 t0 val 3.E-4
+SPEX&gt; par 1 15 t0 s f
+SPEX&gt; par 1 15 t1 val 0.125
+SPEX&gt; par 1 15 t1 s f
+SPEX&gt; par 1 15 tau val 20
+SPEX&gt; par 1 15 tau s f
+SPEX&gt; com pow
+You have defined    16 components.
+SPEX&gt; par 1 16 norm val 6.E9
+SPEX&gt; par 1 16 norm s f
+SPEX&gt; par 1 16 gamm val 1.6
+SPEX&gt; par 1 16 gamm s f
+</pre></div>
+</div>
+<p><strong>(B)</strong> Apply exponential cut-off to the above AGN SEDs at all energies
+because these photons do not reach us (dashed gray lines in Figure 1).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com etau
+You have defined    17 components.
+SPEX&gt; par 1 17 tau val 1.E3
+SPEX&gt; par 1 17 tau s f
+SPEX&gt; par 1 17 a val 0
+SPEX&gt; par 1 17 a s f
+</pre></div>
+</div>
+<p><strong>(C)</strong> Set the PION (emission) components.</p>
+<p>Here we introduce three PION components. The parameters of the PION components
+are restricted to improve the efficiency of a realistic fitting process.
+<code class="docutils literal notranslate"><span class="pre">fcov=0</span></code> for the emission PION components.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first <code class="docutils literal notranslate"><span class="pre">pion</span></code> component refers to the X-ray broad-line
+region. The second <code class="docutils literal notranslate"><span class="pre">pion</span></code> component refers to the X-ray narrow-line
+region. The third <code class="docutils literal notranslate"><span class="pre">pion</span></code> component is a spare one with <code class="docutils literal notranslate"><span class="pre">fcov=0</span></code> and
+<code class="docutils literal notranslate"><span class="pre">omeg=0</span></code>. This is practical when analyzing real data without any prior
+knowledge of the number of PION components required.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com pion
+You have defined    18 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; com pion
+You have defined    19 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; com pion
+You have defined    20 components.
+** Pion model: take care about proper COM REL use: check manual!
+SPEX&gt; par 1 16:18 nh range 1.E-7:1.E1
+SPEX&gt; par 1 16:18 xil range -5:5
+SPEX&gt; par 1 16:18 omeg range 0:1
+SPEX&gt; par 1 16 nh val 8.E-02
+SPEX&gt; par 1 16 xil val 0.8
+SPEX&gt; par 1 16 zv val 0
+SPEX&gt; par 1 16 zv s f
+SPEX&gt; par 1 16 v val 100
+SPEX&gt; par 1 16 v s f
+SPEX&gt; par 1 16 omeg val 3.E-2
+SPEX&gt; par 1 16 omeg s t
+SPEX&gt; par 1 17 nh val 5.E-02
+SPEX&gt; par 1 17 xil val 2.3
+SPEX&gt; par 1 17 zv val 0
+SPEX&gt; par 1 17 zv s f
+SPEX&gt; par 1 17 v val 240
+SPEX&gt; par 1 17 v s t
+SPEX&gt; par 1 17 omeg val 5.E-2
+SPEX&gt; par 1 17 omeg s t
+SPEX&gt; par 1 18 nh val 1.E-7
+SPEX&gt; par 1 18 nh s f
+SPEX&gt; par 1 18 xil val 0
+SPEX&gt; par 1 18 xil s f
+SPEX&gt; par 1 18 fcov val 0
+SPEX&gt; par 1 18 omeg val 0
+</pre></div>
+</div>
+<p><strong>(D)</strong> Set the broadening due to macroscopic motion for the PION (emission)
+components.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">v</span></code> parameter in PION components refer to the microscopic
+(i.e. turbulent) motion. The macroscopic motion refers to the rotation
+around the black hole. For the X-ray broad emission lines, the macroscopic
+motion dominates the broadening. For the X-ray narrow emission lines, the
+microscopic and macroscopic motion are often degenerate (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...612A..18M/abstract">Mao et al. 2018</a>). The
+second and third <code class="docutils literal notranslate"><span class="pre">vgau</span></code> components are spare.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com vgau
+You have defined    21 components.
+par 1 21 sig val 7.E3
+par 1 21 sig s t
+SPEX&gt; com vgau
+You have defined    22 components.
+SPEX&gt; com vgau
+You have defined    23 components.
+</pre></div>
+</div>
+<p><strong>(E)</strong> Set the component relation for line-of-sights #2a and #3a.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Photons from both the Comptonized disk and power-law (with
+exponential low- and high-energy cut-offs) components are the photoionizing
+source of the PION emission components at the redshift of the target. While
+(reflected/reprocessed) photons from the PION emission components reach us.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 13 18,1,17
+SPEX&gt; com rel 14 6,7,18,1,17
+SPEX&gt; com rel 15 19,20,1,17
+SPEX&gt; com rel 16 6,7,19,20,1,17
+</pre></div>
+</div>
+<p><strong>(F)</strong> Set the component relation for the PION (emission) components.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here we assume that the obscuring wind is outside the X-ray
+broad-line region and it screens photons emitted from the X-ray broad-line
+region before it reaches us. On the other hand, since the obscuring wind
+is closer to the central engine than the X-ray narrow-line region,
+photons emitted from the X-ray narrow-line region are not screened by the
+obscuring wind.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 18 21,8,9,1,2,26
+SPEX&gt; com rel 19 22,1,2,26
+SPEX&gt; com rel 20 23,1,2,26
+</pre></div>
+</div>
+<p><strong>(G)</strong> Set the component relation for the AGN SED below the Lyman limit
+(optical/UV) along line-of-sight #1.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 24 30,1,31,27
+SPEX&gt; com rel 25 6,7,30,1,31,27
+SPEX&gt; com rel 28 1
+SPEX&gt; com rel 29 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="check-settings-and-calculate">
+<h2>2.5.7. Check settings and calculate<a class="headerlink" href="#check-settings-and-calculate" title="Permalink to this headline">¶</a></h2>
+<p>We check the setting of the component relation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; model show
+--------------------------------------------------------------------------------
+ Number of sectors         :     1
+ Sector:    1 Number of model components:    31
+    Nr.    1: reds
+    Nr.    2: hot
+    Nr.    3: comt[8,9,10,11,12,1,2,26 ]
+    Nr.    4: pow [6,7,8,9,10,11,12,1,2,26 ]
+    Nr.    5: refl[1,2,26 ]
+    Nr.    6: etau
+    Nr.    7: etau
+    Nr.    8: pion[9,10,11,12,1,2,26 ]
+    Nr.    9: pion[10,11,12,1,2,26 ]
+    Nr.   10: pion[11,12,1,2,26 ]
+    Nr.   11: pion[12,1,2,26 ]
+    Nr.   12: pion[1,2,26 ]
+    Nr.   13: comt[18,1,17 ]
+    Nr.   14: pow [6,7,18,1,17 ]
+    Nr.   15: comt[19,20,1,17 ]
+    Nr.   16: pow [6,7,19,20,1,17 ]
+    Nr.   17: etau
+    Nr.   18: pion[21,8,9,1,2,26 ]
+    Nr.   19: pion[22,1,2,26 ]
+    Nr.   20: pion[23,1,2,26 ]
+    Nr.   21: vgau
+    Nr.   22: vgau
+    Nr.   23: vgau
+    Nr.   24: comt[30,1,31,27 ]
+    Nr.   25: pow [6,7,30,1,31,27 ]
+    Nr.   26: etau
+    Nr.   27: etau
+    Nr.   28: file[1 ]
+    Nr.   29: file[1 ]
+    Nr.   30: ebv
+    Nr.   31: ebv
+</pre></div>
+</div>
+<p>We check the setting of the free parameters and calculate the 1–1000 Ryd ionizing luminosity:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; elim 1.E0:1.E3 ryd
+SPEX&gt; calc
+SPEX&gt; plot
+SPEX&gt; par show free
+--------------------------------------------------------------------------------------------------
+sect comp mod  acro parameter with unit     value      status    minimum   maximum lsec lcom lpar
+
+
+
+   1    3 comt norm Norm (1E44 ph/s/keV) 3.0000001E+12 thawn     0.0      1.00E+20
+   1    3 comt t0   Wien temp (keV)      5.0000002E-04 thawn    1.00E-05  1.00E+10
+   1    3 comt t1   Plasma temp (keV)    0.1500000     thawn    1.00E-05  1.00E+10
+   1    3 comt tau  Optical depth         20.00000     thawn    1.00E-03  1.00E+03
+
+   1    4 pow  norm Norm (1E44 ph/s/keV) 1.0000000E+09 thawn     0.0      1.00E+20
+   1    4 pow  gamm Photon index          1.700000     thawn    -10.       10.
+
+
+
+
+   1    8 pion nh   X-Column (1E28/m**2) 5.0000001E-02 thawn    1.00E-07   10.
+   1    8 pion xil  Log xi (1E-9 Wm)      0.000000     thawn    -5.0       5.0
+   1    8 pion v    RMS Velocity (km/s)   1100.000     thawn     0.0      3.00E+05
+   1    8 pion zv   Average vel. (km/s)  -3000.000     thawn   -1.00E+05  1.00E+05
+
+
+   1   10 pion nh   X-Column (1E28/m**2) 4.9999999E-03 thawn    1.00E-07   10.
+   1   10 pion xil  Log xi (1E-9 Wm)      2.700000     thawn    -5.0       5.0
+   1   10 pion v    RMS Velocity (km/s)   100.0000     thawn     0.0      3.00E+05
+   1   10 pion zv   Average vel. (km/s)  -500.0000     thawn   -1.00E+05  1.00E+05
+
+   1   11 pion nh   X-Column (1E28/m**2) 2.0000001E-03 thawn    1.00E-07   10.
+   1   11 pion xil  Log xi (1E-9 Wm)      1.600000     thawn    -5.0       5.0
+   1   11 pion v    RMS Velocity (km/s)   50.00000     thawn     0.0      3.00E+05
+   1   11 pion zv   Average vel. (km/s)  -100.0000     thawn   -1.00E+05  1.00E+05
+
+
+
+
+
+
+
+   1   18 pion nh   X-Column (1E28/m**2) 7.9999998E-02 thawn    1.00E-07   10.
+   1   18 pion xil  Log xi (1E-9 Wm)     0.8000000     thawn    -5.0       5.0
+   1   18 pion omeg Scaling factor emis. 2.9999999E-02 thawn     0.0       1.0
+
+   1   19 pion nh   X-Column (1E28/m**2) 5.0000001E-02 thawn    1.00E-07   10.
+   1   19 pion xil  Log xi (1E-9 Wm)      2.300000     thawn    -5.0       5.0
+   1   19 pion v    RMS Velocity (km/s)   240.0000     thawn     0.0      3.00E+05
+   1   19 pion omeg Scaling factor emis. 9.9999998E-03 thawn     0.0       1.0
+
+
+   1   21 vgau sig  Sigma (km/s)          7000.000     thawn     0.0      3.00E+05
+
+
+
+
+
+
+
+   1   28 file norm Flux scale factor    0.3000000     thawn     0.0      1.00E+20
+
+   1   29 file norm Flux scale factor    0.4000000     thawn     0.0      1.00E+20
+
+   1   30 ebv  ebv  E(B-V)  (mag)        0.1000000     thawn     0.0      1.00E+20
+
+   1   31 ebv  ebv  E(B-V)  (mag)        0.1200000     thawn     0.0      1.00E+20
+
+
+Instrument     1 region    1 has norm    1.00000E+00 and is frozen
+Instrument     2 region    1 has norm    1.00000E+00 and is frozen
+Instrument     3 region    1 has norm    1.00000E+00 and is frozen
+Instrument     4 region    1 has norm    1.00000E+00 and is frozen
+Instrument     5 region    1 has norm    1.00000E+00 and is frozen
+Instrument     6 region    1 has norm    1.00000E+00 and is frozen
+Instrument     7 region    1 has norm    1.00000E+00 and is frozen
+Instrument     8 region    1 has norm    1.00000E+00 and is frozen
+
+--------------------------------------------------------------------------------
+ Fluxes and restframe luminosities between  1.36057E-02 and    13.606     keV
+
+ sect comp mod   photon flux   energy flux nr of photons    luminosity
+              (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+    1    3 comt  7.891731E-04  1.775058E-19  1.447225E+54  7.988903E+36
+    1    4 pow    38.8452      3.366349E-14  2.869709E+54  1.021578E+38
+    1    5 refl   5.98573      7.190706E-15  6.284845E+51  7.467510E+36
+    1    8 pion   0.00000       0.00000       0.00000       0.00000
+    1    9 pion   0.00000       0.00000       0.00000       0.00000
+    1   10 pion  1.755872E-08  5.460370E-24  2.240611E+44  1.101832E+28
+    1   11 pion  7.849879E-10  9.871699E-26  3.169252E+45  7.940836E+27
+    1   12 pion   0.00000       0.00000       0.00000       0.00000
+    1   13 comt   1213.94      6.701157E-15  1.447225E+54  7.988903E+36
+    1   14 pow    1657.30      8.033095E-14  2.869709E+54  1.021578E+38
+    1   15 comt   0.00000       0.00000      1.106767E+53  5.268881E+35
+    1   16 pow    0.00000       0.00000      1.296679E+55  6.397146E+38
+    1   18 pion  2.157629E-03  5.832195E-19  1.541392E+54  9.503085E+36
+    1   19 pion   3.30138      4.647512E-16  5.174083E+52  1.025305E+36
+    1   20 pion   0.00000       0.00000       0.00000       0.00000
+    1   24 comt  0.501314      1.089752E-18  1.447225E+54  7.988903E+36
+    1   25 pow   0.193548      4.207327E-19  2.869709E+54  1.021578E+38
+    1   28 file   0.00000       0.00000       0.00000       0.00000
+    1   29 file   0.00000       0.00000       0.00000       0.00000
+
+ Fit method        : Classical Levenberg-Marquardt
+ Fit statistic     : C-statistic
+ C-statistic       :      1215.69
+ Expected C-stat   :      1212.71 +/-        49.26
+ Chi-squared value :      1221.23
+ Degrees of freedom:         0
+ W-statistic       :         0.00
+ Contributions of instruments and regions:
+   Ins   Reg    Bins      C-stat  Exp C-stat  Rms C-stat      chi**2      W-stat
+     1     1     996     1007.73      996.70       44.66     1012.35        0.00
+     2     1     210      197.87      210.01       20.49      198.61        0.00
+     3     1       1        3.06        1.00        1.41        3.22        0.00
+     4     1       1        0.01        1.00        1.41        0.01        0.00
+     5     1       1        0.31        1.00        1.41        0.32        0.00
+     6     1       1        0.20        1.00        1.41        0.20        0.00
+     7     1       1        4.62        1.00        1.41        4.67        0.00
+     8     1       1        1.89        1.00        1.41        1.87        0.00
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/pionena3.png"><img alt="../../_images/pionena3.png" src="../../_images/pionena3.png" style="width: 600px;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/pionena4.png"><img alt="../../_images/pionena4.png" src="../../_images/pionena4.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="final-remarks">
+<h2>2.5.8. Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
+<p>This is the end of this analysis thread. If you want, you can quit SPEX now:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; quit
+Thank you for using SPEX!
+</pre></div>
+</div>
+<p>Below, we provide a useful command file.</p>
+<div class="section" id="define-model-components-and-component-relations-running-scripts">
+<h3>2.5.8.1. Define model components and component relations (running scripts)<a class="headerlink" href="#define-model-components-and-component-relations-running-scripts" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/257401976ef981e7067c4ee83a951fef/calc.com"><code class="xref download docutils literal notranslate"><span class="pre">calc.com</span></code></a> is the command file tailored for this thread.</p>
+<p>Load the above command file into SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
+Welcome user to SPEX version 3.05.00
+
+SPEX&gt; log exe calc
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partbkg/partbkg.html">2.2. Modeling particle background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.3. Import UV/Optical data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.4. PION setup for AGN warm absorber</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.5. PION setup for emission and absorption features in AGN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../threads.html">2. Analysis threads</a><ul>
+      <li>Previous: <a href="../pionabs/pionabs.html" title="previous chapter">2.4. PION setup for AGN warm absorber</a></li>
+      <li>Next: <a href="../../reference.html" title="next chapter">3. Command overview</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

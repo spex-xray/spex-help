@@ -1,72 +1,127 @@
-Amol: oxygen edge molecules absorption model
+Amol: interstellar dust absorption model
 ============================================
 
-This model calculates the transmission of various molecules.
+This model calculates the transmission of various molecules considering both 
+absorption and scattering. The extinction models are evaluated for grains 
+with a standard MRN size distribution (`Mathis & Rumpl & Nordsieck, 1977
+<https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M/abstract>`_): 
+:math:`n(a) \propto a^{-3.5}` with *a* the grain size and
+:math:`a_{min}=0.005  \mu  m` and :math:`a_{max}=0.25 \mu m`.
+Most of the extinction profiles are based on laboratory measurements. For 
+further details see `Zeegers et al. (2017)
+<https://ui.adsabs.harvard.edu/abs/2017A%26A...599A.117Z/abstract>`_,
+`Rogantini et al. (2018)
+<https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_, 
+`Costantini et al. (2019)
+<https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract>`_,
+`Zeegers et al. (2019)
+<https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_ 
+and `Rogantini et al. (2019)
+<https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_.
+  
 
-The following compounds are presently taken into account (see
-`the table below <#tab:amol>`__).
+The following compounds are presently taken into account (see Table :ref:`xride-table`).
 
-.. table:: Molecules present in the amol model.
+.. _xride-table:
 
-   ========== =================== ========================================================================================================================================= =============== =====
-   108        molecular oxygen    O\ :math:`_2`                                                                                                                             O 1s            a
-   114        silicon crystal     Si                                                                                                                                        Si 1s           h
-   126        metallic iron       Fe                                                                                                                                        Fe 1s,2p        i,j
-   2001       water               H\ :math:`_2`\ O                                                                                                                          O 1s            c
-   2002       crystalline ice     H\ :math:`_2`\ O                                                                                                                          O 1s            d
-   2003       amorphous ice       H\ :math:`_2`\ O                                                                                                                          O 1s            d
-   2010       carbon monoxide     CO                                                                                                                                        O 1s            a
-   2011       carbon dioxide      CO\ :math:`_2`                                                                                                                            O 1s            a
-   2020       laughing gas        N\ :math:`_2`\ O                                                                                                                          O 1s            a,b
-   2100       silicon carbide     SiC                                                                                                                                       Si 1s           h
-   2101       silicon nitrite     Si\ :math:`_3`\ N\ :math:`_4`                                                                                                             Si 1s           h
-   2102       silicon monoxide    SiO                                                                                                                                       Si 1s           h
-   2103       quartz              SiO\ :math:`_2`                                                                                                                           Si 1s           h
-   2104       silica              SiO\ :math:`_2`                                                                                                                           Si 1s           h
-   2200       eskolaite           Cr\ :math:`_2`\ O\ :math:`_3`                                                                                                             O 1s            e
-   2300       iron monoxide       FeO                                                                                                                                       Fe 1s           i
-   2301       iron oxide          Fe\ :math:`_{1-x}`\ O                                                                                                                     O 1s            e
-   2302       magnetite           Fe\ :math:`_3`\ O\ :math:`_4`                                                                                                             O, Fe 1s        e,i
-   2303       hematite            Fe\ :math:`_2`\ O\ :math:`_3`                                                                                                             O, Fe 1s; Fe 2p e,i,j
-   2304       iron sulfite        FeS\ :math:`_2`                                                                                                                           Fe 1s           i
-   2400       nickel monoxide     NiO                                                                                                                                       O 1s            e
-   2500       cupric oxide        CuO                                                                                                                                       O 1s            e
-   3001       adenine             C\ :math:`_5`\ H\ :math:`_5`\ N\ :math:`_5`                                                                                               O 1s            f
-   3100       enstatite           MgSiO\ :math:`_3`                                                                                                                         Si 1s           h
-   3101       enstatite_alfa      MgSiO\ :math:`_3`                                                                                                                         Si 1s           h
-   3102       enstatite_chondrite Mg\ :math:`_2`\ Si\ :math:`_2`\ O\ :math:`_6`                                                                                             Si 1s           h
-   3103       pyroxene            MgSiO\ :math:`_3`                                                                                                                         O 1s            k
-   3200       calcite             CaCO\ :math:`_3`                                                                                                                          Ca 1s           g
-   3201       aragonite           CaCO\ :math:`_3`                                                                                                                          Ca 1s           g
-   3202       vaterite            CaCO\ :math:`_3`                                                                                                                          Ca 1s           g
-   3203       perovskite          CaTiO\ :math:`_3`                                                                                                                         O 1s            e
-   3300       hercynite           FeAl\ :math:`_2`\ O\ :math:`_4`                                                                                                           O 1s            e
-   3301       lepidocrocite       FeO(OH)                                                                                                                                   Fe 2p           j
-   3302       fayalite            Fe\ :math:`_2`\ SiO\ :math:`_4`                                                                                                           Fe 1s, 2p       i,j
-   3303       iron sulfate        FeSO\ :math:`_4`                                                                                                                          Fe 2p           j
-   3304       ilmenite            FeTiO\ :math:`_3`                                                                                                                         O 1s            e
-   3305       chromite            FeCr\ :math:`_2`\ O\ :math:`_4`                                                                                                           O 1s            e
-   4001       guanine             C\ :math:`_5`\ H\ :math:`_5`\ N\ :math:`_5`\ O                                                                                            O,N 1s          f
-   4002       cytosine            C\ :math:`_4`\ H\ :math:`_5`\ N\ :math:`_3`\ O                                                                                            O,N 1s          f
-   4003       thymine             C\ :math:`_5`\ H\ :math:`_6`\ N\ :math:`_2`\ O\ :math:`_2`                                                                                O,N 1s          f
-   4004       uracil              C\ :math:`_4`\ H\ :math:`_4`\ N\ :math:`_2`\ O\ :math:`_2`                                                                                O,N 1s          f
-   4100       andradite           Ca\ :math:`_3`\ Fe\ :math:`_2`\ Si\ :math:`_3`\ O\ :math:`_{12}`                                                                          O 1s            e
-   4101       acmite              NaFeSi\ :math:`_2`\ O\ :math:`_6`                                                                                                         O 1s            e
-   4102       franklinite         Zn\ :math:`_{0.6}`\ Mn\ :math:`_{0.8}`\ Fe\ :math:`_{1.6}`\ O\ :math:`_4`                                                                 O 1s            e
-   4103       olivine             Mg\ :math:`_{1.6}`\ Fe\ :math:`_{0.4}`\ SiO\ :math:`_4`                                                                                   O 1s            e
-   4104       almandine           Fe\ :math:`_3`\ Al\ :math:`_2`\ (SiO\ :math:`_4`)\ :math:`_3`                                                                             O 1s            e
-   4105       hedenbergite        CaFeSi\ :math:`_2`\ O\ :math:`_6`                                                                                                         O 1s            e
-   5001       dna (herring sperm) C\ :math:`_{39}`\ H\ :math:`_{61}`\ N\ :math:`_{15}`\ O\ :math:`_{36}`\ P\ :math:`_4`                                                     O,N 1s          f
-   6001       montmorillonite     Na\ :math:`_{0.2}`\ Ca\ :math:`_{0.1}`\ Al\ :math:`_2`\ Si\ :math:`_4`\ O\ :math:`_{10}`\ (OH\ :math:`_2`)\ (H\ :math:`_2`\ O)\
-                                  :math:`_{10}`                                                                                                                             Si 1s           h
-   6002       nontronite          Na\ :math:`_{0.3}`\ Fe\ :math:`_2^{3+}`\ Si\ :math:`_3`\ AlO\ :math:`_{10}`\ (OH)\ :math:`_2` :math:`\bullet` (H\ :math:`_2`\ O)          Si 1s           h
-   7001       enstatite_paulite   Ca\ :math:`_2`\ Mg\ :math:`_4`\ Al\ :math:`_{0.75}`\ Fe\ :math:`_{0.25}`\ (Si\ :math:`_7`\ AlO\ :math:`_{22}`)(OH)\ :math:`_2`              Si 1s           h
-   ========== =================== ========================================================================================================================================= =============== =====
+.. table:: Extinction models implemented in amol.
+
+   =========  ===================== ============================================================= ============= ==================== ===============================================
+   index      Name                  formula                                                       Form          Edge                 Source
+   =========  ===================== ============================================================= ============= ==================== ===============================================
+   115        c-silicon             :math:`\mathrm{Si}`                                           crystalline   Si 1s                `Chang et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract>`_
+   127        metallic iron         :math:`\mathrm{Fe}`                                           crystalline   Fe 1s                `exafsmaterials.com <http://exafsmaterials.com/Ref_Spectra_0.4MB.pdf>`_
+   129        metallic nickel       :math:`\mathrm{Ni}`                                           crystalline   Ni 1s                `Van Loon et al. (2015) <https://www.ncbi.nlm.nih.gov/pubmed/25859648>`_
+   130        a-carbon              :math:`\mathrm{C}`                                            amorphous     C 1s                 `Albella et al. (1998) <https://digital.library.unt.edu/ark:/67531/metadc668006/>`_
+   131        diamond               :math:`\mathrm{C}`                                            crystalline   C 1s                 `Albella et al. (1998) <https://digital.library.unt.edu/ark:/67531/metadc668006/>`_
+   132        graphite              :math:`\mathrm{C}`                                            crystalline   C 1s                 `Albella et al. (1998) <https://digital.library.unt.edu/ark:/67531/metadc668006/>`_
+   2111       c-silicon carbide     :math:`\mathrm{SiC}`                                          crystalline   Si 1s                `Chang et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract>`_
+   2230       troilite              :math:`\mathrm{FeS}`                                          crystalline   S 1s; Fe 1s          `esrf.eu <http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   2231       pyrrhotite            :math:`\mathrm{Fe_7 S_8}`                                     crystalline   S 1s; Fe 1s          `esrf.eu <http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   2232       a-quartz              :math:`\mathrm{Si O_2}`                                       amorphous     Si 1s                `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   2233       c-quartz              :math:`\mathrm{Si O_2}`                                       crystalline   Si 1s                `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   2234       a-quartz              :math:`\mathrm{Si O_2}`                                       disorder      Si 1s                `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   2235       c-silicon nitride     :math:`\mathrm{Si_3 N_4}`                                     crystalline   Si 1s                `Chang et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract>`_
+   2236       magnesia              :math:`\mathrm{MgO}`                                          crystalline   Si 1s                `Fukushi et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017GeCoA.213..457F/abstract>`_
+   2237       aluminium oxide       :math:`\mathrm{Al_2 O_3}`                                     crystalline   Al 1s                `Costantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract>`_
+   2238       alabandite            :math:`\mathrm{MnS}`                                          crystalline   S 1s                 `esrf.eu <http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu>`_
+   2239       pyrite                :math:`\mathrm{FeS_2}`                                        crystalline   S 1s                 `esrf.eu <http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu>`_
+   2240       titanium dioxide      :math:`\mathrm{TiO_2}`                                        crystalline   Ti 1s                `Shin et al. (2013) <https://pubs.rsc.org/en/content/articlelanding/2013/EE/C2EE22739H#!divAbstract>`_
+   2241       a-hydrocarbon         :math:`\mathrm{CH}`                                           amorhpous     C 1s                 `Bonnin-Mosbah et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract>`_
+   3230       c-forsterite          :math:`\mathrm{Mg_2 Si O_4}`                                  crystalline   Mg 1s; Si 1s         `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   3231       a-enstatite           :math:`\mathrm{Mg Si O_3}`                                    amorphous     Mg 1s; Si 1s         `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   3232       a-enstatite           :math:`\mathrm{Mg Si O_3}`                                    crystalline   Mg 1s; Si 1s         `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   3233       c-spinel              :math:`\mathrm{Mg Al_2 O_4}`                                  crystalline   Mg 1s; Al 1s         `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Costantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract>`_
+   3270       calcium aluminate     :math:`\mathrm{Ca Al_2 O_4}`                                  crystalline   Ca 1s                `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
+   3271       tri-Ca aluminate      :math:`\mathrm{Ca_3 Al_2 O_6}`                                crystalline   Ca 1s                `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
+   3302       c-fayalite            :math:`\mathrm{Fe_2 Si O_4}`                                  crystalline   Si 1s; Fe 1s; Fe 2p  `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_, `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   4230       a-olivine             :math:`\mathrm{Mg Fe Si O_4}`                                 amorphous     Mg 1s; Si 1s         `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   4231       c-olivine             :math:`\mathrm{Mg_{1.56} Fe_{0.4} Si_{0.91} O_4}`             crystalline   Mg 1s; Si 1s; Fe 1s  `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   4232       c-En60Fe40            :math:`\mathrm{Mg_{0.6} Fe_{0.4} Si O_3}`                     crystalline   Mg 1s; Si 1s; Fe 1s  `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   4233       a-En60Fe40            :math:`\mathrm{Mg_{0.6} Fe_{0.4} Si O_3}`                     amorphous     Mg 1s; Si 1s; Fe 1s  `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   4234       a-En75Fe25            :math:`\mathrm{Mg_{0.75} Fe_{0.25} Si O_3}`                   amorphous     Mg 1s; Si 1s         `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   4235       a-En90Fe10            :math:`\mathrm{Mg_{0.9} Fe_{0.1} Si O_3}`                     amorphous     Mg 1s; Si 1s; Fe 1s  `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   4236       c-En90Fe10            :math:`\mathrm{Mg_{0.9} Fe_{0.1} Si O_3}`                     crystalline   Mg 1s; Si 1s; Fe 1s  `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   4237       c-hypersthene         :math:`\mathrm{Mg_{1.502} Fe_{0.498} Si_2 O_6}`               crystalline   Mg 1s; Si 1s; Fe 1s  `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_, `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
+   4270       c-diopside            :math:`\mathrm{Mg Ca Si_2 O_6}`                               crystalline   Ca 1s                `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
+   4271       a-diopside            :math:`\mathrm{Mg Ca Si_2 O_6}`                               amorphous     Ca 1s                `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
+   4272       c-anorthite           :math:`\mathrm{Ca Al_2 Si_2 O_8}`                             crystalline   Ca 1s                `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
+   =========  ===================== ============================================================= ============= ==================== ===============================================
+     
+Additional molecules are listed in Table :ref:`additional-compounds`. 
+These older model do not included scattering and were not integrate over a size 
+distribution. These models will be updated in future versions.
+
+.. _additional-compounds:
+
+.. table:: Additional compounds present in the amol model.
+
+   ========== =================== ====================================================================================== =============== =====
+   108        molecular oxygen    :math:`\mathrm{O_2}`                                                                   O 1s            `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_
+   126        metallic iron       :math:`\mathrm{Fe}`                                                                    Fe 2p           `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   2001       water               :math:`\mathrm{H_2 O}`                                                                 O 1s            `Hiraya et al. (2001) <https://ui.adsabs.harvard.edu/abs/2001PhRvA..63d2705H/abstract>`_
+   2002       crystalline ice     :math:`\mathrm{H_2 O}`                                                                 O 1s            `Parent et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract>`_
+   2003       amorphous ice       :math:`\mathrm{H_2 O}`                                                                 O 1s            `Parent et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract>`_
+   2010       carbon monoxide     :math:`\mathrm{CO}`                                                                    O 1s            `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_
+   2011       carbon dioxide      :math:`\mathrm{CO_2}`                                                                  O 1s            `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_
+   2020       laughing gas        :math:`\mathrm{N_2 O}`                                                                 O 1s            `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_, `Wight et al. (1974) <https://doi.org/10.1016/0368-2048(74)80010-1>`_
+   2102       silicon monoxide    :math:`\mathrm{SiO}`                                                                   Si 1s           `Lee et al. (2010) <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
+   2200       eskolaite           :math:`\mathrm{Cr_2 O_3}`                                                              O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   2300       iron monoxide       :math:`\mathrm{FeO}`                                                                   Fe 1s           `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   2301       iron oxide          :math:`\mathrm{Fe_{1-x} O}`                                                            O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   2302       magnetite           :math:`\mathrm{Fe_3 O_4}`                                                              O, Fe 1s        `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_, `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   2303       hematite            :math:`\mathrm{Fe_2 O_3}`                                                              O, Fe 1s; Fe 2p `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_, `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_, `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   2304       iron sulfite        :math:`\mathrm{Fe S_2}`                                                                Fe 1s           `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   2400       nickel monoxide     :math:`\mathrm{NiO}`                                                                   O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   2500       cupric oxide        :math:`\mathrm{CuO}`                                                                   O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   3001       adenine             :math:`\mathrm{C_5 H_5 N_5}`                                                           O 1s            `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_
+   3103       pyroxene            :math:`\mathrm{Mg Si O_3}`                                                             O 1s            `Lee et al. (2008) <https://www.pnas.org/content/105/23/7925>`_
+   3200       calcite             :math:`\mathrm{Ca C O_3}`                                                              Ca 1s           `Hayakawa et al. (2008) <https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja>`_
+   3201       aragonite           :math:`\mathrm{Ca C O_3}`                                                              Ca 1s           `Hayakawa et al. (2008) <https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja>`_
+   3202       vaterite            :math:`\mathrm{Ca C O_3}`                                                              Ca 1s           `Hayakawa et al. (2008) <https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja>`_
+   3203       perovskite          :math:`\mathrm{Ca Ti O_3}`                                                             O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   3300       hercynite           :math:`\mathrm{Fe Al_2 O_4}`                                                           O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   3301       lepidocrocite       :math:`\mathrm{Fe O (OH)}`                                                             Fe 2p           `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   3303       iron sulfate        :math:`\mathrm{Fe S O_4}`                                                              Fe 2p           `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+   3304       ilmenite            :math:`\mathrm{Fe Ti O_3}`                                                             O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   3305       chromite            :math:`\mathrm{Fe Cr_2 O_4}`                                                           O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   4001       guanine             :math:`\mathrm{C_5 H_5 N_5 O}`                                                         O,N 1s          `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_
+   4002       cytosine            :math:`\mathrm{C_4 H_5 N_3 O}`                                                         O,N 1s          `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_
+   4003       thymine             :math:`\mathrm{C_5 H_6 N_2 O_2}`                                                       O,N 1s          `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_
+   4004       uracil              :math:`\mathrm{C_4 H_4 N_2 O_2}`                                                       O,N 1s          `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_
+   4100       andradite           :math:`\mathrm{Ca_3 Fe_2 Si_3 O_{12}}`                                                 O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   4101       acmite              :math:`\mathrm{Na Fe Si_2 O_6}`                                                        O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   4102       franklinite         :math:`\mathrm{Zn_{0.6} Mn_{0.8} Fe_{1.6} O_4}`                                        O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   4103       olivine             :math:`\mathrm{Mg_{1.6} Fe_{0.4} SiO_4}`                                               O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   4104       almandine           :math:`\mathrm{Fe_3 Al_2 (Si O_4)_3}`                                                  O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   4105       hedenbergite        :math:`\mathrm{Ca Fe Si_2 O_6}`                                                        O 1s            `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
+   6001       montmorillonite     :math:`\mathrm{Na_{0.2} Ca_{0.1} Al_2 Si_4 O_{10} (O H_2)(H_2 O)_{10}}`                Si 1s           `Lee et al. (2010) <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
+   6002       nontronite          :math:`\mathrm{Na_{0.3} Fe_2^{3+} Si_3 Al O_{10} (OH)_2 \bullet (H_2 O)}`              Si 1s           `Lee et al. (2010) <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
+   7001       enstatite_paulite   :math:`\mathrm{Ca_2 Mg_4 Al_{0.75} Fe_{0.25} Si_7 Al O_{22} (OH)_2}`                   Si 1s           `Lee et al. (2010) <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
+   ========== =================== ====================================================================================== =============== =====
 
 The chemical composition of these minerals was mainly taken from the
-Mineralogy Database of David Barthelmy [1]_. For DNA we assume equal
-contributions of adenine, cytosine, guanine and thymine, plus for each
-of these on average one phosphate and one 2-deoxyribose molecule. We
+`Mineralogy Database of David Barthelmy <http://webmineral.com/>`_. We
 take the cross-sections from the references as listed in
 `the table above <#tab:amol>`__ in the energy interval where these
 are given, and use the cross section for free atoms `Verner & Yakovlev (1995)
@@ -87,7 +142,7 @@ different column densities, and they also list the FWHM of these
 transitions. We have included these lines in the table of cross sections
 and joined smoothly with the tabulated values.
 
-For N\ :math:`_2`\ O, the fine structure lines are not well resolved by
+For :math:`\mathrm{N_2 O}`, the fine structure lines are not well resolved by
 `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_.
 Instead we take here the relative peaks
 from `Wight et al. (1974) <https://doi.org/10.1016/0368-2048(74)80010-1>`_,
@@ -114,12 +169,12 @@ average slope of the ratio between 580 and 600 eV to the point where it
 becomes 1.
 
 .. Warning:: The normalisation is the total *molecular* column density.
-   Thus, a value of :math:`10^{-7}` for CO\ :math:`_2` means
-   :math:`10^{21}` CO\ :math:`_2` molecules :math:`\mathrm{m}^{-2}`, but of course
+   Thus, a value of :math:`10^{-7}` for :math:`\mathrm{CO_2}` means
+   :math:`10^{21}` :math:`\mathrm{CO_2}` molecules :math:`\mathrm{m}^{-2}`, but of course
    :math:`2\times 10^{21}` O atoms :math:`\mathrm{m}^{-2}`, because each
-   CO\ :math:`_2` molecule contains 2 oxygen atoms.
+   :math:`\mathrm{CO_2}` molecule contains 2 oxygen atoms.
 
-.. Warning:: The Table above shows for which edges and atoms the XAFS
+.. Warning:: The Tables above shows for which edges and atoms the XAFS
    are taken into account. For all other edges and atoms not listed there,
    we simply use the pure atomic cross-section (without absorption lines).
    Note that for almost all constituents this may give completely wrong
@@ -141,7 +196,7 @@ The parameters of the model are:
   :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
   :math:`10^{-6}` for molecule 1, and zero for the others.
 | ``i1--i4`` : the molecule numbers for molecules 1–4 in the list
-  (`Table above <#tab:amol>`__). Default value: 108 (O\ :math:`_2`)
+  (:ref:`xride` and :ref:`additional-compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
   for molecule 1, zero for the others. A value of zero indicates that
   for that number no molecule will be taken into account. Thus, for only
   1 molecule, keep *i2–i4* :math:`=0`.
@@ -158,7 +213,3 @@ The parameters of the model are:
   this component.
 
 | *Recommended citation:* `Pinto et al. (2010) <https://ui.adsabs.harvard.edu/abs/2010A%26A...521A..79P/abstract>`_.
-
-
-.. [1]
-   http://webmineral.com/
