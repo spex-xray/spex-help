@@ -24,7 +24,7 @@ The following compounds are presently taken into account (see Table :ref:`xride-
 
 .. _xride-table:
 
-.. table:: Compounds list.
+.. table:: Compounds list
 
    =========  ===================== ============================================================= ============= ==================== ===============================================
    index      Name                  formula                                                       Form          Edge                 Source
@@ -92,7 +92,7 @@ distribution. They will be updated in future versions.
 
 .. _additional-compounds:
 
-.. table:: Additional compounds list.
+.. table:: Additional compounds list
 
    ========== =================== ====================================================================================== =============== =====
    108        molecular oxygen    :math:`\mathrm{O_2}`                                                                   O 1s            `[16] <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_
