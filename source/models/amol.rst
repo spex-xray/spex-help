@@ -1,3 +1,5 @@
+.. _sec:amolmodel:
+
 Amol: interstellar dust absorption model
 ============================================
 
@@ -20,9 +22,9 @@ and `Rogantini et al. (2019)
 <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_.
   
 
-The following compounds are presently taken into account (see Table :ref:`xride-table`).
+The following compounds are presently taken into account (see Table :ref:`tab:xride-table`).
 
-.. _xride-table:
+.. _tab:xride-table:
 
 .. table:: Compounds list.
 
@@ -86,11 +88,11 @@ The following compounds are presently taken into account (see Table :ref:`xride-
 .. [14] `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
 .. [15] `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
 
-Additional molecules are listed in Table :ref:`additional-compounds`. 
+Additional molecules are listed in Table :ref:`tab:additional-compounds`.
 These models do not include scattering and were not integrated over a size 
 distribution. They will be updated in future versions.
 
-.. _additional-compounds:
+.. _tab:additional-compounds:
 
 .. table:: Additional compounds list.
 
@@ -157,7 +159,7 @@ distribution. They will be updated in future versions.
 The chemical composition of these minerals was mainly taken from the
 `Mineralogy Database of David Barthelmy <http://webmineral.com/>`_. We
 take the cross-sections from the references as listed in
-:ref:`additional_compound` in the energy interval where these
+:ref:`tab:additional_compounds` in the energy interval where these
 are given, and use the cross section for free atoms `Verner & Yakovlev (1995)
 <https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract>`_
 outside this range.
@@ -230,7 +232,7 @@ The parameters of the model are:
   :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
   :math:`10^{-6}` for molecule 1, and zero for the others.
 | ``i1--i4`` : the molecule numbers for molecules 1–4 in the list
-  (:ref:`xride` and :ref:`additional-compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
+  (:ref:`tab:xride-table` and :ref:`tab:additional-compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
   for molecule 1, zero for the others. A value of zero indicates that
   for that number no molecule will be taken into account. Thus, for only
   1 molecule, keep *i2–i4* :math:`=0`.
