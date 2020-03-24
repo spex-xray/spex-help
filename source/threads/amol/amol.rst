@@ -149,7 +149,7 @@ Here we introduce the AMOL components to characterise the interstellar dust exti
 arbitrary dust compounds: a-olivine (index=4230, :math:`\mathrm{Mg Fe Si O_4}`), a-quartz (index=2234,
 :math:`\mathrm{Si O_2}`), c-forsterite (index=3230, :math:`\mathrm{Mg_2 Si O_4}`), and a-enstatite (index=3231,
 :math:`\mathrm{Mg Si O_3}`). The full list of all compounds is reported in Table :ref:`tab:xride-table` and
-Table :ref:`tab:additional-compounds` in the :ref:`sec:amolmodel` page of the manual.
+Table :ref:`tab:additional_compounds` in the :ref:`sec:amolmodel` page of the manual.
 
 Setting the interstellar dust models
 """"""""""""""""""""""""""""""""""""
