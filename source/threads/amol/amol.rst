@@ -40,7 +40,7 @@ Loading data
 
 A command file tailored for this thread to load data is available here ``data_gx.com``::
 
-    user@linux:~> cat data.com
+    user@linux:~> cat data_gx.com
 
     # Simulated data
     #---------------
@@ -52,14 +52,14 @@ A command file tailored for this thread to load data is available here ``data_gx
 
 Load the above command file into SPEX::
 
-    SPEX> log exe data
+    SPEX> log exe data_gx
 
 Plotting data
 -------------
 
-A command file tailored for this thread to plot the data is available here plot.com::
+A command file tailored for this thread to plot the data is available here plot_edges.com::
 
-    user@linux:~> cat plot.com
+    user@linux:~> cat plot_edges.com
     # plot setting
     plot dev xw
     plot type data
@@ -68,7 +68,7 @@ A command file tailored for this thread to plot the data is available here plot.
     plot ux a
     plot uy fa
     plot rx 6:10
-    plot ry 0:800
+    plot ry 0:900
     plot set 1
     # HEG color blue
     plot data col 11
@@ -82,7 +82,7 @@ A command file tailored for this thread to plot the data is available here plot.
 
 Load the above command file into SPEX::
 
-    SPEX> log exe plot
+    SPEX> log exe plot_edges
 
 .. figure:: data_display.png
    :width: 600
@@ -102,7 +102,7 @@ Setting the distance of the source
      Distances assuming H0 =  70.0 km/s/Mpc, Omega_m = 0.300 Omega_Lambda = 0.700 Omega_r = 0.000
     Sector       m      A.U.        ly        pc       kpc       Mpc  redshift        cz   age(yr)
     ----------------------------------------------------------------------------------------------
-       1 2.623E+20 1.753E+09 2.772E+04 8500.0000    8.5000 8.500E-03    0.0000       0.6 2.772E+04
+       1 1.882E+20 1.258E+09 1.990E+04 6100.0000    6.1000 6.100E-03    0.0000       0.4 1.990E+04
     ----------------------------------------------------------------------------------------------
 
 Setting the SED
@@ -121,13 +121,6 @@ and a non-thermal component, e.g. a power-law (pow)::
      You have defined    2 components.
     SPEX> par 1 2 norm value 3.e-7
     SPEX> par 1 2 t value 0.8
-
-For clarity we freeze the continuum signal::
-
-    SPEX> par 1 1 norm status t
-    SPEX> par 1 1 gamm status t
-    SPEX> par 1 2 norm status t
-    SPEX> par 1 2 t status t
 
 
 Setting the galactic cold neutral absorption
@@ -149,7 +142,7 @@ Here we introduce the AMOL components to characterise the interstellar dust exti
 arbitrary dust compounds: a-olivine (index=4230, :math:`\mathrm{Mg Fe Si O_4}`), a-quartz (index=2234,
 :math:`\mathrm{Si O_2}`), c-forsterite (index=3230, :math:`\mathrm{Mg_2 Si O_4}`), and a-enstatite (index=3231,
 :math:`\mathrm{Mg Si O_3}`). The full list of all compounds is reported in Table :ref:`tab:xride-table` and
-Table :ref:`tab:additional_compounds` in the :ref:`sec:amolmodel` page of the manual.
+Table :ref:`tab:additional_compounds` in the :ref:`sec:amolmodel` section of the manual.
 
 Setting the interstellar dust models
 """"""""""""""""""""""""""""""""""""
@@ -171,12 +164,14 @@ Defining AMOL with the initial guess for the column densities of the dust compou
 	SPEX> par 1 4 n3 status thawn
 	SPEX> par 1 4 n4 status thawn
 
-NOTE! It is necessary to change and let free to vary the relative abundances of the cold gas elements
+
+**Warning**: It is necessary to change and let free to vary the relative abundances of the cold gas elements
 (HOT in this case) which are also contained in the dust compounds. In this example, the dust models
 contain oxygen, magnesium, silicon and iron. We let them to vary within a limited range according to
 the depletion intervals defined by `Whittet et al. (2002) <https://books.google.nl/books?id=k21lk4sORpEC>`_
-and `Jenkins et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009ApJ...700.1299J/abstract>`_::
+and `Jenkins et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009ApJ...700.1299J/abstract>`_.
 
+::
 	SPEX> par 1 3 08 value 0.7
 	SPEX> par 1 3 12 value 0.10
 	SPEX> par 1 3 14 value 0.10
