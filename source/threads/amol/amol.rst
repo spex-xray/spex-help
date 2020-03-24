@@ -12,7 +12,7 @@ Characterise the extinction of the interstellar dust along the line of sight of 
 observed with Chandra HETG.
 
 .. Note::
-   This thread merely intends to show the fit of the magnesium and silicon K edges using the AMOL model. The simulated
+   This thread merely intends to show the fit of the magnesium and silicon K edges using the ``amol`` model. The simulated
    dataset with 250 ks exposure time is based on the model used to fit the source GX 3+1 in `Rogantini et al. 2019
    <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_.
 
@@ -21,7 +21,7 @@ Preparation
 -----------
 
 To follow this thread, it is necessary to download the simulated spectrum and its responsive matrix:
-:download:`data_sim.spo` and :download:`data_sim.res`.
+:download:`data_sim.spo<data_sim.spo>` and :download:`data_sim.res<data_sim.res>`.
 
 
 Starting SPEX
@@ -38,7 +38,7 @@ Start SPEX in a linux terminal window::
 Loading data
 ------------
 
-A command file tailored for this thread to load data is available here ``data_gx.com``::
+A command file tailored for this thread to load data is available here :download:`data_gx.com<data_gx.com>`::
 
     user@linux:~> cat data_gx.com
 
@@ -57,7 +57,7 @@ Load the above command file into SPEX::
 Plotting data
 -------------
 
-A command file tailored for this thread to plot the data is available here plot_edges.com::
+A command file tailored for this thread to plot the data is available here :download:`plot_edges.com<plot_edges.com>`::
 
     user@linux:~> cat plot_edges.com
     # plot setting
@@ -110,8 +110,8 @@ Setting the SED
 
 Set the intrinsic spectral-energy-distribution (SED) of the low-mass X-ray binary. For a typical X-ray binary,
 the SED between 0.1 and 10 keV is described with two components (`Mitsuda et al. 1984
-<https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract>`_): a thermal component, e.g. a black-body (bb),
-and a non-thermal component, e.g. a power-law (pow)::
+<https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract>`_): a thermal component, e.g. a black-body (``bb``),
+and a non-thermal component, e.g. a power-law (``pow``)::
 
     SPEX> com pow
      You have defined    1 component.
@@ -138,7 +138,7 @@ Setting the galactic cold neutral absorption
 Defining the dust absorption
 ----------------------------
 
-Here we introduce the AMOL components to characterise the interstellar dust extinction. In this example we add four
+Here we introduce the ``amol`` components to characterise the interstellar dust extinction. In this example we add four
 arbitrary dust compounds: a-olivine (index=4230, :math:`\mathrm{Mg Fe Si O_4}`), a-quartz (index=2234,
 :math:`\mathrm{Si O_2}`), c-forsterite (index=3230, :math:`\mathrm{Mg_2 Si O_4}`), and a-enstatite (index=3231,
 :math:`\mathrm{Mg Si O_3}`). The full list of all compounds is reported in Table :ref:`tab:xride-table` and
@@ -147,7 +147,7 @@ Table :ref:`tab:additional_compounds` in the :ref:`sec:amolmodel` section of the
 Setting the interstellar dust models
 """"""""""""""""""""""""""""""""""""
 
-Defining AMOL with the initial guess for the column densities of the dust compounds::
+Defining ``amol`` with the initial guess for the column densities of the dust compounds::
 
 	SPEX> com amol
 	 You have defined    4 components.
@@ -165,13 +165,15 @@ Defining AMOL with the initial guess for the column densities of the dust compou
 	SPEX> par 1 4 n4 status thawn
 
 
-**Warning**: It is necessary to change and let free to vary the relative abundances of the cold gas elements
-(HOT in this case) which are also contained in the dust compounds. In this example, the dust models
-contain oxygen, magnesium, silicon and iron. We let them to vary within a limited range according to
-the depletion intervals defined by `Whittet et al. (2002) <https://books.google.nl/books?id=k21lk4sORpEC>`_
-and `Jenkins et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009ApJ...700.1299J/abstract>`_.
+.. warning:: It is necessary to change and let free to vary the relative abundances of the cold gas elements
+   (HOT in this case) which are also contained in the dust compounds. In this example, the dust models
+   contain oxygen (``08``), magnesium (``12``), silicon (``14``) and iron (``26``). We let them to vary within 
+   a limited range according to the depletion intervals defined by 
+   `Whittet et al. (2002) <https://books.google.nl/books?id=k21lk4sORpEC>`_
+   and `Jenkins et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009ApJ...700.1299J/abstract>`_.
 
 ::
+	
 	SPEX> par 1 3 08 value 0.7
 	SPEX> par 1 3 12 value 0.10
 	SPEX> par 1 3 14 value 0.10
@@ -188,7 +190,7 @@ and `Jenkins et al. (2009) <https://ui.adsabs.harvard.edu/abs/2009ApJ...700.1299
 Setting the component relations
 """""""""""""""""""""""""""""""
 
-Adding the multiplicative components HOT and AMOL to the broad-band model::
+Adding the multiplicative components ``hot`` and ``amol`` to the broad-band model::
 
 	SPEX> com rel 1:2 4,3
 	SPEX> model show
