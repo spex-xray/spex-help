@@ -109,7 +109,7 @@ Setting the SED
 """""""""""""""
 
 Set the intrinsic spectral-energy-distribution (SED) of the low-mass X-ray binary. For a typical X-ray binary,
-the SED between 0.1 and 10 keV is described with two components (`Mitsuda et al. 1984
+the SED between 0.1 and 10 keV is described by two components (`Mitsuda et al. 1984
 <https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract>`_): a thermal component, e.g. a black-body (``bb``),
 and a non-thermal component, e.g. a power-law (``pow``)::
 
@@ -123,7 +123,7 @@ and a non-thermal component, e.g. a power-law (``pow``)::
     SPEX> par 1 2 t value 0.8
 
 
-Setting the galactic cold neutral absorption
+Setting the Galactic cold neutral absorption
 """"""""""""""""""""""""""""""""""""""""""""
 
 ::
@@ -211,6 +211,7 @@ We fit the model to the data and print the free parameters::
 	SPEX> fit print 1
 	SPEX> fit
 	SPEX> fit
+	SPEX> plot
 	SPEX> par show free
 
 	--------------------------------------------------------------------------------------------------
@@ -260,7 +261,11 @@ We fit the model to the data and print the free parameters::
 Final remarks
 -------------
 
-This is the end of this analysis thread. If you want, you can quit SPEX now::
+This is the end of this analysis thread. If you want, you can save the parameters and quit SPEX::
 
+    SPEX> par write parameters
+    SPEX> log out fit_result
+    SPEX> par show
+    SPEX> log close output
 	SPEX> quit
 	 Thank you for using SPEX!
