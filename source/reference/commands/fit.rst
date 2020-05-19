@@ -10,13 +10,58 @@ With this command one fits the spectral model to the data. Only
 parameters that are thawn are changed during the fitting process.
 Options allow you to do a weighted fit (according to the model or the
 data), have the fit parameters and plot printed and updated during the
-fit, and limit the number of iterations done.
+fit, and limit the number of iterations done. 
+
+Fit methods
+~~~~~~~~~~~
+
+There are three methods implemented that can provide the best fit. All these 
+methods are described in detail in the book of Press et al. (Numerical Recipes).
+We refer to that book for more details (our alogorithms, however, are taken 
+from other sources).
+
+The main and default algorithm is the Levenberg-Marquardt minimisation algorithm.
+This is recommended for most cases, but it takes advantage of functions with 
+continuous derivatives with respect to the parameters. Also, it will not always
+find the true minimum, unless the initial values are chosen with care. For those
+cases, we have as alternatives the simplex method and the simulated annealing
+method. Both methods are better suited to obtain the true minimum in case of
+multiple minima, but again here choice of initial parameters is important, and 
+there is no guarantee that the true minimum is reached. In addition, they require
+significantly more function evaluations compared with the Levenberg-Marquardt
+algorithm. It is adviced to turn back to the Levenberg-Marquardt method when
+error search is done.
+
+Simulated annealing details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is beyond the scope of this paper to describe the method in detail. 
+More can be found in the Numerical Recipes book mentioned above, and for our
+implementation in W.L. Goffe, G.D. Ferrier & J. Rogers, Journal of Econometrics
+60, 65-99 (1994). The method basically moves step by step from one set
+of parameters to another, accepting always better solutions but every now and
+then accepting poorer solutions (to get out of sub-minima). The degree to which
+poorer solutions are accepted depends on the Metropolis criterion. During the
+process,a fake temperature is slowly decreased, until the absolute minimum is]
+reached. This temperature should NOT be confused with the true temperature in
+case the spectral model contains plasma components. The default parameters
+should work, but several other parameters can be modified when needed.
+Important here are the start temperature :math:`T`, the relative temperature
+decrease :math:`RT` after each set of iterations, the stop criterion 
+:math:`\epsilon`, the step size scaling factor :math:`vm`, 
+the scaling for the number of function evaluations at each temperature
+:math:`ns`, the maximum number of function evaluations :math:`max`, and a 
+flag controlling the printing of intermediate results.
+
+Fit statistic
+~~~~~~~~~~~~~
 
 At the moment SPEX uses two types of fit statistic, :math:`\chi^2` and
 C-stat. We first treat the :math:`\chi^2` statistic, because
 historically that has been most widely used. However, in the present
 version of SPEX  C-stat is the default because in the far majority of
-the cases it gives more robust results.
+the cases it gives more robust results. Both statistics can be used for all
+of the fitting methods.
 
 Chi-squared fitting
 ~~~~~~~~~~~~~~~~~~~
@@ -188,13 +233,46 @@ The following syntax rules apply:
 | ``fit weight data`` : Use the errors in the spectral data file as a
   basis for the statistical weight in all subsequent spectral fitting.
   This is the default at the start of SPEX.
-| ``fit method classical`` : Use the classical Levenberg-Marquardt
-  minimisation as the fitting method.
 | ``fit statistic chi2`` : Use the :math:`\chi^2` statistic for the
   minimisation.
 | ``fit statistic cstat`` : Use the C-statistics for the minimisation.
   This is the default at start-up.
 | ``fit statistic wstat`` : Use the W-statistics for the minimisation.
+| ``fit method classical`` : Use the classical Levenberg-Marquardt
+  minimisation as the fitting method.
+| ``fit method simplex`` : Use simplex
+  minimisation as the fitting method.
+| ``fit method anneal`` : Use simulated annealing
+  minimisation as the fitting method.
+| ``fit ann rt #r`` : Change the temperature reduction factor. Default value is
+  0.85.
+| ``fit ann t #r`` : Change the start temperature. Default value: 5.
+| ``fit ann eps #r`` : Change the convergence criterion :math:`\epsilon`. 
+  If the final function values from the last 4 temperatures differ from the
+  corresponding value at the current temperature by less than
+  :math:`\epsilon` and the final function value at the current temperature
+  differs from the current optimal function value by less than
+  :math:`\epsilon`, execution terminates. Default value is 0.10. 
+| ``fit ann vm #r`` : The step length vector. On input it should encompass 
+   the region of interest given the starting value X.  For point X(I), the next
+   trial point is selected is from X(I) - VM(I)  to  X(I) + VM(I).
+   Since VM is adjusted so that about half of all points are accepted,
+   the input value is not very important (i.e. if the value is off,
+   the algorithm adjusts VM to the correct value). Default value: 1.
+| ``fit ann ns #i`` : Number of cycles.  After :math:`ns*n` function 
+  evaluations, where :math:`n` is the number of free parameters, each element of
+  the vector VM is adjusted so that approximately half of all function 
+  evaluations are accepted. The vector VM controls the relative step size for the
+  free parameters. Default value for :math:`ns` is 20.
+| ``fit ann max #i`` : The maximum number of function evaluations. If during
+  iteration more than this maximum nunber of evaluations is used, the process
+  terminates with an error message (not converged). Default value: 100000.
+| ``fit ann print #r`` : Controls the printing of details of th simulated
+  annealing process during the fit. Allowed values 0 to 3. Only relevant for
+  debugging your problem, may give a lot of output depending on its value.
+  Default value: 0 (no printing). This is overruled by the fit print ...
+  command, which for the simulated annealing method prints every new set of
+  parameters and plots its spectrum if a new minimum is found.
 
 Examples
 ~~~~~~~~
@@ -212,6 +290,8 @@ Examples
 | ``fit weight data`` : Use the data instead for the statistical weights
   in the fit.
 | ``fit method clas`` : Use the classical Leveberg-Marquardt method to
-  find minima. At this moment the only option.
+  find minima.
+| ``fit ann rt 0.5`` : changes the temperature reduction factor for simulated
+  annealing to 0.5.
 | ``fit statistic chi2`` : Switch from C-statistics to :math:`\chi^2`.
 | ``fit statistic cstat`` : Switch back to C-statistics.
