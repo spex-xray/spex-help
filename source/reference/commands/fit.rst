@@ -16,9 +16,9 @@ Fit methods
 ~~~~~~~~~~~
 
 There are three methods implemented that can provide the best fit. All these 
-methods are described in detail in the book of Press et al. (Numerical Recipes).
-We refer to that book for more details (our alogorithms, however, are taken 
-from other sources).
+methods are described in detail in the book of `Press et al. (Numerical Recipes)
+<http://numerical.recipes/>`_. We refer to that book for more details (our
+algorithms, however, are taken from other sources).
 
 The main and default algorithm is the Levenberg-Marquardt minimisation algorithm.
 This is recommended for most cases, but it takes advantage of functions with 
@@ -29,7 +29,7 @@ method. Both methods are better suited to obtain the true minimum in case of
 multiple minima, but again here choice of initial parameters is important, and 
 there is no guarantee that the true minimum is reached. In addition, they require
 significantly more function evaluations compared with the Levenberg-Marquardt
-algorithm. It is adviced to turn back to the Levenberg-Marquardt method when
+algorithm. It is advised to turn back to the Levenberg-Marquardt method when
 error search is done.
 
 Simulated annealing details
@@ -37,12 +37,13 @@ Simulated annealing details
 
 It is beyond the scope of this paper to describe the method in detail. 
 More can be found in the Numerical Recipes book mentioned above, and for our
-implementation in W.L. Goffe, G.D. Ferrier & J. Rogers, Journal of Econometrics
-60, 65-99 (1994). The method basically moves step by step from one set
+implementation in `Goffe et al. (1994)
+<https://econpapers.repec.org/RePEc:eee:econom:v:60:y:1994:i:1-2:p:65-99>`_.
+The method basically moves step by step from one set
 of parameters to another, accepting always better solutions but every now and
 then accepting poorer solutions (to get out of sub-minima). The degree to which
 poorer solutions are accepted depends on the Metropolis criterion. During the
-process,a fake temperature is slowly decreased, until the absolute minimum is]
+process, a fake temperature is slowly decreased, until the absolute minimum is
 reached. This temperature should NOT be confused with the true temperature in
 case the spectral model contains plasma components. The default parameters
 should work, but several other parameters can be modified when needed.
@@ -77,11 +78,11 @@ counts, :math:`s_i` the expected number of source plus background counts
 of the fitted model, and for Poissonian statistics usually one takes
 :math:`\sigma_i^2=N_i`. Take care that the spectral bins contain
 sufficient counts (either source or background), recommended is e.g. to
-use at least :math:`\sim`\ 10 counts per bin. If this is not the case,
+use at least :math:`\sim 10` counts per bin. If this is not the case,
 first rebin the data set whenever you have a "continuum" spectrum. For
 line spectra you cannot do this of course without loosing important
 information! Note however that this method has inaccuracies if
-:math:`N_i` is less than :math:`\sim`\ 100.
+:math:`N_i` is less than :math:`\sim 100`.
 
 `Wheaton et al. (1995) <https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract>`_
 have shown that the classical :math:`\chi^2` method becomes inaccurate
