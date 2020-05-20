@@ -1,5 +1,3 @@
-.. _sec:amolmodel:
-
 Amol: interstellar dust absorption model
 ============================================
 
@@ -22,11 +20,11 @@ and `Rogantini et al. (2019)
 <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_.
   
 
-The following compounds are presently taken into account (see Table :ref:`tab:xride-table`).
+The following compounds are presently taken into account (see Table :ref:`xride-table`).
 
-.. _tab:xride-table:
+.. _xride-table:
 
-.. table:: Compounds list.
+.. table:: Compounds list
 
    =========  ===================== ============================================================= ============= ==================== ===============================================
    index      Name                  formula                                                       Form          Edge                 Source
@@ -52,7 +50,7 @@ The following compounds are presently taken into account (see Table :ref:`tab:xr
    2241       a-hydrocarbon         :math:`\mathrm{CH}`                                           amorhpous     C 1s                 `[11] <https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract>`_
    3230       c-forsterite          :math:`\mathrm{Mg_2 Si O_4}`                                  crystalline   Mg 1s; Si 1s         `[12] <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `[7] <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
    3231       a-enstatite           :math:`\mathrm{Mg Si O_3}`                                    amorphous     Mg 1s; Si 1s         `[12] <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `[7] <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
-   3232       a-enstatite           :math:`\mathrm{Mg Si O_3}`                                    crystalline   Mg 1s; Si 1s         `[12] <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `[7] <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
+   3232       c-enstatite           :math:`\mathrm{Mg Si O_3}`                                    crystalline   Mg 1s; Si 1s         `[12] <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `[7] <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
    3233       c-spinel              :math:`\mathrm{Mg Al_2 O_4}`                                  crystalline   Mg 1s; Al 1s         `[12] <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_, `[9] <https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract>`_
    3270       calcium aluminate     :math:`\mathrm{Ca Al_2 O_4}`                                  crystalline   Ca 1s                `[13] <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
    3271       tri-Ca aluminate      :math:`\mathrm{Ca_3 Al_2 O_6}`                                crystalline   Ca 1s                `[13] <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
@@ -88,13 +86,13 @@ The following compounds are presently taken into account (see Table :ref:`tab:xr
 .. [14] `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
 .. [15] `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
 
-Additional molecules are listed in Table :ref:`tab:additional_compounds`.
+Additional molecules are listed in Table :ref:`additional-compounds`. 
 These models do not include scattering and were not integrated over a size 
 distribution. They will be updated in future versions.
 
-.. _tab:additional_compounds:
+.. _additional-compounds:
 
-.. table:: Additional compounds list.
+.. table:: Additional compounds list
 
    ========== =================== ====================================================================================== =============== =====
    108        molecular oxygen    :math:`\mathrm{O_2}`                                                                   O 1s            `[16] <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_
@@ -159,7 +157,7 @@ distribution. They will be updated in future versions.
 The chemical composition of these minerals was mainly taken from the
 `Mineralogy Database of David Barthelmy <http://webmineral.com/>`_. We
 take the cross-sections from the references as listed in
-:ref:`tab:additional_compounds` in the energy interval where these
+:ref:`additional_compound` in the energy interval where these
 are given, and use the cross section for free atoms `Verner & Yakovlev (1995)
 <https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract>`_
 outside this range.
@@ -232,7 +230,7 @@ The parameters of the model are:
   :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
   :math:`10^{-6}` for molecule 1, and zero for the others.
 | ``i1--i4`` : the molecule numbers for molecules 1–4 in the list
-  (:ref:`tab:xride-table` and :ref:`tab:additional_compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
+  (:ref:`xride` and :ref:`additional-compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
   for molecule 1, zero for the others. A value of zero indicates that
   for that number no molecule will be taken into account. Thus, for only
   1 molecule, keep *i2–i4* :math:`=0`.

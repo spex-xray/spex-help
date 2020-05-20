@@ -8,7 +8,7 @@ Overview
 
 SPEX operates essentially in two modes: with an observational data set
 (read using the data commands), or without data, i.e. theoretical model
-spectra. In the first case, the energy grid neede to evaluate the
+spectra. In the first case, the energy grid needed to evaluate the
 spectra is taken directly from the data set. In the second case, the
 user can choose his own energy grid.
 

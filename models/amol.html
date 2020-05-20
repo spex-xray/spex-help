@@ -34,7 +34,7 @@
           <div class="body" role="main">
             
   <div class="section" id="amol-interstellar-dust-absorption-model">
-<span id="sec-amolmodel"></span><h1>4.1.2. Amol: interstellar dust absorption model<a class="headerlink" href="#amol-interstellar-dust-absorption-model" title="Permalink to this headline">¶</a></h1>
+<h1>4.1.2. Amol: interstellar dust absorption model<a class="headerlink" href="#amol-interstellar-dust-absorption-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the transmission of various molecules considering both
 absorption and scattering. The extinction models are evaluated for grains
 with a standard MRN size distribution (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M/abstract">Mathis &amp; Rumpl &amp; Nordsieck, 1977</a>):
@@ -46,9 +46,9 @@ further details on the lab processing see <a class="reference external" href="ht
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">Costantini et al. (2019)</a>,
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>
 and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>.</p>
-<p>The following compounds are presently taken into account (see Table <a class="reference internal" href="#tab-xride-table"><span class="std std-ref">Compounds list.</span></a>).</p>
-<span id="tab-xride-table"></span><table class="docutils align-default" id="id145">
-<caption><span class="caption-text">Compounds list.</span><a class="headerlink" href="#id145" title="Permalink to this table">¶</a></caption>
+<p>The following compounds are presently taken into account (see Table <a class="reference internal" href="#xride-table"><span class="std std-ref">Compounds list</span></a>).</p>
+<span id="xride-table"></span><table class="docutils align-default" id="id145">
+<caption><span class="caption-text">Compounds list</span><a class="headerlink" href="#id145" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 3%" />
 <col style="width: 6%" />
@@ -215,7 +215,7 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%
 <td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3232</p></td>
-<td><p>a-enstatite</p></td>
+<td><p>c-enstatite</p></td>
 <td><p><img class="math" src="../_images/math/cb2136d3e76019ef51c256479a527ac1ffb0a847.svg" alt="\mathrm{Mg Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s</p></td>
@@ -376,11 +376,11 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%
 <dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p>
 </dd>
 </dl>
-<p>Additional molecules are listed in Table <a class="reference internal" href="#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a>.
+<p>Additional molecules are listed in Table <a class="reference internal" href="#additional-compounds"><span class="std std-ref">Additional compounds list</span></a>.
 These models do not include scattering and were not integrated over a size
 distribution. They will be updated in future versions.</p>
-<span id="tab-additional-compounds"></span><table class="docutils align-default" id="id146">
-<caption><span class="caption-text">Additional compounds list.</span><a class="headerlink" href="#id146" title="Permalink to this table">¶</a></caption>
+<span id="additional-compounds"></span><table class="docutils align-default" id="id146">
+<caption><span class="caption-text">Additional compounds list</span><a class="headerlink" href="#id146" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 3%" />
 <col style="width: 5%" />
@@ -676,7 +676,7 @@ distribution. They will be updated in future versions.</p>
 <p>The chemical composition of these minerals was mainly taken from the
 <a class="reference external" href="http://webmineral.com/">Mineralogy Database of David Barthelmy</a>. We
 take the cross-sections from the references as listed in
-<a class="reference internal" href="#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a> in the energy interval where these
+<span class="xref std std-ref">additional_compound</span> in the energy interval where these
 are given, and use the cross section for free atoms <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract">Verner &amp; Yakovlev (1995)</a>
 outside this range.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a>
@@ -746,7 +746,7 @@ values. Morale: just read of those parameters, don’t touch them!</p>
 <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> for molecules 1–4. Default value:
 <img class="math" src="../_images/math/40af090ec6e39fe71369e3ed12abc1f696af9a0e.svg" alt="10^{-6}" style="vertical-align: 0px"/> for molecule 1, and zero for the others.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">i1--i4</span></code> : the molecule numbers for molecules 1–4 in the list
-(<a class="reference internal" href="#tab-xride-table"><span class="std std-ref">Compounds list.</span></a> and <a class="reference internal" href="#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a>). Default value: 108 (<img class="math" src="../_images/math/cc75605827db48ebda287104553afc8abfa0acd1.svg" alt="\mathrm{O_2}" style="vertical-align: -2px"/>)
+(<span class="xref std std-ref">xride</span> and <a class="reference internal" href="#additional-compounds"><span class="std std-ref">Additional compounds list</span></a>). Default value: 108 (<img class="math" src="../_images/math/cc75605827db48ebda287104553afc8abfa0acd1.svg" alt="\mathrm{O_2}" style="vertical-align: -2px"/>)
 for molecule 1, zero for the others. A value of zero indicates that
 for that number no molecule will be taken into account. Thus, for only
 1 molecule, keep <em>i2–i4</em> <img class="math" src="../_images/math/b2690b7f97fb15aad1cff2a7d3bb6dcecf8df178.svg" alt="=0" style="vertical-align: 0px"/>.</div>
