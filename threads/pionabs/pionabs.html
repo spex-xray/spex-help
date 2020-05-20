@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>2.4. PION setup for AGN warm absorber &#8212; SPEX Help Center 3.05 documentation</title>
+    <title>2.5. PION setup for AGN warm absorber &#8212; SPEX Help Center 3.05 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/pionabs/pionabs.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.5. PION setup for emission and absorption features in AGN" href="../pionena/pionena.html" />
-    <link rel="prev" title="2.3. Import UV/Optical data" href="../uv.html" />
+    <link rel="next" title="2.6. PION setup for emission and absorption features in AGN" href="../pionena/pionena.html" />
+    <link rel="prev" title="2.4. Import UV/Optical data" href="../uv.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,10 +34,10 @@
           <div class="body" role="main">
             
   <div class="section" id="pion-setup-for-agn-warm-absorber">
-<span id="sec-pionabs"></span><h1>2.4. PION setup for AGN warm absorber<a class="headerlink" href="#pion-setup-for-agn-warm-absorber" title="Permalink to this headline">¶</a></h1>
+<span id="sec-pionabs"></span><h1>2.5. PION setup for AGN warm absorber<a class="headerlink" href="#pion-setup-for-agn-warm-absorber" title="Permalink to this headline">¶</a></h1>
 <p><em>By: Junjie Mao, Missagh Mehdipour, and Jelle Kaastra</em></p>
 <div class="section" id="goal">
-<h2>2.4.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
 <p>Setup the PION model for the warm absorber in a nearby Seyfert 1 galaxy observed with Chandra HRC/LETGS.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -45,12 +45,12 @@
 </div>
 </div>
 <div class="section" id="preparation">
-<h2>2.4.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>To follow this thread, you need to download the example files here: <a class="reference download internal" download="" href="../../_downloads/a8be1eb763fd8193df062ebb530b04c0/chl.spo"><code class="xref download docutils literal notranslate"><span class="pre">chl.spo</span></code></a> and
 <a class="reference download internal" download="" href="../../_downloads/fbee5f02cd4c6b13da0c30f24cd6a1c9/chl.res"><code class="xref download docutils literal notranslate"><span class="pre">chl.res</span></code></a>.</p>
 </div>
 <div class="section" id="start-spex">
-<h2>2.4.3. Start SPEX<a class="headerlink" href="#start-spex" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.3. Start SPEX<a class="headerlink" href="#start-spex" title="Permalink to this headline">¶</a></h2>
 <p>Start SPEX in a linux terminal window:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
  Welcome user to SPEX version 3.05.00
@@ -60,7 +60,7 @@ SPEX&gt;
 </div>
 </div>
 <div class="section" id="load-data">
-<h2>2.4.4. Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.4. Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <p>A command file tailored for this thread to load data is available here <a class="reference download internal" download="" href="../../_downloads/a2f0aae2e177e36762407962c929149b/data.com"><code class="xref download docutils literal notranslate"><span class="pre">data.com</span></code></a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat data.com
 # Simulated data
@@ -78,7 +78,7 @@ ignore inst 1 reg 1 60:1000 unit ang
 </div>
 </div>
 <div class="section" id="plot-data">
-<h2>2.4.5. Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.5. Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
 <p>A command file tailored for this thread to plot the data is available here <a class="reference download internal" download="" href="../../_downloads/31f0260f5541813ae74b8bbb049c6a7f/plot.com"><code class="xref download docutils literal notranslate"><span class="pre">plot.com</span></code></a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat plot.com
 # plot setting
@@ -109,10 +109,10 @@ plot
 </div>
 </div>
 <div class="section" id="define-model-components-and-component-relations-step-by-step">
-<h2>2.4.6. Define model components and component relations (step-by-step)<a class="headerlink" href="#define-model-components-and-component-relations-step-by-step" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.6. Define model components and component relations (step-by-step)<a class="headerlink" href="#define-model-components-and-component-relations-step-by-step" title="Permalink to this headline">¶</a></h2>
 <p>Here we are looking at the warm absorber in a nearby (z = 0.07) Seyfert 1 galaxy.</p>
 <div class="section" id="set-the-distance-of-the-source">
-<h3>2.4.6.1. Set the distance of the source<a class="headerlink" href="#set-the-distance-of-the-source" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.1. Set the distance of the source<a class="headerlink" href="#set-the-distance-of-the-source" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; dist 0.07 z
 Distances assuming H0 =  70.0 km/s/Mpc, Omega_m = 0.300 Omega_Lambda = 0.700 Omega_r = 0.000
 Sector       m      A.U.        ly        pc       kpc       Mpc  redshift        cz   age(yr)
@@ -126,7 +126,7 @@ SPEX&gt; par 1 1 z val 0.07
 </div>
 </div>
 <div class="section" id="set-the-redshift-component">
-<h3>2.4.6.2. Set the redshift component<a class="headerlink" href="#set-the-redshift-component" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.2. Set the redshift component<a class="headerlink" href="#set-the-redshift-component" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com reds
 You have defined    1 component.
 SPEX&gt; par 1 1 z val 0.07
@@ -134,7 +134,7 @@ SPEX&gt; par 1 1 z val 0.07
 </div>
 </div>
 <div class="section" id="set-the-galactic-absorption">
-<h3>2.4.6.3. Set the galactic absorption<a class="headerlink" href="#set-the-galactic-absorption" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.3. Set the galactic absorption<a class="headerlink" href="#set-the-galactic-absorption" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com hot
 You have defined    2 components.
 SPEX&gt; par 1 2 nh val 2.0e-4
@@ -145,7 +145,7 @@ SPEX&gt; par 1 2 nh s f
 </div>
 </div>
 <div class="section" id="set-the-sed">
-<h3>2.4.6.4. Set the SED<a class="headerlink" href="#set-the-sed" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.4. Set the SED<a class="headerlink" href="#set-the-sed" title="Permalink to this headline">¶</a></h3>
 <p>Set the intrinsic spectral-energy-distribution (SED) of the AGN above the Lyman limit along our line-of-sight.</p>
 <dl class="simple">
 <dt>For a typical Seyfert 1 galaxy, the SED has three components <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract">(Mehdipour et al. 2015)</a>:</dt><dd><ul class="simple">
@@ -158,7 +158,7 @@ cut-off energy (300 keV here).</p></li>
 </dl>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com comt
 You have defined    3 components.
-SPEX&gt; par 1 3 norm val 0.
+SPEX&gt; par 1 3 norm val 3.E12
 SPEX&gt; par 1 3 norm s f
 SPEX&gt; par 1 3 t0 val 5e-4
 SPEX&gt; par 1 3 t0 s f
@@ -185,7 +185,7 @@ SPEX&gt; par 1 5 scal s f
 </div>
 </div>
 <div class="section" id="apply-an-exponential-cut-off-to-the-power-law">
-<h3>2.4.6.5. Apply an exponential cut-off to the power-law<a class="headerlink" href="#apply-an-exponential-cut-off-to-the-power-law" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.5. Apply an exponential cut-off to the power-law<a class="headerlink" href="#apply-an-exponential-cut-off-to-the-power-law" title="Permalink to this headline">¶</a></h3>
 <p>Apply exponential cut-off to the power-law component of the SED both below the Lyman limit and above the high-energy
 cut-off.</p>
 <div class="admonition note">
@@ -208,7 +208,7 @@ SPEX&gt; par 1 7 tau s f
 </div>
 </div>
 <div class="section" id="set-the-pion-absorption-components">
-<h3>2.4.6.6. Set the PION (absorption) components<a class="headerlink" href="#set-the-pion-absorption-components" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.6. Set the PION (absorption) components<a class="headerlink" href="#set-the-pion-absorption-components" title="Permalink to this headline">¶</a></h3>
 <p>Here we introduce three PION components. The parameters of the PION components are restricted to improve the efficiency
 of a realistic fitting process. <code class="docutils literal notranslate"><span class="pre">fcov=1</span></code> refers to the PION component fully covers the line-of-sight. <code class="docutils literal notranslate"><span class="pre">omeg=1.E-7</span></code>
 refers to a negligible solid angle (<img class="math" src="../../_images/math/2dda58c26f7626b0f4cf7a30e39b0a76d1be62d4.svg" alt="\Omega" style="vertical-align: 0px"/>) subtended by the PION component with respect to the nucleus
@@ -256,7 +256,7 @@ SPEX&gt; par 1 10 omega val 0
 </div>
 </div>
 <div class="section" id="set-component-relation-along-our-line-of-sight">
-<h3>2.4.6.7. Set component relation along our line of sight<a class="headerlink" href="#set-component-relation-along-our-line-of-sight" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.7. Set component relation along our line of sight<a class="headerlink" href="#set-component-relation-along-our-line-of-sight" title="Permalink to this headline">¶</a></h3>
 <p>Set the component relation for the intrinsic AGN SED above the Lyman limit along our line-of-sight.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -275,7 +275,7 @@ SPEX&gt; com rel 5 1,2
 </div>
 </div>
 <div class="section" id="set-the-component-relation-for-the-pion-components">
-<h3>2.4.6.8. Set the component relation for the PION components<a class="headerlink" href="#set-the-component-relation-for-the-pion-components" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.8. Set the component relation for the PION components<a class="headerlink" href="#set-the-component-relation-for-the-pion-components" title="Permalink to this headline">¶</a></h3>
 <p>Assuming that the warm absorber components closer to the central engine are defined first (with a smaller component
 index), photons transmitted from the inner PION components (with a nonzero <code class="docutils literal notranslate"><span class="pre">omeg</span></code> value) are screened by all the
 outer PION components at the redshift of the target, as well as the galactic absorption before reaching the detector:</p>
@@ -286,7 +286,7 @@ SPEX&gt; com rel 10 1,2
 </div>
 </div>
 <div class="section" id="check-the-model-settings-and-calculate">
-<h3>2.4.6.9. Check the model settings and calculate<a class="headerlink" href="#check-the-model-settings-and-calculate" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.6.9. Check the model settings and calculate<a class="headerlink" href="#check-the-model-settings-and-calculate" title="Permalink to this headline">¶</a></h3>
 <p>We check the setting of the component relation:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; model show
 --------------------------------------------------------------------------------
@@ -366,7 +366,7 @@ Instrument     1 region    1 has norm    1.00000E+00 and is frozen
 </div>
 </div>
 <div class="section" id="final-remarks">
-<h2>2.4.7. Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.7. Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
 <p>This is the end of this analysis thread. If you want, you can quit SPEX now:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; quit
 Thank you for using SPEX!
@@ -374,7 +374,7 @@ Thank you for using SPEX!
 </div>
 <p>Below, we provide a useful command file.</p>
 <div class="section" id="define-model-components-and-component-relations-running-scripts">
-<h3>2.4.7.1. Define model components and component relations (running scripts)<a class="headerlink" href="#define-model-components-and-component-relations-running-scripts" title="Permalink to this headline">¶</a></h3>
+<h3>2.5.7.1. Define model components and component relations (running scripts)<a class="headerlink" href="#define-model-components-and-component-relations-running-scripts" title="Permalink to this headline">¶</a></h3>
 <p>A command file tailored for this thread to setup the model components and parameters is available
 here <a class="reference download internal" download="" href="../../_downloads/598e91ddb0a79a06e13dff2c8ff75320/mdl_pa.com"><code class="xref download docutils literal notranslate"><span class="pre">mdl_pa.com</span></code></a>.</p>
 <p>Load the above command file into SPEX:</p>
@@ -412,9 +412,10 @@ here <a class="reference download internal" download="" href="../../_downloads/5
 <li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../partbkg/partbkg.html">2.2. Modeling particle background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.3. Import UV/Optical data</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. PION setup for AGN warm absorber</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.5. PION setup for emission and absorption features in AGN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../amol/amol.html">2.3. Fitting interstellar dust absorption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.4. Import UV/Optical data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.5. PION setup for AGN warm absorber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
@@ -433,8 +434,8 @@ here <a class="reference download internal" download="" href="../../_downloads/5
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../threads.html">2. Analysis threads</a><ul>
-      <li>Previous: <a href="../uv.html" title="previous chapter">2.3. Import UV/Optical data</a></li>
-      <li>Next: <a href="../pionena/pionena.html" title="next chapter">2.5. PION setup for emission and absorption features in AGN</a></li>
+      <li>Previous: <a href="../uv.html" title="previous chapter">2.4. Import UV/Optical data</a></li>
+      <li>Next: <a href="../pionena/pionena.html" title="next chapter">2.6. PION setup for emission and absorption features in AGN</a></li>
   </ul></li>
   </ul></li>
 </ul>

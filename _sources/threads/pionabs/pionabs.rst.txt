@@ -135,7 +135,7 @@ For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al. 
 
     SPEX> com comt
     You have defined    3 components.
-    SPEX> par 1 3 norm val 0.
+    SPEX> par 1 3 norm val 3.E12
     SPEX> par 1 3 norm s f
     SPEX> par 1 3 t0 val 5e-4
     SPEX> par 1 3 t0 s f

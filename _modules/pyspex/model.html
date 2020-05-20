@@ -400,6 +400,8 @@
 <span class="sd">    :vartype comp: list</span>
 <span class="sd">    :ivar distance: Distance for this sector.</span>
 <span class="sd">    :vartype distance: float</span>
+<span class="sd">    :ivar spectrum: Model spectrum for this sector</span>
+<span class="sd">    :vartype spectrum: pyspex.model.Spectrum</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -407,6 +409,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ncomp</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># Number of components in sector.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comp</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1"># List of component objects.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">distance</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Distance for this sector.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span> <span class="c1"># The spectrum for this sector</span>
 
 <div class="viewcode-block" id="Sector.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Sector.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Obtain the information from SPEX for sector isect.</span>
@@ -417,7 +420,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_sector</span><span class="o">.</span><span class="n">sect_index</span><span class="p">[</span><span class="n">isect</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ncomp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_sector</span><span class="o">.</span><span class="n">sect_ncomp</span><span class="p">[</span><span class="n">isect</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_sector</span><span class="o">.</span><span class="n">sect_distance</span><span class="p">[</span><span class="n">isect</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comp</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ncomp</span><span class="p">):</span>
@@ -1367,9 +1370,10 @@
 <span class="sd">    :vartype energy_upper: numpy.ndarray</span>
 <span class="sd">    :ivar energy_width: Widths of bins (Energy, keV)</span>
 <span class="sd">    :vartype energy_width: numpy.ndarray</span>
-<span class="sd">    :ivar spectrum: Spectrum of bins (in ph/s/m**2/bin)</span>
+<span class="sd">    :ivar spectrum: Spectrum of bins (in ph/s/m**2/bin at observatory)</span>
 <span class="sd">    :vartype spectrum: numpy.ndarray</span>
-<span class="sd">    :ivar weights: Weights (if Delta E = average photon energy within the bin (keV) minus the bin centroid, then weights = spectrum * Delta E)</span>
+<span class="sd">    :ivar luminosity: Spectrum of bins (in 10^44 ph/s/keV at source distance)</span>
+<span class="sd">    :vartype luminosity: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1377,20 +1381,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Centroids of bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy_upper</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Upper boundaries of bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy_width</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Widths of bins</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Spectrum of bins (in ph/s/bin)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Spectrum of bins (in ph/s/m**2/bin at observatory)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">luminosity</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Spectrum of bins (in 10^44 ph/s/keV at source distance)</span>
 
     <span class="k">def</span> <span class="nf">allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy_upper</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy_width</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">luminosity</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Spectrum.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Spectrum.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the model spectrum from SPEX.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Spectrum.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Spectrum.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the model spectra from SPEX for sector number isect.&quot;&quot;&quot;</span>
 
-        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">api_model_spectrum_total</span><span class="p">()</span>
+        <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">api_model_spectrum_total</span><span class="p">(</span><span class="n">isect</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">nbins</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">nbins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">allocate</span><span class="p">()</span>
@@ -1400,7 +1404,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">energy_upper</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">energy_bupp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">energy_width</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">energy_width</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">spectrum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">spectrum_weight</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">luminosity</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">luminosity</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
         <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">api_model_spectrum_final</span><span class="p">()</span></div></div>
 

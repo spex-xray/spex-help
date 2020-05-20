@@ -34,28 +34,28 @@
           <div class="body" role="main">
             
   <div class="section" id="amol-interstellar-dust-absorption-model">
-<h1>4.1.2. Amol: interstellar dust absorption model<a class="headerlink" href="#amol-interstellar-dust-absorption-model" title="Permalink to this headline">¶</a></h1>
+<span id="sec-amolmodel"></span><h1>4.1.2. Amol: interstellar dust absorption model<a class="headerlink" href="#amol-interstellar-dust-absorption-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the transmission of various molecules considering both
 absorption and scattering. The extinction models are evaluated for grains
 with a standard MRN size distribution (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M/abstract">Mathis &amp; Rumpl &amp; Nordsieck, 1977</a>):
 <img class="math" src="../_images/math/f4945854159d5af4292f911c79e5403e41966fdb.svg" alt="n(a) \propto a^{-3.5}" style="vertical-align: -4px"/> with <em>a</em> the grain size and
-<img class="math" src="../_images/math/f66ebd7349d7b7afd64209bce7cd8a47c4a52fa9.svg" alt="a_{min}=0.005  \mu  m" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/8381c1f8ef2028cb16e234028f5b19616e64be1a.svg" alt="a_{max}=0.25 \mu m" style="vertical-align: -3px"/>.
-Most of the extinction profiles are based on laboratory measurements. For
-further details see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A%26A...599A.117Z/abstract">Zeegers et al. (2017)</a>,
+<img class="math" src="../_images/math/cadcf18a0df91318ea13cd11404fdb60ca8bfd60.svg" alt="a_{\mathrm{min}}=0.005\ \mu  m" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/110bcac56091a3d7c775140097d5577c23b855bf.svg" alt="a_{\mathrm{max}}=0.25\ \mu m" style="vertical-align: -3px"/>.
+All the extinction profiles are based on laboratory measurements. For
+further details on the lab processing see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A%26A...599A.117Z/abstract">Zeegers et al. (2017)</a>,
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a>,
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">Costantini et al. (2019)</a>,
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>
 and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>.</p>
-<p>The following compounds are presently taken into account (see Table <a class="reference internal" href="#xride-table"><span class="std std-ref">Extinction models implemented in amol.</span></a>).</p>
-<span id="xride-table"></span><table class="docutils align-default" id="id93">
-<caption><span class="caption-text">Extinction models implemented in amol.</span><a class="headerlink" href="#id93" title="Permalink to this table">¶</a></caption>
+<p>The following compounds are presently taken into account (see Table <a class="reference internal" href="#tab-xride-table"><span class="std std-ref">Compounds list.</span></a>).</p>
+<span id="tab-xride-table"></span><table class="docutils align-default" id="id145">
+<caption><span class="caption-text">Compounds list.</span><a class="headerlink" href="#id145" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 2%" />
-<col style="width: 5%" />
-<col style="width: 15%" />
 <col style="width: 3%" />
-<col style="width: 5%" />
-<col style="width: 69%" />
+<col style="width: 6%" />
+<col style="width: 18%" />
+<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 64%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>index</p></th>
@@ -72,527 +72,611 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%
 <td><p><img class="math" src="../_images/math/e26783df18e5429ca7cbceae21843707a0f3834d.svg" alt="\mathrm{Si}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">Chang et al. (1999)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">[1]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>127</p></td>
 <td><p>metallic iron</p></td>
 <td><p><img class="math" src="../_images/math/0face23eb0950f75769a2289c09115996feb3e30.svg" alt="\mathrm{Fe}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Fe 1s</p></td>
-<td><p><a class="reference external" href="http://exafsmaterials.com/Ref_Spectra_0.4MB.pdf">exafsmaterials.com</a></p></td>
+<td><p><a class="reference external" href="http://exafsmaterials.com/Ref_Spectra_0.4MB.pdf">[2]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>129</p></td>
 <td><p>metallic nickel</p></td>
 <td><p><img class="math" src="../_images/math/6e71d015417a0bc4f9405d1f97576d6fd8402d67.svg" alt="\mathrm{Ni}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Ni 1s</p></td>
-<td><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/25859648">Van Loon et al. (2015)</a></p></td>
+<td><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/25859648">[3]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>130</p></td>
 <td><p>a-carbon</p></td>
 <td><p><img class="math" src="../_images/math/9dd24add0b6a2275177408d34468c1dc1b12290d.svg" alt="\mathrm{C}" style="vertical-align: 0px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>C 1s</p></td>
-<td><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">Albella et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">[4]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>131</p></td>
 <td><p>diamond</p></td>
 <td><p><img class="math" src="../_images/math/9dd24add0b6a2275177408d34468c1dc1b12290d.svg" alt="\mathrm{C}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>C 1s</p></td>
-<td><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">Albella et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">[4]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>132</p></td>
 <td><p>graphite</p></td>
 <td><p><img class="math" src="../_images/math/9dd24add0b6a2275177408d34468c1dc1b12290d.svg" alt="\mathrm{C}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>C 1s</p></td>
-<td><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">Albella et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">[4]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2111</p></td>
 <td><p>c-silicon carbide</p></td>
 <td><p><img class="math" src="../_images/math/999ec60f22584539abcd9b143315cc97a7b77de9.svg" alt="\mathrm{SiC}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">Chang et al. (1999)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">[1]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2230</p></td>
 <td><p>troilite</p></td>
 <td><p><img class="math" src="../_images/math/17e20112d81dd6aeadc9a9609f426153eba7d0b5.svg" alt="\mathrm{FeS}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>S 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">esrf.eu</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">[5]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2231</p></td>
 <td><p>pyrrhotite</p></td>
 <td><p><img class="math" src="../_images/math/aa736bb66b66e93f4e5cb615e259b47ccdc1b262.svg" alt="\mathrm{Fe_7 S_8}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>S 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">esrf.eu</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">[5]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2232</p></td>
 <td><p>a-quartz</p></td>
 <td><p><img class="math" src="../_images/math/bea91a8d19ece94c177506283c7771644f24968d.svg" alt="\mathrm{Si O_2}" style="vertical-align: -2px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2233</p></td>
 <td><p>c-quartz</p></td>
 <td><p><img class="math" src="../_images/math/bea91a8d19ece94c177506283c7771644f24968d.svg" alt="\mathrm{Si O_2}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2234</p></td>
 <td><p>a-quartz</p></td>
 <td><p><img class="math" src="../_images/math/bea91a8d19ece94c177506283c7771644f24968d.svg" alt="\mathrm{Si O_2}" style="vertical-align: -2px"/></p></td>
 <td><p>disorder</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2235</p></td>
 <td><p>c-silicon nitride</p></td>
 <td><p><img class="math" src="../_images/math/9ea906dd07679a467fab8fa34bb3773b115c13d5.svg" alt="\mathrm{Si_3 N_4}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">Chang et al. (1999)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">[1]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2236</p></td>
 <td><p>magnesia</p></td>
 <td><p><img class="math" src="../_images/math/e02533578f5923d5b0f960cee029da424440ebbb.svg" alt="\mathrm{MgO}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017GeCoA.213..457F/abstract">Fukushi et al. (2017)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017GeCoA.213..457F/abstract">[8]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2237</p></td>
 <td><p>aluminium oxide</p></td>
 <td><p><img class="math" src="../_images/math/70d8fe9ac21d64620e95f72501f2e0974c74e61a.svg" alt="\mathrm{Al_2 O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Al 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">Costantini et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">[9]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2238</p></td>
 <td><p>alabandite</p></td>
 <td><p><img class="math" src="../_images/math/32e5efeba5e855146cc7692f9496c95533997eeb.svg" alt="\mathrm{MnS}" style="vertical-align: 0px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>S 1s</p></td>
-<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">esrf.eu</a></p></td>
+<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">[5]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2239</p></td>
 <td><p>pyrite</p></td>
 <td><p><img class="math" src="../_images/math/b78344eb3bb565807d8030b459d5073aaec00826.svg" alt="\mathrm{FeS_2}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>S 1s</p></td>
-<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">esrf.eu</a></p></td>
+<td><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">[5]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2240</p></td>
 <td><p>titanium dioxide</p></td>
 <td><p><img class="math" src="../_images/math/174577e137a3f701aee377494e853fad2e8836ab.svg" alt="\mathrm{TiO_2}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Ti 1s</p></td>
-<td><p><a class="reference external" href="https://pubs.rsc.org/en/content/articlelanding/2013/EE/C2EE22739H#!divAbstract">Shin et al. (2013)</a></p></td>
+<td><p><a class="reference external" href="https://pubs.rsc.org/en/content/articlelanding/2013/EE/C2EE22739H#!divAbstract">[10]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2241</p></td>
 <td><p>a-hydrocarbon</p></td>
 <td><p><img class="math" src="../_images/math/3f75d0d552a8c3d6562c130d1dbf0fdd8278a496.svg" alt="\mathrm{CH}" style="vertical-align: 0px"/></p></td>
 <td><p>amorhpous</p></td>
 <td><p>C 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract">Bonnin-Mosbah et al. (2002)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract">[11]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3230</p></td>
 <td><p>c-forsterite</p></td>
 <td><p><img class="math" src="../_images/math/8cdc4996e90a71e7801c41915422135ee6c97ecc.svg" alt="\mathrm{Mg_2 Si O_4}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3231</p></td>
 <td><p>a-enstatite</p></td>
 <td><p><img class="math" src="../_images/math/cb2136d3e76019ef51c256479a527ac1ffb0a847.svg" alt="\mathrm{Mg Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Mg 1s; Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3232</p></td>
 <td><p>a-enstatite</p></td>
 <td><p><img class="math" src="../_images/math/cb2136d3e76019ef51c256479a527ac1ffb0a847.svg" alt="\mathrm{Mg Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3233</p></td>
 <td><p>c-spinel</p></td>
 <td><p><img class="math" src="../_images/math/aa453573b1f303e1b06b7dc81c906d477f69e571.svg" alt="\mathrm{Mg Al_2 O_4}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Al 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">Costantini et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">[9]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3270</p></td>
 <td><p>calcium aluminate</p></td>
 <td><p><img class="math" src="../_images/math/424591e8d3062037c7a5206dbb63771f9effc3d0.svg" alt="\mathrm{Ca Al_2 O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">Neuville et al. (2007)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">[13]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3271</p></td>
 <td><p>tri-Ca aluminate</p></td>
 <td><p><img class="math" src="../_images/math/0fc8edd0438483d7f08fb87577831e686a3c014e.svg" alt="\mathrm{Ca_3 Al_2 O_6}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">Neuville et al. (2007)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">[13]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3302</p></td>
 <td><p>c-fayalite</p></td>
 <td><p><img class="math" src="../_images/math/c6fa467901ddd1306b7c7a1a093c0468ac4f3205.svg" alt="\mathrm{Fe_2 Si O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Si 1s; Fe 1s; Fe 2p</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[14]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[15]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4230</p></td>
 <td><p>a-olivine</p></td>
 <td><p><img class="math" src="../_images/math/bdb3e4d86946e1ada705dbe628e971bc95d7ec22.svg" alt="\mathrm{Mg Fe Si O_4}" style="vertical-align: -3px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Mg 1s; Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4231</p></td>
 <td><p>c-olivine</p></td>
 <td><p><img class="math" src="../_images/math/03a7ba8d49c7b804afbe55e664274399cefb39ee.svg" alt="\mathrm{Mg_{1.56} Fe_{0.4} Si_{0.91} O_4}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4232</p></td>
 <td><p>c-En60Fe40</p></td>
 <td><p><img class="math" src="../_images/math/af60e73bed54653ea2f38d00dee93560bb82f999.svg" alt="\mathrm{Mg_{0.6} Fe_{0.4} Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4233</p></td>
 <td><p>a-En60Fe40</p></td>
 <td><p><img class="math" src="../_images/math/af60e73bed54653ea2f38d00dee93560bb82f999.svg" alt="\mathrm{Mg_{0.6} Fe_{0.4} Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Mg 1s; Si 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4234</p></td>
 <td><p>a-En75Fe25</p></td>
 <td><p><img class="math" src="../_images/math/f8a4710c753a3931a6366f11a13f6b2ef10f58a9.svg" alt="\mathrm{Mg_{0.75} Fe_{0.25} Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Mg 1s; Si 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4235</p></td>
 <td><p>a-En90Fe10</p></td>
 <td><p><img class="math" src="../_images/math/80d7fddb702461a31d90f154d78f617245ce77d5.svg" alt="\mathrm{Mg_{0.9} Fe_{0.1} Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Mg 1s; Si 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4236</p></td>
 <td><p>c-En90Fe10</p></td>
 <td><p><img class="math" src="../_images/math/80d7fddb702461a31d90f154d78f617245ce77d5.svg" alt="\mathrm{Mg_{0.9} Fe_{0.1} Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4237</p></td>
 <td><p>c-hypersthene</p></td>
 <td><p><img class="math" src="../_images/math/c02d8a38fd34361e7f314fa4b79574f16880fd59.svg" alt="\mathrm{Mg_{1.502} Fe_{0.498} Si_2 O_6}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Mg 1s; Si 1s; Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">[12]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">[7]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">[6]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4270</p></td>
 <td><p>c-diopside</p></td>
 <td><p><img class="math" src="../_images/math/6c270dc64aa9b8a71424bc5abb8849835877ba18.svg" alt="\mathrm{Mg Ca Si_2 O_6}" style="vertical-align: -3px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">Neuville et al. (2007)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">[13]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4271</p></td>
 <td><p>a-diopside</p></td>
 <td><p><img class="math" src="../_images/math/6c270dc64aa9b8a71424bc5abb8849835877ba18.svg" alt="\mathrm{Mg Ca Si_2 O_6}" style="vertical-align: -3px"/></p></td>
 <td><p>amorphous</p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">Neuville et al. (2007)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">[13]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4272</p></td>
 <td><p>c-anorthite</p></td>
 <td><p><img class="math" src="../_images/math/a3b181a8fed7decaea253f217b1816c1b52e3b44.svg" alt="\mathrm{Ca Al_2 Si_2 O_8}" style="vertical-align: -2px"/></p></td>
 <td><p>crystalline</p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">Neuville et al. (2007)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">[13]</a></p></td>
 </tr>
 </tbody>
 </table>
-<p>Additional molecules are listed in Table <a class="reference internal" href="#additional-compounds"><span class="std std-ref">Additional compounds present in the amol model.</span></a>.
-These older model do not included scattering and were not integrate over a size
-distribution. These models will be updated in future versions.</p>
-<span id="additional-compounds"></span><table class="docutils align-default" id="id94">
-<caption><span class="caption-text">Additional compounds present in the amol model.</span><a class="headerlink" href="#id94" title="Permalink to this table">¶</a></caption>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id60"><span class="brackets">1</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract">Chang et al. (1999)</a></p>
+</dd>
+<dt class="label" id="id61"><span class="brackets">2</span></dt>
+<dd><p><a class="reference external" href="http://exafsmaterials.com/Ref_Spectra_0.4MB.pdf">exafsmaterials.com</a></p>
+</dd>
+<dt class="label" id="id62"><span class="brackets">3</span></dt>
+<dd><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/25859648">Van Loon et al. (2015)</a></p>
+</dd>
+<dt class="label" id="id63"><span class="brackets">4</span></dt>
+<dd><p><a class="reference external" href="https://digital.library.unt.edu/ark:/67531/metadc668006/">Albella et al. (1998)</a></p>
+</dd>
+<dt class="label" id="id64"><span class="brackets">5</span></dt>
+<dd><p><a class="reference external" href="http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu">esrf.eu</a></p>
+</dd>
+<dt class="label" id="id65"><span class="brackets">6</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract">Rogantini et al. (2018)</a></p>
+</dd>
+<dt class="label" id="id67"><span class="brackets">7</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract">Zeegers et al. (2019)</a></p>
+</dd>
+<dt class="label" id="id69"><span class="brackets">8</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017GeCoA.213..457F/abstract">Fukushi et al. (2017)</a></p>
+</dd>
+<dt class="label" id="id70"><span class="brackets">9</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract">Costantini et al. (2019)</a></p>
+</dd>
+<dt class="label" id="id72"><span class="brackets">10</span></dt>
+<dd><p><a class="reference external" href="https://pubs.rsc.org/en/content/articlelanding/2013/EE/C2EE22739H#!divAbstract">Shin et al. (2013)</a></p>
+</dd>
+<dt class="label" id="id73"><span class="brackets">11</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract">Bonnin-Mosbah et al. (2002)</a></p>
+</dd>
+<dt class="label" id="id74"><span class="brackets">12</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. (2019)</a></p>
+</dd>
+<dt class="label" id="id76"><span class="brackets">13</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract">Neuville et al. (2007)</a></p>
+</dd>
+<dt class="label" id="id77"><span class="brackets">14</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a></p>
+</dd>
+<dt class="label" id="id78"><span class="brackets">15</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p>
+</dd>
+</dl>
+<p>Additional molecules are listed in Table <a class="reference internal" href="#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a>.
+These models do not include scattering and were not integrated over a size
+distribution. They will be updated in future versions.</p>
+<span id="tab-additional-compounds"></span><table class="docutils align-default" id="id146">
+<caption><span class="caption-text">Additional compounds list.</span><a class="headerlink" href="#id146" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 3%" />
 <col style="width: 5%" />
-<col style="width: 22%" />
+<col style="width: 25%" />
 <col style="width: 4%" />
-<col style="width: 67%" />
+<col style="width: 63%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>108</p></td>
 <td><p>molecular oxygen</p></td>
 <td><p><img class="math" src="../_images/math/cc75605827db48ebda287104553afc8abfa0acd1.svg" alt="\mathrm{O_2}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">[16]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>126</p></td>
 <td><p>metallic iron</p></td>
 <td><p><img class="math" src="../_images/math/0face23eb0950f75769a2289c09115996feb3e30.svg" alt="\mathrm{Fe}" style="vertical-align: 0px"/></p></td>
 <td><p>Fe 2p</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[17]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2001</p></td>
 <td><p>water</p></td>
 <td><p><img class="math" src="../_images/math/0f2fe95f79c5b98da7f9f952b230d81c4008381a.svg" alt="\mathrm{H_2 O}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001PhRvA..63d2705H/abstract">Hiraya et al. (2001)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001PhRvA..63d2705H/abstract">[18]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2002</p></td>
 <td><p>crystalline ice</p></td>
 <td><p><img class="math" src="../_images/math/0f2fe95f79c5b98da7f9f952b230d81c4008381a.svg" alt="\mathrm{H_2 O}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract">Parent et al. (2002)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract">[19]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2003</p></td>
 <td><p>amorphous ice</p></td>
 <td><p><img class="math" src="../_images/math/0f2fe95f79c5b98da7f9f952b230d81c4008381a.svg" alt="\mathrm{H_2 O}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract">Parent et al. (2002)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract">[19]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2010</p></td>
 <td><p>carbon monoxide</p></td>
 <td><p><img class="math" src="../_images/math/37567a367051f294a2bb9133b698b00c1592ec3c.svg" alt="\mathrm{CO}" style="vertical-align: 0px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">[16]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2011</p></td>
 <td><p>carbon dioxide</p></td>
 <td><p><img class="math" src="../_images/math/4fb0fa6fd68c3a7ae18ad7ac5e8f0d32ff7b7ebf.svg" alt="\mathrm{CO_2}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">[16]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2020</p></td>
 <td><p>laughing gas</p></td>
 <td><p><img class="math" src="../_images/math/ce10f29c3769e1b6a8ec44c282b09fd2d16c1177.svg" alt="\mathrm{N_2 O}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a>, <a class="reference external" href="https://doi.org/10.1016/0368-2048(74)80010-1">Wight et al. (1974)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">[16]</a>, <a class="reference external" href="https://doi.org/10.1016/0368-2048(74)80010-1">[21]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2102</p></td>
 <td><p>silicon monoxide</p></td>
 <td><p><img class="math" src="../_images/math/9fafeb2063caf89f937336407ba57ab4de69438c.svg" alt="\mathrm{SiO}" style="vertical-align: 0px"/></p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">Lee et al. (2010)</a></p></td>
+<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">[20]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2200</p></td>
 <td><p>eskolaite</p></td>
 <td><p><img class="math" src="../_images/math/cf1f1c07fd4d319179d780dc4a75886172e71863.svg" alt="\mathrm{Cr_2 O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2300</p></td>
 <td><p>iron monoxide</p></td>
 <td><p><img class="math" src="../_images/math/5f2f92c0f078c7e34f49264dd46743908249774c.svg" alt="\mathrm{FeO}" style="vertical-align: 0px"/></p></td>
 <td><p>Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[23]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2301</p></td>
 <td><p>iron oxide</p></td>
 <td><p><img class="math" src="../_images/math/88a55fbf3dc45ee5fae85a6465ba01fd777de16b.svg" alt="\mathrm{Fe_{1-x} O}" style="vertical-align: -4px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2302</p></td>
 <td><p>magnetite</p></td>
 <td><p><img class="math" src="../_images/math/46195adeb2dd344ba278d9141b4f50d45c3c1400.svg" alt="\mathrm{Fe_3 O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>O, Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[23]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2303</p></td>
 <td><p>hematite</p></td>
 <td><p><img class="math" src="../_images/math/749758ff9b3ecb50080cd7c4488f7fdb4be20f1c.svg" alt="\mathrm{Fe_2 O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>O, Fe 1s; Fe 2p</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[23]</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[17]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2304</p></td>
 <td><p>iron sulfite</p></td>
 <td><p><img class="math" src="../_images/math/3be26e06593528a96a6329f500f4c02afa714384.svg" alt="\mathrm{Fe S_2}" style="vertical-align: -2px"/></p></td>
 <td><p>Fe 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[23]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>2400</p></td>
 <td><p>nickel monoxide</p></td>
 <td><p><img class="math" src="../_images/math/f7d9b89c2dbdc7eab0d91bccc64936cd0f76ccb8.svg" alt="\mathrm{NiO}" style="vertical-align: 0px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>2500</p></td>
 <td><p>cupric oxide</p></td>
 <td><p><img class="math" src="../_images/math/ccbdccc2b8ae5d3f296d9096ef78d5144b512f4f.svg" alt="\mathrm{CuO}" style="vertical-align: 0px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3001</p></td>
 <td><p>adenine</p></td>
 <td><p><img class="math" src="../_images/math/f7c22879707f7d82164692074fe9a7af18dbf0ce.svg" alt="\mathrm{C_5 H_5 N_5}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">Fujii et al. (2003)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">[24]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3103</p></td>
 <td><p>pyroxene</p></td>
 <td><p><img class="math" src="../_images/math/cb2136d3e76019ef51c256479a527ac1ffb0a847.svg" alt="\mathrm{Mg Si O_3}" style="vertical-align: -3px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://www.pnas.org/content/105/23/7925">Lee et al. (2008)</a></p></td>
+<td><p><a class="reference external" href="https://www.pnas.org/content/105/23/7925">[25]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3200</p></td>
 <td><p>calcite</p></td>
 <td><p><img class="math" src="../_images/math/7826910b44fe2434c26f0851be8e06e43a30e0c4.svg" alt="\mathrm{Ca C O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">Hayakawa et al. (2008)</a></p></td>
+<td><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">[26]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3201</p></td>
 <td><p>aragonite</p></td>
 <td><p><img class="math" src="../_images/math/7826910b44fe2434c26f0851be8e06e43a30e0c4.svg" alt="\mathrm{Ca C O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">Hayakawa et al. (2008)</a></p></td>
+<td><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">[26]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3202</p></td>
 <td><p>vaterite</p></td>
 <td><p><img class="math" src="../_images/math/7826910b44fe2434c26f0851be8e06e43a30e0c4.svg" alt="\mathrm{Ca C O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>Ca 1s</p></td>
-<td><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">Hayakawa et al. (2008)</a></p></td>
+<td><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">[26]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3203</p></td>
 <td><p>perovskite</p></td>
 <td><p><img class="math" src="../_images/math/f857c3344cb2e0f747ac46d4d930c1e81c1e0641.svg" alt="\mathrm{Ca Ti O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3300</p></td>
 <td><p>hercynite</p></td>
 <td><p><img class="math" src="../_images/math/53396f23dc45c2b21542a921e651e099c8ac0198.svg" alt="\mathrm{Fe Al_2 O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3301</p></td>
 <td><p>lepidocrocite</p></td>
 <td><p><img class="math" src="../_images/math/cbbc5cff20565178c0997a9b25b003a68e4e7f6e.svg" alt="\mathrm{Fe O (OH)}" style="vertical-align: -4px"/></p></td>
 <td><p>Fe 2p</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[17]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3303</p></td>
 <td><p>iron sulfate</p></td>
 <td><p><img class="math" src="../_images/math/972cdf81fde9dbe749aa9b87c6471ff1fd27bf67.svg" alt="\mathrm{Fe S O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>Fe 2p</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">[17]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>3304</p></td>
 <td><p>ilmenite</p></td>
 <td><p><img class="math" src="../_images/math/cfabbab99f586f5da2d78cdb385d7ba26d715ac5.svg" alt="\mathrm{Fe Ti O_3}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>3305</p></td>
 <td><p>chromite</p></td>
 <td><p><img class="math" src="../_images/math/ad4684558e646a632f769bb5f06a04c86573300d.svg" alt="\mathrm{Fe Cr_2 O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4001</p></td>
 <td><p>guanine</p></td>
 <td><p><img class="math" src="../_images/math/ee437359a8d84bcef0292990024b129c5dd01112.svg" alt="\mathrm{C_5 H_5 N_5 O}" style="vertical-align: -2px"/></p></td>
 <td><p>O,N 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">Fujii et al. (2003)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">[24]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4002</p></td>
 <td><p>cytosine</p></td>
 <td><p><img class="math" src="../_images/math/72144620c00c63283b04f788b23f7314109a7a5f.svg" alt="\mathrm{C_4 H_5 N_3 O}" style="vertical-align: -2px"/></p></td>
 <td><p>O,N 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">Fujii et al. (2003)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">[24]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4003</p></td>
 <td><p>thymine</p></td>
 <td><p><img class="math" src="../_images/math/e8ee11544033fb0eb72fcae585b5d9bfb9b335ca.svg" alt="\mathrm{C_5 H_6 N_2 O_2}" style="vertical-align: -2px"/></p></td>
 <td><p>O,N 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">Fujii et al. (2003)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">[24]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4004</p></td>
 <td><p>uracil</p></td>
 <td><p><img class="math" src="../_images/math/2fc19deed8bea76249e3b577af81ecd7fbfe617d.svg" alt="\mathrm{C_4 H_4 N_2 O_2}" style="vertical-align: -2px"/></p></td>
 <td><p>O,N 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">Fujii et al. (2003)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">[24]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4100</p></td>
 <td><p>andradite</p></td>
 <td><p><img class="math" src="../_images/math/12c36a2f1e6b0ad645fd5a6775dd44ab7e8efbcf.svg" alt="\mathrm{Ca_3 Fe_2 Si_3 O_{12}}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4101</p></td>
 <td><p>acmite</p></td>
 <td><p><img class="math" src="../_images/math/1c499d55c7b1c94c823ec19d14d3eb4cb1b67b71.svg" alt="\mathrm{Na Fe Si_2 O_6}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4102</p></td>
 <td><p>franklinite</p></td>
 <td><p><img class="math" src="../_images/math/b5e737bde57d6527510fb881b75edb8882873f87.svg" alt="\mathrm{Zn_{0.6} Mn_{0.8} Fe_{1.6} O_4}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4103</p></td>
 <td><p>olivine</p></td>
 <td><p><img class="math" src="../_images/math/0daff0df050e9dcdf1070628ef93a96b1db21d94.svg" alt="\mathrm{Mg_{1.6} Fe_{0.4} SiO_4}" style="vertical-align: -3px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>4104</p></td>
 <td><p>almandine</p></td>
 <td><p><img class="math" src="../_images/math/c5db6f30f9e5dc410dd6cf6f2c3b1858fffd50d4.svg" alt="\mathrm{Fe_3 Al_2 (Si O_4)_3}" style="vertical-align: -4px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>4105</p></td>
 <td><p>hedenbergite</p></td>
 <td><p><img class="math" src="../_images/math/19f47a801ee2d1c0dddca8604d26cd2cb0dde407.svg" alt="\mathrm{Ca Fe Si_2 O_6}" style="vertical-align: -2px"/></p></td>
 <td><p>O 1s</p></td>
-<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p></td>
+<td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">[22]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>6001</p></td>
 <td><p>montmorillonite</p></td>
 <td><p><img class="math" src="../_images/math/05330541ceda965d2591b6b157f42b6004a0a335.svg" alt="\mathrm{Na_{0.2} Ca_{0.1} Al_2 Si_4 O_{10} (O H_2)(H_2 O)_{10}}" style="vertical-align: -4px"/></p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">Lee et al. (2010)</a></p></td>
+<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">[20]</a></p></td>
 </tr>
 <tr class="row-even"><td><p>6002</p></td>
 <td><p>nontronite</p></td>
 <td><p><img class="math" src="../_images/math/674d2fc06082fc78c7a8ea5b79df7ece6a185611.svg" alt="\mathrm{Na_{0.3} Fe_2^{3+} Si_3 Al O_{10} (OH)_2 \bullet (H_2 O)}" style="vertical-align: -4px"/></p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">Lee et al. (2010)</a></p></td>
+<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">[20]</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>7001</p></td>
 <td><p>enstatite_paulite</p></td>
 <td><p><img class="math" src="../_images/math/afcf3de47739121a4c095f53ee01a3f336a89468.svg" alt="\mathrm{Ca_2 Mg_4 Al_{0.75} Fe_{0.25} Si_7 Al O_{22} (OH)_2}" style="vertical-align: -4px"/></p></td>
 <td><p>Si 1s</p></td>
-<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">Lee et al. (2010)</a></p></td>
+<td><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">[20]</a></p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id124"><span class="brackets">16</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract">Barrus et al. (1979)</a></p>
+</dd>
+<dt class="label" id="id125"><span class="brackets">17</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2009)</a></p>
+</dd>
+<dt class="label" id="id127"><span class="brackets">18</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001PhRvA..63d2705H/abstract">Hiraya et al. (2001)</a></p>
+</dd>
+<dt class="label" id="id128"><span class="brackets">19</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract">Parent et al. (2002)</a></p>
+</dd>
+<dt class="label" id="id129"><span class="brackets">20</span></dt>
+<dd><p><a class="reference external" href="https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf">Lee et al. (2010)</a></p>
+</dd>
+<dt class="label" id="id130"><span class="brackets">21</span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1016/0368-2048(74)80010-1">Wight et al. (1974)</a></p>
+</dd>
+<dt class="label" id="id131"><span class="brackets">22</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a></p>
+</dd>
+<dt class="label" id="id132"><span class="brackets">23</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract">Lee et al. (2005)</a></p>
+</dd>
+<dt class="label" id="id134"><span class="brackets">24</span></dt>
+<dd><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract">Fujii et al. (2003)</a></p>
+</dd>
+<dt class="label" id="id135"><span class="brackets">25</span></dt>
+<dd><p><a class="reference external" href="https://www.pnas.org/content/105/23/7925">Lee et al. (2008)</a></p>
+</dd>
+<dt class="label" id="id136"><span class="brackets">26</span></dt>
+<dd><p><a class="reference external" href="https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja">Hayakawa et al. (2008)</a></p>
+</dd>
+</dl>
 <p>The chemical composition of these minerals was mainly taken from the
 <a class="reference external" href="http://webmineral.com/">Mineralogy Database of David Barthelmy</a>. We
 take the cross-sections from the references as listed in
-<a class="reference external" href="#tab:amol">the table above</a> in the energy interval where these
+<a class="reference internal" href="#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a> in the energy interval where these
 are given, and use the cross section for free atoms <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract">Verner &amp; Yakovlev (1995)</a>
 outside this range.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract">Van Aken et al. (1998)</a>
@@ -662,7 +746,7 @@ values. Morale: just read of those parameters, don’t touch them!</p>
 <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> for molecules 1–4. Default value:
 <img class="math" src="../_images/math/40af090ec6e39fe71369e3ed12abc1f696af9a0e.svg" alt="10^{-6}" style="vertical-align: 0px"/> for molecule 1, and zero for the others.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">i1--i4</span></code> : the molecule numbers for molecules 1–4 in the list
-(<span class="xref std std-ref">xride</span> and <a class="reference internal" href="#additional-compounds"><span class="std std-ref">Additional compounds present in the amol model.</span></a>). Default value: 108 (<img class="math" src="../_images/math/cc75605827db48ebda287104553afc8abfa0acd1.svg" alt="\mathrm{O_2}" style="vertical-align: -2px"/>)
+(<a class="reference internal" href="#tab-xride-table"><span class="std std-ref">Compounds list.</span></a> and <a class="reference internal" href="#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a>). Default value: 108 (<img class="math" src="../_images/math/cc75605827db48ebda287104553afc8abfa0acd1.svg" alt="\mathrm{O_2}" style="vertical-align: -2px"/>)
 for molecule 1, zero for the others. A value of zero indicates that
 for that number no molecule will be taken into account. Thus, for only
 1 molecule, keep <em>i2–i4</em> <img class="math" src="../_images/math/b2690b7f97fb15aad1cff2a7d3bb6dcecf8df178.svg" alt="=0" style="vertical-align: 0px"/>.</div>

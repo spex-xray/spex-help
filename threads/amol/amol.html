@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.3. Fitting interstellar dust absorption &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/amol/amol.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.4. Import UV/Optical data" href="../uv.html" />
+    <link rel="prev" title="2.2. Modeling particle background" href="../partbkg/partbkg.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="fitting-interstellar-dust-absorption">
+<h1>2.3. Fitting interstellar dust absorption<a class="headerlink" href="#fitting-interstellar-dust-absorption" title="Permalink to this headline">¶</a></h1>
+<p><em>By: Daniele Rogantini</em></p>
+<div class="section" id="goal">
+<h2>2.3.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>Characterise the extinction of the interstellar dust along the line of sight of a bright low-mass X-ray binary
+observed with Chandra HETG.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This thread merely intends to show the fit of the magnesium and silicon K edges using the <code class="docutils literal notranslate"><span class="pre">amol</span></code> model. The simulated
+dataset with 250 ks exposure time is based on the model used to fit the source GX 3+1 in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract">Rogantini et al. 2019</a>.</p>
+</div>
+</div>
+<div class="section" id="preparation">
+<h2>2.3.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To follow this thread, it is necessary to download the simulated spectrum and its responsive matrix:
+<a class="reference download internal" download="" href="../../_downloads/baabd4baabfe090366eb967d223164dc/data_sim.spo"><code class="xref download docutils literal notranslate"><span class="pre">data_sim.spo</span></code></a> and <a class="reference download internal" download="" href="../../_downloads/01356f800b57a8738c2bd051221aacab/data_sim.res"><code class="xref download docutils literal notranslate"><span class="pre">data_sim.res</span></code></a>.</p>
+</div>
+<div class="section" id="starting-spex">
+<h2>2.3.3. Starting SPEX<a class="headerlink" href="#starting-spex" title="Permalink to this headline">¶</a></h2>
+<p>Start SPEX in a linux terminal window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
+Welcome user to SPEX version 3.05.00
+
+SPEX&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="loading-data">
+<h2>2.3.4. Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<p>A command file tailored for this thread to load data is available here <a class="reference download internal" download="" href="../../_downloads/f0939c94862939cf5dccd18134cfeb6b/data_gx.com"><code class="xref download docutils literal notranslate"><span class="pre">data_gx.com</span></code></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat data_gx.com
+
+# Simulated data
+#---------------
+# HETG DATA
+data data_sim data_sim
+bin inst 1 reg 1:2 0:10000 2 unit ang
+ignore inst 1 reg 1:2 0:3 unit ang
+ignore inst 1 reg 1:2 11:1000 unit ang
+</pre></div>
+</div>
+<p>Load the above command file into SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; log exe data_gx
+</pre></div>
+</div>
+</div>
+<div class="section" id="plotting-data">
+<h2>2.3.5. Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">¶</a></h2>
+<p>A command file tailored for this thread to plot the data is available here <a class="reference download internal" download="" href="../../_downloads/95f641e84edc0eb0276e56dfa921606f/plot_edges.com"><code class="xref download docutils literal notranslate"><span class="pre">plot_edges.com</span></code></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat plot_edges.com
+# plot setting
+plot dev xw
+plot type data
+plot x lin
+plot y lin
+plot ux a
+plot uy fa
+plot rx 6:10
+plot ry 0:900
+plot set 1
+# HEG color blue
+plot data col 11
+plot mod lw 3
+plot fill disp f
+plot back disp f
+plot cap id disp f
+plot cap ut disp f
+plot cap lt disp f
+plot
+</pre></div>
+</div>
+<p>Load the above command file into SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; log exe plot_edges
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/data_display.png"><img alt="../../_images/data_display.png" src="../../_images/data_display.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="defining-the-broadband-model">
+<h2>2.3.6. Defining the broadband model<a class="headerlink" href="#defining-the-broadband-model" title="Permalink to this headline">¶</a></h2>
+<p>We are studying the interstellar dust along the line of sight of a bright low-mass X-ray binary located near the
+Galactic bulge (distance 6.1 kpc).</p>
+<div class="section" id="setting-the-distance-of-the-source">
+<h3>2.3.6.1. Setting the distance of the source<a class="headerlink" href="#setting-the-distance-of-the-source" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; distance 6.1 kpc
+ Distances assuming H0 =  70.0 km/s/Mpc, Omega_m = 0.300 Omega_Lambda = 0.700 Omega_r = 0.000
+Sector       m      A.U.        ly        pc       kpc       Mpc  redshift        cz   age(yr)
+----------------------------------------------------------------------------------------------
+   1 1.882E+20 1.258E+09 1.990E+04 6100.0000    6.1000 6.100E-03    0.0000       0.4 1.990E+04
+----------------------------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-sed">
+<h3>2.3.6.2. Setting the SED<a class="headerlink" href="#setting-the-sed" title="Permalink to this headline">¶</a></h3>
+<p>Set the intrinsic spectral-energy-distribution (SED) of the low-mass X-ray binary. For a typical X-ray binary,
+the SED between 0.1 and 10 keV is described by two components (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract">Mitsuda et al. 1984</a>): a thermal component, e.g. a black-body (<code class="docutils literal notranslate"><span class="pre">bb</span></code>),
+and a non-thermal component, e.g. a power-law (<code class="docutils literal notranslate"><span class="pre">pow</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com pow
+ You have defined    1 component.
+SPEX&gt; par 1 1 norm value 30
+SPEX&gt; par 1 1 gamm value 1.1
+SPEX&gt; com bb
+ You have defined    2 components.
+SPEX&gt; par 1 2 norm value 3.e-7
+SPEX&gt; par 1 2 t value 0.8
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-galactic-cold-neutral-absorption">
+<h3>2.3.6.3. Setting the Galactic cold neutral absorption<a class="headerlink" href="#setting-the-galactic-cold-neutral-absorption" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com hot
+ You have defined    3 components.
+SPEX&gt; par 1 3 nh value 1.9e-2
+SPEX&gt; par 1 3 t value 5e-4
+SPEX&gt; par 1 3 t status frozen
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-the-dust-absorption">
+<h2>2.3.7. Defining the dust absorption<a class="headerlink" href="#defining-the-dust-absorption" title="Permalink to this headline">¶</a></h2>
+<p>Here we introduce the <code class="docutils literal notranslate"><span class="pre">amol</span></code> components to characterise the interstellar dust extinction. In this example we add four
+arbitrary dust compounds: a-olivine (index=4230, <img class="math" src="../../_images/math/bdb3e4d86946e1ada705dbe628e971bc95d7ec22.svg" alt="\mathrm{Mg Fe Si O_4}" style="vertical-align: -3px"/>), a-quartz (index=2234,
+<img class="math" src="../../_images/math/bea91a8d19ece94c177506283c7771644f24968d.svg" alt="\mathrm{Si O_2}" style="vertical-align: -2px"/>), c-forsterite (index=3230, <img class="math" src="../../_images/math/8cdc4996e90a71e7801c41915422135ee6c97ecc.svg" alt="\mathrm{Mg_2 Si O_4}" style="vertical-align: -3px"/>), and a-enstatite (index=3231,
+<img class="math" src="../../_images/math/cb2136d3e76019ef51c256479a527ac1ffb0a847.svg" alt="\mathrm{Mg Si O_3}" style="vertical-align: -3px"/>). The full list of all compounds is reported in Table <a class="reference internal" href="../../models/amol.html#tab-xride-table"><span class="std std-ref">Compounds list.</span></a> and
+Table <a class="reference internal" href="../../models/amol.html#tab-additional-compounds"><span class="std std-ref">Additional compounds list.</span></a> in the <a class="reference internal" href="../../models/amol.html#sec-amolmodel"><span class="std std-ref">Amol: interstellar dust absorption model</span></a> section of the manual.</p>
+<div class="section" id="setting-the-interstellar-dust-models">
+<h3>2.3.7.1. Setting the interstellar dust models<a class="headerlink" href="#setting-the-interstellar-dust-models" title="Permalink to this headline">¶</a></h3>
+<p>Defining <code class="docutils literal notranslate"><span class="pre">amol</span></code> with the initial guess for the column densities of the dust compounds:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com amol
+ You have defined    4 components.
+SPEX&gt; par 1 4 i1 value 4230
+SPEX&gt; par 1 4 i2 value 2234
+SPEX&gt; par 1 4 i3 value 3230
+SPEX&gt; par 1 4 i4 value 3231
+SPEX&gt; par 1 4 n1 value 1e-7
+SPEX&gt; par 1 4 n2 value 1e-7
+SPEX&gt; par 1 4 n3 value 1e-7
+SPEX&gt; par 1 4 n4 value 1e-7
+SPEX&gt; par 1 4 n1 status thawn
+SPEX&gt; par 1 4 n2 status thawn
+SPEX&gt; par 1 4 n3 status thawn
+SPEX&gt; par 1 4 n4 status thawn
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is necessary to change and let free to vary the relative abundances of the cold gas elements
+(HOT in this case) which are also contained in the dust compounds. In this example, the dust models
+contain oxygen (<code class="docutils literal notranslate"><span class="pre">08</span></code>), magnesium (<code class="docutils literal notranslate"><span class="pre">12</span></code>), silicon (<code class="docutils literal notranslate"><span class="pre">14</span></code>) and iron (<code class="docutils literal notranslate"><span class="pre">26</span></code>). We let them to vary within
+a limited range according to the depletion intervals defined by
+<a class="reference external" href="https://books.google.nl/books?id=k21lk4sORpEC">Whittet et al. (2002)</a>
+and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009ApJ...700.1299J/abstract">Jenkins et al. (2009)</a>.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 3 08 value 0.7
+SPEX&gt; par 1 3 12 value 0.10
+SPEX&gt; par 1 3 14 value 0.10
+SPEX&gt; par 1 3 26 value 0.05
+SPEX&gt; par 1 3 08 range 0.4 1
+SPEX&gt; par 1 3 12 range 0 0.4
+SPEX&gt; par 1 3 14 range 0 0.4
+SPEX&gt; par 1 3 26 range 0 0.2
+SPEX&gt; par 1 3 08 status thawn
+SPEX&gt; par 1 3 12 status thawn
+SPEX&gt; par 1 3 14 status thawn
+SPEX&gt; par 1 3 26 status thawn
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-component-relations">
+<h3>2.3.7.2. Setting the component relations<a class="headerlink" href="#setting-the-component-relations" title="Permalink to this headline">¶</a></h3>
+<p>Adding the multiplicative components <code class="docutils literal notranslate"><span class="pre">hot</span></code> and <code class="docutils literal notranslate"><span class="pre">amol</span></code> to the broad-band model:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 1:2 4,3
+SPEX&gt; model show
+--------------------------------------------------------------------------------
+ Number of sectors         :     1
+ Sector:    1 Number of model components:     4
+    Nr.    1: pow [4,3 ]
+    Nr.    2: bb  [4,3 ]
+    Nr.    3: hot
+    Nr.    4: amol
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fitting">
+<h2>2.3.8. Fitting<a class="headerlink" href="#fitting" title="Permalink to this headline">¶</a></h2>
+<p>We fit the model to the data and print the free parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; calc
+SPEX&gt; fit print 1
+SPEX&gt; fit
+SPEX&gt; fit
+SPEX&gt; plot
+SPEX&gt; par show free
+
+--------------------------------------------------------------------------------------------------
+sect comp mod  acro parameter with unit     value      status    minimum   maximum lsec lcom lpar
+
+   1    1 pow  norm Norm (1E44 ph/s/keV)  23.14066     thawn     0.0      1.00E+20
+   1    1 pow  gamm Photon index         0.9320605     thawn    -10.       10.
+
+   1    2 bb   norm Area (1E16 m**2)     3.5883755E-07 thawn     0.0      1.00E+20
+   1    2 bb   t    Temperature (keV)    0.7793768     thawn    1.00E-04  1.00E+03
+
+   1    3 hot  nh   X-Column (1E28/m**2) 2.0304110E-02 thawn     0.0      1.00E+20
+   1    3 hot  08   Abundance O          0.5010648     thawn    0.40       1.0
+   1    3 hot  12   Abundance Mg         0.1016048     thawn     0.0      0.40
+   1    3 hot  14   Abundance Si         0.1060375     thawn     0.0      0.40
+   1    3 hot  26   Abundance Fe          0.000000     thawn     0.0      0.20
+
+   1    4 amol n1   Column 1 (1E28/m**2) 5.6286910E-07 thawn     0.0      1.00E+20
+   1    4 amol n2   Column 1 (1E28/m**2) 1.1466740E-07 thawn     0.0      1.00E+20
+   1    4 amol n3   Column 1 (1E28/m**2) 1.3037014E-07 thawn     0.0      1.00E+20
+   1    4 amol n4   Column 1 (1E28/m**2) 9.8849377E-08 thawn     0.0      1.00E+20
+
+
+Instrument     1 region    1 has norm    1.00000E+00 and is frozen
+Instrument     1 region    2 has norm    1.00000E+00 and is frozen
+
+--------------------------------------------------------------------------------
+ Fluxes and restframe luminosities between   2.0000     and    10.000     keV
+
+ sect comp mod   photon flux   energy flux nr of photons    luminosity
+              (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
+    1    1 pow    7877.93      6.754451E-12  4.125361E+45  3.331746E+30
+    1    2 bb     3030.35      1.681985E-12  1.818740E+45  9.538203E+29
+
+--------------------------------------------------------------------------------
+ Fit method        : Classical Levenberg-Marquardt
+ Fit statistic     : C-statistic
+ C-statistic       :      2388.02
+ Expected C-stat   :      2402.60 +/-        69.35
+ Chi-squared value :      2406.15
+ Degrees of freedom:      2388
+ W-statistic       :         0.00
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/data_model.png"><img alt="../../_images/data_model.png" src="../../_images/data_model.png" style="width: 600px;" /></a>
+</div>
+</div>
+<div class="section" id="final-remarks">
+<h2>2.3.9. Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
+<p>This is the end of this analysis thread. If you want, you can save the parameters and quit SPEX:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par write parameters
+SPEX&gt; log out fit_result
+SPEX&gt; par show
+SPEX&gt; log close output
+    SPEX&gt; quit
+     Thank you for using SPEX!
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partbkg/partbkg.html">2.2. Modeling particle background</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Fitting interstellar dust absorption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.4. Import UV/Optical data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.5. PION setup for AGN warm absorber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../threads.html">2. Analysis threads</a><ul>
+      <li>Previous: <a href="../partbkg/partbkg.html" title="previous chapter">2.2. Modeling particle background</a></li>
+      <li>Next: <a href="../uv.html" title="next chapter">2.4. Import UV/Optical data</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

@@ -331,6 +331,7 @@
 <li><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of components in sector.</p></li>
 <li><p><strong>comp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – List of component objects.</p></li>
 <li><p><strong>distance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Distance for this sector.</p></li>
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="#pyspex.model.Spectrum" title="pyspex.model.Spectrum"><em>pyspex.model.Spectrum</em></a>) – Model spectrum for this sector</p></li>
 </ul>
 </dd>
 </dl>
@@ -1083,15 +1084,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 <li><p><strong>energy</strong> (<em>numpy.ndarray</em>) – Centroids of bins (Energy, keV)</p></li>
 <li><p><strong>energy_upper</strong> (<em>numpy.ndarray</em>) – Upper boundaries of bins (Energy, keV)</p></li>
 <li><p><strong>energy_width</strong> (<em>numpy.ndarray</em>) – Widths of bins (Energy, keV)</p></li>
-<li><p><strong>spectrum</strong> (<em>numpy.ndarray</em>) – Spectrum of bins (in ph/s/m**2/bin)</p></li>
-<li><p><strong>weights</strong> – Weights (if Delta E = average photon energy within the bin (keV) minus the bin centroid, then weights = spectrum * Delta E)</p></li>
+<li><p><strong>spectrum</strong> (<em>numpy.ndarray</em>) – Spectrum of bins (in ph/s/m**2/bin at observatory)</p></li>
+<li><p><strong>luminosity</strong> (<em>numpy.ndarray</em>) – Spectrum of bins (in 10^44 ph/s/keV at source distance)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="method">
 <dt id="pyspex.model.Spectrum.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Spectrum.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Spectrum.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the model spectrum from SPEX.</p>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Spectrum.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Spectrum.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model spectra from SPEX for sector number isect.</p>
 </dd></dl>
 
 </dd></dl>

@@ -59,7 +59,27 @@
 <span class="n">__version__</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;|S1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="Session"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session">[docs]</a><span class="k">class</span> <span class="nc">Session</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_Singleton</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class is introduced to make sure that a PYSPEX session is only </span>
+<span class="sd">       initialized once. F2PY is not capable of creating truly separate </span>
+<span class="sd">       sessions, unfortunately. This class provides a common Python Singleton </span>
+<span class="sd">       implementation as a metaclass for Session.&quot;&quot;&quot;</span>
+       
+    <span class="n">instance</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">_Singleton</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: You can only start one session of PYSPEX within Python.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This function will return the instance of the original session.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span>
+
+
+<span class="k">class</span> <span class="nc">Singleton</span><span class="p">(</span><span class="n">_Singleton</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;SingletonMeta&quot;</span><span class="p">),</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{})):</span> <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="Session"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session">[docs]</a><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="n">Singleton</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This class contains all the classes and commands that are available in a pySPEX session.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Session.__init__"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -103,7 +123,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">pyspex</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_init</span><span class="p">()</span>  <span class="c1"># Initialize Fortran to Python interface</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span>  <span class="c1">#: The SPEX version number</span>
 
         <span class="c1"># Initialize class for data related commands</span>
@@ -465,6 +485,12 @@
 <span class="sd">        :type overwrite: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ins</span><span class="p">,</span> <span class="n">spofile</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">data_show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show a summary of the loaded data.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;data show&#39;</span><span class="p">)</span>
+
 
     <span class="c1"># ======================================================</span>
     <span class="c1"># Dem commands</span>
