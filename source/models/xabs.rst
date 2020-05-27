@@ -43,8 +43,10 @@ The parameters of the model are:
   latitudes).
 | ``xi`` : the :math:`{ }^{10}\log` of the ionisation parameter
   :math:`\log\xi` in units of :math:`10^{-9}` Wm. Default value: 1.
-| The following parameters are common to all our absorption models:
-  ``fcov`` : The covering factor of the absorber. Default value: 1 (full
+
+The following parameters are common to all our absorption models:
+
+| ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend
