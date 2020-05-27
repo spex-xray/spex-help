@@ -41,7 +41,7 @@ The parameters of the model are:
   Default value: :math:`10^{-4}` (corresponding to
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
-| ``xi`` : the :math:`{ }^{10}`log of the ionisation parameter
+| ``xi`` : the :math:`{ }^{10}\log` of the ionisation parameter
   :math:`\log\xi` in units of :math:`10^{-9}` Wm. Default value: 1.
 | The following parameters are common to all our absorption models:
   ``fcov`` : The covering factor of the absorber. Default value: 1 (full
