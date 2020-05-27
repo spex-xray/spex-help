@@ -70,23 +70,21 @@ The following compounds are presently taken into account (see Table :ref:`tab:xr
    4272       c-anorthite           :math:`\mathrm{Ca Al_2 Si_2 O_8}`                             crystalline   Ca 1s                `[13] <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
    =========  ===================== ============================================================= ============= ==================== ===============================================
 
-.. rubric:: References
-
-.. [1] `Chang et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract>`_
-.. [2] `exafsmaterials.com <http://exafsmaterials.com/Ref_Spectra_0.4MB.pdf>`_
-.. [3] `Van Loon et al. (2015) <https://www.ncbi.nlm.nih.gov/pubmed/25859648>`_
-.. [4] `Albella et al. (1998) <https://digital.library.unt.edu/ark:/67531/metadc668006/>`_
-.. [5] `esrf.eu <http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu>`_
-.. [6] `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_
-.. [7] `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_
-.. [8] `Fukushi et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017GeCoA.213..457F/abstract>`_
-.. [9] `Costantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract>`_
-.. [10] `Shin et al. (2013) <https://pubs.rsc.org/en/content/articlelanding/2013/EE/C2EE22739H#!divAbstract>`_
-.. [11] `Bonnin-Mosbah et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract>`_
-.. [12] `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_
-.. [13] `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_
-.. [14] `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
-.. [15] `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
+[1] `Chang et al. (1999) <https://ui.adsabs.harvard.edu/abs/1999JAP....86.5609C/abstract>`_,
+[2] `exafsmaterials.com <http://exafsmaterials.com/Ref_Spectra_0.4MB.pdf>`_,
+[3] `Van Loon et al. (2015) <https://www.ncbi.nlm.nih.gov/pubmed/25859648>`_,
+[4] `Albella et al. (1998) <https://digital.library.unt.edu/ark:/67531/metadc668006/>`_,
+[5] `esrf.eu <http://www.esrf.eu/home/UsersAndScience/Experiments/XNP/ID21/php/Database-SCompounds.htmlesrf.eu>`_,
+[6] `Rogantini et al. (2018) <https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..22R/abstract>`_,
+[7] `Zeegers et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..16Z/abstract>`_,
+[8] `Fukushi et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017GeCoA.213..457F/abstract>`_,
+[9] `Costantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...629A..78C/abstract>`_,
+[10] `Shin et al. (2013) <https://pubs.rsc.org/en/content/articlelanding/2013/EE/C2EE22739H#!divAbstract>`_,
+[11] `Bonnin-Mosbah et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002AcSpe..57..711B/abstract>`_,
+[12] `Rogantini et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...630A.143R/abstract>`_,
+[13] `Neuville et al. (2007) <https://ui.adsabs.harvard.edu/abs/2007AIPC..882..419N/abstract>`_,
+[14] `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_,
+[15] `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_.
 
 Additional molecules are listed in Table :ref:`tab:additional_compounds`.
 These models do not include scattering and were not integrated over a size 
@@ -140,20 +138,17 @@ distribution. They will be updated in future versions.
    7001       enstatite_paulite   :math:`\mathrm{Ca_2 Mg_4 Al_{0.75} Fe_{0.25} Si_7 Al O_{22} (OH)_2}`                   Si 1s           `[20] <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
    ========== =================== ====================================================================================== =============== =====
 
-.. rubric:: References
-
-.. [16] `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_
-.. [17] `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
-.. [18] `Hiraya et al. (2001) <https://ui.adsabs.harvard.edu/abs/2001PhRvA..63d2705H/abstract>`_
-.. [19] `Parent et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract>`_
-.. [20] `Lee et al. (2010) <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
-.. [21] `Wight et al. (1974) <https://doi.org/10.1016/0368-2048(74)80010-1>`_
-.. [22] `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
-.. [23] `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_
-.. [24] `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_
-.. [25] `Lee et al. (2008) <https://www.pnas.org/content/105/23/7925>`_
-.. [26] `Hayakawa et al. (2008) <https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja>`_
-
+[16] `Barrus et al. (1979) <https://ui.adsabs.harvard.edu/abs/1979PhRvA..20.1045B/abstract>`_,
+[17] `Lee et al. (2009) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_,
+[18] `Hiraya et al. (2001) <https://ui.adsabs.harvard.edu/abs/2001PhRvA..63d2705H/abstract>`_,
+[19] `Parent et al. (2002) <https://ui.adsabs.harvard.edu/abs/2002JChPh.11710842P/abstract>`_,
+[20] `Lee et al. (2010) <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_,
+[21] `Wight et al. (1974) <https://doi.org/10.1016/0368-2048(74)80010-1>`_,
+[22] `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_,
+[23] `Lee et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005ApJ...622..970L/abstract>`_,
+[24] `Fujii et al. (2003) <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_,
+[25] `Lee et al. (2008) <https://www.pnas.org/content/105/23/7925>`_,
+[26] `Hayakawa et al. (2008) <https://www.jstage.jst.go.jp/article/analsci/24/7/24_7_835/_article/-char/ja>`_.
 
 
 The chemical composition of these minerals was mainly taken from the
