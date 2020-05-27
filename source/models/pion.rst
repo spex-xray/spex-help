@@ -248,7 +248,7 @@ The parameters of the model are:
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
 | ``xi`` : the :math:`^{10}\log` of the ionisation parameter
-  :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
+  :math:`\xi` in units of :math:`10^{-9}` W m. Default value: 1.
 | ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
