@@ -1,6 +1,4 @@
-
-
-   program compttxspec
+     program compttxspec
      use moduser
      implicit none
      
@@ -54,6 +52,6 @@
      call system("rm -rf user.dat")
      call system("rm -rf comptt.tcl")
      
-   end program compttxspec
+     end program compttxspec
    
      
