@@ -10,7 +10,7 @@ PION setup for emission and absorption features in AGN
 Goal
 ----
 
-Setup the PION model for the emission and absorption features in a nearby
+Setup the PION model (:ref:`sec:pion`) for the emission and absorption features in a nearby
 Seyfert 1 galaxy observed with XMM-Newton (OM, RGS, and EPIC-pn).
 
 .. note:: A simulated spectrum was used because this thread merely intends
@@ -114,7 +114,7 @@ Seyfert 1 galaxy.
    :width: 600
 
 Set the distance of the source
-''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''
 
 ::
 
@@ -126,7 +126,7 @@ Set the distance of the source
     ----------------------------------------------------------------------------------------------
 
 Set the redshift component
-''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''
 
 ::
 
@@ -135,7 +135,7 @@ Set the redshift component
     SPEX> par 1 1 z val 0.07
 
 Set the galactic absorption
-'''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''
 
 ::
 
@@ -147,7 +147,7 @@ Set the galactic absorption
     SPEX> par 1 2 nh s f
 
 Set the components and component relations for line-of-sight #1
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 **(A)** Set the intrinsic spectral-energy-distribution (SED) of the AGN above
 the Lyman limit along line-of-sight #1.
@@ -155,9 +155,9 @@ the Lyman limit along line-of-sight #1.
 For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al.
 2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_:
 
-  - A Comptonized disk component (``comt``) for optical to soft X-rays data
-  - A power-law component (``pow``) for X-ray data
-  - A neutral reflection component (``refl``) for hard X-rays data. Usually, the
+  - A Comptonized disk component (:ref:`sect:comt`) for optical to soft X-rays data
+  - A power-law component (:ref:`sect:pow`) for X-ray data
+  - A neutral reflection component (:ref:`sect:refl`) for hard X-rays data. Usually, the
     reflection component has an exponential cut-off energy (300 keV here).
 
 ::
@@ -316,7 +316,7 @@ the galactic absorption before reaching the detector.
     SPEX> com rel 12 1,2
 
 Set the components and component relations for line-of-sights #2 and #3
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 **(A)** Set the AGN SED above the Lyman limit along line-of-sights #2a and #3a.
 

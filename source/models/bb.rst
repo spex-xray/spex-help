@@ -1,3 +1,5 @@
+.. _sect:bb:
+
 Bb: blackbody model
 ===================
 

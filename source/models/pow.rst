@@ -1,3 +1,5 @@
+.. _sect:pow:
+
 Pow: power law model
 ====================
 

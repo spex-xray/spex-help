@@ -1,3 +1,5 @@
+.. _sect:musr:
+
 Musr: User defined multiplicative model
 =======================================
 

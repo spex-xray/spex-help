@@ -5,11 +5,11 @@ Some users would like to add their own models to the SPEX program, similar to th
 Since the developers of SPEX do not have the man power to implement all possible models out there in a SPEX variety,
 we have devised a quick way of running external models in SPEX.
 
-SPEX contains two user models ’user’ and ’musr’ for additive and multiplicative models respectively. These model
-components communicate with the external model through an input and output file containing the model parameters,
-the energy grid and the calculated spectrum. By creating a program that reads in the input parameters and energy grid,
-calculates the spectrum, and writes the result to an output file in the right format, users have a very flexible way
-of using any model in SPEX.
+SPEX contains two user models ``user`` (:ref:`sect:user`) and ``musr`` (:ref:`sect:musr`) for additive and
+multiplicative models respectively. These model components communicate with the external model through an input and
+output file containing the model parameters, the energy grid and the calculated spectrum. By creating a program that
+reads in the input parameters and energy grid, calculates the spectrum, and writes the result to an output file
+in the right format, users have a very flexible way of using any model in SPEX.
 
 Since this setup offers many possibilities, we can only show a few examples of how these user model components
 can be used. We have prepared a helper library for Python and Fortran.

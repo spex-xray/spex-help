@@ -1,3 +1,5 @@
+.. _sect:hot:
+
 Hot: collisional ionisation equilibrium absorption model
 ========================================================
 

@@ -1,3 +1,5 @@
+.. _sect:user:
+
 User: User defined model
 ========================
 

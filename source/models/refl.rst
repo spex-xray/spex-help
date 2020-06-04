@@ -1,3 +1,5 @@
+.. _sect:refl:
+
 Refl: reflection model
 ======================
 

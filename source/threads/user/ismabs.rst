@@ -107,7 +107,7 @@ Use the Xspec local model in SPEX
 ---------------------------------
 
 Start SPEX in a directory where the loc-xspec executable that we just made is located. Since the ismabs model is a
-multiplicative model, we need to load the musr component. In the example below, we show how a power-law model is
+multiplicative model, we need to load the ``musr`` component. In the example below, we show how a power-law model is
 absorbed by ismabs in SPEX::
 
     SPEX> com po
@@ -120,5 +120,5 @@ absorbed by ismabs in SPEX::
 
 The file ``local_ismabs.dat`` also describes the parameters and their limits in order. It is advisable to write a SPEX
 command file to set the parameters and their ranges to their default values. The order of the parameters should be
-the same in the musr model and in the ``local_ismabs.dat`` file. If the bookkeeping is right, you should be able to
+the same in the ``musr`` model and in the ``local_ismabs.dat`` file. If the bookkeeping is right, you should be able to
 issue a calculate command in SPEX and show the absorbed power law in a plot.

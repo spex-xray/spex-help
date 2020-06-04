@@ -1,3 +1,5 @@
+.. _sect:reds:
+
 Reds: redshift model
 ====================
 

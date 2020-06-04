@@ -1,3 +1,5 @@
+.. _sect:cie:
+
 Cie: collisional ionisation equilibrium model
 =============================================
 
