@@ -1,5 +1,7 @@
 .. _sec:distance:
 
+  .. highlight:: none
+
 Distance: set the source distance
 =================================
 
@@ -26,7 +28,7 @@ Allowed distance units are shown in the table below.
    =========== ================================================================
    spex        internal SPEX units of :math:`10^{22}` m (this is the default)
    m           meter
-   au          Astronomical Unit, 1.49597892 10\ :math:`^{11}` m
+   au          Astronomical Unit, 1.49597892 \ :math:`10^{11}` m
    ly          lightyear, 9.46073047 \ :math:`10^{15}` m
    pc          parsec, 3.085678 \ :math:`10^{16}` m
    kpc         kpc, kiloparsec, 3.085678 \ :math:`10^{19}` m
@@ -41,11 +43,11 @@ calculations ranging from solar flares to clusters of galaxies can be
 done with single precision arithmetic, without causing underflow or
 overflow. For the last two units (z and cz), it is necessary to specify
 a cosmological model. Currently this model is simply described by
-H\ :math:`_0`, :math:`\Omega_m` (matter density), :math:`\Omega_\Lambda`
+:math:`\mathrm{H}_0`, :math:`\Omega_m` (matter density), :math:`\Omega_\Lambda`
 (cosmological constant related density), and :math:`\Omega_r` (radiation
 density). At startup, the values are:
 
-H\ :math:`_0`: 70 km/s/Mpc ,
+:math:`\mathrm{H}_0`: 70 km/s/Mpc ,
 
 :math:`\Omega_m`: 0.3 ,
 
@@ -57,15 +59,15 @@ i.e. a flat model with cosmological constant. However, the user can
 specify other values of the cosmological parameters. Note that the
 distance is in this case the luminosity distance.
 
-Note that the previous defaults for SPEX (H:math:`_0=50`,
+Note that the previous defaults for SPEX (:math:`\mathrm{H}_0=50`,
 :math:`q_0=0.5`) can be obtained by putting H\ :math:`_0=50`,
 :math:`\Omega_m=1`, :math:`\Omega_\Lambda=0` and :math:`\Omega_r=0`.
 
 .. warning:: When H\ :math:`_0` or any of the :math:`\Omega` is changed,
              the luminosity distance will not change, but the equivalent
              redshift of the source is adjusted. For example, setting the distance
-             first to z=1 with the default H\ :math:`_0`\ =70 km/s/Mpc results
-             into a distance of :math:`2.039\,10^{26}` m. When H\ :math:`_0` is
+             first to z=1 with the default :math:`\mathrm{H}_0`\ =70 km/s/Mpc results
+             into a distance of :math:`2.039\,10^{26}` m. When :math:`\mathrm{H}_0` is
              then changed to 100 km/s/Mpc, the distance is still :math:`2.168\,10^{26}` m,
              but the redshift is adjusted to 1.3342.
 
@@ -86,7 +88,7 @@ The following syntax rules apply to setting the distance:
   sectors.
 | ``distance show`` : displays the distance in various units for all
   sectors.
-| ``distance h0 #r`` : sets the Hubble constant H\ :math:`_0` to the
+| ``distance h0 #r`` : sets the Hubble constant :math:`\mathrm{H}_0` to the
   value #r.
 | ``distance om #r`` : sets the :math:`\Omega_m` parameter to the value
   #r.

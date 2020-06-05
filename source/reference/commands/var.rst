@@ -15,7 +15,7 @@ Free-bound emission
 
 Usually the freebound emission takes most of the computing time for the
 plasma models. This is because it needs to be evaluated for all
-energies, ions and atomic sublevels that are relevant. In rder to reduce
+energies, ions and atomic sublevels that are relevant. In order to reduce
 the computational burden, there is a parameter gfbacc in SPEX that is
 approximately the accuracy level for the free-bound calculation. The
 default value is :math:`10^{-3}`. If this quantity is higher, less
@@ -29,7 +29,7 @@ Line emission contributions
 By default, all possible line emission processes are taken into account
 in the plasma models. For testing purposes, it is possible to include or
 exclude specific contributions. These are listed below in
-`the table below <#tab:linproc>`__.
+the table below.
 
 .. table:: Possible line emission processes
 
@@ -62,12 +62,9 @@ broadening are:
 Atomic data
 ~~~~~~~~~~~
 
-The user can choose between the "old" Mekal code (the current default)
-and updated calculations for the ions for which this is possible.
-
-.. Warning:: The updated atomic database that can be used through the
-   command "var calc new" is still being developed and incomplete. Using
-   this database is therefore not yet recommended.
+The user can choose between the "old" Mekal code (the current default,
+also referred to as SPEXACT v2) and updated calculations with the
+command ``var calc new`` (referred to as SPEXACT v3).
 
 Calculation level occupations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,16 +81,16 @@ ions of an element are converged. This usually takes between 2 and about
 25 iterations, depending on the precise physical conditions.
 
 As starting values we assume that all ions are in the ground state, and
-then we iterate (this is the default mode). By setting *var occstart
-boltzmann*, we can change this to an initial Boltzmann distribution for
+then we iterate (this is the default mode). By setting ``var occstart
+boltzmann``, we can change this to an initial Boltzmann distribution for
 the occupation. This may be more appropriate for very high density
 plasmas. To reduce the number of iterations, one may also start with
-*var occstart last*, in which case the results from the last calculation
+``var occstart last``, in which case the results from the last calculation
 are used as starting values. This can be useful for spectral fitting
 and/or error searches, where for each call the parameters of the model
 are close to those for the previous call.
 
-.. Warning:: The var occstart last option will have limited advantage
+.. Warning:: The ``var occstart last`` option will have limited advantage
    if the model during a fit is far off from the final values (large
    parameter changes during fitting), or with multiple components (in which
    case the last parameters stored in the newlin subroutine may be
@@ -103,7 +100,7 @@ are close to those for the previous call.
 Mekal code
 ~~~~~~~~~~
 
-We have made several minor improvements to the original Mekal plasma
+Over the years, we have made several minor improvements to the original Mekal plasma
 model. These improvements are included by default. However, it is
 possible to discard some of these improvements by going back to the old
 code. The improvements are classified as follows (with the appropriate
@@ -133,23 +130,23 @@ mixture of more modern data for collisional excitation taken from our
 new SPEX calculations, or for ions for which no new data are yet
 available, from the Chianti database, and in a few rare cases we still
 use the old Mekal data (4 ions only). For a full description see
-Stofanova et al. (2019, in prep.). This new calculation is now the
-default, but the user can switch between both by selecting the *var
-newcoolexc #l* option.
+Stofanova et al. (2020, subm.). This new calculation is now the
+default, but the user can switch between both by selecting the ``var
+newcoolexc #l`` option.
 
 Cooling by dielectronic recombination
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the oldest version of the *pion* model, cooling by dielectronic
+In the oldest version of the *pion* model, cooling by di-electronic
 recombination was not included. This has now been corrected. Wherever
-available, cooling rates are calculated directly from the dielectronic
+available, cooling rates are calculated directly from the di-electronic
 recombination model from the latest model, for those ions for which
 Auger rates and associated energies are available. For all other ions,
 we use the old calculations from the Mekal code (with only the *dr* and
 *ds* flags turned on).
 
 The user has the option, however, to use only Mekal data (for
-comparison) by setting the command *var newcooldr false*.
+comparison) by setting the command ``var newcooldr false``.
 
 Syntax
 ------

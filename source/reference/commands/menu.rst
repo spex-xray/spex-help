@@ -17,9 +17,9 @@ Syntax
 The following syntax rules apply:
 
 | ``menu none`` : Quit the current menu text settings (i.e., return to
-  the default spex prompt.
+  the default spex prompt).
 | ``menu text #a`` : For all following commands, the text string #a will
-  be appended automatically before the following commands
+  be appended automatically before the following commands.
 
 Examples
 ~~~~~~~~

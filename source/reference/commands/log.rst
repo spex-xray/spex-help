@@ -68,8 +68,8 @@ calling command file is resumed, or if the command file was opened from
 the terminal, control is passed over to the terminal again.
 
 For example, the user may have a command file named *run* which does his
-entire analysis. This command file might start with the line "log exe
-mydata" that will run the command file *mydata* that contains all
+entire analysis. This command file might start with the line ``log exe
+mydata`` that will run the command file *mydata* that contains all
 information regarding to the data sets read, further data selection or
 binning etc. This could be followed by a second line in *run* like "log
 exe mymodel" that runs the command file *mymodel* which could contain

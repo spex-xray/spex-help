@@ -38,7 +38,7 @@ The following syntax rules apply:
   entered the number of dimensions.
 | ``step file example`` : Do the step search and also write the results
   to an .stp file used by the stepcontour program (see
-  `Stepcontour <#sec:stepcontour>`__).
+  :ref:`sec:stepcontour`).
 
 .. Warning:: The step file command will overwrite existing .stp files
    with the same name by default.
@@ -54,14 +54,14 @@ abundace (linear between 0.0 and 1.0 with 11 steps) and Si abundance
 (linear between 0.0 and 2.0 with 5 steps, i.e. values 0.0, 0.4, 0.8,
 1.2, 1.6 and 2.0) the following commands should be issued:
 
-| ``fit`` : Do not forget to do first a fit
+| ``fit`` : Do not forget to do first a fit.
 | ``step dimension 3`` : We will do a three-dimensional grid search
 | ``step axis 1 parameter 1 1 t range 0.1:10.0 n -21`` : The logarithmic
   grid for the first axis, temperature; note the :math:`-` before the
   21!
 | ``step axis 2 par 26 range 0:1 n 11`` : The grid for axis 2, Fe
-  abundance
-| ``step axis 3 par 14 range 0:2 n 5`` : Idem for the 3rd axis, Silicon
+  abundance.
+| ``step axis 3 par 14 range 0:2 n 5`` : Idem for the 3rd axis, Silicon.
 | ``step`` : Now do the grid search. Output is in the form of ascii data
   on your screen (and/or output file if you opened one).
 | ``step file example`` : Grid search with output to your screen and

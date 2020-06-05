@@ -5,7 +5,7 @@ Plot types
 
 There are several plot types available in SPEX. Below we list them together
 with the acronym that should be used when defining this plot type (in a
-“plot type” command).
+``plot type`` command).
 
 -  ``data`` – a spectrum observed with an instrument plus optionally the
    folded (predicted) model spectrum and/or the subtracted background
@@ -24,7 +24,7 @@ with the acronym that should be used when defining this plot type (in a
    are divided by the energy of the incoming photon.
 
 -  ``chi`` – the fit residuals, either expressed in units such as counts/s
-   or the same units as the spectrum, or expressed in terms of numer of
+   or the same units as the spectrum, or expressed in terms of number of
    standard deviations, or as a relative error.
 
 -  ``dem`` – a differential emission measure distribution.

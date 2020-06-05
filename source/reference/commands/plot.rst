@@ -27,9 +27,9 @@ as well as character commands like font style, line weights, plot
 colours, etc. Finally, the plot command can also be used to dump the
 data to an ascii file.
 
-.. warning:: To make a plot, always start with a "plot device" command
-   to open any plot device you wish. Next select a plot type using "plot
-   type". After this you can give any plot commands to modify or display
+.. warning:: To make a plot, always start with a ``plot device`` command
+   to open any plot device you wish. Next select a plot type using ``plot
+   type``. After this you can give any plot commands to modify or display
    the plot.
 
 .. warning:: Some of the more fancy plotting options, like adding
@@ -55,17 +55,17 @@ The following syntax rules apply for plot:
 | ``plot frame delete #i`` : Deletes frame number #i.
 | ``plot type #a`` : Specifies what is to be plotted in the selected
   frame. #a can be any of the plot types specified in
-  Section `Plot types <#sec:plottypes>`__.
+  :ref:`sect:plottypes`.
 | ``plot device #a1 [#a2]`` : Selects a graphics device #a1 and optional
   file name #a2 (in the case of a postscript or gif device). File
   extensions (for example .ps) should be specified. For valid devices,
-  see Section `Plot devices <#sec:plotdevices>`__.
+  see :ref:`sect:plotdevices`.
 | ``plot close #i`` : Close graphics device number #i. Note, always
   close a postscript device before quiting /spex, otherwise the contents
   may be corrupted.
 | ``plot hlan`` : Make a hardcopy in landscape orientation and send it
-  to the standard printer. Use is made of the unix command "lp -c
-  filename".
+  to the standard printer. Use is made of the unix command ``lp -c
+  filename``.
 | ``plot hpor`` : As above, but for portrait orientation
 | ``plot x lin`` : Plot the x-axis on a linear scale
 | ``plot x log`` : Plot the x-axis on a log scale
@@ -75,13 +75,13 @@ The following syntax rules apply for plot:
   scale; for y-values below #r1 the data will be plotted linear, and for
   y-values above #r1 the data will be plotted logarithmically; the
   linear part occupies the fraction of the total frame height given by
-  #r2. See also Section `Plot axes scales <#sec:plotscales>`__.
+  #r2. See also :ref:`sect:plotscales`.
 | ``plot z lin`` : Plot the z-axis on a linear scale. The z-axis is
   defined for two-dimensional plots like contour plots.
 | ``plot z log`` : As above, but using a log scale.
 | ``plot ux #a`` : Set the plot units on the x-axis, #a can be Å, keV,
   eV, or whatever unit that is allowed. The allowed values depend upon
-  the plot type. See Section `Plot axes units <#sec:plotunits>`__ for
+  the plot type. See :ref:`sect:plotaxes` for
   allowed units for each plot type.
 | ``plot ux vel #r #a`` : Plot the x-axis in velocity units
   (:math:`\mathrm{km}` :math:`\mathrm{s}^{-1}`), with reference energy provided as #r if #a is
@@ -94,23 +94,23 @@ The following syntax rules apply for plot:
 | ``plot rz #r1:#r2`` : Same as above, but for the z-axis
 | ``plot view default #l`` : For #l is true, the default viewport is
   used. For #l is false, the default viewport is overruled and you can
-  specify your own viewport limits with the "set view x" and "set view
-  y" commands. Useful for stacking different plot frames.
+  specify your own viewport limits with the ``set view x`` and ``set view
+  y`` commands. Useful for stacking different plot frames.
 | ``plot view x #r1:#r2`` : Set the x viewport range from #r1 to #r2,
   where #r1 and #r2 must be in the range 0–1.
 | ``plot view y #r1:#r2`` : Same as above, but for the y-range.
 | ``plot view back #i`` : Set the viewport background colour to value
-  #i. See Section `Plot colours <#sec:plotcolours>`__ for the
+  #i. See Section :ref:`sect:plotcolours` for the
   allowed plot colours.
 | ``plot view transp #l`` : If true, set the viewport background to to
   transparent, the plot frame will be shown with the background colour
-  selected by the "plot view back" command. Default is false.
+  selected by the ``plot view back`` command. Default is false.
 | ``plot box disp #l`` : Display a box around the viewport, true/false
 | ``plot box edge #a #l`` : If true (default), display the edges of the
   plot box, #a should be one of the following keywords: top, bottom,
   left, right. Note that whether you see the edges or not also depends
-  on the settings defined by the "plot box disp" command.
-| ``plot box axis x #l`` : Plots an x-axis with tickmarks at the line
+  on the settings defined by the ``plot box disp`` command.
+| ``plot box axis x #l`` : Plots an x-axis with tick marks at the line
   :math:`y=0`. You only see this of course if your y-range includes the
   value 0.
 | ``plot box axis y #l`` : As above, but for the y-axis
@@ -145,23 +145,22 @@ The following syntax rules apply for plot:
   major tick mark on the x-axis
 | ``plot box tick subdiv y #i`` : Same as above, but for the y-axis
 | ``plot box col #i`` : Set the box colour to colour number #i. See
-  Section `Plot colours <#sec:plotcolours>`__ for the allowed plot
-  colours.
+  :ref:`sect:plotcolours` for the allowed plot colours.
 | ``plot box lt #i`` : Set the box line type to #i. See
-  Section `Plot lines <#sec:plotlines>`__ for allowed line types.
+  :ref:`sect:plotlines` for allowed line types.
 | ``plot box lw #i`` : Set the box line weight to number #i. See
-  Section `Plot lines <#sec:plotlines>`__ for more about line
+  :ref:`sect:plotlines` for more about line
   weights.
 | ``plot box fh #r`` : Set the box font height to number #i.
 | ``plot box font #i`` : Set the box font to number #i. See
-  Section `Plot text <#sec:plottext>`__ for more details about text
+  :ref:`sect:plottext` for more details about text
   fonts.
 | ``plot cap #a disp #l`` : If #l is true, display the caption
   (default). For more about captions see
-  Section `Plot captions <#sec:plotcaptions>`__. Here and below, #a
+  :ref:`sect:plotcaptions`. Here and below, #a
   can be x, y, z, id, lt or ut.
 | ``plot cap #a col #i`` : Plot caption #a in colour number #i. See
-  Section `Plot colours <#sec:plotcolours>`__ for valid colour
+  :ref:`sect:plotcolours` for valid colour
   indices.
 | ``plot cap #a back #i`` : Set the background colour for caption #a to
   #i.
@@ -170,7 +169,7 @@ The following syntax rules apply for plot:
   #r.
 | ``plot cap #a font #i`` : Set the font type for caption #a to #i.
 | ``plot cap #a1 text #a2`` : Set the text for caption #a1 to #a2. Note
-  that the caption text should be put between quotion marks, like "best
+  that the caption text should be put between quotation marks, like "best
   fit results" if you want to see the text: best fit results.
 | ``plot cap #a1 side #a2`` : Plot caption #a1 (which can be x, y, z,
   id, lt, ut) at the side of the frame specified by #a2, which may stand
@@ -190,7 +189,7 @@ The following syntax rules apply for plot:
   be used but are less useful.
 | ``plot string new #r1 #r2 #a`` : Plot a new string with text as
   specified in #a at x=#r1 and y = #r2. See
-  Section `Plot text <#sec:plottext>`__ for more deatils about text
+  :ref:`sect:plottext` for more details about text
   strings. Also do not forget to put #a between "" if it consists of
   more than one word (i.e., if it contains spaces).
 | ``plot string del #i:`` : Delete string numbers specified by the range
@@ -291,7 +290,7 @@ The following syntax rules apply for plot:
 | ``plot data lw #i`` : Give the data line weight #i.
 | ``plot data fh #r`` : Give the symbols for the data font height #r.
 | ``plot data symbol #i`` : Plot the data with symbol number #i. For
-  symbol numbers, see Section `Plot markers <#sec:plotmarkers>`__.
+  symbol numbers, see :ref:`sect:plotmarkers`.
 | ``plot adum #a [overwrite] [append]`` : Dump the data and model in the
   plot in an ascii file with filename #a. The extension ".qdp" will
   automatically be appended. Note that the data will be written as they

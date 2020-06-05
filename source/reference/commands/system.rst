@@ -27,15 +27,15 @@ Syntax
 
 The following syntax rules apply:
 
-| ``system exe #a`` : execute the command #a on your UNIX/linux shell
-| ``system stop #a`` : stop SPEX if the file #a exists
+| ``system exe #a`` : execute the command #a on your UNIX/linux shell.
+| ``system stop #a`` : stop SPEX if the file #a exists.
 
 Examples
 ~~~~~~~~
 
 | ``system exe "ls -l"`` : give a listing of all file names with length
-  in the current directory
+  in the current directory.
 | ``system exe "myfortranprogram"`` : execute the fortran program with
-  name "myfortranprogram"
+  name "myfortranprogram".
 | ``system stop testfile`` : stop SPEX if the file with name testfile
-  exists; if this file does not exist, continue with SPEX
+  exists; if this file does not exist, continue with SPEX.

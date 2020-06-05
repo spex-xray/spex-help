@@ -7,7 +7,7 @@ Overview
 ~~~~~~~~
 
 For the plasma models, it is possible to include or exclude specific
-groups of ions from the line calulations. This is helpful if a better
+groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
 requested.
 
@@ -20,7 +20,7 @@ A new quicklook mode is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
 :math:`n` and :math:`l` of Hydrogen-like ions are provided in
-`the table below <#tab:presetnl>`__.
+the table below.
 
 .. warning:: This mode will not work for CX model, since electron
              captured by charge exchange usually populate the outer shells.
@@ -48,14 +48,14 @@ The following syntax rules apply:
 
 | ``ions show`` : Display the list of ions currently taken into account
 | ``ions use all`` : Use all possible ions in the line spectrum
-| ``ions use iso #i:`` : Use ions of the isoelectronic sequences
+| ``ions use iso #i:`` : Use ions of the iso-electronic sequences
   indicated by #i: in the line spectrum
 | ``ions use z #i:`` : Use ions with the atomic numbers indicated by #i:
   in the line spectrum
 | ``ions use ion #i1 #i2:`` : Use ions with the atomic number indicated
   by #i1 and ionisation stage indicated by #i2: in the line spectrum
 | ``ions ignore all`` : Ignore all possible ions in the line spectrum
-| ``ions ignore iso #i:`` : Ignore ions of the isoelectronic sequences
+| ``ions ignore iso #i:`` : Ignore ions of the iso-electronic sequences
   indicated by #i: in the line spectrum
 | ``ions ignore z #i:`` : Ignore ions with the atomic numbers indicated
   by #i: in the line spectrum
@@ -95,7 +95,7 @@ Examples
 ~~~~~~~~
 
 | ``ions ignore all`` : Do not take any line calculation into account
-| ``ions use iso 3`` : Use ions from the :math:`Z=3` (Li) isoelectronic
+| ``ions use iso 3`` : Use ions from the :math:`Z=3` (Li) iso-electronic
   sequence
 | ``ions use iso 1:2`` : Use ions from the H-like and He-like
   isoelectronic sequences

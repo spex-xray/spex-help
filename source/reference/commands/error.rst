@@ -11,7 +11,7 @@ range, if that parameter is free (thawn). Standard the 1\ :math:`\sigma`
 error is calculated, which is equivalent to a 68 % confidence level. So
 :math:`\Delta\chi^2` is equal to 1 for a single parameter error. The
 :math:`\Delta\chi^2` value can be set, such that for instance 90 %
-errors are determined (see `the table of delta-chi squared <#tab:deltachi>`__
+errors are determined (see the table at the bottom of this page
 for :math:`\Delta\chi^2` values with their corresponding confidence
 levels).
 
@@ -27,13 +27,13 @@ branch, therefore creating a discontinuous jump in :math:`\chi^2`. In
 those situations it is better to find the error bounds by varying the
 search parameter by hand.
 
-Note that SPEX remembers the parameter range for which you did your lat
+Note that SPEX remembers the parameter range for which you did your last
 error search. This saves you often typing in sector numbers or component
 numbers if you keep the same spectral component for your next error
 search.
 
 If the error search reveals a new minimum in :math:`\chi^2` space that
-was not found in the fit, SPEXwill save the parameters of this new
+was not found in the fit, SPEX will save the parameters of this new
 minimum in the file ``spex_lower_chi.com``. After the error search these
 parameters can be set through the command ``log exe spex_lower_chi``, in
 order to direct the model to the new minimum. Note that in the file
@@ -59,7 +59,7 @@ The following syntax rules apply:
   is the first parameter of the first component of the first sector.
 | ``error dchi #r`` : This command changes the :math:`\Delta\chi^2`, to
   the value #r. Default at startup and recommended value to use is 1,
-  for other confidence levels see `the Table below <#tab:deltachi>`__.
+  for other confidence levels see the Table below.
 | ``error start #r`` : This command gives an initial guess of the error
   bar, from where to start searching the relevant error. This can be
   helpful for determining the errors on normalization parameters, as

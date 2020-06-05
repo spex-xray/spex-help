@@ -35,7 +35,7 @@ following execution times (in s):
 
 Also the totals for SPEX as a whole are given (this may be more then the
 sum of the subroutine components, since not all subroutines are listed
-separately; the wall tiem for SPEX as a whole also includes the time
+separately; the wall time for SPEX as a whole also includes the time
 that the program was idle, waiting for input from the user).
 
 Syntax

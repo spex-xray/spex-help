@@ -17,7 +17,7 @@ Different options exist and several parameters can be set:
 
 -  Instrument, region: the instrument(s) and region(s) for which the
    simulation should be done (i.e., if you have more instruments you can
-   do the simulation only for one or a few instruments)
+   do the simulation only for one or a few instruments).
 
 -  time: set the exposure time :math:`t` (s) of the source spectrum as
    well as the background error scale factor :math:`f_b`. This last
@@ -27,17 +27,17 @@ Different options exist and several parameters can be set:
 -  syserr: add a systematic error to both the source and background
    spectrum. An alternative way to introduce systematic errors is of
    course to use the syserr command
-   (Section `Syserr <#sec:syserr>`__). Take care not to set the
+   (:ref:`sec:syserr`). Take care not to set the
    systematic errors twice, and remember that rebinning your spectrum
    later will reduce the systematic errors, as these will be added in
    quadrature to the statistical errors. So first rebin and then add
    systematics!
 
 -  noise: either randomize your data or just calculate the expected
-   values
+   values.
 
 -  bnoise: randomize your background model (generally not recommended to
-   do)
+   do).
 
 -  seed: set the random seed either to a specific number or generate it
    from the system clock. By default, SPEX initializes the random number

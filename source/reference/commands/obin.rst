@@ -11,7 +11,7 @@ response) to the optimal bin size given the statistics of the source as
 well as the instrumental resolution. This is recommended to do in
 **all** cases, in order to avoid oversampling of the data. The theory
 and algorithms used for this rebinning are described in detail in
-Chapter `Response matrices <#chap:resp>`__. A simple cartoon of this is:
+:ref:`sect:matrices`. A simple cartoon of this is:
 binning to 1/3 of the FWHM, but the factor of 1/3 depends weakly upon
 the local count rate at the given energy and the number of resolution
 elements. The better the statistics, the smaller the bin size.
