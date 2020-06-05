@@ -6,8 +6,9 @@ Xabsinput
 For the *xabs* and *warm* models, an input file is needed that contains
 the temperature and ionic column densities as a function of the
 ionisation parameter :math:`\xi`. The standard input file provided by
- is based on a run with an older version of Cloudy, using the spectral
-energy distribution of NGC 5548 as used in `Steenbrugge et al. (2005)
+SPEX is based on a run with an older version of `Cloudy
+<https://www.nublado.org/>`_, using the spectral energy distribution
+of NGC 5548 as used in `Steenbrugge et al. (2005)
 <https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract>`_.
 
 The present program *xabsinput* allows the user to create such a file.
@@ -81,17 +82,13 @@ appear in this directory:
    are cut-off to 0.
 
 Finally, the user should provide the name of a script that runs Cloudy.
-At SRON, this is /opt/local/bin/cloudy, and the script is given as::
+The script is given as::
 
     #!/bin/csh -f
     #
-    setenv CLOUDY_DATA_PATH /opt/local/HEA/cloudy/c13.01/data
+    setenv CLOUDY_DATA_PATH /path/to/cloudy/c13.01/data
     setenv LD_LIBRARY_PATH
     /opt/local/HEA/cloudy/c13.01/source/cloudy.exe < ${1}
-
-.. warning:: We presently run Cloudy version 13. When newer versions
-   of Cloudy become available, the Cloudy input or output formats may
-   change, and the present program would need updates.
 
 Finally, our runs with Cloudy are done using the following default
 settings (apart from the SED and abundances that are entered by the

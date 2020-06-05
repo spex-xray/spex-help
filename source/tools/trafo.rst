@@ -5,14 +5,14 @@ Trafo
 
 Program *trafo* allows you to transform spectra and response matrices
 from standard OGIP format (or from SPEX version 1 format) to the format
-used by . It also gives you some options to combine data sets for
-simultaneous spectral fitting, and to optimses the spectral data set for
+used by SPEX. It also gives you some options to combine data sets for
+simultaneous spectral fitting, and to optimises the spectral data set for
 speed, We discuss here first the different file formats, and then
 explain the use of *trafo*.
 
 Some theoretical background and technical details on the SPEX file
-format are given in Chapter [chap:resp] and we refer the interested
-reader to that chapter for full details. Here we summarise some of the
+format are given in :ref:`sect:matrices` and we refer the interested
+reader to that page for full details. Here we summarise some of the
 basics.
 
 The basic philosophy behind the SPEX file format is:
@@ -342,3 +342,12 @@ usually self-explanatory. However, here we give a brief overview.
 #. Finally the filename for the response matrix that has been created is
    asked (without the .res extension, that *trafo* will add
    automatically).
+
+Alternatives for trafo
+----------------------
+
+Since we provide a package with Python tools for SPEX, there are a few
+scripts available that perform conversions from OGIP to SPEX format.
+`ogip2spex <https://spex-xray.github.io/pyspextools/tutorials/ogip2spex.html>`_
+is the program closest to the trafo program and can convert one spectrum
+from OGIP to SPEX format using only command line arguments.

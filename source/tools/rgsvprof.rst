@@ -89,7 +89,7 @@ for :math:`\Delta\lambda` is:
 We then use the following numbers from `den Herder et al. (2001)
 <https://ui.adsabs.harvard.edu/abs/2001A%26A...365L...7D/abstract>`_:
 :math:`d` is 1/645.6 mm, :math:`L` is 7.5 m, :math:`F` is 6.7 m, and
-:math:`\alpha_{0}` is 1.5762\ :math:`^{\circ}` to calculate the
+:math:`\alpha_{0}` is :math:`1.5762^{\circ}` to calculate the
 typical conversion factor from :math:`\Delta\theta` in arcmin:
 
 .. math:: \Delta\lambda = 0.1387~\mathrm{\AA} \ \Delta\theta

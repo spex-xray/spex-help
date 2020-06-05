@@ -41,7 +41,7 @@ Response file: :download:`corona.res </_static/exercises/corona.res>`.
    first. What is the speed of the absorber?
 
 #. Create the table with optical depths again with the command
-   ``asc ter1 3 tran`` and ``asc ter 1 3 col`` to get the column
+   ``asc ter 1 3 tran`` and ``asc ter 1 3 col`` to get the column
    densities for every ion. Do you see differences with the ``slab``
    model?
 
