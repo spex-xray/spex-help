@@ -26,7 +26,7 @@ extent). Then we can transform :math:`I(\Delta\lambda)` into a
 probability distribution :math:`f(x)` with :math:`f=0` for very small or
 large values of :math:`x` (here and further we put
 :math:`x=\Delta\lambda`). The auxilliary task rgsvprof (see
-Section \ `RGSvprof <#sect:rgsvprof>`__) is able to create an
+:ref:`sect:rgsvprof`) is able to create an
 input file for the lpro component from a MOS1 image.
 
 The resulting spatially convolved spectrum :math:`S_c(\lambda)` is
@@ -57,7 +57,7 @@ for using the cumulative distribution is that this allows easier
 interpolation and conservation of photons in the numerical integrations.
 
 If this component is used, you must have a file available which we call
-here "vprof.dat" (but any name is allowed). This is a simple ascii file,
+here ``vprof.dat`` (but any name is allowed). This is a simple ascii file,
 with :math:`n` lines, and at each line two numbers: a value for
 :math:`x` and the corresponding :math:`F(x)`. The lines must be sorted
 in ascending order in :math:`x`, and for :math:`F(x)` to be a proper

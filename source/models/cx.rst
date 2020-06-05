@@ -1,3 +1,5 @@
+.. _sect:cx:
+
 CX: model for charge exchange plasmas
 =====================================
 
@@ -14,7 +16,7 @@ Charge exchange cross sections
 ------------------------------
 
 The CX cross section data used in the model are partly taken from
-literatures, including quantum molecular-orbital close-coupling
+literature, including quantum molecular-orbital close-coupling
 calculations for :math:`\mathrm C^{5+}` and :math:`\mathrm O^{6+}` by
 `Wu et al. (2012) <https://doi.org/10.1088/0953-4075/45/23/235201>`_
 and `Nolte et al. (2012) <https://doi.org/10.1088/0953-4075/45/24/245202>`_,

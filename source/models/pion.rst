@@ -3,15 +3,18 @@
 Pion: SPEX photoionised plasma model
 ====================================
 
+.. highlight:: none
+
 The *pion* model calculates the transmission and emission of a slab of
 photo-ionized plasma, where all ionic column densities are linked
 through a photoionisation model. The relevant parameter is the
 ionization parameter :math:`\xi = L/nr^2`, with :math:`L` the source
 luminosity, :math:`n` the hydrogen density and :math:`r` the distance
 from the ionizing source. The major difference is that while for the
-*xabs* model the photoionisation equilibrium is pre-calculated for a
-grid of :math:`\xi`-values by an external code, for instances Cloudy or
-XSTAR (or even with the present *pion* model :math:`\ldots`), in the
+*xabs* model (:ref:`sec:xabs`) the photoionisation equilibrium is pre-calculated for a
+grid of :math:`\xi`-values by an external code, for instance
+`Cloudy <https://www.nublado.org/>`_ or `XSTAR <https://heasarc.gsfc.nasa.gov/lheasoft/xstar/xstar.html>`_
+(or even with the present *pion* model :math:`\ldots`), in the
 present *pion* model the photoionisation equilibrium is calculated
 self-consistently using the available plasma routines of SPEX.
 
@@ -26,7 +29,7 @@ self-consistently using the available plasma routines of SPEX.
 
 .. Warning:: This model is still under development and not all atomic
    data is fully updated. For instance, no cooling by collisional
-   excitation for ions of the K- to Zn-isolelectronic sequences is taken
+   excitation for ions of the K- to Zn-isoelectronic sequences is taken
    into account yet. So use with care!
 
 .. Warning:: When setting up the model, be aware that the pion model is
@@ -57,8 +60,8 @@ The number of parameters is therefore unlimited (well, the memory and
 cpu speed of the computer will be the true limiting factors).
 
 Prior to fitting a PION component, it is best to first calculate the
-model spectrum with your initial parameter values (see ``calculate``
-command). This helps to see if the initial values are reasonable numbers
+model spectrum with your initial parameter values (see :ref:`sec:calculate`).
+This helps to see if the initial values are reasonable numbers
 and the model is not too far off the data.
 
 Emission from the *pion* model
@@ -66,13 +69,13 @@ Emission from the *pion* model
 
 We have now incorporated a first version of emission
 from the same layer. We cannot give you any guarantee at the moment that
-it is bug-free. We know at the moment that the source has probelms when
+it is bug-free. We know at the moment that the source has problems when
 the density gets too high; this is different for each ion; so unless you
 limit the density in fitting, SPEX may encounter a situation where you
 surpass the critical density and you may get a warning message. Here is
 an example. For a photoionised case, with :math:`\log \xi = 3`
 (resulting :math:`kT=0.64` keV) the nominal occupation of the ground
-state of H  becomes negative for a density
+state of H becomes negative for a density
 :math:`>0.15\times 10^{20}` :math:`\mathrm{m}^{-3}`. This can be traced down to
 incomplete atomic data. For H , we include collisional excitation and
 de-excitation up to principal quantum number :math:`n=5` but not above.
@@ -110,8 +113,8 @@ below as::
   SPEX> par 3 a v 0
 
 In this example, the powerlaw goes through the *pion* component and is
-killed afterwards by the *etau* component, while the emission from the
-*pion* component is not attenuated by *etau*.
+killed afterwards by the *etau* component (:ref:`sect:etau`), while the
+emission from the *pion* component is not attenuated by *etau*.
 
 You can vary the new parameter *mix* to get a different ratio of
 forwards to backwards emission. Putting it to 1 (default) means you get
@@ -124,15 +127,15 @@ intermediate values give you a mix.
    inhomogeneous in terms of temperature structure, and our single-layer
    approximation will break down.
 
-In order to make a PION component produce emission only, fix the
+In order to make a *pion* component produce emission only, fix the
 covering fraction (cf) parameter to zero so that no absorption is
-produced. Then fit the omega parameter. Note that any PION component
+produced. Then fit the omega parameter. Note that any *pion* component
 with a non-zero omega acts as an additive component in SPEX. Therefore,
 multiply these components with your multiplicative components (like the
 Galactic absorption) using the ``comp rel`` command.
 
 For more information on this model, the atomic data and parameters we
-refer to Section `Absorption models <#sect:abs_models>`__.
+refer to :ref:`sect:abs_models`.
 
 More options
 ------------
@@ -156,7 +159,7 @@ For such cases, the user can set the parameter *tmod=1*; in that case,
 the user should also provide the temperature *tinp* of the plasma. In
 this case, only the ionisation balance equation is solved, and there is
 in general no energy balance (this can be checked by using the
-ascii-output option *heat*). Do not forget to set the parameter *omeg*
+ascii-output option *heat*, :ref:`sec:ascdump`). Do not forget to set the parameter *omeg*
 to a finite value (the default is zero), otherwise the emitted spectrum
 is zero.
 
@@ -180,14 +183,14 @@ with photon index 1.5, apply the pion model to it and put *exth* to
 :math:`5\times 10^{-25}` W :math:`\mathrm{m}^{-3}`. In this case there are 3
 solutions. SPEX chooses by default the hottest solution. You can see all
 solutions by putting the parameter *fmod=1* and using the *heat* ascii
-output option. Or check the behaviour of the hating balance by issuing
-the *ebal* ascii output option. You can select which solution you want
+output option. Or check the behaviour of the heating balance by issuing
+the *ebal* ascii output option (:ref:`sec:ascdump`). You can select which solution you want
 to use in SPEX by setting the *soln* parameter. Default is 0 (hottest
 solution), and for the above case of 3 solutions values of 1, 2 and 3
 renders you the coldest, second ant hottest solution. Test this with the
 *heat* or *plas* output options.
 
-.. Warning:: When you set soln to a non-zero value, use fmod=1,
+.. Warning:: When you set *soln* to a non-zero value, use fmod=1,
    otherwise SPEX may crash.
 
 No equilibrium solution
@@ -199,7 +202,7 @@ much heat in the plasma that it cannot be balanced anymore by cooling.
 Another example is a too hard powerlaw without high energy cut-off,
 where Compton-heating might be very strong. In this case SPEX renders an
 error message, and you cannot trust the result of the calculation
-anymore. The only remedie is to adjust your model parameters or the
+anymore. The only remedy is to adjust your model parameters or the
 allowed range for them in case of spectral fitting or error searches.
 
 Adiabatic cooling
@@ -211,7 +214,7 @@ the parameter *tadi*. This represents the adiabatic cooling time
 :math:`R_{\mathrm adi}= \frac{3}{2} nkT / t_{\mathrm adi}`, where :math:`n` is
 the total particle density (electrons and ions). The default setting is
 such that this process can be neglected. If the user takes this process
-into account, it should be verified afterwards that the physlical
+into account, it should be verified afterwards that the physical
 conditions for adiabatic cooling are met, i.e. energy losses by
 radiation or heat conduction must be small compared with those by the
 adiabatic expansion. Check this for example by running the ``asc ter

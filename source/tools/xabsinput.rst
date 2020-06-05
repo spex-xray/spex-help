@@ -1,4 +1,4 @@
-.. sect:xabsinput:
+.. _sect:xabsinput:
 
 Xabsinput
 =========

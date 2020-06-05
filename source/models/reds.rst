@@ -11,7 +11,7 @@ dilatation correction is applied such that the spectrum :math:`S(E)`
 
 However, it is necessary to distinguish two different cases:
 
-case 1 (flag=0): the redshift component can be used to calculate the
+Case 1 (flag=0): the redshift component can be used to calculate the
 effects of the cosmological redshift. The cosmological redshift has the
 effect of the energy shift and the time dilatation as outlined above.
 Therefore, the above procedure is essentially correct and this is what
@@ -27,15 +27,15 @@ spectra, it appears necessary to multiply the spectrum as calculated by
 the original subroutine by a factor of :math:`(1+z)^2`. But in the other
 case (redshifts caused by the motion of a source at any distance), this
 re-correction should not be done, reason why we introduce the other
-option. *in summary, for redshift components corresponding to
+option. *In summary, for redshift components corresponding to
 cosmological redshifts, the option flag=0 (default) must be used*.
 
-case 2 (flag=1): this is the old case for a source with a redshift
+Case 2 (flag=1): this is the old case for a source with a redshift
 caused by motion away from us. It should be used for any velocity fields
 other than the Hubble flow.
 
 .. Warning:: Note that this component should be used in tandem with the
-   distance command (Section `Distance <#sec:distance>`__) to
+   distance command (:ref:`sec:distance`) to
    take into account the cosmological redshift and its influence on the
    flux completely.
 

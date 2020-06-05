@@ -1,9 +1,9 @@
 .. _sec:distance:
 
-  .. highlight:: none
-
 Distance: set the source distance
 =================================
+
+  .. highlight:: none
 
 Overview
 ~~~~~~~~

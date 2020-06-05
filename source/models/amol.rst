@@ -218,7 +218,7 @@ becomes 1.
 .. Warning:: It is possible to change the values of the output atomic
    column densities of H–Zn, that are shown when you issue the "show par"
    command of SPEX. However, SPEX completely ignores this and when you
-   issue the "calc" or "fit" commands, they will be reset to the proper
+   issue the ``calc`` or ``fit`` commands, they will be reset to the proper
    values. Morale: just read of those parameters, don’t touch them!
 
 The parameters of the model are:
@@ -234,7 +234,7 @@ The parameters of the model are:
 
 | The following parameters are common to all our absorption models:
 
-- ``f`` : The covering factor of the absorber. Default value: 1 (fullcovering)
+- ``f`` : The covering factor of the absorber. Default value: 1 (full covering)
 - ``zv`` : Average systematic velocity :math:`v` of the absorber
 
 | The following parameters are *only* output parameters:

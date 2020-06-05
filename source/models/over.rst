@@ -4,7 +4,7 @@ Overview of spectral components
 ===============================
 
 For more information on the definition of spectral components and the
-different types, see Section `Model types <#sec:modeltypes>`__.
+different types, see :ref:`sec:modeltypes`.
 Currently the following models are implemented in SPEX:
 
 .. toctree::

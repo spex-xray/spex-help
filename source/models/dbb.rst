@@ -9,12 +9,12 @@ radiative losses from such a disk are given by
 where :math:`Q` is the loss term in W m\ :math:`^{-2}` at radius
 :math:`r`, :math:`M` the mass of the central object, :math:`\dot{M}` the
 accretion rate through the disk and :math:`r_i` the inner radius. If
-this energy loss is radiated as a blackbody, we have
+this energy loss is radiated as a black body, we have
 
 .. math:: Q = \sigma T^4
 
 with :math:`\sigma` the constant of Stefan-Boltzmann and :math:`T(r)`
-the local temperature of the blackbody. The total spectrum of such a
+the local temperature of the black body. The total spectrum of such a
 disk is then obtained by integration over all radii. We do this
 integration numerically. Note that for large :math:`r`,
 :math:`T\sim r^{-3/4}`.

@@ -11,9 +11,9 @@ same plasma code as developed originally by Rolf Mewe and colleagues,
 with relatively minor updates to the atomic data (like wavelength
 improvements, corrections of a few typo’s, improvements for Fe XVII).
 
-Its basis were precalculated and parametrized line emissivities for each
+Its basis were pre-calculated and parametrized line emissivities for each
 spectral line, as a function of temperature, with for relevant lines
-empirical density corrections. For some transitiuons, like the He-like
+empirical density corrections. For some transitions, like the He-like
 triplets, the calculations were rather complex and required several
 correction factors to account for the full density dependence.
 

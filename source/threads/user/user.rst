@@ -1,3 +1,5 @@
+.. _sect:howtouser:
+
 How to use the SPEX user model
 ==============================
 

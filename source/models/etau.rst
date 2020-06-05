@@ -1,3 +1,5 @@
+.. _sect:etau:
+
 Etau: simple transmission model
 ===============================
 

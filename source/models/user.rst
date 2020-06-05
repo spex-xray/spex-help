@@ -52,9 +52,11 @@ with the following structure:
    is the ``sener`` value in photons/s/bin and the second column is the
    ``wener`` value.
 
-In the directory ``user`` in the main SPEX directory some example user
+In :ref:`sect:howtouser` some example user
 model programs can be found. The source code can be adapted to
 accommodate the user’s wishes.
+
+The equivalent of ``user`` for multiplicative models is :ref:`sect:musr`.
 
 The parameters of the model are:
 

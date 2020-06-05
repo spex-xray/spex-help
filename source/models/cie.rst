@@ -7,7 +7,7 @@ This model calculates the spectrum of a plasma in collisional ionisation
 equilibrium (CIE). It consists essentially of two steps, first a
 calculation of the ionisation balance and then the calculation of the
 X-ray spectrum. The basis for this model is formed by the mekal model,
-but several updates have been included.
+but several updates have been included (see :ref:`chap:plasmamodel`).
 
 Temperatures
 ------------
@@ -16,7 +16,7 @@ Some remarks should be made about the temperatures. SPEX knows three
 temperatures that are used for this model.
 
 First there is the electron temperature :math:`T_{\mathrm e}`. This is
-usually referrred to as "the" temperature of the plasma. It determines
+usually referred to as "the" temperature of the plasma. It determines
 the continuum shape and line emissivities and the resulting spectrum is
 most sensitive to this.
 
@@ -27,8 +27,7 @@ upon the thermal velocity of the ions (which is determined both by
 resolution spectra the effects of the ion temperature can be seen.
 
 Finally, we have introduced here the ionization balance temperature
-:math:`T_{\mathrm
-b}` that is used in the determination of the ionization equilibrium. It
+:math:`T_{\mathrm b}` that is used in the determination of the ionization equilibrium. It
 is the temperature that goes into the calculation of ionization and
 recombination coefficients. In equilibrium plasmas, the ratio
 :math:`R_{\mathrm b} \equiv
@@ -37,12 +36,12 @@ have :math:`R_{\mathrm b}` not equal to 1. Nevertheless we allow for the
 possibility of different values of :math:`R_{\mathrm b}`, in order to
 mimick out of equilibrium plasmas. For :math:`R_{\mathrm b}<1`, we have
 an ionizing plasma, for :math:`R_{\mathrm b}>1` a recombining plasma.
-Note that for ionizing plasmas SPEX has also the nei model, which takes
-into account explicitly the effects of transient (time dependent)
-ionization.
+Note that for ionizing plasmas SPEX has also the ``nei`` model
+(:ref:`sect:nei`), which takes into account explicitly the effects of
+transient (time dependent) ionization.
 
-It is also possible to mimick the effects of non-isothermality in a
-simple way. SPEX allows for a Gaussian emission measure distribution
+It is also possible to mimic the effects of non-isothermality in a
+simple way. SPEX allows for a Gaussian emission measure distribution:
 
 .. math:: Y(x) = \frac{Y_0}{\sqrt{2\pi} \sigma_T} e^{\displaystyle{-(x-x0)^2/2\sigma_T^2}}
 
@@ -50,9 +49,9 @@ where :math:`Y_0` is the total, integrated emission measure. By default
 :math:`x\equiv \log T` and :math:`x_0\equiv \log T_0` with :math:`T_0`
 the average temperature of the plasma (this is entered at the "T" value
 in SPEX). However, this can be changed to :math:`x\equiv T` and
-:math:`x_0\equiv T_0` by setting logt to 0. If the parameter sup is set
+:math:`x_0\equiv T_0` by setting logt to 0. If the parameter ``sup`` is set
 :math:`> 10^{-5}`, then the Gaussian emission measure distribution model
-becomes asymmetric. The sig parameter determines the slope of the
+becomes asymmetric. The ``sig`` parameter determines the slope of the
 low-temperature part of the Gaussian and sup determines the
 high-temperature side. Usually (default) :math:`\sigma_T = 0` and in
 that case the normal isothermal spectrum is chosen. Note that for larger
@@ -66,10 +65,10 @@ Apart from line broadening due to the thermal velocity of the ions
 (caused by :math:`T_{\mathrm i} > 0`) it is also possible to get line
 broadening due to (micro)turbulence. In this case the line broadening is
 determined by :math:`v_{\mathrm{micro}}`, which is given by
-:math:`v_{\mathrm{micro}}\equiv
-\sqrt{2} \sigma_v` with :math:`\sigma_v` the Gaussian velocity
-dispersion in the line of sight. Thus, without thermal broadening the
-FWHM of the line would be 1.6651 times :math:`v_{\mathrm{micro}}`.
+:math:`v_{\mathrm{micro}}\equiv \sqrt{2} \sigma_v` with :math:`\sigma_v`
+the Gaussian velocity dispersion in the line of sight. Thus, without
+thermal broadening the FWHM of the line would be 1.6651 times
+:math:`v_{\mathrm{micro}}`.
 
 Density effects
 ---------------
@@ -88,14 +87,13 @@ Non-thermal electron distributions
 ----------------------------------
 
 The effects of non-thermal electron distribution on the spectrum can be
-included. See Section `Non-thermal electron distributions <#sec:nonthermal>`__
-for more details.
+included. See :ref:`sec:nonthermal` for more details.
 
 Abundances
 ----------
 
 The abundances are given in Solar units. Which set of solar units is
-being used can be set using the `abun command <#sec:abundance>`__).
+being used can be set using the ``abun`` command (:ref:`sec:abundance`).
 For spectral fitting purposes it is important to distinguish two situations.
 
 In the first case there is a strong thermal continuum. Since in most
@@ -167,8 +165,8 @@ Parameter description
 
 .. Warning:: The default line broadening is just Doppler broadening.
    This is fine and self-consistent for the ‘old’ line calculation. To
-   incorporate the natural line broadeing for the ‘new’ calculations, the
-   user must use the var dopp 4 option to get Voigt profiles. This is
+   incorporate the natural line broadening for the ‘new’ calculations, the
+   user must use the ``var dopp 4`` option to get Voigt profiles. This is
    physically better but takes more computation time.
 
 The parameters of the model are:
@@ -207,7 +205,7 @@ The parameters of the model are:
 | ``02`` : Abundance of helium (He, Z=2) in Solar units. Default 1.
 | :math:`\ldots` ``30`` : Abundance of zinc (Zn, Z=30) in Solar units.
   Default 1.
-| ``file`` : Filename for the nonthermal electron distribution. If not
-  present, nonthermal effects are not taken into account (default).
+| ``file`` : Filename for the non-thermal electron distribution. If not
+  present, non-thermal effects are not taken into account (default).
 
 *Recommended citation:* `Kaastra et al. (1996) <https://ui.adsabs.harvard.edu/abs/1996uxsa.conf..411K/abstract>`_.

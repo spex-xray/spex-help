@@ -17,7 +17,7 @@ by :math:`A`.
 
 To ease the use for dispersive spectrometers (gratings) there is an
 option to define the wavelength instead of the energy as the basic
-parameter. The parameter *type* determines which case applies: type=0
+parameter. The parameter ``type`` determines which case applies: type=0
 (default) corresponding to energy, type=1 corresponding to wavelength
 units.
 

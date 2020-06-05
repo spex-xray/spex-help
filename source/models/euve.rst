@@ -11,7 +11,8 @@ takes into account resonances. However it is not recommended to use the
 model for harder X-rays, due to the neglect of metals such as oxygen
 etc.
 
-Otherwise the user is advised to use the "absm" model or the "hot" model
+Otherwise the user is advised to use the ``absm`` model (:ref:`sect:absm`)
+or the ``hot`` model (:ref:`sect:hot`)
 with low temperature in SPEX, which gives the transmission of a slab in
 collisional ionisation equilibrium.
 

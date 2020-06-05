@@ -12,7 +12,7 @@ predictions from any model (as calculated by SPEX, Cloudy, XSTAR, ION or
 any other existing (photo)ionisation code).
 
 For more information on this model, the atomic data and parameters we
-refer to Section `Absorption models <#sect:abs_models>`__. Below we do
+refer to :ref:`sect:abs_models`. Below we do
 not list all the parameters of the model, but for each ion of H, He, C,
 N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe and Ni there is a parameter,
 namely the logarithm (base 10) of the column density in SI units
@@ -39,13 +39,15 @@ The parameters of the model are:
 | ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
   1.
 | ``c1`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
-| ``$\ldots$`` :
+| :math:`\ldots`
 | ``ni27`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
   1.
 | ``ni28`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
   1.
-| The following parameters are common to all our absorption models:
-  ``fcov`` : The covering factor of the absorber. Default value: 1 (full
+
+The following parameters are common to all our absorption models:
+
+| ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend

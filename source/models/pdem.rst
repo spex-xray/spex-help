@@ -1,3 +1,5 @@
+.. _sect:pdem:
+
 Pdem: DEM models
 ================
 
@@ -16,14 +18,14 @@ of :math:`{\mathrm d}Y/{\mathrm d}\ln T` (note the logarithm!) at the grid
 points. SPEX then interpolates in the :math:`\log T_i - \log y_i` space
 on a finer grid using splines. That temperature grid on which the data
 are being evaluated has a fine mesh: step size is about 0.10 in
-:math:`\log T` (finer is not usefull because uniqueness is no longer
+:math:`\log T` (finer is not useful because uniqueness is no longer
 guaranteed), with the additional constraint that the number of mesh
 points is at least :math:`n` and not larger than 64 (practical limit in
 order to avoid excessive cpu-time). The emission measure distribution is
 then simply scaled in such a way that its sum over the fine mesh equals
 the total emission measure :math:`Y` that went into the model.
 
-.. Warning::At least one of the :math:`y_i` values should be kept
+.. Warning:: At least one of the :math:`y_i` values should be kept
    frozen during fitting, when :math:`Y` is a free parameter, otherwise no
    well defined solution can be obtained! If :math:`Y` is fixed, then all
    :math:`y_i` can be free.
@@ -38,16 +40,20 @@ The parameters of the model are:
   2, maximum value 8.
 | ``y1`` : Relative contribution :math:`y_1` at :math:`T_1`.
 | ``y2`` : Relative contribution :math:`y_2` at :math:`T_2`
-| :math:`\ldots` ``y8`` : Relative contribution :math:`y_8` at
+| :math:`\ldots`
+| ``y8`` : Relative contribution :math:`y_8` at
   :math:`T_8`; note that the higher contributions :math:`y_i` are
   neglected if :math:`i>n`.
-| The following parameters are the same as for the cie-model: 
+
+The following parameters are the same as for the cie-model:
+
 | ``ed`` : Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
 | ``it`` : Ion temperature in keV.
 | ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element.
 | ``01...30`` : Abundances of H to Zn.
 | ``file`` : Filename for the nonthermal electron distribution
-| Note that the true emission measure on the finer mesh can be displayed
-  by using the "ascdump term # # dem" command; you will get a list of
-  temperature (keV) versus emission measure.
+
+Note that the true emission measure on the finer mesh can be displayed
+by using the ``ascdump term # # dem`` command; you will get a list of
+temperature (keV) versus emission measure.

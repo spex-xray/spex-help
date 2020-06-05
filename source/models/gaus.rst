@@ -1,3 +1,5 @@
+.. _sect:gaus:
+
 Gaus: gaussian line model
 =========================
 
@@ -30,7 +32,7 @@ units.
 .. Warning:: When changing from energy to wavelength units, take care
    about the frozen/thawn status of the line centroid and FWHM.
 
-.. Warning:: You need to do a "calc" or "fit" command to get an update
+.. Warning:: You need to do a ``calc`` or ``fit`` command to get an update
    of the wavelength (for type=0) or energy (type=1).
 
 The parameters of the model are:

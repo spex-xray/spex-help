@@ -14,7 +14,7 @@ multiplying the transmission of the individual ions.
 
 The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
-refer to Section `Absorption models <#sect:absmodels>`__. You can mimick
+refer to :ref:`sect:absmodels`. You can mimic
 the transmission of a neutral plasma very easy by putting the
 temperature to 0.5 eV (5 :math:`10^{-4}` keV).
 
@@ -38,8 +38,10 @@ The parameters of the model are:
 | ``rt`` : the ratio of ionization balance to electron temperature,
   :math:`R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}` in keV. Default
   value: 1.
-| The following parameters are common to all our absorption models:
-  ``f`` : The covering factor of the absorber. Default value: 1 (full
+
+The following parameters are common to all our absorption models:
+
+| ``f`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend
@@ -47,8 +49,10 @@ The parameters of the model are:
 | ``dv`` : Velocity distance :math:`\Delta v` between different blend
   components
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
-| The following parameters are the same as for the cie-model (see there
-  for a description): ``ref`` : Reference element
+
+The following parameters are the same as for the cie-model (:ref:`sect:cie`):
+
+| ``ref`` : Reference element
 | ``01...30`` : Abundances of H to Zn
 | ``file`` : Filename for the nonthermal electron distribution
 

@@ -1,8 +1,8 @@
 Dabs: dust absorption model
 ===========================
 
-This model allows the user to maake a zeroth order approximation to the
-effects of dust on an X-ray absorption spectrum. basically, compared to
+This model allows the user to make a zeroth order approximation to the
+effects of dust on an X-ray absorption spectrum. Basically, compared to
 absorption by atomic gas, the effects of dust are two-fold:
 
 -  Modifications to the fine structure near the edge

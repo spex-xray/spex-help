@@ -21,7 +21,7 @@ the models. Although it takes more time for SPEX to calculate the spectrum inclu
 line flux produced by these levels is rather small. Especially above temperatures of 2 keV.
 
 To make the calculation faster, it is a good option to skip the calculation of the higher levels. In SPEX,
-this can be done quite easily by setting ``nmax`` using the ``ions`` command::
+this can be done quite easily by setting ``nmax`` using the ``ions`` command (:ref:`sec:ions`)::
 
     SPEX> ions nmax all 5
 
