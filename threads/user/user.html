@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>2.7. How to use the SPEX user model &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/user/user.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.7.2.1. Use any Xspec model in SPEX" href="xspec.html" />
+    <link rel="prev" title="2.6. PION setup for emission and absorption features in AGN" href="../pionena/pionena.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-use-the-spex-user-model">
+<span id="sect-howtouser"></span><h1>2.7. How to use the SPEX user model<a class="headerlink" href="#how-to-use-the-spex-user-model" title="Permalink to this headline">¶</a></h1>
+<p>Some users would like to add their own models to the SPEX program, similar to the local model option in Xspec.
+Since the developers of SPEX do not have the man power to implement all possible models out there in a SPEX variety,
+we have devised a quick way of running external models in SPEX.</p>
+<p>SPEX contains two user models <code class="docutils literal notranslate"><span class="pre">user</span></code> (<a class="reference internal" href="../../models/user.html#sect-user"><span class="std std-ref">User: User defined model</span></a>) and <code class="docutils literal notranslate"><span class="pre">musr</span></code> (<a class="reference internal" href="../../models/musr.html#sect-musr"><span class="std std-ref">Musr: User defined multiplicative model</span></a>) for additive and
+multiplicative models respectively. These model components communicate with the external model through an input and
+output file containing the model parameters, the energy grid and the calculated spectrum. By creating a program that
+reads in the input parameters and energy grid, calculates the spectrum, and writes the result to an output file
+in the right format, users have a very flexible way of using any model in SPEX.</p>
+<p>Since this setup offers many possibilities, we can only show a few examples of how these user model components
+can be used. We have prepared a helper library for Python and Fortran.</p>
+<div class="section" id="python">
+<h2>2.7.1. Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>The Python helper library for the user model is part of the <a class="reference external" href="https://github.com/spex-xray/pyspextools">pyspextools</a>
+package. A general example of how to user the Python interface to the user model can be found <a class="reference external" href="https://spex-xray.github.io/pyspextools/tutorials/myusermodel.html">here</a>.</p>
+<p>As a more specific example we also provide a method to <a class="reference external" href="https://spex-xray.github.io/pyspextools/tutorials/apec.html">calculate APEC models and import them to SPEX</a> using the Python interface.</p>
+</div>
+<div class="section" id="fortran">
+<h2>2.7.2. Fortran<a class="headerlink" href="#fortran" title="Permalink to this headline">¶</a></h2>
+<p>Using the Fortran module <a class="reference external" href="https://github.com/spex-xray/spex-help/blob/master/moduser/module/moduser.f90">moduser</a>,
+we list a number of example user models below:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="xspec.html">2.7.2.1. Use any Xspec model in SPEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ismabs.html">2.7.2.2. Use local Xspec model ismabs in SPEX</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partbkg/partbkg.html">2.2. Modeling particle background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../amol/amol.html">2.3. Fitting interstellar dust absorption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.4. Import UV/Optical data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.5. PION setup for AGN warm absorber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.7. How to use the SPEX user model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../threads.html">2. Analysis threads</a><ul>
+      <li>Previous: <a href="../pionena/pionena.html" title="previous chapter">2.6. PION setup for emission and absorption features in AGN</a></li>
+      <li>Next: <a href="xspec.html" title="next chapter">2.7.2.1. Use any Xspec model in SPEX</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

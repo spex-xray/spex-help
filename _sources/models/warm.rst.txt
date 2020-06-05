@@ -30,7 +30,7 @@ computer time, the step size for numerical integration
 (the default) is 0.2.
 
 For more information on this model, the atomic data and parameters we
-refer to Section `Absorption models <#sect:abs_models>`__.
+refer to :ref:`sect:abs_models`.
 
 The parameters of the model are:
 
@@ -48,7 +48,9 @@ The parameters of the model are:
   d}\ln\xi` at the grid points. Default values :math:`10^{-6}`. When
   npol\ :math:`<19`, the remaining values of :math:`f_i` are simply
   ignored.
-| The following parameters are common to all our absorption models:
+
+The following parameters are common to all our absorption models:
+
 | ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`

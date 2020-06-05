@@ -5,3 +5,4 @@ Spectral models
    :maxdepth: 2
 
    models/over
+   models/performance

@@ -18,10 +18,11 @@ The SPEX data format
 
 The data files containing the spectrum of the source and the response
 need to be in the correct format. In the SPEX installation, we provide a
-program called ``trafo`` to convert OGIP standard fits files into SPEX
+program called :ref:`sect:trafo` to convert OGIP standard fits files into SPEX
 format (see :ref:`sect:runtrafo` for an explanation of how to use
 trafo). In this chapter, we assume that you already have spectra in SPEX
-format. For example, the demo spectra from the SPEX web site.
+format. For example, the `demo spectra from the SPEX web site
+<https://www.sron.nl/astrophysics-spex/manual>`_.
 
 SPEX needs two files per spectrum:
 
@@ -47,8 +48,9 @@ instrument:
 
 The ``.res`` and ``.spo`` files are so-called FITS files. This is a data
 format widely used in Astronomy. FITS files can contain images as well
-as data tables. The software package FTOOLS provided by NASA contains a
-large number of tools to manipulate FITS files (see references). If you
+as data tables. The software package `FTOOLS
+<https://heasarc.gsfc.nasa.gov/ftools/>`_ provided by NASA contains a
+large number of tools to manipulate FITS files. If you
 are interested, then you can launch ``flaunch`` to see which tools are
 available. For more information about the SPEX spectrum and response
 format see :ref:`sect:matrices`.
@@ -288,7 +290,7 @@ and error. To see whether you are going in the right direction, you can
 calculate the model with the command ``calc`` and ``plot`` again (:ref:`sec:calculate`).
 If you see the model appear in your screen, then the model is close enough to
 be fitted. Especially the normalization of the powerlaw (``3 norm``) can
-vary a lot depending on the countrate of the source.
+vary a lot depending on the count rate of the source.
 
 Fitting the data
 ----------------

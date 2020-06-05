@@ -3,6 +3,8 @@
 Non-thermal electron distributions
 ==================================
 
+.. highlight:: none
+
 In the current version of SPEX it is possible to include the effects of
 non-thermal (NT) electron distributions. Such NT distributions affect
 the spectrum in two ways: by changing the ionization balance and the
@@ -31,7 +33,7 @@ In all our thermal models, there is an ascii-parameter called “file”; if
 this value is defined (i.e. when a file name of an existing file is
 entered), it will read the parameters of the Maxwellians from an
 ascii-file with that filename. If there is not such a file, or if the
-filename is reset by entering the “par file aval none” command, no file
+filename is reset by entering the ``par file aval none`` command, no file
 will be taken into account (i.e., we have a simple, single Maxwellian
 again).
 

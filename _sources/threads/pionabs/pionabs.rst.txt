@@ -21,7 +21,7 @@ To follow this thread, you need to download the example files here: :download:`c
 :download:`chl.res <chl.res>`.
 
 Start SPEX
--------------
+----------
 
 Start SPEX in a linux terminal window::
 
@@ -49,7 +49,7 @@ Load the above command file into SPEX: ::
    SPEX> log exe data
 
 Plot data
--------------
+---------
 
 A command file tailored for this thread to plot the data is available here :download:`plot.com <plot.com>` ::
 
@@ -85,7 +85,7 @@ Define model components and component relations (step-by-step)
 Here we are looking at the warm absorber in a nearby (z = 0.07) Seyfert 1 galaxy.
 
 Set the distance of the source
-''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''
 
 ::
 
@@ -100,7 +100,7 @@ Set the distance of the source
     SPEX> par 1 1 z val 0.07
 
 Set the redshift component
-''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''
 
 ::
 
@@ -109,7 +109,7 @@ Set the redshift component
     SPEX> par 1 1 z val 0.07
 
 Set the galactic absorption
-'''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''
 
 ::
 
@@ -121,14 +121,14 @@ Set the galactic absorption
     SPEX> par 1 2 nh s f
 
 Set the SED
-'''''''''''''''''''
+'''''''''''
 
 Set the intrinsic spectral-energy-distribution (SED) of the AGN above the Lyman limit along our line-of-sight.
 
 For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al. 2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_:
-  - A Comptonized disk component (``comt``) for optical to soft X-rays data
-  - A power-law component (``pow``) for X-ray data
-  - A neutral reflection component (``refl``) for hard X-rays data. Usually, the reflection component has an exponential
+  - A Comptonized disk component (:ref:`sect:comt`) for optical to soft X-rays data,
+  - A power-law component (:ref:`sect:pow`) for X-ray data,
+  - A neutral reflection component (:ref:`sect:refl`) for hard X-rays data. Usually, the reflection component has an exponential
     cut-off energy (300 keV here).
 
 ::
@@ -160,7 +160,7 @@ For a typical Seyfert 1 galaxy, the SED has three components `(Mehdipour et al. 
     SPEX> par 1 5 scal s f
 
 Apply an exponential cut-off to the power-law
-'''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''''''''
 
 Apply exponential cut-off to the power-law component of the SED both below the Lyman limit and above the high-energy
 cut-off.
@@ -183,12 +183,12 @@ cut-off.
     SPEX> par 1 7 tau s f
 
 Set the PION (absorption) components
-''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''
 
-Here we introduce three PION components. The parameters of the PION components are restricted to improve the efficiency
-of a realistic fitting process. ``fcov=1`` refers to the PION component fully covers the line-of-sight. ``omeg=1.E-7``
-refers to a negligible solid angle (:math:`\Omega`) subtended by the PION component with respect to the nucleus
-(omeg = :math:`\Omega / 4 \pi`).
+Here we introduce three PION components (:ref:`sec:pion`). The parameters of the PION components are restricted to
+improve the efficiency of a realistic fitting process. ``fcov=1`` refers to the PION component fully covers the
+line-of-sight. ``omeg=1.E-7`` refers to a negligible solid angle (:math:`\Omega`) subtended by the PION component
+with respect to the nucleus (omeg = :math:`\Omega / 4 \pi`).
 
 .. note:: The third ``pion`` component is a spare one with ``fcov=0`` and ``omeg=0``. This is practical when analyzing
    real data without any prior knowledge of the number of PION components required.
@@ -229,7 +229,7 @@ refers to a negligible solid angle (:math:`\Omega`) subtended by the PION compon
     SPEX> par 1 10 omega val 0
 
 Set component relation along our line of sight
-''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''
 
 Set the component relation for the intrinsic AGN SED above the Lyman limit along our line-of-sight.
 
@@ -248,7 +248,7 @@ Set the component relation for the intrinsic AGN SED above the Lyman limit along
     SPEX> com rel 5 1,2
 
 Set the component relation for the PION components
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Assuming that the warm absorber components closer to the central engine are defined first (with a smaller component
 index), photons transmitted from the inner PION components (with a nonzero ``omeg`` value) are screened by all the
@@ -259,7 +259,7 @@ outer PION components at the redshift of the target, as well as the galactic abs
     SPEX> com rel 10 1,2
 
 Check the model settings and calculate
-''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''
 
 We check the setting of the component relation::
 

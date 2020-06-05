@@ -1,9 +1,9 @@
 Mbb: modified blackbody model
 =============================
 
-This model describes the spectrum of a blackbody mdified by coherent
+This model describes the spectrum of a black body modified by coherent
 Compton scattering. This is in several instances a much better
-description than a simple blackbody (for example accretion disk spectra
+description than a simple black body (for example accretion disk spectra
 of AGN). The physical background is described for example by
 `Rybicki & Lightman (1986) <https://doi.org/10.1002/9783527618170>`_,
 pages 218–219. The formulae that we use here with a derivation are given by
@@ -14,7 +14,7 @@ From that work we derive the spectrum (:math:`10^{44}` photons/s/keV):
 
 where :math:`E` is the photon energy in keV, :math:`T` the temperature
 in keV and :math:`A` the normalisation in units of
-:math:`10^{26}` m\ :math:`^{0.5}`, defined by
+:math:`10^{26}` :math:`\mathrm{m}^{0.5}`, defined by
 
 .. math:: A = n_{\mathrm e}^{0.5}O
 

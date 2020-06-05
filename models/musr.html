@@ -34,7 +34,7 @@
           <div class="body" role="main">
             
   <div class="section" id="musr-user-defined-multiplicative-model">
-<h1>4.1.25. Musr: User defined multiplicative model<a class="headerlink" href="#musr-user-defined-multiplicative-model" title="Permalink to this headline">¶</a></h1>
+<span id="sect-musr"></span><h1>4.1.25. Musr: User defined multiplicative model<a class="headerlink" href="#musr-user-defined-multiplicative-model" title="Permalink to this headline">¶</a></h1>
 <p>The user model provides an interface to create an multiplicative model
 component calculated by a user program. The interface is rather simple
 and therefore very flexible. The interface uses a set of two ASCII
@@ -77,13 +77,14 @@ same number as written in the <code class="docutils literal notranslate"><span c
 is the <code class="docutils literal notranslate"><span class="pre">sener</span></code> value that represents the multiplication factor and
 the second column is the <code class="docutils literal notranslate"><span class="pre">wener</span></code> value.</p></li>
 </ul>
-<p>In the directory ’user’ in the main SPEX directory some example user
+<p>In <a class="reference internal" href="../threads/user/user.html#sect-howtouser"><span class="std std-ref">How to use the SPEX user model</span></a> some example user
 model programs can be found. The source code can be adapted to
 accommodate the user’s wishes.</p>
+<p>The equivalent of <code class="docutils literal notranslate"><span class="pre">musr</span></code> for additive models is <a class="reference internal" href="user.html#sect-user"><span class="std std-ref">User: User defined model</span></a>.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">exec</span></code> : User executable, for example ’./model.py’ for a python
-script in the same directory where you run SPEX</div>
+script in the same directory where you run SPEX.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">npar</span></code> : Number of free parameters in the model. Current maximum is
 40.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">p01...p40</span></code> : Model parameters of the user model.</div>
@@ -118,6 +119,7 @@ script in the same directory where you run SPEX</div>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>

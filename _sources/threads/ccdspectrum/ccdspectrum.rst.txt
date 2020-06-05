@@ -98,8 +98,8 @@ Define the model
 
 Next we can define the model that we want to fit. In this case, we are looking at a MOS spectrum of a
 galaxy cluster. The simplest model that we can try is a single temperature spectrum absorbed by gas in
-the ISM. We also add a redshift component ``reds`` to shift the energy of the model spectrum with the
-right amount:
+the ISM. We also add a redshift component ``reds`` (:ref:`sect:reds`) to shift the energy of the model
+spectrum with the right amount:
 
 ::
 
@@ -110,16 +110,16 @@ right amount:
     SPEX> com cie
     You have defined    3 components.
 
-The ``hot`` model is actually a gas in equilibrium in absorption, which is a fair representation of the
-neutral gas phase of the ISM. Later we will put the temperature of this component to :math:`5 \times 10^{-4}` keV
+The ``hot`` model (:ref:`sect:hot`) is actually a gas in equilibrium in absorption, which is a fair representation of
+the neutral gas phase of the ISM. Later we will put the temperature of this component to :math:`5 \times 10^{-4}` keV
 to emulate a neutral plasma.
 
-The ``cie`` model represents a single temperature plasma in collisional ionisation equilibrium, which is commonly used
-for clusters.
+The ``cie`` model (:ref:`sect:cie`) represents a single temperature plasma in collisional ionisation equilibrium,
+which is commonly used for clusters.
 
 Then the components need to be related to each other, which means you need to specify how the multiplicative models
 should be applied to the additive models. The multiplicative components should be listed in order from the source to
-the observer:
+the observer (see also :ref:`sec:comp`):
 
 ::
 
@@ -168,7 +168,7 @@ We can set the guess parameters as follows:
 As we can see from the image, the first guess of the model is already in the right direction.
 
 In this example, we assume that the exact redshift is unknown. However, if you do have an accurate measurement of
-the distance, it is wise to set that distance in SPEX:
+the distance, it is wise to set that distance in SPEX (:ref:`sec:distance`):
 
 ::
 
@@ -181,7 +181,7 @@ Fit the model
 -------------
 
 We are now ready to fit the spectrum. To see the fitting steps, we can give the command ``fit print 1``. This needs
-to be set only once per session. A subsequent ``fit`` command starts to optimize the parameters:
+to be set only once per session. A subsequent ``fit`` command (:ref:`sec:fit`) starts to optimize the parameters:
 
 ::
 
@@ -397,8 +397,8 @@ The optimization leads to an even better fit:
 Calculating errors
 ------------------
 
-When we have the best fit, we can calculate the errors. This has to be done per parameter. Below we calculate,
-for example, the error on the best fit temperature:
+When we have the best fit, we can calculate the errors (:ref:`sec:error`). This has to be done per parameter.
+Below we calculate, for example, the error on the best fit temperature:
 
 ::
 

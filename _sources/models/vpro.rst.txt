@@ -50,7 +50,7 @@ broadening (equivalent to the *vblo* broadening model) one would choose
 :math:`F(x_2)=1`, and then let :math:`v` do the scaling (this also
 allows you to have :math:`v` as a free parameter in spectral fits). If
 one would instead want to describe a Gaussian profile (for which of
-course also the *vgau* model exists), one could for example approximate
+course also the vgau model exists, :ref:`sec:vgau`), one could for example approximate
 the profile by taking the :math:`x`-scale in units of the standard
 deviation; an example with a resolution of 0.1 standard deviation and a
 cut-off approximation at 5 standard deviations would be :math:`x=`-5,

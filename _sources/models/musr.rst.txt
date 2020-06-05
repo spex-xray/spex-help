@@ -1,3 +1,5 @@
+.. _sect:musr:
+
 Musr: User defined multiplicative model
 =======================================
 
@@ -50,14 +52,16 @@ with the following structure:
    is the ``sener`` value that represents the multiplication factor and
    the second column is the ``wener`` value.
 
-In the directory ’user’ in the main SPEX directory some example user
+In :ref:`sect:howtouser` some example user
 model programs can be found. The source code can be adapted to
 accommodate the user’s wishes.
+
+The equivalent of ``musr`` for additive models is :ref:`sect:user`.
 
 The parameters of the model are:
 
 | ``exec`` : User executable, for example ’./model.py’ for a python
-  script in the same directory where you run SPEX
+  script in the same directory where you run SPEX.
 | ``npar`` : Number of free parameters in the model. Current maximum is
   40.
 | ``p01...p40`` : Model parameters of the user model.

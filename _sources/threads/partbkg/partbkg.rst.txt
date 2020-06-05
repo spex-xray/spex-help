@@ -24,15 +24,16 @@ SPEX solution
 -------------
 
 The basic problem we have to solve here, is that we need a number of
-model components that are folded through the ARF (the cosmic X-rays) and
-a few components describing the particle background, which are not
-folded through the ARF. In SPEX, this can be solved using sectors.
-Sectors are essentially model groups representing different areas or
+model components that are folded through the mirror effective area
+(the cosmic X-rays) and a few components describing the particle
+background, which are not folded through the ARF. In SPEX, this
+can be solved using sectors (:ref:`sec:sectorsandregions`). Sectors
+are essentially model groups representing different areas or
 different components on the sky. In this case, we will create two
 sectors: one for the cosmic X-rays and one for the particle background.
-The second sector should not be folded through the ARF. To archieve
+The second sector should not be folded through the ARF. To achieve
 this, we have to create a special spectrum and response file with
-``trafo`` in which we define the sectors.
+``trafo`` (:ref:`sect:trafo`) in which we define the sectors.
 
 .. figure:: sectreg.png
    :name: fig:sectreg
@@ -50,9 +51,10 @@ Running trafo
 In this trafo run, we will actually load the same spectrum twice. One
 for every sector. Here we use a MOS1 spectrum extracted from an annulus
 between 6 and 9 arcmin from the cluster core. The background spectrum
-was extracted using the XMM Extended Source Analysis Software by Snowden
-& Kuntz. After starting ``trafo`` we have to tell it that we want to
-transform two spectra in two sectors:
+was extracted using the `XMM Extended Source Analysis Software by Snowden
+& Kuntz <https://www.cosmos.esa.int/web/xmm-newton/xmm-esas>`_. After
+starting ``trafo`` we have to tell it that we want to transform
+two spectra in two sectors:
 
 ::
 
@@ -125,24 +127,22 @@ Running SPEX
 
 If the res and spo files are created, we are ready to run ``spex``. In
 this description, we skip some very basic commands about, for example,
-plotting. See Chapter \ `[chap:intro] <#chap:intro>`__ for an overview
-of a basic SPEX session. Note that the procedure for SPEX version 2.02
-is exactly the same as for SPEX version 2.01, which is shown here.
-First, we load the spectrum and plot it:
+plotting. See :ref:`sec:intro` for an overview
+of a basic SPEX session. First, we load the spectrum and plot it:
 
 ::
 
-    Welcome user to SPEX version 2.01.05
+    Welcome user to SPEX version 3.00.00
     
    SPEX> data M1_annulus M1_annulus
    ...
    SPEX> plot 
 
-Figure \ `1.2 <#fig:partbkg-s1>`__ shows a plot of the spectrum. For
+Figure :ref:`fig:partbkg-s1` shows a plot of the spectrum. For
 presentation purposes we rebin the spectrum here with the ``obin``
-command. If C-statistics are used, binning is not strictly necessary. An
-important thing to remember at this point is to ignore the spectrum in
-region number 2:
+command (:ref:`sec:obin`). If C-statistics are used, binning is not
+strictly necessary. An important thing to remember at this point is
+to ignore the spectrum in region number 2:
 
 ::
 
@@ -195,7 +195,7 @@ with a gamma value of 1.41 to account for the Cosmic X-ray Backgound
    not folded through the arf.
 
 Just to show what happens if we fit the data now, we plot the result in
-Figure \ `1.3 <#fig:partbkg-s2>`__. It is clear that the spectrum is not
+Figure :ref:`fig:partbkg-s2`. It is clear that the spectrum is not
 well fitted at low and high energies. A contribution of soft protons is
 visible at the high-energy end of the spectrum. In addition, we see that
 the instrumental fluoresence lines of Al and Si at :math:`\sim`\ 1.49
@@ -217,7 +217,7 @@ need to use the second sector and define an additional model there.
 In this sequence of commands, we define a new sector (number 2) and add
 a power-law and two delta-line components to it. The slope of the
 gamma-parameter is initially set to :math:`\sim`\ 0.2. In
-Figure \ `1.4 <#fig:partbkg-s3>`__, we put the components in sector 1 to
+Figure :ref:`fig:partbkg-s3`, we put the components in sector 1 to
 zero to show the particle background model that we have just defined.
 The flat shape of the power-law model confirms that these components are
 not folded through the arf.
@@ -229,7 +229,7 @@ not folded through the arf.
    has been able to fit the discrepancies at high energies.
 
 When we reset the components in sector 1 to their initial values we can
-start fitting. In Figure \ `1.5 <#fig:partbkg-s4>`__, we show the best
+start fitting. In Figure :ref:`fig:partbkg-s4`, we show the best
 fit using this model. The contribution of soft-protons at high energies
 is now being accounted for by the power law.
 

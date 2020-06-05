@@ -34,14 +34,14 @@
           <div class="body" role="main">
             
   <div class="section" id="reds-redshift-model">
-<h1>4.1.30. Reds: redshift model<a class="headerlink" href="#reds-redshift-model" title="Permalink to this headline">¶</a></h1>
+<span id="sect-reds"></span><h1>4.1.30. Reds: redshift model<a class="headerlink" href="#reds-redshift-model" title="Permalink to this headline">¶</a></h1>
 <p>This multiplicative model applies a redshift <img class="math" src="../_images/math/aa92f9c3a970c3c3d5a25b1dda7d7b9267627c1a.svg" alt="z" style="vertical-align: 0px"/> to an arbitrary
 additive component. If a photon is emitted at energy <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>, the
 redshift model will put it at energy <img class="math" src="../_images/math/14a3aff337d35d7de3cb4cb51060e741eadf3a48.svg" alt="(1+z)E" style="vertical-align: -4px"/>. In addition, a time
 dilatation correction is applied such that the spectrum <img class="math" src="../_images/math/bd130e7119bf6f7665124f207621303ba16e6406.svg" alt="S(E)" style="vertical-align: -4px"/>
 (expressed as photons/s per bin) is divided by <img class="math" src="../_images/math/e4ebd41677ecd85b052754ed0a5e35a5897dc9e5.svg" alt="1+z" style="vertical-align: -1px"/>.</p>
 <p>However, it is necessary to distinguish two different cases:</p>
-<p>case 1 (flag=0): the redshift component can be used to calculate the
+<p>Case 1 (flag=0): the redshift component can be used to calculate the
 effects of the cosmological redshift. The cosmological redshift has the
 effect of the energy shift and the time dilatation as outlined above.
 Therefore, the above procedure is essentially correct and this is what
@@ -57,15 +57,15 @@ spectra, it appears necessary to multiply the spectrum as calculated by
 the original subroutine by a factor of <img class="math" src="../_images/math/394f61ded90db8ecf8dbac79d92667bd59bad107.svg" alt="(1+z)^2" style="vertical-align: -4px"/>. But in the other
 case (redshifts caused by the motion of a source at any distance), this
 re-correction should not be done, reason why we introduce the other
-option. <em>in summary, for redshift components corresponding to
+option. <em>In summary, for redshift components corresponding to
 cosmological redshifts, the option flag=0 (default) must be used</em>.</p>
-<p>case 2 (flag=1): this is the old case for a source with a redshift
+<p>Case 2 (flag=1): this is the old case for a source with a redshift
 caused by motion away from us. It should be used for any velocity fields
 other than the Hubble flow.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note that this component should be used in tandem with the
-distance command (Section <a class="reference external" href="#sec:distance">Distance</a>) to
+distance command (<a class="reference internal" href="../reference/commands/distance.html#sec-distance"><span class="std std-ref">Distance: set the source distance</span></a>) to
 take into account the cosmological redshift and its influence on the
 flux completely.</p>
 </div>
@@ -105,6 +105,7 @@ Default value: 0.</div>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>

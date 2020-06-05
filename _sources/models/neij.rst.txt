@@ -1,9 +1,11 @@
+.. _sect:nei:
+
 Neij: non-equilibrium ionisation jump model
 ===========================================
 
 This model calculates the spectrum of a plasma in non-equilibrium
 ionisation (NEI). For more details about NEI calculations, see
-Section `Non-equilibrium ionisation models <#sec:nei>`__.
+:ref:`sect:neijtheory`.
 
 The present model calculates the spectrum of a collisional ionisation
 equilibrium (CIE) plasma with uniform electron density
@@ -99,10 +101,9 @@ and we get the final temperature at :math:`u=U+dU` to be
 It should be noted that, for fixed values of :math:`\alpha` and
 :math:`\beta`, the temperature change after the break is determined by
 the ratio :math:`dU/U` rather than :math:`dU` itself. The user can check
-:math:`T_3` with the ``ascdump plas`` command (see the
-`Ascdump command <#sec:ascdump>`__) and also the histories of
-:math:`u` and :math:`T(u)` with the ``ascdump nei`` command
-(see `Ascdump <#sec:ascdump>`__).
+:math:`T_3` with the ``ascdump plas`` command (see  :ref:`sec:ascdump`)
+and also the histories of :math:`u` and :math:`T(u)` with the
+``ascdump nei`` command (see :ref:`sec:ascdump`).
 
 In some rare cases with a large negative :math:`\beta`, :math:`T_3` can
 get an unphysical value (:math:`T_3 < 0`). In such a case the
@@ -120,7 +121,9 @@ the array of :math:`u`-values should be in ascending order. The pairs
 :math:`T=T_1` (the pre-shock temperature), and the final (radiation)
 temperature is the temperature of the last bin.
 
-| The parameters of the model are: ``t1`` : Temperature :math:`T_1`
+The parameters of the model are:
+
+| ``t1`` : Temperature :math:`T_1`
   before the sudden change in temperature, in keV. Default: 0.002 keV.
 | ``t2`` : Temperature :math:`T_2` after the sudden change in
   temperature, in keV. Default: 1 keV.
@@ -138,8 +141,10 @@ temperature is the temperature of the last bin.
   ``hisu`` needs to be specified.
 | ``hisu`` : Filename with the :math:`T(u)` values. Only used when
   mode=2.
-| The following parameters are the same as for the cie-model: ``ed`` :
-  Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
+
+The following parameters are the same as for the cie-model (:ref:`sect:cie`):
+
+| ``ed`` : Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
 | ``it`` : Ion temperature in keV
 | ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element

@@ -30,7 +30,7 @@ below. We refer to the above papers for more details.
    radio astronomy. Useful for "spiky emission measure distributions.
 
 #. poly – Polynomial method: approximates the DEM by a polynomial in the
-   :math:`\log T -- \log Y` plane, where :math:`Y` is the emission
+   :math:`\log T - \log Y` plane, where :math:`Y` is the emission
    measure. Works well if the DEM is smooth.
 
 #. mult – Multi-temperature method: tries to fit the DEM to the sum of
@@ -56,9 +56,9 @@ steps:
 #. Define the parameters of the dem model: number of temperature bins,
    temperature range, abundances etc.
 
-#. give the "dem lib" command to create a library of isothermal spectra.
+#. Give the "dem lib" command to create a library of isothermal spectra.
 
-#. do the dem method of choice (each one of the five methods outlined
+#. Do the dem method of choice (each one of the five methods outlined
    above)
 
 #. For different abundances or parameters of any of the spectral

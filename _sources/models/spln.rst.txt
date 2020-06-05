@@ -91,7 +91,7 @@ with the same value for each :math:`y_i`, the fitting algorithm will
 start to vary each parameter in turn; if it changes for example
 parameter :math:`x_j` by 1, this means a factor of 10; since the
 neighbouring points (like :math:`x_{j-1}` and :math:`x_{j+1}` however
-are not adjusted in thid step, the photon spectrum has to be drawn as a
+are not adjusted in third step, the photon spectrum has to be drawn as a
 cubic spline through this very sharp function, and it will show the
 well-known over-and undershooting at the intermediate x-values between
 :math:`x_{j-1}` and :math:`x_j` and between :math:`x_j` and

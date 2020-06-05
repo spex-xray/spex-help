@@ -34,7 +34,7 @@
           <div class="body" role="main">
             
   <div class="section" id="pdem-dem-models">
-<h1>4.1.27. Pdem: DEM models<a class="headerlink" href="#pdem-dem-models" title="Permalink to this headline">¶</a></h1>
+<span id="sect-pdem"></span><h1>4.1.27. Pdem: DEM models<a class="headerlink" href="#pdem-dem-models" title="Permalink to this headline">¶</a></h1>
 <p>The pdem model is intended to be used for differential emission measure
 analysis, simultaneous with fitting of abundances etc. of an optically
 thin plasma.</p>
@@ -48,12 +48,19 @@ of <img class="math" src="../_images/math/7d0ca689fb4c5dd78e5ca6846e6a70b2a2b66a
 points. SPEX then interpolates in the <img class="math" src="../_images/math/467a423070d8a4d0fb8841fdb02f20b4d36538d0.svg" alt="\log T_i - \log y_i" style="vertical-align: -3px"/> space
 on a finer grid using splines. That temperature grid on which the data
 are being evaluated has a fine mesh: step size is about 0.10 in
-<img class="math" src="../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/> (finer is not usefull because uniqueness is no longer
+<img class="math" src="../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/> (finer is not useful because uniqueness is no longer
 guaranteed), with the additional constraint that the number of mesh
 points is at least <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and not larger than 64 (practical limit in
 order to avoid excessive cpu-time). The emission measure distribution is
 then simply scaled in such a way that its sum over the fine mesh equals
 the total emission measure <img class="math" src="../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> that went into the model.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At least one of the <img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/> values should be kept
+frozen during fitting, when <img class="math" src="../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> is a free parameter, otherwise no
+well defined solution can be obtained! If <img class="math" src="../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> is fixed, then all
+<img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/> can be free.</p>
+</div>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation, i.e. total integrated emission measure
@@ -64,20 +71,23 @@ the total emission measure <img class="math" src="../_images/math/bea8ea81e7c553
 2, maximum value 8.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">y1</span></code> : Relative contribution <img class="math" src="../_images/math/4a5ba6668ed72081742d9c479c43b0e61c4664a6.svg" alt="y_1" style="vertical-align: -3px"/> at <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">y2</span></code> : Relative contribution <img class="math" src="../_images/math/d2d792dee7938f9095164f8cd8e4c9db093f313e.svg" alt="y_2" style="vertical-align: -3px"/> at <img class="math" src="../_images/math/bf26e4bae14dd22607ad0a45e0c90a06202675ae.svg" alt="T_2" style="vertical-align: -2px"/></div>
-<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">y8</span></code> : Relative contribution <img class="math" src="../_images/math/0e0b013a23c4a556778f348fd54ce2a6c82f9e34.svg" alt="y_8" style="vertical-align: -3px"/> at
+<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y8</span></code> : Relative contribution <img class="math" src="../_images/math/0e0b013a23c4a556778f348fd54ce2a6c82f9e34.svg" alt="y_8" style="vertical-align: -3px"/> at
 <img class="math" src="../_images/math/748e618dc0a27ab3190b9aaccfe861bf288674d2.svg" alt="T_8" style="vertical-align: -2px"/>; note that the higher contributions <img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/> are
 neglected if <img class="math" src="../_images/math/0e452aec74f397b48dd5e7882b0040b06b97d23f.svg" alt="i&gt;n" style="vertical-align: 0px"/>.</div>
-<div class="line">The following parameters are the same as for the cie-model:</div>
+</div>
+<p>The following parameters are the same as for the cie-model:</p>
+<div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ed</span></code> : Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">vrms</span></code> : RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
-<div class="line">Note that the true emission measure on the finer mesh can be displayed
-by using the “ascdump term # # dem” command; you will get a list of
-temperature (keV) versus emission measure.</div>
 </div>
+<p>Note that the true emission measure on the finer mesh can be displayed
+by using the <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">term</span> <span class="pre">#</span> <span class="pre">#</span> <span class="pre">dem</span></code> command; you will get a list of
+temperature (keV) versus emission measure.</p>
 </div>
 
 
@@ -108,6 +118,7 @@ temperature (keV) versus emission measure.</div>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>

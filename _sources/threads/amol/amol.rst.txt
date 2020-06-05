@@ -110,8 +110,8 @@ Setting the SED
 
 Set the intrinsic spectral-energy-distribution (SED) of the low-mass X-ray binary. For a typical X-ray binary,
 the SED between 0.1 and 10 keV is described by two components (`Mitsuda et al. 1984
-<https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract>`_): a thermal component, e.g. a black-body (``bb``),
-and a non-thermal component, e.g. a power-law (``pow``)::
+<https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract>`_): a thermal component, e.g. a black-body
+(:ref:`sect:bb`), and a non-thermal component, e.g. a power-law (:ref:`sect:pow`)::
 
     SPEX> com pow
      You have defined    1 component.
@@ -138,11 +138,11 @@ Setting the Galactic cold neutral absorption
 Defining the dust absorption
 ----------------------------
 
-Here we introduce the ``amol`` components to characterise the interstellar dust extinction. In this example we add four
-arbitrary dust compounds: a-olivine (index=4230, :math:`\mathrm{Mg Fe Si O_4}`), a-quartz (index=2234,
-:math:`\mathrm{Si O_2}`), c-forsterite (index=3230, :math:`\mathrm{Mg_2 Si O_4}`), and a-enstatite (index=3231,
-:math:`\mathrm{Mg Si O_3}`). The full list of all compounds is reported in Table :ref:`tab:xride-table` and
-Table :ref:`tab:additional_compounds` in the :ref:`sec:amolmodel` section of the manual.
+Here we introduce the ``amol`` components (:ref:`sec:amolmodel`) to characterise the interstellar dust extinction.
+In this example we add four arbitrary dust compounds: a-olivine (index=4230, :math:`\mathrm{Mg Fe Si O_4}`),
+a-quartz (index=2234, :math:`\mathrm{Si O_2}`), c-forsterite (index=3230, :math:`\mathrm{Mg_2 Si O_4}`), and
+a-enstatite (index=3231, :math:`\mathrm{Mg Si O_3}`). The full list of all compounds is reported in Table
+:ref:`tab:xride-table` and Table :ref:`tab:additional_compounds` in the :ref:`sec:amolmodel` section of the manual.
 
 Setting the interstellar dust models
 """"""""""""""""""""""""""""""""""""
@@ -166,7 +166,7 @@ Defining ``amol`` with the initial guess for the column densities of the dust co
 
 
 .. warning:: It is necessary to change and let free to vary the relative abundances of the cold gas elements
-   (HOT in this case) which are also contained in the dust compounds. In this example, the dust models
+   (:ref:`sect:hot` in this case) which are also contained in the dust compounds. In this example, the dust models
    contain oxygen (``08``), magnesium (``12``), silicon (``14``) and iron (``26``). We let them to vary within 
    a limited range according to the depletion intervals defined by 
    `Whittet et al. (2002) <https://books.google.nl/books?id=k21lk4sORpEC>`_

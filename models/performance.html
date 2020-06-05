@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.2. Optimizing model performance &#8212; SPEX Help Center 3.05 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/performance.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Additional tools" href="../tools.html" />
+    <link rel="prev" title="4.1.41. Xabs: photoionised absorption model" href="xabs.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="optimizing-model-performance">
+<h1>4.2. Optimizing model performance<a class="headerlink" href="#optimizing-model-performance" title="Permalink to this headline">¶</a></h1>
+<p>Since the release of SPEX version 3, which contain major atomic data updates, the models that depend on this
+new atomic data run slower then before. Especially for cases which need a lot of model evaluations, this can be
+a nuisance.</p>
+<p>In this section, we provide a number of suggestions that may help you speed the calculation up. Of
+course, speeding up the calculation usually means you also pay a (small) price in terms of accuracy. Therefore,
+we will also provide an estimate of the loss of accuracy where possible to help you to find the right balance
+between calculation speed and accuracy for your project.</p>
+<div class="section" id="setting-a-maximum-n">
+<h2>4.2.1. Setting a maximum N<a class="headerlink" href="#setting-a-maximum-n" title="Permalink to this headline">¶</a></h2>
+<p>In many cases, the most important spectral lines are formed by transitions between the lower principle quantum
+numbers <cite>n</cite>. In the past couple of years, we added atomic levels with a higher <cite>n</cite> to improve the accuracy of
+the models. Although it takes more time for SPEX to calculate the spectrum including these higher levels, the
+line flux produced by these levels is rather small. Especially above temperatures of 2 keV.</p>
+<p>To make the calculation faster, it is a good option to skip the calculation of the higher levels. In SPEX,
+this can be done quite easily by setting <code class="docutils literal notranslate"><span class="pre">nmax</span></code> using the <code class="docutils literal notranslate"><span class="pre">ions</span></code> command (<a class="reference internal" href="../reference/commands/ions.html#sec-ions"><span class="std std-ref">Ion: select ions for the plasma models</span></a>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ions nmax all 5
+</pre></div>
+</div>
+<p>The command above tells SPEX to only calculate levels for which <cite>n &lt;= 5</cite>. Of course we miss out on some of the
+line flux by setting this parameter. We have run some tests what fraction of the flux in the 0.2-10 keV band we
+lose due to this setting with respect to a full model. The tests described below were done for a CIE model.</p>
+<blockquote>
+<div><img alt="../_images/Flux_loss_log.png" src="../_images/Flux_loss_log.png" />
+</div></blockquote>
+<p>The figure above shows that the accuracy loss is highest for CIE models with temperatures below 2 keV. This is
+logical, because CIE models below 2 keV are dominated by line emission, rather than Brehmsstralung which dominates
+at higher temperatures. For <cite>Nmax &lt;= 4</cite> the missing flux is 10% of the total at maximum and for <cite>Nmax &lt;= 5</cite> it is
+5% at maximum. For temperatures well above 1 keV, however, the error in the flux is less than 5%.</p>
+<p>The corresponding time gain is significant, although not spectacular. On our test machine, a full CIE calculation
+took about 6 seconds, with <cite>Nmax = 5</cite> it took about 4 seconds and with <cite>Nmax = 4</cite> about 3 seconds were needed.
+The old <cite>Mekal</cite> calculation finishes in a fraction of a second, although at a much higher cost of accuracy.</p>
+<p>In the Table below, we show an overview of the results. The maximum error is given as the fraction of the (line)flux
+that is missing in the model.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 24%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>CPU Time gain</p></th>
+<th class="head"><p>Max. Err  (kT&lt;2 keV)</p></th>
+<th class="head"><p>Max. Err (kT&gt;2 keV)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Full</p></td>
+<td><p>0%</p></td>
+<td><p>0%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nmax = 5</p></td>
+<td><p>~35%</p></td>
+<td><p>~5%</p></td>
+<td><p>~1%</p></td>
+</tr>
+<tr class="row-even"><td><p>Nmax = 4</p></td>
+<td><p>~50%</p></td>
+<td><p>~10%</p></td>
+<td><p>~3%</p></td>
+</tr>
+<tr class="row-odd"><td><p>ACT 2</p></td>
+<td><p>95-98%</p></td>
+<td><p>~50%</p></td>
+<td><p>~10%</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusion:</strong> If you need to reduce the processing time, then setting a maximum <cite>n</cite> is generally a good idea. You can
+even do the error calculations with the Nmax setting for most of the parameters, as long as you do the final fit with
+the full model to update the best-fit values. The errors should not be affected significantly within their precision,
+unless the parameter is strongly correlated to another one.</p>
+</div>
+<div class="section" id="replacing-secondary-components-by-the-file-model">
+<h2>4.2.2. Replacing secondary components by the file model<a class="headerlink" href="#replacing-secondary-components-by-the-file-model" title="Permalink to this headline">¶</a></h2>
+<p>To deal with astrophysical complexity, models can become rather large. Especially when there are many atomic model
+components to calculate, this can cost a significant amount of time. In some cases, it is not really necessary to
+calculate a component every iteration, because its parameters are rather stable or even fixed. In these cases, this
+component can be replaced by a spectrum read from file.</p>
+<p>Let us consider the case where we model the Galactic foreground when analysing a cluster of galaxy spectrum. The
+local hot bubble and the Galactic halo are usually modeled with two CIE components with temperatures around 0.1-0.2
+keV. Since these components contain many lines, they also take quite some time to calculate. Many of these calculations
+can be avoided if we save the best-fit foreground model in a text file.</p>
+<p>To do this, the <code class="docutils literal notranslate"><span class="pre">sector</span></code> command (<a class="reference internal" href="../reference/commands/sector.html#sec-sector"><span class="std std-ref">Sector: creating, copying and deleting of a sector</span></a>) can be of help. Once you have the best-fit model for the
+Galactic foreground, either from an offset pointing or an outer shell, then you can save the model with the
+<code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adum</span></code> command. Before you do this, you may want to save your best fit parameters with <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span></code>, just to
+be sure. Then, follow these steps:</p>
+<ol class="arabic">
+<li><p>Since the <code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adum</span></code> command saves the total model spectrum for the sector, please make sure that the
+normalisations of the models that you do not want to save are set to 0. In this particular case, the normalisation
+of the cluster component should be 0. Also choose whether you want to apply the absorption already in the saved
+spectrum or during your future fits. In the latter case, put the absorption to 0 as well.</p></li>
+<li><p>If the model components to save are set, then we can execute the <code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adum</span></code> command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; sector adum 1 foreground.model
+</pre></div>
+</div>
+</li>
+<li><p>Now, you can delete the model components that you saved to file from the model. For example, the cie components that
+model the local hot bubble and Galactic foreground. In their place, you can now add a file model:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com 1 file
+SPEX&gt; par 1 4 file av foreground.model
+# In this example the file model is added as component number 4.
+</pre></div>
+</div>
+</li>
+<li><p>With the file model set, you can continue fitting. Remember to restore the normalisations of the other components to
+their previous values. These can be found in the output file of the <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">write</span></code> command that you did before.
+The <code class="docutils literal notranslate"><span class="pre">norm</span></code> parameter of the file model allows you to scale the spectrum. Please also check whether the absorption
+should be applied to the file model component or not!</p></li>
+</ol>
+<p>The fitting should now be faster, because there are now two CIE components that do not need to be calculated anymore.</p>
+</div>
+<div class="section" id="optimizing-the-number-of-threads">
+<h2>4.2.3. Optimizing the number of threads<a class="headerlink" href="#optimizing-the-number-of-threads" title="Permalink to this headline">¶</a></h2>
+<p>By default, SPEX tries to use as many CPU cores as the system has available. However, dividing the calculations over
+multiple cores also causes overhead. The more cores, the more overhead! It has been observed that calculations performed
+on 6 cores were faster than using 12 cores on the same machine! If you are running on a machine with a large number
+of CPU cores, it may be better to limit SPEX to about 4 to 8 cores (depending on the model configuration). You can
+limit the number of cores by setting the <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> environment variable before you start SPEX.</p>
+<p>In bash shells, this is the command to run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>linux:~&gt; export OMP_NUM_THREADS=4
+</pre></div>
+</div>
+<p>In csh shells, it is done like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>linux:~&gt; setenv OMP_NUM_THREADS 4
+</pre></div>
+</div>
+<p>If you need to do a large number of calculations, it may be good to test a few settings first to see which one is
+optimal for your model and machine.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html">4. Spectral models</a><ul>
+      <li>Previous: <a href="xabs.html" title="previous chapter">4.1.41. Xabs: photoionised absorption model</a></li>
+      <li>Next: <a href="../tools.html" title="next chapter">5. Additional tools</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
+    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+</div>
+
+  </body>
+</html>

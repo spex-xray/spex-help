@@ -56,9 +56,9 @@ colours, etc. Finally, the plot command can also be used to dump the
 data to an ascii file.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>To make a plot, always start with a “plot device” command
-to open any plot device you wish. Next select a plot type using “plot
-type”. After this you can give any plot commands to modify or display
+<p>To make a plot, always start with a <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span></code> command
+to open any plot device you wish. Next select a plot type using <code class="docutils literal notranslate"><span class="pre">plot</span>
+<span class="pre">type</span></code>. After this you can give any plot commands to modify or display
 the plot.</p>
 </div>
 <div class="admonition warning">
@@ -86,17 +86,17 @@ affect the currently active frame.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">frame</span> <span class="pre">delete</span> <span class="pre">#i</span></code> : Deletes frame number #i.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">type</span> <span class="pre">#a</span></code> : Specifies what is to be plotted in the selected
 frame. #a can be any of the plot types specified in
-Section <a class="reference external" href="#sec:plottypes">Plot types</a>.</div>
+<a class="reference internal" href="../plot/types.html#sect-plottypes"><span class="std std-ref">Plot types</span></a>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">#a1</span> <span class="pre">[#a2]</span></code> : Selects a graphics device #a1 and optional
 file name #a2 (in the case of a postscript or gif device). File
 extensions (for example .ps) should be specified. For valid devices,
-see Section <a class="reference external" href="#sec:plotdevices">Plot devices</a>.</div>
+see <a class="reference internal" href="../plot/devices.html#sect-plotdevices"><span class="std std-ref">Plot devices</span></a>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">close</span> <span class="pre">#i</span></code> : Close graphics device number #i. Note, always
 close a postscript device before quiting /spex, otherwise the contents
 may be corrupted.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">hlan</span></code> : Make a hardcopy in landscape orientation and send it
-to the standard printer. Use is made of the unix command “lp -c
-filename”.</div>
+to the standard printer. Use is made of the unix command <code class="docutils literal notranslate"><span class="pre">lp</span> <span class="pre">-c</span>
+<span class="pre">filename</span></code>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">hpor</span></code> : As above, but for portrait orientation</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">x</span> <span class="pre">lin</span></code> : Plot the x-axis on a linear scale</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">x</span> <span class="pre">log</span></code> : Plot the x-axis on a log scale</div>
@@ -106,13 +106,13 @@ filename”.</div>
 scale; for y-values below #r1 the data will be plotted linear, and for
 y-values above #r1 the data will be plotted logarithmically; the
 linear part occupies the fraction of the total frame height given by
-#r2. See also Section <a class="reference external" href="#sec:plotscales">Plot axes scales</a>.</div>
+#r2. See also <a class="reference internal" href="../plot/axes.html#sect-plotscales"><span class="std std-ref">Plot axis scales</span></a>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">z</span> <span class="pre">lin</span></code> : Plot the z-axis on a linear scale. The z-axis is
 defined for two-dimensional plots like contour plots.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">z</span> <span class="pre">log</span></code> : As above, but using a log scale.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">#a</span></code> : Set the plot units on the x-axis, #a can be Å, keV,
 eV, or whatever unit that is allowed. The allowed values depend upon
-the plot type. See Section <a class="reference external" href="#sec:plotunits">Plot axes units</a> for
+the plot type. See <a class="reference internal" href="../plot/axes.html#sect-plotaxes"><span class="std std-ref">Plot axis units and scales</span></a> for
 allowed units for each plot type.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">vel</span> <span class="pre">#r</span> <span class="pre">#a</span></code> : Plot the x-axis in velocity units
 (<img class="math" src="../../_images/math/bb6c54184c56f408dbd1c0bb36ec247073a83c48.svg" alt="\mathrm{km}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>), with reference energy provided as #r if #a is
@@ -125,23 +125,23 @@ the same zero scale will be set for all plot windows.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">rz</span> <span class="pre">#r1:#r2</span></code> : Same as above, but for the z-axis</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">view</span> <span class="pre">default</span> <span class="pre">#l</span></code> : For #l is true, the default viewport is
 used. For #l is false, the default viewport is overruled and you can
-specify your own viewport limits with the “set view x” and “set view
-y” commands. Useful for stacking different plot frames.</div>
+specify your own viewport limits with the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">view</span> <span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">view</span>
+<span class="pre">y</span></code> commands. Useful for stacking different plot frames.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">view</span> <span class="pre">x</span> <span class="pre">#r1:#r2</span></code> : Set the x viewport range from #r1 to #r2,
 where #r1 and #r2 must be in the range 0–1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">view</span> <span class="pre">y</span> <span class="pre">#r1:#r2</span></code> : Same as above, but for the y-range.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">view</span> <span class="pre">back</span> <span class="pre">#i</span></code> : Set the viewport background colour to value
-#i. See Section <a class="reference external" href="#sec:plotcolours">Plot colours</a> for the
+#i. See Section <a class="reference internal" href="../plot/colour.html#sect-plotcolours"><span class="std std-ref">Plot colours</span></a> for the
 allowed plot colours.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">view</span> <span class="pre">transp</span> <span class="pre">#l</span></code> : If true, set the viewport background to to
 transparent, the plot frame will be shown with the background colour
-selected by the “plot view back” command. Default is false.</div>
+selected by the <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">view</span> <span class="pre">back</span></code> command. Default is false.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">disp</span> <span class="pre">#l</span></code> : Display a box around the viewport, true/false</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">edge</span> <span class="pre">#a</span> <span class="pre">#l</span></code> : If true (default), display the edges of the
 plot box, #a should be one of the following keywords: top, bottom,
 left, right. Note that whether you see the edges or not also depends
-on the settings defined by the “plot box disp” command.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">x</span> <span class="pre">#l</span></code> : Plots an x-axis with tickmarks at the line
+on the settings defined by the <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">disp</span></code> command.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">x</span> <span class="pre">#l</span></code> : Plots an x-axis with tick marks at the line
 <img class="math" src="../../_images/math/12224e5d92c968ed0567bdef0e33e19efb34fc08.svg" alt="y=0" style="vertical-align: -3px"/>. You only see this of course if your y-range includes the
 value 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">y</span> <span class="pre">#l</span></code> : As above, but for the y-axis</div>
@@ -176,23 +176,22 @@ major/labelled tick marks on the x-axis to #r</div>
 major tick mark on the x-axis</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">tick</span> <span class="pre">subdiv</span> <span class="pre">y</span> <span class="pre">#i</span></code> : Same as above, but for the y-axis</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">col</span> <span class="pre">#i</span></code> : Set the box colour to colour number #i. See
-Section <a class="reference external" href="#sec:plotcolours">Plot colours</a> for the allowed plot
-colours.</div>
+<a class="reference internal" href="../plot/colour.html#sect-plotcolours"><span class="std std-ref">Plot colours</span></a> for the allowed plot colours.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">lt</span> <span class="pre">#i</span></code> : Set the box line type to #i. See
-Section <a class="reference external" href="#sec:plotlines">Plot lines</a> for allowed line types.</div>
+<a class="reference internal" href="../plot/lines.html#sect-plotlines"><span class="std std-ref">Plot line types</span></a> for allowed line types.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">lw</span> <span class="pre">#i</span></code> : Set the box line weight to number #i. See
-Section <a class="reference external" href="#sec:plotlines">Plot lines</a> for more about line
+<a class="reference internal" href="../plot/lines.html#sect-plotlines"><span class="std std-ref">Plot line types</span></a> for more about line
 weights.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">fh</span> <span class="pre">#r</span></code> : Set the box font height to number #i.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">font</span> <span class="pre">#i</span></code> : Set the box font to number #i. See
-Section <a class="reference external" href="#sec:plottext">Plot text</a> for more details about text
+<a class="reference internal" href="../plot/text.html#sect-plottext"><span class="std std-ref">Plot text</span></a> for more details about text
 fonts.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">disp</span> <span class="pre">#l</span></code> : If #l is true, display the caption
 (default). For more about captions see
-Section <a class="reference external" href="#sec:plotcaptions">Plot captions</a>. Here and below, #a
+<a class="reference internal" href="../plot/captions.html#sect-plotcaptions"><span class="std std-ref">Plot captions</span></a>. Here and below, #a
 can be x, y, z, id, lt or ut.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">col</span> <span class="pre">#i</span></code> : Plot caption #a in colour number #i. See
-Section <a class="reference external" href="#sec:plotcolours">Plot colours</a> for valid colour
+<a class="reference internal" href="../plot/colour.html#sect-plotcolours"><span class="std std-ref">Plot colours</span></a> for valid colour
 indices.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">back</span> <span class="pre">#i</span></code> : Set the background colour for caption #a to
 #i.</div>
@@ -201,7 +200,7 @@ indices.</div>
 #r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">font</span> <span class="pre">#i</span></code> : Set the font type for caption #a to #i.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a1</span> <span class="pre">text</span> <span class="pre">#a2</span></code> : Set the text for caption #a1 to #a2. Note
-that the caption text should be put between quotion marks, like “best
+that the caption text should be put between quotation marks, like “best
 fit results” if you want to see the text: best fit results.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a1</span> <span class="pre">side</span> <span class="pre">#a2</span></code> : Plot caption #a1 (which can be x, y, z,
 id, lt, ut) at the side of the frame specified by #a2, which may stand
@@ -221,7 +220,7 @@ if #r = 0.5, the center of the string will be placed at “coord”, if #r
 be used but are less useful.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">string</span> <span class="pre">new</span> <span class="pre">#r1</span> <span class="pre">#r2</span> <span class="pre">#a</span></code> : Plot a new string with text as
 specified in #a at x=#r1 and y = #r2. See
-Section <a class="reference external" href="#sec:plottext">Plot text</a> for more deatils about text
+<a class="reference internal" href="../plot/text.html#sect-plottext"><span class="std std-ref">Plot text</span></a> for more details about text
 strings. Also do not forget to put #a between “” if it consists of
 more than one word (i.e., if it contains spaces).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">string</span> <span class="pre">del</span> <span class="pre">#i:</span></code> : Delete string numbers specified by the range
@@ -322,7 +321,7 @@ y-direction.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">data</span> <span class="pre">lw</span> <span class="pre">#i</span></code> : Give the data line weight #i.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">data</span> <span class="pre">fh</span> <span class="pre">#r</span></code> : Give the symbols for the data font height #r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">data</span> <span class="pre">symbol</span> <span class="pre">#i</span></code> : Plot the data with symbol number #i. For
-symbol numbers, see Section <a class="reference external" href="#sec:plotmarkers">Plot markers</a>.</div>
+symbol numbers, see <a class="reference internal" href="../plot/marker.html#sect-plotmarkers"><span class="std std-ref">Plot symbols</span></a>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">adum</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span> <span class="pre">[append]</span></code> : Dump the data and model in the
 plot in an ascii file with filename #a. The extension “.qdp” will
 automatically be appended. Note that the data will be written as they

@@ -24,7 +24,7 @@ for Interstellar Dust. The cases are:
 
 .. warning:: For any instrument where the extraction region has a size
    comparable to the size of the dust scattering halo, this model should
-   not be used, as the scattered X-rays will fall within the exctraction
+   not be used, as the scattered X-rays will fall within the extraction
    region. Take care when fitting data from different instruments
    simultaneously.
 

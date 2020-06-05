@@ -31,7 +31,7 @@ and model binning can be determined, and what the corresponding optimum
 way to create the instrumental response is. Now I focus upon the
 possible data formats for these files.
 
-For large data sets, the fastest and most transparant way to save a
+For large data sets, the fastest and most transparent way to save a
 response matrix to a file would be to use direct fortran or C write
 statements. Unfortunately not all computer systems use the same binary
 data representation. Therefore the FITS-format has become the *de facto*
@@ -58,7 +58,7 @@ propose *not* to adhere to the OGIP format here, as listed below:
    consistent.
 
 #. There are some redundant quantities in the OGIP format, like the
-   âareascalâ keyword. When the effective area should be scaled by a
+   ``areascal`` keyword. When the effective area should be scaled by a
    given factor, this can be done explicitly in the matrix.
 
 #. As was shown in this work, it is more efficient to do the grouping

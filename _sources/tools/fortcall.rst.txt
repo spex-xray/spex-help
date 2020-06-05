@@ -30,7 +30,7 @@ The basic flow of the solution is as follows:
 To explain how you can do this, we give below a sample Fortran 90
 program. The program first creates a command file called spex.com that
 contains the input for the run with SPEX. In your case, you can replace
-the "/usr/local/bin/spex" to whatever path is appropriate for you to
+the "/opt/spex/bin/spex" to whatever path is appropriate for you to
 call SPEX. The ":math:`<<`\ STOP" is essential for linux to tell when
 the input stream is finished.
 

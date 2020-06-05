@@ -11,7 +11,7 @@ screen. The model is the set of spectral components that is used,
 including all additive and multiplicative components. For all additive
 components, it shows in which order the multiplicative components are
 applied to the additive (emitted) components. See
-Section `Comp <#sec:comp>`__ for more details.
+:ref:`sec:comp` for more details.
 
 Syntax
 ~~~~~~

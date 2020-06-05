@@ -40,32 +40,32 @@ produced using the <code class="docutils literal notranslate"><span class="pre">
 definitions (see <a class="reference internal" href="../reference/commands/step.html#sec-step"><span class="std std-ref">Step: Grid search for spectral fits</span></a>), add the text <code class="docutils literal notranslate"><span class="pre">file</span></code> and a file name to
 the step command to write out the step results to a .stp file.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">dimension</span> <span class="mi">2</span>
-<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">axis</span> <span class="mi">1</span> <span class="n">parameter</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">norm</span> <span class="nb">range</span> <span class="mf">0.5</span> <span class="mf">1.5</span> <span class="n">n</span> <span class="mi">10</span>
-<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">axis</span> <span class="mi">2</span> <span class="n">parameter</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">t</span> <span class="nb">range</span> <span class="mf">0.75</span> <span class="mf">1.25</span> <span class="n">n</span> <span class="mi">10</span>
-<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">file</span> <span class="n">norm</span><span class="o">-</span><span class="n">kt</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; step dimension 2
+SPEX&gt; step axis 1 parameter 1 1 norm range 0.5 1.5 n 10
+SPEX&gt; step axis 2 parameter 1 1 t range 0.75 1.25 n 10
+SPEX&gt; step file norm-kt
 </pre></div>
 </div>
 <p>These commands will produce a norm-kt.stp file. Subsequently, the
 <code class="docutils literal notranslate"><span class="pre">stepcontour</span></code> command can be run from the command line or the SPEX&gt;
 prompt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="p">:</span><span class="o">~&gt;</span> <span class="n">stepcontour</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>linux:~&gt; stepcontour
 
-<span class="ow">or</span>
+or
 
-<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">sys</span> <span class="n">exe</span> <span class="s2">&quot;spexcontour&quot;</span>
+SPEX&gt; sys exe &quot;spexcontour&quot;
 </pre></div>
 </div>
 <p>The program will start and ask the user for the name of the .stp file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Program</span> <span class="n">stepcontour</span> <span class="n">version</span> <span class="mf">1.0</span><span class="o">.</span>
-<span class="n">Use</span> <span class="n">this</span> <span class="n">program</span> <span class="n">to</span> <span class="n">plot</span> <span class="n">contours</span> <span class="kn">from</span> <span class="nn">SPEX</span> <span class="n">steppar</span> <span class="p">(</span><span class="o">.</span><span class="n">stp</span><span class="p">)</span> <span class="n">files</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Program stepcontour version 1.0.
+Use this program to plot contours from SPEX steppar (.stp) files.
 
-<span class="n">Enter</span> <span class="n">filename</span> <span class="n">of</span> <span class="n">SPEX</span> <span class="n">steppar</span> <span class="n">file</span> <span class="p">(</span><span class="o">.</span><span class="n">stp</span><span class="p">):</span> <span class="n">norm</span><span class="o">-</span><span class="n">kt</span><span class="o">.</span><span class="n">stp</span>
+Enter filename of SPEX steppar file (.stp): norm-kt.stp
 </pre></div>
 </div>
 <p>Then provide a PGPLOT device to show the plot. For example ’/xw’ for X
 output or ’file.ps/ps’ for Postscript plots:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Number of axes in your steppar file:            2
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Number of axes in your steppar file:            2
 Graphics device/type (? to see list, default /NULL): /xw
 PGPLOT device type: XWINDOW
 Plotting contours for: 68.3%, 90%, 95.4%, 99%, 99.99%.
@@ -73,7 +73,7 @@ Plotting contours for: 68.3%, 90%, 95.4%, 99%, 99.99%.
 </div>
 <p>If you would like to write the plot data to QDP format, say yes to the
 following question:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Would you like to write this plot to a QDP file (y/n)? y
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Would you like to write this plot to a QDP file (y/n)? y
 </pre></div>
 </div>
 <p>The program asks for an output QDP filename and writes the data to that

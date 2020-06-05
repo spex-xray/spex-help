@@ -37,13 +37,13 @@
 <span id="sect-trafo"></span><h1>5.1. Trafo<a class="headerlink" href="#trafo" title="Permalink to this headline">¶</a></h1>
 <p>Program <em>trafo</em> allows you to transform spectra and response matrices
 from standard OGIP format (or from SPEX version 1 format) to the format
-used by . It also gives you some options to combine data sets for
-simultaneous spectral fitting, and to optimses the spectral data set for
+used by SPEX. It also gives you some options to combine data sets for
+simultaneous spectral fitting, and to optimises the spectral data set for
 speed, We discuss here first the different file formats, and then
 explain the use of <em>trafo</em>.</p>
 <p>Some theoretical background and technical details on the SPEX file
-format are given in Chapter [chap:resp] and we refer the interested
-reader to that chapter for full details. Here we summarise some of the
+format are given in <a class="reference internal" href="../theory/response.html#sect-matrices"><span class="std std-ref">Optimal definition of respons matrices</span></a> and we refer the interested
+reader to that page for full details. Here we summarise some of the
 basics.</p>
 <p>The basic philosophy behind the SPEX file format is:</p>
 <div class="admonition note">
@@ -382,6 +382,14 @@ automatically).</p></li>
 asked (without the .res extension, that <em>trafo</em> will add
 automatically).</p></li>
 </ol>
+</div>
+<div class="section" id="alternatives-for-trafo">
+<h2>5.1.5. Alternatives for trafo<a class="headerlink" href="#alternatives-for-trafo" title="Permalink to this headline">¶</a></h2>
+<p>Since we provide a package with Python tools for SPEX, there are a few
+scripts available that perform conversions from OGIP to SPEX format.
+<a class="reference external" href="https://spex-xray.github.io/pyspextools/tutorials/ogip2spex.html">ogip2spex</a>
+is the program closest to the trafo program and can convert one spectrum
+from OGIP to SPEX format using only command line arguments.</p>
 </div>
 </div>
 

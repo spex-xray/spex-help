@@ -1,4 +1,4 @@
-.. _sec:nei:
+.. _sect:neijtheory:
 
 Non-equilibrium ionisation (NEI) calculations
 =============================================

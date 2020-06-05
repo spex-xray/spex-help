@@ -47,7 +47,7 @@ this command, so no fear to destroy your input data!</p>
 <ul class="simple">
 <li><p>Instrument, region: the instrument(s) and region(s) for which the
 simulation should be done (i.e., if you have more instruments you can
-do the simulation only for one or a few instruments)</p></li>
+do the simulation only for one or a few instruments).</p></li>
 <li><p>time: set the exposure time <img class="math" src="../../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> (s) of the source spectrum as
 well as the background error scale factor <img class="math" src="../../_images/math/f6464fe554380c363d27ffaeb06439c57d088622.svg" alt="f_b" style="vertical-align: -3px"/>. This last
 option allows you to see what happens if for example the background
@@ -55,15 +55,15 @@ would have a ten times higher accuracy (for <img class="math" src="../../_images
 <li><p>syserr: add a systematic error to both the source and background
 spectrum. An alternative way to introduce systematic errors is of
 course to use the syserr command
-(Section <a class="reference external" href="#sec:syserr">Syserr</a>). Take care not to set the
+(<a class="reference internal" href="syserr.html#sec-syserr"><span class="std std-ref">Syserr: systematic errors</span></a>). Take care not to set the
 systematic errors twice, and remember that rebinning your spectrum
 later will reduce the systematic errors, as these will be added in
 quadrature to the statistical errors. So first rebin and then add
 systematics!</p></li>
 <li><p>noise: either randomize your data or just calculate the expected
-values</p></li>
+values.</p></li>
 <li><p>bnoise: randomize your background model (generally not recommended to
-do)</p></li>
+do).</p></li>
 <li><p>seed: set the random seed either to a specific number or generate it
 from the system clock. By default, SPEX initializes the random number
 generator based on the system clock, but through this command a

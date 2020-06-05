@@ -148,7 +148,8 @@ channels, so either yes or no will do.
     Your combined file has          0 bins with bad quality  
     Shall we ignore bad channels? (y/n) [no]:y
 
-If grppha has been used on the spectrum, trafo will also ask
+If `grppha <https://heasarc.gsfc.nasa.gov/ftools/caldb/help/grppha.txt>`_
+has been used on the spectrum, trafo will also ask
 whether the spectra should be binned according to the groups
 defined in the PHA file.
 

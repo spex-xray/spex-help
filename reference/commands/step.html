@@ -72,7 +72,7 @@ dimension” command, followed by as many “step axis” commands as you
 entered the number of dimensions.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">file</span> <span class="pre">example</span></code> : Do the step search and also write the results
 to an .stp file used by the stepcontour program (see
-<a class="reference external" href="#sec:stepcontour">Stepcontour</a>).</div>
+<a class="reference internal" href="../../tools/stepcontour.html#sec-stepcontour"><span class="std std-ref">Stepcontour</span></a>).</div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -90,14 +90,14 @@ abundace (linear between 0.0 and 1.0 with 11 steps) and Si abundance
 (linear between 0.0 and 2.0 with 5 steps, i.e. values 0.0, 0.4, 0.8,
 1.2, 1.6 and 2.0) the following commands should be issued:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Do not forget to do first a fit</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Do not forget to do first a fit.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">dimension</span> <span class="pre">3</span></code> : We will do a three-dimensional grid search</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">1</span> <span class="pre">parameter</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">t</span> <span class="pre">range</span> <span class="pre">0.1:10.0</span> <span class="pre">n</span> <span class="pre">-21</span></code> : The logarithmic
 grid for the first axis, temperature; note the <img class="math" src="../../_images/math/358db901b314da12f74911a8f1cedc92213c342b.svg" alt="-" style="vertical-align: -1px"/> before the
 21!</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">2</span> <span class="pre">par</span> <span class="pre">26</span> <span class="pre">range</span> <span class="pre">0:1</span> <span class="pre">n</span> <span class="pre">11</span></code> : The grid for axis 2, Fe
-abundance</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">3</span> <span class="pre">par</span> <span class="pre">14</span> <span class="pre">range</span> <span class="pre">0:2</span> <span class="pre">n</span> <span class="pre">5</span></code> : Idem for the 3rd axis, Silicon</div>
+abundance.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">3</span> <span class="pre">par</span> <span class="pre">14</span> <span class="pre">range</span> <span class="pre">0:2</span> <span class="pre">n</span> <span class="pre">5</span></code> : Idem for the 3rd axis, Silicon.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span></code> : Now do the grid search. Output is in the form of ascii data
 on your screen (and/or output file if you opened one).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">file</span> <span class="pre">example</span></code> : Grid search with output to your screen and

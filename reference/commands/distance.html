@@ -35,6 +35,8 @@
             
   <div class="section" id="distance-set-the-source-distance">
 <span id="sec-distance"></span><h1>3.1.8. Distance: set the source distance<a class="headerlink" href="#distance-set-the-source-distance" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div></div></blockquote>
 <div class="section" id="overview">
 <h2>3.1.8.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>One of the main principles of SPEX is that spectral models are in
@@ -66,7 +68,7 @@ Allowed distance units are shown in the table below.</p>
 <td><p>meter</p></td>
 </tr>
 <tr class="row-even"><td><p>au</p></td>
-<td><p>Astronomical Unit, 1.49597892 10<img class="math" src="../../_images/math/a28e8cada013313f4822dad97156ea2b7d5aef76.svg" alt="^{11}" style="vertical-align: 0px"/> m</p></td>
+<td><p>Astronomical Unit, 1.49597892  <img class="math" src="../../_images/math/61439377efc0a6832233c84953931e18b51827f4.svg" alt="10^{11}" style="vertical-align: 0px"/> m</p></td>
 </tr>
 <tr class="row-odd"><td><p>ly</p></td>
 <td><p>lightyear, 9.46073047 <img class="math" src="../../_images/math/dca852b3e1b0acbf06480b41299de2566ee9a89c.svg" alt="10^{15}" style="vertical-align: 0px"/> m</p></td>
@@ -94,17 +96,17 @@ calculations ranging from solar flares to clusters of galaxies can be
 done with single precision arithmetic, without causing underflow or
 overflow. For the last two units (z and cz), it is necessary to specify
 a cosmological model. Currently this model is simply described by
-H<img class="math" src="../../_images/math/0e524a3022ddf4126a894509ef76ae6f4d0016a8.svg" alt="_0" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/83aa594a4b4472dff8e3b47cff7b5c6dc793ae41.svg" alt="\Omega_m" style="vertical-align: -2px"/> (matter density), <img class="math" src="../../_images/math/d2de8d3831ccb8f67d763ea7e10f32f9a4b873e2.svg" alt="\Omega_\Lambda" style="vertical-align: -2px"/>
+<img class="math" src="../../_images/math/cfe28ec763b4440778974a54960c69ff406bb36a.svg" alt="\mathrm{H}_0" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/83aa594a4b4472dff8e3b47cff7b5c6dc793ae41.svg" alt="\Omega_m" style="vertical-align: -2px"/> (matter density), <img class="math" src="../../_images/math/d2de8d3831ccb8f67d763ea7e10f32f9a4b873e2.svg" alt="\Omega_\Lambda" style="vertical-align: -2px"/>
 (cosmological constant related density), and <img class="math" src="../../_images/math/ec5d7774fe59735255b6b8a9e077739b78eca734.svg" alt="\Omega_r" style="vertical-align: -2px"/> (radiation
 density). At startup, the values are:</p>
-<p>H<img class="math" src="../../_images/math/0e524a3022ddf4126a894509ef76ae6f4d0016a8.svg" alt="_0" style="vertical-align: -2px"/>: 70 km/s/Mpc ,</p>
+<p><img class="math" src="../../_images/math/cfe28ec763b4440778974a54960c69ff406bb36a.svg" alt="\mathrm{H}_0" style="vertical-align: -2px"/>: 70 km/s/Mpc ,</p>
 <p><img class="math" src="../../_images/math/83aa594a4b4472dff8e3b47cff7b5c6dc793ae41.svg" alt="\Omega_m" style="vertical-align: -2px"/>: 0.3 ,</p>
 <p><img class="math" src="../../_images/math/d2de8d3831ccb8f67d763ea7e10f32f9a4b873e2.svg" alt="\Omega_\Lambda" style="vertical-align: -2px"/>: 0.7 ,</p>
 <p><img class="math" src="../../_images/math/ec5d7774fe59735255b6b8a9e077739b78eca734.svg" alt="\Omega_r" style="vertical-align: -2px"/>:   0.0</p>
 <p>i.e. a flat model with cosmological constant. However, the user can
 specify other values of the cosmological parameters. Note that the
 distance is in this case the luminosity distance.</p>
-<p>Note that the previous defaults for SPEX (H:math:<cite>_0=50</cite>,
+<p>Note that the previous defaults for SPEX (<img class="math" src="../../_images/math/1206f8f9cd2d9a70c870b7da4792521c5901729a.svg" alt="\mathrm{H}_0=50" style="vertical-align: -2px"/>,
 <img class="math" src="../../_images/math/ce12f99bb33db1086b1bc4413b89a6df19f137ba.svg" alt="q_0=0.5" style="vertical-align: -3px"/>) can be obtained by putting H<img class="math" src="../../_images/math/05db65be77ccc6a71df447bc68e56ec771b9664a.svg" alt="_0=50" style="vertical-align: -2px"/>,
 <img class="math" src="../../_images/math/dc24ccde12104963b4ecaff7de89f0145478032e.svg" alt="\Omega_m=1" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/9ec86b233cbbdfafd1042f6170f9403359a73dc2.svg" alt="\Omega_\Lambda=0" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/17f82a27b0f338b6c361af2df6ad40cee4ff65ac.svg" alt="\Omega_r=0" style="vertical-align: -2px"/>.</p>
 <div class="admonition warning">
@@ -112,8 +114,8 @@ distance is in this case the luminosity distance.</p>
 <p>When H<img class="math" src="../../_images/math/0e524a3022ddf4126a894509ef76ae6f4d0016a8.svg" alt="_0" style="vertical-align: -2px"/> or any of the <img class="math" src="../../_images/math/2dda58c26f7626b0f4cf7a30e39b0a76d1be62d4.svg" alt="\Omega" style="vertical-align: 0px"/> is changed,
 the luminosity distance will not change, but the equivalent
 redshift of the source is adjusted. For example, setting the distance
-first to z=1 with the default H<img class="math" src="../../_images/math/0e524a3022ddf4126a894509ef76ae6f4d0016a8.svg" alt="_0" style="vertical-align: -2px"/>=70 km/s/Mpc results
-into a distance of <img class="math" src="../../_images/math/99d828241075465866b15971afeb612e294e0862.svg" alt="2.039\,10^{26}" style="vertical-align: 0px"/> m. When H<img class="math" src="../../_images/math/0e524a3022ddf4126a894509ef76ae6f4d0016a8.svg" alt="_0" style="vertical-align: -2px"/> is
+first to z=1 with the default <img class="math" src="../../_images/math/cfe28ec763b4440778974a54960c69ff406bb36a.svg" alt="\mathrm{H}_0" style="vertical-align: -2px"/>=70 km/s/Mpc results
+into a distance of <img class="math" src="../../_images/math/99d828241075465866b15971afeb612e294e0862.svg" alt="2.039\,10^{26}" style="vertical-align: 0px"/> m. When <img class="math" src="../../_images/math/cfe28ec763b4440778974a54960c69ff406bb36a.svg" alt="\mathrm{H}_0" style="vertical-align: -2px"/> is
 then changed to 100 km/s/Mpc, the distance is still <img class="math" src="../../_images/math/d8c05672a210ff4736dfba38a3ddf7c8f15b911b.svg" alt="2.168\,10^{26}" style="vertical-align: 0px"/> m,
 but the redshift is adjusted to 1.3342.</p>
 </div>
@@ -136,7 +138,7 @@ When the optional sector range is omitted, the distance is set for all
 sectors.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">show</span></code> : displays the distance in various units for all
 sectors.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">h0</span> <span class="pre">#r</span></code> : sets the Hubble constant H<img class="math" src="../../_images/math/0e524a3022ddf4126a894509ef76ae6f4d0016a8.svg" alt="_0" style="vertical-align: -2px"/> to the
+<div class="line"><code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">h0</span> <span class="pre">#r</span></code> : sets the Hubble constant <img class="math" src="../../_images/math/cfe28ec763b4440778974a54960c69ff406bb36a.svg" alt="\mathrm{H}_0" style="vertical-align: -2px"/> to the
 value #r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">om</span> <span class="pre">#r</span></code> : sets the <img class="math" src="../../_images/math/83aa594a4b4472dff8e3b47cff7b5c6dc793ae41.svg" alt="\Omega_m" style="vertical-align: -2px"/> parameter to the value
 #r.</div>
@@ -161,12 +163,12 @@ redshift of 0.03.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">distance</span> <span class="pre">show</span></code> : displays the distances for all sectors, see the
 example below for the output format.</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">di</span> <span class="mi">100</span> <span class="n">mpc</span>
- <span class="n">Distances</span> <span class="n">assuming</span> <span class="n">H0</span> <span class="o">=</span>  <span class="mf">70.0</span> <span class="n">km</span><span class="o">/</span><span class="n">s</span><span class="o">/</span><span class="n">Mpc</span><span class="p">,</span> <span class="n">Omega_m</span> <span class="o">=</span> <span class="mf">0.300</span> <span class="n">Omega_Lambda</span> <span class="o">=</span> <span class="mf">0.700</span> <span class="n">Omega_r</span> <span class="o">=</span> <span class="mf">0.000</span>
-<span class="n">Sector</span>       <span class="n">m</span>      <span class="n">A</span><span class="o">.</span><span class="n">U</span><span class="o">.</span>        <span class="n">ly</span>        <span class="n">pc</span>       <span class="n">kpc</span>       <span class="n">Mpc</span>  <span class="n">redshift</span>        <span class="n">cz</span>   <span class="n">age</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span>
-<span class="o">----------------------------------------------------------------------------------------------</span>
-   <span class="mi">1</span> <span class="mf">3.086E+24</span> <span class="mf">2.063E+13</span> <span class="mf">3.262E+08</span> <span class="mf">1.000E+08</span> <span class="mf">1.000E+05</span>  <span class="mf">100.0000</span>    <span class="mf">0.0229</span>    <span class="mf">6878.7</span> <span class="mf">3.152E+08</span>
-<span class="o">----------------------------------------------------------------------------------------------</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; di 100 mpc
+ Distances assuming H0 =  70.0 km/s/Mpc, Omega_m = 0.300 Omega_Lambda = 0.700 Omega_r = 0.000
+Sector       m      A.U.        ly        pc       kpc       Mpc  redshift        cz   age(yr)
+----------------------------------------------------------------------------------------------
+   1 3.086E+24 2.063E+13 3.262E+08 1.000E+08 1.000E+05  100.0000    0.0229    6878.7 3.152E+08
+----------------------------------------------------------------------------------------------
 </pre></div>
 </div>
 </div>

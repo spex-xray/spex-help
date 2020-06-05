@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/xabs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Additional tools" href="../tools.html" />
+    <link rel="next" title="4.2. Optimizing model performance" href="performance.html" />
     <link rel="prev" title="4.1.40. Wdem: power law differential emission measure model" href="wdem.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -36,7 +36,7 @@
   <div class="section" id="xabs-photoionised-absorption-model">
 <span id="sec-xabs"></span><h1>4.1.41. Xabs: photoionised absorption model<a class="headerlink" href="#xabs-photoionised-absorption-model" title="Permalink to this headline">¶</a></h1>
 <p>The <em>xabs</em> model calculates the transmission of a slab of material,
-where all ionic column densities are linked through a photoionisation
+where all ionic column densities are linked through a photoionization
 model. The relevant parameter is the ionization parameter
 <img class="math" src="../_images/math/c19ef854df1a92ba39d56396dc0579f7632c0f6d.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>
 the hydrogen density and <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
@@ -59,19 +59,22 @@ densities versus ionisation parameter, as well as electron temperatures
 versus ionisation parameter (needed for the thermal line broadening).
 If you want to produce such a file, you can use the auxiliary program
 <em>xabsinput</em>, that will run Cloudy for you and make the file to be used
-in SPEX. See Section <a class="reference external" href="#sect:xabsinput">Xabsinput</a> for more details how to
+in SPEX. See <a class="reference internal" href="../tools/xabsinput.html#sect-xabsinput"><span class="std std-ref">Xabsinput</span></a> for more details how to
 use that program.</p>
 <p>For more information on this model, the atomic data and parameters we
-refer to Section <a class="reference external" href="#sect:abs_models">Absorption models</a>.</p>
+refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-abs-models"><span class="std std-ref">Different types of absorption models</span></a>.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
 Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
 <img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
 latitudes).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/59acb0fda8dc009b34c095c819f8ebbeb39f030f.svg" alt="{ }^{10}" style="vertical-align: 0px"/>logxi` in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> Wm. Default value: 1.</div>
-<div class="line">The following parameters are common to all our absorption models:
-<code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/8ff31b2c8f84170bfd0788bcfb7a90613424c145.svg" alt="{ }^{10}\log" style="vertical-align: -3px"/> of the ionisation parameter
+<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> Wm. Default value: 1.</div>
+</div>
+<p>The following parameters are common to all our absorption models:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
 covering)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
@@ -79,12 +82,17 @@ components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
 components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
-<div class="line">The following parameters are the same as for the cie-model (see there
-for a description): <code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+</div>
+<p>The following parameters are the same as for the cie-model (see there
+for a description):</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">01...28</span></code> : Abundances of H to Ni; only here we take H, He, C,
 N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
-<div class="line">The following parameter is unique for the xabs-model and the warm
-model: <code class="docutils literal notranslate"><span class="pre">col</span></code> : File name for the photoionisation balance parameters</div>
+</div>
+<p>The following parameter is unique for the xabs-model and the warm model:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">col</span></code> : File name for the photoionisation balance parameters</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003A%26A...402..477S/abstract">Steenbrugge et al. (2003)</a>.</p>
 </div>
@@ -117,6 +125,7 @@ model: <code class="docutils literal notranslate"><span class="pre">col</span></
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
@@ -135,7 +144,7 @@ model: <code class="docutils literal notranslate"><span class="pre">col</span></
   <li><a href="../models.html">4. Spectral models</a><ul>
   <li><a href="over.html">4.1. Overview of spectral components</a><ul>
       <li>Previous: <a href="wdem.html" title="previous chapter">4.1.40. Wdem: power law differential emission measure model</a></li>
-      <li>Next: <a href="../tools.html" title="next chapter">5. Additional tools</a></li>
+      <li>Next: <a href="performance.html" title="next chapter">4.2. Optimizing model performance</a></li>
   </ul></li>
   </ul></li>
   </ul></li>

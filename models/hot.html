@@ -34,7 +34,7 @@
           <div class="body" role="main">
             
   <div class="section" id="hot-collisional-ionisation-equilibrium-absorption-model">
-<h1>4.1.18. Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Permalink to this headline">¶</a></h1>
+<span id="sect-hot"></span><h1>4.1.18. Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the transmission of a plasma in collisional
 ionisation equilibrium with cosmic abundances.</p>
 <p>For a given temperature and set of abundances, the model calculates the
@@ -44,7 +44,7 @@ of column densities, the transmission of the plasma is calculated by
 multiplying the transmission of the individual ions.</p>
 <p>The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
-refer to Section <a class="reference external" href="#sect:absmodels">Absorption models</a>. You can mimick
+refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-absmodels"><span class="std std-ref">Absorption model theory</span></a>. You can mimic
 the transmission of a neutral plasma very easy by putting the
 temperature to 0.5 eV (5 <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> keV).</p>
 <div class="admonition warning">
@@ -69,8 +69,10 @@ value: 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rt</span></code> : the ratio of ionization balance to electron temperature,
 <img class="math" src="../_images/math/86dd84fbdc6943c38ddfdd03cf9b0c65ec0f0ed6.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
 value: 1.</div>
-<div class="line">The following parameters are common to all our absorption models:
-<code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (full
+</div>
+<p>The following parameters are common to all our absorption models:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (full
 covering)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
@@ -78,8 +80,10 @@ components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
 components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
-<div class="line">The following parameters are the same as for the cie-model (see there
-for a description): <code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+</div>
+<p>The following parameters are the same as for the cie-model (<a class="reference internal" href="cie.html#sect-cie"><span class="std std-ref">Cie: collisional ionisation equilibrium model</span></a>):</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
 </div>
@@ -115,6 +119,7 @@ for a description): <code class="docutils literal notranslate"><span class="pre"
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>

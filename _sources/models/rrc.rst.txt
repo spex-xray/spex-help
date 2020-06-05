@@ -30,7 +30,7 @@ relevant models.
    produces an emission edge in O VIII at 14.22 Å.
 
 .. Warning:: No recombination is possible to neutrals, so therefore
-   there is no H , O  or Fe  in this model.
+   there is no H , O  or Fe in this model.
 
 The parameters of the model are:
 
@@ -44,7 +44,8 @@ The parameters of the model are:
 | ``he3`` : The He  emission measure :math:`n_{\mathrm e}
    n_{\mathrm{{ He\,{\mathrm{III}}}}} V` in units of
   :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 0.
-| :math:`\ldots` ``ni29`` : The Ni  emission measure
+| :math:`\ldots`
+| ``ni29`` : The Ni  emission measure
   :math:`n_{\mathrm e}
    n_{\mathrm{{ Ni\,{\mathrm{XXIX}}}}} V` in units of
   :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 0.

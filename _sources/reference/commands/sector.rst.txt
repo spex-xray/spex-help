@@ -14,7 +14,7 @@ observed spectra are of a different origin. One can create a sector for
 another (unresolved) source in the spectrum, for modeling particle
 background, or for spectra extracted in a different time interval for a
 time variable source. See for more details about sectors and regions
-in the Section `Sectors and Regions <#sec:sectorsandregions>`__.
+in the Section :ref:`sec:sectorsandregions`.
 
 For doing spectral fitting of data sets, the sectors need to be
 specified in the response matrix of the data: the response file should

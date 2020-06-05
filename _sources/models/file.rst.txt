@@ -1,3 +1,5 @@
+.. _sect:file:
+
 File: model read from a file
 ============================
 

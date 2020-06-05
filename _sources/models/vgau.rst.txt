@@ -1,3 +1,5 @@
+.. _sec:vgau:
+
 Vgau: gaussian velocity broadening model
 ========================================
 

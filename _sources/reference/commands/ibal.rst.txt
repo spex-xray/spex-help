@@ -10,7 +10,7 @@ For the plasma models, different ionisation balance calculations are
 possible.
 
 Currently, the default set is `Urdampilleta et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017A%26A...601A..85U/abstract>`_
-The Table \ `Ionisation balance models <#tab:ibal>`__ lists the possible options.
+The Table below lists the possible options.
 
 .. table:: Ionisation balance modes
 

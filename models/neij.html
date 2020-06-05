@@ -34,10 +34,10 @@
           <div class="body" role="main">
             
   <div class="section" id="neij-non-equilibrium-ionisation-jump-model">
-<h1>4.1.26. Neij: non-equilibrium ionisation jump model<a class="headerlink" href="#neij-non-equilibrium-ionisation-jump-model" title="Permalink to this headline">¶</a></h1>
+<span id="sect-nei"></span><h1>4.1.26. Neij: non-equilibrium ionisation jump model<a class="headerlink" href="#neij-non-equilibrium-ionisation-jump-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the spectrum of a plasma in non-equilibrium
 ionisation (NEI). For more details about NEI calculations, see
-Section <a class="reference external" href="#sec:nei">Non-equilibrium ionisation models</a>.</p>
+<a class="reference internal" href="../theory/spexact/nei.html#sect-neijtheory"><span class="std std-ref">Non-equilibrium ionisation (NEI) calculations</span></a>.</p>
 <p>The present model calculates the spectrum of a collisional ionisation
 equilibrium (CIE) plasma with uniform electron density
 <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>, that is
@@ -106,10 +106,9 @@ T_3 = T_2 \cdot [1 + (\beta+1) \cdot dU/U]^{\alpha/(\beta+1)}.\end{aligned}"/></
 </div><p>It should be noted that, for fixed values of <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> and
 <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>, the temperature change after the break is determined by
 the ratio <img class="math" src="../_images/math/f80f3682bd66b64d59529501eec7d169c480f253.svg" alt="dU/U" style="vertical-align: -4px"/> rather than <img class="math" src="../_images/math/c808e5e61487c2cef6df1b84bef84aa177f03bcc.svg" alt="dU" style="vertical-align: 0px"/> itself. The user can check
-<img class="math" src="../_images/math/7de06fe93bc246b0fd662f83d7a7bca9c853f0eb.svg" alt="T_3" style="vertical-align: -2px"/> with the <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">plas</span></code> command (see the
-<a class="reference external" href="#sec:ascdump">Ascdump command</a>) and also the histories of
-<img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> with the <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">nei</span></code> command
-(see <a class="reference external" href="#sec:ascdump">Ascdump</a>).</p>
+<img class="math" src="../_images/math/7de06fe93bc246b0fd662f83d7a7bca9c853f0eb.svg" alt="T_3" style="vertical-align: -2px"/> with the <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">plas</span></code> command (see  <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma properties</span></a>)
+and also the histories of <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> with the
+<code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">nei</span></code> command (see <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma properties</span></a>).</p>
 <p>In some rare cases with a large negative <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/7de06fe93bc246b0fd662f83d7a7bca9c853f0eb.svg" alt="T_3" style="vertical-align: -2px"/> can
 get an unphysical value (<img class="math" src="../_images/math/35d5c17a217d1047dcc83f0b23d2bb45b0823971.svg" alt="T_3 &lt; 0" style="vertical-align: -2px"/>). In such a case the
 calculation will automatically be stopped at a lower-limit of
@@ -124,8 +123,9 @@ the array of <img class="math" src="../_images/math/a507cd4db8638f040798b10db939
 (<img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>) determine the ionisation history, starting from
 <img class="math" src="../_images/math/eac5e215553bd4b41add4accfd7fb91aa230358c.svg" alt="T=T_1" style="vertical-align: -2px"/> (the pre-shock temperature), and the final (radiation)
 temperature is the temperature of the last bin.</p>
+<p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line">The parameters of the model are: <code class="docutils literal notranslate"><span class="pre">t1</span></code> : Temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t1</span></code> : Temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>
 before the sudden change in temperature, in keV. Default: 0.002 keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t2</span></code> : Temperature <img class="math" src="../_images/math/bf26e4bae14dd22607ad0a45e0c90a06202675ae.svg" alt="T_2" style="vertical-align: -2px"/> after the sudden change in
 temperature, in keV. Default: 1 keV.</div>
@@ -143,8 +143,10 @@ temperature, in keV. Default: 1 keV.</div>
 <code class="docutils literal notranslate"><span class="pre">hisu</span></code> needs to be specified.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">hisu</span></code> : Filename with the <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> values. Only used when
 mode=2.</div>
-<div class="line">The following parameters are the same as for the cie-model: <code class="docutils literal notranslate"><span class="pre">ed</span></code> :
-Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></div>
+</div>
+<p>The following parameters are the same as for the cie-model (<a class="reference internal" href="cie.html#sect-cie"><span class="std std-ref">Cie: collisional ionisation equilibrium model</span></a>):</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ed</span></code> : Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">vrms</span></code> : RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
@@ -182,6 +184,7 @@ Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>

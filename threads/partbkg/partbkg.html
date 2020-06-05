@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/partbkg/partbkg.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3. Import UV/Optical data" href="../uv.html" />
+    <link rel="next" title="2.3. Fitting interstellar dust absorption" href="../amol/amol.html" />
     <link rel="prev" title="2.1. Fitting a CCD spectrum" href="../ccdspectrum/ccdspectrum.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -52,15 +52,16 @@ of models probably needs to be different in other cases.</p>
 <div class="section" id="spex-solution">
 <h2>2.2.2. SPEX solution<a class="headerlink" href="#spex-solution" title="Permalink to this headline">¶</a></h2>
 <p>The basic problem we have to solve here, is that we need a number of
-model components that are folded through the ARF (the cosmic X-rays) and
-a few components describing the particle background, which are not
-folded through the ARF. In SPEX, this can be solved using sectors.
-Sectors are essentially model groups representing different areas or
+model components that are folded through the mirror effective area
+(the cosmic X-rays) and a few components describing the particle
+background, which are not folded through the ARF. In SPEX, this
+can be solved using sectors (<a class="reference internal" href="../../theory/fitting/sectors.html#sec-sectorsandregions"><span class="std std-ref">Sectors and regions</span></a>). Sectors
+are essentially model groups representing different areas or
 different components on the sky. In this case, we will create two
 sectors: one for the cosmic X-rays and one for the particle background.
-The second sector should not be folded through the ARF. To archieve
+The second sector should not be folded through the ARF. To achieve
 this, we have to create a special spectrum and response file with
-<code class="docutils literal notranslate"><span class="pre">trafo</span></code> in which we define the sectors.</p>
+<code class="docutils literal notranslate"><span class="pre">trafo</span></code> (<a class="reference internal" href="../../tools/trafo.html#sect-trafo"><span class="std std-ref">Trafo</span></a>) in which we define the sectors.</p>
 <div class="figure align-default" id="fig-sectreg">
 <img alt="../../_images/sectreg.png" src="../../_images/sectreg.png" />
 <p class="caption"><span class="caption-text">Schematic representation of the sectors and regions in this example.
@@ -75,9 +76,10 @@ The result of the folding is added and applied to the first spectrum
 <p>In this trafo run, we will actually load the same spectrum twice. One
 for every sector. Here we use a MOS1 spectrum extracted from an annulus
 between 6 and 9 arcmin from the cluster core. The background spectrum
-was extracted using the XMM Extended Source Analysis Software by Snowden
-&amp; Kuntz. After starting <code class="docutils literal notranslate"><span class="pre">trafo</span></code> we have to tell it that we want to
-transform two spectra in two sectors:</p>
+was extracted using the <a class="reference external" href="https://www.cosmos.esa.int/web/xmm-newton/xmm-esas">XMM Extended Source Analysis Software by Snowden
+&amp; Kuntz</a>. After
+starting <code class="docutils literal notranslate"><span class="pre">trafo</span></code> we have to tell it that we want to transform
+two spectra in two sectors:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Program trafo: transform data to SPEX 2.0 format
 This is version 1.02, of trafo
 
@@ -141,22 +143,21 @@ cluster of galaxies.</span><a class="headerlink" href="#fig-partbkg-s1" title="P
 </div>
 <p>If the res and spo files are created, we are ready to run <code class="docutils literal notranslate"><span class="pre">spex</span></code>. In
 this description, we skip some very basic commands about, for example,
-plotting. See Chapter <a class="reference external" href="#chap:intro">[chap:intro]</a> for an overview
-of a basic SPEX session. Note that the procedure for SPEX version 2.02
-is exactly the same as for SPEX version 2.01, which is shown here.
-First, we load the spectrum and plot it:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Welcome user to SPEX version 2.01.05
+plotting. See <a class="reference internal" href="../../getstarted/runspex.html#sec-intro"><span class="std std-ref">How to run SPEX</span></a> for an overview
+of a basic SPEX session. First, we load the spectrum and plot it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Welcome user to SPEX version 3.00.00
 
 SPEX&gt; data M1_annulus M1_annulus
 ...
 SPEX&gt; plot
 </pre></div>
 </div>
-<p>Figure <a class="reference external" href="#fig:partbkg-s1">1.2</a> shows a plot of the spectrum. For
+<p>Figure <a class="reference internal" href="#fig-partbkg-s1"><span class="std std-ref">XMM-Newton MOS1 spectrum extracted from a 6–9 arcmin annulus around a
+cluster of galaxies.</span></a> shows a plot of the spectrum. For
 presentation purposes we rebin the spectrum here with the <code class="docutils literal notranslate"><span class="pre">obin</span></code>
-command. If C-statistics are used, binning is not strictly necessary. An
-important thing to remember at this point is to ignore the spectrum in
-region number 2:</p>
+command (<a class="reference internal" href="../../reference/commands/obin.html#sec-obin"><span class="std std-ref">Obin: optimal rebinning of the data</span></a>). If C-statistics are used, binning is not
+strictly necessary. An important thing to remember at this point is
+to ignore the spectrum in region number 2:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ign reg 2 1:1000000
 </pre></div>
 </div>
@@ -200,7 +201,9 @@ model components for now. It is clear to see that the power law is
 not folded through the arf.</span><a class="headerlink" href="#fig-partbkg-s3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Just to show what happens if we fit the data now, we plot the result in
-Figure <a class="reference external" href="#fig:partbkg-s2">1.3</a>. It is clear that the spectrum is not
+Figure <a class="reference internal" href="#fig-partbkg-s2"><span class="std std-ref">A fit without modeling the particle background is not successful.
+Especially, the high-energy region in the spectrum is not fitted well
+due to soft protons.</span></a>. It is clear that the spectrum is not
 well fitted at low and high energies. A contribution of soft protons is
 visible at the high-energy end of the spectrum. In addition, we see that
 the instrumental fluoresence lines of Al and Si at <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>1.49
@@ -220,7 +223,9 @@ SPEX&gt; par 2 3 e s f
 <p>In this sequence of commands, we define a new sector (number 2) and add
 a power-law and two delta-line components to it. The slope of the
 gamma-parameter is initially set to <img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>0.2. In
-Figure <a class="reference external" href="#fig:partbkg-s3">1.4</a>, we put the components in sector 1 to
+Figure <a class="reference internal" href="#fig-partbkg-s3"><span class="std std-ref">Here, we plot the particle background model. We ignore the cluster
+model components for now. It is clear to see that the power law is
+not folded through the arf.</span></a>, we put the components in sector 1 to
 zero to show the particle background model that we have just defined.
 The flat shape of the power-law model confirms that these components are
 not folded through the arf.</p>
@@ -230,7 +235,8 @@ not folded through the arf.</p>
 has been able to fit the discrepancies at high energies.</span><a class="headerlink" href="#fig-partbkg-s4" title="Permalink to this image">¶</a></p>
 </div>
 <p>When we reset the components in sector 1 to their initial values we can
-start fitting. In Figure <a class="reference external" href="#fig:partbkg-s4">1.5</a>, we show the best
+start fitting. In Figure <a class="reference internal" href="#fig-partbkg-s4"><span class="std std-ref">Best fit model to our example spectrum. The particle background model
+has been able to fit the discrepancies at high energies.</span></a>, we show the best
 fit using this model. The contribution of soft-protons at high energies
 is now being accounted for by the power law.</p>
 <div class="admonition warning">
@@ -272,9 +278,11 @@ which parameters can be left free.</p>
 <li class="toctree-l1 current"><a class="reference internal" href="../../threads.html">2. Analysis threads</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../ccdspectrum/ccdspectrum.html">2.1. Fitting a CCD spectrum</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Modeling particle background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.3. Import UV/Optical data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.4. PION setup for AGN warm absorber</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.5. PION setup for emission and absorption features in AGN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../amol/amol.html">2.3. Fitting interstellar dust absorption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uv.html">2.4. Import UV/Optical data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.5. PION setup for AGN warm absorber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/user.html">2.7. How to use the SPEX user model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
@@ -294,7 +302,7 @@ which parameters can be left free.</p>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../threads.html">2. Analysis threads</a><ul>
       <li>Previous: <a href="../ccdspectrum/ccdspectrum.html" title="previous chapter">2.1. Fitting a CCD spectrum</a></li>
-      <li>Next: <a href="../uv.html" title="next chapter">2.3. Import UV/Optical data</a></li>
+      <li>Next: <a href="../amol/amol.html" title="next chapter">2.3. Fitting interstellar dust absorption</a></li>
   </ul></li>
   </ul></li>
 </ul>

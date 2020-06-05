@@ -44,7 +44,7 @@ list them below.</p>
 <h3>3.1.31.1.1. Free-bound emission<a class="headerlink" href="#free-bound-emission" title="Permalink to this headline">¶</a></h3>
 <p>Usually the freebound emission takes most of the computing time for the
 plasma models. This is because it needs to be evaluated for all
-energies, ions and atomic sublevels that are relevant. In rder to reduce
+energies, ions and atomic sublevels that are relevant. In order to reduce
 the computational burden, there is a parameter gfbacc in SPEX that is
 approximately the accuracy level for the free-bound calculation. The
 default value is <img class="math" src="../../_images/math/ecbdeca6a785b170238b33596b17ad4da56d7361.svg" alt="10^{-3}" style="vertical-align: 0px"/>. If this quantity is higher, less
@@ -57,7 +57,7 @@ unless they are knowing what they do!</p>
 <p>By default, all possible line emission processes are taken into account
 in the plasma models. For testing purposes, it is possible to include or
 exclude specific contributions. These are listed below in
-<a class="reference external" href="#tab:linproc">the table below</a>.</p>
+the table below.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Possible line emission processes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -103,14 +103,9 @@ representation, works only for <em>var calc new</em>)</p></li>
 </div>
 <div class="section" id="atomic-data">
 <h3>3.1.31.1.4. Atomic data<a class="headerlink" href="#atomic-data" title="Permalink to this headline">¶</a></h3>
-<p>The user can choose between the “old” Mekal code (the current default)
-and updated calculations for the ions for which this is possible.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The updated atomic database that can be used through the
-command “var calc new” is still being developed and incomplete. Using
-this database is therefore not yet recommended.</p>
-</div>
+<p>The user can choose between the “old” Mekal code (the current default,
+also referred to as SPEXACT v2) and updated calculations with the
+command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code> (referred to as SPEXACT v3).</p>
 </div>
 <div class="section" id="calculation-level-occupations">
 <h3>3.1.31.1.5. Calculation level occupations<a class="headerlink" href="#calculation-level-occupations" title="Permalink to this headline">¶</a></h3>
@@ -125,17 +120,17 @@ rates are not correct, and we need to iterate a few times before all
 ions of an element are converged. This usually takes between 2 and about
 25 iterations, depending on the precise physical conditions.</p>
 <p>As starting values we assume that all ions are in the ground state, and
-then we iterate (this is the default mode). By setting <em>var occstart
-boltzmann</em>, we can change this to an initial Boltzmann distribution for
+then we iterate (this is the default mode). By setting <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">occstart</span>
+<span class="pre">boltzmann</span></code>, we can change this to an initial Boltzmann distribution for
 the occupation. This may be more appropriate for very high density
 plasmas. To reduce the number of iterations, one may also start with
-<em>var occstart last</em>, in which case the results from the last calculation
+<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">occstart</span> <span class="pre">last</span></code>, in which case the results from the last calculation
 are used as starting values. This can be useful for spectral fitting
 and/or error searches, where for each call the parameters of the model
 are close to those for the previous call.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The var occstart last option will have limited advantage
+<p>The <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">occstart</span> <span class="pre">last</span></code> option will have limited advantage
 if the model during a fit is far off from the final values (large
 parameter changes during fitting), or with multiple components (in which
 case the last parameters stored in the newlin subroutine may be
@@ -145,7 +140,7 @@ studied).</p>
 </div>
 <div class="section" id="mekal-code">
 <h3>3.1.31.1.6. Mekal code<a class="headerlink" href="#mekal-code" title="Permalink to this headline">¶</a></h3>
-<p>We have made several minor improvements to the original Mekal plasma
+<p>Over the years, we have made several minor improvements to the original Mekal plasma
 model. These improvements are included by default. However, it is
 possible to discard some of these improvements by going back to the old
 code. The improvements are classified as follows (with the appropriate
@@ -170,21 +165,21 @@ mixture of more modern data for collisional excitation taken from our
 new SPEX calculations, or for ions for which no new data are yet
 available, from the Chianti database, and in a few rare cases we still
 use the old Mekal data (4 ions only). For a full description see
-Stofanova et al. (2019, in prep.). This new calculation is now the
-default, but the user can switch between both by selecting the <em>var
-newcoolexc #l</em> option.</p>
+Stofanova et al. (2020, subm.). This new calculation is now the
+default, but the user can switch between both by selecting the <code class="docutils literal notranslate"><span class="pre">var</span>
+<span class="pre">newcoolexc</span> <span class="pre">#l</span></code> option.</p>
 </div>
 <div class="section" id="cooling-by-dielectronic-recombination">
 <h3>3.1.31.1.8. Cooling by dielectronic recombination<a class="headerlink" href="#cooling-by-dielectronic-recombination" title="Permalink to this headline">¶</a></h3>
-<p>In the oldest version of the <em>pion</em> model, cooling by dielectronic
+<p>In the oldest version of the <em>pion</em> model, cooling by di-electronic
 recombination was not included. This has now been corrected. Wherever
-available, cooling rates are calculated directly from the dielectronic
+available, cooling rates are calculated directly from the di-electronic
 recombination model from the latest model, for those ions for which
 Auger rates and associated energies are available. For all other ions,
 we use the old calculations from the Mekal code (with only the <em>dr</em> and
 <em>ds</em> flags turned on).</p>
 <p>The user has the option, however, to use only Mekal data (for
-comparison) by setting the command <em>var newcooldr false</em>.</p>
+comparison) by setting the command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">newcooldr</span> <span class="pre">false</span></code>.</p>
 </div>
 </div>
 <div class="section" id="syntax">

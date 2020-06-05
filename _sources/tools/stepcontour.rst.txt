@@ -3,6 +3,8 @@
 Stepcontour
 ===========
 
+.. highlight:: none
+
 The stepcontour task produces 1D and contour plots of step searches
 produced using the ``step`` commands. At the end of the step command
 definitions (see :ref:`sec:step`), add the text ``file`` and a file name to

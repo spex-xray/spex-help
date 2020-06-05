@@ -15,8 +15,7 @@ instruments are used, one must specify the instrument as well. If the
 data set contains multiple regions, one must specify the region as well.
 So per instrument/region one needs to specify which range to ignore. The
 standard unit chosen for the range of data to ignore is data channels.
-To undo ignore, see the use command (see
-section \ `Use <#sec:use>`__).
+To undo ignore, see the ``use`` command (:ref:`sec:use`).
 
 The range to be ignored can be specified either as a channel range (no
 units required) or in either any of the following units: keV, eV,
@@ -35,7 +34,7 @@ The following syntax rules apply:
   set from different instruments.
 | ``ignore [instrument #i1] [region #i2] #r unit #a`` : Same as the
   above, but now one also specifies the unites #a in which the range #r
-  of data points to be ignored are given. The units can be either Å(ang)
+  of data points to be ignored are given. The units can be either Å (ang)
   or (k)eV.
 
 Examples

@@ -1,3 +1,5 @@
+.. _sect:comt:
+
 Comt: comptonisation model
 ==========================
 

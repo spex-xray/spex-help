@@ -9,7 +9,7 @@ Overview
 SPEX offers the opportunity to calculate the model flux in a given
 energy interval for the current spectral model. This information can be
 viewed when the model parameters are shown (see
-section `Par <#sec:par>`__).
+section :ref:`sec:par`).
 
 For each additive component of the model, the following quantities are
 listed:
@@ -21,7 +21,7 @@ listed:
   effects of galactic absorption etc.
 
 - the intrinsic number of photons emitted at the source, not diluted by
-  any absorption etc., in :math:`\mathrm{photons}` :math:`\mathrm{s}^{-1}`.
+  any absorption etc., in :math:`\mathrm{photons}` \ :math:`\mathrm{s}^{-1}`.
 
 - the intrinsic luminosity emitted at the source, not diluted by any
   absorption etc., in W.
@@ -40,7 +40,7 @@ The following syntax rules apply:
   are in keV.
 
 .. warning:: When new units or limits are chosen, the spectrum must
-   be re-evaluated (e.g. by giving the "calc" comand) in order to
+   be re-evaluated (e.g. by giving the "calc" command) in order to
    determine the new fluxes.
 
 .. warning:: The lower limit must be positive, and the upper limit must
