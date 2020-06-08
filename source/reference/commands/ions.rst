@@ -57,6 +57,17 @@ Finally, when you use the mute/unmute commands, it will also affect the ascii
 output for a few important output options, like the "line" and "tra" options for
 line emission or absorption.
 
+.. warning:: When using the pion model with this option, you will get a different
+solution, because it affects the heating and cooling rates, and thus the 
+ionisation balance (equilibrium temperature). 
+Exception is when you use the tmod=1 option for pion, which forces the 
+temperature to be equal to what you prescribe through parameter tinp.
+For diagnosing the heating/cooling contributions of ions or elements, it is 
+therefore recommended to run first the model with all ions, 
+make an ascii-output of the plasma parameters, take the temperature from
+there as the "tinp" parameter, and set tmod=1. 
+You can play then with the mute/unmute command.
+
 A new **quicklook mode** is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
