@@ -11,12 +11,53 @@ groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
 requested.
 
+There are two main reasons why the user may use this option: computational speed
+and educational reasons. 
+
+The first reason is **accelerating the calculations**. For complex spectral models, 
+the computational time may be long due to the large number of ions and transitions
+that need to be taken into account, in particular for the line calculations.
+
+By reducing the number of ions in the calculation, or using a maximum principal
+quantum number, or other reductions, allow to make the calculations faster by simply
+skipping the line emission from those transitions. Note that obviously this leads
+to less accurate spectra as compared to the full calculation. Technically,
+it is done by using the "ions ignore ..." or "ions use ..." commands (for getting
+rid of, or including line emission from specific ions), or the "ions nmax ..." or 
+"ions lmax ..." commands, to reduce the maximum principal quantum number 
+:math:`n` and the maximum orbital quantum number :math:`l`, respectively.
+Also, by using the "ions old ..." and "ions new ..." commands one may switch between
+the default (new) spex calculations and the (old) *mekal* calculations.
+
+A minor note must be made here: when excluding a single ion, the calculations 
+becomes less accurate, because level populations of ions depend also on how many ionisations
+or recombinations occur from levels of neighbouring ions. By ignoring an ion,
+it also cannot contribute to its neighbours.
+
 Currently these settings *only* affect the line emission; in the
 calculation of the ionisation balance as well as the continuum always
 all ions are taken into account (unless of course the abundance is put
 to zero).
 
-A new quicklook mode is introduced in SPEX 3.0. This mode can greatly
+The second reason to include or exclude ions is for 
+**diagnostic or educational reasons**. It may be of interest to know how the spectrum
+of a single ion looks, or how the total spectrum would look without an ion.
+For such cases, SPEX has the "ions mute ..." or its inverse "ions unmute ..."
+commands. 
+
+Contrary to the use/ignore commands, with this command the full spectrum
+is calculated, and only at the last step the contribution of the ion is muted or
+unmuted. Also, contrary to the use/ignore commands, this option works on the
+full spectrum (continuum and lines, both in emission and absoption). Finally,
+take care when combining the use/ignore with the mute/unmute commands.
+Whenever you ignore an ion, it will not be calculated and in those cases the
+mute or unmute commands are not effective.
+
+Finally, when you use the mute/unmute commands, it will also affect the ascii
+output for a few important output options, like the "line" and "tra" options for
+line emission or absorption.
+
+A new **quicklook mode** is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
 :math:`n` and :math:`l` of Hydrogen-like ions are provided in
@@ -47,20 +88,40 @@ Syntax
 The following syntax rules apply:
 
 | ``ions show`` : Display the list of ions currently taken into account
-| ``ions use all`` : Use all possible ions in the line spectrum
+| ``ions use all`` : Use all possible ions in the calculation of the
+  line spectrum. This is the default at startup of the program.
 | ``ions use iso #i:`` : Use ions of the iso-electronic sequences
   indicated by #i: in the line spectrum
 | ``ions use z #i:`` : Use ions with the atomic numbers indicated by #i:
   in the line spectrum
 | ``ions use ion #i1 #i2:`` : Use ions with the atomic number indicated
   by #i1 and ionisation stage indicated by #i2: in the line spectrum
-| ``ions ignore all`` : Ignore all possible ions in the line spectrum
+| ``ions ignore all`` : Ignore all possible ions in the calculation of the 
+  line spectrum
 | ``ions ignore iso #i:`` : Ignore ions of the iso-electronic sequences
   indicated by #i: in the line spectrum
 | ``ions ignore z #i:`` : Ignore ions with the atomic numbers indicated
   by #i: in the line spectrum
 | ``ions ignore ion #i1 #i2:`` : Ignore ions with the atomic number
   indicated by #i1 and ionisation stage indicated by #i2: in the line
+  spectrum
+| ``ions unmute all`` : Display the contributions of all possible ions 
+  in the final spectrum. This is the default at startup of the program.
+| ``ions unmute iso #i:`` : Display ions of the iso-electronic sequences
+  indicated by #i: in the spectrum
+| ``ions unmute z #i:`` : Display ions with the atomic numbers indicated by #i:
+  in the spectrum
+| ``ions unmute ion #i1 #i2:`` : Display ions with the atomic number indicated
+  by #i1 and ionisation stage indicated by #i2: in the spectrum
+| ``ions mute all`` : Ignore all possible ions in the display of the 
+  spectrum; will create a zero emission or transmission spectrum! Most useful
+  when followed immieditately by a "ions unmute ..." command
+| ``ions mute iso #i:`` : Do not display ions of the iso-electronic sequences
+  indicated by #i: in the spectrum
+| ``ions ignore z #i:`` : Do not display ions with the atomic numbers indicated
+  by #i: in the spectrum
+| ``ions ignore ion #i1 #i2:`` : Do not display ions with the atomic number
+  indicated by #i1 and ionisation stage indicated by #i2: in the 
   spectrum
 | ``ions nmax all #i:`` : Set maximum :math:`n` for all ions
 | ``ions nmax iso #i1: #i2`` : Set maximum :math:`n` to #i2 for
@@ -101,6 +162,9 @@ Examples
   isoelectronic sequences
 | ``ions ignore z 26`` : Ignore all iron (:math:`Z=26`) ions
 | ``ions use ion 6 5:6`` : Use C V to C VI
+| ``ions mute ion 8 7`` : does eliminate the O VII continuum and lines from
+  the displayed spectrum
+| ``ions unmute iso 2`` : shows the emission from all He-like ions (again).
 | ``ions show`` : Display the list of ions that are used
 | ``ions ql`` : Quicklook mode on
 | ``ions old ion 6 6`` : Use old calculation for C VI
