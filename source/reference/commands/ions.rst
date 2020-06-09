@@ -4,7 +4,7 @@ Ion: select ions for the plasma models
 ======================================
 
 Overview
-~~~~~~~~
+--------
 
 For the plasma models, it is possible to include or exclude specific
 groups of ions from the line calculations. This is helpful if a better
@@ -13,6 +13,9 @@ requested.
 
 There are two main reasons why the user may use this option: computational speed
 and educational reasons. 
+
+Computational speed
+'''''''''''''''''''
 
 The first reason is **accelerating the calculations**. For complex spectral models, 
 the computational time may be long due to the large number of ions and transitions
@@ -28,16 +31,20 @@ rid of, or including line emission from specific ions), or the "ions nmax ..." o
 :math:`n` and the maximum orbital quantum number :math:`l`, respectively.
 Also, by using the "ions old ..." and "ions new ..." commands one may switch between
 the default (new) spex calculations and the (old) *mekal* calculations.
+See :ref:`sect:performance` for more details.
 
-A minor note must be made here: when excluding a single ion, the calculations 
-becomes less accurate, because level populations of ions depend also on how many ionisations
-or recombinations occur from levels of neighbouring ions. By ignoring an ion,
-it also cannot contribute to its neighbours.
+A minor note must be made here: when excluding a single ion, the calculations
+becomes less accurate, because level populations of ions depend also on how many
+ionisations or recombinations occur from levels of neighbouring ions. By ignoring
+an ion, it also cannot contribute to its neighbours.
 
 Currently these settings *only* affect the line emission; in the
 calculation of the ionisation balance as well as the continuum always
 all ions are taken into account (unless of course the abundance is put
 to zero).
+
+Diagnostics & education
+'''''''''''''''''''''''
 
 The second reason to include or exclude ions is for 
 **diagnostic or educational reasons**. It may be of interest to know how the spectrum
@@ -48,7 +55,7 @@ commands.
 Contrary to the use/ignore commands, with this command the full spectrum
 is calculated, and only at the last step the contribution of the ion is muted or
 unmuted. Also, contrary to the use/ignore commands, this option works on the
-full spectrum (continuum and lines, both in emission and absoption). Finally,
+full spectrum (continuum and lines, both in emission and absorption). Finally,
 take care when combining the use/ignore with the mute/unmute commands.
 Whenever you ignore an ion, it will not be calculated and in those cases the
 mute or unmute commands are not effective.
@@ -58,21 +65,30 @@ output for a few important output options, like the "line" and "tra" options for
 line emission or absorption.
 
 .. warning:: When using the pion model with this option, you will get a different
-solution, because it affects the heating and cooling rates, and thus the 
-ionisation balance (equilibrium temperature). 
-Exception is when you use the tmod=1 option for pion, which forces the 
-temperature to be equal to what you prescribe through parameter tinp.
-For diagnosing the heating/cooling contributions of ions or elements, it is 
-therefore recommended to run first the model with all ions, 
-make an ascii-output of the plasma parameters, take the temperature from
-there as the "tinp" parameter, and set tmod=1. 
-You can play then with the mute/unmute command.
+   solution, because it affects the heating and cooling rates, and thus the
+   ionisation balance (equilibrium temperature).
+   Exception is when you use the tmod=1 option for pion, which forces the
+   temperature to be equal to what you prescribe through parameter tinp.
+   For diagnosing the heating/cooling contributions of ions or elements, it is
+   therefore recommended to run first the model with all ions,
+   make an ascii-output of the plasma parameters, take the temperature from
+   there as the "tinp" parameter, and set tmod=1.
+   You can play then with the mute/unmute command.
+
+Quicklook
+'''''''''
 
 A new **quicklook mode** is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
 :math:`n` and :math:`l` of Hydrogen-like ions are provided in
 the table below.
+
+The quicklook mode is enabled by the command::
+
+    SPEX> ions ql
+
+To undo the quicklook mode, just type ``ions use all``.
 
 .. warning:: This mode will not work for CX model, since electron
              captured by charge exchange usually populate the outer shells.
@@ -94,7 +110,7 @@ the table below.
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
 
 Syntax
-~~~~~~
+------
 
 The following syntax rules apply:
 
@@ -164,7 +180,7 @@ The following syntax rules apply:
   number indicated by #i1 and ionisation stage indicated by #i2.
 
 Examples
-~~~~~~~~
+--------
 
 | ``ions ignore all`` : Do not take any line calculation into account
 | ``ions use iso 3`` : Use ions from the :math:`Z=3` (Li) iso-electronic
