@@ -41,6 +41,7 @@ other than the Hubble flow.
 
 The parameters of the model are:
 
-| ``z`` : Redshift :math:`z`. Default value: 0.
+| ``z`` : Redshift :math:`z`. Default value: 0. Dimensionless. Redshifts are 
+  positive, blueshifts negative.
 | ``flag`` : Flag: 0 (cosmological redshift) or 1 (velocity redshift).
   Default value: 0.
