@@ -63,12 +63,9 @@ Line broadening
 
 Apart from line broadening due to the thermal velocity of the ions
 (caused by :math:`T_{\mathrm i} > 0`) it is also possible to get line
-broadening due to (micro)turbulence. In this case the line broadening is
-determined by :math:`v_{\mathrm{micro}}`, which is given by
-:math:`v_{\mathrm{micro}}\equiv \sqrt{2} \sigma_v` with :math:`\sigma_v`
-the Gaussian velocity dispersion in the line of sight. Thus, without
-thermal broadening the FWHM of the line would be 1.6651 times
-:math:`v_{\mathrm{micro}}`.
+broadening due to (micro)turbulence. Since SPEX version 3.06, we use
+the RMS velocity broadening in km/s in our models. For more information
+about this change see: :ref:`sect:turbulence`.
 
 Density effects
 ---------------
