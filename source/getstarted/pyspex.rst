@@ -21,8 +21,13 @@ Please enter the following command::
 
     (base) unix:~/SPEX> conda env create -f $SPEX90/python/spex.yml
 
-This creates the ``spex`` conda environment for you. This step should only be done once. If successful, you can
-from now on activate the environment with the command::
+This creates the ``spex`` conda environment for you. This step should only be done once.
+
+.. Note:: If you installed SPEX through the Mac package installer, then ``spex.yml`` is not located in a writeable
+   directory. Please copy ``spex.yml`` first to your home directory (``cp /opt/spex/python/spex.yml ~/``) and then
+   create the conda environment like: ``conda env create -f ~/spex.yml``.
+
+If successful, you can from now on activate the environment with the command::
 
     (base) unix:~/SPEX> conda activate spex
 
