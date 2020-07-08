@@ -1,3 +1,5 @@
+.. _sec:pyspexidx:
+
 Python Interface
 ================
 
