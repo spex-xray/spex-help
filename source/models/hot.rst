@@ -16,10 +16,10 @@ The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
 refer to :ref:`sect:absmodels`. You can mimic
 the transmission of a neutral plasma very easy by putting the
-temperature to 0.5 eV (5 :math:`10^{-4}` keV).
+temperature to 0.2 eV (2 :math:`10^{-4}` keV).
 
 .. warning:: For solar abundances, do not take the temperature much
-   lower than 0.0005 keV, because if the plasma is completely neutral, the
+   lower than 0.0002 keV, because if the plasma is completely neutral, the
    code will crash; a tiny fraction of ions such as Fe  or Na  will help to
    keep a few free electrons in the gas without affecting the transmission
    too much. You can check the ion concentrations by giving an "asc ter
