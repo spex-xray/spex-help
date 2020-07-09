@@ -296,3 +296,6 @@ In SPEXACT 3.06.00:
    *  Fe-L data from `Gu et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..51G/abstract>`_.
 
    *  O II, Mg VI, S X, Ar XII, Ca XIV, Ti XVI, Cr XVIII
+
+   *  Absorption lines of Ne II, Ne III, Mg I and Si I have been updated using Juett et al. (2006) for Ne. The Mg I
+      and Si I have been updated using calculations with FAC and COWAN respectively.
