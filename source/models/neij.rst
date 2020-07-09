@@ -80,7 +80,7 @@ of the ionisation parameter after :math:`t=t_{\mathrm br}` as follows:
    \begin{aligned}
    u-U &=& \int_{t_{\mathrm br}} n(t) dt = \int_{t_{\mathrm br}} n_{\mathrm e} (t/t_{\mathrm br})^{\beta} dt \\
    &=& n_{\mathrm e} t_{\mathrm br} ~\int_{1} (t/t_{\mathrm br})^{\beta} ~d(t/t_{\mathrm br}) \\
-   &=& U / (\beta+1) \cdot [(t/t_{\mathrm br})^{\beta+1} - 1], \label{eq:tauevo}\end{aligned}
+   &=& U / (\beta+1) \cdot [(t/t_{\mathrm br})^{\beta+1} - 1], \end{aligned}
    :label: tauevo
 
 Then, by combining equations :eq:`tevo` and

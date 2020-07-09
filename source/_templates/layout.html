@@ -2,7 +2,13 @@
 
 {% block footer %}
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+    {%- if last_updated %}
+        Last updated on: {{ last_updated }}.<br>
+    {%- endif %}
+    {% if show_copyright %}
+        &copy;{{ copyright }}, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    {% endif %}
+
 </div>
 {% endblock %}

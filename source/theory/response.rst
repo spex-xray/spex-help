@@ -57,9 +57,7 @@ propose *not* to adhere to the OGIP format here, as listed below:
    consistent, and also if the indexing in the corresponding spectra is
    consistent.
 
-#. There are some redundant quantities in the OGIP format, like the
-   ``areascal`` keyword. When the effective area should be scaled by a
-   given factor, this can be done explicitly in the matrix.
+#. There are some redundant quantities in the OGIP format, like the ``areascal`` keyword. When the effective area should be scaled by a given factor, this can be done explicitly in the matrix.
 
 #. As was shown in this work, it is more efficient to do the grouping
    within the response matrix differently, splitting the matrix into
