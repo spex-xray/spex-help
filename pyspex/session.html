@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.3.1. Session class structure &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.3.1. Session class structure &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/session.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,7 +35,7 @@
           <div class="body" role="main">
             
   <div class="section" id="session-class-structure">
-<h1>6.3.1. Session class structure<a class="headerlink" href="#session-class-structure" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.3.1. </span>Session class structure<a class="headerlink" href="#session-class-structure" title="Permalink to this headline">¶</a></h1>
 <p>The PYSPEX session class is the top-level class for PYSPEX and the most important class managing
 user interaction. When the class is initialized, a SPEX session is started for the duration of the
 Python session. All subsequent commands communicate with this SPEX session in the background.</p>
@@ -42,11 +43,11 @@ Python session. All subsequent commands communicate with this SPEX session in th
 to contain much of the internal SPEX data that pyspex can access. These objects are instances of the
 Data, Model, Optimization, Ascdump and Log classes that are explained later in this Chapter.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.spex.Session">
-<em class="property">class </em><code class="sig-prename descclassname">pyspex.spex.</code><code class="sig-name descname">Session</code><a class="reference internal" href="../_modules/pyspex/spex.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pyspex.spex.</code><code class="sig-name descname">Session</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class contains all the classes and commands that are available in a pySPEX session.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to initialize the PYSPEX session. It starts an instance of SPEX in the background.
@@ -88,7 +89,7 @@ behind the variable.</p>
 Python interface that we use cannot handle multiple sessions properly.</p>
 </div>
 <div class="section" id="session-class-commands">
-<h2>6.3.1.1. Session class commands<a class="headerlink" href="#session-class-commands" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.1.1. </span>Session class commands<a class="headerlink" href="#session-class-commands" title="Permalink to this headline">¶</a></h2>
 <p>The Session class also contains the main PYSPEX commands listed in <a class="reference internal" href="commands.html#sect-pyspex-commands"><span class="std std-ref">Basic PYSPEX commands</span></a>.</p>
 </div>
 </div>
@@ -138,9 +139,9 @@ Python interface that we use cannot handle multiple sessions properly.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-      <li>Previous: <a href="threads.html" title="previous chapter">6.2.1. Jupyter Notebooks</a></li>
-      <li>Next: <a href="data.html" title="next chapter">6.3.2. Data class structure</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+      <li>Previous: <a href="threads.html" title="previous chapter"><span class="section-number">6.2.1. </span>Jupyter Notebooks</a></li>
+      <li>Next: <a href="data.html" title="next chapter"><span class="section-number">6.3.2. </span>Data class structure</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -154,7 +155,7 @@ Python interface that we use cannot handle multiple sessions properly.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -168,8 +169,11 @@ Python interface that we use cannot handle multiple sessions properly.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

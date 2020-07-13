@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>2.3. Fitting interstellar dust absorption &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.3. Fitting interstellar dust absorption &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/amol/amol.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -34,10 +35,10 @@
           <div class="body" role="main">
             
   <div class="section" id="fitting-interstellar-dust-absorption">
-<h1>2.3. Fitting interstellar dust absorption<a class="headerlink" href="#fitting-interstellar-dust-absorption" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.3. </span>Fitting interstellar dust absorption<a class="headerlink" href="#fitting-interstellar-dust-absorption" title="Permalink to this headline">¶</a></h1>
 <p><em>By: Daniele Rogantini</em></p>
 <div class="section" id="goal">
-<h2>2.3.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.1. </span>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
 <p>Characterise the extinction of the interstellar dust along the line of sight of a bright low-mass X-ray binary
 observed with Chandra HETG.</p>
 <div class="admonition note">
@@ -47,12 +48,12 @@ dataset with 250 ks exposure time is based on the model used to fit the source G
 </div>
 </div>
 <div class="section" id="preparation">
-<h2>2.3.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.2. </span>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>To follow this thread, it is necessary to download the simulated spectrum and its responsive matrix:
 <a class="reference download internal" download="" href="../../_downloads/baabd4baabfe090366eb967d223164dc/data_sim.spo"><code class="xref download docutils literal notranslate"><span class="pre">data_sim.spo</span></code></a> and <a class="reference download internal" download="" href="../../_downloads/01356f800b57a8738c2bd051221aacab/data_sim.res"><code class="xref download docutils literal notranslate"><span class="pre">data_sim.res</span></code></a>.</p>
 </div>
 <div class="section" id="starting-spex">
-<h2>2.3.3. Starting SPEX<a class="headerlink" href="#starting-spex" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.3. </span>Starting SPEX<a class="headerlink" href="#starting-spex" title="Permalink to this headline">¶</a></h2>
 <p>Start SPEX in a linux terminal window:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
 Welcome user to SPEX version 3.05.00
@@ -62,7 +63,7 @@ SPEX&gt;
 </div>
 </div>
 <div class="section" id="loading-data">
-<h2>2.3.4. Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.4. </span>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
 <p>A command file tailored for this thread to load data is available here <a class="reference download internal" download="" href="../../_downloads/f0939c94862939cf5dccd18134cfeb6b/data_gx.com"><code class="xref download docutils literal notranslate"><span class="pre">data_gx.com</span></code></a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat data_gx.com
 
@@ -81,7 +82,7 @@ ignore inst 1 reg 1:2 11:1000 unit ang
 </div>
 </div>
 <div class="section" id="plotting-data">
-<h2>2.3.5. Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.5. </span>Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">¶</a></h2>
 <p>A command file tailored for this thread to plot the data is available here <a class="reference download internal" download="" href="../../_downloads/95f641e84edc0eb0276e56dfa921606f/plot_edges.com"><code class="xref download docutils literal notranslate"><span class="pre">plot_edges.com</span></code></a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; cat plot_edges.com
 # plot setting
@@ -114,11 +115,11 @@ plot
 </div>
 </div>
 <div class="section" id="defining-the-broadband-model">
-<h2>2.3.6. Defining the broadband model<a class="headerlink" href="#defining-the-broadband-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.6. </span>Defining the broadband model<a class="headerlink" href="#defining-the-broadband-model" title="Permalink to this headline">¶</a></h2>
 <p>We are studying the interstellar dust along the line of sight of a bright low-mass X-ray binary located near the
 Galactic bulge (distance 6.1 kpc).</p>
 <div class="section" id="setting-the-distance-of-the-source">
-<h3>2.3.6.1. Setting the distance of the source<a class="headerlink" href="#setting-the-distance-of-the-source" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.6.1. </span>Setting the distance of the source<a class="headerlink" href="#setting-the-distance-of-the-source" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; distance 6.1 kpc
  Distances assuming H0 =  70.0 km/s/Mpc, Omega_m = 0.300 Omega_Lambda = 0.700 Omega_r = 0.000
 Sector       m      A.U.        ly        pc       kpc       Mpc  redshift        cz   age(yr)
@@ -129,7 +130,7 @@ Sector       m      A.U.        ly        pc       kpc       Mpc  redshift      
 </div>
 </div>
 <div class="section" id="setting-the-sed">
-<h3>2.3.6.2. Setting the SED<a class="headerlink" href="#setting-the-sed" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.6.2. </span>Setting the SED<a class="headerlink" href="#setting-the-sed" title="Permalink to this headline">¶</a></h3>
 <p>Set the intrinsic spectral-energy-distribution (SED) of the low-mass X-ray binary. For a typical X-ray binary,
 the SED between 0.1 and 10 keV is described by two components (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984PASJ...36..741M/abstract">Mitsuda et al. 1984</a>): a thermal component, e.g. a black-body
 (<a class="reference internal" href="../../models/bb.html#sect-bb"><span class="std std-ref">Bb: blackbody model</span></a>), and a non-thermal component, e.g. a power-law (<a class="reference internal" href="../../models/pow.html#sect-pow"><span class="std std-ref">Pow: power law model</span></a>):</p>
@@ -145,7 +146,7 @@ SPEX&gt; par 1 2 t value 0.8
 </div>
 </div>
 <div class="section" id="setting-the-galactic-cold-neutral-absorption">
-<h3>2.3.6.3. Setting the Galactic cold neutral absorption<a class="headerlink" href="#setting-the-galactic-cold-neutral-absorption" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.6.3. </span>Setting the Galactic cold neutral absorption<a class="headerlink" href="#setting-the-galactic-cold-neutral-absorption" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com hot
  You have defined    3 components.
 SPEX&gt; par 1 3 nh value 1.9e-2
@@ -156,14 +157,14 @@ SPEX&gt; par 1 3 t status frozen
 </div>
 </div>
 <div class="section" id="defining-the-dust-absorption">
-<h2>2.3.7. Defining the dust absorption<a class="headerlink" href="#defining-the-dust-absorption" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.7. </span>Defining the dust absorption<a class="headerlink" href="#defining-the-dust-absorption" title="Permalink to this headline">¶</a></h2>
 <p>Here we introduce the <code class="docutils literal notranslate"><span class="pre">amol</span></code> components (<a class="reference internal" href="../../models/amol.html#sec-amolmodel"><span class="std std-ref">Amol: interstellar dust absorption model</span></a>) to characterise the interstellar dust extinction.
 In this example we add four arbitrary dust compounds: a-olivine (index=4230, <img class="math" src="../../_images/math/bdb3e4d86946e1ada705dbe628e971bc95d7ec22.svg" alt="\mathrm{Mg Fe Si O_4}" style="vertical-align: -3px"/>),
 a-quartz (index=2234, <img class="math" src="../../_images/math/bea91a8d19ece94c177506283c7771644f24968d.svg" alt="\mathrm{Si O_2}" style="vertical-align: -2px"/>), c-forsterite (index=3230, <img class="math" src="../../_images/math/8cdc4996e90a71e7801c41915422135ee6c97ecc.svg" alt="\mathrm{Mg_2 Si O_4}" style="vertical-align: -3px"/>), and
 a-enstatite (index=3231, <img class="math" src="../../_images/math/cb2136d3e76019ef51c256479a527ac1ffb0a847.svg" alt="\mathrm{Mg Si O_3}" style="vertical-align: -3px"/>). The full list of all compounds is reported in Table
 <a class="reference internal" href="../../models/amol.html#tab-xride-table"><span class="std std-ref">Compounds list</span></a> and Table <a class="reference internal" href="../../models/amol.html#tab-additional-compounds"><span class="std std-ref">Additional compounds list</span></a> in the <a class="reference internal" href="../../models/amol.html#sec-amolmodel"><span class="std std-ref">Amol: interstellar dust absorption model</span></a> section of the manual.</p>
 <div class="section" id="setting-the-interstellar-dust-models">
-<h3>2.3.7.1. Setting the interstellar dust models<a class="headerlink" href="#setting-the-interstellar-dust-models" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.7.1. </span>Setting the interstellar dust models<a class="headerlink" href="#setting-the-interstellar-dust-models" title="Permalink to this headline">¶</a></h3>
 <p>Defining <code class="docutils literal notranslate"><span class="pre">amol</span></code> with the initial guess for the column densities of the dust compounds:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com amol
  You have defined    4 components.
@@ -206,7 +207,7 @@ SPEX&gt; par 1 3 26 status thawn
 </div>
 </div>
 <div class="section" id="setting-the-component-relations">
-<h3>2.3.7.2. Setting the component relations<a class="headerlink" href="#setting-the-component-relations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.7.2. </span>Setting the component relations<a class="headerlink" href="#setting-the-component-relations" title="Permalink to this headline">¶</a></h3>
 <p>Adding the multiplicative components <code class="docutils literal notranslate"><span class="pre">hot</span></code> and <code class="docutils literal notranslate"><span class="pre">amol</span></code> to the broad-band model:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; com rel 1:2 4,3
 SPEX&gt; model show
@@ -222,7 +223,7 @@ SPEX&gt; model show
 </div>
 </div>
 <div class="section" id="fitting">
-<h2>2.3.8. Fitting<a class="headerlink" href="#fitting" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.8. </span>Fitting<a class="headerlink" href="#fitting" title="Permalink to this headline">¶</a></h2>
 <p>We fit the model to the data and print the free parameters:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; calc
 SPEX&gt; fit print 1
@@ -278,7 +279,7 @@ Instrument     1 region    2 has norm    1.00000E+00 and is frozen
 </div>
 </div>
 <div class="section" id="final-remarks">
-<h2>2.3.9. Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.9. </span>Final remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
 <p>This is the end of this analysis thread. If you want, you can save the parameters and quit SPEX:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par write parameters
 SPEX&gt; log out fit_result
@@ -340,9 +341,9 @@ SPEX&gt; log close output
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../../threads.html">2. Analysis threads</a><ul>
-      <li>Previous: <a href="../partbkg/partbkg.html" title="previous chapter">2.2. Modeling particle background</a></li>
-      <li>Next: <a href="../uv.html" title="next chapter">2.4. Import UV/Optical data</a></li>
+  <li><a href="../../threads.html"><span class="section-number">2. </span>Analysis threads</a><ul>
+      <li>Previous: <a href="../partbkg/partbkg.html" title="previous chapter"><span class="section-number">2.2. </span>Modeling particle background</a></li>
+      <li>Next: <a href="../uv.html" title="next chapter"><span class="section-number">2.4. </span>Import UV/Optical data</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -356,7 +357,7 @@ SPEX&gt; log close output
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -370,8 +371,11 @@ SPEX&gt; log close output
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

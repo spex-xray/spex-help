@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>3.1.22. Plot: Plotting data and models &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1.22. Plot: Plotting data and models &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/plot.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -34,9 +35,9 @@
           <div class="body" role="main">
             
   <div class="section" id="plot-plotting-data-and-models">
-<span id="sec-plot"></span><h1>3.1.22. Plot: Plotting data and models<a class="headerlink" href="#plot-plotting-data-and-models" title="Permalink to this headline">¶</a></h1>
+<span id="sec-plot"></span><h1><span class="section-number">3.1.22. </span>Plot: Plotting data and models<a class="headerlink" href="#plot-plotting-data-and-models" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
-<h2>3.1.22.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.22.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The plot command cause the plot to be (re)drawn on the graphics device.
 Multiple graphics devices can be defined in one SPEX session. For
 example, a plot can be sent to both a postscript and a xs device.</p>
@@ -71,7 +72,7 @@ future version of SPEX.</p>
 </div>
 </div>
 <div class="section" id="syntax">
-<h2>3.1.22.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.22.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply for plot:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span></code> : (Re)draws the plot on the graphics device. Take care to
@@ -331,14 +332,15 @@ later with for example the qdp package, take care that you plot the
 data in SPEX on a lin-lin frame before you execute the “plot adum”
 command. Also note that the data will be written in the units that
 were specified in the plot (energy, wavelength or whatever is
-applicable. If the optional “append” keyword is present, the data will
+applicable). The output format is described in <a class="reference internal" href="../plot/adum.html#sect-plotadum"><span class="std std-ref">Plot asciidump file format</span></a>.
+If the optional “append” keyword is present, the data will
 be appended to any existing file with the name #a; if the optional
 “overwrite” keyword is present, any pre-existing file with the name #a
 will be overwritten by the new data.</div>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>3.1.22.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.22.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">xs</span></code> : Open the graphic device xs (xserver)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">ps</span> <span class="pre">myplot.ps</span></code> : Select a postscript device connected to
@@ -425,10 +427,10 @@ device in this case</div>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../../reference.html">3. Command overview</a><ul>
-  <li><a href="../commands.html">3.1. Command syntax</a><ul>
-      <li>Previous: <a href="par.html" title="previous chapter">3.1.21. Par: Input and output of model parameters</a></li>
-      <li>Next: <a href="quit.html" title="next chapter">3.1.23. Quit: finish the program</a></li>
+  <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
+  <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
+      <li>Previous: <a href="par.html" title="previous chapter"><span class="section-number">3.1.21. </span>Par: Input and output of model parameters</a></li>
+      <li>Next: <a href="quit.html" title="next chapter"><span class="section-number">3.1.23. </span>Quit: finish the program</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -443,7 +445,7 @@ device in this case</div>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -457,8 +459,11 @@ device in this case</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

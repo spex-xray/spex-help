@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.1.3.3. Optimization commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.3.3. Optimization commands &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_opt.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,18 +35,18 @@
           <div class="body" role="main">
             
   <div class="section" id="optimization-commands">
-<h1>6.1.3.3. Optimization commands<a class="headerlink" href="#optimization-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.3.3. </span>Optimization commands<a class="headerlink" href="#optimization-commands" title="Permalink to this headline">¶</a></h1>
 <p>Once the data have been read in and the model has been set, the model parameters can be optimized
 to fit the data. The methods in this section are used for the optimization and determination of
 the uncertainties in the fit.</p>
 <div class="section" id="fit">
-<h2>6.1.3.3.1. Fit<a class="headerlink" href="#fit" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.3.1. </span>Fit<a class="headerlink" href="#fit" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX command to fit is simply <code class="docutils literal notranslate"><span class="pre">fit</span></code> and this has been implemented as <code class="docutils literal notranslate"><span class="pre">fit</span></code> in PYSPEX
 as well:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.fit">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">niter=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">niter</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit command.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -64,11 +65,11 @@ fit statistics can be found in the object <code class="docutils literal notransl
 </pre></div>
 </div>
 <div class="section" id="fit-results">
-<h3>6.1.3.3.1.1. Fit results<a class="headerlink" href="#fit-results" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.3.1.1. </span>Fit results<a class="headerlink" href="#fit-results" title="Permalink to this headline">¶</a></h3>
 <p>The resulting C-statistics/Chi-square value and degrees of freedom can be obtained with separate
 commands:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.fit_cstat">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_cstat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_cstat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_cstat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current C-statistics from the model.</p>
@@ -82,7 +83,7 @@ commands:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.fit_chisq">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_chisq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_chisq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_chisq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current Chi2-statistics from the model.</p>
@@ -109,13 +110,13 @@ commands:</p>
 </div>
 </div>
 <div class="section" id="fit-statistics">
-<h3>6.1.3.3.1.2. Fit statistics<a class="headerlink" href="#fit-statistics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.3.1.2. </span>Fit statistics<a class="headerlink" href="#fit-statistics" title="Permalink to this headline">¶</a></h3>
 <p>Although C-statistics is recommended for Poisson distributed data like X-ray spectra, sometimes
 it may be better to switch to chi^2 statistics. This can be done using the <code class="docutils literal notranslate"><span class="pre">fit_stat</span></code> method:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.fit_stat">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_stat</code><span class="sig-paren">(</span><em class="sig-param">stat</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_stat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_stat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_stat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stat</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_stat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_stat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the fit statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -134,13 +135,13 @@ for use in analysis.</p>
 </div>
 </div>
 <div class="section" id="fit-verbosity">
-<h3>6.1.3.3.1.3. Fit verbosity<a class="headerlink" href="#fit-verbosity" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.3.1.3. </span>Fit verbosity<a class="headerlink" href="#fit-verbosity" title="Permalink to this headline">¶</a></h3>
 <p>The intermediate results from the fit iterations can be shown in the terminal (and in a pgplot
 window). In PYSPEX, this feature is on by default. If you want to turn it off, then call</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.fit_print">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_print</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_print" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">fit_print</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.fit_print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.fit_print" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the fit output verbosity. Default is true.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -158,13 +159,13 @@ window). In PYSPEX, this feature is on by default. If you want to turn it off, t
 </div>
 </div>
 <div class="section" id="error">
-<h2>6.1.3.3.2. Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.3.2. </span>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
 <p>The command for calculating errors on fitted parameters is <code class="docutils literal notranslate"><span class="pre">error</span></code> and has a direct equivalent
 in PYSPEX:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.error">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">dchi=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">dchi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the error for a parameter (name) in sector (isect) and component (icomp).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -245,10 +246,10 @@ class definition elsewhere in this manual.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
-      <li>Previous: <a href="com_model.html" title="previous chapter">6.1.3.2. Model related commands</a></li>
-      <li>Next: <a href="com_plot.html" title="next chapter">6.1.3.4. Plot commands</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+  <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_model.html" title="previous chapter"><span class="section-number">6.1.3.2. </span>Model related commands</a></li>
+      <li>Next: <a href="com_plot.html" title="next chapter"><span class="section-number">6.1.3.4. </span>Plot commands</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -263,7 +264,7 @@ class definition elsewhere in this manual.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -277,8 +278,11 @@ class definition elsewhere in this manual.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.3.4. Optimization functions &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.3.4. Optimization functions &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/optimize.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,11 +35,11 @@
           <div class="body" role="main">
             
   <div class="section" id="optimization-functions">
-<h1>6.3.4. Optimization functions<a class="headerlink" href="#optimization-functions" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.3.4. </span>Optimization functions<a class="headerlink" href="#optimization-functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="fitting-spectra">
-<h2>6.3.4.1. Fitting spectra<a class="headerlink" href="#fitting-spectra" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.4.1. </span>Fitting spectra<a class="headerlink" href="#fitting-spectra" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.optimize.Fit">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.optimize.</code><code class="sig-name descname">Fit</code><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the parent class of all fit related commands.</p>
@@ -55,9 +56,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Fit.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">niter=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">niter</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the SPEX fit command. The maximum number of iterations (niter) can be optionally set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -66,15 +67,15 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Fit.get_statistic">
 <code class="sig-name descname">get_statistic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.get_statistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.get_statistic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Fit.print">
-<code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.print" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.print" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print each fit iteration to screen (default is True). The status variable can be either True or False,
 which means printing is on or off, respectively.</p>
 <dl class="field-list simple">
@@ -84,9 +85,9 @@ which means printing is on or off, respectively.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Fit.set_statistic">
-<code class="sig-name descname">set_statistic</code><span class="sig-paren">(</span><em class="sig-param">stat</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_statistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_statistic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_statistic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stat</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_statistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_statistic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the desired fit statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -95,7 +96,7 @@ which means printing is on or off, respectively.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Fit.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the most recent statistics values from SPEX.</p>
@@ -106,9 +107,9 @@ which means printing is on or off, respectively.</p>
 </div></blockquote>
 </div>
 <div class="section" id="error-calculation">
-<h2>6.3.4.2. Error calculation<a class="headerlink" href="#error-calculation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.4.2. </span>Error calculation<a class="headerlink" href="#error-calculation" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.optimize.Error">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.optimize.</code><code class="sig-name descname">Error</code><a class="reference internal" href="../_modules/pyspex/optimize.html#Error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to calculate errors for free fit parameters.</p>
@@ -129,9 +130,9 @@ which means printing is on or off, respectively.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Error.error">
-<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">dchi=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">dchi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the error value for a particular parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -145,7 +146,7 @@ which means printing is on or off, respectively.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Error.get_value">
 <code class="sig-name descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.get_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the parameter value and the errors.</p>
@@ -159,9 +160,9 @@ which means printing is on or off, respectively.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.optimize.Error.set_dchi">
-<code class="sig-name descname">set_dchi</code><span class="sig-paren">(</span><em class="sig-param">dchi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.set_dchi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.set_dchi" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_dchi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dchi</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.set_dchi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.set_dchi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the delta c-stat or delta chi**2 value that the error search should optimize for.
 The default value is 1.0.</p>
 <dl class="field-list simple">
@@ -222,9 +223,9 @@ The default value is 1.0.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-      <li>Previous: <a href="model.html" title="previous chapter">6.3.3. Model class structures</a></li>
-      <li>Next: <a href="plot.html" title="next chapter">6.3.5. Plot functions</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+      <li>Previous: <a href="model.html" title="previous chapter"><span class="section-number">6.3.3. </span>Model class structures</a></li>
+      <li>Next: <a href="plot.html" title="next chapter"><span class="section-number">6.3.5. </span>Plot functions</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -238,7 +239,7 @@ The default value is 1.0.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -252,8 +253,11 @@ The default value is 1.0.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

@@ -7,4 +7,7 @@ Getting started
    getstarted/install
    getstarted/runspex
    getstarted/runtrafo
+   getstarted/pyspex
+   getstarted/compile
+   getstarted/docker
 

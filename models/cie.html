@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>4.1.5. Cie: collisional ionisation equilibrium model &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1.5. Cie: collisional ionisation equilibrium model &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/cie.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,14 +35,14 @@
           <div class="body" role="main">
             
   <div class="section" id="cie-collisional-ionisation-equilibrium-model">
-<span id="sect-cie"></span><h1>4.1.5. Cie: collisional ionisation equilibrium model<a class="headerlink" href="#cie-collisional-ionisation-equilibrium-model" title="Permalink to this headline">¶</a></h1>
+<span id="sect-cie"></span><h1><span class="section-number">4.1.5. </span>Cie: collisional ionisation equilibrium model<a class="headerlink" href="#cie-collisional-ionisation-equilibrium-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the spectrum of a plasma in collisional ionisation
 equilibrium (CIE). It consists essentially of two steps, first a
 calculation of the ionisation balance and then the calculation of the
 X-ray spectrum. The basis for this model is formed by the mekal model,
 but several updates have been included (see <a class="reference internal" href="../theory/spexact/plasma.html#chap-plasmamodel"><span class="std std-ref">Plasma model in SPEX 3.0</span></a>).</p>
 <div class="section" id="temperatures">
-<h2>4.1.5.1. Temperatures<a class="headerlink" href="#temperatures" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.5.1. </span>Temperatures<a class="headerlink" href="#temperatures" title="Permalink to this headline">¶</a></h2>
 <p>Some remarks should be made about the temperatures. SPEX knows three
 temperatures that are used for this model.</p>
 <p>First there is the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/>. This is
@@ -84,18 +85,15 @@ values of <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d
 fact that the code has to evaluate many isothermal spectra.</p>
 </div>
 <div class="section" id="line-broadening">
-<h2>4.1.5.2. Line broadening<a class="headerlink" href="#line-broadening" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.5.2. </span>Line broadening<a class="headerlink" href="#line-broadening" title="Permalink to this headline">¶</a></h2>
 <p>Apart from line broadening due to the thermal velocity of the ions
 (caused by <img class="math" src="../_images/math/83ed096a4ed554838dea908e6eec35a82670f51d.svg" alt="T_{\mathrm i} &gt; 0" style="vertical-align: -2px"/>) it is also possible to get line
-broadening due to (micro)turbulence. In this case the line broadening is
-determined by <img class="math" src="../_images/math/00e962457c0f4200532e09548cad6d4830b7e060.svg" alt="v_{\mathrm{micro}}" style="vertical-align: -2px"/>, which is given by
-<img class="math" src="../_images/math/4bc2cbfd4e6fa5e70bccfc6b37e0d319b06e413b.svg" alt="v_{\mathrm{micro}}\equiv \sqrt{2} \sigma_v" style="vertical-align: -2px"/> with <img class="math" src="../_images/math/10c4ea4a3b6cc3f40418affb2100da1558e436c8.svg" alt="\sigma_v" style="vertical-align: -2px"/>
-the Gaussian velocity dispersion in the line of sight. Thus, without
-thermal broadening the FWHM of the line would be 1.6651 times
-<img class="math" src="../_images/math/00e962457c0f4200532e09548cad6d4830b7e060.svg" alt="v_{\mathrm{micro}}" style="vertical-align: -2px"/>.</p>
+broadening due to (micro)turbulence. Since SPEX version 3.06, we use
+the RMS velocity broadening in km/s in our models. For more information
+about this change see: <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>.</p>
 </div>
 <div class="section" id="density-effects">
-<h2>4.1.5.3. Density effects<a class="headerlink" href="#density-effects" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.5.3. </span>Density effects<a class="headerlink" href="#density-effects" title="Permalink to this headline">¶</a></h2>
 <p>It is also possible to vary the electron density <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/>
 of the plasma. This does not affect the overall shape of the spectrum
 (i.e., by changing <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> only SPEX still uses the
@@ -107,12 +105,12 @@ conditions (<img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0
 important effect.</p>
 </div>
 <div class="section" id="non-thermal-electron-distributions">
-<h2>4.1.5.4. Non-thermal electron distributions<a class="headerlink" href="#non-thermal-electron-distributions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.5.4. </span>Non-thermal electron distributions<a class="headerlink" href="#non-thermal-electron-distributions" title="Permalink to this headline">¶</a></h2>
 <p>The effects of non-thermal electron distribution on the spectrum can be
 included. See <a class="reference internal" href="../theory/spexact/nonthermal.html#sec-nonthermal"><span class="std std-ref">Non-thermal electron distributions</span></a> for more details.</p>
 </div>
 <div class="section" id="abundances">
-<h2>4.1.5.5. Abundances<a class="headerlink" href="#abundances" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.5.5. </span>Abundances<a class="headerlink" href="#abundances" title="Permalink to this headline">¶</a></h2>
 <p>The abundances are given in Solar units. Which set of solar units is
 being used can be set using the <code class="docutils literal notranslate"><span class="pre">abun</span></code> command (<a class="reference internal" href="../reference/commands/abundance.html#sec-abundance"><span class="std std-ref">Abundance: standard abundances</span></a>).
 For spectral fitting purposes it is important to distinguish two situations.</p>
@@ -140,7 +138,7 @@ when it is another element, like O, the normalisation is still the
 product of <img class="math" src="../_images/math/635e974bc1aa1401668cb3d6baf13a250968ebf5.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> where X stands for the
 fictitious hydrogen density derived from the solar O/H ratio.</p>
 <div class="section" id="example">
-<h3>4.1.5.5.1. Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.5.5.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Suppose the Solar O abundance is 1E-3 (i.e. there is 0.001
 oxygen atom per hydrogen atom in the Sun). Take the reference atom
 oxygen (<img class="math" src="../_images/math/c673873f88ae8e1f74325d793b20e74042de2527.svg" alt="Z=8" style="vertical-align: 0px"/>). Fix the oxygen abundance to 1. Fit your spectrum
@@ -157,7 +155,7 @@ overabundance as compared to hydrogen, in terms of solar ratios.</p>
 </div>
 </div>
 <div class="section" id="parameter-description">
-<h2>4.1.5.6. Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.5.6. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When you make the temperature too low such that the plasma
@@ -281,10 +279,10 @@ present, non-thermal effects are not taken into account (default).</div>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../models.html">4. Spectral models</a><ul>
-  <li><a href="over.html">4.1. Overview of spectral components</a><ul>
-      <li>Previous: <a href="cf.html" title="previous chapter">4.1.4. Cf: isobaric cooling flow differential emission measure model</a></li>
-      <li>Next: <a href="comt.html" title="next chapter">4.1.6. Comt: comptonisation model</a></li>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="cf.html" title="previous chapter"><span class="section-number">4.1.4. </span>Cf: isobaric cooling flow differential emission measure model</a></li>
+      <li>Next: <a href="comt.html" title="next chapter"><span class="section-number">4.1.6. </span>Comt: comptonisation model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -299,7 +297,7 @@ present, non-thermal effects are not taken into account (default).</div>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -313,8 +311,11 @@ present, non-thermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

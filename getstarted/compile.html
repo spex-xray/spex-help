@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.5. Compile SPEX from source &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/getstarted/compile.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.6. Use SPEX through Docker" href="docker.html" />
+    <link rel="prev" title="1.4. Install the SPEX Python interface" href="pyspex.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="compile-spex-from-source">
+<span id="sec-compile"></span><h1><span class="section-number">1.5. </span>Compile SPEX from source<a class="headerlink" href="#compile-spex-from-source" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div></div></blockquote>
+<p>Table of Contents:</p>
+<ul class="simple">
+<li><p>Getting started</p></li>
+<li><p>Library dependencies</p></li>
+<li><p>MacOS instructions</p></li>
+<li><p>General compilation instructions</p></li>
+<li><p>Optional features</p></li>
+<li><p>Create install packages</p></li>
+</ul>
+<div class="section" id="getting-started">
+<h2><span class="section-number">1.5.1. </span>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The SPEX source code can be compiled using the multi-platform Cmake build system. See <a class="reference external" href="http://www.cmake.org/">http://www.cmake.org/</a>
+for more information and downloads, or check the package manager of your Linux distribution. The SPEX install
+needs CMake version 3.0 or higher.</p>
+<p>Since SPEX is programmed mostly in Fortran 90, it is recommended to use a recent Fortran compiler. SPEX has
+been tested with GFortran (version 4 and above) and the Intel Fortran Compiler.</p>
+<p>This Zenodo contains a tar.bz2 file containing the source code of SPEX:
+<a class="reference external" href="https://zenodo.org/record/3939056/files/spex-3.06.00-Source.tar.bz2?download=1">spex-3.06.00-Source.tar.bz2</a>.
+Unpack it in a convenient directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software&gt; tar xvfj spex-3.06.00-Source.tar.bz2
+</pre></div>
+</div>
+<p>In the top-level directory, a script called <code class="docutils literal notranslate"><span class="pre">compile.py</span></code> is available to guide the user through the compilation
+process. Please read the section about library dependencies first and install what is needed. Otherwise, the script
+will tell you what is missing. To run the script call:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/spex&gt; python compile.py
+</pre></div>
+</div>
+<p>Please note that the compile script requires Python 3 to be installed.</p>
+</div>
+<div class="section" id="library-dependencies">
+<h2><span class="section-number">1.5.2. </span>Library dependencies<a class="headerlink" href="#library-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>SPEX depends on a few external libraries to function. For some of those, the library source code has been included
+in the SPEX source code package. By default, CMake will look for system libraries to link to. If they are not there,
+then the version in the source package will be used.</p>
+<p>The following libraries and packages are required to compile SPEX:</p>
+<ul class="simple">
+<li><p>CMake</p></li>
+<li><p>X11</p></li>
+<li><p>Readline</p></li>
+<li><p>CFITSIO (*)</p></li>
+<li><p>BLAS (*)</p></li>
+<li><p>LAPACK (*)</p></li>
+<li><p>PGPLOT (*)</p></li>
+</ul>
+<p>(*) The SPEX source tree also contains the library if necessary.</p>
+<p>All these libraries are commonly available in Linux distributions, so please read the documentation of your distribution
+to find out how to install these libraries. Please note that some distributions require you to also install the
+‘development’ package of a library to be able to use them during compilation. In the Debian repository, for example,
+the development package of readline is called ‘libreadline-dev’.</p>
+<p>Below, we list some library-specific comments that can be helpful in case of problems.</p>
+<div class="section" id="readline">
+<h3><span class="section-number">1.5.2.1. </span>Readline<a class="headerlink" href="#readline" title="Permalink to this headline">¶</a></h3>
+<p>Note for Mac OSX users: The OSX readline library is NOT compatible with the GNU readline library. You need to compile
+your own readline library from source or find a GNU readline library elsewhere on your system to link to. Compilation
+may work in, for example, a MacPorts environment, although this has not been tested. The official Mac version of SPEX
+statically links to a compiled version of readline downloaded from:</p>
+<p><a class="reference external" href="https://tiswww.case.edu/php/chet/readline/rltop.html">https://tiswww.case.edu/php/chet/readline/rltop.html</a></p>
+</div>
+<div class="section" id="cfitsio">
+<h3><span class="section-number">1.5.2.2. </span>CFITSIO<a class="headerlink" href="#cfitsio" title="Permalink to this headline">¶</a></h3>
+<p>The SPEX source tree contains an old fortran version of fitsio, which is sufficient for the vast majority of applications.
+However, in exceptional cases, the old library cannot handle very large fits files. In those cases, it is better to link
+to a system CFITSIO library.</p>
+</div>
+<div class="section" id="blas-and-lapack">
+<h3><span class="section-number">1.5.2.3. </span>BLAS and LAPACK<a class="headerlink" href="#blas-and-lapack" title="Permalink to this headline">¶</a></h3>
+<p>Some of the SPEX models depend heavily on the BLAS and LAPACK linear algebra packages. The default routines are available
+in the SPEX source tree, but compiling those will not provide the best performance. The performance improves substantially
+if an optimized BLAS or LAPACK library is used. There are two tested options:</p>
+<ul class="simple">
+<li><p>Intel Math Kernel Library (MKL)</p></li>
+<li><p>OpenBLAS</p></li>
+</ul>
+<p>When compiling with the Intel Fortran compiler, using MKL is quite obvious. To link the MKL library, add the following
+option to the cmake command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cmake . -DMKL=YES
+</pre></div>
+</div>
+<p>If MKL is not set, cmake will look for other options, like OpenBLAS, if they are installed on your machine. If nothing
+is found, the non-optimized code in the SPEX source tree is used. On Mac, CMake could find the MacOS Accelerator framework.</p>
+</div>
+</div>
+<div class="section" id="macos-instructions">
+<h2><span class="section-number">1.5.3. </span>MacOS instructions<a class="headerlink" href="#macos-instructions" title="Permalink to this headline">¶</a></h2>
+<p>The compilation of SPEX on MacOS is slightly more demanding. SPEX can run natively on MacOS (without ports), but then it
+needs a few pre-installed programs:</p>
+<ul class="simple">
+<li><p>Xcode (Through the App store)</p></li>
+<li><p><a class="reference external" href="https://cmake.org/download/">CMake</a></p></li>
+<li><p><a class="reference external" href="https://www.xquartz.org/">XQuartz</a></p></li>
+<li><p><a class="reference external" href="https://tiswww.case.edu/php/chet/readline/rltop.html">GNU readline</a> Compile and install readline with ‘clang’ and install in /usr/local.</p></li>
+<li><p>Fortran compiler. For example <a class="reference external" href="http://hpc.sourceforge.net/">GCC/GFORTRAN</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="general-compilation-instructions">
+<h2><span class="section-number">1.5.4. </span>General Compilation Instructions<a class="headerlink" href="#general-compilation-instructions" title="Permalink to this headline">¶</a></h2>
+<p>When all library dependencies are installed, the compilation process can begin. Execute cmake in the root directory of the SPEX source tree,
+where CMakeLists.txt is located (mind the dot):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/SPEX-3.06.00-Source&gt; cmake .
+</pre></div>
+</div>
+<p>If no errors occured and all libraries were found, then type ‘make’:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/SPEX-3.06.00-Source&gt; make
+</pre></div>
+</div>
+<p>When the program needs to be installed system wide, then execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/SPEX-3.06.00-Source&gt; sudo make install
+</pre></div>
+</div>
+<p>The program will be installed to /opt/spex by default. Usually, administrator rights are necessary to copy the files to the right location.</p>
+<p>Before you can run SPEX, the environment needs to be set. This can be done with the source command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>source /opt/spex/spexdist.sh (bash shell)
+source /opt/spex/spexdist.csh (C-type shell)
+</pre></div>
+</div>
+<p>In case you used another prefix for the SPEX installation directory, you can find spexdist.sh or spexdist.csh in the prefix directory
+that you set. To load the SPEX environment automatically, add the relevant source line to your ~/.cshrc or ~/.bashrc file.</p>
+</div>
+<div class="section" id="optional-features">
+<h2><span class="section-number">1.5.5. </span>Optional features<a class="headerlink" href="#optional-features" title="Permalink to this headline">¶</a></h2>
+<p>There are several options that can be passed to CMake to influence the build process through the -D operator. Of course,
+all options can be combined in a single cmake call. See the cmake documentation and the CMakeLists.txt file for details.</p>
+<div class="section" id="compiler-selection">
+<h3><span class="section-number">1.5.5.1. </span>Compiler selection<a class="headerlink" href="#compiler-selection" title="Permalink to this headline">¶</a></h3>
+<p>Select a different fortran compiler:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/SPEX-3.06.00-Source&gt; cmake . -DCMAKE_Fortran_COMPILER=ifort
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-prefix">
+<h3><span class="section-number">1.5.5.2. </span>Install prefix<a class="headerlink" href="#install-prefix" title="Permalink to this headline">¶</a></h3>
+<p>Install SPEX at a different location in the ‘make install’ step:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/SPEX-3.06.00-Source&gt; cmake . -DCMAKE_INSTALL_PREFIX=/home/user/software
+</pre></div>
+</div>
+</div>
+<div class="section" id="force-use-of-spex-libraries">
+<h3><span class="section-number">1.5.5.3. </span>Force use of SPEX libraries<a class="headerlink" href="#force-use-of-spex-libraries" title="Permalink to this headline">¶</a></h3>
+<p>The use of the SPEX libraries in the source tree can be forced:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unix:~/Software/SPEX-3.06.00-Source&gt; cmake . -DCFITSIO=YES -DPGPLOT=YES
+</pre></div>
+</div>
+<p>The command above will compile these libraries from the SPEX source tree. See the CMakeLists.txt file for more options.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../getstarted.html">1. Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">1.1. How to install SPEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runspex.html">1.2. How to run SPEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtrafo.html">1.3. How to convert spectra to SPEX format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html">1.4. Install the SPEX Python interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.5. Compile SPEX from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">1.6. Use SPEX through Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../getstarted.html"><span class="section-number">1. </span>Getting started</a><ul>
+      <li>Previous: <a href="pyspex.html" title="previous chapter"><span class="section-number">1.4. </span>Install the SPEX Python interface</a></li>
+      <li>Next: <a href="docker.html" title="next chapter"><span class="section-number">1.6. </span>Use SPEX through Docker</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

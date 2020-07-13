@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>3.1.15. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1.15. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/ions.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -34,22 +35,83 @@
           <div class="body" role="main">
             
   <div class="section" id="ion-select-ions-for-the-plasma-models">
-<span id="sec-ions"></span><h1>3.1.15. Ion: select ions for the plasma models<a class="headerlink" href="#ion-select-ions-for-the-plasma-models" title="Permalink to this headline">¶</a></h1>
+<span id="sec-ions"></span><h1><span class="section-number">3.1.15. </span>Ion: select ions for the plasma models<a class="headerlink" href="#ion-select-ions-for-the-plasma-models" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
-<h2>3.1.15.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.15.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>For the plasma models, it is possible to include or exclude specific
 groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
 requested.</p>
+<p>There are two main reasons why the user may use this option: computational speed
+and educational reasons.</p>
+<div class="section" id="computational-speed">
+<h3><span class="section-number">3.1.15.1.1. </span>Computational speed<a class="headerlink" href="#computational-speed" title="Permalink to this headline">¶</a></h3>
+<p>The first reason is <strong>accelerating the calculations</strong>. For complex spectral models,
+the computational time may be long due to the large number of ions and transitions
+that need to be taken into account, in particular for the line calculations.</p>
+<p>By reducing the number of ions in the calculation, or using a maximum principal
+quantum number, or other reductions, allow to make the calculations faster by simply
+skipping the line emission from those transitions. Note that obviously this leads
+to less accurate spectra as compared to the full calculation. Technically,
+it is done by using the “ions ignore …” or “ions use …” commands (for getting
+rid of, or including line emission from specific ions), or the “ions nmax …” or
+“ions lmax …” commands, to reduce the maximum principal quantum number
+<img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and the maximum orbital quantum number <img class="math" src="../../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/>, respectively.
+Also, by using the “ions old …” and “ions new …” commands one may switch between
+the default (new) spex calculations and the (old) <em>mekal</em> calculations.
+See <a class="reference internal" href="../../models/performance.html#sect-performance"><span class="std std-ref">Optimizing model performance</span></a> for more details.</p>
+<p>A minor note must be made here: when excluding a single ion, the calculations
+becomes less accurate, because level populations of ions depend also on how many
+ionisations or recombinations occur from levels of neighbouring ions. By ignoring
+an ion, it also cannot contribute to its neighbours.</p>
 <p>Currently these settings <em>only</em> affect the line emission; in the
 calculation of the ionisation balance as well as the continuum always
 all ions are taken into account (unless of course the abundance is put
 to zero).</p>
-<p>A new quicklook mode is introduced in SPEX 3.0. This mode can greatly
+</div>
+<div class="section" id="diagnostics-education">
+<h3><span class="section-number">3.1.15.1.2. </span>Diagnostics &amp; education<a class="headerlink" href="#diagnostics-education" title="Permalink to this headline">¶</a></h3>
+<p>The second reason to include or exclude ions is for
+<strong>diagnostic or educational reasons</strong>. It may be of interest to know how the spectrum
+of a single ion looks, or how the total spectrum would look without an ion.
+For such cases, SPEX has the “ions mute …” or its inverse “ions unmute …”
+commands.</p>
+<p>Contrary to the use/ignore commands, with this command the full spectrum
+is calculated, and only at the last step the contribution of the ion is muted or
+unmuted. Also, contrary to the use/ignore commands, this option works on the
+full spectrum (continuum and lines, both in emission and absorption). Finally,
+take care when combining the use/ignore with the mute/unmute commands.
+Whenever you ignore an ion, it will not be calculated and in those cases the
+mute or unmute commands are not effective.</p>
+<p>Finally, when you use the mute/unmute commands, it will also affect the ascii
+output for a few important output options, like the “line” and “tra” options for
+line emission or absorption.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When using the pion model with this option, you will get a different
+solution, because it affects the heating and cooling rates, and thus the
+ionisation balance (equilibrium temperature).
+Exception is when you use the tmod=1 option for pion, which forces the
+temperature to be equal to what you prescribe through parameter tinp.
+For diagnosing the heating/cooling contributions of ions or elements, it is
+therefore recommended to run first the model with all ions,
+make an ascii-output of the plasma parameters, take the temperature from
+there as the “tinp” parameter, and set tmod=1.
+You can play then with the mute/unmute command.</p>
+</div>
+</div>
+<div class="section" id="quicklook">
+<h3><span class="section-number">3.1.15.1.3. </span>Quicklook<a class="headerlink" href="#quicklook" title="Permalink to this headline">¶</a></h3>
+<p>A new <strong>quicklook mode</strong> is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
 <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/> of Hydrogen-like ions are provided in
 the table below.</p>
+<p>The quicklook mode is enabled by the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">ions</span> <span class="n">ql</span>
+</pre></div>
+</div>
+<p>To undo the quicklook mode, just type <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">all</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This mode will not work for CX model, since electron
@@ -174,25 +236,46 @@ captured by charge exchange usually populate the outer shells.</p>
 </tbody>
 </table>
 </div>
+</div>
 <div class="section" id="syntax">
-<h2>3.1.15.2. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.15.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">show</span></code> : Display the list of ions currently taken into account</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">all</span></code> : Use all possible ions in the line spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">all</span></code> : Use all possible ions in the calculation of the
+line spectrum. This is the default at startup of the program.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">iso</span> <span class="pre">#i:</span></code> : Use ions of the iso-electronic sequences
 indicated by #i: in the line spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">z</span> <span class="pre">#i:</span></code> : Use ions with the atomic numbers indicated by #i:
 in the line spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Use ions with the atomic number indicated
 by #i1 and ionisation stage indicated by #i2: in the line spectrum</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">all</span></code> : Ignore all possible ions in the line spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">all</span></code> : Ignore all possible ions in the calculation of the
+line spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">iso</span> <span class="pre">#i:</span></code> : Ignore ions of the iso-electronic sequences
 indicated by #i: in the line spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">z</span> <span class="pre">#i:</span></code> : Ignore ions with the atomic numbers indicated
 by #i: in the line spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Ignore ions with the atomic number
 indicated by #i1 and ionisation stage indicated by #i2: in the line
+spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">all</span></code> : Display the contributions of all possible ions
+in the final spectrum. This is the default at startup of the program.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">iso</span> <span class="pre">#i:</span></code> : Display ions of the iso-electronic sequences
+indicated by #i: in the spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">z</span> <span class="pre">#i:</span></code> : Display ions with the atomic numbers indicated by #i:
+in the spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Display ions with the atomic number indicated
+by #i1 and ionisation stage indicated by #i2: in the spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">all</span></code> : Ignore all possible ions in the display of the
+spectrum; will create a zero emission or transmission spectrum! Most useful
+when followed immieditately by a “ions unmute …” command</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">iso</span> <span class="pre">#i:</span></code> : Do not display ions of the iso-electronic sequences
+indicated by #i: in the spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">z</span> <span class="pre">#i:</span></code> : Do not display ions with the atomic numbers indicated
+by #i: in the spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Do not display ions with the atomic number
+indicated by #i1 and ionisation stage indicated by #i2: in the
 spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">nmax</span> <span class="pre">all</span> <span class="pre">#i:</span></code> : Set maximum <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> for all ions</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">nmax</span> <span class="pre">iso</span> <span class="pre">#i1:</span> <span class="pre">#i2</span></code> : Set maximum <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> to #i2 for
@@ -225,7 +308,7 @@ number indicated by #i1 and ionisation stage indicated by #i2.</div>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>3.1.15.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.15.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">all</span></code> : Do not take any line calculation into account</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">iso</span> <span class="pre">3</span></code> : Use ions from the <img class="math" src="../../_images/math/3c678eaf6b9647d804860e60ea42cc857c1fee7e.svg" alt="Z=3" style="vertical-align: 0px"/> (Li) iso-electronic
@@ -234,6 +317,9 @@ sequence</div>
 isoelectronic sequences</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">z</span> <span class="pre">26</span></code> : Ignore all iron (<img class="math" src="../../_images/math/02b9ba0d209ec8f514eb45e5c74dfa01ad241261.svg" alt="Z=26" style="vertical-align: 0px"/>) ions</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">5:6</span></code> : Use C V to C VI</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">ion</span> <span class="pre">8</span> <span class="pre">7</span></code> : does eliminate the O VII continuum and lines from
+the displayed spectrum</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">iso</span> <span class="pre">2</span></code> : shows the emission from all He-like ions (again).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">show</span></code> : Display the list of ions that are used</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ql</span></code> : Quicklook mode on</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">old</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">6</span></code> : Use old calculation for C VI</div>
@@ -289,10 +375,10 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../../reference.html">3. Command overview</a><ul>
-  <li><a href="../commands.html">3.1. Command syntax</a><ul>
-      <li>Previous: <a href="ignore.html" title="previous chapter">3.1.14. Ignore: ignoring part of the spectrum</a></li>
-      <li>Next: <a href="log.html" title="next chapter">3.1.16. Log: Making and using command files</a></li>
+  <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
+  <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
+      <li>Previous: <a href="ignore.html" title="previous chapter"><span class="section-number">3.1.14. </span>Ignore: ignoring part of the spectrum</a></li>
+      <li>Next: <a href="log.html" title="next chapter"><span class="section-number">3.1.16. </span>Log: Making and using command files</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -307,7 +393,7 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -321,8 +407,11 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

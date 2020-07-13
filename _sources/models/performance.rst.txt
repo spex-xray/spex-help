@@ -1,3 +1,5 @@
+.. _sect:performance:
+
 Optimizing model performance
 ============================
 

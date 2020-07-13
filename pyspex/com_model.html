@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.1.3.2. Model related commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.3.2. Model related commands &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_model.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,19 +35,19 @@
           <div class="body" role="main">
             
   <div class="section" id="model-related-commands">
-<h1>6.1.3.2. Model related commands<a class="headerlink" href="#model-related-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.3.2. </span>Model related commands<a class="headerlink" href="#model-related-commands" title="Permalink to this headline">¶</a></h1>
 <p>A SPEX model is organised in sectors and components. Sectors are groups of components that model
 a particular source of radiation. Below, the basic commands for building the model and change its
 parameters are listed.</p>
 <div class="section" id="abundance">
-<h2>6.1.3.2.1. Abundance<a class="headerlink" href="#abundance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.1. </span>Abundance<a class="headerlink" href="#abundance" title="Permalink to this headline">¶</a></h2>
 <p>The solar abundance table used is set in SPEX using the <code class="docutils literal notranslate"><span class="pre">abundance</span></code> command. In PYSPEX, this
 is abbreviated to <code class="docutils literal notranslate"><span class="pre">abun</span></code>. The desired abundance table should be loaded by providing the
 abbreviation for the table (<code class="docutils literal notranslate"><span class="pre">abunset</span></code>):</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.abun">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">abun</code><span class="sig-paren">(</span><em class="sig-param">abunset</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.abun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.abun" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">abun</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">abunset</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.abun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.abun" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the abundance table in SPEX. The abunset parameter is one of ‘reset’, ‘ag’, ‘allen’, ‘asplund’,
 ‘ra’, ‘grevesse’, ‘gs’, ‘lodders’, and ‘solar’.</p>
 <dl class="field-list simple">
@@ -85,10 +86,10 @@ for details.</p>
 </pre></div>
 </div>
 <div class="section" id="abundance-show">
-<h3>6.1.3.2.1.1. Abundance show<a class="headerlink" href="#abundance-show" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.1.1. </span>Abundance show<a class="headerlink" href="#abundance-show" title="Permalink to this headline">¶</a></h3>
 <p>To show the current abundance table, use the <code class="docutils literal notranslate"><span class="pre">abun_show</span></code> method:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.abun_show">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">abun_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.abun_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.abun_show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the current ionisation balance.</p>
@@ -113,18 +114,18 @@ for details.</p>
 </div>
 </div>
 <div class="section" id="ascdump">
-<h2>6.1.3.2.2. Ascdump<a class="headerlink" href="#ascdump" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.2. </span>Ascdump<a class="headerlink" href="#ascdump" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX ascdump command is designed to return internal model parameters in SPEX through terminal
 output or an ASCII file. With pyspex we can return these numbers in a python object, making them
 directly available in your script. The outputs below have currently been implemented. Each command
 returns a specific object with the parameters. A link to the object structure is provided with
 every command (see return type).</p>
 <div class="section" id="basic-plasma-parameters">
-<h3>6.1.3.2.2.1. Basic plasma parameters<a class="headerlink" href="#basic-plasma-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.1. </span>Basic plasma parameters<a class="headerlink" href="#basic-plasma-parameters" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_plas">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_plas</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_plas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_plas" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_plas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_plas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_plas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Basic plasma properties like temperature, electron density etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -153,11 +154,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="abundances">
-<h3>6.1.3.2.2.2. Abundances<a class="headerlink" href="#abundances" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.2. </span>Abundances<a class="headerlink" href="#abundances" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_abun">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_abun</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_abun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_abun" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_abun</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_abun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_abun" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elemental abundances and average charge per element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -190,11 +191,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="ion-concentrations">
-<h3>6.1.3.2.2.3. Ion concentrations<a class="headerlink" href="#ion-concentrations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.3. </span>Ion concentrations<a class="headerlink" href="#ion-concentrations" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_icon">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_icon</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_icon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_icon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_icon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_icon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_icon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ion concentrations, both with respect to Hydrogen and the relevant elemental abundance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -227,11 +228,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="rates-per-ion">
-<h3>6.1.3.2.2.4. Rates per ion<a class="headerlink" href="#rates-per-ion" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.4. </span>Rates per ion<a class="headerlink" href="#rates-per-ion" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_rate">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rate</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total ionization, recombination and charge-transfer rates specified per ion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -260,11 +261,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="rates-per-process">
-<h3>6.1.3.2.2.5. Rates per process<a class="headerlink" href="#rates-per-process" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.5. </span>Rates per process<a class="headerlink" href="#rates-per-process" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_rion">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rion</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ionization rates per atomic subshell, specified according to the different contributing processes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -293,11 +294,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="energy-and-wavelength-grid">
-<h3>6.1.3.2.2.6. Energy and wavelength grid<a class="headerlink" href="#energy-and-wavelength-grid" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.6. </span>Energy and wavelength grid<a class="headerlink" href="#energy-and-wavelength-grid" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_grid">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_grid</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The energy and wavelength grid used in the last evaluation of the spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -326,11 +327,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="continuum-and-line-spectra">
-<h3>6.1.3.2.2.7. Continuum and line spectra<a class="headerlink" href="#continuum-and-line-spectra" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.7. </span>Continuum and line spectra<a class="headerlink" href="#continuum-and-line-spectra" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_clin">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_clin</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_clin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_clin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_clin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_clin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_clin" title="Permalink to this definition">¶</a></dt>
 <dd><p>The continuum, line and total spectrum for each energy bin for the last plasma layer of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -359,9 +360,9 @@ every command (see return type).</p>
 </div>
 <p>And the total for all the plasma layers:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_tcl">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tcl</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tcl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tcl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tcl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tcl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tcl" title="Permalink to this definition">¶</a></dt>
 <dd><p>The continuum, line and total spectrum for each energy bin added for all plasma layers of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -390,11 +391,11 @@ every command (see return type).</p>
 </div>
 </div>
 <div class="section" id="ion-contribution-to-the-continuum">
-<h3>6.1.3.2.2.8. Ion contribution to the continuum<a class="headerlink" href="#ion-contribution-to-the-continuum" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.8. </span>Ion contribution to the continuum<a class="headerlink" href="#ion-contribution-to-the-continuum" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_con">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_con</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_con" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_con" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of the ions that contribute to the free-free, free-bound and two-photon continuum emission,
 followed by the free-free, free-bound, two-photon and total continuum spectrum for the last plasma layer of
 the model.</p>
@@ -422,9 +423,9 @@ the model.</p>
 </div>
 <p>The total contribution for all plasma layers:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_tcon">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tcon</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tcon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tcon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tcon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tcon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tcon" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of the ions that contribute to the free-free, free-bound and two-photon continuum emission,
 followed by the free-free, free-bound, two-photon and total continuum spectrum added for all plasma layers of
 the model.</p>
@@ -452,11 +453,11 @@ the model.</p>
 </div>
 </div>
 <div class="section" id="history-of-ionisation-and-temperature-in-nei">
-<h3>6.1.3.2.2.9. History of ionisation and temperature in NEI<a class="headerlink" href="#history-of-ionisation-and-temperature-in-nei" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.9. </span>History of ionisation and temperature in NEI<a class="headerlink" href="#history-of-ionisation-and-temperature-in-nei" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_nei">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_nei</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_nei"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_nei" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_nei</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_nei"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_nei" title="Permalink to this definition">¶</a></dt>
 <dd><p>The history of ionisation parameter and temperature in NEI calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -485,11 +486,11 @@ the model.</p>
 </div>
 </div>
 <div class="section" id="plasma-heating-rates-photo-ionized">
-<h3>6.1.3.2.2.10. Plasma heating rates (photo-ionized)<a class="headerlink" href="#plasma-heating-rates-photo-ionized" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.10. </span>Plasma heating rates (photo-ionized)<a class="headerlink" href="#plasma-heating-rates-photo-ionized" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_heat">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_heat</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_heat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_heat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_heat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_heat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_heat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plasma heating rates (only for photoionized plasmas).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -522,11 +523,11 @@ the model.</p>
 </div>
 </div>
 <div class="section" id="ionic-column-densities-in-absorption">
-<h3>6.1.3.2.2.11. Ionic column densities in absorption<a class="headerlink" href="#ionic-column-densities-in-absorption" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.11. </span>Ionic column densities in absorption<a class="headerlink" href="#ionic-column-densities-in-absorption" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_col">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_col</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_col" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_col</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_col" title="Permalink to this definition">¶</a></dt>
 <dd><p>The ionic column densities for the hot, pion, slab, xabs and warm models.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -553,11 +554,11 @@ the model.</p>
 </div>
 </div>
 <div class="section" id="properties-of-the-warm-model">
-<h3>6.1.3.2.2.12. Properties of the warm model<a class="headerlink" href="#properties-of-the-warm-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.2.12. </span>Properties of the warm model<a class="headerlink" href="#properties-of-the-warm-model" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ascdump_warm">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_warm</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_warm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_warm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_warm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_warm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_warm" title="Permalink to this definition">¶</a></dt>
 <dd><p>The column densities, effective ionization parameters and temperatures of the warm model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -585,12 +586,12 @@ the model.</p>
 </div>
 </div>
 <div class="section" id="calculate">
-<h2>6.1.3.2.3. Calculate<a class="headerlink" href="#calculate" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.3. </span>Calculate<a class="headerlink" href="#calculate" title="Permalink to this headline">¶</a></h2>
 <p>Once the model sectors and components are set-up and the parameters are set, the model spectrum
 can be calculated using the SPEX <code class="docutils literal notranslate"><span class="pre">calculate</span></code> command. For convenience, this command has been
 abbreviated to <code class="docutils literal notranslate"><span class="pre">calc</span></code> in PYSPEX.</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.calc">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the current model.</p>
@@ -603,14 +604,14 @@ abbreviated to <code class="docutils literal notranslate"><span class="pre">calc
 </div>
 </div>
 <div class="section" id="components">
-<h2>6.1.3.2.4. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.4. </span>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <p>Spectral components, like power laws, thermal and absorption models are loaded using the
 SPEX <code class="docutils literal notranslate"><span class="pre">comp</span></code> command. Since the command is often typed simply as <code class="docutils literal notranslate"><span class="pre">com</span></code> in practice, the
 PYSPEX command is also <code class="docutils literal notranslate"><span class="pre">com</span></code>:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.com">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">com</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">isect=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.com" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">com</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">isect</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.com" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add model component.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -632,12 +633,12 @@ different sector, then please use the optional <code class="docutils literal not
 </div>
 <p>See the SPEX reference manual for a list of spectral components.</p>
 <div class="section" id="component-delete">
-<h3>6.1.3.2.4.1. Component delete<a class="headerlink" href="#component-delete" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.4.1. </span>Component delete<a class="headerlink" href="#component-delete" title="Permalink to this headline">¶</a></h3>
 <p>Deleting a component from the model is done using the sector and component number of the component.</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.com_del">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">com_del</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com_del"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.com_del" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">com_del</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com_del"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.com_del" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete component from model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -657,13 +658,13 @@ different sector, then please use the optional <code class="docutils literal not
 <p>The command above deletes the first component in sector number 1.</p>
 </div>
 <div class="section" id="component-relate">
-<h3>6.1.3.2.4.2. Component relate<a class="headerlink" href="#component-relate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.4.2. </span>Component relate<a class="headerlink" href="#component-relate" title="Permalink to this headline">¶</a></h3>
 <p>The relation between the additive and multiplicative components is set with a <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span></code> command
 in SPEX. In PYSPEX this is:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.com_rel">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">com_rel</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">rel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com_rel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.com_rel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">com_rel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">rel</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com_rel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.com_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relate model components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -688,14 +689,14 @@ models should be entered (in the right order) using a numpy array. For example:<
 </div>
 </div>
 <div class="section" id="distance">
-<h2>6.1.3.2.5. Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.5. </span>Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
 <p>To calculate fluxes and luminosities, SPEX needs an assumed distance of the source. In SPEX this
 is done with the <code class="docutils literal notranslate"><span class="pre">distance</span></code> command. In PYSPEX this is abbreviated to <code class="docutils literal notranslate"><span class="pre">dist</span></code> for convenience.</p>
 <p>The distance can be set with the dist command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.dist">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">dist</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">dist</em>, <em class="sig-param">unit</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.dist" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">dist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">dist</span></em>, <em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.dist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the distance in SPEX.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -722,9 +723,9 @@ units.</p>
 <p>If you do not want to set the distance, but just get the current parameters, the <code class="docutils literal notranslate"><span class="pre">dist_get</span></code>
 command can be used:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.dist_get">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">dist_get</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.dist_get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">dist_get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.dist_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current distances in SPEX.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -736,13 +737,13 @@ command can be used:</p>
 </div></blockquote>
 <p>Like the dist command, this method returns an object with the distances in all available units.</p>
 <div class="section" id="cosmology">
-<h3>6.1.3.2.5.1. Cosmology<a class="headerlink" href="#cosmology" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.5.1. </span>Cosmology<a class="headerlink" href="#cosmology" title="Permalink to this headline">¶</a></h3>
 <p>Next to the distance, the cosmology used by SPEX can also be specified. In SPEX all parameters
 should be provided through seperate lines, but in PYSPEX this has been combined in one command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.dist_cosmo">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">dist_cosmo</code><span class="sig-paren">(</span><em class="sig-param">h0</em>, <em class="sig-param">omega_m</em>, <em class="sig-param">omega_l</em>, <em class="sig-param">omega_r</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist_cosmo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.dist_cosmo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">dist_cosmo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h0</span></em>, <em class="sig-param"><span class="n">omega_m</span></em>, <em class="sig-param"><span class="n">omega_l</span></em>, <em class="sig-param"><span class="n">omega_r</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist_cosmo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.dist_cosmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the cosmology for the distance calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -767,13 +768,13 @@ SPEX commands are executed separately…)</p>
 </div>
 </div>
 <div class="section" id="energy-grid">
-<h2>6.1.3.2.6. Energy grid<a class="headerlink" href="#energy-grid" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.6. </span>Energy grid<a class="headerlink" href="#energy-grid" title="Permalink to this headline">¶</a></h2>
 <p>The model energy grid can be manipulated with the SPEX <code class="docutils literal notranslate"><span class="pre">egrid</span></code> command. In PYSPEX, this command
 has been splitted into two varieties:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.egrid">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid</code><span class="sig-paren">(</span><em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">nbins</em>, <em class="sig-param">unit</em>, <em class="sig-param">log</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">nbins</span></em>, <em class="sig-param"><span class="n">unit</span></em>, <em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Egrid command when the number of desired bins is known.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -788,9 +789,9 @@ has been splitted into two varieties:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.egrid_step">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_step</code><span class="sig-paren">(</span><em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">step</em>, <em class="sig-param">unit</em>, <em class="sig-param">log</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">step</span></em>, <em class="sig-param"><span class="n">unit</span></em>, <em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Egrid command when the stepsize for the grid is known.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -816,13 +817,13 @@ text string and the grid can be logarithmic if the <code class="docutils literal
 </pre></div>
 </div>
 <div class="section" id="reading-saving-grids">
-<h3>6.1.3.2.6.1. Reading &amp; saving grids<a class="headerlink" href="#reading-saving-grids" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.6.1. </span>Reading &amp; saving grids<a class="headerlink" href="#reading-saving-grids" title="Permalink to this headline">¶</a></h3>
 <p>Grids can also be save and read from a text file. The two methods below save and read a <code class="docutils literal notranslate"><span class="pre">.egr</span></code>
 file, respectively:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.egrid_save">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_save</code><span class="sig-paren">(</span><em class="sig-param">savefile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">savefile</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save energy grid to file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -831,9 +832,9 @@ file, respectively:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.egrid_read">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_read</code><span class="sig-paren">(</span><em class="sig-param">readfile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">readfile</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read energy grid from file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -852,11 +853,11 @@ or read, including the <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="section" id="get-set-custom-grids">
-<h3>6.1.3.2.6.2. Get &amp; set custom grids<a class="headerlink" href="#get-set-custom-grids" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.6.2. </span>Get &amp; set custom grids<a class="headerlink" href="#get-set-custom-grids" title="Permalink to this headline">¶</a></h3>
 <p>If the grid needs to be transfered from or to Python memory, then the <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span></code> methods
 can be used:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.egrid_get">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the energy grid and return the grid as an object.</p>
@@ -870,9 +871,9 @@ can be used:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.egrid_set">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_set</code><span class="sig-paren">(</span><em class="sig-param">ebounds</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">egrid_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ebounds</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide a grid to SPEX by providing a numpy array with the bin boundaries.
 Please note that the length of this array is the number of bins + 1!</p>
 <dl class="field-list simple">
@@ -895,13 +896,13 @@ of elements of this array would be of length n + 1, where n is the number of bin
 </div>
 </div>
 <div class="section" id="flux-luminosity">
-<h2>6.1.3.2.7. Flux &amp; Luminosity<a class="headerlink" href="#flux-luminosity" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.7. </span>Flux &amp; Luminosity<a class="headerlink" href="#flux-luminosity" title="Permalink to this headline">¶</a></h2>
 <p>For each component, the fluxes and luminosities are calculated using the set distance and energy
 boundaries. These energy limits for the flux and luminosity can be set using the <code class="docutils literal notranslate"><span class="pre">elim</span></code> command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.elim">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">elim</code><span class="sig-paren">(</span><em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.elim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.elim" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">elim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.elim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.elim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the energy limits for flux output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -922,12 +923,12 @@ determines the units of the input values, for example ‘kev’ for keV.</p>
 </pre></div>
 </div>
 <div class="section" id="get-flux">
-<h3>6.1.3.2.7.1. Get flux<a class="headerlink" href="#get-flux" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.7.1. </span>Get flux<a class="headerlink" href="#get-flux" title="Permalink to this headline">¶</a></h3>
 <p>The fluxes and luminosities calculated in SPEX can be extracted using the <code class="docutils literal notranslate"><span class="pre">flux_get</span></code> method.</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.flux_get">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">flux_get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.flux_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.flux_get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">flux_get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.flux_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.flux_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the fluxes and luminosities for component icomp in sector isect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -957,14 +958,14 @@ Fluxes class.</p>
 </div>
 </div>
 <div class="section" id="ionisation-balance">
-<h2>6.1.3.2.8. Ionisation balance<a class="headerlink" href="#ionisation-balance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.8. </span>Ionisation balance<a class="headerlink" href="#ionisation-balance" title="Permalink to this headline">¶</a></h2>
 <p>There are several ionisation balances available in SPEX. The Urdampilleta ionisation balance
 is the current default set.</p>
 <p>The ionisation balance can be set using the <code class="docutils literal notranslate"><span class="pre">ibal</span></code> method:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ibal">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ibal</code><span class="sig-paren">(</span><em class="sig-param">ref</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ibal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ibal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ibal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ref</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ibal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ibal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the ionisation balance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -987,10 +988,10 @@ is the current default set.</p>
 </pre></div>
 </div>
 <div class="section" id="show">
-<h3>6.1.3.2.8.1. Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.8.1. </span>Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
 <p>To show the current ionisation balance, the <code class="docutils literal notranslate"><span class="pre">ibal_show</span></code> method can be used:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ibal_show">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ibal_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ibal_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ibal_show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the current ionisation balance.</p>
@@ -1014,15 +1015,15 @@ is the current default set.</p>
 </div>
 </div>
 <div class="section" id="ion-selection">
-<h2>6.1.3.2.9. Ion selection<a class="headerlink" href="#ion-selection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.9. </span>Ion selection<a class="headerlink" href="#ion-selection" title="Permalink to this headline">¶</a></h2>
 <p>In original SPEX models that use the SPEX atomic data, ions can be turned on or off, or can be
 calculated using the old SPEX version 2 or the new SPEX version 3. In addition, the maximum
 principle quantum number (nmax) and the maximum angular momentum (lmax) can be set.</p>
 <p>The functions have been created such that each function selects the ions either by atomic number,
 iso-electronic sequence or ion.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.ions_all">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_all</code><span class="sig-paren">(</span><em class="sig-param">par</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">par</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for all values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1034,9 +1035,9 @@ iso-electronic sequence or ion.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.ions_iso">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em>, <em class="sig-param">par</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em>, <em class="sig-param"><span class="n">par</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for an iso-electronic sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1049,9 +1050,9 @@ iso-electronic sequence or ion.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.ions_z">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_z</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">par</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">par</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for an atom.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1064,9 +1065,9 @@ iso-electronic sequence or ion.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.ions_ion">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em>, <em class="sig-param">par</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">par</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for a specific ion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1081,9 +1082,9 @@ iso-electronic sequence or ion.</p>
 </dd></dl>
 
 <div class="section" id="id1">
-<h3>6.1.3.2.9.1. Show<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.9.1. </span>Show<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The ion selections can be shown by calling the <code class="docutils literal notranslate"><span class="pre">ions_show</span></code> function below:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.ions_show">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ions_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ions_show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the ions in use and with which parameters.</p>
@@ -1092,15 +1093,15 @@ iso-electronic sequence or ion.</p>
 </div>
 </div>
 <div class="section" id="setting-parameters">
-<h2>6.1.3.2.10. Setting parameters<a class="headerlink" href="#setting-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.10. </span>Setting parameters<a class="headerlink" href="#setting-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Model parameters in SPEX are set using the <code class="docutils literal notranslate"><span class="pre">par</span></code> command. Since this command has subcommands,
 there are a number of methods to cover most of the functionality in PYSPEX. The most basic function
 is to set a parameter value and determine whether it should be free in the fit or thawn. These
 functions have been combined into one:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">value</em>, <em class="sig-param">thawn=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">thawn</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter value and status.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1115,9 +1116,9 @@ functions have been combined into one:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.par_text">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_text</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set text type parameter value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1144,13 +1145,13 @@ passed instead of a value. Text parameters cannot be free parameters as well.</p
 </pre></div>
 </div>
 <div class="section" id="fix-free-parameters">
-<h3>6.1.3.2.10.1. Fix &amp; Free parameters<a class="headerlink" href="#fix-free-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.10.1. </span>Fix &amp; Free parameters<a class="headerlink" href="#fix-free-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Many times, we want to fix and free parameters without changing the values. For this purpose,
 two convenience functions have been created:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par_fix">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_fix</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_fix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_fix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_fix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_fix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_fix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fix a model parameter during the fit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1163,9 +1164,9 @@ two convenience functions have been created:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.spex.Session.par_free">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_free</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_free" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_free</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_free" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free a model parameter during the fit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1188,13 +1189,13 @@ and component (<code class="docutils literal notranslate"><span class="pre">icom
 </div>
 </div>
 <div class="section" id="parameter-range">
-<h3>6.1.3.2.10.2. Parameter range<a class="headerlink" href="#parameter-range" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.10.2. </span>Parameter range<a class="headerlink" href="#parameter-range" title="Permalink to this headline">¶</a></h3>
 <p>Parameters have ranges in which they can be safely varied without causing undesired errors or
 unphysical results. These ranges can be set using the <code class="docutils literal notranslate"><span class="pre">par_range</span></code> method:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par_range">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_range</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">rlow</em>, <em class="sig-param">rupp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_range" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">rlow</span></em>, <em class="sig-param"><span class="n">rupp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1219,13 +1220,13 @@ the parameter.</p>
 </div>
 </div>
 <div class="section" id="couple-parameters">
-<h3>6.1.3.2.10.3. Couple parameters<a class="headerlink" href="#couple-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.10.3. </span>Couple parameters<a class="headerlink" href="#couple-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Parameters can be coupled to each other such they have the same values in the fit. Or, optionally,
 remain coupled with a given multiplication factor. The PYSPEX method for this is <code class="docutils literal notranslate"><span class="pre">par_couple</span></code>:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par_couple">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_couple</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">iname</em>, <em class="sig-param">csect</em>, <em class="sig-param">ccomp</em>, <em class="sig-param">cname</em>, <em class="sig-param">factor</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_couple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">iname</span></em>, <em class="sig-param"><span class="n">csect</span></em>, <em class="sig-param"><span class="n">ccomp</span></em>, <em class="sig-param"><span class="n">cname</span></em>, <em class="sig-param"><span class="n">factor</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_couple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Couple one parameter to another with a given multiplication factor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1248,9 +1249,9 @@ in <code class="docutils literal notranslate"><span class="pre">csect</span></co
 coupling.</p>
 <p>To decouple a parameter again, simply use:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par_decouple">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_decouple</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_decouple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_decouple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_decouple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_decouple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_decouple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decouple a parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1271,14 +1272,14 @@ coupling.</p>
 </div>
 </div>
 <div class="section" id="set-instrument-normalisation">
-<h3>6.1.3.2.10.4. Set instrument normalisation<a class="headerlink" href="#set-instrument-normalisation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.10.4. </span>Set instrument normalisation<a class="headerlink" href="#set-instrument-normalisation" title="Permalink to this headline">¶</a></h3>
 <p>With SPEX the instrument normalisations can be set with the par command, but then with negative
 sector numbers. Since that can be confusing, there is a separate command to set the instrument
 normalisation, which has a similar syntax as the <code class="docutils literal notranslate"><span class="pre">par</span></code> method:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par_norm">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_norm</code><span class="sig-paren">(</span><em class="sig-param">ins</em>, <em class="sig-param">reg</em>, <em class="sig-param">value</em>, <em class="sig-param">thawn</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_norm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_norm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ins</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">thawn</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set an instrument normalisation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1302,13 +1303,13 @@ normalisation, which has a similar syntax as the <code class="docutils literal n
 </div>
 </div>
 <div class="section" id="write-parameters-to-com-file">
-<h3>6.1.3.2.10.5. Write parameters to .com file<a class="headerlink" href="#write-parameters-to-com-file" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.10.5. </span>Write parameters to .com file<a class="headerlink" href="#write-parameters-to-com-file" title="Permalink to this headline">¶</a></h3>
 <p>The current parameter settings can be saved to a command file (.com) and be loaded later by
 the <code class="docutils literal notranslate"><span class="pre">log_exe</span></code> command. The <code class="docutils literal notranslate"><span class="pre">par_write</span></code> method in pyspex is called like this:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.par_write">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_write</code><span class="sig-paren">(</span><em class="sig-param">comfile</em>, <em class="sig-param">overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_write" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">par_write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">comfile</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.par_write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write parameters to a .com file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1328,14 +1329,14 @@ the <code class="docutils literal notranslate"><span class="pre">log_exe</span><
 </div>
 </div>
 <div class="section" id="sectors">
-<h2>6.1.3.2.11. Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.11. </span>Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">¶</a></h2>
 <p>Sectors group spectral components to form the model for a particular source or phenomenon.
 If the sectors need a different response, the sectors should also be defined in the .spo and
 .res files. When starting SPEX, the number of sectors is 1 by default, even if loaded
 data files contain more sectors. Sectors can be added to SPEX with the <code class="docutils literal notranslate"><span class="pre">sector</span></code> command.</p>
 <p>In PYSPEX a new sector is created easily with the <code class="docutils literal notranslate"><span class="pre">sector</span></code> method:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.sector">
 <code class="sig-prename descclassname">Session.</code><code class="sig-name descname">sector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.sector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new sector.</p>
@@ -1345,9 +1346,9 @@ data files contain more sectors. Sectors can be added to SPEX with the <code cla
 <p>This creates an empty sector. Sometimes, the new sector needs to have the same components as
 a previous one. In this case, the sector can be copied:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.sector_copy">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">sector_copy</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.sector_copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">sector_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.sector_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy sector with number isect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1359,9 +1360,9 @@ a previous one. In this case, the sector can be copied:</p>
 </div></blockquote>
 <p>If a sector is no longer needed, it can be deleted:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.sector_del">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">sector_del</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector_del"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.sector_del" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">sector_del</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector_del"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.sector_del" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete sector with number isect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1382,17 +1383,17 @@ a previous one. In this case, the sector can be copied:</p>
 </div>
 </div>
 <div class="section" id="plasma-model-parameters">
-<h2>6.1.3.2.12. Plasma model parameters<a class="headerlink" href="#plasma-model-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.2.12. </span>Plasma model parameters<a class="headerlink" href="#plasma-model-parameters" title="Permalink to this headline">¶</a></h2>
 <p>There are a number of settings for the SPEX plasma models that can be changed by the user. In
 SPEX these are done using the <code class="docutils literal notranslate"><span class="pre">var</span></code> command. The <code class="docutils literal notranslate"><span class="pre">var</span></code> commands have been implemented in
 pyspex through the methods below. The current settings can be obtained using the
 <a class="reference internal" href="model.html#class-var"><span class="std std-ref">Var class</span></a> which is referenced in the SPEX session as <code class="docutils literal notranslate"><span class="pre">s.mod_var</span></code>.</p>
 <div class="section" id="free-bound-accuracy">
-<h3>6.1.3.2.12.1. Free-bound accuracy<a class="headerlink" href="#free-bound-accuracy" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.1. </span>Free-bound accuracy<a class="headerlink" href="#free-bound-accuracy" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_gacc">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_gacc</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_gacc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_gacc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_gacc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_gacc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_gacc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the free-bound emission accuracy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1408,11 +1409,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="line-emission-contributions">
-<h3>6.1.3.2.12.2. Line emission contributions<a class="headerlink" href="#line-emission-contributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.2. </span>Line emission contributions<a class="headerlink" href="#line-emission-contributions" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_line">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_line</code><span class="sig-paren">(</span><em class="sig-param">ltype</em>, <em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_line" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ltype</span></em>, <em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a line emission contribution on or off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1431,11 +1432,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="doppler-broadening">
-<h3>6.1.3.2.12.3. Doppler broadening<a class="headerlink" href="#doppler-broadening" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.3. </span>Doppler broadening<a class="headerlink" href="#doppler-broadening" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_doppler">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_doppler</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_doppler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_doppler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_doppler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_doppler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_doppler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Doppler broadening.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1451,11 +1452,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="spexact-version-3-calculations">
-<h3>6.1.3.2.12.4. SPEXACT version 3 calculations<a class="headerlink" href="#spexact-version-3-calculations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.4. </span>SPEXACT version 3 calculations<a class="headerlink" href="#spexact-version-3-calculations" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_calc">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_calc</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_calc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform SPEXACT 3 line calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1471,11 +1472,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="occupation-numbers-starting-values">
-<h3>6.1.3.2.12.5. Occupation numbers starting values<a class="headerlink" href="#occupation-numbers-starting-values" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.5. </span>Occupation numbers starting values<a class="headerlink" href="#occupation-numbers-starting-values" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_occstart">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_occstart</code><span class="sig-paren">(</span><em class="sig-param">otype</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_occstart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_occstart" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_occstart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">otype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_occstart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_occstart" title="Permalink to this definition">¶</a></dt>
 <dd><p>At which occupation level to start.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1491,11 +1492,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="spexact-version-2-settings-mekal">
-<h3>6.1.3.2.12.6. SPEXACT version 2 settings (MEKAL)<a class="headerlink" href="#spexact-version-2-settings-mekal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.6. </span>SPEXACT version 2 settings (MEKAL)<a class="headerlink" href="#spexact-version-2-settings-mekal" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_mekal">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_mekal</code><span class="sig-paren">(</span><em class="sig-param">utype</em>, <em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_mekal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_mekal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_mekal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">utype</span></em>, <em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_mekal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_mekal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch old Mekal updates on/off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1515,11 +1516,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="multi-maxwellians-for-the-ionisation-balance">
-<h3>6.1.3.2.12.7. Multi-Maxwellians for the ionisation balance<a class="headerlink" href="#multi-maxwellians-for-the-ionisation-balance" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.7. </span>Multi-Maxwellians for the ionisation balance<a class="headerlink" href="#multi-maxwellians-for-the-ionisation-balance" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_ibalmaxw">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_ibalmaxw</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_ibalmaxw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_ibalmaxw" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_ibalmaxw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_ibalmaxw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_ibalmaxw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch the Multi-Maxwellians for the ionisation balance on/off (True/False).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1535,11 +1536,11 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </div>
 <div class="section" id="spexact-version-3-cooling">
-<h3>6.1.3.2.12.8. SPEXACT version 3 cooling<a class="headerlink" href="#spexact-version-3-cooling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.2.12.8. </span>SPEXACT version 3 cooling<a class="headerlink" href="#spexact-version-3-cooling" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_newcoolexc">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_newcoolexc</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_newcoolexc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_newcoolexc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_newcoolexc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_newcoolexc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_newcoolexc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cooling by collisional excitation by Stofanova (SPEXACT 3) on/off (True/False).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1555,9 +1556,9 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 <p>And for the cooling by di-electronic recombination:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.var_newcooldr">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_newcooldr</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_newcooldr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_newcooldr" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">var_newcooldr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_newcooldr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.var_newcooldr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cooling by dielectronic recombination (SPEXACT 3) on/off (True/False).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1620,10 +1621,10 @@ pyspex through the methods below. The current settings can be obtained using the
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
-      <li>Previous: <a href="com_data.html" title="previous chapter">6.1.3.1. Data related commands</a></li>
-      <li>Next: <a href="com_opt.html" title="next chapter">6.1.3.3. Optimization commands</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+  <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_data.html" title="previous chapter"><span class="section-number">6.1.3.1. </span>Data related commands</a></li>
+      <li>Next: <a href="com_opt.html" title="next chapter"><span class="section-number">6.1.3.3. </span>Optimization commands</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -1638,7 +1639,7 @@ pyspex through the methods below. The current settings can be obtained using the
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -1652,8 +1653,11 @@ pyspex through the methods below. The current settings can be obtained using the
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

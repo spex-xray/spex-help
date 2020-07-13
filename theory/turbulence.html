@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>8.4. Definition of the micro-turbulent velocity in SPEX &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.4. Definition of the micro-turbulent velocity in SPEX &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/turbulence.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,7 +35,7 @@
           <div class="body" role="main">
             
   <div class="section" id="definition-of-the-micro-turbulent-velocity-in-spex">
-<span id="sect-turbulence"></span><h1>8.4. Definition of the micro-turbulent velocity in SPEX<a class="headerlink" href="#definition-of-the-micro-turbulent-velocity-in-spex" title="Permalink to this headline">¶</a></h1>
+<span id="sect-turbulence"></span><h1><span class="section-number">8.4. </span>Definition of the micro-turbulent velocity in SPEX<a class="headerlink" href="#definition-of-the-micro-turbulent-velocity-in-spex" title="Permalink to this headline">¶</a></h1>
 <p>As of SPEX version 3.06.00, we are using a different definition of velocity broadening
 for emission models. Regarding parameter name, we moved from <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/>, or
 micro-turbulent velocity, to root-mean-square velocity <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/>. The two
@@ -47,7 +48,7 @@ with SPEX 3.06 will be a factor of <img class="math" src="../_images/math/c73e7e
 that you previously measured with earlier SPEX versions.</p>
 </div>
 <div class="section" id="why-change-the-definition">
-<h2>8.4.1. Why change the definition?<a class="headerlink" href="#why-change-the-definition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.1. </span>Why change the definition?<a class="headerlink" href="#why-change-the-definition" title="Permalink to this headline">¶</a></h2>
 <p>The <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/> is defined such that it is equivalent to the Gaussian <img class="math" src="../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/>,
 which makes it a more intuitive quantity for most colleagues in the field. This new
 definition makes the emission models consistent with the velocity broadening parameters
@@ -56,7 +57,7 @@ code in XSPEC. To avoid confusion when results from the two codes are compared, 
 decided to change the <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/> parameter to <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/>.</p>
 </div>
 <div class="section" id="microturbulent-velocity-in-spex-versions-3-05-00">
-<h2>8.4.2. Microturbulent velocity in SPEX versions &lt;=3.05.00<a class="headerlink" href="#microturbulent-velocity-in-spex-versions-3-05-00" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.2. </span>Microturbulent velocity in SPEX versions &lt;=3.05.00<a class="headerlink" href="#microturbulent-velocity-in-spex-versions-3-05-00" title="Permalink to this headline">¶</a></h2>
 <p>In previous versions of SPEX before 3.06.00 the turbulent velocity was called <code class="docutils literal notranslate"><span class="pre">vmic</span></code>.
 The micro-turbulent velocity (<img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/>) was defined following a definition
 historically used often in spectroscopy. In this definition, the Doppler broadening
@@ -71,7 +72,7 @@ where we call <img class="math" src="../_images/math/ef82fe0ec208b3d5b11f40c8f4d
 velocity (called <cite>vrms</cite> in the current SPEX version).</p>
 </div>
 <div class="section" id="historic-note">
-<h2>8.4.3. Historic note<a class="headerlink" href="#historic-note" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4.3. </span>Historic note<a class="headerlink" href="#historic-note" title="Permalink to this headline">¶</a></h2>
 <p>The definition <img class="math" src="../_images/math/aa0b031007d7d07e5b21b78d2fed6c2eccea5a2e.svg" alt="V_{mic} = \sqrt{2} \sigma_{turb}" style="vertical-align: -2px"/> historically originates from
 spectroscopy. It was chosen because it made the Maxwellian function and Gaussian function
 easier to calculate. It may also be related to the definition of the error function (ERF),
@@ -131,9 +132,9 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../theory.html">8. SPEX Theory</a><ul>
-      <li>Previous: <a href="response.html" title="previous chapter">8.3. Optimal definition of respons matrices</a></li>
-      <li>Next: <a href="../exercises.html" title="next chapter">9. Exercises</a></li>
+  <li><a href="../theory.html"><span class="section-number">8. </span>SPEX Theory</a><ul>
+      <li>Previous: <a href="response.html" title="previous chapter"><span class="section-number">8.3. </span>Optimal definition of respons matrices</a></li>
+      <li>Next: <a href="../exercises.html" title="next chapter"><span class="section-number">9. </span>Exercises</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -147,7 +148,7 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -161,8 +162,11 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

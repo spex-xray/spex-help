@@ -6,32 +6,31 @@
 SPEX Help Center
 ================
 
-Welcome to the SPEX help center. How can we help you?
+.. only:: html
 
-+---------------------------------------------------------+--------------------------------------------------+
-| **I want to download and install SPEX**                 | **How do I learn SPEX?**                         |
-|                                                         |                                                  |
-| See :ref:`sec:install` for a list of install options.   | You can start by reading                         |
-| We distribute pre-compiled binaries, docker images,     | :ref:`sec:intro`. If you like to                 |
-| and the source code.                                    | practice, see :ref:`sec:exercises`.              |
-+---------------------------------------------------------+--------------------------------------------------+
-| **How do I do ... in SPEX?**                            | **I have another question or problem with SPEX** |
-|                                                         |                                                  |
-| - Quick search this website (search box on the left).   | Check :ref:`sec:help` first. If you cannot find  |
-| - Check the list of analysis examples                   | it, then please ask your question or report the  |
-|   in SPEX: :ref:`chap:threads`.                         | problem through our issue-tracker_ on Github.    |
-| - Check our issue-tracker_                              | We will try to help you as quickly as possible.  |
-|   for questions that are similar to yours.              |                                                  |
-+---------------------------------------------------------+--------------------------------------------------+
+   Welcome to the SPEX help center. How can we help you?
 
-.. _issue-tracker: https://github.com/spex-xray/spex-help/issues
+   +---------------------------------------------------------+--------------------------------------------------+
+   | **I want to download and install SPEX**                 | **How do I learn SPEX?**                         |
+   |                                                         |                                                  |
+   | See :ref:`sec:install` for a list of install options.   | You can start by reading                         |
+   | We distribute pre-compiled binaries, docker images,     | :ref:`sec:intro`. If you like to                 |
+   | and the source code.                                    | practice, see :ref:`sec:exercises`.              |
+   +---------------------------------------------------------+--------------------------------------------------+
+   | **How do I do ... in SPEX?**                            | **I have another question or problem with SPEX** |
+   |                                                         |                                                  |
+   | - Quick search this website (search box on the left).   | Check :ref:`sec:help` first. If you cannot find  |
+   | - Check the list of analysis examples                   | it, then please ask your question or report the  |
+   |   in SPEX: :ref:`chap:threads`.                         | problem through our issue-tracker_ on Github.    |
+   | - Check our issue-tracker_                              | We will try to help you as quickly as possible.  |
+   |   for questions that are similar to yours.              |                                                  |
+   +---------------------------------------------------------+--------------------------------------------------+
 
-Table of contents
------------------
+   .. _issue-tracker: https://github.com/spex-xray/spex-help/issues
 
-The table of contents below contains the full documentation for the SPEX package.
-Can you find what you are looking for? If not, please use the 'Quick search' function on the left
-or ask your question though our issue-tracker_.
+   The table of contents below contains the full documentation for the SPEX package.
+   Can you find what you are looking for? If not, please use the 'Quick search' function on the left
+   or ask your question though our issue-tracker_.
 
 .. toctree::
    :maxdepth: 2
@@ -49,11 +48,12 @@ or ask your question though our issue-tracker_.
    changelog
    credits
 
+.. only:: html
 
-Indices and tables
-==================
+   Indices and tables
+   ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`
 

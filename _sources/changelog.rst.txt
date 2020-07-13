@@ -255,3 +255,47 @@ SPEXACT 3.05.00:
 -  Stability issue with the free-bound calculation resolved.
 
 -  Fixed small issue in the charge exchange model for Fe XXIII.
+
+Version 3.06.00
+---------------
+
+In SPEX 3.06.00:
+
+-  The new SPEX manual can now be found at: `<https://spex-xray.github.io/spex-help/>`_
+
+-  Added a Python interface to SPEX (Experimental, see :ref:`sec:pyspexidx`)
+
+-  User can now control the random seed in simulations (see :ref:`sec:simulate`).
+
+-  User can now control the output of the command ``par show`` (see :ref:`sec:par`).
+
+-  Next to Levenberg-Marquardt, we also added the simplex and simulated annealing fit methods (see :ref:`sec:fit`).
+
+-  Introduced the ``ions mute`` and ``ions unmute`` commands (see :ref:`sec:ions`).
+
+-  The help texts in SPEX now contain links to the online documentation (Ctrl-<click> to open in browser).
+
+In SPEXACT 3.06.00:
+
+-  Model calculations now in double precision.
+
+-  Added new dust extinction models (see :ref:`sec:amolmodel`).
+
+-  Added adiabatic cooling to the pion model.
+
+-  Added new cooling by Stofanova et al. (submitted).
+
+-  Added cooling by di-electronic recombination.
+
+-  The definition of microturbulent velocity in emission models has been changed to Vrms (see :ref:`sect:turbulence`).
+
+-  The ``ebv`` model now contains a switch to put the Milky way bump on and off.
+
+-  Atomic data:
+
+   *  Fe-L data from `Gu et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..51G/abstract>`_.
+
+   *  O II, Mg VI, S X, Ar XII, Ca XIV, Ti XVI, Cr XVIII
+
+   *  Absorption lines of Ne II, Ne III, Mg I and Si I have been updated using Juett et al. (2006) for Ne. The Mg I
+      and Si I have been updated using calculations with FAC and COWAN respectively.

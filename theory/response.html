@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>8.3. Optimal definition of respons matrices &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.3. Optimal definition of respons matrices &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/response.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,7 +35,7 @@
           <div class="body" role="main">
             
   <div class="section" id="optimal-definition-of-respons-matrices">
-<span id="sect-matrices"></span><h1>8.3. Optimal definition of respons matrices<a class="headerlink" href="#optimal-definition-of-respons-matrices" title="Permalink to this headline">¶</a></h1>
+<span id="sect-matrices"></span><h1><span class="section-number">8.3. </span>Optimal definition of respons matrices<a class="headerlink" href="#optimal-definition-of-respons-matrices" title="Permalink to this headline">¶</a></h1>
 <p>The SPEX FITS format allows us to bin spectra and response matrices on
 arbitrary grids, which enables us to bin spectra and responses in an optimal way.
 In <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...587A.151K/abstract">Kaastra &amp; Bleeker (2016)</a>
@@ -53,7 +54,7 @@ we describe practical guidelines how to construct the optimum energy
 grids as well as how to structure the response matrix. Finally a few
 examples are given to illustrate the present methods.</p>
 <div class="section" id="proposed-file-formats">
-<h2>8.3.1. Proposed file formats<a class="headerlink" href="#proposed-file-formats" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3.1. </span>Proposed file formats<a class="headerlink" href="#proposed-file-formats" title="Permalink to this headline">¶</a></h2>
 <p>In <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...587A.151K/abstract">Kaastra &amp; Bleeker (2016)</a>
 it was shown how the optimum data
 and model binning can be determined, and what the corresponding optimum
@@ -82,16 +83,14 @@ starting indices. Moreover, the splitting into arf and rmf files
 makes it necessary to check if the indexing in both files is
 consistent, and also if the indexing in the corresponding spectra is
 consistent.</p></li>
-<li><p>There are some redundant quantities in the OGIP format, like the
-``areascal`` keyword. When the effective area should be scaled by a
-given factor, this can be done explicitly in the matrix.</p></li>
+<li><p>There are some redundant quantities in the OGIP format, like the <code class="docutils literal notranslate"><span class="pre">areascal</span></code> keyword. When the effective area should be scaled by a given factor, this can be done explicitly in the matrix.</p></li>
 <li><p>As was shown in this work, it is more efficient to do the grouping
 within the response matrix differently, splitting the matrix into
 components where each component may have its own energy grid. This is
 not possible within the present OGIP format.</p></li>
 </ol>
 <div class="section" id="proposed-response-format">
-<h3>8.3.1.1. Proposed response format<a class="headerlink" href="#proposed-response-format" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.3.1.1. </span>Proposed response format<a class="headerlink" href="#proposed-response-format" title="Permalink to this headline">¶</a></h3>
 <p>I propose to give all response files the extension <code class="docutils literal notranslate"><span class="pre">.res</span></code>, in order not
 to confuse with the <code class="docutils literal notranslate"><span class="pre">.rmf</span></code> or <code class="docutils literal notranslate"><span class="pre">.arf</span></code> files used within the OGIP format.</p>
 <p>The file consists of the mandatory primary array that will remain empty,
@@ -251,7 +250,7 @@ spectral analysis program.</p>
 format by version 2.0 of the SPEX spectral analysis package.</p>
 </div>
 <div class="section" id="proposed-spectral-file-format">
-<h3>8.3.1.2. Proposed spectral file format<a class="headerlink" href="#proposed-spectral-file-format" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.3.1.2. </span>Proposed spectral file format<a class="headerlink" href="#proposed-spectral-file-format" title="Permalink to this headline">¶</a></h3>
 <p>There exists also a standard OGIP FITS-type format for spectra. As for
 the OGIP response file format, this format has a few redundant
 parameters and not absolutely necessary options.</p>
@@ -526,9 +525,9 @@ second extension (see table below).</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../theory.html">8. SPEX Theory</a><ul>
-      <li>Previous: <a href="fitting/fitting.html" title="previous chapter">8.2.4. Spectral Fitting</a></li>
-      <li>Next: <a href="turbulence.html" title="next chapter">8.4. Definition of the micro-turbulent velocity in SPEX</a></li>
+  <li><a href="../theory.html"><span class="section-number">8. </span>SPEX Theory</a><ul>
+      <li>Previous: <a href="fitting/fitting.html" title="previous chapter"><span class="section-number">8.2.4. </span>Spectral Fitting</a></li>
+      <li>Next: <a href="turbulence.html" title="next chapter"><span class="section-number">8.4. </span>Definition of the micro-turbulent velocity in SPEX</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -542,7 +541,7 @@ second extension (see table below).</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -556,8 +555,11 @@ second extension (see table below).</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

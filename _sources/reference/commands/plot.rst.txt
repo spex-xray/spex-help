@@ -300,10 +300,13 @@ The following syntax rules apply for plot:
   data in SPEX on a lin-lin frame before you execute the "plot adum"
   command. Also note that the data will be written in the units that
   were specified in the plot (energy, wavelength or whatever is
-  applicable. If the optional "append" keyword is present, the data will
+  applicable). The output format is described in :ref:`sect:plotadum`.
+  If the optional "append" keyword is present, the data will
   be appended to any existing file with the name #a; if the optional
   "overwrite" keyword is present, any pre-existing file with the name #a
   will be overwritten by the new data.
+
+
 
 Examples
 ~~~~~~~~

@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>2.1. Fitting a CCD spectrum &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1. Fitting a CCD spectrum &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/ccdspectrum/ccdspectrum.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -34,13 +35,13 @@
           <div class="body" role="main">
             
   <div class="section" id="fitting-a-ccd-spectrum">
-<span id="sec-ccdspectrum"></span><h1>2.1. Fitting a CCD spectrum<a class="headerlink" href="#fitting-a-ccd-spectrum" title="Permalink to this headline">¶</a></h1>
+<span id="sec-ccdspectrum"></span><h1><span class="section-number">2.1. </span>Fitting a CCD spectrum<a class="headerlink" href="#fitting-a-ccd-spectrum" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goal">
-<h2>2.1.1. Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.1. </span>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
 <p>To load and fit a CCD spectrum (e.g. MOS1 aboard XMM-Newton) into SPEX.</p>
 </div>
 <div class="section" id="preparation">
-<h2>2.1.2. Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.2. </span>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>To be able to fit a spectrum, you need a spectrum and response file in SPEX format. To convert spectra from OGIP
 format (e.g. pha, arf, rmf) to SPEX format, please use the <code class="docutils literal notranslate"><span class="pre">trafo</span></code> program like described in <a class="reference internal" href="../../getstarted/runtrafo.html#sect-runtrafo"><span class="std std-ref">How to convert spectra to SPEX format</span></a>.
 If you have the <a class="reference external" href="https://github.com/spex-xray/pyspextools">Pyspextools package</a> installed, then you can use
@@ -49,7 +50,7 @@ If you have the <a class="reference external" href="https://github.com/spex-xray
 can also download example files here: <a class="reference download internal" download="" href="../../_downloads/0b78cefb1034f7e8e6922ce55e769b42/mos.spo"><code class="xref download docutils literal notranslate"><span class="pre">mos.spo</span></code></a> and <a class="reference download internal" download="" href="../../_downloads/b53723ccef774b4ed874f9554e07d788/mos.res"><code class="xref download docutils literal notranslate"><span class="pre">mos.res</span></code></a>.</p>
 </div>
 <div class="section" id="starting-spex">
-<h2>2.1.3. Starting SPEX<a class="headerlink" href="#starting-spex" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.3. </span>Starting SPEX<a class="headerlink" href="#starting-spex" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX program is started by entering <code class="docutils literal notranslate"><span class="pre">spex</span></code> in a linux terminal window. In the following sections we describe
 one run of the program. To start SPEX do this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
@@ -62,7 +63,7 @@ SPEX&gt;
 as explained in <a class="reference internal" href="../../getstarted/install.html#sec-install"><span class="std std-ref">How to install SPEX</span></a>.</p>
 </div>
 <div class="section" id="loading-data">
-<h2>2.1.4. Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.4. </span>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
 <p>Then, we have to load the data files. This is done using the <code class="docutils literal notranslate"><span class="pre">data</span></code> command (<a class="reference internal" href="../../reference/commands/data.html#sec-data"><span class="std std-ref">Data: read response file and spectrum</span></a>). It is a general thing
 in SPEX that filename extensions are not typed explicitly when issuing a command. If you have a file called
 <code class="docutils literal notranslate"><span class="pre">mos.spo</span></code> and <code class="docutils literal notranslate"><span class="pre">mos.res</span></code> then you type:</p>
@@ -74,7 +75,7 @@ confusion by giving the same filename to both .res and .spo files. Remember that
 is very important!</p>
 </div>
 <div class="section" id="plot-the-data">
-<h2>2.1.5. Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.5. </span>Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">¶</a></h2>
 <p>It really helps to see the spectrum while we are working on it, so we need a plot window and tell spex that we want
 to see a plot of the data. (Note that the text after the # is a comment and should not be copied on the command line).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; plot dev xs             # Open plot device `X server`
@@ -107,7 +108,7 @@ SPEX&gt; plot ry 1E-4:10.
 </div>
 </div>
 <div class="section" id="define-the-model">
-<h2>2.1.6. Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.6. </span>Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h2>
 <p>Next we can define the model that we want to fit. In this case, we are looking at a MOS spectrum of a
 galaxy cluster. The simplest model that we can try is a single temperature spectrum absorbed by gas in
 the ISM. We also add a redshift component <code class="docutils literal notranslate"><span class="pre">reds</span></code> (<a class="reference internal" href="../../models/reds.html#sect-reds"><span class="std std-ref">Reds: redshift model</span></a>) to shift the energy of the model
@@ -144,7 +145,7 @@ SPEX&gt; plot
 </div>
 </div>
 <div class="section" id="initial-guess-of-parameters">
-<h2>2.1.7. Initial guess of parameters<a class="headerlink" href="#initial-guess-of-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.7. </span>Initial guess of parameters<a class="headerlink" href="#initial-guess-of-parameters" title="Permalink to this headline">¶</a></h2>
 <p>To help the spectral fitting process, it is good to provide initial guesses for the model parameters. This way, the
 spectral fit starts already with a model that is in the right direction. As a more experienced user, you usually have
 a rough idea what the parameters should be by looking at the raw spectrum. For this cluster, for example, the
@@ -174,7 +175,7 @@ the distance, it is wise to set that distance in SPEX (<a class="reference inter
 Note that this distance change also affects the values of the normalisation of the models!</p>
 </div>
 <div class="section" id="fit-the-model">
-<h2>2.1.8. Fit the model<a class="headerlink" href="#fit-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.8. </span>Fit the model<a class="headerlink" href="#fit-the-model" title="Permalink to this headline">¶</a></h2>
 <p>We are now ready to fit the spectrum. To see the fitting steps, we can give the command <code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">1</span></code>. This needs
 to be set only once per session. A subsequent <code class="docutils literal notranslate"><span class="pre">fit</span></code> command (<a class="reference internal" href="../../reference/commands/fit.html#sec-fit"><span class="std std-ref">Fit: spectral fitting</span></a>) starts to optimize the parameters:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; fit print 1
@@ -316,7 +317,7 @@ can see that the fit improved, but there is still a lot of room for improvement.
 </div>
 </div>
 <div class="section" id="do-additional-selections-on-the-data">
-<h2>2.1.9. Do additional selections on the data<a class="headerlink" href="#do-additional-selections-on-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.9. </span>Do additional selections on the data<a class="headerlink" href="#do-additional-selections-on-the-data" title="Permalink to this headline">¶</a></h2>
 <p>In the beginning, we did not ignore possible bad energy intervals in the spectrum. For MOS1, for example, we know that
 the calibration is valid for the energy range between roughly 0.3 keV and 10 keV. To fit only the good spectral
 interval, we need to ignore the parts at low and high energies.</p>
@@ -346,7 +347,7 @@ a lot:</p>
 </div>
 </div>
 <div class="section" id="fitting-abundances">
-<h2>2.1.10. Fitting abundances<a class="headerlink" href="#fitting-abundances" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.10. </span>Fitting abundances<a class="headerlink" href="#fitting-abundances" title="Permalink to this headline">¶</a></h2>
 <p>Although the C-statistics improved, there are still residuals in the spectrum, especially around the strongest spectral
 lines. This is because the metal abundances in the gas are still fixed to 1.0. We can let the abundances vary in the
 optimization by setting them to thawn:</p>
@@ -376,7 +377,7 @@ W-statistic       :         0.00
 </div>
 </div>
 <div class="section" id="calculating-errors">
-<h2>2.1.11. Calculating errors<a class="headerlink" href="#calculating-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.11. </span>Calculating errors<a class="headerlink" href="#calculating-errors" title="Permalink to this headline">¶</a></h2>
 <p>When we have the best fit, we can calculate the errors (<a class="reference internal" href="../../reference/commands/error.html#sec-error"><span class="std std-ref">Error: Calculate the errors of the fitted parameters</span></a>). This has to be done per parameter.
 Below we calculate, for example, the error on the best fit temperature:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; error 1 3 t
@@ -459,9 +460,9 @@ Thank you for using SPEX!
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../../threads.html">2. Analysis threads</a><ul>
-      <li>Previous: <a href="../../threads.html" title="previous chapter">2. Analysis threads</a></li>
-      <li>Next: <a href="../partbkg/partbkg.html" title="next chapter">2.2. Modeling particle background</a></li>
+  <li><a href="../../threads.html"><span class="section-number">2. </span>Analysis threads</a><ul>
+      <li>Previous: <a href="../../threads.html" title="previous chapter"><span class="section-number">2. </span>Analysis threads</a></li>
+      <li>Next: <a href="../partbkg/partbkg.html" title="next chapter"><span class="section-number">2.2. </span>Modeling particle background</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -475,7 +476,7 @@ Thank you for using SPEX!
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -489,8 +490,11 @@ Thank you for using SPEX!
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.3.3. Model class structures &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.3.3. Model class structures &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/model.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,11 +35,11 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pyspex.model">
-<span id="model-class-structures"></span><h1>6.3.3. Model class structures<a class="headerlink" href="#module-pyspex.model" title="Permalink to this headline">¶</a></h1>
+<span id="model-class-structures"></span><h1><span class="section-number">6.3.3. </span>Model class structures<a class="headerlink" href="#module-pyspex.model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="model">
-<span id="class-model"></span><h2>6.3.3.1. Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<span id="class-model"></span><h2><span class="section-number">6.3.3.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Model">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Model</code><a class="reference internal" href="../_modules/pyspex/model.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Top class containing the entire model, containing all sectors and components.</p>
@@ -50,9 +51,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.comp_delete">
-<code class="sig-name descname">comp_delete</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.comp_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.comp_delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comp_delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.comp_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.comp_delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete component from sector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -64,9 +65,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.comp_new">
-<code class="sig-name descname">comp_new</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">isect=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.comp_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.comp_new" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comp_new</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">isect</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.comp_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.comp_new" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new component to the model. By default in sector 1.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -78,9 +79,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.comp_set_rel">
-<code class="sig-name descname">comp_set_rel</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">rel</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.comp_set_rel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.comp_set_rel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comp_set_rel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">rel</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.comp_set_rel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.comp_set_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set component relation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -93,9 +94,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_aset">
-<code class="sig-name descname">par_aset</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_aset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_aset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_aset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_aset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_aset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a text type parameter value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -109,9 +110,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_couple">
-<code class="sig-name descname">par_couple</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">iname</em>, <em class="sig-param">csect</em>, <em class="sig-param">ccomp</em>, <em class="sig-param">cname</em>, <em class="sig-param">factor</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_couple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">iname</span></em>, <em class="sig-param"><span class="n">csect</span></em>, <em class="sig-param"><span class="n">ccomp</span></em>, <em class="sig-param"><span class="n">cname</span></em>, <em class="sig-param"><span class="n">factor</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_couple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Couple parameter (iname) to another parameter with cname, with a coupling factor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -128,9 +129,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_decouple">
-<code class="sig-name descname">par_decouple</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">iname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_decouple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_decouple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_decouple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">iname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_decouple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_decouple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decouple parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -143,9 +144,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_fix">
-<code class="sig-name descname">par_fix</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_fix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_fix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_fix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_fix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_fix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fix a parameter in the fit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -158,9 +159,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_free">
-<code class="sig-name descname">par_free</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_free" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_free</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_free" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free a parameter in the fit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -173,9 +174,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_get">
-<code class="sig-name descname">par_get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the parameter object for sector isect, component icomp and parameter with name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -190,9 +191,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_norm_get">
-<code class="sig-name descname">par_norm_get</code><span class="sig-paren">(</span><em class="sig-param">ins</em>, <em class="sig-param">reg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_norm_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_norm_get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_norm_get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ins</span></em>, <em class="sig-param"><span class="n">reg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_norm_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_norm_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the instrument normalisation for instrument ins and region reg.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -204,9 +205,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_norm_set">
-<code class="sig-name descname">par_norm_set</code><span class="sig-paren">(</span><em class="sig-param">ins</em>, <em class="sig-param">reg</em>, <em class="sig-param">value</em>, <em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_norm_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_norm_set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_norm_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ins</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_norm_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_norm_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the instrument normalisation for an instrument number and region number.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -220,9 +221,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_set">
-<code class="sig-name descname">par_set</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">value</em>, <em class="sig-param">thawn=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">thawn</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter to value and optionally indicate thawn or frozen status.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -237,9 +238,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_set_range">
-<code class="sig-name descname">par_set_range</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">name</em>, <em class="sig-param">rlow</em>, <em class="sig-param">rupp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_set_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_set_range" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_set_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">rlow</span></em>, <em class="sig-param"><span class="n">rupp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_set_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_set_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the fit range for a parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -254,9 +255,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_show">
-<code class="sig-name descname">par_show</code><span class="sig-paren">(</span><em class="sig-param">option=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_show" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">option</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display parameter overview in terminal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -265,9 +266,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.par_write">
-<code class="sig-name descname">par_write</code><span class="sig-paren">(</span><em class="sig-param">comfile</em>, <em class="sig-param">overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_write" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">par_write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">comfile</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.par_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.par_write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write parameters to a .com file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -279,9 +280,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.sector_copy">
-<code class="sig-name descname">sector_copy</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.sector_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.sector_copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sector_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.sector_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.sector_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy an existing sector to a new one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -290,9 +291,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.sector_delete">
-<code class="sig-name descname">sector_delete</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.sector_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.sector_delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sector_delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.sector_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.sector_delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete an existing sector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -301,13 +302,13 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.sector_new">
 <code class="sig-name descname">sector_new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.sector_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.sector_new" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new sector.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Model.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Model.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Model.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain the Sectors from SPEX.</p>
@@ -318,9 +319,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="sector">
-<span id="class-sector"></span><h2>6.3.3.2. Sector<a class="headerlink" href="#sector" title="Permalink to this headline">¶</a></h2>
+<span id="class-sector"></span><h2><span class="section-number">6.3.3.2. </span>Sector<a class="headerlink" href="#sector" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Sector">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Sector</code><a class="reference internal" href="../_modules/pyspex/model.html#Sector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Sector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class describing a Sector.</p>
@@ -335,9 +336,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Sector.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Sector.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Sector.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Sector.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Sector.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain the information from SPEX for sector isect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -351,9 +352,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="component">
-<span id="class-component"></span><h2>6.3.3.3. Component<a class="headerlink" href="#component" title="Permalink to this headline">¶</a></h2>
+<span id="class-component"></span><h2><span class="section-number">6.3.3.3. </span>Component<a class="headerlink" href="#component" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Component">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Component</code><a class="reference internal" href="../_modules/pyspex/model.html#Component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Component" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing a model component.</p>
@@ -373,9 +374,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Component.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Component.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Component.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Component.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Component.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain the information from SPEX for sector isect and component icomp.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -392,9 +393,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="parameter">
-<span id="class-parameter"></span><h2>6.3.3.4. Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h2>
+<span id="class-parameter"></span><h2><span class="section-number">6.3.3.4. </span>Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Parameter">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Parameter</code><a class="reference internal" href="../_modules/pyspex/model.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for model parameters.</p>
@@ -418,9 +419,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Parameter.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em>, <em class="sig-param">ipar</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Parameter.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Parameter.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">ipar</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Parameter.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Parameter.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain the parameter values from SPEX memory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -438,9 +439,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="abundance">
-<span id="class-abundance"></span><h2>6.3.3.5. Abundance<a class="headerlink" href="#abundance" title="Permalink to this headline">¶</a></h2>
+<span id="class-abundance"></span><h2><span class="section-number">6.3.3.5. </span>Abundance<a class="headerlink" href="#abundance" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Abundance">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Abundance</code><a class="reference internal" href="../_modules/pyspex/model.html#Abundance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Abundance" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class manages the SPEX abundance setting.</p>
@@ -453,15 +454,15 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Abundance.get">
 <code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Abundance.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Abundance.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current Abundance setting (reference).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Abundance.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">abun</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Abundance.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Abundance.set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">abun</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Abundance.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Abundance.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the abundance in SPEX to another set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -470,7 +471,7 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Abundance.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Abundance.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Abundance.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the abundance setting in pyspex.</p>
@@ -481,9 +482,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="distance">
-<span id="class-distance"></span><h2>6.3.3.6. Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
+<span id="class-distance"></span><h2><span class="section-number">6.3.3.6. </span>Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Distance">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Distance</code><a class="reference internal" href="../_modules/pyspex/model.html#Distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class is used to set and get the distances in SPEX.</p>
@@ -506,9 +507,9 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Distance.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Distance.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Distance.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the distances for a sector from SPEX.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -517,9 +518,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Distance.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">dist</em>, <em class="sig-param">unit</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Distance.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance.set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">dist</span></em>, <em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Distance.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the distance in units for a particular sector (isect).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -532,9 +533,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Distance.set_cosmo">
-<code class="sig-name descname">set_cosmo</code><span class="sig-paren">(</span><em class="sig-param">h0</em>, <em class="sig-param">omega_m</em>, <em class="sig-param">omega_l</em>, <em class="sig-param">omega_r</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Distance.set_cosmo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance.set_cosmo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_cosmo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h0</span></em>, <em class="sig-param"><span class="n">omega_m</span></em>, <em class="sig-param"><span class="n">omega_l</span></em>, <em class="sig-param"><span class="n">omega_r</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Distance.set_cosmo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Distance.set_cosmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the cosmological constants for the distance calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -553,9 +554,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="energy-grids">
-<span id="class-egrid"></span><h2>6.3.3.7. Energy grids<a class="headerlink" href="#energy-grids" title="Permalink to this headline">¶</a></h2>
+<span id="class-egrid"></span><h2><span class="section-number">6.3.3.7. </span>Energy grids<a class="headerlink" href="#energy-grids" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Egrid">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Egrid</code><a class="reference internal" href="../_modules/pyspex/model.html#Egrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class is used to specify the model energy grid.</p>
@@ -569,15 +570,15 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Egrid.get">
 <code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current energy grid from SPEX.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Egrid.grid">
-<code class="sig-name descname">grid</code><span class="sig-paren">(</span><em class="sig-param">ebounds</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ebounds</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide a grid to SPEX by providing a numpy array with the bin boundaries.
 Please note that the length of this array is the number of bins + 1!</p>
 <dl class="field-list simple">
@@ -587,9 +588,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Egrid.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">readfile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">readfile</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the energy grid from a file named readfile (extension: .egr).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -598,9 +599,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Egrid.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">savefile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">savefile</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the energy grid to a file named savefile (extension: .egr).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -609,9 +610,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Egrid.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">nbins</em>, <em class="sig-param">unit</em>, <em class="sig-param">log</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">nbins</span></em>, <em class="sig-param"><span class="n">unit</span></em>, <em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set egrid using limits and number of bins.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -626,9 +627,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Egrid.set_step">
-<code class="sig-name descname">set_step</code><span class="sig-paren">(</span><em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">step</em>, <em class="sig-param">unit</em>, <em class="sig-param">log</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.set_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.set_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">step</span></em>, <em class="sig-param"><span class="n">unit</span></em>, <em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Egrid.set_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Egrid.set_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set egrid using limits and step size.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -648,9 +649,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </div></blockquote>
 </div>
 <div class="section" id="fluxes-and-luminosities">
-<span id="class-flux"></span><h2>6.3.3.8. Fluxes and luminosities<a class="headerlink" href="#fluxes-and-luminosities" title="Permalink to this headline">¶</a></h2>
+<span id="class-flux"></span><h2><span class="section-number">6.3.3.8. </span>Fluxes and luminosities<a class="headerlink" href="#fluxes-and-luminosities" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Fluxes">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Fluxes</code><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class is used to calculate fluxes and luminosities of spectra in a spectral band.</p>
@@ -667,9 +668,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Fluxes.calc">
-<code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes.calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes.calc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes.calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes.calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate and get flux and luminosity from SPEX for a given sector and component number.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -681,9 +682,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Fluxes.elim">
-<code class="sig-name descname">elim</code><span class="sig-paren">(</span><em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes.elim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes.elim" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">elim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes.elim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes.elim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the energy limits for the flux and luminosity calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -696,15 +697,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pyspex.model.Fluxes.elimflux">
-<code class="sig-name descname">elimflux</code><em class="property"> = None</em><a class="headerlink" href="#pyspex.model.Fluxes.elimflux" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">elimflux</code><a class="headerlink" href="#pyspex.model.Fluxes.elimflux" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flux energy limits (keV)</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Fluxes.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em>, <em class="sig-param">icomp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Fluxes.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Fluxes.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the flux and luminosity from SPEX for a given sector and component number.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -721,9 +722,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </div></blockquote>
 </div>
 <div class="section" id="ionisation-balance">
-<span id="class-ibal"></span><h2>6.3.3.9. Ionisation balance<a class="headerlink" href="#ionisation-balance" title="Permalink to this headline">¶</a></h2>
+<span id="class-ibal"></span><h2><span class="section-number">6.3.3.9. </span>Ionisation balance<a class="headerlink" href="#ionisation-balance" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Ibal">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Ibal</code><a class="reference internal" href="../_modules/pyspex/model.html#Ibal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ibal" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class manages the SPEX ionisation balance setting.</p>
@@ -736,15 +737,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ibal.get">
 <code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ibal.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ibal.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current Abundance setting (reference).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ibal.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">ibal</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ibal.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ibal.set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ibal</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ibal.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ibal.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the abundance in SPEX to another set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -753,7 +754,7 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ibal.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ibal.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ibal.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the abundance setting in pyspex.</p>
@@ -764,9 +765,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </div></blockquote>
 </div>
 <div class="section" id="ion-selection">
-<span id="class-ions"></span><h2>6.3.3.10. Ion selection<a class="headerlink" href="#ion-selection" title="Permalink to this headline">¶</a></h2>
+<span id="class-ions"></span><h2><span class="section-number">6.3.3.10. </span>Ion selection<a class="headerlink" href="#ion-selection" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Ions">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Ions</code><a class="reference internal" href="../_modules/pyspex/model.html#Ions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to manage the ions taken into account in the model calculation.</p>
@@ -778,15 +779,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.ignore_all">
 <code class="sig-name descname">ignore_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore all ions.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.ignore_ion">
-<code class="sig-name descname">ignore_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ignore_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore this ion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -798,9 +799,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.ignore_iso">
-<code class="sig-name descname">ignore_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ignore_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore this iso-electronic sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -809,9 +810,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.ignore_z">
-<code class="sig-name descname">ignore_z</code><span class="sig-paren">(</span><em class="sig-param">z</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ignore_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.ignore_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.ignore_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore all ions of this element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -820,9 +821,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.lmax_all">
-<code class="sig-name descname">lmax_all</code><span class="sig-paren">(</span><em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lmax_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set all ions to maximum angular momentum lmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -831,9 +832,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.lmax_ion">
-<code class="sig-name descname">lmax_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lmax_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this ion to maximum angular momentum lmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -846,9 +847,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.lmax_iso">
-<code class="sig-name descname">lmax_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lmax_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this iso-electronic sequence to maximum angular momentum lmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -860,9 +861,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.lmax_z">
-<code class="sig-name descname">lmax_z</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lmax_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.lmax_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.lmax_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set all ions of this element to maximum angular momentum lmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -874,15 +875,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.new_all">
 <code class="sig-name descname">new_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use new calculations for all ions.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.new_ion">
-<code class="sig-name descname">new_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">new_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use new calculations for this ion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -894,9 +895,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.new_iso">
-<code class="sig-name descname">new_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">new_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use new calculations for this iso-electronic sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -905,9 +906,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.new_z">
-<code class="sig-name descname">new_z</code><span class="sig-paren">(</span><em class="sig-param">z</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">new_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.new_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.new_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use new calculations for all ions of this element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -916,9 +917,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.nmax_all">
-<code class="sig-name descname">nmax_all</code><span class="sig-paren">(</span><em class="sig-param">nmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nmax_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set all ions to maximum quantum number nmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -927,9 +928,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.nmax_ion">
-<code class="sig-name descname">nmax_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em>, <em class="sig-param">nmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nmax_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">nmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this ion to maximum quantum number nmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -942,9 +943,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.nmax_iso">
-<code class="sig-name descname">nmax_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em>, <em class="sig-param">nmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nmax_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em>, <em class="sig-param"><span class="n">nmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this iso-electronic sequence to maximum quantum number nmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -956,9 +957,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.nmax_z">
-<code class="sig-name descname">nmax_z</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">nmax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nmax_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">nmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.nmax_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.nmax_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set all ions of this element to maximum quantum number nmax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -970,15 +971,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.old_all">
 <code class="sig-name descname">old_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use old calculations for all ions.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.old_ion">
-<code class="sig-name descname">old_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">old_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use old calculations for this ion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -990,9 +991,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.old_iso">
-<code class="sig-name descname">old_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">old_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use old calculations for this iso-electronic sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1001,9 +1002,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.old_z">
-<code class="sig-name descname">old_z</code><span class="sig-paren">(</span><em class="sig-param">z</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">old_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.old_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.old_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use old calculations for all ions of this element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1012,27 +1013,27 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.show">
 <code class="sig-name descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the settings for the ions.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the properties of all atoms.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.use_all">
 <code class="sig-name descname">use_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use all ions.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.use_ion">
-<code class="sig-name descname">use_ion</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_ion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">use_ion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_ion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use this ion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1044,9 +1045,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.use_iso">
-<code class="sig-name descname">use_iso</code><span class="sig-paren">(</span><em class="sig-param">iso</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_iso" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">use_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iso</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_iso"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use this iso-electronic sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1055,9 +1056,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Ions.use_z">
-<code class="sig-name descname">use_z</code><span class="sig-paren">(</span><em class="sig-param">z</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">use_z</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Ions.use_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Ions.use_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use all ions of this element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1071,9 +1072,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </div></blockquote>
 </div>
 <div class="section" id="model-spectra">
-<span id="class-spectrum"></span><h2>6.3.3.11. Model spectra<a class="headerlink" href="#model-spectra" title="Permalink to this headline">¶</a></h2>
+<span id="class-spectrum"></span><h2><span class="section-number">6.3.3.11. </span>Model spectra<a class="headerlink" href="#model-spectra" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Spectrum">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Spectrum</code><a class="reference internal" href="../_modules/pyspex/model.html#Spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class obtains and stores the model spectrum from SPEX.</p>
@@ -1089,9 +1090,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Spectrum.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">isect</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Spectrum.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Spectrum.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Spectrum.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Spectrum.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the model spectra from SPEX for sector number isect.</p>
 </dd></dl>
 
@@ -1100,9 +1101,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </div></blockquote>
 </div>
 <div class="section" id="plasma-parameters">
-<span id="class-var"></span><h2>6.3.3.12. Plasma parameters<a class="headerlink" href="#plasma-parameters" title="Permalink to this headline">¶</a></h2>
+<span id="class-var"></span><h2><span class="section-number">6.3.3.12. </span>Plasma parameters<a class="headerlink" href="#plasma-parameters" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="pyspex.model.Var">
 <em class="property">class </em><code class="sig-prename descclassname">pyspex.model.</code><code class="sig-name descname">Var</code><a class="reference internal" href="../_modules/pyspex/model.html#Var"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var" title="Permalink to this definition">¶</a></dt>
 <dd><p>Various settings for the plasma models.</p>
@@ -1128,15 +1129,15 @@ Please note that the length of this array is the number of bins + 1!</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.reset_gacc">
 <code class="sig-name descname">reset_gacc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.reset_gacc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.reset_gacc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the free-bound emission accuracy.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_calc">
-<code class="sig-name descname">set_calc</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_calc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform SPEXACT 3 line calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1145,9 +1146,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_doppler">
-<code class="sig-name descname">set_doppler</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_doppler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_doppler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_doppler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_doppler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_doppler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Doppler broadening.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1156,9 +1157,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_gacc">
-<code class="sig-name descname">set_gacc</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_gacc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_gacc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_gacc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_gacc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_gacc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the free-bound emission accuracy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1167,9 +1168,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_ibalmaxw">
-<code class="sig-name descname">set_ibalmaxw</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_ibalmaxw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_ibalmaxw" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_ibalmaxw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_ibalmaxw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_ibalmaxw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch the Multi-Maxwellians for the ionisation balance on/off (True/False).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1178,9 +1179,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_line">
-<code class="sig-name descname">set_line</code><span class="sig-paren">(</span><em class="sig-param">ltype</em>, <em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_line" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ltype</span></em>, <em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a line emission contribution on or off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1192,9 +1193,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_mekal">
-<code class="sig-name descname">set_mekal</code><span class="sig-paren">(</span><em class="sig-param">utype</em>, <em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_mekal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_mekal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mekal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">utype</span></em>, <em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_mekal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_mekal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch old Mekal updates on/off.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1206,9 +1207,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_newcooldr">
-<code class="sig-name descname">set_newcooldr</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_newcooldr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_newcooldr" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_newcooldr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_newcooldr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_newcooldr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cooling by dielectronic recombination (SPEXACT 3) on/off (True/False).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1217,9 +1218,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_newcoolexc">
-<code class="sig-name descname">set_newcoolexc</code><span class="sig-paren">(</span><em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_newcoolexc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_newcoolexc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_newcoolexc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_newcoolexc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_newcoolexc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cooling by collisional excitation by Stofanova (SPEXACT 3) on/off (True/False).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1228,9 +1229,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.set_occstart">
-<code class="sig-name descname">set_occstart</code><span class="sig-paren">(</span><em class="sig-param">otype</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_occstart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_occstart" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_occstart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">otype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.set_occstart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.set_occstart" title="Permalink to this definition">¶</a></dt>
 <dd><p>At which occupation level to start.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1239,7 +1240,7 @@ Please note that the length of this array is the number of bins + 1!</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pyspex.model.Var.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/model.html#Var.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.model.Var.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain the current plasma model settings from SPEX.</p>
@@ -1296,9 +1297,9 @@ Please note that the length of this array is the number of bins + 1!</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-      <li>Previous: <a href="data.html" title="previous chapter">6.3.2. Data class structure</a></li>
-      <li>Next: <a href="optimize.html" title="next chapter">6.3.4. Optimization functions</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+      <li>Previous: <a href="data.html" title="previous chapter"><span class="section-number">6.3.2. </span>Data class structure</a></li>
+      <li>Next: <a href="optimize.html" title="next chapter"><span class="section-number">6.3.4. </span>Optimization functions</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -1312,7 +1313,7 @@ Please note that the length of this array is the number of bins + 1!</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -1326,8 +1327,11 @@ Please note that the length of this array is the number of bins + 1!</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

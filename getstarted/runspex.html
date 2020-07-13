@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>1.2. How to run SPEX &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.2. How to run SPEX &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/getstarted/runspex.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,7 +35,7 @@
           <div class="body" role="main">
             
   <div class="section" id="how-to-run-spex">
-<span id="sec-intro"></span><h1>1.2. How to run SPEX<a class="headerlink" href="#how-to-run-spex" title="Permalink to this headline">¶</a></h1>
+<span id="sec-intro"></span><h1><span class="section-number">1.2. </span>How to run SPEX<a class="headerlink" href="#how-to-run-spex" title="Permalink to this headline">¶</a></h1>
 <p>SPEX is a spectral fitting program used to fit high-resolution X-ray
 spectra. The code contains several simple and detailed models that are
 able to deal with the radiative processes observed in the X-ray band.
@@ -43,7 +44,7 @@ familiar with the syntax of the commands to be able to work with it.
 This chapter provides some basic commands and threads to fit X-ray
 spectra.</p>
 <div class="section" id="the-spex-data-format">
-<h2>1.2.1. The SPEX data format<a class="headerlink" href="#the-spex-data-format" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.1. </span>The SPEX data format<a class="headerlink" href="#the-spex-data-format" title="Permalink to this headline">¶</a></h2>
 <p>The data files containing the spectrum of the source and the response
 need to be in the correct format. In the SPEX installation, we provide a
 program called <a class="reference internal" href="../tools/trafo.html#sect-trafo"><span class="std std-ref">Trafo</span></a> to convert OGIP standard fits files into SPEX
@@ -74,7 +75,7 @@ available. For more information about the SPEX spectrum and response
 format see <a class="reference internal" href="../theory/response.html#sect-matrices"><span class="std std-ref">Optimal definition of respons matrices</span></a>.</p>
 </div>
 <div class="section" id="loading-spectra-into-spex">
-<h2>1.2.2. Loading spectra into SPEX<a class="headerlink" href="#loading-spectra-into-spex" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.2. </span>Loading spectra into SPEX<a class="headerlink" href="#loading-spectra-into-spex" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX program is started by entering <code class="docutils literal notranslate"><span class="pre">spex</span></code> in a linux terminal
 window. In the following sections we describe one run of the program. To
 start SPEX do this:</p>
@@ -100,7 +101,7 @@ typing just the first few characters. For example, <code class="docutils literal
 to <code class="docutils literal notranslate"><span class="pre">dat</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 </div>
 <div class="section" id="plotting-the-data">
-<h2>1.2.3. Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.3. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h2>
 <p>If the <code class="docutils literal notranslate"><span class="pre">data</span></code> command was successful, we can now have a look at the
 spectra. SPEX offers a lot of different plot commands (see <a class="reference internal" href="../reference/commands/plot.html#sec-plot"><span class="std std-ref">Plot: Plotting data and models</span></a>).
 Using default settings, the easiest way of plotting a spectrum is as follows:</p>
@@ -143,7 +144,7 @@ For example, <code class="docutils literal notranslate"><span class="pre">plot</
 possible units is provided in <a class="reference internal" href="../reference/plot/axes.html#sect-plotaxes"><span class="std std-ref">Plot axis units and scales</span></a>.</p>
 </div>
 <div class="section" id="ignoring-and-rebinning">
-<h2>1.2.4. Ignoring and rebinning<a class="headerlink" href="#ignoring-and-rebinning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.4. </span>Ignoring and rebinning<a class="headerlink" href="#ignoring-and-rebinning" title="Permalink to this headline">¶</a></h2>
 <p>High-resolution X-ray spectra from Chandra and XMM-Newton are usually
 oversampled (e.g. the energy bins are much smaller than the spectral
 resolution) and contain a lot more channels then is useful. Therefore,
@@ -170,7 +171,7 @@ bin ins 1:2 8:35 5 unit a
 range.</p>
 </div>
 <div class="section" id="defining-a-model">
-<h2>1.2.5. Defining a model<a class="headerlink" href="#defining-a-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.5. </span>Defining a model<a class="headerlink" href="#defining-a-model" title="Permalink to this headline">¶</a></h2>
 <p>Now we have a clean and rebinned spectrum that is ready to fit. Before
 we can start fitting, we first need to define a model. It’s equivalent
 to <img class="math" src="../_images/math/bd130e7119bf6f7665124f207621303ba16e6406.svg" alt="S(E)" style="vertical-align: -4px"/> in Eq. <a class="reference internal" href="#equation-eq-data">(1)</a>. The model can contain
@@ -285,7 +286,7 @@ be fitted. Especially the normalization of the powerlaw (<code class="docutils l
 vary a lot depending on the count rate of the source.</p>
 </div>
 <div class="section" id="fitting-the-data">
-<h2>1.2.6. Fitting the data<a class="headerlink" href="#fitting-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.6. </span>Fitting the data<a class="headerlink" href="#fitting-the-data" title="Permalink to this headline">¶</a></h2>
 <p>We are ready to fit the data! SPEX has a nice feature to look at the
 progress of the fit. To activate this feature you have to give the
 command <code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">1</span></code> (see <a class="reference internal" href="../reference/commands/fit.html#sec-fit"><span class="std std-ref">Fit: spectral fitting</span></a>). If your initial parameters
@@ -306,7 +307,7 @@ SPEX&gt; par 2 nh stat f
 </div>
 </div>
 <div class="section" id="calculating-errors">
-<h2>1.2.7. Calculating errors<a class="headerlink" href="#calculating-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.7. </span>Calculating errors<a class="headerlink" href="#calculating-errors" title="Permalink to this headline">¶</a></h2>
 <p>When the fit is acceptable, you might want to know the uncertainties on
 your fitted parameters. Errors are determined one-by-one by fixing the
 parameter to some value and calculate the <img class="math" src="../_images/math/0f88e0d9f7840194bf955de5e6dab99b5c8af626.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat with
@@ -322,7 +323,7 @@ you can set the desired <img class="math" src="../_images/math/0f88e0d9f7840194b
 <code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">dchi</span> <span class="pre">1.</span></code></p>
 </div>
 <div class="section" id="making-life-easier">
-<h2>1.2.8. Making life easier<a class="headerlink" href="#making-life-easier" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.8. </span>Making life easier<a class="headerlink" href="#making-life-easier" title="Permalink to this headline">¶</a></h2>
 <p>In this short manual you have seen a lot of commands, but to avoid
 typing too much you want to use some identical series of commands every
 time you fit a certain spectrum. For example, you don’t want to type all
@@ -375,11 +376,11 @@ plot box numlab bot f
 </div>
 </div>
 <div class="section" id="saving-your-work">
-<h2>1.2.9. Saving your work<a class="headerlink" href="#saving-your-work" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.9. </span>Saving your work<a class="headerlink" href="#saving-your-work" title="Permalink to this headline">¶</a></h2>
 <p>There are several ways in SPEX you can save your work. Below you find a
 few examples to save your commands, output or plots.</p>
 <div class="section" id="saving-a-plot">
-<h3>1.2.9.1. Saving a plot<a class="headerlink" href="#saving-a-plot" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.9.1. </span>Saving a plot<a class="headerlink" href="#saving-a-plot" title="Permalink to this headline">¶</a></h3>
 <p>These commands open a PostScript plot device with filename
 <code class="docutils literal notranslate"><span class="pre">filename.ps</span></code>, then they plot your figure in the PS file and closes
 the device:</p>
@@ -390,7 +391,7 @@ SPEX&gt; plot close 2
 </div>
 </div>
 <div class="section" id="saving-commands">
-<h3>1.2.9.2. Saving commands<a class="headerlink" href="#saving-commands" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.9.2. </span>Saving commands<a class="headerlink" href="#saving-commands" title="Permalink to this headline">¶</a></h3>
 <p>If you want to save all commands that you execute to an ASCII file
 (<code class="docutils literal notranslate"><span class="pre">filename.com</span></code>), then type <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">save</span> <span class="pre">filename</span></code> (see also <a class="reference internal" href="../reference/commands/log.html#sec-log"><span class="std std-ref">Log: Making and using command files</span></a>).
 Do not forget to close the file at the end of the session by typing
@@ -398,7 +399,7 @@ Do not forget to close the file at the end of the session by typing
 <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span> <span class="pre">filename</span></code> command.</p>
 </div>
 <div class="section" id="saving-output">
-<h3>1.2.9.3. Saving output<a class="headerlink" href="#saving-output" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.9.3. </span>Saving output<a class="headerlink" href="#saving-output" title="Permalink to this headline">¶</a></h3>
 <p>In the same way as in the previous example, you can also save the output
 on your screen by typing <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">out</span> <span class="pre">filename</span></code> (the file will be an ASCII
 file called <code class="docutils literal notranslate"><span class="pre">filename.out</span></code>). You can close the file with
@@ -407,11 +408,11 @@ and errors.</p>
 </div>
 </div>
 <div class="section" id="quitting-the-program">
-<h2>1.2.10. Quitting the program<a class="headerlink" href="#quitting-the-program" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.10. </span>Quitting the program<a class="headerlink" href="#quitting-the-program" title="Permalink to this headline">¶</a></h2>
 <p>Just type <code class="docutils literal notranslate"><span class="pre">quit</span></code> (see <a class="reference internal" href="../reference/commands/quit.html#sec-quit"><span class="std std-ref">Quit: finish the program</span></a>).</p>
 </div>
 <div class="section" id="tips-tricks">
-<h2>1.2.11. Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.11. </span>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>If you make a typo in a command or you want to do the same command
 again, then push the <code class="docutils literal notranslate"><span class="pre">arrow-up</span></code> button on your keyboard. There is
@@ -449,6 +450,9 @@ typing. In case there are more possibilities, it shows them all.</p></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html">1.1. How to install SPEX</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. How to run SPEX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtrafo.html">1.3. How to convert spectra to SPEX format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html">1.4. Install the SPEX Python interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compile.html">1.5. Compile SPEX from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">1.6. Use SPEX through Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -467,9 +471,9 @@ typing. In case there are more possibilities, it shows them all.</p></li>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../getstarted.html">1. Getting started</a><ul>
-      <li>Previous: <a href="install.html" title="previous chapter">1.1. How to install SPEX</a></li>
-      <li>Next: <a href="runtrafo.html" title="next chapter">1.3. How to convert spectra to SPEX format</a></li>
+  <li><a href="../getstarted.html"><span class="section-number">1. </span>Getting started</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter"><span class="section-number">1.1. </span>How to install SPEX</a></li>
+      <li>Next: <a href="runtrafo.html" title="next chapter"><span class="section-number">1.3. </span>How to convert spectra to SPEX format</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -483,7 +487,7 @@ typing. In case there are more possibilities, it shows them all.</p></li>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -497,8 +501,11 @@ typing. In case there are more possibilities, it shows them all.</p></li>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

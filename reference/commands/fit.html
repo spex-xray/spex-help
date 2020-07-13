@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>3.1.12. Fit: spectral fitting &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1.12. Fit: spectral fitting &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/fit.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -34,9 +35,9 @@
           <div class="body" role="main">
             
   <div class="section" id="fit-spectral-fitting">
-<span id="sec-fit"></span><h1>3.1.12. Fit: spectral fitting<a class="headerlink" href="#fit-spectral-fitting" title="Permalink to this headline">¶</a></h1>
+<span id="sec-fit"></span><h1><span class="section-number">3.1.12. </span>Fit: spectral fitting<a class="headerlink" href="#fit-spectral-fitting" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
-<h2>3.1.12.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>With this command one fits the spectral model to the data. Only
 parameters that are thawn are changed during the fitting process.
 Options allow you to do a weighted fit (according to the model or the
@@ -44,7 +45,7 @@ data), have the fit parameters and plot printed and updated during the
 fit, and limit the number of iterations done.</p>
 </div>
 <div class="section" id="fit-methods">
-<h2>3.1.12.2. Fit methods<a class="headerlink" href="#fit-methods" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.2. </span>Fit methods<a class="headerlink" href="#fit-methods" title="Permalink to this headline">¶</a></h2>
 <p>There are three methods implemented that can provide the best fit. All these
 methods are described in detail in the book of <a class="reference external" href="http://numerical.recipes/">Press et al. (Numerical Recipes)</a>. We refer to that book for more details (our
 algorithms, however, are taken from other sources).</p>
@@ -61,7 +62,7 @@ algorithm. It is advised to turn back to the Levenberg-Marquardt method when
 error search is done.</p>
 </div>
 <div class="section" id="simulated-annealing-details">
-<h2>3.1.12.3. Simulated annealing details<a class="headerlink" href="#simulated-annealing-details" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.3. </span>Simulated annealing details<a class="headerlink" href="#simulated-annealing-details" title="Permalink to this headline">¶</a></h2>
 <p>It is beyond the scope of this paper to describe the method in detail.
 More can be found in the Numerical Recipes book mentioned above, and for our
 implementation in <a class="reference external" href="https://econpapers.repec.org/RePEc:eee:econom:v:60:y:1994:i:1-2:p:65-99">Goffe et al. (1994)</a>.
@@ -81,7 +82,7 @@ the scaling for the number of function evaluations at each temperature
 flag controlling the printing of intermediate results.</p>
 </div>
 <div class="section" id="fit-statistic">
-<h2>3.1.12.4. Fit statistic<a class="headerlink" href="#fit-statistic" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.4. </span>Fit statistic<a class="headerlink" href="#fit-statistic" title="Permalink to this headline">¶</a></h2>
 <p>At the moment SPEX uses two types of fit statistic, <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> and
 C-stat. We first treat the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic, because
 historically that has been most widely used. However, in the present
@@ -90,7 +91,7 @@ the cases it gives more robust results. Both statistics can be used for all
 of the fitting methods.</p>
 </div>
 <div class="section" id="chi-squared-fitting">
-<h2>3.1.12.5. Chi-squared fitting<a class="headerlink" href="#chi-squared-fitting" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.5. </span>Chi-squared fitting<a class="headerlink" href="#chi-squared-fitting" title="Permalink to this headline">¶</a></h2>
 <p>First we make a few remarks about proper data weighting. <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>
 is usually calculated as the sum over all data bins <img class="math" src="../../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> of
 <img class="math" src="../../_images/math/5e4e4a776c2e53ecb2aed10a359745bf61ae9588.svg" alt="(N_i - s_i)^2 / \sigma_i^2" style="vertical-align: -4px"/>, i.e.</p>
@@ -135,7 +136,7 @@ you are in trouble anyway!).</p></li>
 </ol>
 </div>
 <div class="section" id="c-stat">
-<h2>3.1.12.6. C-stat<a class="headerlink" href="#c-stat" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.6. </span>C-stat<a class="headerlink" href="#c-stat" title="Permalink to this headline">¶</a></h2>
 <p>There is yet another option to try for spectral fitting with low count
 rate statistics and that is maximum likelyhood fitting. It can be shown
 that a good alternative to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> in that limit is</p>
@@ -200,7 +201,7 @@ details.</p>
 </div>
 </div>
 <div class="section" id="w-stat">
-<h2>3.1.12.7. W-stat<a class="headerlink" href="#w-stat" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.7. </span>W-stat<a class="headerlink" href="#w-stat" title="Permalink to this headline">¶</a></h2>
 <p>The above problem is mitigated in the Xspec package by introducing the
 so-called W-statistic. See the Xspec manual for more details. We provide
 here the option to fit using W-stat for compatibility reasons,</p>
@@ -228,7 +229,7 @@ spectrum required four times more model evaluations compared with C-stat
 fitting with filtered background.</p>
 </div>
 <div class="section" id="syntax">
-<h2>3.1.12.8. Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.8. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Execute a spectral fit to the data.</div>
@@ -288,7 +289,7 @@ parameters and plots its spectrum if a new minimum is found.</div>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>3.1.12.9. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.12.9. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Performs a spectral fit. At the end the list of best fit
 parameters is printed, and if there is a plot this will be updated.</div>
@@ -356,10 +357,10 @@ annealing to 0.5.</div>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../../reference.html">3. Command overview</a><ul>
-  <li><a href="../commands.html">3.1. Command syntax</a><ul>
-      <li>Previous: <a href="error.html" title="previous chapter">3.1.11. Error: Calculate the errors of the fitted parameters</a></li>
-      <li>Next: <a href="ibal.html" title="next chapter">3.1.13. Ibal: set type of ionisation balance</a></li>
+  <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
+  <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
+      <li>Previous: <a href="error.html" title="previous chapter"><span class="section-number">3.1.11. </span>Error: Calculate the errors of the fitted parameters</a></li>
+      <li>Next: <a href="ibal.html" title="next chapter"><span class="section-number">3.1.13. </span>Ibal: set type of ionisation balance</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -374,7 +375,7 @@ annealing to 0.5.</div>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -388,8 +389,11 @@ annealing to 0.5.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

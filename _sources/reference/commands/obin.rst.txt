@@ -16,6 +16,12 @@ binning to 1/3 of the FWHM, but the factor of 1/3 depends weakly upon
 the local count rate at the given energy and the number of resolution
 elements. The better the statistics, the smaller the bin size.
 
+.. Note:: Usually, the ignore command and the obin command are used around
+   the same time. The safest order is to ignore parts of the spectrum first
+   and then re-bin it. If the bin command is done first and then parts of
+   the spectrum are ignored using a different energy range, then bins at the
+   edges of the energy range could end up being reduced in width.
+
 Syntax
 ~~~~~~
 

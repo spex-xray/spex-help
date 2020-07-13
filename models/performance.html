@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>4.2. Optimizing model performance &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2. Optimizing model performance &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/performance.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,7 +35,7 @@
           <div class="body" role="main">
             
   <div class="section" id="optimizing-model-performance">
-<h1>4.2. Optimizing model performance<a class="headerlink" href="#optimizing-model-performance" title="Permalink to this headline">¶</a></h1>
+<span id="sect-performance"></span><h1><span class="section-number">4.2. </span>Optimizing model performance<a class="headerlink" href="#optimizing-model-performance" title="Permalink to this headline">¶</a></h1>
 <p>Since the release of SPEX version 3, which contain major atomic data updates, the models that depend on this
 new atomic data run slower then before. Especially for cases which need a lot of model evaluations, this can be
 a nuisance.</p>
@@ -43,7 +44,7 @@ course, speeding up the calculation usually means you also pay a (small) price i
 we will also provide an estimate of the loss of accuracy where possible to help you to find the right balance
 between calculation speed and accuracy for your project.</p>
 <div class="section" id="setting-a-maximum-n">
-<h2>4.2.1. Setting a maximum N<a class="headerlink" href="#setting-a-maximum-n" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.1. </span>Setting a maximum N<a class="headerlink" href="#setting-a-maximum-n" title="Permalink to this headline">¶</a></h2>
 <p>In many cases, the most important spectral lines are formed by transitions between the lower principle quantum
 numbers <cite>n</cite>. In the past couple of years, we added atomic levels with a higher <cite>n</cite> to improve the accuracy of
 the models. Although it takes more time for SPEX to calculate the spectrum including these higher levels, the
@@ -111,7 +112,7 @@ the full model to update the best-fit values. The errors should not be affected 
 unless the parameter is strongly correlated to another one.</p>
 </div>
 <div class="section" id="replacing-secondary-components-by-the-file-model">
-<h2>4.2.2. Replacing secondary components by the file model<a class="headerlink" href="#replacing-secondary-components-by-the-file-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.2. </span>Replacing secondary components by the file model<a class="headerlink" href="#replacing-secondary-components-by-the-file-model" title="Permalink to this headline">¶</a></h2>
 <p>To deal with astrophysical complexity, models can become rather large. Especially when there are many atomic model
 components to calculate, this can cost a significant amount of time. In some cases, it is not really necessary to
 calculate a component every iteration, because its parameters are rather stable or even fixed. In these cases, this
@@ -150,7 +151,7 @@ should be applied to the file model component or not!</p></li>
 <p>The fitting should now be faster, because there are now two CIE components that do not need to be calculated anymore.</p>
 </div>
 <div class="section" id="optimizing-the-number-of-threads">
-<h2>4.2.3. Optimizing the number of threads<a class="headerlink" href="#optimizing-the-number-of-threads" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.3. </span>Optimizing the number of threads<a class="headerlink" href="#optimizing-the-number-of-threads" title="Permalink to this headline">¶</a></h2>
 <p>By default, SPEX tries to use as many CPU cores as the system has available. However, dividing the calculations over
 multiple cores also causes overhead. The more cores, the more overhead! It has been observed that calculations performed
 on 6 cores were faster than using 12 cores on the same machine! If you are running on a machine with a large number
@@ -213,9 +214,9 @@ optimal for your model and machine.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../models.html">4. Spectral models</a><ul>
-      <li>Previous: <a href="xabs.html" title="previous chapter">4.1.41. Xabs: photoionised absorption model</a></li>
-      <li>Next: <a href="../tools.html" title="next chapter">5. Additional tools</a></li>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+      <li>Previous: <a href="xabs.html" title="previous chapter"><span class="section-number">4.1.41. </span>Xabs: photoionised absorption model</a></li>
+      <li>Next: <a href="../tools.html" title="next chapter"><span class="section-number">5. </span>Additional tools</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -229,7 +230,7 @@ optimal for your model and machine.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -243,8 +244,11 @@ optimal for your model and machine.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

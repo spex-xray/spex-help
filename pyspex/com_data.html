@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.1.3.1. Data related commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.3.1. Data related commands &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_data.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,18 +35,18 @@
           <div class="body" role="main">
             
   <div class="section" id="data-related-commands">
-<h1>6.1.3.1. Data related commands<a class="headerlink" href="#data-related-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.3.1. </span>Data related commands<a class="headerlink" href="#data-related-commands" title="Permalink to this headline">¶</a></h1>
 <p>The commands in this section are all related to the data structures within SPEX. They deal with
 spectral data and responses, simulation of data, etc.</p>
 <div class="section" id="data">
-<h2>6.1.3.1.1. Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.1.1. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
 <p>Loading spectral data and responses in SPEX is done with the <code class="docutils literal notranslate"><span class="pre">data</span></code> command. Data can be added
 by loading a .res and .spo file that contain the response and spectral information for an
 instrument. The PYSPEX command is:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.data">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param">resfile</em>, <em class="sig-param">spofile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resfile</span></em>, <em class="sig-param"><span class="n">spofile</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load instrument data into SPEX using a .res and a .spo file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -65,13 +66,13 @@ is the only difference with the SPEX syntax. Example:</p>
 </pre></div>
 </div>
 <div class="section" id="data-delete">
-<h3>6.1.3.1.1.1. Data delete<a class="headerlink" href="#data-delete" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.1.1.1. </span>Data delete<a class="headerlink" href="#data-delete" title="Permalink to this headline">¶</a></h3>
 <p>Deleting a loaded spectrum and response is done in SPEX with the <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">delete</span> <span class="pre">instrument</span> <span class="pre">#i</span></code>
 command. In PYSPEX, this command is:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.data_del">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">data_del</code><span class="sig-paren">(</span><em class="sig-param">ins</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.data_del"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.data_del" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">data_del</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ins</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.data_del"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.data_del" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete an instrument from the dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -87,13 +88,13 @@ command. In PYSPEX, this command is:</p>
 </div>
 </div>
 <div class="section" id="data-save">
-<h3>6.1.3.1.1.2. Data save<a class="headerlink" href="#data-save" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.1.1.2. </span>Data save<a class="headerlink" href="#data-save" title="Permalink to this headline">¶</a></h3>
 <p>Simulated spectra can be saved as a .spo file. In SPEX, this is done using the
 <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">save</span> <span class="pre">#i</span> <span class="pre">&lt;spofile&gt;</span></code> command. In PYSPEX, the command is:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.data_save">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">data_save</code><span class="sig-paren">(</span><em class="sig-param">ins</em>, <em class="sig-param">spofile</em>, <em class="sig-param">overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.data_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.data_save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">data_save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ins</span></em>, <em class="sig-param"><span class="n">spofile</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.data_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.data_save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the (simulated) spectrum to a .spo file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -122,7 +123,7 @@ For example:</p>
 </div>
 </div>
 <div class="section" id="binning-and-data-selection">
-<h2>6.1.3.1.2. Binning and data selection<a class="headerlink" href="#binning-and-data-selection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.1.2. </span>Binning and data selection<a class="headerlink" href="#binning-and-data-selection" title="Permalink to this headline">¶</a></h2>
 <p>Unlike some other fitting packages, SPEX rebins the spectra within the program. The easiest binning
 method is to just rebin with a certain integer factor. This is the <code class="docutils literal notranslate"><span class="pre">bin</span></code> command in SPEX. In
 addition, SPEX contains a binning method based on the bin statistics (<code class="docutils literal notranslate"><span class="pre">vbin</span></code>) and an optimal
@@ -130,9 +131,9 @@ binning algorithm (<code class="docutils literal notranslate"><span class="pre">
 <p><strong>Binning with factor</strong></p>
 <p>Binning with an integer factor is done with the bin command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.bin">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">bin</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">factor</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.bin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">bin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">factor</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bin the spectrum using a fixed factor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -156,9 +157,9 @@ binning algorithm (<code class="docutils literal notranslate"><span class="pre">
 <p><strong>Variable binning</strong></p>
 <p>Variable binning is done with the vbin command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.vbin">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">vbin</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">factor</em>, <em class="sig-param">snr</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.vbin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.vbin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">vbin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">factor</span></em>, <em class="sig-param"><span class="n">snr</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.vbin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.vbin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bin the spectrum using a variable bin size, given a minimum
 bin factor and a minimum signal to noise ratio.</p>
 <dl class="field-list simple">
@@ -185,9 +186,9 @@ ratio of 25 between 0.3 and 10 keV:</p>
 <p><strong>Optimal binning</strong></p>
 <p>The optimal binning algorithm bins based on the instrument resolution and statistics:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.obin">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">obin</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.obin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.obin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">obin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.obin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.obin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bin the spectrum optimally given the instrument resolution and statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -208,14 +209,14 @@ ratio of 25 between 0.3 and 10 keV:</p>
 </pre></div>
 </div>
 <div class="section" id="data-selection">
-<h3>6.1.3.1.2.1. Data selection<a class="headerlink" href="#data-selection" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.1.2.1. </span>Data selection<a class="headerlink" href="#data-selection" title="Permalink to this headline">¶</a></h3>
 <p>Selecting data is done using the <code class="docutils literal notranslate"><span class="pre">use</span></code> and <code class="docutils literal notranslate"><span class="pre">ignore</span></code> commands. By default, the bin selection
 in the <code class="docutils literal notranslate"><span class="pre">.spo</span></code> file is loaded, which should use all the good bins.</p>
 <p><strong>Use function</strong></p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.use">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">use</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.use"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.use" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">use</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.use"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.use" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the bins given by the energy/channel range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -237,9 +238,9 @@ in the <code class="docutils literal notranslate"><span class="pre">.spo</span><
 </div>
 <p><strong>Ignore function</strong></p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.ignore">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ignore</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ignore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ignore" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ignore</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ignore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ignore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ignore the bins given by the energy/channel range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -262,13 +263,13 @@ in the <code class="docutils literal notranslate"><span class="pre">.spo</span><
 </div>
 </div>
 <div class="section" id="systematic-errors">
-<h3>6.1.3.1.2.2. Systematic errors<a class="headerlink" href="#systematic-errors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.1.2.2. </span>Systematic errors<a class="headerlink" href="#systematic-errors" title="Permalink to this headline">¶</a></h3>
 <p>If needed, the error bars on the source and background spectrum can be enlarged by the <code class="docutils literal notranslate"><span class="pre">syserr</span></code>
 command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.syserr">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">syserr</code><span class="sig-paren">(</span><em class="sig-param">inst</em>, <em class="sig-param">reg</em>, <em class="sig-param">elow</em>, <em class="sig-param">ehigh</em>, <em class="sig-param">src</em>, <em class="sig-param">bkg</em>, <em class="sig-param">unit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.syserr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.syserr" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">syserr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">reg</span></em>, <em class="sig-param"><span class="n">elow</span></em>, <em class="sig-param"><span class="n">ehigh</span></em>, <em class="sig-param"><span class="n">src</span></em>, <em class="sig-param"><span class="n">bkg</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.syserr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.syserr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an additional error to the source and background spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -294,14 +295,14 @@ function would produce wrong results.</p>
 </div>
 </div>
 <div class="section" id="simulate">
-<h2>6.1.3.1.3. Simulate<a class="headerlink" href="#simulate" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.1.3. </span>Simulate<a class="headerlink" href="#simulate" title="Permalink to this headline">¶</a></h2>
 <p>Based on an instrument response and a model spectrum, SPEX can simulate an observed spectrum
 using the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> commands. In SPEX, the options can be set by giving multiple commands,
 but in PYSPEX this is done in a single command with optional parameters:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.simulate">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param">extime</em>, <em class="sig-param">inst=None</em>, <em class="sig-param">reg=None</em>, <em class="sig-param">ssys=None</em>, <em class="sig-param">bsys=None</em>, <em class="sig-param">noise=None</em>, <em class="sig-param">bnoise=None</em>, <em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.simulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.simulate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">extime</span></em>, <em class="sig-param"><span class="n">inst</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reg</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ssys</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bsys</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">noise</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bnoise</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.simulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.simulate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate a spectrum using a loaded response file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -385,10 +386,10 @@ using the system clock).</p></li>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
-      <li>Previous: <a href="commands.html" title="previous chapter">6.1.3. Basic PYSPEX commands</a></li>
-      <li>Next: <a href="com_model.html" title="next chapter">6.1.3.2. Model related commands</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+  <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="commands.html" title="previous chapter"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a></li>
+      <li>Next: <a href="com_model.html" title="next chapter"><span class="section-number">6.1.3.2. </span>Model related commands</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -403,7 +404,7 @@ using the system clock).</p></li>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -417,8 +418,11 @@ using the system clock).</p></li>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>

@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>6.1.3.4. Plot commands &#8212; SPEX Help Center 3.05 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.3.4. Plot commands &#8212; SPEX Help Center 3.06.00 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_plot.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,18 +35,18 @@
           <div class="body" role="main">
             
   <div class="section" id="plot-commands">
-<h1>6.1.3.4. Plot commands<a class="headerlink" href="#plot-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.3.4. </span>Plot commands<a class="headerlink" href="#plot-commands" title="Permalink to this headline">¶</a></h1>
 <p>Next to the PGPLOT plotting system of SPEX, the python interface can also be used for plotting.
 In this section, we provide a list of commands for plotting spectral models, the effective area and
 spectral data (including residuals).</p>
 <div class="section" id="plot-spectral-model">
-<h2>6.1.3.4.1. Plot spectral model<a class="headerlink" href="#plot-spectral-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.4.1. </span>Plot spectral model<a class="headerlink" href="#plot-spectral-model" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX plot type ‘model’ plots the model spectrum as a function of energy. In PYSPEX there is a
 function to obtain the same plot using matplotlib:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.plot_model">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_model</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='SPEX Model Spectrum'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xlog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ylog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'SPEX Model Spectrum'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the spectral model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -75,13 +76,13 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="section" id="plot-data">
-<h2>6.1.3.4.2. Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.4.2. </span>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX data plot type plots the observed spectrum, the folded model and background spectrum.
 In PYSPEX, this is done with one command called <code class="docutils literal notranslate"><span class="pre">plot_data</span></code>:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.plot_data">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_data</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='SPEX'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xlog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ylog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'SPEX'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed spectrum with the convolved model for all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -111,13 +112,13 @@ and <code class="docutils literal notranslate"><span class="pre">ylog=True</span
 </pre></div>
 </div>
 <div class="section" id="plot-data-with-residuals">
-<h3>6.1.3.4.2.1. Plot data with residuals<a class="headerlink" href="#plot-data-with-residuals" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.4.2.1. </span>Plot data with residuals<a class="headerlink" href="#plot-data-with-residuals" title="Permalink to this headline">¶</a></h3>
 <p>It is also possible to attach a subplot with residuals to the main data plot. To do this,
 one uses the <code class="docutils literal notranslate"><span class="pre">plot_chi</span></code> command:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.plot_chi">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_chi</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">chi='dchi'</em>, <em class="sig-param">title='SPEX'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_chi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_chi" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_chi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xlog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ylog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">chi</span><span class="o">=</span><span class="default_value">'dchi'</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'SPEX'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_chi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_chi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed spectrum with the convolved model and their residuals for all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -148,13 +149,13 @@ Currently, <code class="docutils literal notranslate"><span class="pre">dchi</sp
 </div>
 </div>
 <div class="section" id="plot-data-with-model-components">
-<h3>6.1.3.4.2.2. Plot data with model components<a class="headerlink" href="#plot-data-with-model-components" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.4.2.2. </span>Plot data with model components<a class="headerlink" href="#plot-data-with-model-components" title="Permalink to this headline">¶</a></h3>
 <p>For models with multiple additive components, it is possible in PYSPEX to plot the total model and
 the contributions from the individual additive components with the <code class="docutils literal notranslate"><span class="pre">plot_comp</span></code> method.</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.plot_comp">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_comp</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='SPEX'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_comp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_comp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_comp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xlog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ylog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'SPEX'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_comp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_comp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the individual model components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -183,13 +184,13 @@ the contributions from the individual additive components with the <code class="
 </div>
 </div>
 <div class="section" id="plot-effective-area">
-<h2>6.1.3.4.3. Plot effective area<a class="headerlink" href="#plot-effective-area" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.4.3. </span>Plot effective area<a class="headerlink" href="#plot-effective-area" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX plot type ‘area’ plots the effective area as a function of energy. In PYSPEX there is a
 function to obtain the same plot using matplotlib:</p>
 <blockquote>
-<div><dl class="method">
+<div><dl class="py method">
 <dt id="pyspex.spex.Session.plot_area">
-<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_area</code><span class="sig-paren">(</span><em class="sig-param">xlog=False</em>, <em class="sig-param">ylog=False</em>, <em class="sig-param">title='Effective Area'</em>, <em class="sig-param">show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_area" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">plot_area</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xlog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ylog</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'Effective Area'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.plot_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the effective area of all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -265,10 +266,10 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../pyspex.html">6. Python Interface</a><ul>
-  <li><a href="commands.html">6.1.3. Basic PYSPEX commands</a><ul>
-      <li>Previous: <a href="com_opt.html" title="previous chapter">6.1.3.3. Optimization commands</a></li>
-      <li>Next: <a href="com_log.html" title="next chapter">6.1.3.5. Log commands</a></li>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+  <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_opt.html" title="previous chapter"><span class="section-number">6.1.3.3. </span>Optimization commands</a></li>
+      <li>Next: <a href="com_log.html" title="next chapter"><span class="section-number">6.1.3.5. </span>Log commands</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -283,7 +284,7 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -297,8 +298,11 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
       <div class="clearer"></div>
     </div>
 <div class="footer">
-      &copy;2019, Jelle de Plaa, Jelle Kaastra, SPEX development team,
-    <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        Last updated on: Jul 13, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
 </div>
 
   </body>
