@@ -24,7 +24,9 @@ needs CMake version 3.0 or higher.
 Since SPEX is programmed mostly in Fortran 90, it is recommended to use a recent Fortran compiler. SPEX has
 been tested with GFortran (version 4 and above) and the Intel Fortran Compiler.
 
-This Zenodo contains a tar.bz2 file containing the source code of SPEX: spex-3.05.00-Source.tar.bz2. Unpack it in a convenient directory::
+This Zenodo contains a tar.bz2 file containing the source code of SPEX:
+`spex-3.06.00-Source.tar.bz2 <https://zenodo.org/record/3939056/files/spex-3.06.00-Source.tar.bz2?download=1>`_.
+Unpack it in a convenient directory::
 
     unix:~/Software> tar xvfj spex-3.06.00-Source.tar.bz2
 
@@ -116,15 +118,15 @@ General Compilation Instructions
 When all library dependencies are installed, the compilation process can begin. Execute cmake in the root directory of the SPEX source tree,
 where CMakeLists.txt is located (mind the dot)::
 
-    unix:~/Software/SPEX-3.05.00-Source> cmake .
+    unix:~/Software/SPEX-3.06.00-Source> cmake .
 
 If no errors occured and all libraries were found, then type 'make'::
 
-    unix:~/Software/SPEX-3.05.00-Source> make
+    unix:~/Software/SPEX-3.06.00-Source> make
 
 When the program needs to be installed system wide, then execute::
 
-    unix:~/Software/SPEX-3.05.00-Source> sudo make install
+    unix:~/Software/SPEX-3.06.00-Source> sudo make install
 
 The program will be installed to /opt/spex by default. Usually, administrator rights are necessary to copy the files to the right location.
 
@@ -147,21 +149,21 @@ Compiler selection
 
 Select a different fortran compiler::
 
-    unix:~/Software/SPEX-3.05.00-Source> cmake . -DCMAKE_Fortran_COMPILER=ifort
+    unix:~/Software/SPEX-3.06.00-Source> cmake . -DCMAKE_Fortran_COMPILER=ifort
 
 Install prefix
 """"""""""""""
 
 Install SPEX at a different location in the 'make install' step::
 
-    unix:~/Software/SPEX-3.05.00-Source> cmake . -DCMAKE_INSTALL_PREFIX=/home/user/software
+    unix:~/Software/SPEX-3.06.00-Source> cmake . -DCMAKE_INSTALL_PREFIX=/home/user/software
 
 Force use of SPEX libraries
 """""""""""""""""""""""""""
 
 The use of the SPEX libraries in the source tree can be forced::
 
-    unix:~/Software/SPEX-3.05.00-Source> cmake . -DCFITSIO=YES -DPGPLOT=YES
+    unix:~/Software/SPEX-3.06.00-Source> cmake . -DCFITSIO=YES -DPGPLOT=YES
 
 The command above will compile these libraries from the SPEX source tree. See the CMakeLists.txt file for more options.
 

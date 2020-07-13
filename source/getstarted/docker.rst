@@ -19,23 +19,25 @@ continue with this tutorial.
 Step 2: Download the SPEX docker image from Zenodo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The SPEX Docker image is available on this Zenodo page as a tar.gz file. Please download the file called
-spex-[version]-docker.tar.gz, for example::
+The SPEX Docker image is available on `this Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_ as a tar.gz file.
+Please download the file called spex-[version]-Docker.tar.gz, for example::
 
-    spex-3.05.00-docker.tar.gz
+    spex-3.06.00-Docker.tar.gz
+
+Or, alternatively, you can pull the image from Docker hub with the command: ``docker pull spexxray/spex:latest``.
 
 Step 3: Import the SPEX image into Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before you can run the docker file, it should be imported into the docker system. This can be done on the command line::
 
-    user@linux:~> docker load -i spex-3.05.00-docker.tar.gz
+    user@linux:~> docker load -i spex-3.06.00-docker.tar.gz
 
 The image will be named spexxray/spex with the tag 3.05.00 and can be found with the command::
 
     user@linux:~> docker images
     REPOSITORY TAG IMAGE ID CREATED SIZE
-    spexxray/spex 3.05.00 0a0a0a0a0a0 1 minute ago 311MB
+    spexxray/spex 3.06.00 0a0a0a0a0a0 1 minute ago 996MB
 
 Step 4: Run SPEX on Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,7 +94,7 @@ For Linux::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.05.00
+    spexxray/spex:3.06.00
 
 For Mac::
 
@@ -102,13 +104,13 @@ For Mac::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /Users/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.05.00
+    spexxray/spex:3.06.00
 
 The docker run command above will provide you with a prompt that will allow you to run spex::
 
     user@linux:~> docker run -it -e DISPLAY=$DISPLAY -e LOCAL_USER_ID=`id -u $USER` \
     -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/myusername:/home/user -w /home/user \
-    spexxray/spex:3.05.00
+    spexxray/spex:3.06.00
 
     Welcome to the SPEX Docker Container!
     Just type 'spex' to start the program.
@@ -117,12 +119,16 @@ The docker run command above will provide you with a prompt that will allow you 
 In this environment, you can just run spex or trafo::
 
     user@0922f2e4ff85:~> spex
-    Welcome user to SPEX version 3.05.00
+     Welcome user to SPEX version 3.06.00
 
-    NEW in this version of SPEX:
-    11-06-2018 Added Ext_Rate column to new spo files
-    18-12-2018 SPEX is now using the GPL license
-    18-12-2018 Release of version 3.05.00
+     NEW in this version of SPEX:
+    05-06-2019 Update of cooling processes
+    18-12-2019 Included new atomic data (Fe-L, Gu et al. 2019)
+    05-02-2020 Included Python interfaces for SPEX
+    24-03-2020 Included new molecular dust data
+    10-07-2020 SPEX manual now at: https://spex-xray.github.io/spex-help
+    10-07-2020 Report questions and issues to: https://github.com/spex-xray/spex-help/issues
+
+     Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
     SPEX>
-
