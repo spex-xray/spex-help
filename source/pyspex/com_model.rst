@@ -576,6 +576,28 @@ Example::
 
     >>> s.par_norm(1,2, 0.95, True)
 
+Show parameters
+"""""""""""""""
+Show the model parameters in the terminal (or Jupyter Notebook). One can specify a couple of options to
+show more or less information:
+
+  .. automethod:: pyspex.spex.Session.par_show
+
+Example::
+
+    >>> s.par_show('free')
+
+The models can also be shown through the Fortran backend, but then the output will be shown in the terminal only
+(not in the Jupyter notebook).
+
+  .. automethod:: pyspex.spex.Session.par_show_classic
+
+Example::
+
+    >>> s.par_show_classic('flux')
+
+See also the SPEX documentation for `par_show <https://spex-xray.github.io/spex-help/reference/commands/par.html>`_.
+
 Write parameters to .com file
 """""""""""""""""""""""""""""
 The current parameter settings can be saved to a command file (.com) and be loaded later by
