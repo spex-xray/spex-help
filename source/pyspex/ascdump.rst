@@ -36,6 +36,12 @@ RION: Ionisation rates per atomic subshell
    .. autoclass:: pyspex.ascdump.Rion
       :members:
 
+TWO: Two-photon emission transition rates
+-----------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Two
+      :members:
+
 GRID: Energy and wavelength grid
 --------------------------------
 
@@ -76,6 +82,12 @@ HEAT: Plasma heating rates
 --------------------------
 
    .. autoclass:: pyspex.ascdump.Heat
+      :members:
+
+EBAL: Energy balance calculation
+--------------------------------
+
+   .. autoclass:: pyspex.ascdump.Ebal
       :members:
 
 COL: Ionic column densities
