@@ -77,7 +77,7 @@ an example. For a photoionised case, with :math:`\log \xi = 3`
 (resulting :math:`kT=0.64` keV) the nominal occupation of the ground
 state of H becomes negative for a density
 :math:`>0.15\times 10^{20}` :math:`\mathrm{m}^{-3}`. This can be traced down to
-incomplete atomic data. For H , we include collisional excitation and
+incomplete atomic data. For H, we include collisional excitation and
 de-excitation up to principal quantum number :math:`n=5` but not above.
 As a result, in this example the 1s–5s levels are mainly
 populated/depopulated by collisions, while 6s–16s are mainly populated
@@ -241,6 +241,15 @@ of the plasma, for example :math:`f=1.4287` for the present default
 abundances of SPEX (you can check this number from the ``asc ter
 ... plas`` ascii output option).
 
+.. Warning:: it is important to note that the acceleration is proportional to the hydrogen density,
+so take care to choose the appropriate hydrogen density, even in the low density limit where the
+spectral shape does not depend on the density. This counter-intuitive behaviour is caused by the
+use of :math:`\xi` as main parameter. Given the absolute ionising luminosity :math:`L` of the ionising
+source, and the value of :math:`\xi` and :math:`n_{\mathrm H}` provided by the user, 
+the pion model then calculates the distance :math:`r` from the equation :math:`\xi = L/nr^2`.
+Thus, higher density yields smaller distance, hence larger absorbed flux by the gas layer, hence
+stronger acceleration.
+
 Model parameters
 ----------------
 
@@ -255,6 +264,10 @@ The parameters of the model are:
 | ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
+| ``hden`` : the hydrogen density in units of :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+  Default value: :math:`10^{-14}` (corresponding to
+  :math:`10^{6}` :math:`\mathrm{m}^{-3}`, to be consistent with the order of magnitude of the
+  electron density (which is used in the cie and neij models; do NOT confuse both quantities!).
 
 The following parameters are common to all our absorption models:
 
