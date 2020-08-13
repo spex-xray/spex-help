@@ -276,6 +276,33 @@ Example::
     >>> dir(asc)
     ['__doc__', '__init__', '__module__', 'atom', 'column', 'get', 'ion', 'logcol', 'name', 'nline', 'roman']
 
+Transmission and equivalent width of absorption lines and edges
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_tran
+
+Example::
+
+    >>> asc = s.ascdump_tran(1,2,sortn='ener')
+
+Transmission and equivalent width of absorption lines (only)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_tranline
+
+Example::
+
+    >>> asc = s.ascdump_tranline(1,2,sortn='ener')
+
+Transmission and equivalent width of absorption edges (only)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_tranedge
+
+Example::
+
+    >>> asc = s.ascdump_tranedge(1,2)
+
 Properties of the warm model
 """"""""""""""""""""""""""""
 
@@ -778,3 +805,4 @@ And for the cooling by di-electronic recombination:
 Example::
 
     >>> s.var_newcooldr(False)
+

@@ -96,6 +96,24 @@ COL: Ionic column densities
    .. autoclass:: pyspex.ascdump.Col
       :members:
 
+TRAN: Transmission and equivalent width of absorption lines and edges
+---------------------------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Tran
+      :members:
+
+Transmission and equivalent width of absorption lines (only)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  .. autoclass:: pyspex.ascdump.Tranline
+     :members:
+
+Transmission and equivalent width of absorption edges (only)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  .. autoclass:: pyspex.ascdump.Tranedge
+     :members:
+
 WARM: Column densities, ionisation parameters and temperatures
 --------------------------------------------------------------
 
