@@ -127,6 +127,23 @@ Example::
     >>> print(asc.elion[0])
     2.12289912301e-08
 
+Occupation numbers
+""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_pop
+
+Example::
+
+    >>> s.com('cie')
+     You have defined    1 component.
+    >>> s.var_calc(True)
+     Now using SPEXACT version 3.06.00
+    >>> pop = s.ascdump_pop(1,1)
+     number of layer lines :     3414534           0
+    >>> print(pop.ener)
+    [0.00000000e+00 1.01988100e-02 1.01988140e-02 ... 2.07258865e+01
+     2.07260918e+01 2.07263060e+01]
+
 Two-photon emission
 """""""""""""""""""
 

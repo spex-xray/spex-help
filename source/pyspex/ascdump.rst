@@ -36,6 +36,12 @@ RION: Ionisation rates per atomic subshell
    .. autoclass:: pyspex.ascdump.Rion
       :members:
 
+POP: Occupation numbers and loss and gain rates
+-----------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Pop
+      :members:
+
 TWO: Two-photon emission transition rates
 -----------------------------------------
 
