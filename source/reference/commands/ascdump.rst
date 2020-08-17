@@ -6,11 +6,11 @@ Ascdump: ascii output of plasma properties
 Overview
 ~~~~~~~~
 
-One of the drivers in developing SPEX is the desire to be able to get
+One of the drivers in developing SPEX is the desire to be able to get
 insight into the astrophysics of X-ray sources, beyond merely deriving a
 set of best-fit parameters like temperature or abundances. The general
 user might be interested to know ionic concentrations, recombination
-rates etc. In order to facilitate this SPEX contains options for
+rates etc. In order to facilitate this SPEX contains options for
 ascii-output.
 
 Ascii-output of plasma properties can be obtained for any spectral
@@ -133,7 +133,7 @@ tran:
    various columns as follows (first description, between brackets the
    acronym): energy (ener), wavelength (wav), ion (ion), optical depth
    at line center (tau), equivalent width in keV (ewk), equivalent width
-   in Å (ewa), Voigt a parameter (avo).
+   in Å (ewa), Voigt a parameter (avo).
 
 warm:
    the column densities, effective ionization parameters and
@@ -159,6 +159,12 @@ The following syntax rules apply for ascii output:
 | ``ascdump file #a1 #i1 #i2 #a2`` : As above, but output written to a
   file with its name given by the parameter #a1. The suffix ".asc" will
   be appended automatically to this filename.
+| ``ascdump set range #r: unit #a`` : The ``ascdump set`` command allows
+  users to set general parameters for the ascdump output. The ``range``
+  option is used to limit the output to an energy or wavelength range.
+  Obviously, this is effective only for outputs listed as a function
+  of energy, like ``lev``, ``line``, ``clin``, etc.
+
 
 .. warning:: Any existing files with the same name will be overwritten.
 .. warning:: Sorting only possible for the line and tran options.
@@ -173,3 +179,5 @@ Examples
 | ``ascdump terminal 3 2 line sort pow`` : dumps the emission line power
   of component 2 of sky sector 3 to the terminal screen, sorted
   according to line strength.
+| ``ascdump set range 1E-2:1. unit k`` : sets the output energy range
+  to 1E-2 to 1 keV.
