@@ -241,14 +241,14 @@ of the plasma, for example :math:`f=1.4287` for the present default
 abundances of SPEX (you can check this number from the ``asc ter
 ... plas`` ascii output option).
 
-.. Warning:: it is important to note that the acceleration is proportional to the hydrogen density,
-so take care to choose the appropriate hydrogen density, even in the low density limit where the
-spectral shape does not depend on the density. This counter-intuitive behaviour is caused by the
-use of :math:`\xi` as main parameter. Given the absolute ionising luminosity :math:`L` of the ionising
-source, and the value of :math:`\xi` and :math:`n_{\mathrm H}` provided by the user, 
-the pion model then calculates the distance :math:`r` from the equation :math:`\xi = L/nr^2`.
-Thus, higher density yields smaller distance, hence larger absorbed flux by the gas layer, hence
-stronger acceleration.
+.. Warning:: It is important to note that the acceleration is proportional to the hydrogen density,
+   so take care to choose the appropriate hydrogen density, even in the low density limit where the
+   spectral shape does not depend on the density. This counter-intuitive behaviour is caused by the
+   use of :math:`\xi` as main parameter. Given the absolute ionising luminosity :math:`L` of the ionising
+   source, and the value of :math:`\xi` and :math:`n_{\mathrm H}` provided by the user,
+   the pion model then calculates the distance :math:`r` from the equation :math:`\xi = L/nr^2`.
+   Thus, higher density yields smaller distance, hence larger absorbed flux by the gas layer, hence
+   stronger acceleration.
 
 Model parameters
 ----------------
@@ -280,7 +280,8 @@ The following parameters are common to all our absorption models:
   components
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
 | The following parameters are the same as for the cie-model (see there
-  for a description): ``ref`` : Reference element
+  for a description):
+| ``ref`` : Reference element
 | ``01...28`` : Abundances of H to Ni; only here we take H, He, C,
   N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
 | ``file`` : File name for the electron distribution (in case of a sum
