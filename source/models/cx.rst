@@ -64,13 +64,13 @@ Parameter description
 The parameters of the CX model are:
 
 | ``norm`` : the normalisation, which is the emission measure
-  :math:`Y \equiv n_{\mathrm
-  H} n_{\mathrm nh} V` in units of :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
+  :math:`Y \equiv n_{\mathrm H} n_{\mathrm nh} V` in units of
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
   :math:`n_{\mathrm H}` and :math:`n_{\mathrm nh}` are the Hydrogen
   densities of the ionized and neutral materials, respectively, and
   :math:`V` is the effective interaction volume. Default value: 1.
 | ``hden`` : Hydrogen density of the neutral materials in units of
-  :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}` 
+  :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}`
   :math:`\mathrm{m}^{-3}`).
   Default value: :math:`10^{-14}`.
 | ``mode`` : Switch between a hot-cold interaction driven by thermal

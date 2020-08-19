@@ -12,7 +12,7 @@ but several updates have been included (see :ref:`chap:plasmamodel`).
 Temperatures
 ------------
 
-Some remarks should be made about the temperatures. SPEX knows three
+Some remarks should be made about the temperatures. SPEX knows three
 temperatures that are used for this model.
 
 First there is the electron temperature :math:`T_{\mathrm e}`. This is
@@ -36,12 +36,12 @@ have :math:`R_{\mathrm b}` not equal to 1. Nevertheless we allow for the
 possibility of different values of :math:`R_{\mathrm b}`, in order to
 mimick out of equilibrium plasmas. For :math:`R_{\mathrm b}<1`, we have
 an ionizing plasma, for :math:`R_{\mathrm b}>1` a recombining plasma.
-Note that for ionizing plasmas SPEX has also the ``nei`` model
+Note that for ionizing plasmas SPEX has also the ``nei`` model
 (:ref:`sect:nei`), which takes into account explicitly the effects of
 transient (time dependent) ionization.
 
 It is also possible to mimic the effects of non-isothermality in a
-simple way. SPEX allows for a Gaussian emission measure distribution:
+simple way. SPEX allows for a Gaussian emission measure distribution:
 
 .. math:: Y(x) = \frac{Y_0}{\sqrt{2\pi} \sigma_T} e^{\displaystyle{-(x-x0)^2/2\sigma_T^2}}
 
@@ -72,12 +72,12 @@ Density effects
 
 It is also possible to vary the electron density :math:`n_{\mathrm e}`
 of the plasma. This does not affect the overall shape of the spectrum
-(i.e., by changing :math:`n_{\mathrm e}` only SPEX still uses the
+(i.e., by changing :math:`n_{\mathrm e}` only SPEX still uses the
 previous value of the emission measure
 :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V`), but spectral lines that
 are sensitive to the electron density will get different intensities.
 Usually this occurs for higher densities, for example under typical ISM
-conditions (:math:`n_{\mathrm e}` = 1 cm\ :math:`^{-3}`) this is not an
+conditions (:math:`n_{\mathrm e}` = 1 cm\ :math:`^{-3}`) this is not an
 important effect.
 
 Non-thermal electron distributions
@@ -125,14 +125,14 @@ Suppose the Solar O abundance is 1E-3 (i.e. there is 0.001
 oxygen atom per hydrogen atom in the Sun). Take the reference atom
 oxygen (:math:`Z=8`). Fix the oxygen abundance to 1. Fit your spectrum
 with a free hydrogen abundance. Suppose the outcome of this fit is a
-hydrogen abundance of 0.2 and an emission measure 3 (in SPEX units).
-This means :math:`n_{\mathrm e}n_{\mathrm X}V` = :math:`3\times 10^{64}` 
+hydrogen abundance of 0.2 and an emission measure 3 (in SPEX units).
+This means :math:`n_{\mathrm e}n_{\mathrm X}V` = :math:`3\times 10^{64}`
 :math:`\mathrm{m}^{-3}`. Then the "true" emission measure
-:math:`n_{\mathrm e}n_{\mathrm H}V` = :math:`0.2 \times 3\times 10^{64}` 
+:math:`n_{\mathrm e}n_{\mathrm H}V` = :math:`0.2 \times 3\times 10^{64}`
 :math:`\mathrm{m}^{-3}`.
 The nominal oxygen emission measure is
 :math:`n_{\mathrm e}n_{\mathrm O}V` = :math:`0.001 \times 3\times
-10^{64}` :math:`\mathrm{m}^{-3}`, and nominally oxygen would have 5 times
+10^{64}` :math:`\mathrm{m}^{-3}`, and nominally oxygen would have 5 times
 overabundance as compared to hydrogen, in terms of solar ratios.
 
 Parameter description
@@ -142,13 +142,13 @@ Parameter description
    becomes completely neutral, the model will crash. This is because in
    that case the electron density becomes zero, and the emission measure is
    undefined. The nominal temperature limits that are implemented in
-   SPEX usually avoid that condition, but the results may depend somewhat
+   SPEX usually avoid that condition, but the results may depend somewhat
    upon the metallicity because of the charge exchange processes in the
    ionisation balance.
 
 .. Warning:: In high resolution spectra, do not forget to couple the
    ion temperature to the electron temperature, as otherwise the ion
-   temperature might keep its default value of 1 keV during spectral
+   temperature might keep its default value of 1 keV during spectral
    fitting and the line widths may be wrong.
 
 .. Warning:: Some people use instead of the emission measure
@@ -170,7 +170,7 @@ The parameters of the model are:
 
 | ``norm`` : the normalisation, which is the emission measure
   :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V` in units of
-  :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
   :math:`n_{\mathrm e}` and :math:`n_{\mathrm H}` are the electron and
   Hydrogen densities and :math:`V` the volume of the source. Default
   value: 1.
@@ -185,8 +185,8 @@ The parameters of the model are:
   end. Default value: 0
 | ``logt`` : Switch between linear and logarithmic temperature scale for
   the gaussian emission measure profile. Default value: 1 (logarithmic)
-| ``ed`` : the electron density :math:`n_{\mathrm e}` in units of
-  :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}` :math:`\mathrm{cm}^{-3}`).
+| ``hden`` : the Hydrogen density :math:`n_{\mathrm e}` in units of
+  :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}` :math:`\mathrm{cm}^{-3}`).
   Default value: :math:`10^{-14}`, i.e. typical ISM conditions, or the
   low density limit.
 | ``it`` : the ion temperature :math:`T_{\mathrm i}` in keV. Default
