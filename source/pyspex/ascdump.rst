@@ -42,6 +42,24 @@ POP: Occupation numbers and loss and gain rates
    .. autoclass:: pyspex.ascdump.Pop
       :members:
 
+ELEX: Electron collisional excitation and de-excitation
+-------------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Elex
+      :members:
+
+PREX: Proton collisional excitation and de-excitation
+-----------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Prex
+      :members:
+
+RAD: Radiative transition rates for each level
+----------------------------------------------
+
+  .. autoclass:: pyspex.ascdump.Rad
+     :members:
+
 TWO: Two-photon emission transition rates
 -----------------------------------------
 

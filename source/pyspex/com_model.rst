@@ -144,6 +144,52 @@ Example::
     [0.00000000e+00 1.01988100e-02 1.01988140e-02 ... 2.07258865e+01
      2.07260918e+01 2.07263060e+01]
 
+Electron collision excitation and de-excitation
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_elex
+
+Example::
+
+    >>> s.com('cie')
+     You have defined    1 component.
+    >>> s.var_calc(True)
+     Now using SPEXACT version 3.06.00
+    >>> elex = s.ascdump_elex(1,1)
+     number of layer lines :     3414534           0
+    >>> print(elex.roman[0], elex.exrate[0], elex.dexrate[0])
+    H I 7.876707020520363e-09 7.957540149958931e-09
+
+Proton collision excitation and de-excitation
+"""""""""""""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_prex
+
+Example::
+
+    >>> s.com('cie')
+     You have defined    1 component.
+    >>> s.var_calc(True)
+     Now using SPEXACT version 3.06.00
+    >>> prex = s.ascdump_prex(1,1)
+     number of layer lines :     3414534           0
+    >>> print(prex.roman[0], prex.exrate[0], prex.dexrate[0])
+    H I 8.446477877133835e-11 8.446477910919745e-11
+
+Radiative transition rates
+""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_rad
+
+Example::
+
+    >>> s.com('cie')
+    >>> s.var_calc(True)
+    >>> rad = s.ascdump_rad(1,1)
+    >>> print(rad.prob)
+    [6.25112448e+08 2.49579989e-06 6.25343680e+08 ... 3.83159992e+11
+    1.89950003e+09 1.30540001e+10]
+
 Two-photon emission
 """""""""""""""""""
 
