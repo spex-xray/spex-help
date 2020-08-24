@@ -78,6 +78,12 @@ CLIN: Continuum, line and total spectrum
    .. autoclass:: pyspex.ascdump.Clin
       :members:
 
+LINE: Line energy, wavelength and emission
+------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Line
+      :members:
+
 CON: Ions contributing to the continuum
 ---------------------------------------
 

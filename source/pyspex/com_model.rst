@@ -256,6 +256,18 @@ Example::
     >>> dir(asc)
     ['__doc__', '__init__', '__module__', 'emean', 'flux', 'fluxcon', 'fluxlin', 'get', 'ibin', 'nbin']
 
+Line list with energies, wavelength and fluxes
+""""""""""""""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_line
+
+Example::
+
+    >>> s.com('cie')
+    >>> asc = s.ascdump_line(1,1,fluxlim=1E+40)
+    >>> print(asc.ener[0],asc.roman[0],asc.flux[0])
+    0.100125499 Fe XXI 1.0508157780758045e+42dir
+
 Ion contribution to the continuum
 """""""""""""""""""""""""""""""""
 
