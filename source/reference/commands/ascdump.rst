@@ -28,6 +28,9 @@ appropriate syntax.
 plas:
    basic plasma properties like temperature, electron density etc.
 
+heat:
+   heating and cooling rates for various processes (for photoionised models only)
+
 abun:
    elemental abundances and average charge per element.
 
@@ -35,13 +38,69 @@ icon:
    ion concentrations, both with respect to Hydrogen and the relevant
    elemental abundance.
 
+rion:
+   ionization rates per atomic subshell, specified according to the
+   different contributing processes.
+
 rate:
    total ionization, recombination and charge-transfer rates specified
    per ion.
 
-rion:
-   ionization rates per atomic subshell, specified according to the
-   different contributing processes.
+time:
+   recombination time scale per ion according to Bottorf et al. (2000) definition, and relative
+   ion concentrations. Note that the recombination time scale depends upon the
+   hydrogen density, so do not forget to set the relevant density in the model.
+
+grid:
+   the energy and wavelength grid used in the last evaluation of the
+   spectrum.
+
+con:
+   list of the ions that contribute to the free-free, free-bound and
+   two-photon continuum emission, followed by the free-free, free-bound,
+   two-photon and total continuum spectrum, for the last plasma layer of
+   the model.
+
+clin:
+   the continuum, line and total spectrum for each energy bin for the
+   last plasma layer of the model.
+   
+line:
+   the line energy and wavelength, as well as the total line emission
+   (photons/s) for each line contributing to the spectrum, for the last
+   plasma layer of the model. Also given is the natural line width and
+   the Doppler broadening (including thermal and turbulent broadening),
+   expressed as a FWHM in keV. Optionally, the results can be sorted
+   according to various columns as follows (first description, between
+   brackets the acronym): energy (ener), wavelength (wav), ion (ion),
+   line power (powe), natural line width (wid).
+   
+ebal:
+   the energy balance contributions of each layer (only for photoionized
+   plasmas).
+
+nei:
+   the history of ionisation parameter and temperature in NEI
+   calculations.
+
+snr:
+   hydrodynamical and other properties of the supernova remnant (only
+   for supernova remnant models such as Sedov, Chevalier etc.).
+   
+tcon:
+   list of the ions that contribute to the free-free, free-bound and
+   two-photon continuum emission, followed by the free-free, free-bound,
+   two-photon and total continuum spectrum, added for all plasma layers
+   of the model.
+   
+tcl:
+   the continuum, line and total spectrum for each energy bin added for
+   all plasma layers of the model.
+
+tlin:
+   the line energy and wavelength, as well as the total line emission
+   (photons/s) for each line contributing to the spectrum, added for all
+   plasma layers of the model.
 
 pop:
    the occupation numbers as well as upwards/downwards loss and gain
@@ -65,59 +124,9 @@ rad:
 two:
    the two-photon emission transition rates from each level.
 
-grid:
-   the energy and wavelength grid used in the last evaluation of the
-   spectrum.
-
-clin:
-   the continuum, line and total spectrum for each energy bin for the
-   last plasma layer of the model.
-
-line:
-   the line energy and wavelength, as well as the total line emission
-   (photons/s) for each line contributing to the spectrum, for the last
-   plasma layer of the model. Also given is the natural line width and
-   the Doppler broadening (including thermal and turbulent broadening),
-   expressed as a FWHM in keV. Optionally, the results can be sorted
-   according to various columns as follows (first description, between
-   brackets the acronym): energy (ener), wavelength (wav), ion (ion),
-   line power (powe), natural line width (wid).
-
-con:
-   list of the ions that contribute to the free-free, free-bound and
-   two-photon continuum emission, followed by the free-free, free-bound,
-   two-photon and total continuum spectrum, for the last plasma layer of
-   the model.
-
-tcl:
-   the continuum, line and total spectrum for each energy bin added for
-   all plasma layers of the model.
-
-tlin:
-   the line energy and wavelength, as well as the total line emission
-   (photons/s) for each line contributing to the spectrum, added for all
-   plasma layers of the model.
-
-tcon:
-   list of the ions that contribute to the free-free, free-bound and
-   two-photon continuum emission, followed by the free-free, free-bound,
-   two-photon and total continuum spectrum, added for all plasma layers
-   of the model.
-
-nei:
-   the history of ionisation parameter and temperature in NEI
-   calculations.
-
-snr:
-   hydrodynamical and other properties of the supernova remnant (only
-   for supernova remnant models such as Sedov, Chevalier etc.).
-
-heat:
-   plasma heating rates (only for photoionized plasmas).
-
-ebal:
-   the energy balance contributions of each layer (only for photoionized
-   plasmas).
+rec:
+   writes for each atomic level the populating contributions from radiative, dielectronic and
+   charge exchange recombination, as well as inner-shell ionisation
 
 dem:
    the emission measure distribution (for the pdem model)
