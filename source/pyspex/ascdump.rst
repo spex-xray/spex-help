@@ -66,6 +66,18 @@ TWO: Two-photon emission transition rates
    .. autoclass:: pyspex.ascdump.Two
       :members:
 
+TIME: Ionisation/recombination time scale
+-----------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Time
+      :members:
+
+REC: Recombination rates per level
+----------------------------------
+
+   .. autoclass:: pyspex.ascdump.Rec
+      :members:
+
 GRID: Energy and wavelength grid
 --------------------------------
 

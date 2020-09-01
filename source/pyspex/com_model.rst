@@ -217,6 +217,31 @@ Example::
      3.11180006e+09 6.48000000e+09 3.86369997e+09 8.03209984e+09
      4.76030003e+09 9.88000051e+09 5.82309990e+09]
 
+Ionisation/recombination time scale
+"""""""""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_time
+
+Example::
+
+    >>> s.com('cie')
+    >>> s.var_calc(True)
+    >>> time = s.ascdump_time(1,1)
+    >>> print(time.texp[0],time.conrel[0])
+    39107415.99632238 1.70394098830684e-08
+
+Recombination rates per level
+"""""""""""""""""""""""""""""
+
+  .. automethod:: pyspex.spex.Session.ascdump_rec
+
+Example::
+
+    >>> s.com('cie')
+    >>> s.var_calc(True)
+    >>> rec = s.ascdump_rec(1,1)
+    >>> print(line.roman[0],line.tran[0],line.arr[0],line.adr[0],line.cxrr[0],line.aii[0])
+    H I '1s 2S1/2                        ' 1.8855629312610887e-08 0.0 0.0 0.0
 
 Energy and wavelength grid
 """"""""""""""""""""""""""
