@@ -87,7 +87,8 @@ environment that can be installed through the Microsoft Store.
 
 `How to install Ubuntu in Windows 10 <https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0>`_
 
-In addition to the Ubuntu terminal, you also need a graphical X server. We recommend the XMING server. 
+In addition to the Ubuntu terminal, you also need a graphical X server. We recommend the `Vcxsrv server <https://sourceforge.net/projects/vcxsrv/>`_.
+Otherwise, the `XMING server <https://sourceforge.net/projects/xming/>`_ is an alternative. 
 This will make sure that you can plot in SPEX.
 
 Install SPEX in the Ubuntu environment
@@ -115,4 +116,17 @@ Install SPEX in the Ubuntu environment
 
 5. Remove the tar file: rm SPEX-3.05.00-Linux-gfortran.tar.gz
 
+6. Set the DISPLAY variable in ~/.bashrc::
+ 
+       echo "export DISPLAY=localhost:0.0" >> ~/.bashrc
+       . ~/.bashrc
 
+7. Run SPEX::
+
+       spex
+
+If you get an error about a missing library when running SPEX, please run the following command::
+
+       sudo apt-get install libopenblas-base libreadline8 x11-common libx11-6 gfortran
+
+The command above makes sure that all the packages that SPEX needs are installed.
