@@ -125,7 +125,7 @@ source $SPEX90/spexdist.csh (C-type shell)
 <p>SPEX can be installed in Windows 10 using the new linux subsystem in Windows. SPEX can run in an Ubuntu Linux
 environment that can be installed through the Microsoft Store.</p>
 <p><a class="reference external" href="https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0">How to install Ubuntu in Windows 10</a></p>
-<p>In addition to the Ubuntu terminal, you also need a graphical X server. We recommend the XMING server.
+<p>In addition to the Ubuntu terminal, you also need a graphical X server. We recommend the <a class="reference external" href="https://sourceforge.net/projects/xming/">XMING server</a>.
 This will make sure that you can plot in SPEX.</p>
 <div class="section" id="install-spex-in-the-ubuntu-environment">
 <h3><span class="section-number">1.1.4.1. </span>Install SPEX in the Ubuntu environment<a class="headerlink" href="#install-spex-in-the-ubuntu-environment" title="Permalink to this headline">¶</a></h3>
@@ -153,6 +153,11 @@ source $SPEX90/spexdist.csh (C-type shell)
 </li>
 <li><p>Remove the tar file: rm SPEX-3.05.00-Linux-gfortran.tar.gz</p></li>
 </ol>
+<p>If you get an error about a missing library when running SPEX, please run the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libopenblas-base libreadline8 x11-common libx11-6 gfortran
+</pre></div>
+</div>
+<p>The command above makes sure that all the packages that SPEX needs are installed.</p>
 </div>
 </div>
 </div>
@@ -235,7 +240,7 @@ source $SPEX90/spexdist.csh (C-type shell)
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Sep 07, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
