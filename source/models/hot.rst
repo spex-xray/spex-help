@@ -38,6 +38,9 @@ The parameters of the model are:
 | ``rt`` : the ratio of ionization balance to electron temperature,
   :math:`R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}` in keV. Default
   value: 1.
+| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+  Default value: :math:`10^{-14}` (corresponding to
+  :math:`10^{6}` :math:`\mathrm{m}^{-3}`, a typical value for the ISM).
 
 The following parameters are common to all our absorption models:
 

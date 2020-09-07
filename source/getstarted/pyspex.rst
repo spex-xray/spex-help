@@ -62,3 +62,26 @@ If you do not want to use conda, you can also compile the Python interfaces for 
 either through a compile script called ``compile.py`` or manually with CMake by adding the option ``-DPYTHON=2`` or
 ``-DPYTHON=3`` depending on the python version. The use of Python 3 is strongly recommended. See :ref:`sec:compile`
 for details.
+
+Integration into iPython and Jupyter Notebook
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Next to the dependencies installed in the conda environment ``spex``, the Python interface also depends on the SPEX
+environment variables set with the spexdist.(c)sh files. So before running iPython or Jupyter notebook, it is
+necessary to source the SPEX environment (also make sure the conda ``spex`` environment is activated)::
+
+    (spex) unix:~> source /opt/spex/spexdist.sh
+
+(replace /opt/spex in this path with the location of SPEX on your machine, or $SPEX90 if this variable is already set).
+
+It may be that iPython and Jupyter are not yet installed in your conda environment. If not, please install them using
+the command::
+
+    (spex) unix:~> conda install jupyter_client ipykernel
+
+With iPython and Jupyter notebook, it can be helpful to install the spex conda environment explicitly for your project::
+
+    (spex) unix:~> ipython kernel install --user --name=spex
+
+In your Jupyter notebook, you can now select ``spex`` from the drop-down menu if you are creating a new project. The
+``spex`` conda environment should now be linked to your Jupyter project.
