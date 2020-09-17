@@ -133,7 +133,7 @@ distribution. They will be updated in future versions.
    4103       olivine             :math:`\mathrm{Mg_{1.6} Fe_{0.4} SiO_4}`                                               O 1s            `[22] <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
    4104       almandine           :math:`\mathrm{Fe_3 Al_2 (Si O_4)_3}`                                                  O 1s            `[22] <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
    4105       hedenbergite        :math:`\mathrm{Ca Fe Si_2 O_6}`                                                        O 1s            `[22] <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
-   5001       dna (herring sperm) :math:`\mathrm{C_{39} H_{61} N_{15} O_{36} P_{4}`                                      O,N 1s          `[24] <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_   
+   5001       dna (herring sperm) :math:`\mathrm{C_{39} H_{61} N_{15} O_{36} P_{4}}`                                     O,N 1s          `[24] <https://ui.adsabs.harvard.edu/abs/2003NIMPB.199..249F/abstract>`_   
    6001       montmorillonite     :math:`\mathrm{Na_{0.2} Ca_{0.1} Al_2 Si_4 O_{10} (O H_2)(H_2 O)_{10}}`                Si 1s           `[20] <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
    6002       nontronite          :math:`\mathrm{Na_{0.3} Fe_2^{3+} Si_3 Al O_{10} (OH)_2 \bullet (H_2 O)}`              Si 1s           `[20] <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
    7001       enstatite_paulite   :math:`\mathrm{Ca_2 Mg_4 Al_{0.75} Fe_{0.25} Si_7 Al O_{22} (OH)_2}`                   Si 1s           `[20] <https://www.sron.nl/files/HEA/XRAY2010/talks/3/lee.pdf>`_
