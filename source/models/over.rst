@@ -44,7 +44,6 @@ Currently the following models are implemented in SPEX:
    rrc
    slab
    spln
-   tpho
    user
    vblo
    vgau

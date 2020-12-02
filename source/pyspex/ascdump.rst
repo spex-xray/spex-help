@@ -48,6 +48,18 @@ CLIN: Continuum, line and total spectrum
    .. autoclass:: pyspex.ascdump.Clin
       :members:
 
+LINE: Line energies, wavelengths and total line emission
+--------------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Line
+      :members:
+
+EBAL: Energy balance contributions
+----------------------------------
+
+   .. autoclass:: pyspex.ascdump.Ebal
+      :members:
+
 CON: Ions contributing to the continuum
 ---------------------------------------
 
@@ -66,6 +78,47 @@ TCON: Ions contributing to the continuum (added layers)
    .. autoclass:: pyspex.ascdump.Tcon
       :members:
 
+POP: Level populations
+----------------------
+
+   .. autoclass:: pyspex.ascdump.Pop
+      :members:
+
+ELEX: Electron collision excitation and de-excitation
+-----------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Elex
+      :members:
+
+PREX: Proton collision excitation and de-excitation
+---------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Prex
+      :members:
+
+RAD: Radiative transition rates
+-------------------------------
+
+   .. autoclass:: pyspex.ascdump.Rad
+      :members:
+
+TWO: Two-photon emission
+------------------------
+
+   .. autoclass:: pyspex.ascdump.Two
+      :members:
+
+TIME: Recombination timescale per ion
+-------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Time
+      :members:
+
+REC: Recombination and inner-shell ionisation for each level
+------------------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Rec
+
 NEI: History of ionisation parameter and temperature
 ----------------------------------------------------
 
@@ -82,6 +135,18 @@ COL: Ionic column densities
 ---------------------------
 
    .. autoclass:: pyspex.ascdump.Col
+      :members:
+
+TRAN: Transmission for absorption lines and edges
+-------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Tran
+      :members:
+
+   .. autoclass:: pyspex.ascdump.Tranline
+      :members:
+
+   .. autoclass:: pyspex.ascdump.Tranedge
       :members:
 
 WARM: Column densities, ionisation parameters and temperatures
