@@ -6,11 +6,11 @@ Ascdump: ascii output of plasma properties
 Overview
 ~~~~~~~~
 
-One of the drivers in developing SPEX is the desire to be able to get
+One of the drivers in developing SPEX is the desire to be able to get
 insight into the astrophysics of X-ray sources, beyond merely deriving a
 set of best-fit parameters like temperature or abundances. The general
 user might be interested to know ionic concentrations, recombination
-rates etc. In order to facilitate this SPEX contains options for
+rates etc. In order to facilitate this SPEX contains options for
 ascii-output.
 
 Ascii-output of plasma properties can be obtained for any spectral
@@ -142,7 +142,7 @@ tran:
    various columns as follows (first description, between brackets the
    acronym): energy (ener), wavelength (wav), ion (ion), optical depth
    at line center (tau), equivalent width in keV (ewk), equivalent width
-   in Å (ewa), Voigt a parameter (avo).
+   in Å (ewa), Voigt a parameter (avo).
 
 warm:
    the column densities, effective ionization parameters and
@@ -168,6 +168,10 @@ The following syntax rules apply for ascii output:
 | ``ascdump file #a1 #i1 #i2 #a2`` : As above, but output written to a
   file with its name given by the parameter #a1. The suffix ".asc" will
   be appended automatically to this filename.
+| ``ascdump set range #r1: unit #a1`` : Set the output energy range for the ascii
+  output of: con, clin, lev, line, pop, tcon, tcl, tlin, tran.
+| ``ascdump set flux #r1`` : Set the minimum line flux/tau to display in the
+  ascii output of: line, tlin and tran.
 
 .. warning:: Any existing files with the same name will be overwritten.
 .. warning:: Sorting only possible for the line and tran options.
@@ -182,3 +186,7 @@ Examples
 | ``ascdump terminal 3 2 line sort pow`` : dumps the emission line power
   of component 2 of sky sector 3 to the terminal screen, sorted
   according to line strength.
+| ``ascdump set range 0.1:1.0 unit kev`` : sets the output energy range to
+  0.1 to 1.0 keV.
+| ``ascdump set flux 1E+35`` : sets the minimum line strength for the line
+  and tlin output to 1E+35.
