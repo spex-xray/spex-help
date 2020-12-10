@@ -309,7 +309,9 @@ In SPEX 3.06.01:
 
 - Added par_show function to pyspex for use with Jupyter Notebook.
 
-- Added functionality to ascdump, both in SPEX and in pyspex.
+- Added functionality to ascdump, both in SPEX and in pyspex. The ascdump command in SPEX has now the
+  ``set range`` and ``set flux`` options to limit the output to a certain energy range or to lines
+  with a minimum flux or optical depth.
 
 In SPEXACT 3.06.01:
 
