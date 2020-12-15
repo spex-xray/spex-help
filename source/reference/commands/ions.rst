@@ -3,6 +3,8 @@
 Ion: select ions for the plasma models
 ======================================
 
+.. highlight:: none
+
 Overview
 --------
 
@@ -113,7 +115,7 @@ To undo the quicklook mode, just type ``ions use all``.
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
 
 Mute lines
-----------
+''''''''''
 
 A new feature since version 3.06.01 is the line mute command. In some cases,
 when users what to study a particular line, they want to remove the line
@@ -122,7 +124,8 @@ from the spectrum to replace it, for example, with a delta line or Gaussian.
 The ``ions mute line`` command allows to mute up to 10 spectral lines
 identified from the ``asc ter line`` output. Please note that this command
 only works for SPEXACT v3 (``var calc new``). When SPEXACT v3 is enabled, the
-``ascdump line`` command will show a line list with line id numbers::
+``ascdump line`` command (:ref:`sec:ascdump`) will show a line list with line
+id numbers::
 
       1   O  VIII   1s 2S1/2                         - 2p 2P1/2                        0.6534939       18.97252      1.418E+42  1.689E-06  3.957E-04
       2   O  VIII   1s 2S1/2                         - 2s 2S1/2                        0.6535030       18.97225      1.011E+39  1.419E-12  3.957E-04
