@@ -136,8 +136,9 @@ col:
    models
 
 tran:
-   the transmission and equivalent width of absorption lines and
-   absorption edges for the hot, pion, slab, xabs and warm models.
+   In two subsequent tables, the transmission and equivalent width of
+   absorption lines (first table) and absorption edges (second table)
+   are listed for the hot, pion, slab, xabs and warm models.
    Optionally, the results (lines only) can be sorted according to
    various columns as follows (first description, between brackets the
    acronym): energy (ener), wavelength (wav), ion (ion), optical depth
