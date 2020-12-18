@@ -313,6 +313,10 @@ In SPEX 3.06.01:
   ``set range`` and ``set flux`` options to limit the output to a certain energy range or to lines
   with a minimum flux or optical depth.
 
+- Added a command to remove one (or a couple of) lines from emission spectra. With the ``ions mute line``
+  command, a line can be selected for removal from the spectrum. This is especially helpful when a line
+  shows effects that SPEX does not model, but can be fitted with a customized Gaussian/line profile.
+
 In SPEXACT 3.06.01:
 
 - The collisional excitation cross sections for H I at low and intermediate
