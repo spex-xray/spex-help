@@ -321,6 +321,11 @@ In SPEXACT 3.06.01:
   in the Chianti database. That is based on the Anderson et al. 2002 erratum
   with a sensible extrapolation to higher energies.
 
+  .. Warning:: The update above affects both emitted H I spectra, and the total cooling
+     rate at the lower temperatures (few eV) in the ``pion`` model. That cooling rate
+     may differ at some temperatures by a factor of 3-4. Therefore results obtained
+     with the most recent SPEX version will differ from those of version 3.05 and earlier.
+
 - Fixed a problem with Li-like Fe-L data (remove high multipole transitions arisen from a bug in FAC).
 
 - Fixed a bug in the NEIJ model which produced wrong ion concentrations from SPEX version 3.05.

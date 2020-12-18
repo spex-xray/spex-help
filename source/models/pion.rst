@@ -49,6 +49,14 @@ self-consistently using the available plasma routines of SPEX.
    disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
    in `Mehdipour et al. (2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_.
 
+.. Warning:: Starting from SPEX Version 3.06, we have updated the cooling due
+   to collisional excitation (work performed by Stofanova et al., 2021, submitted).
+   In addition, starting from SPEX Version 3.06.01, we have improved the collisional
+   excitation rates of neutral hydrogen; the latter affects both emitted H I spectra,
+   and the total cooling rate at the lower temperatures (few eV). That cooling rate
+   may differ at some temperatures by a factor of 3-4. Therefore results obtained
+   with the most recent version will differ from those of version 3.05 and earlier.
+
 The main advantage, however, is that the user can define his own
 ionising continuum by combining any additive components of SPEX, and
 that ionising spectrum is fed through the *pion* component to get the
