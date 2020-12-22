@@ -230,7 +230,7 @@ Let's first load the data into SPEX and see how they look::
     SPEX> pl ry 1E-4:10.
     SPEX> pl
 
-.. figure:: twospec_1.gif
+.. figure:: twospec_1.png
    :width: 600
 
 Now, we ignore the parts of the spectra that are not well calibrated or contain too little photons::
@@ -402,7 +402,7 @@ Let's have a look at how this shows in the ``par show`` command::
      Degrees of freedom:         0
      W-statistic       :         0.00
 
-.. figure:: twospec_2.gif
+.. figure:: twospec_2.png
    :width: 600
 
 Obviously, the initial model parameters are quite far off. We also need to fix the hot model to a low temperature
@@ -419,7 +419,7 @@ to mimic neutral gas::
     SPEX> calc
     SPEX> plot
 
-.. figure:: twospec_3.gif
+.. figure:: twospec_3.png
    :width: 600
 
 Now, the model spectrum is much closer to the best solution, so we can attempt a fit::
@@ -467,7 +467,7 @@ which provides the following best fit parameters::
 
 And plot:
 
-.. figure:: twospec_4.gif
+.. figure:: twospec_4.png
    :width: 600
 
 This fit already looks acceptable, but let's assume that we want to test if the oxygen abundance in the absorber is
