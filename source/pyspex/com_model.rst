@@ -297,6 +297,13 @@ The ion selections can be shown by calling the ``ions_show`` function below:
 
 .. automethod:: pyspex.spex.Session.ions_show
 
+Line selection
+""""""""""""""
+
+Up to 10 specific lines can be 'muted' using the ``ions_line`` function below:
+
+.. automethod:: pyspex.spex.Session.ions_line
+
 
 Setting parameters
 ^^^^^^^^^^^^^^^^^^

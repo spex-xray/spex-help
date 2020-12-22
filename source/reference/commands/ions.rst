@@ -3,6 +3,8 @@
 Ion: select ions for the plasma models
 ======================================
 
+.. highlight:: none
+
 Overview
 --------
 
@@ -10,6 +12,9 @@ For the plasma models, it is possible to include or exclude specific
 groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
 requested.
+
+In addition, there is an option to mute particular lines in the spectrum
+for specific analysis purposes.
 
 There are two main reasons why the user may use this option: computational speed
 and educational reasons. 
@@ -109,6 +114,35 @@ To undo the quicklook mode, just type ``ions use all``.
    Zn XXX   2              1                                                                            
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
 
+Mute lines
+''''''''''
+
+A new feature since version 3.06.01 is the line mute command. In some cases,
+when users what to study a particular line, they want to remove the line
+from the spectrum to replace it, for example, with a delta line or Gaussian.
+
+The ``ions mute line`` command allows to mute up to 10 spectral lines
+identified from the ``asc ter line`` output. Please note that this command
+only works for SPEXACT v3 (``var calc new``). When SPEXACT v3 is enabled, the
+``ascdump line`` command (:ref:`sec:ascdump`) will show a line list with line
+id numbers::
+
+      1   O  VIII   1s 2S1/2                         - 2p 2P1/2                        0.6534939       18.97252      1.418E+42  1.689E-06  3.957E-04
+      2   O  VIII   1s 2S1/2                         - 2s 2S1/2                        0.6535030       18.97225      1.011E+39  1.419E-12  3.957E-04
+      3   O  VIII   1s 2S1/2                         - 2p 2P3/2                        0.6536802       18.96711      2.834E+42  1.691E-06  3.958E-04
+
+In the example of O VIII above, the line id is listed as an integer in the first
+column before O VIII. To not show the O VIII Lya lines in the spectrum, they can
+be muted with the command::
+
+    SPEX> ions mute line 1 ion 8 8
+    SPEX> ions mute line 3 ion 8 8
+
+Where the number behind ``line`` is the line id, and the numbers behind ``ion``
+are the atomic number and ionisation stage, respectively. If necessary, the
+lines can be unmuted with the ``ions unmute line`` command which has a very
+similar syntax.
+
 Syntax
 ------
 
@@ -178,6 +212,10 @@ The following syntax rules apply:
   indicated by #i1
 | ``ions new ion #i1 #i2:`` : Force the new calculation for atomic
   number indicated by #i1 and ionisation stage indicated by #i2.
+| ``ions mute line #i1 ion #i2 #i3`` : Mute a line with id #i1 for
+  element #i2 at ionisation stage #i3.
+| ``ions unmute line #i1 ion #i2 #i3`` : Unmute a line with id #i1 for
+  element #i2 at ionisation stage #i3.
 
 Examples
 --------
@@ -188,14 +226,16 @@ Examples
 | ``ions use iso 1:2`` : Use ions from the H-like and He-like
   isoelectronic sequences
 | ``ions ignore z 26`` : Ignore all iron (:math:`Z=26`) ions
-| ``ions use ion 6 5:6`` : Use C V to C VI
+| ``ions use ion 6 5:6`` : Use C V to C VI
 | ``ions mute ion 8 7`` : does eliminate the O VII continuum and lines from
   the displayed spectrum
 | ``ions unmute iso 2`` : shows the emission from all He-like ions (again).
 | ``ions show`` : Display the list of ions that are used
 | ``ions ql`` : Quicklook mode on
-| ``ions old ion 6 6`` : Use old calculation for C VI
+| ``ions old ion 6 6`` : Use old calculation for C VI
 | ``ions nmax ion 26 25 5`` : Set maximum principal quantum number for
-  Fe XXV to :math:`n=5`.
+  Fe XXV to :math:`n=5`.
 | ``ions lmax ion 26 25 3`` : Set maximum angular momentum quantum
-  number for Fe XXV to :math:`\ell=3`.
+  number for Fe XXV to :math:`\ell=3`.
+| ``ions mute line 1 ion 8 8`` : Mute line id 1 for O VIII.
+| ``ions unmute line 1 ion 8 8`` : Unmute line id 1 for O VIII.
