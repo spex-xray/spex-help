@@ -30,7 +30,7 @@ one run of the program. To start SPEX do this:
 ::
 
    user@linux:~> spex
-    Welcome user to SPEX version 3.05.00
+    Welcome user to SPEX version 3.06.00
 
    SPEX>
 
@@ -92,6 +92,26 @@ By default, the ranges of the axes are usually too broad. For this spectrum, the
 .. figure:: ccd3.png
    :width: 600
 
+Select good data and bin the spectrum
+-------------------------------------
+
+Before we start fitting, we can make sure that only trustworthy data is fitted. For MOS1, for example, we know that
+the calibration is valid for the energy range between roughly 0.3 keV and 10 keV. To fit only the good spectral
+interval, we need to ignore the parts at low and high energies. This is done using the ``ignore`` command.
+
+In addition, we can bin the spectrum. To automatically rebin to the recommended (optimal) bin size, one can use
+the ``obin`` command. This command bins the spectrum optimally based on the instrument resolution and statistics.
+
+::
+
+    SPEX> ignore 0:0.3 unit kev
+    SPEX> ignore 10:100 unit kev
+    SPEX> obin 0.3:10 unit kev
+    SPEX> plot
+
+.. figure:: ccd4.png
+   :width: 600
+
 
 Define the model
 ----------------
@@ -136,7 +156,7 @@ components.
 
 Calculating and plotting the model unsurprisingly results in a curve that is not near to the data.
 
-.. figure:: ccd4.png
+.. figure:: ccd5.png
    :width: 600
 
 
@@ -154,7 +174,7 @@ We can set the guess parameters as follows:
 
     SPEX> par 1 1 z v 0.05
     SPEX> par 1 1 z s t
-    SPEX> par 1 2 t v 5E-4
+    SPEX> par 1 2 t v 8E-6
     SPEX> par 1 2 t s f
     SPEX> par 1 2 nh v 1E-4
     SPEX> par 1 3 norm v 1000.
@@ -162,7 +182,7 @@ We can set the guess parameters as follows:
     SPEX> ca
     SPEX> pl
 
-.. figure:: ccd5.png
+.. figure:: ccd6.png
    :width: 600
 
 As we can see from the image, the first guess of the model is already in the right direction.
@@ -175,7 +195,12 @@ the distance, it is wise to set that distance in SPEX (:ref:`sec:distance`):
     SPEX> dist 0.05 z
 
 The command above sets the distance to 0.05 z and makes sure that the luminosities are correctly calculated.
-Note that this distance change also affects the values of the normalisation of the models!
+Note that this distance change also affects the values of the normalisation of the models! So, we increase
+the normalisation to keep the model reasonably close to the data:
+
+::
+
+    SPEX> par 1 3 norm v 1E+8
 
 Fit the model
 -------------
@@ -187,24 +212,23 @@ to be set only once per session. A subsequent ``fit`` command (:ref:`sec:fit`) s
 
     SPEX> fit print 1
     SPEX> fit
-       50865.8      5.000E-02  1.000E-04  1.000E+03   3.00
-       6159.59      5.225E-02  3.728E-04   485.       2.21
-       5298.40      5.318E-02  3.756E-04   543.       2.30
-       5280.39      5.503E-02  3.791E-04   545.       2.29
-       5273.64      5.579E-02  3.774E-04   545.       2.30
-       5271.29      5.634E-02  3.784E-04   545.       2.30
-       5269.85      5.656E-02  3.784E-04   545.       2.30
-       5269.84      5.651E-02  3.784E-04   545.       2.30
-       5269.81      5.652E-02  3.783E-04   545.       2.30
-       5269.81      5.652E-02  3.783E-04   545.       2.30
+       42102.6              5  5.000E-02  1.000E-04  1.000E+08   3.00
+       2461.87             10  5.404E-02  9.087E-05  2.021E+08   2.04
+       428.533             15  5.439E-02  1.041E-04  2.412E+08   2.31
+       414.925             20  5.437E-02  9.425E-05  2.429E+08   2.37
+       414.651             25  5.426E-02  9.229E-05  2.428E+08   2.37
+       414.532             30  5.408E-02  9.269E-05  2.428E+08   2.37
+       414.525             35  5.412E-02  9.281E-05  2.428E+08   2.37
+       414.524             42  5.411E-02  9.270E-05  2.428E+08   2.37
+       414.524             48  5.411E-02  9.265E-05  2.428E+08   2.37
     --------------------------------------------------------------------------------------------------
     sect comp mod  acro parameter with unit     value      status    minimum   maximum lsec lcom lpar
 
-       1    1 reds z    Redshift             5.6520663E-02 thawn    -1.0      1.00E+10
+       1    1 reds z    Redshift             5.4108180E-02 thawn    -1.0      1.00E+10
        1    1 reds flag Flag: cosmo=0, vel=1  0.000000     frozen    0.0       1.0
 
-       1    2 hot  nh   X-Column (1E28/m**2) 3.7826155E-04 thawn     0.0      1.00E+20
-       1    2 hot  t    Temperature (keV)    5.0000002E-04 frozen   5.00E-04  1.00E+03
+       1    2 hot  nh   X-Column (1E28/m**2) 9.2653019E-05 thawn     0.0      1.00E+20
+       1    2 hot  t    Temperature (keV)    1.9999999E-04 frozen   2.00E-04  1.00E+03
        1    2 hot  rt   T(balance) / T(spec)  1.000000     frozen   1.00E-04  1.00E+04
        1    2 hot  fcov Covering fraction     1.000000     frozen    0.0       1.0
        1    2 hot  v    RMS Velocity (km/s)   100.0000     frozen    0.0      3.00E+05
@@ -244,15 +268,15 @@ to be set only once per session. A subsequent ``fit`` command (:ref:`sec:fit`) s
        1    2 hot  30   Abundance Zn          1.000000     frozen    0.0      1.00E+10
        1    2 hot  file File electr.distrib.
 
-       1    3 cie  norm ne nX V (1E64/m**3)   545.4489     thawn     0.0      1.00E+20
-       1    3 cie  t    Temperature (keV)     2.300449     thawn    5.00E-04  1.00E+03
+       1    3 cie  norm ne nX V (1E64/m**3)  2.4279381E+08 thawn     0.0      1.00E+20
+       1    3 cie  t    Temperature (keV)     2.372914     thawn    5.00E-04  1.00E+03
        1    3 cie  sig  Sigma                 0.000000     frozen    0.0      1.00E+04
        1    3 cie  sup  Sigma up              0.000000     frozen    0.0      1.00E+04
        1    3 cie  logt T grid (lin/log)      1.000000     frozen    0.0       1.0
        1    3 cie  ed   El  dens (1E20/m**3) 9.9999998E-15 frozen   1.00E-22  1.00E+10
        1    3 cie  it   Ion temp  (keV)       1.000000     frozen   1.00E-04  1.00E+07
        1    3 cie  rt   T(balance) / T(spec)  1.000000     frozen   1.00E-04  1.00E+04
-       1    3 cie  vmic Microturb vel (km/s)  0.000000     frozen    0.0      3.00E+05
+       1    3 cie  vrms RMS Velocity (km/s)   0.000000     frozen    0.0      3.00E+05
        1    3 cie  ref  Reference atom        1.000000     frozen    1.0       30.
        1    3 cie  01   Abundance H           1.000000     frozen    0.0      1.00E+10
        1    3 cie  02   Abundance He          1.000000     frozen    0.0      1.00E+10
@@ -290,81 +314,36 @@ to be set only once per session. A subsequent ``fit`` command (:ref:`sec:fit`) s
 
 
     Instrument     1 region    1 has norm    1.00000E+00 and is frozen
-    ---------------------------------------------------------------------------------------------
-    sect comp mod  acro parameter with unit      sect comp mod  acro parameter with unit  correl.
-
-       1    1 reds z    Redshift             <->    1    2 hot  nh   X-Column (1E28/m**2)   0.006
-       1    1 reds z    Redshift             <->    1    3 cie  norm ne nX V (1E64/m**3)    0.035
-       1    1 reds z    Redshift             <->    1    3 cie  t    Temperature (keV)      0.200
-       1    2 hot  nh   X-Column (1E28/m**2) <->    1    3 cie  norm ne nX V (1E64/m**3)    0.582
-       1    2 hot  nh   X-Column (1E28/m**2) <->    1    3 cie  t    Temperature (keV)     -0.173
-       1    3 cie  norm ne nX V (1E64/m**3)  <->    1    3 cie  t    Temperature (keV)      0.069
-
 
     --------------------------------------------------------------------------------
      Fluxes and restframe luminosities between   2.0000     and    10.000     keV
 
      sect comp mod   photon flux   energy flux nr of photons    luminosity
                   (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
-        1    3 cie    4.23975      2.265908E-15  5.845445E+45  3.101105E+30
+        1    3 cie    4.13667      2.229383E-15  2.655905E+51  1.422295E+36
 
+    --------------------------------------------------------------------------------
      Fit method        : Classical Levenberg-Marquardt
      Fit statistic     : C-statistic
-     C-statistic       :      5269.81
-     Expected C-stat   :       660.01 +/-        34.94
-     Chi-squared value :   2307566.25
-     Degrees of freedom:       791
+     C-statistic       :       414.52
+     Expected C-stat   :       247.13 +/-        21.92
+     Chi-squared value :       528.16
+     Degrees of freedom:       239
      W-statistic       :         0.00
 
 At the end of the optimization step, SPEX prints out an overview of the fit parameters and the fit statistics. Here we
-can see that the fit improved, but there is still a lot of room for improvement.
-
-.. figure:: ccd6.png
-   :width: 600
-
-
-Do additional selections on the data
-------------------------------------
-
-In the beginning, we did not ignore possible bad energy intervals in the spectrum. For MOS1, for example, we know that
-the calibration is valid for the energy range between roughly 0.3 keV and 10 keV. To fit only the good spectral
-interval, we need to ignore the parts at low and high energies.
-
-::
-
-    SPEX> ignore 0:0.3 unit kev
-    SPEX> ignore 10:100 unit kev
-    SPEX> plot
+can see that the fit improved, but there is still room for improvement.
 
 .. figure:: ccd7.png
-   :width: 600
-
-
-The plot shows that the data points below 0.3 keV have disappeared. When we fit again, the C-statistics value improves
-a lot:
-
-::
-
-    SPEX> fit
-     ...
-     Fit method        : Classical Levenberg-Marquardt
-     Fit statistic     : C-statistic
-     C-statistic       :       798.47
-     Expected C-stat   :       615.03 +/-        33.31
-     Chi-squared value :      3421.64
-     Degrees of freedom:       643
-     W-statistic       :         0.00
-
-.. figure:: ccd8.png
    :width: 600
 
 
 Fitting abundances
 ------------------
 
-Although the C-statistics improved, there are still residuals in the spectrum, especially around the strongest spectral
-lines. This is because the metal abundances in the gas are still fixed to 1.0. We can let the abundances vary in the
-optimization by setting them to thawn:
+Although the C-statistics are not too bad, there are still residuals in the spectrum, especially around the strongest
+spectral lines. This is because the metal abundances in the gas are still fixed to 1.0. We can let the abundances vary
+in the optimization by setting them to thawn:
 
 ::
 
@@ -380,17 +359,17 @@ optimization by setting them to thawn:
 
 The optimization leads to an even better fit:
 
-.. figure:: ccd9.png
+.. figure:: ccd8.png
    :width: 600
 
 ::
 
      Fit method        : Classical Levenberg-Marquardt
      Fit statistic     : C-statistic
-     C-statistic       :       654.72
-     Expected C-stat   :       614.18 +/-        33.29
-     Chi-squared value :      3157.79
-     Degrees of freedom:       635
+     C-statistic       :       266.80
+     Expected C-stat   :       247.12 +/-        21.91
+     Chi-squared value :       366.77
+     Degrees of freedom:       231
      W-statistic       :         0.00
 
 
@@ -406,20 +385,21 @@ Below we calculate, for example, the error on the best fit temperature:
      parameter          C-stat      Delta          Delta
        value            value       parameter     C-stat
     ----------------------------------------------------
-       2.34612          655.90     -2.367735E-02    1.18
-       2.34973          655.56     -2.005935E-02    0.84
-       2.34806          655.60     -2.173662E-02    0.89
-       2.34709          655.83     -2.270699E-02    1.12
-       2.34757          655.78     -2.222180E-02    1.06
-       2.34781          655.72     -2.197933E-02    1.01
-       2.34793          655.68     -2.186084E-02    0.96
-       2.39347          655.50      2.367735E-02    0.79
-       2.41715          658.33      4.735494E-02    3.62
-       2.39347          655.50      2.367735E-02    0.79
-       2.39526          655.67      2.547121E-02    0.95
-       2.39577          655.74      2.597785E-02    1.03
-       2.39553          655.69      2.574086E-02    0.97
-     Parameter   1    3 t   :    2.3698     Errors:  -2.18608E-02 ,   2.57409E-02
+       2.33348          267.68     -2.246547E-02    0.89
+       2.31101          270.23     -4.493093E-02    3.44
+       2.33348          267.68     -2.246547E-02    0.89
+       2.33247          267.69     -2.346587E-02    0.90
+       2.32425          268.52     -3.169394E-02    1.73
+       2.32836          268.05     -2.758002E-02    1.26
+       2.33042          267.87     -2.552295E-02    1.07
+       2.33127          267.79     -2.466774E-02    1.00
+       2.37841          267.71      2.246547E-02    0.92
+       2.40087          270.28      4.493093E-02    3.49
+       2.37841          267.71      2.246547E-02    0.92
+       2.37914          267.77      2.319646E-02    0.98
+       2.37940          267.78      2.345586E-02    0.99
+       2.37974          267.81      2.379751E-02    1.02
+     Parameter   1    3 t   :    2.3559     Errors:  -2.46677E-02 ,   2.37975E-02
 
 The error command reports the best fit value for the temperature and the lower and upper 1 sigma (68%) confidence
 level.

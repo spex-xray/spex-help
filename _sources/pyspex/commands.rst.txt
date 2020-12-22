@@ -35,6 +35,7 @@ In the examples below, we assume PYSPEX has been started in python as follows::
 
    com_data
    com_model
+   com_ascdump
    com_opt
    com_plot
    com_log

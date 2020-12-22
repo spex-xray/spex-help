@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6.1.3.3. Optimization commands &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>6.1.3.4. Optimization commands &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_opt.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.1.3.4. Plot commands" href="com_plot.html" />
-    <link rel="prev" title="6.1.3.2. Model related commands" href="com_model.html" />
+    <link rel="next" title="6.1.3.5. Plot commands" href="com_plot.html" />
+    <link rel="prev" title="6.1.3.3. Ascdump commands" href="com_ascdump.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,12 +35,12 @@
           <div class="body" role="main">
             
   <div class="section" id="optimization-commands">
-<h1><span class="section-number">6.1.3.3. </span>Optimization commands<a class="headerlink" href="#optimization-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.3.4. </span>Optimization commands<a class="headerlink" href="#optimization-commands" title="Permalink to this headline">¶</a></h1>
 <p>Once the data have been read in and the model has been set, the model parameters can be optimized
 to fit the data. The methods in this section are used for the optimization and determination of
 the uncertainties in the fit.</p>
 <div class="section" id="fit">
-<h2><span class="section-number">6.1.3.3.1. </span>Fit<a class="headerlink" href="#fit" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.4.1. </span>Fit<a class="headerlink" href="#fit" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX command to fit is simply <code class="docutils literal notranslate"><span class="pre">fit</span></code> and this has been implemented as <code class="docutils literal notranslate"><span class="pre">fit</span></code> in PYSPEX
 as well:</p>
 <blockquote>
@@ -50,7 +50,7 @@ as well:</p>
 <dd><p>Fit command.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – (Optional) Maximum number of iterations.</p>
+<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – (Optional) Maximum number of iterations.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -65,7 +65,7 @@ fit statistics can be found in the object <code class="docutils literal notransl
 </pre></div>
 </div>
 <div class="section" id="fit-results">
-<h3><span class="section-number">6.1.3.3.1.1. </span>Fit results<a class="headerlink" href="#fit-results" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.4.1.1. </span>Fit results<a class="headerlink" href="#fit-results" title="Permalink to this headline">¶</a></h3>
 <p>The resulting C-statistics/Chi-square value and degrees of freedom can be obtained with separate
 commands:</p>
 <blockquote>
@@ -78,7 +78,7 @@ commands:</p>
 <dd class="field-odd"><p>Tuple containing the C-stat value and the degrees of freedom.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -92,7 +92,7 @@ commands:</p>
 <dd class="field-odd"><p>Tuple containing the <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> value and the degrees of freedom.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -110,7 +110,7 @@ commands:</p>
 </div>
 </div>
 <div class="section" id="fit-statistics">
-<h3><span class="section-number">6.1.3.3.1.2. </span>Fit statistics<a class="headerlink" href="#fit-statistics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.4.1.2. </span>Fit statistics<a class="headerlink" href="#fit-statistics" title="Permalink to this headline">¶</a></h3>
 <p>Although C-statistics is recommended for Poisson distributed data like X-ray spectra, sometimes
 it may be better to switch to chi^2 statistics. This can be done using the <code class="docutils literal notranslate"><span class="pre">fit_stat</span></code> method:</p>
 <blockquote>
@@ -120,7 +120,7 @@ it may be better to switch to chi^2 statistics. This can be done using the <code
 <dd><p>Set the fit statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Fit statistics, for example: ‘csta’, ‘chi2’, ‘wsta’</p>
+<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Fit statistics, for example: ‘csta’, ‘chi2’, ‘wsta’</p>
 </dd>
 </dl>
 </dd></dl>
@@ -135,7 +135,7 @@ for use in analysis.</p>
 </div>
 </div>
 <div class="section" id="fit-verbosity">
-<h3><span class="section-number">6.1.3.3.1.3. </span>Fit verbosity<a class="headerlink" href="#fit-verbosity" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.4.1.3. </span>Fit verbosity<a class="headerlink" href="#fit-verbosity" title="Permalink to this headline">¶</a></h3>
 <p>The intermediate results from the fit iterations can be shown in the terminal (and in a pgplot
 window). In PYSPEX, this feature is on by default. If you want to turn it off, then call</p>
 <blockquote>
@@ -145,7 +145,7 @@ window). In PYSPEX, this feature is on by default. If you want to turn it off, t
 <dd><p>Set the fit output verbosity. Default is true.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Fit output verbosity setting.</p>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Fit output verbosity setting.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -159,7 +159,7 @@ window). In PYSPEX, this feature is on by default. If you want to turn it off, t
 </div>
 </div>
 <div class="section" id="error">
-<h2><span class="section-number">6.1.3.3.2. </span>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.4.2. </span>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
 <p>The command for calculating errors on fitted parameters is <code class="docutils literal notranslate"><span class="pre">error</span></code> and has a direct equivalent
 in PYSPEX:</p>
 <blockquote>
@@ -170,10 +170,10 @@ in PYSPEX:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the component to calculate the error for.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number to calculate the error for.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Parameter name to calculate the error for.</p></li>
-<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number of the component to calculate the error for.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number to calculate the error for.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Parameter name to calculate the error for.</p></li>
+<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -248,8 +248,8 @@ class definition elsewhere in this manual.</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
   <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
-      <li>Previous: <a href="com_model.html" title="previous chapter"><span class="section-number">6.1.3.2. </span>Model related commands</a></li>
-      <li>Next: <a href="com_plot.html" title="next chapter"><span class="section-number">6.1.3.4. </span>Plot commands</a></li>
+      <li>Previous: <a href="com_ascdump.html" title="previous chapter"><span class="section-number">6.1.3.3. </span>Ascdump commands</a></li>
+      <li>Next: <a href="com_plot.html" title="next chapter"><span class="section-number">6.1.3.5. </span>Plot commands</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -278,7 +278,7 @@ class definition elsewhere in this manual.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1.4. Install the SPEX Python interface &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>1.4. Install the SPEX Python interface &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -66,15 +66,14 @@ Python 3.5.6 |Anaconda, Inc.| (default, Aug 26 2018, 21:41:56)
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt; from pyspex.spex import Session
 &gt;&gt;&gt; s=Session()
- Welcome user to SPEX version 3.06.00
+ Welcome user to SPEX version 3.06.01
 
  NEW in this version of SPEX:
-12-12-2018 Plasma codes run in double precision now
-05-06-2019 Update of cooling processes
-18-12-2019 Included new atomic data (Fe-L, Gu et al. 2019)
-05-02-2020 Included Python interfaces for SPEX
-24-03-2020 Included new molecular dust data
-
+22-07-2020 Bugfix: neij gives line emission while abundance is zero.
+18-08-2020 Changed reference density from electron density to hydrogen density.
+04-09-2020 Added pyroxene back to the amol model.
+23-10-2020 Update of H I collision strengths (IMPORTANT)
+24-11-2020 Added ascdump and par_show functions for the Python interface.
 
  Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 &gt;&gt;&gt;
@@ -89,6 +88,27 @@ your new <code class="docutils literal notranslate"><span class="pre">spex</span
 either through a compile script called <code class="docutils literal notranslate"><span class="pre">compile.py</span></code> or manually with CMake by adding the option <code class="docutils literal notranslate"><span class="pre">-DPYTHON=2</span></code> or
 <code class="docutils literal notranslate"><span class="pre">-DPYTHON=3</span></code> depending on the python version. The use of Python 3 is strongly recommended. See <a class="reference internal" href="compile.html#sec-compile"><span class="std std-ref">Compile SPEX from source</span></a>
 for details.</p>
+</div>
+<div class="section" id="integration-into-ipython-and-jupyter-notebook">
+<h2><span class="section-number">1.4.3. </span>Integration into iPython and Jupyter Notebook<a class="headerlink" href="#integration-into-ipython-and-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Next to the dependencies installed in the conda environment <code class="docutils literal notranslate"><span class="pre">spex</span></code>, the Python interface also depends on the SPEX
+environment variables set with the spexdist.(c)sh files. So before running iPython or Jupyter notebook, it is
+necessary to source the SPEX environment (also make sure the conda <code class="docutils literal notranslate"><span class="pre">spex</span></code> environment is activated):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) unix:~&gt; source /opt/spex/spexdist.sh
+</pre></div>
+</div>
+<p>(replace /opt/spex in this path with the location of SPEX on your machine, or $SPEX90 if this variable is already set).</p>
+<p>It may be that iPython and Jupyter are not yet installed in your conda environment. If not, please install them using
+the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) unix:~&gt; conda install jupyter_client ipykernel
+</pre></div>
+</div>
+<p>With iPython and Jupyter notebook, it can be helpful to install the spex conda environment explicitly for your project:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) unix:~&gt; ipython kernel install --user --name=spex
+</pre></div>
+</div>
+<p>In your Jupyter notebook, you can now select <code class="docutils literal notranslate"><span class="pre">spex</span></code> from the drop-down menu if you are creating a new project. The
+<code class="docutils literal notranslate"><span class="pre">spex</span></code> conda environment should now be linked to your Jupyter project.</p>
 </div>
 </div>
 
@@ -170,7 +190,7 @@ for details.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

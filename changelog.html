@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10. Changelog &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>10. Changelog &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -36,11 +36,11 @@
             
   <div class="section" id="changelog">
 <h1><span class="section-number">10. </span>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<p>What is new in SPEX version 3.00 compared to SPEX 2.06? Most of the changes are
+<p>What is new in SPEX version 3.00 compared to SPEX 2.06? Most of the changes are
 actually “under the hood” of the SPEX program and are only noticed when
 model fits are compared, but we also provide useful new model additions.
 A more detailed overview of the changes in the plasma models can be
-found in Section <a class="reference internal" href="theory/spexact/plasma.html#chap-plasmamodel"><span class="std std-ref">Plasma model in SPEX 3.0</span></a>. The most important changes are
+found in Section <a class="reference internal" href="theory/spexact/plasma.html#chap-plasmamodel"><span class="std std-ref">Plasma model in SPEX 3.0</span></a>. The most important changes are
 summarized here:</p>
 <ul class="simple">
 <li><p>The first version of the new atomic database prepared by Ton Raassen
@@ -61,15 +61,15 @@ large range of physical parameters of the plasma.</p></li>
 It is now possible to model several absorption layers with including
 their radiative transfer. Also the emission part is implemented.
 However, use with care since this model is still experimental.</p></li>
-<li><p>We included natural &amp; Voigt broadening to SPEX emission models.</p></li>
+<li><p>We included natural &amp; Voigt broadening to SPEX emission models.</p></li>
 <li><p>We introduce a new charge exchange model (<code class="docutils literal notranslate"><span class="pre">cx</span></code>) developed by
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...594A..78G/abstract">Gu et al. (2016)</a>.</p></li>
-<li><p>We added the <code class="docutils literal notranslate"><span class="pre">ebv</span></code> component in  to model interstellar extinction.</p></li>
-<li><p>There are now interfaces to include your own model in  . Use
+<li><p>We added the <code class="docutils literal notranslate"><span class="pre">ebv</span></code> component in SPEX to model interstellar extinction.</p></li>
+<li><p>There are now interfaces to include your own model in SPEX. Use
 <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">user</span></code> for additive models and <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">musr</span></code> for multiplicative
 models. Examples of how to use this model component are shown in the
 revised SPEX Cookbook. It also allows you to call Xspec models from
- .</p></li>
+SPEX.</p></li>
 <li><p>We added a line emission/absorption model with a Voigt profile
 (<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">line</span></code>) to model individual lines.</p></li>
 <li><p>Contour plots of <img class="math" src="_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> values from the <code class="docutils literal notranslate"><span class="pre">steppar</span></code> command
@@ -265,6 +265,40 @@ and Si I have been updated using calculations with FAC and COWAN respectively.</
 </li>
 </ul>
 </div>
+<div class="section" id="version-3-06-01">
+<h2><span class="section-number">10.7. </span>Version 3.06.01<a class="headerlink" href="#version-3-06-01" title="Permalink to this headline">¶</a></h2>
+<p>This SPEX release mainly fixes a few important bugs found after the release of SPEX 3.06.00.</p>
+<p>In SPEX 3.06.01:</p>
+<ul class="simple">
+<li><p>Added par_show function to pyspex for use with Jupyter Notebook.</p></li>
+<li><p>Added functionality to ascdump, both in SPEX and in pyspex. The ascdump command in SPEX has now the
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">flux</span></code> options to limit the output to a certain energy range or to lines
+with a minimum flux or optical depth.</p></li>
+<li><p>Added a command to remove one (or a couple of) lines from emission spectra. With the <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">line</span></code>
+command, a line can be selected for removal from the spectrum. This is especially helpful when a line
+shows effects that SPEX does not model, but can be fitted with a customized Gaussian/line profile.</p></li>
+</ul>
+<p>In SPEXACT 3.06.01:</p>
+<ul>
+<li><p>The collisional excitation cross sections for H I at low and intermediate
+temperatures were too low. After carefull comparison, we have chosen to
+replace the 1s-nl and 2s-nl transitions (n.le.5) with the ones as given
+in the Chianti database. That is based on the Anderson et al. 2002 erratum
+with a sensible extrapolation to higher energies.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The update above affects both emitted H I spectra, and the total cooling
+rate at the lower temperatures (few eV) in the <code class="docutils literal notranslate"><span class="pre">pion</span></code> model. That cooling rate
+may differ at some temperatures by a factor of 3-4. Therefore results obtained
+with the most recent SPEX version will differ from those of version 3.05 and earlier.</p>
+</div>
+</li>
+<li><p>Fixed a problem with Li-like Fe-L data (remove high multipole transitions arisen from a bug in FAC).</p></li>
+<li><p>Fixed a bug in the NEIJ model which produced wrong ion concentrations from SPEX version 3.05.</p></li>
+<li><p>Added pyroxene and DNA to amol model.</p></li>
+<li><p>Updates to ions: C I, N II, O II, Ne IV, Cr IV, Cr V, Mn V, Mn VI.</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -306,6 +340,7 @@ and Si I have been updated using calculations with FAC and COWAN respectively.</
 <li class="toctree-l2"><a class="reference internal" href="#version-3-04-00">10.4. Version 3.04.00</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-3-05-00">10.5. Version 3.05.00</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-3-06-00">10.6. Version 3.06.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3-06-01">10.7. Version 3.06.01</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="credits.html">11. Credits</a></li>
@@ -343,7 +378,7 @@ and Si I have been updated using calculations with FAC and COWAN respectively.</
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

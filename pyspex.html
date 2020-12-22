@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6. Python Interface &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>6. Python Interface &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -67,9 +67,10 @@ a separate Python package called pyspextools. Please see the <a class="reference
 <li class="toctree-l1"><a class="reference internal" href="pyspex/commands.html">6.1.3. Basic PYSPEX commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pyspex/com_data.html">6.1.3.1. Data related commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyspex/com_model.html">6.1.3.2. Model related commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/com_opt.html">6.1.3.3. Optimization commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/com_plot.html">6.1.3.4. Plot commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/com_log.html">6.1.3.5. Log commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_ascdump.html">6.1.3.3. Ascdump commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_opt.html">6.1.3.4. Optimization commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_plot.html">6.1.3.5. Plot commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/com_log.html">6.1.3.6. Log commands</a></li>
 </ul>
 </li>
 </ul>
@@ -131,13 +132,23 @@ a separate Python package called pyspextools. Please see the <a class="reference
 <li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#rion-ionisation-rates-per-atomic-subshell">6.3.6.5. RION: Ionisation rates per atomic subshell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#grid-energy-and-wavelength-grid">6.3.6.6. GRID: Energy and wavelength grid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#clin-continuum-line-and-total-spectrum">6.3.6.7. CLIN: Continuum, line and total spectrum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#con-ions-contributing-to-the-continuum">6.3.6.8. CON: Ions contributing to the continuum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tcl-layer-added-continuum-line-and-total-spectrum">6.3.6.9. TCL: Layer added continuum, line and total spectrum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tcon-ions-contributing-to-the-continuum-added-layers">6.3.6.10. TCON: Ions contributing to the continuum (added layers)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#nei-history-of-ionisation-parameter-and-temperature">6.3.6.11. NEI: History of ionisation parameter and temperature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#heat-plasma-heating-rates">6.3.6.12. HEAT: Plasma heating rates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#col-ionic-column-densities">6.3.6.13. COL: Ionic column densities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#warm-column-densities-ionisation-parameters-and-temperatures">6.3.6.14. WARM: Column densities, ionisation parameters and temperatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#line-line-energies-wavelengths-and-total-line-emission">6.3.6.8. LINE: Line energies, wavelengths and total line emission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#ebal-energy-balance-contributions">6.3.6.9. EBAL: Energy balance contributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#con-ions-contributing-to-the-continuum">6.3.6.10. CON: Ions contributing to the continuum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tcl-layer-added-continuum-line-and-total-spectrum">6.3.6.11. TCL: Layer added continuum, line and total spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tcon-ions-contributing-to-the-continuum-added-layers">6.3.6.12. TCON: Ions contributing to the continuum (added layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#pop-level-populations">6.3.6.13. POP: Level populations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#elex-electron-collision-excitation-and-de-excitation">6.3.6.14. ELEX: Electron collision excitation and de-excitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#prex-proton-collision-excitation-and-de-excitation">6.3.6.15. PREX: Proton collision excitation and de-excitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#rad-radiative-transition-rates">6.3.6.16. RAD: Radiative transition rates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#two-two-photon-emission">6.3.6.17. TWO: Two-photon emission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#time-recombination-timescale-per-ion">6.3.6.18. TIME: Recombination timescale per ion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#rec-recombination-and-inner-shell-ionisation-for-each-level">6.3.6.19. REC: Recombination and inner-shell ionisation for each level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#nei-history-of-ionisation-parameter-and-temperature">6.3.6.20. NEI: History of ionisation parameter and temperature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#heat-plasma-heating-rates">6.3.6.21. HEAT: Plasma heating rates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#col-ionic-column-densities">6.3.6.22. COL: Ionic column densities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#tran-transmission-for-absorption-lines-and-edges">6.3.6.23. TRAN: Transmission for absorption lines and edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#warm-column-densities-ionisation-parameters-and-temperatures">6.3.6.24. WARM: Column densities, ionisation parameters and temperatures</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pyspex/log.html">6.3.7. Logging commands</a></li>
@@ -219,7 +230,7 @@ a separate Python package called pyspextools. Please see the <a class="reference
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

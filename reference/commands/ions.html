@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.15. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>3.1.15. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -42,6 +42,8 @@
 groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
 requested.</p>
+<p>In addition, there is an option to mute particular lines in the spectrum
+for specific analysis purposes.</p>
 <p>There are two main reasons why the user may use this option: computational speed
 and educational reasons.</p>
 <div class="section" id="computational-speed">
@@ -108,7 +110,7 @@ that barely affect the obtained spectrum. The maximum quantum numbers
 <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/> of Hydrogen-like ions are provided in
 the table below.</p>
 <p>The quicklook mode is enabled by the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">ions</span> <span class="n">ql</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ions ql
 </pre></div>
 </div>
 <p>To undo the quicklook mode, just type <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">all</span></code>.</p>
@@ -236,6 +238,33 @@ captured by charge exchange usually populate the outer shells.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="mute-lines">
+<h3><span class="section-number">3.1.15.1.4. </span>Mute lines<a class="headerlink" href="#mute-lines" title="Permalink to this headline">¶</a></h3>
+<p>A new feature since version 3.06.01 is the line mute command. In some cases,
+when users what to study a particular line, they want to remove the line
+from the spectrum to replace it, for example, with a delta line or Gaussian.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">line</span></code> command allows to mute up to 10 spectral lines
+identified from the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">line</span></code> output. Please note that this command
+only works for SPEXACT v3 (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code>). When SPEXACT v3 is enabled, the
+<code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">line</span></code> command (<a class="reference internal" href="ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma properties</span></a>) will show a line list with line
+id numbers:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1   O  VIII   1s 2S1/2                         - 2p 2P1/2                        0.6534939       18.97252      1.418E+42  1.689E-06  3.957E-04
+2   O  VIII   1s 2S1/2                         - 2s 2S1/2                        0.6535030       18.97225      1.011E+39  1.419E-12  3.957E-04
+3   O  VIII   1s 2S1/2                         - 2p 2P3/2                        0.6536802       18.96711      2.834E+42  1.691E-06  3.958E-04
+</pre></div>
+</div>
+<p>In the example of O VIII above, the line id is listed as an integer in the first
+column before O VIII. To not show the O VIII Lya lines in the spectrum, they can
+be muted with the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ions mute line 1 ion 8 8
+SPEX&gt; ions mute line 3 ion 8 8
+</pre></div>
+</div>
+<p>Where the number behind <code class="docutils literal notranslate"><span class="pre">line</span></code> is the line id, and the numbers behind <code class="docutils literal notranslate"><span class="pre">ion</span></code>
+are the atomic number and ionisation stage, respectively. If necessary, the
+lines can be unmuted with the <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">line</span></code> command which has a very
+similar syntax.</p>
+</div>
 </div>
 <div class="section" id="syntax">
 <h2><span class="section-number">3.1.15.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
@@ -305,6 +334,10 @@ isoelectronic sequence indicated by #i1</div>
 indicated by #i1</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">new</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Force the new calculation for atomic
 number indicated by #i1 and ionisation stage indicated by #i2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">line</span> <span class="pre">#i1</span> <span class="pre">ion</span> <span class="pre">#i2</span> <span class="pre">#i3</span></code> : Mute a line with id #i1 for
+element #i2 at ionisation stage #i3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">line</span> <span class="pre">#i1</span> <span class="pre">ion</span> <span class="pre">#i2</span> <span class="pre">#i3</span></code> : Unmute a line with id #i1 for
+element #i2 at ionisation stage #i3.</div>
 </div>
 </div>
 <div class="section" id="examples">
@@ -316,17 +349,19 @@ sequence</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">iso</span> <span class="pre">1:2</span></code> : Use ions from the H-like and He-like
 isoelectronic sequences</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">z</span> <span class="pre">26</span></code> : Ignore all iron (<img class="math" src="../../_images/math/02b9ba0d209ec8f514eb45e5c74dfa01ad241261.svg" alt="Z=26" style="vertical-align: 0px"/>) ions</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">5:6</span></code> : Use C V to C VI</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">5:6</span></code> : Use C V to C VI</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">ion</span> <span class="pre">8</span> <span class="pre">7</span></code> : does eliminate the O VII continuum and lines from
 the displayed spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">iso</span> <span class="pre">2</span></code> : shows the emission from all He-like ions (again).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">show</span></code> : Display the list of ions that are used</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ql</span></code> : Quicklook mode on</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">old</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">6</span></code> : Use old calculation for C VI</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">old</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">6</span></code> : Use old calculation for C VI</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">nmax</span> <span class="pre">ion</span> <span class="pre">26</span> <span class="pre">25</span> <span class="pre">5</span></code> : Set maximum principal quantum number for
-Fe XXV to <img class="math" src="../../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/>.</div>
+Fe XXV to <img class="math" src="../../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">lmax</span> <span class="pre">ion</span> <span class="pre">26</span> <span class="pre">25</span> <span class="pre">3</span></code> : Set maximum angular momentum quantum
-number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9103934a36c175817eb340de.svg" alt="\ell=3" style="vertical-align: 0px"/>.</div>
+number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9103934a36c175817eb340de.svg" alt="\ell=3" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">line</span> <span class="pre">1</span> <span class="pre">ion</span> <span class="pre">8</span> <span class="pre">8</span></code> : Mute line id 1 for O VIII.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">line</span> <span class="pre">1</span> <span class="pre">ion</span> <span class="pre">8</span> <span class="pre">8</span></code> : Unmute line id 1 for O VIII.</div>
 </div>
 </div>
 </div>
@@ -407,7 +442,7 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

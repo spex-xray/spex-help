@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6.3.4. Optimization functions &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>6.3.4. Optimization functions &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -46,13 +46,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stat.html#module-stat" title="(in Python v3.8)"><strong>stat</strong></a> (<em>basestring</em>) – Fit statistics.</p></li>
-<li><p><strong>cstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – C-statistics value.</p></li>
-<li><p><strong>chisq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Chi-squared value.</p></li>
-<li><p><strong>wstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – W-statistics value (not recommended).</p></li>
-<li><p><strong>nfree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Degrees of freedom.</p></li>
-<li><p><strong>cstatexp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Expected C-statistics value (C-stat only).</p></li>
-<li><p><strong>cstatrms</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – RMS uncertainty on expected C-stat value.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stat.html#module-stat" title="(in Python v3.9)"><strong>stat</strong></a> (<em>basestring</em>) – Fit statistics.</p></li>
+<li><p><strong>cstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – C-statistics value.</p></li>
+<li><p><strong>chisq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Chi-squared value.</p></li>
+<li><p><strong>wstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – W-statistics value (not recommended).</p></li>
+<li><p><strong>nfree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Degrees of freedom.</p></li>
+<li><p><strong>cstatexp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Expected C-statistics value (C-stat only).</p></li>
+<li><p><strong>cstatrms</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – RMS uncertainty on expected C-stat value.</p></li>
 </ul>
 </dd>
 </dl>
@@ -62,9 +62,15 @@
 <dd><p>Execute the SPEX fit command. The maximum number of iterations (niter) can be optionally set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of fit iterations.</p>
+<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of fit iterations.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyspex.optimize.Fit.get_method">
+<code class="sig-name descname">get_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.get_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.get_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -76,11 +82,22 @@
 <dl class="py method">
 <dt id="pyspex.optimize.Fit.print">
 <code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.print" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print each fit iteration to screen (default is True). The status variable can be either True or False,
+<dd><p>Print each fit iteration to the console (default is True). The status variable can be either True or False,
 which means printing is on or off, respectively.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Set fit to high verbosity (True is yes, False is no).</p>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Set fit to high verbosity (True is yes, False is no).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyspex.optimize.Fit.set_method">
+<code class="sig-name descname">set_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meth</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the desired fit statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -91,9 +108,15 @@ which means printing is on or off, respectively.</p>
 <dd><p>Set the desired fit statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
+<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyspex.optimize.Fit.show">
+<code class="sig-name descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the fit statistics to the terminal.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -116,17 +139,17 @@ which means printing is on or off, respectively.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="com_model.html#pyspex.spex.Session.sector" title="pyspex.spex.Session.sector"><strong>sector</strong></a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of parameter</p></li>
-<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number of parameter</p></li>
-<li><p><strong>parameter</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Parameter name</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Parameter value</p></li>
-<li><p><strong>lerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Lower error boundary</p></li>
-<li><p><strong>uerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Upper error boundary</p></li>
-<li><p><strong>lc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Is there a lower C-stat or chi**2 value found?</p></li>
-<li><p><strong>cmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Lowest C-stat or chi**2 value</p></li>
-<li><p><strong>pmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Parameter value for which a better C-stat or Chi**2 was found</p></li>
-<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Delta C-stat or chi**2 to optimize for</p></li>
-<li><p><strong>calculated</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Is the error calculated?</p></li>
+<li><p><a class="reference internal" href="com_model.html#pyspex.spex.Session.sector" title="pyspex.spex.Session.sector"><strong>sector</strong></a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number of parameter</p></li>
+<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number of parameter</p></li>
+<li><p><strong>parameter</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Parameter name</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Parameter value</p></li>
+<li><p><strong>lerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Lower error boundary</p></li>
+<li><p><strong>uerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Upper error boundary</p></li>
+<li><p><strong>lc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Is there a lower C-stat or chi**2 value found?</p></li>
+<li><p><strong>cmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Lowest C-stat or chi**2 value</p></li>
+<li><p><strong>pmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Parameter value for which a better C-stat or Chi**2 was found</p></li>
+<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Delta C-stat or chi**2 to optimize for</p></li>
+<li><p><strong>calculated</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Is the error calculated?</p></li>
 </ul>
 </dd>
 </dl>
@@ -137,10 +160,10 @@ which means printing is on or off, respectively.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
 </ul>
 </dd>
 </dl>
@@ -155,7 +178,7 @@ which means printing is on or off, respectively.</p>
 <dd class="field-odd"><p>A tuple with the parameter value, lower error and upper error.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -167,7 +190,7 @@ which means printing is on or off, respectively.</p>
 The default value is 1.0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p>
+<dd class="field-odd"><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -253,7 +276,7 @@ The default value is 1.0.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

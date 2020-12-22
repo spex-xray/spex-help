@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.3.3. Ascdump commands &#8212; SPEX Help Center 3.06.01 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_ascdump.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.1.3.4. Optimization commands" href="com_opt.html" />
+    <link rel="prev" title="6.1.3.2. Model related commands" href="com_model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ascdump-commands">
+<h1><span class="section-number">6.1.3.3. </span>Ascdump commands<a class="headerlink" href="#ascdump-commands" title="Permalink to this headline">¶</a></h1>
+<p>The SPEX ascdump command is designed to return internal model parameters in SPEX through terminal
+output or an ASCII file. With pyspex we can return these numbers in a python object, making them
+directly available in your script. The outputs below have currently been implemented. Each command
+returns a specific object with the parameters. A link to the object structure is provided with
+every command (see return type).</p>
+<div class="section" id="basic-plasma-parameters">
+<h2><span class="section-number">6.1.3.3.1. </span>Basic plasma parameters<a class="headerlink" href="#basic-plasma-parameters" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_plas">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_plas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_plas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_plas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic plasma properties like temperature, electron density etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump plasma object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Plas" title="pyspex.ascdump.Plas">pyspex.ascdump.Plas</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_plas</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">cs</span><span class="p">)</span>
+<span class="go">507.26305074069296      # Sound speed in km/s</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="abundances">
+<h2><span class="section-number">6.1.3.3.2. </span>Abundances<a class="headerlink" href="#abundances" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_abun">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_abun</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_abun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_abun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Elemental abundances and average charge per element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump abundance object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Abun" title="pyspex.ascdump.Abun">pyspex.ascdump.Abun</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_abun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="go">[&#39;H&#39; &#39;He&#39; &#39;C&#39; &#39;N&#39; &#39;O&#39; &#39;Ne&#39; &#39;Na&#39; &#39;Mg&#39; &#39;Al&#39; &#39;Si&#39; &#39;S&#39; &#39;Ar&#39; &#39;Ca&#39; &#39;Fe&#39; &#39;Ni&#39;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For some versions of numpy, returning a character array leads to a ValueError.</p>
+</div>
+</div>
+<div class="section" id="ion-concentrations">
+<h2><span class="section-number">6.1.3.3.3. </span>Ion concentrations<a class="headerlink" href="#ion-concentrations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_icon">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_icon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_icon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ion concentrations, both with respect to Hydrogen and the relevant elemental abundance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump ion concentrations object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Icon" title="pyspex.ascdump.Icon">pyspex.ascdump.Icon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_icon</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">conrel</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">1.70394098831e-08</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For some versions of numpy, returning a character array leads to a ValueError.</p>
+</div>
+</div>
+<div class="section" id="rates-per-ion">
+<h2><span class="section-number">6.1.3.3.4. </span>Rates per ion<a class="headerlink" href="#rates-per-ion" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_rate">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total ionization, recombination and charge-transfer rates specified per ion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump rate object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Rate" title="pyspex.ascdump.Rate">pyspex.ascdump.Rate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_rate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">irate</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">2.12289918977e-08</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rates-per-process">
+<h2><span class="section-number">6.1.3.3.5. </span>Rates per process<a class="headerlink" href="#rates-per-process" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_rion">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ionization rates per atomic subshell, specified according to the different contributing processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump rion object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Rion" title="pyspex.ascdump.Rion">pyspex.ascdump.Rion</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_rion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">elion</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">2.12289912301e-08</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="level-populations">
+<h2><span class="section-number">6.1.3.3.6. </span>Level populations<a class="headerlink" href="#level-populations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_pop">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_pop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_pop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>The occupation numbers as well as upwards/downwards loss and gain rates to all quantum levels included.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump pop object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Pop" title="pyspex.ascdump.Pop">pyspex.ascdump.Pop</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_pop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :     3511799           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">nlev</span><span class="p">)</span>
+<span class="go">111262</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="electron-collision-excitation-and-de-excitation-rates">
+<h2><span class="section-number">6.1.3.3.7. </span>Electron collision excitation and de-excitation rates<a class="headerlink" href="#electron-collision-excitation-and-de-excitation-rates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_elex">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_elex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_elex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_elex" title="Permalink to this definition">¶</a></dt>
+<dd><p>The electron collision excitation and de-excitation rates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Elex object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Elex" title="pyspex.ascdump.Elex">pyspex.ascdump.Elex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_elex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :     3511799           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">exrate</span><span class="p">)</span>
+<span class="go">[8.35325837e-09 1.08863779e-09 1.68747116e-08 ... 4.41492557e-10</span>
+<span class="go"> 2.50513539e-10 6.16963868e-12]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proton-collision-excitation-and-de-excitation-rates">
+<h2><span class="section-number">6.1.3.3.8. </span>Proton collision excitation and de-excitation rates<a class="headerlink" href="#proton-collision-excitation-and-de-excitation-rates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_prex">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_prex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_prex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_prex" title="Permalink to this definition">¶</a></dt>
+<dd><p>The proton collision excitation and de-excitation rates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Prex object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Prex" title="pyspex.ascdump.Prex">pyspex.ascdump.Prex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_prex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :     3511799           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">exrate</span><span class="p">)</span>
+<span class="go">[1.01738931e-10 4.81612313e-12 2.07581551e-10 1.92587482e-11</span>
+<span class="go"> ...</span>
+<span class="go"> 7.49964952e-17 7.82087768e-17 1.67573062e-16 2.56251319e-17]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="radiative-transition-rates">
+<h2><span class="section-number">6.1.3.3.9. </span>Radiative transition rates<a class="headerlink" href="#radiative-transition-rates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_rad">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rad" title="Permalink to this definition">¶</a></dt>
+<dd><p>The radiative transition rates from each level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Rad object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Rad" title="pyspex.ascdump.Rad">pyspex.ascdump.Rad</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_rad</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :     3511799           0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="two-photon-emission">
+<h2><span class="section-number">6.1.3.3.10. </span>Two-photon emission<a class="headerlink" href="#two-photon-emission" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_two">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_two</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_two"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>The two-photon emission transition rates from each level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Two object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Two" title="pyspex.ascdump.Two">pyspex.ascdump.Two</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_two</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :     3511799           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">prob</span><span class="p">)</span>
+<span class="go">[8.22910023e+00 5.09000015e+01 5.26599976e+02 1.94000000e+03</span>
+<span class="go"> ...</span>
+<span class="go"> 4.76030003e+09 9.88000051e+09 5.82309990e+09]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recombination-timescale">
+<h2><span class="section-number">6.1.3.3.11. </span>Recombination timescale<a class="headerlink" href="#recombination-timescale" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_time">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recombination time scale per ion according to the Bottorf et al. (2000) definition,
+and relative ion concentrations. Note that the recombination time scale depends upon
+the hydrogen density, so do not forget to set the relevant density in the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Two object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Time" title="pyspex.ascdump.Time">pyspex.ascdump.Time</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_time</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">texp</span><span class="p">)</span>
+<span class="go">[39107415.99632238 -2295115632800309.5 -196243868063781.56</span>
+<span class="go"> ...</span>
+<span class="go"> -155719028701.42026]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recombination-and-inner-shell-ionisation">
+<h2><span class="section-number">6.1.3.3.12. </span>Recombination and inner-shell ionisation<a class="headerlink" href="#recombination-and-inner-shell-ionisation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_rec">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_rec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_rec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_rec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs for each atomic level the populating contributions from radiative, dielectronic
+and charge exchange recombination, as well as inner-shell ionisation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Rec object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Rec" title="pyspex.ascdump.Rec">pyspex.ascdump.Rec</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">var_calc</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_rec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">arr</span><span class="p">)</span>
+<span class="go">[1.88556293e-08 3.16058547e-10 2.52684149e-09 ... 0.00000000e+00</span>
+<span class="go"> 0.00000000e+00 0.00000000e+00]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="energy-and-wavelength-grid">
+<h2><span class="section-number">6.1.3.3.13. </span>Energy and wavelength grid<a class="headerlink" href="#energy-and-wavelength-grid" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_grid">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The energy and wavelength grid used in the last evaluation of the spectrum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump grid object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Grid" title="pyspex.ascdump.Grid">pyspex.ascdump.Grid</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_grid</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">emean</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">0.00100070331246</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="continuum-and-line-spectra">
+<h2><span class="section-number">6.1.3.3.14. </span>Continuum and line spectra<a class="headerlink" href="#continuum-and-line-spectra" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_clin">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_clin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_clin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_clin" title="Permalink to this definition">¶</a></dt>
+<dd><p>The continuum, line and total spectrum for each energy bin for the last plasma layer of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump clin object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Clin" title="pyspex.ascdump.Clin">pyspex.ascdump.Clin</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_clin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">asc</span><span class="p">)</span>
+<span class="go">[&#39;__doc__&#39;, &#39;__init__&#39;, &#39;__module__&#39;, &#39;emean&#39;, &#39;flux&#39;, &#39;fluxcon&#39;, &#39;fluxlin&#39;, &#39;get&#39;, &#39;ibin&#39;, &#39;nbin&#39;]</span>
+</pre></div>
+</div>
+<p>And the total for all the plasma layers:</p>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_tcl">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tcl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tcl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The continuum, line and total spectrum for each energy bin added for all plasma layers of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump tcl object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Tcl" title="pyspex.ascdump.Tcl">pyspex.ascdump.Tcl</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_tcl</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4156           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">asc</span><span class="p">)</span>
+<span class="go">[&#39;__doc__&#39;, &#39;__init__&#39;, &#39;__module__&#39;, &#39;emean&#39;, &#39;flux&#39;, &#39;fluxcon&#39;, &#39;fluxlin&#39;, &#39;get&#39;, &#39;ibin&#39;, &#39;nbin&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="line-emission">
+<h2><span class="section-number">6.1.3.3.15. </span>Line emission<a class="headerlink" href="#line-emission" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_line">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">sort</span><span class="o">=</span><span class="default_value">'ener'</span></em>, <em class="sig-param"><span class="n">erange</span><span class="o">=</span><span class="default_value">0.1, 10.0</span></em>, <em class="sig-param"><span class="n">fluxlim</span><span class="o">=</span><span class="default_value">1e+35</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>The line energy and wavelength, as well as the total line emission (photons/s)
+for each line contributing to the spectrum, for the last plasma layer of the model.
+Also given is the natural line width and the Doppler broadening (including thermal
+and turbulent broadening), expressed as a FWHM in keV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+<li><p><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Column to sort.</p></li>
+<li><p><strong>erange</strong> (<em>Tuple</em>) – Energy range for output.</p></li>
+<li><p><strong>fluxlim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Minimum line emissivity to show (in photons/s).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump Line object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Line" title="pyspex.ascdump.Line">pyspex.ascdump.Line</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_line</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_line</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :     3511799           0</span>
+<span class="go">--------------------------------------------------------------------</span>
+<span class="go">The following selection criteria were used to generate this output:</span>
+<span class="go">Energy range between   0.100000     and    10.0000     keV.</span>
+<span class="go">Minimum flux level:   1.000000E+35</span>
+<span class="go">See the ascdump set command to change the criteria.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span>
+<span class="go">[3.40979220e+35 1.99786227e+35 1.76156817e+37 ... 1.33953384e+35</span>
+<span class="go"> 1.85409623e+35 1.08065805e+35]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ion-contribution-to-the-continuum">
+<h2><span class="section-number">6.1.3.3.16. </span>Ion contribution to the continuum<a class="headerlink" href="#ion-contribution-to-the-continuum" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_con">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_con" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of the ions that contribute to the free-free, free-bound and two-photon continuum emission,
+followed by the free-free, free-bound, two-photon and total continuum spectrum for the last plasma layer of
+the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump con object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Con" title="pyspex.ascdump.Con">pyspex.ascdump.Con</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_con</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The total contribution for all plasma layers:</p>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_tcon">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tcon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tcon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of the ions that contribute to the free-free, free-bound and two-photon continuum emission,
+followed by the free-free, free-bound, two-photon and total continuum spectrum added for all plasma layers of
+the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump con object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Tcon" title="pyspex.ascdump.Tcon">pyspex.ascdump.Tcon</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_tcon</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="history-of-ionisation-and-temperature-in-nei">
+<h2><span class="section-number">6.1.3.3.17. </span>History of ionisation and temperature in NEI<a class="headerlink" href="#history-of-ionisation-and-temperature-in-nei" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_nei">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_nei</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_nei"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_nei" title="Permalink to this definition">¶</a></dt>
+<dd><p>The history of ionisation parameter and temperature in NEI calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump nei object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Nei" title="pyspex.ascdump.Nei">pyspex.ascdump.Nei</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;nei&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_nei</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> number of layer lines :        4269           0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">asc</span><span class="p">)</span>
+<span class="go">[&#39;__doc__&#39;, &#39;__init__&#39;, &#39;__module__&#39;, &#39;get&#39;, &#39;kt&#39;, &#39;nbin&#39;, &#39;u&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plasma-heating-rates-photo-ionized">
+<h2><span class="section-number">6.1.3.3.18. </span>Plasma heating rates (photo-ionized)<a class="headerlink" href="#plasma-heating-rates-photo-ionized" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_heat">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_heat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_heat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_heat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plasma heating rates (only for photoionized plasmas).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump heat object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Heat" title="pyspex.ascdump.Heat">pyspex.ascdump.Heat</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;po&#39;</span><span class="p">)</span>
+<span class="go"> You have defined    1 component.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;pion&#39;</span><span class="p">)</span>
+<span class="go"> You have defined    2 components.</span>
+<span class="go"> ** Pion model: take care about proper COM REL use: check manual!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com_rel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_heat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">asc</span><span class="p">)</span>
+<span class="go">[&#39;__doc__&#39;, &#39;__init__&#39;, &#39;__module__&#39;, &#39;cool&#39;, &#39;cooladi&#39;, &#39;coolcom&#39;, &#39;cooldr&#39;, &#39;coolexc&#39;, &#39;coolffe&#39;, &#39;coolion&#39;, &#39;coolrec&#39;, &#39;get&#39;, &#39;heat&#39;, &#39;heataug&#39;, &#39;heatcio&#39;, &#39;heatcom&#39;, &#39;heatdex&#39;, &#39;heatext&#39;, &#39;heatffa&#39;, &#39;heatphi&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="energy-balance">
+<h2><span class="section-number">6.1.3.3.19. </span>Energy balance<a class="headerlink" href="#energy-balance" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_ebal">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_ebal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_ebal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_ebal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the cooling and heating balance from the model for each model iteration (photoionization models only).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump ebal object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Ebal" title="pyspex.ascdump.Ebal">pyspex.ascdump.Ebal</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;po&#39;</span><span class="p">)</span>
+<span class="go"> You have defined    1 component.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;pion&#39;</span><span class="p">)</span>
+<span class="go"> You have defined    2 components.</span>
+<span class="go"> ** Pion model: take care about proper COM REL use: check manual!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com_rel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_ebal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">cooladi</span><span class="p">)</span>
+<span class="go">[5.51856103e-44 9.20874021e-44 1.53654277e-43 2.56369787e-43</span>
+<span class="go"> ...</span>
+<span class="go"> 2.17232976e-42 2.17207890e-42]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ionic-column-densities-in-absorption">
+<h2><span class="section-number">6.1.3.3.20. </span>Ionic column densities in absorption<a class="headerlink" href="#ionic-column-densities-in-absorption" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_col">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_col</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_col" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ionic column densities for the hot, pion, slab, xabs and warm models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump col object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Col" title="pyspex.ascdump.Col">pyspex.ascdump.Col</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_col</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">asc</span><span class="p">)</span>
+<span class="go">[&#39;__doc__&#39;, &#39;__init__&#39;, &#39;__module__&#39;, &#39;atom&#39;, &#39;column&#39;, &#39;get&#39;, &#39;ion&#39;, &#39;logcol&#39;, &#39;name&#39;, &#39;nline&#39;, &#39;roman&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transmission-of-absorption-lines-and-edges">
+<h2><span class="section-number">6.1.3.3.21. </span>Transmission of absorption lines and edges<a class="headerlink" href="#transmission-of-absorption-lines-and-edges" title="Permalink to this headline">¶</a></h2>
+<p>For both lines and edges:</p>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_tran">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tran</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">sortn</span><span class="o">=</span><span class="default_value">'ener'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tran"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tran" title="Permalink to this definition">¶</a></dt>
+<dd><p>In two subsequent objects, the transmission and equivalent width of
+absorption lines (asc.line) and absorption edges (asc.edge)
+are listed for the hot, pion, slab, xabs and warm models. Optionally,
+the lines can be sorted according to one of the output parameters.
+See the sortn option for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+<li><p><strong>sortn</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Sort the data based on column: energy (ener), wavelength (wav), ion (ion), line power (powe), natural line width (wid).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump tran object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Tran" title="pyspex.ascdump.Tran">pyspex.ascdump.Tran</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>For lines only:</p>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_tranline">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tranline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">sortn</span><span class="o">=</span><span class="default_value">'ener'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tranline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tranline" title="Permalink to this definition">¶</a></dt>
+<dd><p>The transmission and equivalent width of absorption lines for the hot, pion, slab,
+xabs, and warm models. Optionally, the lines can be sorted according to one of the output parameters.
+See the sortn option for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+<li><p><strong>sortn</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Sort the data based on column: energy (ener), wavelength (wav), ion (ion), line power (powe), natural line width (wid).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump tran object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Tranline" title="pyspex.ascdump.Tranline">pyspex.ascdump.Tranline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>For edges only:</p>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_tranedge">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_tranedge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_tranedge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_tranedge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The transmission and equivalent width of absorption edges for the hot, pion, slab,
+xabs, and warm models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump tran object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Tranedge" title="pyspex.ascdump.Tranedge">pyspex.ascdump.Tranedge</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;po&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;pion&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">com_rel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_tranedge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">asc</span><span class="o">.</span><span class="n">ew</span><span class="p">)</span>
+<span class="go">[7.63924345e-06 2.29914061e-04 7.08947133e-04 1.54622412e-05</span>
+<span class="go"> ...</span>
+<span class="go"> 4.60384717e-06 7.68042719e-06]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="properties-of-the-warm-model">
+<h2><span class="section-number">6.1.3.3.22. </span>Properties of the warm model<a class="headerlink" href="#properties-of-the-warm-model" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt id="pyspex.spex.Session.ascdump_warm">
+<code class="sig-prename descclassname">Session.</code><code class="sig-name descname">ascdump_warm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ascdump_warm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.spex.Session.ascdump_warm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column densities, effective ionization parameters and temperatures of the warm model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ascdump warm object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ascdump.html#pyspex.ascdump.Warm" title="pyspex.ascdump.Warm">pyspex.ascdump.Warm</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">asc</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ascdump_warm</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">asc</span><span class="p">)</span>
+<span class="go">[&#39;__doc__&#39;, &#39;__init__&#39;, &#39;__module__&#39;, &#39;atom&#39;, &#39;col&#39;, &#39;dndlnxi&#39;, &#39;get&#39;, &#39;ion&#39;, &#39;name&#39;, &#39;nline&#39;, &#39;nxil&#39;, &#39;roman&#39;, &#39;t&#39;, &#39;xi&#39;, &#39;xilgrid&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+  <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
+      <li>Previous: <a href="com_model.html" title="previous chapter"><span class="section-number">6.1.3.2. </span>Model related commands</a></li>
+      <li>Next: <a href="com_opt.html" title="next chapter"><span class="section-number">6.1.3.4. </span>Optimization commands</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Dec 22, 2020.<br>
+    
+        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

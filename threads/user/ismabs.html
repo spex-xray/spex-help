@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.7.2.2. Use local Xspec model ismabs in SPEX &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>2.8.2.2. Use local Xspec model ismabs in SPEX &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3. Command overview" href="../../reference.html" />
-    <link rel="prev" title="2.7.2.1. Use any Xspec model in SPEX" href="xspec.html" />
+    <link rel="prev" title="2.8.2.1. Use any Xspec model in SPEX" href="xspec.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -35,7 +35,7 @@
           <div class="body" role="main">
             
   <div class="section" id="use-local-xspec-model-ismabs-in-spex">
-<h1><span class="section-number">2.7.2.2. </span>Use local Xspec model ismabs in SPEX<a class="headerlink" href="#use-local-xspec-model-ismabs-in-spex" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.8.2.2. </span>Use local Xspec model ismabs in SPEX<a class="headerlink" href="#use-local-xspec-model-ismabs-in-spex" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we include the Xspec local model called ismabs <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ApJ...800...29G/abstract">(Gatuzz et al., 2015)</a> into a SPEX user model
 executable. The local model consists of a FITS file with atomic data, a <code class="docutils literal notranslate"><span class="pre">ismabs.f90</span></code> Fortran file, and a parameter
 definition file called <code class="docutils literal notranslate"><span class="pre">lmodel_ismabs.dat</span></code> where the parameters of the model are defined. Since the local model
@@ -54,7 +54,7 @@ XSPEC web site.</p></li>
 </ul>
 </div></blockquote>
 <div class="section" id="write-a-small-user-program">
-<h2><span class="section-number">2.7.2.2.1. </span>Write a small user program<a class="headerlink" href="#write-a-small-user-program" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8.2.2.1. </span>Write a small user program<a class="headerlink" href="#write-a-small-user-program" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">moduser.f90</span></code> file is a library with user callable functions to make it easy to write a user model. This file does
 not need any editing. The user should only edit the example program <code class="docutils literal notranslate"><span class="pre">loc-xspec.f90</span></code> and sometimes also the local XSPEC
 model, which will be explained later. The example program <code class="docutils literal notranslate"><span class="pre">loc-xspec.f90</span></code> looks like this:</p>
@@ -92,7 +92,7 @@ end program
 </div>
 </div>
 <div class="section" id="explanation-of-the-called-routines">
-<h2><span class="section-number">2.7.2.2.2. </span>Explanation of the called routines<a class="headerlink" href="#explanation-of-the-called-routines" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8.2.2.2. </span>Explanation of the called routines<a class="headerlink" href="#explanation-of-the-called-routines" title="Permalink to this headline">¶</a></h2>
 <p><strong>getfilenames(fin,fout,ier)</strong> is a routine to read the file names from the command line. The format of the files and the
 order on the command line is defined by the user model in SPEX. This routine returns the file names the program needs
 to read the input parameters and write the result.</p>
@@ -106,7 +106,7 @@ than ismabs, simply change the name of the routine on this line.</p>
 <p><strong>deallpar()</strong> deallocates all the allocated variables from the moduser module.</p>
 </div>
 <div class="section" id="compile-the-executable">
-<h2><span class="section-number">2.7.2.2.3. </span>Compile the executable<a class="headerlink" href="#compile-the-executable" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8.2.2.3. </span>Compile the executable<a class="headerlink" href="#compile-the-executable" title="Permalink to this headline">¶</a></h2>
 <p>In principle, the source files can now be compiled into an executable that the SPEX user model can use. Make sure you
 have all the necessary files in one directory (see above) and execute the following commands in a terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">linux</span><span class="p">:</span><span class="o">~/</span><span class="n">lmodel</span><span class="o">&gt;</span>  <span class="n">gfortran</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">o</span> <span class="n">moduser</span><span class="o">.</span><span class="n">o</span> <span class="n">moduser</span><span class="o">.</span><span class="n">f90</span>
@@ -131,7 +131,7 @@ programming experience to do it right. Always keep a backup of the original rout
 library path. In this flag, you can specify the correct path to libcfitsio.so.</p>
 </div>
 <div class="section" id="use-the-xspec-local-model-in-spex">
-<h2><span class="section-number">2.7.2.2.4. </span>Use the Xspec local model in SPEX<a class="headerlink" href="#use-the-xspec-local-model-in-spex" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8.2.2.4. </span>Use the Xspec local model in SPEX<a class="headerlink" href="#use-the-xspec-local-model-in-spex" title="Permalink to this headline">¶</a></h2>
 <p>Start SPEX in a directory where the loc-xspec executable that we just made is located. Since the ismabs model is a
 multiplicative model, we need to load the <code class="docutils literal notranslate"><span class="pre">musr</span></code> component. In the example below, we show how a power-law model is
 absorbed by ismabs in SPEX:</p>
@@ -182,7 +182,8 @@ issue a calculate command in SPEX and show the absorbed power law in a plot.</p>
 <li class="toctree-l2"><a class="reference internal" href="../uv.html">2.4. Import UV/Optical data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.5. PION setup for AGN warm absorber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="user.html">2.7. How to use the SPEX user model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../twospec/twospec.html">2.7. Fitting two different spectra simultaneously</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="user.html">2.8. How to use the SPEX user model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
@@ -201,8 +202,8 @@ issue a calculate command in SPEX and show the absorbed power law in a plot.</p>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../threads.html"><span class="section-number">2. </span>Analysis threads</a><ul>
-  <li><a href="user.html"><span class="section-number">2.7. </span>How to use the SPEX user model</a><ul>
-      <li>Previous: <a href="xspec.html" title="previous chapter"><span class="section-number">2.7.2.1. </span>Use any Xspec model in SPEX</a></li>
+  <li><a href="user.html"><span class="section-number">2.8. </span>How to use the SPEX user model</a><ul>
+      <li>Previous: <a href="xspec.html" title="previous chapter"><span class="section-number">2.8.2.1. </span>Use any Xspec model in SPEX</a></li>
       <li>Next: <a href="../../reference.html" title="next chapter"><span class="section-number">3. </span>Command overview</a></li>
   </ul></li>
   </ul></li>
@@ -232,7 +233,7 @@ issue a calculate command in SPEX and show the absorbed power law in a plot.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

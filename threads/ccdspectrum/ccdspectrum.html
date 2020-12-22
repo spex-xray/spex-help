@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.1. Fitting a CCD spectrum &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>2.1. Fitting a CCD spectrum &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -54,7 +54,7 @@ can also download example files here: <a class="reference download internal" dow
 <p>The SPEX program is started by entering <code class="docutils literal notranslate"><span class="pre">spex</span></code> in a linux terminal window. In the following sections we describe
 one run of the program. To start SPEX do this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; spex
- Welcome user to SPEX version 3.05.00
+ Welcome user to SPEX version 3.06.00
 
 SPEX&gt;
 </pre></div>
@@ -107,8 +107,25 @@ SPEX&gt; plot ry 1E-4:10.
 <a class="reference internal image-reference" href="../../_images/ccd3.png"><img alt="../../_images/ccd3.png" src="../../_images/ccd3.png" style="width: 600px;" /></a>
 </div>
 </div>
+<div class="section" id="select-good-data-and-bin-the-spectrum">
+<h2><span class="section-number">2.1.6. </span>Select good data and bin the spectrum<a class="headerlink" href="#select-good-data-and-bin-the-spectrum" title="Permalink to this headline">¶</a></h2>
+<p>Before we start fitting, we can make sure that only trustworthy data is fitted. For MOS1, for example, we know that
+the calibration is valid for the energy range between roughly 0.3 keV and 10 keV. To fit only the good spectral
+interval, we need to ignore the parts at low and high energies. This is done using the <code class="docutils literal notranslate"><span class="pre">ignore</span></code> command.</p>
+<p>In addition, we can bin the spectrum. To automatically rebin to the recommended (optimal) bin size, one can use
+the <code class="docutils literal notranslate"><span class="pre">obin</span></code> command. This command bins the spectrum optimally based on the instrument resolution and statistics.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ignore 0:0.3 unit kev
+SPEX&gt; ignore 10:100 unit kev
+SPEX&gt; obin 0.3:10 unit kev
+SPEX&gt; plot
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/ccd4.png"><img alt="../../_images/ccd4.png" src="../../_images/ccd4.png" style="width: 600px;" /></a>
+</div>
+</div>
 <div class="section" id="define-the-model">
-<h2><span class="section-number">2.1.6. </span>Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.7. </span>Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h2>
 <p>Next we can define the model that we want to fit. In this case, we are looking at a MOS spectrum of a
 galaxy cluster. The simplest model that we can try is a single temperature spectrum absorbed by gas in
 the ISM. We also add a redshift component <code class="docutils literal notranslate"><span class="pre">reds</span></code> (<a class="reference internal" href="../../models/reds.html#sect-reds"><span class="std std-ref">Reds: redshift model</span></a>) to shift the energy of the model
@@ -141,11 +158,11 @@ SPEX&gt; plot
 </div>
 <p>Calculating and plotting the model unsurprisingly results in a curve that is not near to the data.</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/ccd4.png"><img alt="../../_images/ccd4.png" src="../../_images/ccd4.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ccd5.png"><img alt="../../_images/ccd5.png" src="../../_images/ccd5.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="initial-guess-of-parameters">
-<h2><span class="section-number">2.1.7. </span>Initial guess of parameters<a class="headerlink" href="#initial-guess-of-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.8. </span>Initial guess of parameters<a class="headerlink" href="#initial-guess-of-parameters" title="Permalink to this headline">¶</a></h2>
 <p>To help the spectral fitting process, it is good to provide initial guesses for the model parameters. This way, the
 spectral fit starts already with a model that is in the right direction. As a more experienced user, you usually have
 a rough idea what the parameters should be by looking at the raw spectrum. For this cluster, for example, the
@@ -153,7 +170,7 @@ redshift is around 0.05, the absorption column is small, and the temperature of 
 We can set the guess parameters as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 1 z v 0.05
 SPEX&gt; par 1 1 z s t
-SPEX&gt; par 1 2 t v 5E-4
+SPEX&gt; par 1 2 t v 8E-6
 SPEX&gt; par 1 2 t s f
 SPEX&gt; par 1 2 nh v 1E-4
 SPEX&gt; par 1 3 norm v 1000.
@@ -163,7 +180,7 @@ SPEX&gt; pl
 </pre></div>
 </div>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/ccd5.png"><img alt="../../_images/ccd5.png" src="../../_images/ccd5.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ccd6.png"><img alt="../../_images/ccd6.png" src="../../_images/ccd6.png" style="width: 600px;" /></a>
 </div>
 <p>As we can see from the image, the first guess of the model is already in the right direction.</p>
 <p>In this example, we assume that the exact redshift is unknown. However, if you do have an accurate measurement of
@@ -172,32 +189,35 @@ the distance, it is wise to set that distance in SPEX (<a class="reference inter
 </pre></div>
 </div>
 <p>The command above sets the distance to 0.05 z and makes sure that the luminosities are correctly calculated.
-Note that this distance change also affects the values of the normalisation of the models!</p>
+Note that this distance change also affects the values of the normalisation of the models! So, we increase
+the normalisation to keep the model reasonably close to the data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 3 norm v 1E+8
+</pre></div>
+</div>
 </div>
 <div class="section" id="fit-the-model">
-<h2><span class="section-number">2.1.8. </span>Fit the model<a class="headerlink" href="#fit-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.9. </span>Fit the model<a class="headerlink" href="#fit-the-model" title="Permalink to this headline">¶</a></h2>
 <p>We are now ready to fit the spectrum. To see the fitting steps, we can give the command <code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">1</span></code>. This needs
 to be set only once per session. A subsequent <code class="docutils literal notranslate"><span class="pre">fit</span></code> command (<a class="reference internal" href="../../reference/commands/fit.html#sec-fit"><span class="std std-ref">Fit: spectral fitting</span></a>) starts to optimize the parameters:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; fit print 1
 SPEX&gt; fit
-   50865.8      5.000E-02  1.000E-04  1.000E+03   3.00
-   6159.59      5.225E-02  3.728E-04   485.       2.21
-   5298.40      5.318E-02  3.756E-04   543.       2.30
-   5280.39      5.503E-02  3.791E-04   545.       2.29
-   5273.64      5.579E-02  3.774E-04   545.       2.30
-   5271.29      5.634E-02  3.784E-04   545.       2.30
-   5269.85      5.656E-02  3.784E-04   545.       2.30
-   5269.84      5.651E-02  3.784E-04   545.       2.30
-   5269.81      5.652E-02  3.783E-04   545.       2.30
-   5269.81      5.652E-02  3.783E-04   545.       2.30
+   42102.6              5  5.000E-02  1.000E-04  1.000E+08   3.00
+   2461.87             10  5.404E-02  9.087E-05  2.021E+08   2.04
+   428.533             15  5.439E-02  1.041E-04  2.412E+08   2.31
+   414.925             20  5.437E-02  9.425E-05  2.429E+08   2.37
+   414.651             25  5.426E-02  9.229E-05  2.428E+08   2.37
+   414.532             30  5.408E-02  9.269E-05  2.428E+08   2.37
+   414.525             35  5.412E-02  9.281E-05  2.428E+08   2.37
+   414.524             42  5.411E-02  9.270E-05  2.428E+08   2.37
+   414.524             48  5.411E-02  9.265E-05  2.428E+08   2.37
 --------------------------------------------------------------------------------------------------
 sect comp mod  acro parameter with unit     value      status    minimum   maximum lsec lcom lpar
 
-   1    1 reds z    Redshift             5.6520663E-02 thawn    -1.0      1.00E+10
+   1    1 reds z    Redshift             5.4108180E-02 thawn    -1.0      1.00E+10
    1    1 reds flag Flag: cosmo=0, vel=1  0.000000     frozen    0.0       1.0
 
-   1    2 hot  nh   X-Column (1E28/m**2) 3.7826155E-04 thawn     0.0      1.00E+20
-   1    2 hot  t    Temperature (keV)    5.0000002E-04 frozen   5.00E-04  1.00E+03
+   1    2 hot  nh   X-Column (1E28/m**2) 9.2653019E-05 thawn     0.0      1.00E+20
+   1    2 hot  t    Temperature (keV)    1.9999999E-04 frozen   2.00E-04  1.00E+03
    1    2 hot  rt   T(balance) / T(spec)  1.000000     frozen   1.00E-04  1.00E+04
    1    2 hot  fcov Covering fraction     1.000000     frozen    0.0       1.0
    1    2 hot  v    RMS Velocity (km/s)   100.0000     frozen    0.0      3.00E+05
@@ -237,15 +257,15 @@ sect comp mod  acro parameter with unit     value      status    minimum   maxim
    1    2 hot  30   Abundance Zn          1.000000     frozen    0.0      1.00E+10
    1    2 hot  file File electr.distrib.
 
-   1    3 cie  norm ne nX V (1E64/m**3)   545.4489     thawn     0.0      1.00E+20
-   1    3 cie  t    Temperature (keV)     2.300449     thawn    5.00E-04  1.00E+03
+   1    3 cie  norm ne nX V (1E64/m**3)  2.4279381E+08 thawn     0.0      1.00E+20
+   1    3 cie  t    Temperature (keV)     2.372914     thawn    5.00E-04  1.00E+03
    1    3 cie  sig  Sigma                 0.000000     frozen    0.0      1.00E+04
    1    3 cie  sup  Sigma up              0.000000     frozen    0.0      1.00E+04
    1    3 cie  logt T grid (lin/log)      1.000000     frozen    0.0       1.0
    1    3 cie  ed   El  dens (1E20/m**3) 9.9999998E-15 frozen   1.00E-22  1.00E+10
    1    3 cie  it   Ion temp  (keV)       1.000000     frozen   1.00E-04  1.00E+07
    1    3 cie  rt   T(balance) / T(spec)  1.000000     frozen   1.00E-04  1.00E+04
-   1    3 cie  vmic Microturb vel (km/s)  0.000000     frozen    0.0      3.00E+05
+   1    3 cie  vrms RMS Velocity (km/s)   0.000000     frozen    0.0      3.00E+05
    1    3 cie  ref  Reference atom        1.000000     frozen    1.0       30.
    1    3 cie  01   Abundance H           1.000000     frozen    0.0      1.00E+10
    1    3 cie  02   Abundance He          1.000000     frozen    0.0      1.00E+10
@@ -283,74 +303,35 @@ sect comp mod  acro parameter with unit     value      status    minimum   maxim
 
 
 Instrument     1 region    1 has norm    1.00000E+00 and is frozen
----------------------------------------------------------------------------------------------
-sect comp mod  acro parameter with unit      sect comp mod  acro parameter with unit  correl.
-
-   1    1 reds z    Redshift             &lt;-&gt;    1    2 hot  nh   X-Column (1E28/m**2)   0.006
-   1    1 reds z    Redshift             &lt;-&gt;    1    3 cie  norm ne nX V (1E64/m**3)    0.035
-   1    1 reds z    Redshift             &lt;-&gt;    1    3 cie  t    Temperature (keV)      0.200
-   1    2 hot  nh   X-Column (1E28/m**2) &lt;-&gt;    1    3 cie  norm ne nX V (1E64/m**3)    0.582
-   1    2 hot  nh   X-Column (1E28/m**2) &lt;-&gt;    1    3 cie  t    Temperature (keV)     -0.173
-   1    3 cie  norm ne nX V (1E64/m**3)  &lt;-&gt;    1    3 cie  t    Temperature (keV)      0.069
-
 
 --------------------------------------------------------------------------------
  Fluxes and restframe luminosities between   2.0000     and    10.000     keV
 
  sect comp mod   photon flux   energy flux nr of photons    luminosity
               (phot/m**2/s)      (W/m**2)   (photons/s)           (W)
-    1    3 cie    4.23975      2.265908E-15  5.845445E+45  3.101105E+30
+    1    3 cie    4.13667      2.229383E-15  2.655905E+51  1.422295E+36
 
+--------------------------------------------------------------------------------
  Fit method        : Classical Levenberg-Marquardt
  Fit statistic     : C-statistic
- C-statistic       :      5269.81
- Expected C-stat   :       660.01 +/-        34.94
- Chi-squared value :   2307566.25
- Degrees of freedom:       791
+ C-statistic       :       414.52
+ Expected C-stat   :       247.13 +/-        21.92
+ Chi-squared value :       528.16
+ Degrees of freedom:       239
  W-statistic       :         0.00
 </pre></div>
 </div>
 <p>At the end of the optimization step, SPEX prints out an overview of the fit parameters and the fit statistics. Here we
-can see that the fit improved, but there is still a lot of room for improvement.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/ccd6.png"><img alt="../../_images/ccd6.png" src="../../_images/ccd6.png" style="width: 600px;" /></a>
-</div>
-</div>
-<div class="section" id="do-additional-selections-on-the-data">
-<h2><span class="section-number">2.1.9. </span>Do additional selections on the data<a class="headerlink" href="#do-additional-selections-on-the-data" title="Permalink to this headline">¶</a></h2>
-<p>In the beginning, we did not ignore possible bad energy intervals in the spectrum. For MOS1, for example, we know that
-the calibration is valid for the energy range between roughly 0.3 keV and 10 keV. To fit only the good spectral
-interval, we need to ignore the parts at low and high energies.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; ignore 0:0.3 unit kev
-SPEX&gt; ignore 10:100 unit kev
-SPEX&gt; plot
-</pre></div>
-</div>
+can see that the fit improved, but there is still room for improvement.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/ccd7.png"><img alt="../../_images/ccd7.png" src="../../_images/ccd7.png" style="width: 600px;" /></a>
-</div>
-<p>The plot shows that the data points below 0.3 keV have disappeared. When we fit again, the C-statistics value improves
-a lot:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; fit
- ...
- Fit method        : Classical Levenberg-Marquardt
- Fit statistic     : C-statistic
- C-statistic       :       798.47
- Expected C-stat   :       615.03 +/-        33.31
- Chi-squared value :      3421.64
- Degrees of freedom:       643
- W-statistic       :         0.00
-</pre></div>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/ccd8.png"><img alt="../../_images/ccd8.png" src="../../_images/ccd8.png" style="width: 600px;" /></a>
 </div>
 </div>
 <div class="section" id="fitting-abundances">
 <h2><span class="section-number">2.1.10. </span>Fitting abundances<a class="headerlink" href="#fitting-abundances" title="Permalink to this headline">¶</a></h2>
-<p>Although the C-statistics improved, there are still residuals in the spectrum, especially around the strongest spectral
-lines. This is because the metal abundances in the gas are still fixed to 1.0. We can let the abundances vary in the
-optimization by setting them to thawn:</p>
+<p>Although the C-statistics are not too bad, there are still residuals in the spectrum, especially around the strongest
+spectral lines. This is because the metal abundances in the gas are still fixed to 1.0. We can let the abundances vary
+in the optimization by setting them to thawn:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 3 08 s t
 SPEX&gt; par 1 3 12 s t
 SPEX&gt; par 1 3 14 s t
@@ -364,14 +345,14 @@ SPEX&gt; fit
 </div>
 <p>The optimization leads to an even better fit:</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/ccd9.png"><img alt="../../_images/ccd9.png" src="../../_images/ccd9.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ccd8.png"><img alt="../../_images/ccd8.png" src="../../_images/ccd8.png" style="width: 600px;" /></a>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Fit method        : Classical Levenberg-Marquardt
 Fit statistic     : C-statistic
-C-statistic       :       654.72
-Expected C-stat   :       614.18 +/-        33.29
-Chi-squared value :      3157.79
-Degrees of freedom:       635
+C-statistic       :       266.80
+Expected C-stat   :       247.12 +/-        21.91
+Chi-squared value :       366.77
+Degrees of freedom:       231
 W-statistic       :         0.00
 </pre></div>
 </div>
@@ -384,20 +365,21 @@ Below we calculate, for example, the error on the best fit temperature:</p>
  parameter          C-stat      Delta          Delta
    value            value       parameter     C-stat
 ----------------------------------------------------
-   2.34612          655.90     -2.367735E-02    1.18
-   2.34973          655.56     -2.005935E-02    0.84
-   2.34806          655.60     -2.173662E-02    0.89
-   2.34709          655.83     -2.270699E-02    1.12
-   2.34757          655.78     -2.222180E-02    1.06
-   2.34781          655.72     -2.197933E-02    1.01
-   2.34793          655.68     -2.186084E-02    0.96
-   2.39347          655.50      2.367735E-02    0.79
-   2.41715          658.33      4.735494E-02    3.62
-   2.39347          655.50      2.367735E-02    0.79
-   2.39526          655.67      2.547121E-02    0.95
-   2.39577          655.74      2.597785E-02    1.03
-   2.39553          655.69      2.574086E-02    0.97
- Parameter   1    3 t   :    2.3698     Errors:  -2.18608E-02 ,   2.57409E-02
+   2.33348          267.68     -2.246547E-02    0.89
+   2.31101          270.23     -4.493093E-02    3.44
+   2.33348          267.68     -2.246547E-02    0.89
+   2.33247          267.69     -2.346587E-02    0.90
+   2.32425          268.52     -3.169394E-02    1.73
+   2.32836          268.05     -2.758002E-02    1.26
+   2.33042          267.87     -2.552295E-02    1.07
+   2.33127          267.79     -2.466774E-02    1.00
+   2.37841          267.71      2.246547E-02    0.92
+   2.40087          270.28      4.493093E-02    3.49
+   2.37841          267.71      2.246547E-02    0.92
+   2.37914          267.77      2.319646E-02    0.98
+   2.37940          267.78      2.345586E-02    0.99
+   2.37974          267.81      2.379751E-02    1.02
+ Parameter   1    3 t   :    2.3559     Errors:  -2.46677E-02 ,   2.37975E-02
 </pre></div>
 </div>
 <p>The error command reports the best fit value for the temperature and the lower and upper 1 sigma (68%) confidence
@@ -442,7 +424,8 @@ Thank you for using SPEX!
 <li class="toctree-l2"><a class="reference internal" href="../uv.html">2.4. Import UV/Optical data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pionabs/pionabs.html">2.5. PION setup for AGN warm absorber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/user.html">2.7. How to use the SPEX user model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../twospec/twospec.html">2.7. Fitting two different spectra simultaneously</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/user.html">2.8. How to use the SPEX user model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference.html">3. Command overview</a></li>
@@ -490,7 +473,7 @@ Thank you for using SPEX!
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

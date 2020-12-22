@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pyspex.model &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>pyspex.model &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -37,19 +37,19 @@
 
 <span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
 
-<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">int</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
 
-<span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
+<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
 
 <span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">pyspex</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">Elements</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">Elements</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
@@ -63,7 +63,7 @@
 <span class="sd">    :vartype sect: list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nsector</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Number of sectors in this model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sect</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># List of sector objects</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
@@ -326,7 +326,7 @@
 <span class="sd">        :param status: (Optional) Should the parameter be free (True) or frozen (False).</span>
 <span class="sd">        :type status: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">api_norm_set</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ins</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">api_norm_set</span><span class="p">(</span><span class="n">ins</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">ier</span></div>
 
@@ -338,33 +338,170 @@
 <span class="sd">        :param reg: Region number.</span>
 <span class="sd">        :type reg: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">api_norm_get</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ins</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">reg</span><span class="p">))</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">api_norm_get</span><span class="p">(</span><span class="n">ins</span><span class="p">,</span> <span class="n">reg</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">norm_renorm</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">norm_free</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Model.par_show"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show">[docs]</a>    <span class="k">def</span> <span class="nf">par_show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display parameter overview in terminal.</span>
+<div class="viewcode-block" id="Model.par_show_classic"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_classic">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_classic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display parameter overview in terminal through the Fortran interface.</span>
 
 <span class="sd">        :param option: Select which information should be shown (free/couple/flux/stat/corr/all)</span>
 <span class="sd">        :type option: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">option</span><span class="o">==</span><span class="s1">&#39;free&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;free&#39;</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show free&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="s1">&#39;couple&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;couple&#39;</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show couple&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="s1">&#39;flux&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;flux&#39;</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show flux&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="s1">&#39;stat&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;stat&#39;</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show stat&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="s1">&#39;corr&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;corr&#39;</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show corr&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">option</span><span class="o">==</span><span class="s1">&#39;all&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show all&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;par show&#39;</span><span class="p">)</span>
 
         <span class="k">return</span></div>
+
+<div class="viewcode-block" id="Model.par_show"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show">[docs]</a>    <span class="k">def</span> <span class="nf">par_show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display parameter overview through the Python interface.</span>
+
+<span class="sd">        :param option: Select which information should be shown (free/couple/flux/stat/corr/all)</span>
+<span class="sd">        :type option: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;free&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_free</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_flux</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;couple&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_couple</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_param</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_couple</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_flux</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_param</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_show_flux</span><span class="p">()</span>
+
+        <span class="k">return</span></div>
+
+<div class="viewcode-block" id="Model.par_show_param"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_param">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display the parameters through the Python interface.&quot;&quot;&quot;</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod  acro parameter with unit      value     status    minimum   maximum lsec lcom lpar&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
+            <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">icomp</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">ncomp</span><span class="p">):</span>
+                <span class="n">ccomp</span> <span class="o">=</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">ipar</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ccomp</span><span class="o">.</span><span class="n">npar</span><span class="p">):</span>
+                    <span class="n">cpar</span> <span class="o">=</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">ipar</span><span class="p">]</span>
+
+                    <span class="c1"># Format the thawn or frozen text</span>
+                    <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">free</span><span class="p">:</span>
+                        <span class="n">stat</span> <span class="o">=</span> <span class="s1">&#39;thawn&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">stat</span> <span class="o">=</span> <span class="s1">&#39;frozen&#39;</span>
+
+                    <span class="c1"># Set the link data if parameter is linked:</span>
+                    <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">linked</span><span class="p">:</span>
+                        <span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+                    <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2">     </span><span class="si">{5:64s}</span><span class="s2">&quot;</span>
+                              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2"> </span><span class="si">{5:#11.6G}</span><span class="s2">   </span><span class="si">{6:6s}</span><span class="s2">    </span><span class="si">{7:#7.2G}</span><span class="s2">   </span><span class="si">{8:#7.2G}</span><span class="s2"> </span><span class="si">{9:10s}</span><span class="s2">&quot;</span>
+                              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span>
+                                        <span class="n">cpar</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">upp</span><span class="p">,</span> <span class="n">link</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.par_show_free"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_free">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_free</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display the free parameters through the Python interface.&quot;&quot;&quot;</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod  acro parameter with unit      value     status    minimum   maximum lsec lcom lpar&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
+            <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">icomp</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">ncomp</span><span class="p">):</span>
+                <span class="n">ccomp</span> <span class="o">=</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">ipar</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ccomp</span><span class="o">.</span><span class="n">npar</span><span class="p">):</span>
+                    <span class="n">cpar</span> <span class="o">=</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">ipar</span><span class="p">]</span>
+
+                    <span class="c1"># Format the thawn or frozen text</span>
+                    <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">free</span><span class="p">:</span>
+                        <span class="n">stat</span> <span class="o">=</span> <span class="s1">&#39;thawn&#39;</span>
+
+                        <span class="c1"># Set the link data if parameter is linked:</span>
+                        <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">linked</span><span class="p">:</span>
+                            <span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+                        <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2">     </span><span class="si">{5:64s}</span><span class="s2">&quot;</span>
+                                  <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2"> </span><span class="si">{5:#11.6G}</span><span class="s2">   </span><span class="si">{6:6s}</span><span class="s2">    </span><span class="si">{7:#7.2G}</span><span class="s2">   </span><span class="si">{8:#7.2G}</span><span class="s2"> &quot;</span>
+                                  <span class="s2">&quot;</span><span class="si">{9:10s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span>
+                                                   <span class="n">cpar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">upp</span><span class="p">,</span> <span class="n">link</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.par_show_couple"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_couple">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_couple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display the coupled parameters through the Python interface.&quot;&quot;&quot;</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coupled parameter   |   coupling  |Parameter on which it depends&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod  para |    factor   |sect comp mod  para&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
+            <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">icomp</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">ncomp</span><span class="p">):</span>
+                <span class="n">ccomp</span> <span class="o">=</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">ipar</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ccomp</span><span class="o">.</span><span class="n">npar</span><span class="p">):</span>
+                    <span class="n">cpar</span> <span class="o">=</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">ipar</span><span class="p">]</span>
+
+                    <span class="c1"># Set the link data if parameter is linked:</span>
+                    <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">linked</span><span class="p">:</span>
+
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> | </span><span class="si">{4:#11.6G}</span><span class="s2"> |</span><span class="si">{5:4d}</span><span class="s2"> </span><span class="si">{6:4d}</span><span class="s2"> </span><span class="si">{7:4s}</span><span class="s2"> </span><span class="si">{8:4s}</span><span class="s2">&quot;</span>
+                              <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">coupling</span><span class="p">,</span>
+                                        <span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.par_show_flux"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_flux">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_flux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display the flux information of the model components.&quot;&quot;&quot;</span>
+
+        <span class="n">elim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">elimflux</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fluxes and restframe luminosities between </span><span class="si">{0:#11.6G}</span><span class="s2"> and </span><span class="si">{1:#11.6G}</span><span class="s2"> keV&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">elim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod   photon flux   energy flux   nr of photons  luminosity&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                (phot/m**2/s) (W/m**2)      (photons/s)    (W)&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
+            <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">icomp</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">ncomp</span><span class="p">):</span>
+                <span class="n">cflux</span> <span class="o">=</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
+                <span class="n">ccomp</span> <span class="o">=</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2">  </span><span class="si">{3:#11.6G}</span><span class="s2">   </span><span class="si">{4:#11.6G}</span><span class="s2">   </span><span class="si">{5:#11.6G}</span><span class="s2">    </span><span class="si">{6:#11.6G}</span><span class="s2">&quot;</span>
+                          <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">photflux</span><span class="p">,</span>
+                                    <span class="n">cflux</span><span class="o">.</span><span class="n">enerflux</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">photlum</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">enerlum</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Model.par_write"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_write">[docs]</a>    <span class="k">def</span> <span class="nf">par_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comfile</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Write parameters to a .com file.</span>
@@ -405,7 +542,7 @@
 <span class="sd">    :vartype spectrum: pyspex.model.Spectrum</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># Sector number.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ncomp</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># Number of components in sector.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comp</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1"># List of component objects.</span>
@@ -456,7 +593,7 @@
 <span class="sd">    :vartype par: list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c1"># Component number.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">umodel</span> <span class="o">=</span> <span class="mi">0</span>                 <span class="c1"># Model ID number.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span> <span class="o">=</span> <span class="kc">False</span>                <span class="c1"># Is this an additive component?</span>
@@ -468,6 +605,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">addmul</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Array with the numbers of the multiplicative components to multiply with.</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">par</span> <span class="o">=</span> <span class="p">[]</span>                   <span class="c1"># List of parameter objects.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">flux</span> <span class="o">=</span> <span class="n">Fluxes</span><span class="p">()</span>            <span class="c1"># Flux for this component</span>
 
 <div class="viewcode-block" id="Component.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Component.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Obtain the information from SPEX for sector isect and component icomp.</span>
@@ -501,7 +640,10 @@
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">npar</span><span class="p">):</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">()</span>
             <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></div></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">:</span>
@@ -513,6 +655,8 @@
 <span class="sd">    :vartype name: str</span>
 <span class="sd">    :ivar type: Type of parameter (norm, abun, fitp, cons or text)</span>
 <span class="sd">    :vartype type: str</span>
+<span class="sd">    :ivar desc: Description of parameter</span>
+<span class="sd">    :vartype desc: str</span>
 <span class="sd">    :ivar value: Value</span>
 <span class="sd">    :vartype value: float</span>
 <span class="sd">    :ivar low: Lower boundary of parameter range</span>
@@ -537,11 +681,13 @@
 <span class="sd">    :vartype coupling: float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># Parameter number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>        <span class="c1"># Name of parameter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>        <span class="c1"># Type of parameter (norm, abun, fitp, cons or text)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>        <span class="c1"># Description of parameter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.</span>       <span class="c1"># Value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>        <span class="c1"># Text value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">low</span> <span class="o">=</span> <span class="mf">0.</span>         <span class="c1"># Lower boundary of parameter range</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upp</span> <span class="o">=</span> <span class="mf">0.</span>         <span class="c1"># Upper boundary of parameter range</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">err_low</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># Lower error boundary</span>
@@ -570,6 +716,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_type</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desc</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_name</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S20&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">desc</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_text</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S128&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_value</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">low</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_low</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_upp</span><span class="p">)</span>
@@ -594,7 +744,7 @@
 <span class="sd">    :vartype list: tuple</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># Abundance index in list</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>      <span class="c1"># Reference to abundance set (string)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Lodders et al. (2009)&quot;</span><span class="p">,</span> <span class="s2">&quot;Allen (1973)&quot;</span><span class="p">,</span> <span class="s2">&quot;Ross &amp; Aller (1976)&quot;</span><span class="p">,</span>
@@ -657,7 +807,7 @@
 <span class="sd">    :vartype omega_r: float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c1"># Distance in meter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">au</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Distance in Astronomical Units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ly</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Distance in light year</span>
@@ -757,7 +907,7 @@
 <span class="sd">    :vartype energy_width: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbins</span> <span class="o">=</span> <span class="mi">0</span>                              <span class="c1"># Number of bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Centroids of bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy_upper</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Upper boundaries of bins</span>
@@ -892,7 +1042,7 @@
 <span class="sd">    :vartype elimflux: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sector</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Sector number of flux calculation</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">component</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># Component number of flux calculation</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">photflux</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Photon flux (phot/m**2/s)</span>
@@ -967,7 +1117,7 @@
 <span class="sd">    :vartype list: tuple</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># Index number for list.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>    <span class="c1"># Reference to ibal set (string)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Arnaud &amp; Raymond (1992) for Fe, Arnaud &amp; Rothenflug (1985) for other elements&quot;</span><span class="p">,</span>
@@ -1017,7 +1167,7 @@
 <span class="sd">    :vartype lmax: int</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>        <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span>        <span class="c1"># Ionisation stage</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use</span> <span class="o">=</span> <span class="kc">True</span>   <span class="c1"># Ion used in calculation</span>
@@ -1051,7 +1201,7 @@
 <span class="sd">    :vartype ions: list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize the information for an atom.</span>
 
 <span class="sd">        :param z: Atomic number</span>
@@ -1079,7 +1229,7 @@
 <span class="sd">    :vartype atoms: list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nz</span> <span class="o">=</span> <span class="mi">30</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
@@ -1377,7 +1527,7 @@
 <span class="sd">    :vartype luminosity: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbins</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Total number of bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Centroids of bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">energy_upper</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># Upper boundaries of bins</span>
@@ -1454,7 +1604,7 @@
 <span class="sd">    :vartype newcooldr: bool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gacc</span> <span class="o">=</span> <span class="mf">0.</span>          <span class="c1"># Free-bound accuracy</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">line_ex</span> <span class="o">=</span> <span class="kc">True</span>     <span class="c1"># Electron excitation included</span>
@@ -1717,7 +1867,7 @@
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

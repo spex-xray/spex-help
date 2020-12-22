@@ -39,3 +39,10 @@ The SPEX equivalent of ``ftflx2xsp`` is :ref:`sec:uvtospex`. Please follow
 the link to find a brief manual for this tool. It creates a SPEX format spectrum
 and response matrix based on the fluxes as function of wavelength stored in a
 text file. The instrument resolution is needed in units of km/s (FWHM).
+
+ .. note:: There are some OM response matrices around that do not conform to the
+    OGIP standard. The extension of the response matrix is then called 'SPECTRESP MATRIX'
+    instead of the standard 'SPECRESP MATRIX'. ``trafo`` and ``ogip2spex`` will exit with
+    an error when this name error is encountered. This can be solved by renaming
+    the extension to 'SPECRESP MATRIX' in the rmf file. This can be done,
+    for example, by using the HEASOFT task ``fv``.

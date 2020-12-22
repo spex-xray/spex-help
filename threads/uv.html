@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.4. Import UV/Optical data &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>2.4. Import UV/Optical data &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -64,6 +64,17 @@ to SPEX format using TRAFO as usual.</p>
 the link to find a brief manual for this tool. It creates a SPEX format spectrum
 and response matrix based on the fluxes as function of wavelength stored in a
 text file. The instrument resolution is needed in units of km/s (FWHM).</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are some OM response matrices around that do not conform to the
+OGIP standard. The extension of the response matrix is then called ‘SPECTRESP MATRIX’
+instead of the standard ‘SPECRESP MATRIX’. <code class="docutils literal notranslate"><span class="pre">trafo</span></code> and <code class="docutils literal notranslate"><span class="pre">ogip2spex</span></code> will exit with
+an error when this name error is encountered. This can be solved by renaming
+the extension to ‘SPECRESP MATRIX’ in the rmf file. This can be done,
+for example, by using the HEASOFT task <code class="docutils literal notranslate"><span class="pre">fv</span></code>.</p>
+</div>
+</div></blockquote>
 </div>
 
 
@@ -97,7 +108,8 @@ text file. The instrument resolution is needed in units of km/s (FWHM).</p>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Import UV/Optical data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pionabs/pionabs.html">2.5. PION setup for AGN warm absorber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pionena/pionena.html">2.6. PION setup for emission and absorption features in AGN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user/user.html">2.7. How to use the SPEX user model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twospec/twospec.html">2.7. Fitting two different spectra simultaneously</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/user.html">2.8. How to use the SPEX user model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
@@ -145,7 +157,7 @@ text file. The instrument resolution is needed in units of km/s (FWHM).</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

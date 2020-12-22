@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.1.28. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>4.1.28. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -87,6 +87,16 @@ emission), refl (reflected power-law emission), comt (thermal optical/UV
 disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
 in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract">Mehdipour et al. (2015)</a>.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Starting from SPEX Version 3.06, we have updated the cooling due
+to collisional excitation (work performed by Stofanova et al., 2021, submitted).
+In addition, starting from SPEX Version 3.06.01, we have improved the collisional
+excitation rates of neutral hydrogen; the latter affects both emitted H I spectra,
+and the total cooling rate at the lower temperatures (few eV). That cooling rate
+may differ at some temperatures by a factor of 3-4. Therefore results obtained
+with the most recent version will differ from those of version 3.05 and earlier.</p>
+</div>
 <p>The main advantage, however, is that the user can define his own
 ionising continuum by combining any additive components of SPEX, and
 that ionising spectrum is fed through the <em>pion</em> component to get the
@@ -112,7 +122,7 @@ an example. For a photoionised case, with <img class="math" src="../_images/math
 (resulting <img class="math" src="../_images/math/dc58d8a8fb2ae6fca038bfea175e56007e35cbe3.svg" alt="kT=0.64" style="vertical-align: 0px"/> keV) the nominal occupation of the ground
 state of H becomes negative for a density
 <img class="math" src="../_images/math/c08e913a42b919d987f6a4949804e9d7249ef565.svg" alt="&gt;0.15\times 10^{20}" style="vertical-align: -1px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. This can be traced down to
-incomplete atomic data. For H , we include collisional excitation and
+incomplete atomic data. For H, we include collisional excitation and
 de-excitation up to principal quantum number <img class="math" src="../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/> but not above.
 As a result, in this example the 1s–5s levels are mainly
 populated/depopulated by collisions, while 6s–16s are mainly populated
@@ -267,6 +277,17 @@ hydrogen density and <img class="math" src="../_images/math/aa5c13ff92a8ff10b24e
 of the plasma, for example <img class="math" src="../_images/math/fb5b7eccef10eff979b5cb1cff6131a554baf120.svg" alt="f=1.4287" style="vertical-align: -3px"/> for the present default
 abundances of SPEX (you can check this number from the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span>
 <span class="pre">...</span> <span class="pre">plas</span></code> ascii output option).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to note that the acceleration is proportional to the hydrogen density,
+so take care to choose the appropriate hydrogen density, even in the low density limit where the
+spectral shape does not depend on the density. This counter-intuitive behaviour is caused by the
+use of <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> as main parameter. Given the absolute ionising luminosity <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> of the ionising
+source, and the value of <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> provided by the user,
+the pion model then calculates the distance <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> from the equation <img class="math" src="../_images/math/c19ef854df1a92ba39d56396dc0579f7632c0f6d.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>.
+Thus, higher density yields smaller distance, hence larger absorbed flux by the gas layer, hence
+stronger acceleration.</p>
+</div>
 </div>
 </div>
 <div class="section" id="model-parameters">
@@ -282,6 +303,10 @@ latitudes).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">u</span></code> : the Davidson (Cloudy) ionisation parameter <img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/>
 (dimensionless). This is calculated from the SED and the value of
 <img class="math" src="../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. Not fittable, just output.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : the hydrogen density in units of <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/e6a84054eab4e0a886622798559262af5b4ebe58.svg" alt="10^{-14}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/b30f5c26eed3ad38bcfe0b42446a9a0476a10ebc.svg" alt="10^{6}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, to be consistent with the order of magnitude of the
+electron density (which is used in the cie and neij models; do NOT confuse both quantities!).</div>
 </div>
 <p>The following parameters are common to all our absorption models:</p>
 <div class="line-block">
@@ -294,7 +319,8 @@ components</div>
 components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
 <div class="line">The following parameters are the same as for the cie-model (see there
-for a description): <code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
+for a description):</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">01...28</span></code> : Abundances of H to Ni; only here we take H, He, C,
 N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : File name for the electron distribution (in case of a sum
@@ -413,7 +439,7 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

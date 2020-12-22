@@ -39,15 +39,14 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.06.00
+     Welcome user to SPEX version 3.06.01
 
      NEW in this version of SPEX:
-    12-12-2018 Plasma codes run in double precision now
-    05-06-2019 Update of cooling processes
-    18-12-2019 Included new atomic data (Fe-L, Gu et al. 2019)
-    05-02-2020 Included Python interfaces for SPEX
-    24-03-2020 Included new molecular dust data
-
+    22-07-2020 Bugfix: neij gives line emission while abundance is zero.
+    18-08-2020 Changed reference density from electron density to hydrogen density.
+    04-09-2020 Added pyroxene back to the amol model.
+    23-10-2020 Update of H I collision strengths (IMPORTANT)
+    24-11-2020 Added ascdump and par_show functions for the Python interface.
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
     >>>
@@ -62,3 +61,26 @@ If you do not want to use conda, you can also compile the Python interfaces for 
 either through a compile script called ``compile.py`` or manually with CMake by adding the option ``-DPYTHON=2`` or
 ``-DPYTHON=3`` depending on the python version. The use of Python 3 is strongly recommended. See :ref:`sec:compile`
 for details.
+
+Integration into iPython and Jupyter Notebook
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Next to the dependencies installed in the conda environment ``spex``, the Python interface also depends on the SPEX
+environment variables set with the spexdist.(c)sh files. So before running iPython or Jupyter notebook, it is
+necessary to source the SPEX environment (also make sure the conda ``spex`` environment is activated)::
+
+    (spex) unix:~> source /opt/spex/spexdist.sh
+
+(replace /opt/spex in this path with the location of SPEX on your machine, or $SPEX90 if this variable is already set).
+
+It may be that iPython and Jupyter are not yet installed in your conda environment. If not, please install them using
+the command::
+
+    (spex) unix:~> conda install jupyter_client ipykernel
+
+With iPython and Jupyter notebook, it can be helpful to install the spex conda environment explicitly for your project::
+
+    (spex) unix:~> ipython kernel install --user --name=spex
+
+In your Jupyter notebook, you can now select ``spex`` from the drop-down menu if you are creating a new project. The
+``spex`` conda environment should now be linked to your Jupyter project.

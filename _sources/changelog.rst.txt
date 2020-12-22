@@ -1,11 +1,11 @@
 Changelog
 =========
 
-What is new in SPEX version 3.00 compared to SPEX 2.06? Most of the changes are
+What is new in SPEX version 3.00 compared to SPEX 2.06? Most of the changes are
 actually “under the hood” of the SPEX program and are only noticed when
 model fits are compared, but we also provide useful new model additions.
 A more detailed overview of the changes in the plasma models can be
-found in Section :ref:`chap:plasmamodel`. The most important changes are
+found in Section :ref:`chap:plasmamodel`. The most important changes are
 summarized here:
 
 -  The first version of the new atomic database prepared by Ton Raassen
@@ -29,18 +29,18 @@ summarized here:
    their radiative transfer. Also the emission part is implemented.
    However, use with care since this model is still experimental.
 
--  We included natural & Voigt broadening to SPEX emission models.
+-  We included natural & Voigt broadening to SPEX emission models.
 
 -  We introduce a new charge exchange model (``cx``) developed by
    `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...594A..78G/abstract>`_.
 
--  We added the ``ebv`` component in  to model interstellar extinction.
+-  We added the ``ebv`` component in SPEX to model interstellar extinction.
 
--  There are now interfaces to include your own model in  . Use
+-  There are now interfaces to include your own model in SPEX. Use
    ``com user`` for additive models and ``com musr`` for multiplicative
    models. Examples of how to use this model component are shown in the
    revised SPEX Cookbook. It also allows you to call Xspec models from
-    .
+   SPEX.
 
 -  We added a line emission/absorption model with a Voigt profile
    (``com line``) to model individual lines.
@@ -299,3 +299,42 @@ In SPEXACT 3.06.00:
 
    *  Absorption lines of Ne II, Ne III, Mg I and Si I have been updated using Juett et al. (2006) for Ne. The Mg I
       and Si I have been updated using calculations with FAC and COWAN respectively.
+
+Version 3.06.01
+---------------
+
+This SPEX release mainly fixes a few important bugs found after the release of SPEX 3.06.00.
+
+In SPEX 3.06.01:
+
+- Added par_show function to pyspex for use with Jupyter Notebook.
+
+- Added functionality to ascdump, both in SPEX and in pyspex. The ascdump command in SPEX has now the
+  ``set range`` and ``set flux`` options to limit the output to a certain energy range or to lines
+  with a minimum flux or optical depth.
+
+- Added a command to remove one (or a couple of) lines from emission spectra. With the ``ions mute line``
+  command, a line can be selected for removal from the spectrum. This is especially helpful when a line
+  shows effects that SPEX does not model, but can be fitted with a customized Gaussian/line profile.
+
+In SPEXACT 3.06.01:
+
+- The collisional excitation cross sections for H I at low and intermediate
+  temperatures were too low. After carefull comparison, we have chosen to
+  replace the 1s-nl and 2s-nl transitions (n.le.5) with the ones as given
+  in the Chianti database. That is based on the Anderson et al. 2002 erratum
+  with a sensible extrapolation to higher energies.
+
+  .. Warning:: The update above affects both emitted H I spectra, and the total cooling
+     rate at the lower temperatures (few eV) in the ``pion`` model. That cooling rate
+     may differ at some temperatures by a factor of 3-4. Therefore results obtained
+     with the most recent SPEX version will differ from those of version 3.05 and earlier.
+
+- Fixed a problem with Li-like Fe-L data (remove high multipole transitions arisen from a bug in FAC).
+
+- Fixed a bug in the NEIJ model which produced wrong ion concentrations from SPEX version 3.05.
+
+- Added pyroxene and DNA to amol model.
+
+- Updates to ions: C I, N II, O II, Ne IV, Cr IV, Cr V, Mn V, Mn VI.
+

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6.1.3.4. Plot commands &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>6.1.3.5. Plot commands &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_plot.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.1.3.5. Log commands" href="com_log.html" />
-    <link rel="prev" title="6.1.3.3. Optimization commands" href="com_opt.html" />
+    <link rel="next" title="6.1.3.6. Log commands" href="com_log.html" />
+    <link rel="prev" title="6.1.3.4. Optimization commands" href="com_opt.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,12 +35,12 @@
           <div class="body" role="main">
             
   <div class="section" id="plot-commands">
-<h1><span class="section-number">6.1.3.4. </span>Plot commands<a class="headerlink" href="#plot-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.3.5. </span>Plot commands<a class="headerlink" href="#plot-commands" title="Permalink to this headline">¶</a></h1>
 <p>Next to the PGPLOT plotting system of SPEX, the python interface can also be used for plotting.
 In this section, we provide a list of commands for plotting spectral models, the effective area and
 spectral data (including residuals).</p>
 <div class="section" id="plot-spectral-model">
-<h2><span class="section-number">6.1.3.4.1. </span>Plot spectral model<a class="headerlink" href="#plot-spectral-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.5.1. </span>Plot spectral model<a class="headerlink" href="#plot-spectral-model" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX plot type ‘model’ plots the model spectrum as a function of energy. In PYSPEX there is a
 function to obtain the same plot using matplotlib:</p>
 <blockquote>
@@ -51,10 +51,10 @@ function to obtain the same plot using matplotlib:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -76,7 +76,7 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
 </div>
 </div>
 <div class="section" id="plot-data">
-<h2><span class="section-number">6.1.3.4.2. </span>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.5.2. </span>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX data plot type plots the observed spectrum, the folded model and background spectrum.
 In PYSPEX, this is done with one command called <code class="docutils literal notranslate"><span class="pre">plot_data</span></code>:</p>
 <blockquote>
@@ -87,10 +87,10 @@ In PYSPEX, this is done with one command called <code class="docutils literal no
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -112,7 +112,7 @@ and <code class="docutils literal notranslate"><span class="pre">ylog=True</span
 </pre></div>
 </div>
 <div class="section" id="plot-data-with-residuals">
-<h3><span class="section-number">6.1.3.4.2.1. </span>Plot data with residuals<a class="headerlink" href="#plot-data-with-residuals" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.5.2.1. </span>Plot data with residuals<a class="headerlink" href="#plot-data-with-residuals" title="Permalink to this headline">¶</a></h3>
 <p>It is also possible to attach a subplot with residuals to the main data plot. To do this,
 one uses the <code class="docutils literal notranslate"><span class="pre">plot_chi</span></code> command:</p>
 <blockquote>
@@ -123,11 +123,11 @@ one uses the <code class="docutils literal notranslate"><span class="pre">plot_c
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Type of residual, either ‘dchi’ or ‘rel’.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (Optional) Type of residual, either ‘dchi’ or ‘rel’.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -149,7 +149,7 @@ Currently, <code class="docutils literal notranslate"><span class="pre">dchi</sp
 </div>
 </div>
 <div class="section" id="plot-data-with-model-components">
-<h3><span class="section-number">6.1.3.4.2.2. </span>Plot data with model components<a class="headerlink" href="#plot-data-with-model-components" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3.5.2.2. </span>Plot data with model components<a class="headerlink" href="#plot-data-with-model-components" title="Permalink to this headline">¶</a></h3>
 <p>For models with multiple additive components, it is possible in PYSPEX to plot the total model and
 the contributions from the individual additive components with the <code class="docutils literal notranslate"><span class="pre">plot_comp</span></code> method.</p>
 <blockquote>
@@ -160,10 +160,10 @@ the contributions from the individual additive components with the <code class="
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -184,7 +184,7 @@ the contributions from the individual additive components with the <code class="
 </div>
 </div>
 <div class="section" id="plot-effective-area">
-<h2><span class="section-number">6.1.3.4.3. </span>Plot effective area<a class="headerlink" href="#plot-effective-area" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.3.5.3. </span>Plot effective area<a class="headerlink" href="#plot-effective-area" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX plot type ‘area’ plots the effective area as a function of energy. In PYSPEX there is a
 function to obtain the same plot using matplotlib:</p>
 <blockquote>
@@ -195,10 +195,10 @@ function to obtain the same plot using matplotlib:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -268,8 +268,8 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
   <li><a href="commands.html"><span class="section-number">6.1.3. </span>Basic PYSPEX commands</a><ul>
-      <li>Previous: <a href="com_opt.html" title="previous chapter"><span class="section-number">6.1.3.3. </span>Optimization commands</a></li>
-      <li>Next: <a href="com_log.html" title="next chapter"><span class="section-number">6.1.3.5. </span>Log commands</a></li>
+      <li>Previous: <a href="com_opt.html" title="previous chapter"><span class="section-number">6.1.3.4. </span>Optimization commands</a></li>
+      <li>Next: <a href="com_log.html" title="next chapter"><span class="section-number">6.1.3.6. </span>Log commands</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -298,7 +298,7 @@ logarithmic by setting <code class="docutils literal notranslate"><span class="p
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1.1. How to install SPEX &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>1.1. How to install SPEX &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -40,7 +40,7 @@
 <div></div></blockquote>
 <div class="section" id="download">
 <h2><span class="section-number">1.1.1. </span>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<p>SPEX install files can be downloaded from our Zenodo page.</p>
+<p>SPEX install files can be downloaded from <a class="reference external" href="https://doi.org/10.5281/zenodo.1924563">our Zenodo page</a>.</p>
 <p>We provide several options for installing SPEX. They all have their own install file:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -55,21 +55,21 @@
 </tr>
 <tr class="row-even"><td><p>Binary (Administrator)</p></td>
 <td></td>
-<td><p><a class="reference external" href="https://zenodo.org/record/3939056/files/spex-3.06.00-MacOS.dmg?download=1">SPEX-3.06.00-MacOS.dmg</a></p></td>
+<td><p><a class="reference external" href="https://zenodo.org/record/4384188/files/spex-3.06.01-MacOS.dmg?download=1">SPEX-3.06.01-MacOS.dmg</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Binary (Non-Administrator)</p></td>
-<td><p><a class="reference external" href="https://zenodo.org/record/3939056/files/spex-3.06.00-Linux-x86_64.tar.gz?download=1">SPEX-3.06.00-Linux-x86_64.tar.gz</a></p></td>
-<td><p><a class="reference external" href="https://zenodo.org/record/3939056/files/spex-3.06.00-MacOS.tar.gz?download=1">SPEX-3.06.00-MacOS.tar.gz</a></p></td>
+<td><p><a class="reference external" href="https://zenodo.org/record/4384188/files/spex-3.06.01-Linux-x86_64.tar.gz?download=1">SPEX-3.06.01-Linux-x86_64.tar.gz</a></p></td>
+<td><p><a class="reference external" href="https://zenodo.org/record/4384188/files/spex-3.06.01-MacOS.tar.gz?download=1">SPEX-3.06.01-MacOS.tar.gz</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Windows 10</p></td>
 <td><p><a class="reference external" href="ftp://ftp.sron.nl/pub/jellep/spex/v3.05/spex-3.05.00-Linux-gfortran.tar.gz">spex-3.05.00-Linux-gfortran.tar.gz</a></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Source code</p></td>
-<td colspan="2"><p><a class="reference external" href="https://zenodo.org/record/3939056/files/spex-3.06.00-Source.tar.bz2?download=1">SPEX-3.06.00-Source.tar.bz2</a></p></td>
+<td colspan="2"><p><a class="reference external" href="https://zenodo.org/record/4384188/files/spex-3.06.01-Source.tar.bz2?download=1">SPEX-3.06.01-Source.tar.bz2</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Docker image</p></td>
-<td colspan="2"><p><a class="reference external" href="https://zenodo.org/record/3939056/files/spex-3.06.00-Docker.tar.gz?download=1">SPEX-3.06.00-docker.tar.gz</a></p></td>
+<td colspan="2"><p><a class="reference external" href="https://zenodo.org/record/4384188/files/spex-3.06.01-Docker.tar.gz?download=1">SPEX-3.06.01-Docker.tar.gz</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -77,13 +77,13 @@
 <div class="section" id="linux">
 <h2><span class="section-number">1.1.2. </span>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
 <p>Unpack the tar file in the destination directory (for example /usr/local/):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.06.00-Linux-x86_64.tar.gz
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.06.01-Linux-x86_64.tar.gz
 </pre></div>
 </div>
 <p>The tar file will create a directory called SPEX-3.05.00-Linux in which the program will be installed.</p>
-<p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.00-Linux):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.00-Linux (bash shell)
-setenv SPEX90 /usr/local/SPEX-3.06.00-Linux (C-type shell)
+<p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-Linux):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.01-Linux (bash shell)
+setenv SPEX90 /usr/local/SPEX-3.06.01-Linux (C-type shell)
 </pre></div>
 </div>
 <p>Source the script provided by the distribution:</p>
@@ -91,25 +91,25 @@ setenv SPEX90 /usr/local/SPEX-3.06.00-Linux (C-type shell)
 source $SPEX90/spexdist.csh (C-type shell)
 </pre></div>
 </div>
-<p>Remove the tar file: rm SPEX-3.06.00-Linux-x86_64.tar.gz</p>
+<p>Remove the tar file: rm SPEX-3.06.01-Linux-x86_64.tar.gz</p>
 </div>
 <div class="section" id="mac-os">
 <h2><span class="section-number">1.1.3. </span>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="administrator-install">
 <h3><span class="section-number">1.1.3.1. </span>Administrator install<a class="headerlink" href="#administrator-install" title="Permalink to this headline">¶</a></h3>
-<p>If you have administrator rights on your Mac, this option is the easiest one. Download the DMG file from Zenodo (SPEX-3.06.00-MacOS.dmg),
+<p>If you have administrator rights on your Mac, this option is the easiest one. Download the DMG file from Zenodo (SPEX-3.06.01-MacOS.dmg),
 open it in Mac OS and follow the instructions on the screen.</p>
 </div>
 <div class="section" id="non-administrator-install">
 <h3><span class="section-number">1.1.3.2. </span>Non-administrator install<a class="headerlink" href="#non-administrator-install" title="Permalink to this headline">¶</a></h3>
 <p>Unpack the tar file in the destination directory (for example /usr/local/):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.06.00-MacOS.tar.gz
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.06.01-MacOS.tar.gz
 </pre></div>
 </div>
-<p>The tar file will create a directory called SPEX-3.06.00-MacOS in which the program will be installed.</p>
-<p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.00-MacOS):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.00-MacOS (bash shell)
-setenv SPEX90 /usr/local/SPEX-3.06.00-MacOS (C-type shell)
+<p>The tar file will create a directory called SPEX-3.06.01-MacOS in which the program will be installed.</p>
+<p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-MacOS):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.01-MacOS (bash shell)
+setenv SPEX90 /usr/local/SPEX-3.06.01-MacOS (C-type shell)
 </pre></div>
 </div>
 <p>Source the script provided by the distribution:</p>
@@ -117,7 +117,7 @@ setenv SPEX90 /usr/local/SPEX-3.06.00-MacOS (C-type shell)
 source $SPEX90/spexdist.csh (C-type shell)
 </pre></div>
 </div>
-<p>Remove the tar file: rm SPEX-3.06.00-MacOS.tar.gz</p>
+<p>Remove the tar file: rm SPEX-3.06.01-MacOS.tar.gz</p>
 </div>
 </div>
 <div class="section" id="windows-10">
@@ -252,7 +252,7 @@ source $SPEX90/spexdist.csh (C-type shell)
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 07, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

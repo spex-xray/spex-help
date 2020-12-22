@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.1.18. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.06.00 documentation</title>
+    <title>4.1.18. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.06.01 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -45,20 +45,9 @@ of column densities, the transmission of the plasma is calculated by
 multiplying the transmission of the individual ions.</p>
 <p>The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
-refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-absmodels"><span class="std std-ref">Absorption model theory</span></a>. You can mimic
-the transmission of a neutral plasma very easy by putting the
-temperature to 0.2 eV (2 <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> keV).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>For solar abundances, do not take the temperature much
-lower than 0.0002 keV, because if the plasma is completely neutral, the
-code will crash; a tiny fraction of ions such as Fe  or Na  will help to
-keep a few free electrons in the gas without affecting the transmission
-too much. You can check the ion concentrations by giving an “asc ter
-<img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> icon” command. Fill in the sector and component number of
-the hot component for the … in the “asc ter … icon” command to get the
-values for the right component.</p>
-</div>
+refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-absmodels"><span class="std std-ref">Absorption model theory</span></a>. By default, the model mimics
+the transmission of a neutral plasma by setting the default
+temperature to 8E-3 eV (8 <img class="math" src="../_images/math/40af090ec6e39fe71369e3ed12abc1f696af9a0e.svg" alt="10^{-6}" style="vertical-align: 0px"/> keV).</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
@@ -70,6 +59,9 @@ value: 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rt</span></code> : the ratio of ionization balance to electron temperature,
 <img class="math" src="../_images/math/86dd84fbdc6943c38ddfdd03cf9b0c65ec0f0ed6.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
 value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/e6a84054eab4e0a886622798559262af5b4ebe58.svg" alt="10^{-14}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/b30f5c26eed3ad38bcfe0b42446a9a0476a10ebc.svg" alt="10^{6}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, a typical value for the ISM).</div>
 </div>
 <p>The following parameters are common to all our absorption models:</p>
 <div class="line-block">
@@ -168,7 +160,7 @@ components</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 13, 2020.<br>
+        Last updated on: Dec 22, 2020.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

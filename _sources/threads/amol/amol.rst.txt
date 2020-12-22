@@ -131,7 +131,7 @@ Setting the Galactic cold neutral absorption
     SPEX> com hot
      You have defined    3 components.
     SPEX> par 1 3 nh value 1.9e-2
-    SPEX> par 1 3 t value 5e-4
+    SPEX> par 1 3 t value 8e-6
     SPEX> par 1 3 t status frozen
 
 
