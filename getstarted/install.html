@@ -62,7 +62,7 @@
 <td><p><a class="reference external" href="https://zenodo.org/record/4384188/files/spex-3.06.01-MacOS.tar.gz?download=1">SPEX-3.06.01-MacOS.tar.gz</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Windows 10</p></td>
-<td><p><a class="reference external" href="ftp://ftp.sron.nl/pub/jellep/spex/v3.05/spex-3.05.00-Linux-gfortran.tar.gz">spex-3.05.00-Linux-gfortran.tar.gz</a></p></td>
+<td><p><a class="reference external" href="http://ftp.sron.nl/pub/jellep/spex/v3.06/SPEX-3.06.01-Ubuntu20.04-gfortran.tar.gz">SPEX Ubuntu 20.04 gfortran</a></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Source code</p></td>
@@ -132,17 +132,17 @@ This will make sure that you can plot in SPEX.</p>
 <h3><span class="section-number">1.1.4.1. </span>Install SPEX in the Ubuntu environment<a class="headerlink" href="#install-spex-in-the-ubuntu-environment" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p>On the Ubuntu terminal, first install the OpenBlas library: apt-get install libopenblas-base</p></li>
-<li><p>Download <a class="reference external" href="ftp://ftp.sron.nl/pub/jellep/spex/v3.05/spex-3.05.00-Linux-gfortran.tar.gz">spex-3.05.00-Linux-gfortran.tar.gz</a>
+<li><p>Download <a class="reference external" href="http://ftp.sron.nl/pub/jellep/spex/v3.06/SPEX-3.06.01-Ubuntu20.04-gfortran.tar.gz">SPEX-3.06.01-Ubuntu20.04-gfortran.tar.gz</a>
 from our FTP server. This file is not (yet) available on Zenodo.
 Unpack the tar file in the destination directory (for example /usr/local/):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.05.00-Linux-gfortran.tar.gz
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.06.01-Ubuntu20.04-gfortran.tar.gz
 </pre></div>
 </div>
-<p>The tar file will create a directory called SPEX-3.05.00-Linux in which the program will be installed.</p>
+<p>The tar file will create a directory called SPEX-3.06.01-Linux in which the program will be installed.</p>
 </li>
-<li><p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.05.00-Linux):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.05.00-Linux (bash shell)
-setenv SPEX90 /usr/local/SPEX-3.05.00-Linux (C-type shell)
+<li><p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-Linux):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.01-Linux (bash shell)
+setenv SPEX90 /usr/local/SPEX-3.06.01-Linux (C-type shell)
 </pre></div>
 </div>
 </li>
@@ -152,7 +152,7 @@ source $SPEX90/spexdist.csh (C-type shell)
 </pre></div>
 </div>
 </li>
-<li><p>Remove the tar file: rm SPEX-3.05.00-Linux-gfortran.tar.gz</p></li>
+<li><p>Remove the tar file: rm spex-3.06.01-Ubuntu20.04-gfortran.tar.gz</p></li>
 <li><p>Set the DISPLAY variable in ~/.bashrc:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo &quot;export DISPLAY=localhost:0.0&quot; &gt;&gt; ~/.bashrc
 . ~/.bashrc
@@ -170,6 +170,10 @@ source $SPEX90/spexdist.csh (C-type shell)
 </pre></div>
 </div>
 <p>The command above makes sure that all the packages that SPEX needs are installed.</p>
+<p>The latest Ubuntu build also contains the python interface. To use it, make sure to install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3-numpy python3-matplotlib python3-future
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -252,7 +256,7 @@ source $SPEX90/spexdist.csh (C-type shell)
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 22, 2020.<br>
+        Last updated on: Jan 19, 2021.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

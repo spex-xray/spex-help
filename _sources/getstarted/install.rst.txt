@@ -21,7 +21,7 @@ SPEX install files can be downloaded from `our Zenodo page <https://doi.org/10.5
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
     |Binary (Non-Administrator)|`SPEX-3.06.01-Linux-x86_64.tar.gz <https://zenodo.org/record/4384188/files/spex-3.06.01-Linux-x86_64.tar.gz?download=1>`_  |`SPEX-3.06.01-MacOS.tar.gz <https://zenodo.org/record/4384188/files/spex-3.06.01-MacOS.tar.gz?download=1>`_|
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-    |Windows 10                |`spex-3.05.00-Linux-gfortran.tar.gz <ftp://ftp.sron.nl/pub/jellep/spex/v3.05/spex-3.05.00-Linux-gfortran.tar.gz>`_         |                                                                                                           |
+    |Windows 10                |`SPEX Ubuntu 20.04 gfortran <http://ftp.sron.nl/pub/jellep/spex/v3.06/SPEX-3.06.01-Ubuntu20.04-gfortran.tar.gz>`_          |                                                                                                           |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
     |Source code               | `SPEX-3.06.01-Source.tar.bz2 <https://zenodo.org/record/4384188/files/spex-3.06.01-Source.tar.bz2?download=1>`_                                                                                                                       |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
@@ -98,25 +98,25 @@ Install SPEX in the Ubuntu environment
 
 1. On the Ubuntu terminal, first install the OpenBlas library: apt-get install libopenblas-base
 
-2. Download `spex-3.05.00-Linux-gfortran.tar.gz <ftp://ftp.sron.nl/pub/jellep/spex/v3.05/spex-3.05.00-Linux-gfortran.tar.gz>`_ 
+2. Download `SPEX-3.06.01-Ubuntu20.04-gfortran.tar.gz <http://ftp.sron.nl/pub/jellep/spex/v3.06/SPEX-3.06.01-Ubuntu20.04-gfortran.tar.gz>`_
    from our FTP server. This file is not (yet) available on Zenodo.
    Unpack the tar file in the destination directory (for example /usr/local/):: 
 
-       tar xvfz spex-3.05.00-Linux-gfortran.tar.gz
+       tar xvfz spex-3.06.01-Ubuntu20.04-gfortran.tar.gz
 
-   The tar file will create a directory called SPEX-3.05.00-Linux in which the program will be installed.
+   The tar file will create a directory called SPEX-3.06.01-Linux in which the program will be installed.
 
-3. Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.05.00-Linux)::
+3. Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-Linux)::
  
-       export SPEX90=/usr/local/SPEX-3.05.00-Linux (bash shell)
-       setenv SPEX90 /usr/local/SPEX-3.05.00-Linux (C-type shell)
+       export SPEX90=/usr/local/SPEX-3.06.01-Linux (bash shell)
+       setenv SPEX90 /usr/local/SPEX-3.06.01-Linux (C-type shell)
 
 4. Source the script provided by the distribution::
  
        source $SPEX90/spexdist.sh (bash shell)
        source $SPEX90/spexdist.csh (C-type shell)
 
-5. Remove the tar file: rm SPEX-3.05.00-Linux-gfortran.tar.gz
+5. Remove the tar file: rm spex-3.06.01-Ubuntu20.04-gfortran.tar.gz
 
 6. Set the DISPLAY variable in ~/.bashrc::
  
@@ -132,3 +132,9 @@ If you get an error about a missing library when running SPEX, please run the fo
        sudo apt-get install libopenblas-base libreadline8 x11-common libx11-6 gfortran
 
 The command above makes sure that all the packages that SPEX needs are installed.
+
+The latest Ubuntu build also contains the python interface. To use it, make sure to install::
+
+       sudo apt-get install python3-numpy python3-matplotlib python3-future
+
+
