@@ -66,12 +66,12 @@ Unpack the tar file in the destination directory (for example /usr/local/)::
 
     tar xvfz spex-3.06.01-MacOS.tar.gz
 
-The tar file will create a directory called SPEX-3.06.01-MacOS in which the program will be installed.
+The tar file will create a directory called SPEX-3.06.01-Darwin in which the program will be installed.
 
-Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-MacOS)::
+Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-Darwin)::
  
-    export SPEX90=/usr/local/SPEX-3.06.01-MacOS (bash shell)
-    setenv SPEX90 /usr/local/SPEX-3.06.01-MacOS (C-type shell)
+    export SPEX90=/usr/local/SPEX-3.06.01-Darwin (bash shell)
+    setenv SPEX90 /usr/local/SPEX-3.06.01-Darwin (C-type shell)
 
 Source the script provided by the distribution::
  
@@ -129,7 +129,7 @@ Install SPEX in the Ubuntu environment
 
 If you get an error about a missing library when running SPEX, please run the following command::
 
-       sudo apt-get install libopenblas-base libreadline8 x11-common libx11-6 gfortran
+       sudo apt-get install libopenblas-base libreadline8 libncurses5 x11-common libx11-6 gfortran
 
 The command above makes sure that all the packages that SPEX needs are installed.
 
