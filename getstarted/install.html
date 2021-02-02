@@ -106,10 +106,10 @@ open it in Mac OS and follow the instructions on the screen.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xvfz spex-3.06.01-MacOS.tar.gz
 </pre></div>
 </div>
-<p>The tar file will create a directory called SPEX-3.06.01-MacOS in which the program will be installed.</p>
-<p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-MacOS):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.01-MacOS (bash shell)
-setenv SPEX90 /usr/local/SPEX-3.06.01-MacOS (C-type shell)
+<p>The tar file will create a directory called SPEX-3.06.01-Darwin in which the program will be installed.</p>
+<p>Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.06.01-Darwin):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export SPEX90=/usr/local/SPEX-3.06.01-Darwin (bash shell)
+setenv SPEX90 /usr/local/SPEX-3.06.01-Darwin (C-type shell)
 </pre></div>
 </div>
 <p>Source the script provided by the distribution:</p>
@@ -166,7 +166,7 @@ source $SPEX90/spexdist.csh (C-type shell)
 </li>
 </ol>
 <p>If you get an error about a missing library when running SPEX, please run the following command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libopenblas-base libreadline8 x11-common libx11-6 gfortran
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libopenblas-base libreadline8 libncurses5 x11-common libx11-6 gfortran
 </pre></div>
 </div>
 <p>The command above makes sure that all the packages that SPEX needs are installed.</p>
@@ -256,7 +256,7 @@ source $SPEX90/spexdist.csh (C-type shell)
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jan 19, 2021.<br>
+        Last updated on: Feb 02, 2021.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
