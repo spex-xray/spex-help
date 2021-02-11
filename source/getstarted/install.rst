@@ -64,6 +64,11 @@ Administrator install
 If you have administrator rights on your Mac, this option is the easiest one. Download the DMG file from Zenodo (SPEX-3.06.01-MacOS.dmg),
 open it in Mac OS and follow the instructions on the screen.
 
+MacOS may complain about not being able to verify the developer of the software. Please close this dialog and
+go to the MacOS System Preferences >> Security & Privacy. In that dialog, you are offered to open the SPEX package
+anyway. Accept the offer and make sure the SPEX package is unblocked. Now, you can open the SPEX DMG installer again
+and proceed with the installation.
+
 Non-administrator install
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
