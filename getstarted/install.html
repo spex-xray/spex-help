@@ -92,6 +92,15 @@ source $SPEX90/spexdist.csh (C-type shell)
 </pre></div>
 </div>
 <p>Remove the tar file: rm SPEX-3.06.01-Linux-x86_64.tar.gz</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases the <code class="docutils literal notranslate"><span class="pre">csh</span></code> script fails because either PATH, LD_LIBRARY_PATH or PYTHONPATH
+are not defined. This can be temporarily fixed by defining an empty variable using setenv,
+for example: <code class="docutils literal notranslate"><span class="pre">setenv</span> <span class="pre">PATH</span> <span class="pre">&quot;&quot;</span></code> and run the script again. This will be fixed in the next
+SPEX release.</p>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="mac-os">
 <h2><span class="section-number">1.1.3. </span>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h2>
@@ -99,6 +108,10 @@ source $SPEX90/spexdist.csh (C-type shell)
 <h3><span class="section-number">1.1.3.1. </span>Administrator install<a class="headerlink" href="#administrator-install" title="Permalink to this headline">¶</a></h3>
 <p>If you have administrator rights on your Mac, this option is the easiest one. Download the DMG file from Zenodo (SPEX-3.06.01-MacOS.dmg),
 open it in Mac OS and follow the instructions on the screen.</p>
+<p>MacOS may complain about not being able to verify the developer of the software. Please close this dialog and
+go to the MacOS System Preferences &gt;&gt; Security &amp; Privacy. In that dialog, you are offered to open the SPEX package
+anyway. Accept the offer and make sure the SPEX package is unblocked. Now, you can open the SPEX DMG installer again
+and proceed with the installation.</p>
 </div>
 <div class="section" id="non-administrator-install">
 <h3><span class="section-number">1.1.3.2. </span>Non-administrator install<a class="headerlink" href="#non-administrator-install" title="Permalink to this headline">¶</a></h3>
@@ -118,6 +131,15 @@ source $SPEX90/spexdist.csh (C-type shell)
 </pre></div>
 </div>
 <p>Remove the tar file: rm SPEX-3.06.01-MacOS.tar.gz</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases the <code class="docutils literal notranslate"><span class="pre">csh</span></code> script fails because either PATH, DYLD_LIBRARY_PATH or PYTHONPATH
+are not defined. This can be temporarily fixed by defining an empty variable using setenv,
+for example: <code class="docutils literal notranslate"><span class="pre">setenv</span> <span class="pre">PATH</span> <span class="pre">&quot;&quot;</span></code> and run the script again. This will be fixed in the next
+SPEX release.</p>
+</div>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="windows-10">
@@ -256,7 +278,7 @@ source $SPEX90/spexdist.csh (C-type shell)
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Feb 02, 2021.<br>
+        Last updated on: Feb 11, 2021.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
