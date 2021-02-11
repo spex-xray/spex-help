@@ -49,6 +49,11 @@ Source the script provided by the distribution::
 
 Remove the tar file: rm SPEX-3.06.01-Linux-x86_64.tar.gz
 
+  .. Note:: In some cases the ``csh`` script fails because either PATH, LD_LIBRARY_PATH or PYTHONPATH
+            are not defined. This can be temporarily fixed by defining an empty variable using setenv,
+            for example: ``setenv PATH ""`` and run the script again. This will be fixed in the next
+            SPEX release.
+
 
 Mac OS
 ------
@@ -79,6 +84,11 @@ Source the script provided by the distribution::
     source $SPEX90/spexdist.csh (C-type shell)
 
 Remove the tar file: rm SPEX-3.06.01-MacOS.tar.gz
+
+  .. Note:: In some cases the ``csh`` script fails because either PATH, DYLD_LIBRARY_PATH or PYTHONPATH
+            are not defined. This can be temporarily fixed by defining an empty variable using setenv,
+            for example: ``setenv PATH ""`` and run the script again. This will be fixed in the next
+            SPEX release.
 
 
 Windows 10
