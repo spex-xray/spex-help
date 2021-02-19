@@ -25,7 +25,7 @@ prompt::
 
     or 
 
-    SPEX> sys exe "spexcontour"
+    SPEX> sys exe "stepcontour"
 
 The program will start and ask the user for the name of the .stp file::
 
