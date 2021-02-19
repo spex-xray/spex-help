@@ -13,8 +13,8 @@ the step command to write out the step results to a .stp file.
 For example::
 
     SPEX> step dimension 2
-    SPEX> step axis 1 parameter 1 1 norm range 0.5 1.5 n 10 
-    SPEX> step axis 2 parameter 1 1 t range 0.75 1.25 n 10
+    SPEX> step axis 1 parameter 1 1 norm range 0.5:1.5 n 10 
+    SPEX> step axis 2 parameter 1 1 t range 0.75:1.25 n 10
     SPEX> step file norm-kt
 
 These commands will produce a norm-kt.stp file. Subsequently, the
