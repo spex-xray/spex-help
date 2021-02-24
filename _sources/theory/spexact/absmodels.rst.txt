@@ -15,7 +15,6 @@ Apart from a few standard models like the ones by `Morrison & McCammon
 (our ``euve`` model) we have constructed our own absorption models based
 upon the atomic database used by SPEX.
 
-
 Essentially, we adopt a few steps, which will be described below. First,
 we produce a set of column densities, in different ways for the diferent
 absorption models (see :ref:`sect:abs_models`). Next, using a dynamical
@@ -137,7 +136,7 @@ the absorption of (almost) neutral gas.
 Pion model
 ~~~~~~~~~~
 
-Finally we have in  the pion model, which does a self-consistent photo
+Finally we have in the pion model, which does a self-consistent photo
 ionization calculation of the slab of material.
 
 .. _sect:abs_transm:
@@ -147,7 +146,7 @@ Dynamical model for the absorbers
 
 For each of the absorption models described in the previous section, we
 have the freedom to prescribe the dynamics of the source. The way we
-have implemented this in  is described below.
+have implemented this in is described below.
 
 The transmission :math:`T(\lambda)` of the slab is simply calculated as
 
@@ -196,13 +195,13 @@ depth :math:`\tau_0` is given by
 
 Here :math:`f` is the oscillator strength, :math:`\lambda` the
 wavelength in Å, :math:`\sigma_{\mathrm v,100}` the velocity dispersion in
-units of :math:`100` km/s and :math:`N_{20}` the total column density of
-the ion in units of :math:`10^{20}` :math:`\mathrm{m}^{-2}`.
+units of :math:`100` km/s and :math:`N_{20}` the total column density of
+the ion in units of :math:`10^{20}` :math:`\mathrm{m}^{-2}`.
 
 This dynamical structure offers the user a broad range of applicability.
 However, we advise the user to use the extension with
 :math:`\sigma_{\mathrm b}` with caution! Always start with the most
-simple case. The default values for  are defined in such a way that
+simple case. The default values for are defined in such a way that
 :math:`\sigma_{\mathrm b} = 0`. This will produce the “normal” case of
 single absorption lines. In that case, the velocity separation
 :math:`\Delta v` is an irrelevant parameter.
@@ -210,8 +209,9 @@ single absorption lines. In that case, the velocity separation
 Finally, we make a remark on the r.m.s. line width of individual lines,
 :math:`\sigma_{\mathrm v}`. In our code, this *only* includes the
 turbulent broadening of the lines. The thermal broadening due to motion
-of the ions is included by adding it in quadrature to the tutbulent
+of the ions is included by adding it in quadrature to the turbulent
 broadening. The only exception is the *slab* model, where of course due
 to the lack of underlying physics the thermal broadening is unknown, and
 therefore in using the slab model one should be aware that
 :math:`\sigma_{\mathrm v}` also includes a thermal contribution.
+

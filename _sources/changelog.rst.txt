@@ -330,6 +330,14 @@ In SPEXACT 3.06.01:
      may differ at some temperatures by a factor of 3-4. Therefore results obtained
      with the most recent SPEX version will differ from those of version 3.05 and earlier.
 
+- Due to improvements in the charge exchange processes, the hot model (:ref:`sect:hot`)
+  now behaves differently at low temperatures. Where previous versions of SPEX produced a
+  neutral gas at :math:`5 \times {10}^{-4}` keV, now the temperature needs to be lowered,
+  because charge exchange still causes ionizations at this temperature. Because of this,
+  we have changed the default temperature of ``hot`` to :math:`8 \times 10^{-6}` keV.
+  At this temperature, the modeled gas is neutral and comparable to ``hot`` results
+  produced by previous SPEX versions.
+
 - Fixed a problem with Li-like Fe-L data (remove high multipole transitions arisen from a bug in FAC).
 
 - Fixed a bug in the NEIJ model which produced wrong ion concentrations from SPEX version 3.05.
