@@ -29,7 +29,7 @@ the user is recommended to first use the FTOOLS program called ``ftflx2xsp``
 to convert their data to the OGIP-standard PHA and response files. The
 webpage of ``ftflx2xsp`` provides all the instructions with some useful examples:
 
-https://heasarc.nasa.gov/lheasoft/ftools/fhelp/ftflx2xsp.html
+https://heasarc.gsfc.nasa.gov/lheasoft/ftools/headas/ftflx2xsp.html
 
 This program reads a text file containing the spectrum with the specified units,
 and creates the corresponding PHA and RSP files. These files can be then converted
