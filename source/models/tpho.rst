@@ -41,7 +41,7 @@ ASCII outputs for further examination by the user outside of SPEX.
   SPEX.
 | ``lc``: The name of the file containing the lightcurve. The first
   column is time in second, and the second column is the X-ray flux
-  (energy per unit area per second). Remeber to use ’aval’ instead of
+  (energy per unit area per second). Remember to use ’aval’ instead of
   ’val’ when setting the name of the parameter in SPEX.
 | ``hden``: Hydrogen number density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
 | ``fcov``: The covering factor of the absorber. Default value: 1 (full covering)
@@ -53,17 +53,31 @@ ASCII outputs for further examination by the user outside of SPEX.
 | ``01..28``: Abundances of H to Ni; only here we take H, He, C, N, O,
   Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
 | ``info``: Flag for writing out the intermediate calculation results into ASCII
-  files. Info=0 (default) does not write any files, while info=1 writes
-  the intermediate results into a directory called ``tpho_info``. The
-  following ASCII files are produced: plasma.dat (1st column: time (s),
-  2nd column: ionisation parameter xi in erg cm /s, 3rd column: T in keV);
-  ``heat_cool.dat`` (1st column: total heating in :math:`\mathrm{W m^{-3}}`,
-  2nd column: total cooling in :math:`\mathrm{W m^{-3}}`);
-  ``ionic_conc.dat`` (the ioninc concentrations);
-  ``spect.dat`` (1st column: E in keV, 2nd column: transmission) We note that
-  currently only the final spectrum (at t=final) can be stored; the user
-  however can modify the t=final in the lightcurve file to be able to see
-  the spectrum at the desired time in SPEX.
+  files. Info=0 (default) does not write any files, while info=1 writes the
+  intermediate results into a directory called ``tpho_info``. The following ASCII
+  files are produced: ``plasma.dat`` (1st column: time (s); 2nd column: ionisation
+  parameter :math:`\xi` in erg cm /s; 3rd column: T in keV; 4th column: :math:`\Xi`; 5th column:
+  total heating in :math:`\mathrm{W m^{-3}}`; 6th column: total cooling in :math:`\mathrm{W m^{-3}}`; 7th column:
+  electron-ion equilibration time in s). Note: just for info, we adopt for this version electron-ion
+  equilibrium. ``heatproc.dat`` with subsequent columns time, :math:`\xi, T, \Xi` and total
+  heating and cooling in the same units as the file ``plasma.dat``, followed by the contributions to the total
+  heating (Compton scattering, free-free absorption, photo-ionisation, Compton ionisation,
+  Auger electrons, collisional de-excitation, external heating) and to the total cooling
+  (Inverse Compton scattering, collisional ionisation, radiative recombination, bremsstrahlung,
+  collisional excitation and dielectronic recombination); files ``ion01.dat`` to ``ion30.dat``, with
+  the ion concentrations of the ions for each element labeled by its atomic number Z (1--30)
+  as a function of time (s); the concentrations are relative to the total hydrogen density;
+  ``spect.dat`` (1st column: E in keV, 2nd column:
+  transmission). We note that currently only the final spectrum (at t=final) can be
+  stored; the user however can modify the t=final in the lightcurve file to be
+  able to see the spectrum at the desired time in SPEX.
+
+
+.. Warning:: Please note the *tpho* model is currently in the testing phase.
+
+.. Warning:: Please note that if the final time is very large, the computation may take a long time, because time steps
+   are not allowed to be larger than a certain fraction of the thermal time scale;
+   make sure that your parameters are well and reasonable defined.
 
 *For questions and issues regarding the model please contact Missagh
 Mehdipour and Daniele Rogantini.*
