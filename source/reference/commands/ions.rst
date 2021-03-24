@@ -123,9 +123,9 @@ The equivalent width is here the line intensity divided by the continuum intensi
 :math:`Q = W/E` with E the energy of the line. This is a measure of the relative intensity of the line for a given spectral resolution.
 Further, for each line we register the maximum principal quantum number :math:`n`.
 
-The user now can select a critical value for :math:'Q_c` (or actually, the 10log of this quantity). Now for each principal quantum number,
+The user now can select a critical value for :math:`Q_c` (or actually, the 10log of this quantity). Now for each principal quantum number,
 we check whether there is any line with :math:`Q>Q_c`. If so, all lines with this principal quantum number are retained, but if none of thelines is tronger than the threshold, we will discard lines from that pricipal quantum number. In this way we determine the maximum principal quantum number for each ion,
-given the value for :math:'Q_c`. Higher values for :math:'Q_c` means less lines, because more lines will be deemed to be too weak.
+given the value for :math:`Q_c`. Higher values for :math:`Q_c` means less lines, because more lines will be deemed to be too weak.
 
 A performance test shows that a speed gain of a factor of 2-3 gan be reached with this method. It is in particular useful for error searches on
 parameter values. Try experimenting with this.
