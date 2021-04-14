@@ -70,14 +70,14 @@ about this change see: :ref:`sect:turbulence`.
 Density effects
 ---------------
 
-It is also possible to vary the electron density :math:`n_{\mathrm e}`
+It is also possible to vary the hydrogen density :math:`n_{\mathrm H}`
 of the plasma. This does not affect the overall shape of the spectrum
-(i.e., by changing :math:`n_{\mathrm e}` only SPEX still uses the
+(i.e., by changing :math:`n_{\mathrm H}` only SPEX still uses the
 previous value of the emission measure
 :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V`), but spectral lines that
-are sensitive to the electron density will get different intensities.
+are sensitive to the hydrogen density will get different intensities.
 Usually this occurs for higher densities, for example under typical ISM
-conditions (:math:`n_{\mathrm e}` = 1 cm\ :math:`^{-3}`) this is not an
+conditions (:math:`n_{\mathrm H}` = 1 cm\ :math:`^{-3}`) this is not an
 important effect.
 
 Non-thermal electron distributions
