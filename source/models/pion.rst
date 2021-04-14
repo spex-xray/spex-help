@@ -49,7 +49,28 @@ self-consistently using the available plasma routines of SPEX.
    disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
    in `Mehdipour et al. (2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_.
 
-The main advantage, however, is that the user can define his own
+.. Warning:: Starting from SPEX Version 3.06, we have updated the cooling due
+   to collisional excitation (work performed by Stofanova et al., 2021, submitted).
+   In addition, starting from SPEX Version 3.06.01, we have improved the collisional
+   excitation rates of neutral hydrogen; the latter affects both emitted H I spectra,
+   and the total cooling rate at the lower temperatures (few eV). That cooling rate
+   may differ at some temperatures by a factor of 3-4. Therefore results obtained
+   with the most recent version will differ from those of version 3.05 and earlier.
+
+.. warning:: When using the pion model with the ion mute/unmute option in order to hide or show the 
+   contributions from specific ions to the total spectrum, you will get a different
+   solution, because it affects the heating and cooling rates (muted ions will not contribute to the
+   heating and cooling in the calculations), and thus the
+   ionisation balance (equilibrium temperature) will change.
+   Exception is when you use the tmod=1 option for pion, which forces the
+   temperature to be equal to what you prescribe through parameter tinp.
+   For diagnosing the heating/cooling contributions of ions or elements, it is
+   therefore recommended to run first the model with all ions,
+   make an ascii-output of the plasma parameters, take the temperature from
+   there as the "tinp" parameter for the pion model, and set tmod=1.
+   You can play then with the mute/unmute command.
+
+The main advantage, however, of the pion model is that the user can define his own
 ionising continuum by combining any additive components of SPEX, and
 that ionising spectrum is fed through the *pion* component to get the
 transmitted spectrum. In addition, multiple *pion* components can be

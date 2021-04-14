@@ -142,7 +142,7 @@ Set the galactic absorption
     SPEX> com hot
     You have defined    2 components.
     SPEX> par 1 2 nh val 2.0e-4
-    SPEX> par 1 2 t val 5E-4
+    SPEX> par 1 2 t val 8E-6
     SPEX> par 1 2 t s f
     SPEX> par 1 2 nh s f
 
