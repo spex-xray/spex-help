@@ -36,6 +36,48 @@ RION: Ionisation rates per atomic subshell
    .. autoclass:: pyspex.ascdump.Rion
       :members:
 
+POP: Occupation numbers and loss and gain rates
+-----------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Pop
+      :members:
+
+ELEX: Electron collisional excitation and de-excitation
+-------------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Elex
+      :members:
+
+PREX: Proton collisional excitation and de-excitation
+-----------------------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Prex
+      :members:
+
+RAD: Radiative transition rates for each level
+----------------------------------------------
+
+  .. autoclass:: pyspex.ascdump.Rad
+     :members:
+
+TWO: Two-photon emission transition rates
+-----------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Two
+      :members:
+
+TIME: Ionisation/recombination time scale
+-----------------------------------------
+
+   .. autoclass:: pyspex.ascdump.Time
+      :members:
+
+REC: Recombination rates per level
+----------------------------------
+
+   .. autoclass:: pyspex.ascdump.Rec
+      :members:
+
 GRID: Energy and wavelength grid
 --------------------------------
 
@@ -131,23 +173,35 @@ HEAT: Plasma heating rates
    .. autoclass:: pyspex.ascdump.Heat
       :members:
 
+EBAL: Energy balance calculation
+--------------------------------
+
+   .. autoclass:: pyspex.ascdump.Ebal
+      :members:
+
 COL: Ionic column densities
 ---------------------------
 
    .. autoclass:: pyspex.ascdump.Col
       :members:
 
-TRAN: Transmission for absorption lines and edges
--------------------------------------------------
+TRAN: Transmission and equivalent width of absorption lines and edges
+---------------------------------------------------------------------
 
    .. autoclass:: pyspex.ascdump.Tran
       :members:
 
-   .. autoclass:: pyspex.ascdump.Tranline
-      :members:
+Transmission and equivalent width of absorption lines (only)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-   .. autoclass:: pyspex.ascdump.Tranedge
-      :members:
+  .. autoclass:: pyspex.ascdump.Tranline
+     :members:
+
+Transmission and equivalent width of absorption edges (only)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  .. autoclass:: pyspex.ascdump.Tranedge
+     :members:
 
 WARM: Column densities, ionisation parameters and temperatures
 --------------------------------------------------------------

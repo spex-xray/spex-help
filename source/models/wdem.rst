@@ -70,7 +70,7 @@ The parameters of the model are:
 
 The following parameters are the same as for the cie-model:
 
-| ``ed`` : Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
+| ``hden`` : Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
 | ``it`` : Ion temperature in keV
 | ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element
