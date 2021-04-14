@@ -49,7 +49,28 @@ self-consistently using the available plasma routines of SPEX.
    disk continuum + the soft X-ray excess). See the SED of NGC 5548 derived
    in `Mehdipour et al. (2015) <https://ui.adsabs.harvard.edu/abs/2015A%26A...575A..22M/abstract>`_.
 
-The main advantage, however, is that the user can define his own
+.. Warning:: Starting from SPEX Version 3.06, we have updated the cooling due
+   to collisional excitation (work performed by Stofanova et al., 2021, submitted).
+   In addition, starting from SPEX Version 3.06.01, we have improved the collisional
+   excitation rates of neutral hydrogen; the latter affects both emitted H I spectra,
+   and the total cooling rate at the lower temperatures (few eV). That cooling rate
+   may differ at some temperatures by a factor of 3-4. Therefore results obtained
+   with the most recent version will differ from those of version 3.05 and earlier.
+
+.. warning:: When using the pion model with the ion mute/unmute option in order to hide or show the 
+   contributions from specific ions to the total spectrum, you will get a different
+   solution, because it affects the heating and cooling rates (muted ions will not contribute to the
+   heating and cooling in the calculations), and thus the
+   ionisation balance (equilibrium temperature) will change.
+   Exception is when you use the tmod=1 option for pion, which forces the
+   temperature to be equal to what you prescribe through parameter tinp.
+   For diagnosing the heating/cooling contributions of ions or elements, it is
+   therefore recommended to run first the model with all ions,
+   make an ascii-output of the plasma parameters, take the temperature from
+   there as the "tinp" parameter for the pion model, and set tmod=1.
+   You can play then with the mute/unmute command.
+
+The main advantage, however, of the pion model is that the user can define his own
 ionising continuum by combining any additive components of SPEX, and
 that ionising spectrum is fed through the *pion* component to get the
 transmitted spectrum. In addition, multiple *pion* components can be
@@ -77,7 +98,7 @@ an example. For a photoionised case, with :math:`\log \xi = 3`
 (resulting :math:`kT=0.64` keV) the nominal occupation of the ground
 state of H becomes negative for a density
 :math:`>0.15\times 10^{20}` :math:`\mathrm{m}^{-3}`. This can be traced down to
-incomplete atomic data. For H , we include collisional excitation and
+incomplete atomic data. For H, we include collisional excitation and
 de-excitation up to principal quantum number :math:`n=5` but not above.
 As a result, in this example the 1s–5s levels are mainly
 populated/depopulated by collisions, while 6s–16s are mainly populated
@@ -241,6 +262,15 @@ of the plasma, for example :math:`f=1.4287` for the present default
 abundances of SPEX (you can check this number from the ``asc ter
 ... plas`` ascii output option).
 
+.. Warning:: It is important to note that the acceleration is proportional to the hydrogen density,
+   so take care to choose the appropriate hydrogen density, even in the low density limit where the
+   spectral shape does not depend on the density. This counter-intuitive behaviour is caused by the
+   use of :math:`\xi` as main parameter. Given the absolute ionising luminosity :math:`L` of the ionising
+   source, and the value of :math:`\xi` and :math:`n_{\mathrm H}` provided by the user,
+   the pion model then calculates the distance :math:`r` from the equation :math:`\xi = L/nr^2`.
+   Thus, higher density yields smaller distance, hence larger absorbed flux by the gas layer, hence
+   stronger acceleration.
+
 Model parameters
 ----------------
 
@@ -255,6 +285,10 @@ The parameters of the model are:
 | ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
+| ``hden`` : the hydrogen density in units of :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+  Default value: :math:`10^{-14}` (corresponding to
+  :math:`10^{6}` :math:`\mathrm{m}^{-3}`, to be consistent with the order of magnitude of the
+  electron density (which is used in the cie and neij models; do NOT confuse both quantities!).
 
 The following parameters are common to all our absorption models:
 
@@ -267,7 +301,8 @@ The following parameters are common to all our absorption models:
   components
 | ``zv`` : Average systematic velocity :math:`v` of the absorber
 | The following parameters are the same as for the cie-model (see there
-  for a description): ``ref`` : Reference element
+  for a description):
+| ``ref`` : Reference element
 | ``01...28`` : Abundances of H to Ni; only here we take H, He, C,
   N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
 | ``file`` : File name for the electron distribution (in case of a sum

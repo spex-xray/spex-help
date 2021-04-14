@@ -39,15 +39,14 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.06.00
+     Welcome user to SPEX version 3.06.01
 
      NEW in this version of SPEX:
-    12-12-2018 Plasma codes run in double precision now
-    05-06-2019 Update of cooling processes
-    18-12-2019 Included new atomic data (Fe-L, Gu et al. 2019)
-    05-02-2020 Included Python interfaces for SPEX
-    24-03-2020 Included new molecular dust data
-
+    22-07-2020 Bugfix: neij gives line emission while abundance is zero.
+    18-08-2020 Changed reference density from electron density to hydrogen density.
+    04-09-2020 Added pyroxene back to the amol model.
+    23-10-2020 Update of H I collision strengths (IMPORTANT)
+    24-11-2020 Added ascdump and par_show functions for the Python interface.
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
     >>>

@@ -12,4 +12,5 @@ Analysis threads
    threads/uv
    threads/pionabs/pionabs
    threads/pionena/pionena
+   threads/twospec/twospec
    threads/user/user

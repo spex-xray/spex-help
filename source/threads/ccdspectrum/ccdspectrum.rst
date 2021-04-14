@@ -174,7 +174,7 @@ We can set the guess parameters as follows:
 
     SPEX> par 1 1 z v 0.05
     SPEX> par 1 1 z s t
-    SPEX> par 1 2 t v 2E-4
+    SPEX> par 1 2 t v 8E-6
     SPEX> par 1 2 t s f
     SPEX> par 1 2 nh v 1E-4
     SPEX> par 1 3 norm v 1000.
