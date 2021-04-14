@@ -42,8 +42,8 @@ definitions (see <a class="reference internal" href="../reference/commands/step.
 the step command to write out the step results to a .stp file.</p>
 <p>For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; step dimension 2
-SPEX&gt; step axis 1 parameter 1 1 norm range 0.5 1.5 n 10
-SPEX&gt; step axis 2 parameter 1 1 t range 0.75 1.25 n 10
+SPEX&gt; step axis 1 parameter 1 1 norm range 0.5:1.5 n 10
+SPEX&gt; step axis 2 parameter 1 1 t range 0.75:1.25 n 10
 SPEX&gt; step file norm-kt
 </pre></div>
 </div>
@@ -54,7 +54,7 @@ prompt:</p>
 
 or
 
-SPEX&gt; sys exe &quot;spexcontour&quot;
+SPEX&gt; sys exe &quot;stepcontour&quot;
 </pre></div>
 </div>
 <p>The program will start and ask the user for the name of the .stp file:</p>
@@ -168,7 +168,7 @@ command on a linear grid.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 22, 2020.<br>
+        Last updated on: Apr 14, 2021.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

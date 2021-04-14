@@ -114,6 +114,25 @@ To undo the quicklook mode, just type ``ions use all``.
    Zn XXX   2              1                                                                            
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
 
+Ewlim
+'''''
+
+An alternative, tunable method to reduce the computation time is the **ewlim mode**. For a grid of temperatures and non-equilibrium
+ionisation or recombination parameters, for each spectral line in SPEX the maximum equivalent width :math:`W` has been computed. 
+The equivalent width is here the line intensity divided by the continuum intensity for the same model. From this, we compute for each line
+:math:`Q = W/E` with E the energy of the line. This is a measure of the relative intensity of the line for a given spectral resolution.
+Further, for each line we register the maximum principal quantum number :math:`n`.
+
+The user now can select a critical value for :math:`Q_c` (or actually, the 10log of this quantity). Now for each principal quantum number,
+we check whether there is any line with :math:`Q>Q_c`. If so, all lines with this principal quantum number are retained, but if none of thelines is tronger than the threshold, we will discard lines from that pricipal quantum number. In this way we determine the maximum principal quantum number for each ion,
+given the value for :math:`Q_c`. Higher values for :math:`Q_c` means less lines, because more lines will be deemed to be too weak.
+
+A performance test shows that a speed gain of a factor of 2-3 gan be reached with this method. It is in particular useful for error searches on
+parameter values. Try experimenting with this.
+
+.. warning:: it is advised, after obtaining a best fit with some setting of ewlim, to set the parameter ewlim to -25 (including all lines), issue
+   a calculate command, and compare the cstat value of this model with the cstat value of your fit. Dicide if this is good enough for your purpose.
+
 Mute lines
 ''''''''''
 
@@ -149,6 +168,10 @@ Syntax
 The following syntax rules apply:
 
 | ``ions show`` : Display the list of ions currently taken into account
+| ``ions ewlim #r`` : use only the strongest lines using criterion #r. 
+| useful numbers for the X-ray range are typically the range between -4 and 4;
+| the minimum and maximum allowed values are -25 and 7. A higher value means
+| faster computation but less accurate spectra.
 | ``ions use all`` : Use all possible ions in the calculation of the
   line spectrum. This is the default at startup of the program.
 | ``ions use iso #i:`` : Use ions of the iso-electronic sequences
@@ -232,6 +255,7 @@ Examples
 | ``ions unmute iso 2`` : shows the emission from all He-like ions (again).
 | ``ions show`` : Display the list of ions that are used
 | ``ions ql`` : Quicklook mode on
+| ``ions ewlim 1.2`` : Select strongest lines using the cut-off value 1.2
 | ``ions old ion 6 6`` : Use old calculation for C VI
 | ``ions nmax ion 26 25 5`` : Set maximum principal quantum number for
   Fe XXV to :math:`n=5`.

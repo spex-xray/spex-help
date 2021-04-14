@@ -547,3 +547,4 @@ And for the cooling by di-electronic recombination:
 Example::
 
     >>> s.var_newcooldr(False)
+

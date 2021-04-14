@@ -37,25 +37,25 @@
 
 <span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
 
-<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">int</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
 
-<span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
+<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
 
 <span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">pyspex</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
 <span class="k">class</span> <span class="nc">Ascdump</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
 
@@ -77,7 +77,7 @@
 <span class="sd">    :ivar cs: Sound speed (km/s).</span>
 <span class="sd">    :vartype cs: float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.</span>       <span class="c1"># Electron temperature (keV)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elden</span> <span class="o">=</span> <span class="mf">0.</span>   <span class="c1"># Electron density/1E20 (/m**3)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hden</span> <span class="o">=</span> <span class="mf">0.</span>    <span class="c1"># Hydrogen density/1E20 (/m**3)</span>
@@ -125,7 +125,7 @@
 <span class="sd">    :vartype charge: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nz</span> <span class="o">=</span> <span class="mi">0</span>                    <span class="c1"># Number of elements</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
@@ -185,7 +185,7 @@
 <span class="sd">    :vartype conabs: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
@@ -254,7 +254,7 @@
 <span class="sd">    :vartype cerrate: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
@@ -333,7 +333,7 @@
 <span class="sd">    :vartype elcool: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
@@ -435,7 +435,7 @@
 <span class="sd">    :vartype cxrr: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nlev</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>      <span class="c1"># Level number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Atomic number</span>
@@ -536,7 +536,7 @@
 <span class="sd">    :vartype dexrate: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of transitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">il</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Lower level</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">iu</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Upper level</span>
@@ -623,7 +623,7 @@
 <span class="sd">    :vartype dexrate: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of transitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">il</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Lower level</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">iu</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Upper level</span>
@@ -702,7 +702,7 @@
 <span class="sd">    :vartype prob: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of transitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">il</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Lower level</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">iu</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Upper level</span>
@@ -778,7 +778,7 @@
 <span class="sd">    :vartype prob: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of transitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">il</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Lower level</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">iu</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Upper level</span>
@@ -849,7 +849,7 @@
 <span class="sd">    :ivar conrel: Relative concentration</span>
 <span class="sd">    :vartype conrel: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                 <span class="c1"># Number of transitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element number (atomic number)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Element name</span>
@@ -919,7 +919,7 @@
 <span class="sd">    :vartype arr: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of transitions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ilev</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Level number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Element number (atomic number)</span>
@@ -932,7 +932,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cxrr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>   <span class="c1"># Charge exchange recombination rate (1E-20m**3/s).</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aii</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Inner-shell ionisation rate (1E-20m**3/s).</span>
 
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
+<div class="viewcode-block" id="Rec.get"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Rec.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Obtain the recombination rates per level from SPEX.</span>
 
 <span class="sd">        :param isect: Sector number of the component.</span>
@@ -970,7 +970,7 @@
 
         <span class="n">pyspex</span><span class="o">.</span><span class="n">api_asc_rec</span><span class="o">.</span><span class="n">rec_final</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">ier</span></div>
+        <span class="k">return</span> <span class="n">ier</span></div></div>
 
 
 <div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../../pyspex/ascdump.html#pyspex.ascdump.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
@@ -992,7 +992,7 @@
 <span class="sd">    :vartype wave: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c1"># Number of energy bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Bin number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elow</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Low energy boundary of bin</span>
@@ -1051,7 +1051,7 @@
 <span class="sd">    :vartype flux: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># Number of energy bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>      <span class="c1"># Bin number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Mean energy of the bin</span>
@@ -1136,7 +1136,7 @@
 <span class="sd">    :vartype sort: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -1262,7 +1262,7 @@
 <span class="sd">    :ivar tot: Total continuum (1E44 ph/s/keV).</span>
 <span class="sd">    :vartype tot: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -1364,7 +1364,7 @@
 <span class="sd">    :vartype flux: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># Number of energy bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ibin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>      <span class="c1"># Bin number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">emean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Mean energy of the bin</span>
@@ -1453,7 +1453,7 @@
 <span class="sd">    :ivar tot: Total continuum (1E44 ph/s/keV).</span>
 <span class="sd">    :vartype tot: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ff_nion</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ff_atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ff_ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -1557,7 +1557,7 @@
 <span class="sd">    :vartype kt: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbin</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># Number of histogram bins</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation parameter (1E20 s/m**3)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Temperature (keV)</span>
@@ -1622,7 +1622,7 @@
 <span class="sd">    :ivar cooladi: Cooling by adiabatic expansion</span>
 <span class="sd">    :vartype cooladi: float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">heat</span> <span class="o">=</span> <span class="mf">0.</span>     <span class="c1"># Total heating</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">heatcom</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by Compton scattering</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">heatffa</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Heating by free-free absorption</span>
@@ -1724,7 +1724,7 @@
 <span class="sd">    :ivar cooladi: Adiabatic cooling</span>
 <span class="sd">    :vartype cooladi: float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">niter</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">icond</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ncedec</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -1833,7 +1833,7 @@
 <span class="sd">    :vartype logcol: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
@@ -1905,7 +1905,7 @@
 <span class="sd">    :vartype sorted: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># Number of absorption lines</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>          <span class="c1"># Line ID number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>        <span class="c1"># Atomic number</span>
@@ -1991,7 +1991,7 @@
 <span class="sd">    :vartype ew: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nedge</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1"># Number of edges</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>        <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>         <span class="c1"># Ionisation stage</span>
@@ -2050,7 +2050,7 @@
 <span class="sd">    :vartype edge: pyspex.ascdump.Tranedge</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Spectral absorption lines</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">line</span> <span class="o">=</span> <span class="n">Tranline</span><span class="p">()</span>
         <span class="c1"># Absorption edges</span>
@@ -2101,7 +2101,7 @@
 <span class="sd">    :vartype dndlnxi: numpy.ndarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nline</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>    <span class="c1"># Atomic number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>     <span class="c1"># Ionisation stage</span>
@@ -2220,7 +2220,7 @@
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Feb 24, 2021.<br>
+        Last updated on: Apr 14, 2021.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

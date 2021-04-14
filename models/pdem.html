@@ -42,11 +42,11 @@ thin plasma.</p>
 <p>It works as follows. The user gives a a number of temperature grid
 points <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>, a minimum temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>, a maximum
 temperature <img class="math" src="../_images/math/bd7a300accb8c96f503d41daaf495c4cab829f33.svg" alt="T_n" style="vertical-align: -2px"/>, a total emission measure <img class="math" src="../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> and relative
-contributions <img class="math" src="../_images/math/d200d1f42aaa4184465c93d80932a3f4cffbbd4e.svg" alt="y_1 \ldots y_n" style="vertical-align: -3px"/>. SPEX assumes that the grid points
+contributions <img class="math" src="../_images/math/d200d1f42aaa4184465c93d80932a3f4cffbbd4e.svg" alt="y_1 \ldots y_n" style="vertical-align: -3px"/>. SPEX assumes that the grid points
 between <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/bd7a300accb8c96f503d41daaf495c4cab829f33.svg" alt="T_n" style="vertical-align: -2px"/> are distributed logarithmically.</p>
 <p>The relative contributions <img class="math" src="../_images/math/0eefff1e4a210c4a120f5ad9d0203a725df087ef.svg" alt="y_1\ldots y_n" style="vertical-align: -3px"/> represents the values
 of <img class="math" src="../_images/math/7d0ca689fb4c5dd78e5ca6846e6a70b2a2b66a9b.svg" alt="{\mathrm d}Y/{\mathrm d}\ln T" style="vertical-align: -4px"/> (note the logarithm!) at the grid
-points. SPEX then interpolates in the <img class="math" src="../_images/math/467a423070d8a4d0fb8841fdb02f20b4d36538d0.svg" alt="\log T_i - \log y_i" style="vertical-align: -3px"/> space
+points. SPEX then interpolates in the <img class="math" src="../_images/math/467a423070d8a4d0fb8841fdb02f20b4d36538d0.svg" alt="\log T_i - \log y_i" style="vertical-align: -3px"/> space
 on a finer grid using splines. That temperature grid on which the data
 are being evaluated has a fine mesh: step size is about 0.10 in
 <img class="math" src="../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/> (finer is not useful because uniqueness is no longer
@@ -79,7 +79,7 @@ neglected if <img class="math" src="../_images/math/0e452aec74f397b48dd5e7882b00
 </div>
 <p>The following parameters are the same as for the cie-model:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ed</span></code> : Electron density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">vrms</span></code> : RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element.</div>
@@ -167,7 +167,7 @@ temperature (keV) versus emission measure.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 22, 2020.<br>
+        Last updated on: Apr 14, 2021.<br>
     
         &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
