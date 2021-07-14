@@ -209,16 +209,16 @@ The order od these lines is arbitrary.
 After the first keyword the acronym for the relevant column should be given, followed, if relevant, by the numerical range. We specify this
 in more detail below:
 
-| sel : the user can make up to 10 selections simultaneously. After the *sel* word, 
+| sel: the user can make up to 10 selections simultaneously. After the *sel* word, 
   the acronym of the relevant column should be given, followed by two numbers: 
   the minimum and maximum value of the entry in this column that should be used for the selection;
   all entries with column values below this minimum and above this maximum will be omitted from the final output.
   If the user wants only one value, for example only atomic number 26, then simply use this number for both the minimum and maximum value.
   See also the example below. Selection only works for columns with logical, integer or real numbers; you cannot make selection on ascii-columns,
   but for almost all ascii-type columns, there is an equivalent numerical column that can be used for selection.
-| sor : the user can sort on any column. Only one sorting instruction is allowed. Like for the selection option, only non-ascii columns can be used
+| sor: the user can sort on any column. Only one sorting instruction is allowed. Like for the selection option, only non-ascii columns can be used
    for sorting.
-| for : for ascii-type of output (both on the terminal and on an ascii-file), the number of significant digits to be displayed can be changed by the user.
+| for: for ascii-type of output (both on the terminal and on an ascii-file), the number of significant digits to be displayed can be changed by the user.
    In general the standard settings are fine, but this option allows to show more, less or no digits at all. It is explained best in the example below.
 |
 
@@ -238,6 +238,7 @@ And the file mysel.dat (in the current working directory) contains the following
 |
 
 What you will see then on your screen is the following:
+
 | only lines with atomic number 26 (the acronym for that is "iz")
 | only lines with ionistion stage between 16-18 (i.e., Fe XVI to Fe XVIII)
 | only lines with energy between 0.5 and 2.0 keV
