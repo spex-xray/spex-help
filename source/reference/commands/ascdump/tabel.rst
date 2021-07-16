@@ -12,23 +12,37 @@ Plas
 
    .. table:: Output for option: plas
 
-      ==== ====== ======= =============================== =======
-      Type Digits Acronym Description                     Units
-      ==== ====== ======= =============================== =======
-      D    6      te      Electron temperature            keV
-      D    6      tion    Ion temperature                 keV
-      D    6      tiba    kT (ionisation balance)         keV
-      D    6      vmic    :math:`b = \sqrt{2} sigma_v`    km/s
-      D    6      cs      Sound speed                     km/s
-      D    6      eden    Electron density                /m**3
-      D    6      hden    Hydrogen density                /m**3
-      D    6      eide    Electron+Ion density            /m**3
-      D    6      rho     Mass density                    kg/m**3
-      D    6      ed      Electron/Hydrogen density       
-      D    6      eid     (Electron+Ion)/Hydrogen density 
-      D    6      denm    Mass density / (n               
-      D    6      epla    Plasma frequency energy         keV
-      ==== ====== ======= =============================== =======
+      +------+--------+---------+---------------------------------+---------+
+      | Type | Digits | Acronym | Description                     | Units   |
+      +======+========+=========+=================================+=========+
+      | D    | 6      | te      | Electron temperature            | keV     |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | tion    | Ion temperature                 | keV     |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | tiba    | kT (ionisation balance)         | keV     |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | vmic    | :math:`b = \sqrt{2} sigma_v`    | km/s    |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | cs      | Sound speed                     | km/s    |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | eden    | Electron density                | /m**3   |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | hden    | Hydrogen density                | /m**3   |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | eide    | Electron+Ion density            | /m**3   |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | rho     | Mass density                    | kg/m**3 |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | ed      | Electron/Hydrogen density       |         |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | eid     | (Electron+Ion)/Hydrogen density |         |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | denm    | Mass density /                  |         |
+      |      |        |         | (:math:`\mathrm{n}_H` \*        |         |
+      |      |        |         | :math:`\mathrm{m}_p`)           |         |
+      +------+--------+---------+---------------------------------+---------+
+      | D    | 6      | epla    | Plasma frequency energy         | keV     |
+      +------+--------+---------+---------------------------------+---------+
 
 Abun
 ----
