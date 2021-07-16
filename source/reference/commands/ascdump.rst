@@ -26,44 +26,48 @@ The keyword in front of each item is the one that should be used for the
 appropriate syntax.
 
 plas:
-   basic plasma properties like temperature, electron density etc.
+   Basic plasma properties like temperature, electron density etc.
+   (:ref:`Output table properties <tabout:plas>`)
 
 heat:
    heating and cooling rates for various processes (for photoionised models only)
+   (:ref:`Output table properties <tabout:heat>`)
 
 abun:
    elemental abundances and average charge per element.
+   (:ref:`Output table properties <tabout:abun>`)
 
 icon:
    ion concentrations, both with respect to Hydrogen and the relevant
-   elemental abundance.
+   elemental abundance. (:ref:`Output table properties <tabout:icon>`)
 
 rion:
    ionization rates per atomic subshell, specified according to the
-   different contributing processes.
+   different contributing processes. (:ref:`Output table properties <tabout:rion>`)
 
 rate:
    total ionization, recombination and charge-transfer rates specified
-   per ion.
+   per ion. (:ref:`Output table properties <tabout:rate>`)
 
 time:
    recombination time scale per ion according to Bottorf et al. (2000) definition, and relative
    ion concentrations. Note that the recombination time scale depends upon the
    hydrogen density, so do not forget to set the relevant density in the model.
+   (:ref:`Output table properties <tabout:time>`)
 
 grid:
    the energy and wavelength grid used in the last evaluation of the
-   spectrum.
+   spectrum. (:ref:`Output table properties <tabout:grid>`)
 
 con:
    list of the ions that contribute to the free-free, free-bound and
    two-photon continuum emission, followed by the free-free, free-bound,
    two-photon and total continuum spectrum, for the last plasma layer of
-   the model.
+   the model. (:ref:`Output table properties <tabout:con>`)
 
 clin:
    the continuum, line and total spectrum for each energy bin for the
-   last plasma layer of the model.
+   last plasma layer of the model. (:ref:`Output table properties <tabout:clin>`)
    
 line:
    the line energy and wavelength, as well as the total line emission
@@ -74,66 +78,70 @@ line:
    according to various columns as follows (first description, between
    brackets the acronym): energy (ener), wavelength (wav), ion (ion),
    line power (powe), natural line width (wid).
+   (:ref:`Output table properties <tabout:line>`)
    
 ebal:
    the energy balance contributions of each layer (only for photoionized
-   plasmas).
+   plasmas). (:ref:`Output table properties <tabout:ebal>`)
 
 nei:
    the history of ionisation parameter and temperature in NEI
-   calculations.
+   calculations. (:ref:`Output table properties <tabout:nei>`)
 
 snr:
    hydrodynamical and other properties of the supernova remnant (only
    for supernova remnant models such as Sedov, Chevalier etc.).
+   (:ref:`Output table properties <tabout:snr>`)
    
 tcon:
    list of the ions that contribute to the free-free, free-bound and
    two-photon continuum emission, followed by the free-free, free-bound,
    two-photon and total continuum spectrum, added for all plasma layers
-   of the model.
+   of the model. (:ref:`Output table properties <tabout:tcon>`)
    
 tcl:
    the continuum, line and total spectrum for each energy bin added for
-   all plasma layers of the model.
+   all plasma layers of the model. (:ref:`Output table properties <tabout:tcl>`)
 
 tlin:
    the line energy and wavelength, as well as the total line emission
    (photons/s) for each line contributing to the spectrum, added for all
-   plasma layers of the model.
+   plasma layers of the model. (:ref:`Output table properties <tabout:tlin>`)
 
 pop:
    the occupation numbers as well as upwards/downwards loss and gain
-   rates to all quantum levels included.
+   rates to all quantum levels included. (:ref:`Output table properties <tabout:pop>`)
 
 lev:
    the contributions to the population of the energy levels by various
-   processes: positive for gain, negative for loss
+   processes: positive for gain, negative for loss (:ref:`Output table properties <tabout:pop>`)
 
 elex:
    the collisional excitation and de-excitation rates for each level,
-   due to collisions with electrons.
+   due to collisions with electrons. (:ref:`Output table properties <tabout:elex>`)
 
 prex:
    the collisional excitation and de-excitation rates for each level,
-   due to collisions with protons.
+   due to collisions with protons. (:ref:`Output table properties <tabout:prex>`)
 
 rad:
-   the radiative transition rates from each level.
+   the radiative transition rates from each level. (:ref:`Output table properties <tabout:rad>`)
 
 two:
-   the two-photon emission transition rates from each level.
+   the two-photon emission transition rates from each level. (:ref:`Output table properties <tabout:two>`)
 
 rec:
    writes for each atomic level the populating contributions from radiative, dielectronic and
    charge exchange recombination, as well as inner-shell ionisation
+   (:ref:`Output table properties <tabout:rec>`)
 
 dem:
    the emission measure distribution (for the pdem model)
+   (:ref:`Output table properties <tabout:dem>`)
 
 col:
    the ionic column densities for the hot, pion, slab, xabs and warm
-   models
+   models (:ref:`Output table properties <tabout:col>`)
 
 tran:
    In two subsequent tables, the transmission and equivalent width of
@@ -144,6 +152,9 @@ tran:
    acronym): energy (ener), wavelength (wav), ion (ion), optical depth
    at line center (tau), equivalent width in keV (ewk), equivalent width
    in Å (ewa), Voigt a parameter (avo).
+   (:ref:`Output table properties for the lines <tabout:tral>` and
+   :ref:`Output table properties for the edges <tabout:trac>`)
+
 
 warm:
    the column densities, effective ionization parameters and
