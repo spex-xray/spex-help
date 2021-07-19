@@ -3,6 +3,8 @@
 Ascdump: ascii output of plasma and spectral properties
 =======================================================
 
+.. highlight :: none
+
 Overview
 ~~~~~~~~
 
