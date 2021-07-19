@@ -35,7 +35,8 @@ appropriate syntax.
 Most options give output as a table with several columns. They are labeled here below with T1 after the keyword.
 A few options provide only a list of parameters. They are labeled below with T0 after the keyword.
 
-**General**
+General
+'''''''
 
 plas (T0):
    basic plasma properties like temperatures, densities, sound speed, etc.
@@ -45,7 +46,8 @@ abun (T1):
    elemental abundances and average charge per element.
    (:ref:`Output table properties <tabout:abun>`)
 
-**Ionisation balance & rates, timescales**
+Ionisation balance & rates, timescales
+''''''''''''''''''''''''''''''''''''''
 
 icon (T1):
    ion concentrations, both with respect to Hydrogen and the relevant
@@ -65,7 +67,8 @@ time (T1):
    hydrogen density, so do not forget to set the relevant density in the model.
    (:ref:`Output table properties <tabout:time>`)
 
-**Energy level populations and processes contributing to it**
+Energy level populations and processes contributing to it
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 pop (T1):
    the occupation numbers as well as upwards/downwards loss and gain
@@ -93,7 +96,8 @@ rec (T1):
    the populating contributions from radiative, dielectronic and
    charge exchange recombination, as well as inner-shell ionisation (:ref:`Output table properties <tabout:rec>`)
 
-**Emitted spectrum with continuum and line emmission contributions**
+Emitted spectrum with continuum and line emission contributions
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 grid (T1):
    the energy and wavelength grid used in the last evaluation of the
@@ -137,7 +141,8 @@ tlin (T1):
    for each line contributing to the spectrum, combined for all
    plasma layers of the model. (:ref:`Output table properties <tabout:tlin>`)
 
-**Absorbed spectrum with continuum and line contributions**
+Absorbed spectrum with continuum and line contributions
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 tral (T1):
    absorption line properties (energies, equivalent widths, optical depths, etc) 
@@ -160,7 +165,8 @@ wcol (T1):
 warm (T1):
    the column densities and ionisation parameters of the *warm* model
 
-**Energy balance for photoionized plasmas only**
+Energy balance for photoionized plasmas only
+''''''''''''''''''''''''''''''''''''''''''''
 
 heat (T0):
    heating and cooling rates for various processes
