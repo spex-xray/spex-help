@@ -10,12 +10,12 @@ thin plasma.
 It works as follows. The user gives a a number of temperature grid
 points :math:`n`, a minimum temperature :math:`T_1`, a maximum
 temperature :math:`T_n`, a total emission measure :math:`Y` and relative
-contributions :math:`y_1 \ldots y_n`. SPEX assumes that the grid points
+contributions :math:`y_1 \ldots y_n`. SPEX assumes that the grid points
 between :math:`T_1` and :math:`T_n` are distributed logarithmically.
 
 The relative contributions :math:`y_1\ldots y_n` represents the values
 of :math:`{\mathrm d}Y/{\mathrm d}\ln T` (note the logarithm!) at the grid
-points. SPEX then interpolates in the :math:`\log T_i - \log y_i` space
+points. SPEX then interpolates in the :math:`\log T_i - \log y_i` space
 on a finer grid using splines. That temperature grid on which the data
 are being evaluated has a fine mesh: step size is about 0.10 in
 :math:`\log T` (finer is not useful because uniqueness is no longer
@@ -47,7 +47,7 @@ The parameters of the model are:
 
 The following parameters are the same as for the cie-model:
 
-| ``ed`` : Electron density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
 | ``it`` : Ion temperature in keV.
 | ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
 | ``ref`` : Reference element.
