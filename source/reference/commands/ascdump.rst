@@ -26,6 +26,8 @@ The user can either display these properties on the screen or write it to a file
 The user can also sort entries according to any column, make selections or provide additional
 formatting options.
 
+.. _asc-output-types:
+
 Output types
 ~~~~~~~~~~~~
 
@@ -178,7 +180,8 @@ ebal (T1):
    the energy balance contributions of each layer (only for photoionized
    plasmas). (:ref:`Output table properties <tabout:ebal>`)
 
-**Non-equilibrium ionisation and supernova remnant models**
+Non-equilibrium ionisation and supernova remnant models
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 nei (T1):
    the history of ionisation parameter and temperature in NEI
@@ -190,7 +193,8 @@ snr (T0):
    (:ref:`Output table properties <tabout:snr>`)
    
 
-**Differential emission measure models**
+Differential emission measure models
+''''''''''''''''''''''''''''''''''''
 
 dem (T1):
    the emission measure distribution (for the pdem model)
@@ -261,20 +265,17 @@ And the file mysel.dat (in the current working directory) contains the following
 
 What you will see then on your screen is the following:
 
-| only lines with atomic number 26 (the acronym for that is "iz")
-| only lines with ionistion stage between 16-18 (i.e., Fe XVI to Fe XVIII)
-| only lines with energy between 0.5 and 2.0 keV
-| the lines are sorted according to their energy flux (as contained in the column labeled "watt")
-| the column flux is displayed with only 1 significant digit behind the period, i.e. you get a number like 2.3E+32,
+- only lines with atomic number 26 (the acronym for that is "iz")
+- only lines with ionistion stage between 16-18 (i.e., Fe XVI to Fe XVIII)
+- only lines with energy between 0.5 and 2.0 keV
+- the lines are sorted according to their energy flux (as contained in the column labeled "watt")
+- the column flux is displayed with only 1 significant digit behind the period, i.e. you get a number like 2.3E+32,
   rather than the default for this column of 2.349E+32
-| the column with the wavelength (acronym "wave") will display with 15 signifcant digits, rather than the default
+- the column with the wavelength (acronym "wave") will display with 15 signifcant digits, rather than the default
   6 digits for this column.
-| the column with acronym "ion" representing the ion number will not be displayed at all (width 0).
+- the column with acronym "ion" representing the ion number will not be displayed at all (width 0).
 
-Column acronyms
-~~~~~~~~~~~~~~~
-
-TBD: here we need to insert a big table with all the acronyms and further comments
+See the relevant subsection of :ref:`asc_output-types` for the column acronyms to be used in the file for the selection, sorting and formatting of the data.
 
 Syntax
 ~~~~~~
