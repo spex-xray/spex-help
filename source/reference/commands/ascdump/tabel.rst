@@ -720,7 +720,7 @@ Ebal
       D    3      hden    H density                        /m**3
       D    3      eden    el density                       /m**3
       D    3      nenh    n                                
-      D    3      eden    kT electron                      keV
+      D    3      te      kT electron                      keV
       D    3      delt    Delta                            
       D    3      heat    Total heating                    W/m**3
       D    3      cool    Total cooling                    W/m**3
