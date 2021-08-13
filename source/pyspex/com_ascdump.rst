@@ -19,7 +19,7 @@ Example::
     >>> asc = s.ascdump(1, 1, 'plas')
      number of layer lines :        4156           0
     No selection file used
-    >>> print(asc)
+    >>> print(asc.table)
          te          tion         tiba         vmic          cs          eden         hden         eide         rho           ed          eid          denm         epla
         keV          keV          keV         km / s       km / s       1 / m3       1 / m3       1 / m3      kg / m3                                               keV
     ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------
