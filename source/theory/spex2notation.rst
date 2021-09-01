@@ -6,6 +6,9 @@ SPEX 2 notation of atomic transitions
 On this page, we provide reference tables for the Mewe notation of atomic transitions used in SPEX version 2.
 For each atomic sequence, we provide the Mewe notation and the associated lower and upper levels with terms.
 
+.. Note:: This table contains Mg-like to K-like sequences, for Na-like and below,
+          please refer to the SPEXACT version 3 line list.
+
 Mg sequence
 -----------
 
