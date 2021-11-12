@@ -173,14 +173,6 @@ nei (T1):
 snr (T0):
    hydrodynamical and other properties of the supernova remnant (only
    for supernova remnant models such as Sedov, Chevalier etc.).
-   
-**Cluster model**
-
-clus (T1):
-   the hydrodynamical parameters of the cluster as a function of radius.
-
-clup (T1):
-   projected radial profile (photon and energy flux) within specified energy bands, as a function of projected radius.
 
 **Differential emission measure models**
 
