@@ -180,8 +180,8 @@ ebal (T1):
    the energy balance contributions of each layer (only for photoionized
    plasmas). (:ref:`Output table properties <tabout:ebal>`)
 
-Non-equilibrium ionisation and supernova remnant models
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Non-equilibrium ionisation, supernova remnant and cluster models
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 nei (T1):
    the history of ionisation parameter and temperature in NEI
@@ -191,7 +191,13 @@ snr (T0):
    hydrodynamical and other properties of the supernova remnant (only
    for supernova remnant models such as Sedov, Chevalier etc.).
    (:ref:`Output table properties <tabout:snr>`)
-   
+
+clus (T1):
+   the hydrodynamical parameters of the cluster as a function of radius.
+
+clup (T1):
+   projected radial profile (photon and energy flux) within specified energy bands, as a function of projected radius.
+
 
 Differential emission measure models
 ''''''''''''''''''''''''''''''''''''
