@@ -3,7 +3,7 @@
 Clus: projected cluster model
 =============================
 
-.. Warning:: this is a complex model, so please read carefully this documentation before using the model
+.. Warning:: This is a complex model, so please read carefully this documentation before using the model
 
 Overview
 --------
@@ -259,7 +259,7 @@ However, we write it in a slightly different, equivalent form as follows:
 
 .. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-D\exp{\displaystyle{-(r/F)(1+r/E)}}  \bigr]
 
- If the abundances should be kept constant as a function of radius, 
+If the abundances should be kept constant as a function of radius,
 the user should take care that :math:`f(r)\equiv 1` for all radii. 
 This can be achieved for instance by setting C=D=0, A=1.
 
@@ -308,7 +308,7 @@ Here :math:`v` has the same meaning as the vrms parameter of the CIE model of SP
 (see there for more documentation).
 
 At the center, v is given by :math:`v=v_a`, at large distances it is given by
-:math:`v^2=v_a^2 + \frac{v_b \lvert v_b \rvert`
+:math:`v^2=v_a^2 + \frac{v_b \lvert v_b \rvert x^2}{1+x^2}`
 Note that due to this definition, positive values of :math:`v_b` means increasing turbulence
 for larger radii, while negative values means decreasing turbulence for larger radii.
 
@@ -418,7 +418,7 @@ the model is evaluated as if the flag azim=0 (i.e., :math:`f_a=1` everywhere).
 
 We summarise the parameters below.
 
-+---------+-----------------+---------------+-----------------+
++---------+-----------------+-----------------+-----------------+
 | Acronym | Variable        | Default value   | Units           |
 +---------+-----------------+-----------------+-----------------+
 | rmin    | :math:`r_{min}` | 0               | :math:`r_{out}` |
@@ -446,7 +446,7 @@ spectral fitting, due to the random effect inherently caused by this technique.
 
 The relavant parameters are listed below.
 
-+---------+-----------------+---------------+-----------------+
++---------+-----------------+-----------------+-----------------+
 | Acronym | Variable        | Default value   | Units           |
 +---------+-----------------+-----------------+-----------------+
 | rsca    |                 | 0               |                 |
@@ -473,9 +473,9 @@ The remaining parameters of the model are:
   reference element.
 | ``01`` : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
 | ``02`` : Abundance of helium (He, Z=2) in Solar units. Default 1.
-| :math:`\ldots` ``30`` : Abundance of zinc (Zn, Z=30) in Solar units.
+| ``03...30`` : Abundance of all elements up to zinc (Zn, Z=30) in Solar units.
   Default 1.
 | ``file`` : Filename for the non-thermal electron distribution. If not
   present, non-thermal effects are not taken into account (default).
 
-*Recommended citation:* `Kaastra et al. (2021) (this manual for the moment).
+*Recommended citation:* Kaastra et al. (2021) (this manual for the moment).

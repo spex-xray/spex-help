@@ -26,7 +26,7 @@ The user can either display these properties on the screen or write it to a file
 The user can also sort entries according to any column, make selections or provide additional
 formatting options.
 
-.. _asc-output-types:
+.. _sec:asc-output-types:
 
 Output types
 ~~~~~~~~~~~~
@@ -281,7 +281,7 @@ What you will see then on your screen is the following:
   6 digits for this column.
 - the column with acronym "ion" representing the ion number will not be displayed at all (width 0).
 
-See the relevant subsection of :ref:`asc_output-types` for the column acronyms to be used in the file for the selection, sorting and formatting of the data.
+See the relevant subsection of :ref:`sec:asc-output-types` for the column acronyms to be used in the file for the selection, sorting and formatting of the data.
 
 Syntax
 ~~~~~~
