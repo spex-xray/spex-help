@@ -798,6 +798,53 @@ Snr
       D    6      dist    Distance                        kpc
       ==== ====== ======= =============================== ===========
 
+Clus
+----
+
+.. container::
+   :name: tabout:clus
+
+   .. table:: Output for option: clus
+
+      ==== ====== ======= =============================== ===========
+      Type Digits Acronym Description                     Units
+      ==== ====== ======= =============================== ===========
+      I    3      ir      Bin number
+      D    6      r1      Lower radius                    m
+      D    6      r2      Upper radius                    m
+      D    6      dr      Bin width                       m
+      D    6      rw      Mean radius                     m
+      D    6      hw      Density Hydrogen profile        /m**3
+      D    6      tw      Temperature profile             keV
+      D    6      pw      Pressure profile                Pa
+      D    6      yw      Emission measure profile        /m**3
+      D    6      sw      Turbulent velocity profile      km/s
+      D    6      zw      Outflow velocity profile        km/s
+      D    6      abu     Relative abundance
+      ==== ====== ======= =============================== ===========
+
+Clup
+----
+
+.. container::
+   :name: tabout:clup
+
+   .. table:: Output for option: clup
+
+      ==== ====== ======= =============================== ===========
+      Type Digits Acronym Description                     Units
+      ==== ====== ======= =============================== ===========
+      I    8      ir      Projected bin number
+      D    6      r1      Lower radius                    m
+      D    6      r2      Upper radius                    m
+      D    6      dr      Bin width                       m
+      D    6      rw      Mean radius                     m
+      D    6      spro    Radial photon flux profile      ph/m**2/s
+      D    6      ppro    Power profile                   W/m**2
+      D    6      scum    Cumulative Radial profile       ph/s
+      D    6      pcum    Cumulative Power profile        W
+      ==== ====== ======= =============================== ===========
+
 Dem
 ---
 
