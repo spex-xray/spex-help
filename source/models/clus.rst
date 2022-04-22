@@ -26,7 +26,7 @@ gas pressure, emission measure, turbulent velocity, outflow velocity and relativ
 The second option ("clup") provides the projected radial profile of the number of photons and energy flux,
 in an energy band specified by the user.
 
-.. Warning:: this model has a lot of free parameters (more than 74). Do not blindly thaw
+.. Warning:: this model has a lot of free parameters (currently 80). Do not blindly thaw
    all parameters, but make as much as possible use of other constraints and common sense.
    
 Two important radii
@@ -257,11 +257,14 @@ Mernier et al. (2017)
 https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf
 However, we write it in a slightly different, equivalent form as follows:
 
-.. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-D\exp{\displaystyle{-(r/F)(1+r/E)}}  \bigr]
+.. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-D\exp{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G
 
 If the abundances should be kept constant as a function of radius,
 the user should take care that :math:`f(r)\equiv 1` for all radii. 
 This can be achieved for instance by setting C=D=0, A=1.
+
+The constant term with G was not included in Mernier et al. (2017), but may be useful for some applications.
+Its default value is 0.
 
 Note that the radial scaling works the same way for all chemical elements; the abundances
 themselves (as given by the parameters 01, 02, 03 etc.) can of course be different.
@@ -291,6 +294,8 @@ The parameters describing the abundance profile are summarized below.
 | efe     | E         | 0.163         | :math:`r_{500}` |
 +---------+-----------+---------------+-----------------+
 | ffe     | F         | 0.0165        | :math:`r_{500}` |
++---------+-----------+---------------+-----------------+
+| gfe     | G         | 0.0.          |                 |
 +---------+-----------+---------------+-----------------+
 
 Turbulence
@@ -438,19 +443,167 @@ Resonance scattering
 --------------------
 
 Resonance scattering of the strong resonance lines can be taken into account, if the user needs this.
-This is indicated by the parameer with name rsca. Allowed values are 0 (no resonance scattering)
+This is indicated by the parameter with name rsca. Allowed values are 0 (no resonance scattering)
 or 1 (resonance scattering).
 
 The resonance scattering is calculated using a Monte Carlo approach. It is therefore less suited for
 spectral fitting, due to the random effect inherently caused by this technique.
 
-The relavant parameters are listed below.
+The initial 3D emissivity profile for the relevant lines is taken as starting point. From this profile,
+N x nr random photons are drawn (here nr is the number of shells introduced earlier, and N is an adjustable number that
+can be set by the user, see the table below).
+
+There are two modes: for the default mode=2, each shell starts with the same number of photons 
+(the final result is of course weighted with the proper shell emissivity). 
+This has the advantage that the calculation also have a reasonable accuracy in the outer parts, where the emissivity is small.
+It is therefore most relevant when studying radial line profiles of the resonant lines.
+For the other mode=1, the number of initial photons is distributed according to emissivity; therefore this case is more suited
+for the spectrum of the full cluster.
+
+The fate of each individual photon is followed. The calculation for the photon stops when either it is absorbed in the continuum, 
+or when it leaves the cluster. Alternatively, it can be absorbed and then a) re-emitted in a new random direction (the resonance scattering),
+or b) it decays to a non-ground level, resulting in two or more photons until the atom reaches the ground state again. 
+The fate of these multiple photons is followed until they are destroyed or escape. At the end of the calculation, some statistics are collected 
+on the history of the photon.
+
+When resonance scattering is included, in principle three diagnostic files with information on the resoant lines are produced.
+Thes files are always named cluslin1.asc, cluslin2.asc and cluslin3.asc, they are placed in the directory from which SPEX is running,
+and they are overwritten each time the model is being evaluated. When the user wishes to store these files, a simple spex command like
+*sys exe "cp cluslin1.asc newa1.asc "* is sufficient to copy it to a file newa1.asc, for example.
+
+If the user does not want to produce this output, the parameters out1, out2 and out3 should be set to zero (see below).
+The default value for them is 1, i.e. produce the output. If some of these numbers are put to zero, no output of that kind is produced.
+
+In most other cases of SPEX output, we make use of the ascc-output options. However, in particular when the number of shells is large or the
+number of iterations N is large, the computational time can be very large
+
+The relevant parameters are listed below.
 
 +---------+-----------------+-----------------+-----------------+
 | Acronym | Variable        | Default value   | Units           |
 +---------+-----------------+-----------------+-----------------+
 | rsca    |                 | 0               |                 |
 +---------+-----------------+-----------------+-----------------+
+| nit0    | N               | 10000           |                 |
++---------+-----------------+-----------------+-----------------+
+| rmod    | mode            | 2               |                 |
++---------+-----------------+-----------------+-----------------+
+| out1    | out1            | 1               |                 |
++---------+-----------------+-----------------+-----------------+
+| out2    | out2            | 1               |                 |
++---------+-----------------+-----------------+-----------------+
+| out3    | out3            | 1               |                 |
++---------+-----------------+-----------------+-----------------+
+
+.. Warning:: when running resonance sattering, be aware that the computation times may become very large.
+   For example, a run with 128 radial shells, 256 projected annuli, with cluster parameters adjsuted to 
+   the Perseus cluster, and with nit0 equal to :math:`10^5` and thus :math:`1.28\times 10^7` random drawings
+   per spectral line (and 666 spectral lines included) takes about 6 hours to complete on a single core of a 2.3 GHz processor
+   using the gfortran compiler; it may be faster using other processors or compilers. For less ambituous accuracy
+   a couple of minutes per model evaluation is more realistic.
+
+Output files for resonance scattering
+-------------------------------------
+
+As noted, in principle three files are produced when resoance scattering is included in the calculations.
+These file cluslin1.asc, cluslin2.asc and cluslin3.asc are stored in the directory where SPEX is running, and 
+are overwritten each time the model is evaluated again. Here we describe the contents of these files.
+
+**cluslin1.asc:**
+
+This is a summary of all the spectral lines where resonance scattering is taken into account. 
+The file contains a descriptive header (one line) followed by several lines for each spectral line.
+The columns are as follows:
+
+1. Line number. This is a unique number for each line, which is used as a label for the cluslin2.asc and cluslin3.asc files to identify the spectral lines.
+These numbers are always the same for a given transition, but note that the numbering is different for the "old" set of atomic lines and the "new" set of atomic lines.
+
+2. Element and ionisation stage
+
+3. Designation of the transition. For the "old" calculation, typically the Mewe et al. (1985) notation, for the "new" calculation, it gives the lower and upper level of the transition. Both notations are the same as for the line-ascii output option.
+
+4. The energy of the line, in keV.
+
+5. The oscillator strength of the line. However, for lines not ending at the ground level (the non-resonant lines), we put here a value of zero, even if the true oscillator strength is non-zero. The cluster model assumes that all ions are in their ground state when they absorb a photon.
+
+6. Branching ratio. This is the probability that an atom that has absorbed a resonant photon falls back to the ground state immediately, 
+rather than to an intermediate energy level.
+
+7. tau_l: the optical depth of the line at line centre.
+
+8. tau_c: the continuum optical depth (i.e., the optical depth relevant for absorption of the photon in the continuum)
+
+9. photons: the number of photons that leave the cluster (either as original, scattered or splitted photon)
+
+10. lost: the number of photons lost by continuum absorption. This number, added to the number of escaping photons gives the original number of photons for this line for the Monte-Carlo calculation.
+
+11. ori_flux: the original emitted flux (number of photons per second) in the line, without resonance scattering.
+
+**cluslin2.asc:**
+
+This file gives the projected properties of all the lines summarized in cluslin1.asc. 
+The file contains a descriptive header (one line) followed by one line for each spectral line.
+The columns are as follows:
+
+1. line number (corresponding to the first number in cluslin1.asc)
+
+2. ir: the projected annulus number
+
+3. r: the radius of the projected annulus in :math:`10^{22}` m. The radius is here the mean of the inner and outer radius of the annulus.
+
+4. fluxscale: the scaling factor by which the number of photons in the next three columns (5 to 7) need to be multiplied in order to get fluxes in photons per square meter per second, emitted at the cluster (not to be confused with the flux received at Earth!).
+
+5. f1: the number of photons that would have been visible in this annulus if no resonance scattering occurs.
+
+6. f2: the actual number of photons that leave the cluster from thjis annulus to the observer.
+
+7. f2-f1: the difference f2-f1
+
+8. f2/f1: the ratio between f2 and f1. This is actually the relative flux decrease or increase due to resoance scattering.
+
+9. # scat: The average number of scatterings that the observed photon has experienced, since creation of the photon.
+
+10. DelE: the average energy shift of the photons, in eV.
+
+11. sigma: The r.m.s. line width in eV. This incorporates the original all effects of the resoance scattering. 
+Note that some lines may have Lorentzian wings in reality; those are visible in the final spectrum. Voigt profiles are computed there based on this r.m.s. and the original natural broadening of the line. The Gaussian component of the line therefore ignores any non-gaussianity, but only considers the width of the line, which is accurate enough in the majority of cases.
+
+**cluslin3.asc:**
+
+This file gives the 3D, radial properties of all the lines summarized in cluslin1.asc. 
+The file contains a descriptive header (one line) followed by several lines for each spectral line.
+The columns are as follows:
+
+1. line number (corresponding to the first number in cluslin1.asc)
+
+2. ir: the 3D shell number
+
+3. r: the radius of the shell in :math:`10^{22}` m. The radius is here the mean of the inner and outer radius of the shell.
+
+4. T: the temperature of the shell at mid-radius
+
+5. fr: the fraction of the total line flux of the cluster emitted from this shell (without resonance scattering)
+
+6. concentrat: the ion concentration of the emitting ion at this radius.
+
+Atomic physics of the resonance lines
+-------------------------------------
+
+For the "old" atomic data set, we used a list of 204 selected lines deemed to be relevant in 1996, when the first version of this model
+was created. For the "new" atomic data set, we selected 666 transitions for H-like to Na-like ions, under the following assumptions:
+
+1. We use a simple scaling law :math:`N_{\rm H} = 10^{25} \sqrt{T}` where :math:`N_{\rm H}}` is the total column density from the core of the cluster to infinity, in units of per square meter, and :math:`{T}` the temperature in keV. This matches approximately the Perseus cluster at a temperature of 4 keV.
+It is based on the simple scaling laws for cluster mass M, radius R and density :math:`\rho`    
+
+:math:`M\sim R^3\rho` , :math:`\rho` constant, :math:`M\sim T^{1.5}` and :math:`N_{\rm H} \sim \rho R`
+
+2. For a grid of temperatures T from 0.25 to 16 keV, step size a factor of 2, assuming no turbulence (i.e., the higehst possible optical depths) and a column density of 5 times higher than the scalinf relation given under 1. above, we calculated the optical depths of all ground-state absorption lines in SPEX using the "hot" absorption model.
+
+3. From this list, we selected all lines with energy larger than 0.1 keV, optical depth larger than 0.03, and optical depth larger than 1% of the strongest line at that temperature.
+
+4. For each resonance line, we only considered the most important decay channels from the excited state (typically stronger than 1% of the total decay rate) in order to limit the number of decay routes to the ground to a manageable number. In practice, the number of decay routes was thus limited to a maximum of 7 (including the main resonance line), and we limited the number of lines to a maximum of 3 per route (ignoring the lowest energy lines in a few cases; these ingnored lines were always at much lower energy than the X-ray band).
+
+5. Transition energies, oscillator strengths and branching ratios were thus obtained from the current atomic data base of SPEX. When this database will be updated, the same transitions will be used for the resonance scattering, but branching ratios, oscillator strengths and line energies will automatically be adjusted; these quantities are initialised each time upon the first call to the cluster model.
 
 
 Non-thermal electron distributions and abundances
@@ -478,4 +631,4 @@ The remaining parameters of the model are:
 | ``file`` : Filename for the non-thermal electron distribution. If not
   present, non-thermal effects are not taken into account (default).
 
-*Recommended citation:* Kaastra et al. (2021) (this manual for the moment).
+*Recommended citation:* Kaastra et al. (2022) (this manual for the moment).
