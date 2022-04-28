@@ -453,12 +453,12 @@ The initial 3D emissivity profile for the relevant lines is taken as starting po
 N x nr random photons are drawn (here nr is the number of shells introduced earlier, and N is an adjustable number that
 can be set by the user, see the table below).
 
-There are two modes: for the default mode=2, each shell starts with the same number of photons 
+There are two modes: for mode=2, each shell starts with the same number of photons 
 (the final result is of course weighted with the proper shell emissivity). 
 This has the advantage that the calculation also have a reasonable accuracy in the outer parts, where the emissivity is small.
-It is therefore most relevant when studying radial line profiles of the resonant lines.
-For the other mode=1, the number of initial photons is distributed according to emissivity; therefore this case is more suited
-for the spectrum of the full cluster.
+It is therefore most relevant when studying radial line profiles of the resonant lines in the outskirts.
+For the default mode=1, the number of initial photons is distributed according to emissivity; therefore this case is more suited
+for the overall spectrum of the full cluster. Experience shows it is slightly more accurate in the part of the cluster that emits the bulk of the photons.
 
 The fate of each individual photon is followed. The calculation for the photon stops when either it is absorbed in the continuum, 
 or when it leaves the cluster. Alternatively, it can be absorbed and then a) re-emitted in a new random direction (the resonance scattering),
@@ -486,7 +486,7 @@ The relevant parameters are listed below.
 +---------+-----------------+-----------------+-----------------+
 | nit0    | N               | 10000           |                 |
 +---------+-----------------+-----------------+-----------------+
-| rmod    | mode            | 2               |                 |
+| rmod    | mode            | 1               |                 |
 +---------+-----------------+-----------------+-----------------+
 | out1    | out1            | 1               |                 |
 +---------+-----------------+-----------------+-----------------+
