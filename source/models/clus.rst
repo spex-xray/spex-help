@@ -36,8 +36,8 @@ It is important to distinguish two important radii in the model.
 
 Internally, everything is scaled to :math:`r_{500}` , which is the first parameter of the
 model (input name r500). It should be given in units of :math:`10^{22}` meter. 
-The default value is 3 (i.e., :math:`r_{500} = 10^{22}` m, or approximately (but not exactly!))
-324 kpc.
+The default value is 3 (i.e., :math:`r_{500} = 3\times 10^{22}` m, or approximately (but not exactly!))
+1 Mpc.
 
 The cluster is terminated at a radius :math:`r_{\mathrm{out}}` (input name: rout).
 Outside this radius, the density is cut-off to zero, so this means the effective edge
@@ -54,11 +54,11 @@ The two parameters governing the radial scaling are summarized below.
 
 +---------+--------------------------+---------------+-------------------+
 | Acronym | Variable                 | Default value | Units             |
-+---------+------------------------------------------+-------------------+
++---------+--------------------------+---------------+-------------------+
 | r500    | :math:`r_{500}`          | 3.0           | :math:`10^{22}` m |
-+---------+------------------------------------------+-------------------+
++---------+--------------------------+---------------+-------------------+
 | rout    | :math:`r_{\mathrm{out}}` | 2.0           | :math:`r_{500}`   |
-+---------+------------------------------------------+-------------------+
++---------+--------------------------+---------------+-------------------+
 
 Radial grid: 3-d shells
 -----------------------
@@ -70,7 +70,7 @@ model is evaluated.
 
 The default value for nr is 25, but it can be changed (obviously, for large values the computation
 time increases). The logarithmic grid is chosen to be beween :math:`r_{\mathrm{in}}`
-and :math:`r_{\mathrm{out}}`
+and :math:`r_{\mathrm{out}}`.
 Here :math:`r_{\mathrm{in}}` is taken as 1% of :math:`r_{500}`, or if that is smaller,
 10% of the smallest of the core radii for the density profile (see later).
 Obviously, for the innermost shell the inner boundary :math:`r_{\mathrm{in}}` is replaced by 0 instead.
@@ -115,7 +115,7 @@ The parameters governing both the 3-d and projected bins are summarized below.
 +---------+--------------------------+---------------+-------+
 | nr      | :math:`n_{r}`            | 25            |       |
 +---------+--------------------------+---------------+-------+
-| npro    | npro     | 2.0           | 50            |       |
+| npro    | npro                     | 50            |       |
 +---------+--------------------------+---------------+-------+
 
 
@@ -140,7 +140,7 @@ The optional density jump parameterisation :math:`f(r)` is:
 
 .. math:: r<r_s:\quad f(r) = 1
 
-.. math:: r>r_s:\quad f(r) = \Delta_d (r/r_s)^\gamma_d
+.. math:: r>r_s:\quad f(r) = \Delta_d (r/r_s)^{\gamma_d}
 
 where the discontinuity radius :math:`r_{s}` (input name rsh) 
 is given again in units of :math:`r_{500}`
@@ -172,9 +172,9 @@ The parameters describing the density profile are summarized below.
 | rsh     | :math:`r_s`           | 2.0           | :math:`r_{500}`          |
 +---------+-----------------------+---------------+--------------------------+
 | dfac    | :math:`\Delta_{d}`    | 1.0           |                          |
-+---------+---------------------------------------+--------------------------+
++---------+-----------------------+---------------+--------------------------+
 | dgad    | :math:`\gamma_{d}`    | 0.0           |                          |
-+---------+---------------------------------------+--------------------------+
++---------+-----------------------+---------------+--------------------------+
 
 
 Radial temperature distribution
@@ -198,13 +198,13 @@ with
 
 .. math:: x = r / r_{tc}
 
-.. math:: f_1(r) = \frac{y^{-a}}{\bigl[ 1 + y^b \bigr]^(c/b)}
+.. math:: f_1(r) = \frac{y^{-a}}{\bigl[ 1 + y^b \bigr]^{c/b}}
 
 .. math:: y = r / r_{to}
 
 .. math:: r<r_s:\quad  f_2(r) = 1
 
-.. math:: r>r_s:\quad  f_2(r) = \Delta_t (r/r_s)^\gamma_t
+.. math:: r>r_s:\quad  f_2(r) = \Delta_t (r/r_s)^{\gamma_t}
 
 The central and outer temperatures :math:`T_c` and :math:`T_h` are not the actual temperatures,
 but the temperatures that would exist without the  :math:`f_1(r)` and :math:`f_2(r)` terms.
@@ -257,11 +257,11 @@ Mernier et al. (2017)
 https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf
 However, we write it in a slightly different, equivalent form as follows:
 
-.. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-D\exp{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G
+.. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-De{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G
 
 If the abundances should be kept constant as a function of radius,
 the user should take care that :math:`f(r)\equiv 1` for all radii. 
-This can be achieved for instance by setting C=D=0, A=1.
+This can be achieved for instance by setting A=0, G=1.
 
 The constant term with G was not included in Mernier et al. (2017), but may be useful for some applications.
 Its default value is 0.
@@ -313,7 +313,7 @@ Here :math:`v` has the same meaning as the vrms parameter of the CIE model of SP
 (see there for more documentation).
 
 At the center, v is given by :math:`v=v_a`, at large distances it is given by
-:math:`v^2=v_a^2 + \frac{v_b \lvert v_b \rvert x^2}{1+x^2}`
+:math:`v^2=v_a^2 + v_b \lvert v_b \rvert`
 Note that due to this definition, positive values of :math:`v_b` means increasing turbulence
 for larger radii, while negative values means decreasing turbulence for larger radii.
 
@@ -463,19 +463,20 @@ for the overall spectrum of the full cluster. Experience shows it is slightly mo
 The fate of each individual photon is followed. The calculation for the photon stops when either it is absorbed in the continuum, 
 or when it leaves the cluster. Alternatively, it can be absorbed and then a) re-emitted in a new random direction (the resonance scattering),
 or b) it decays to a non-ground level, resulting in two or more photons until the atom reaches the ground state again. 
-The fate of these multiple photons is followed until they are destroyed or escape. At the end of the calculation, some statistics are collected 
+The fate of these multiple photons is followed until they are destroyed or escape. At the end of the calculation, some statistics is collected 
 on the history of the photon.
 
-When resonance scattering is included, in principle three diagnostic files with information on the resoant lines are produced.
+When resonance scattering is included, in principle three diagnostic files with information on the resonant lines are produced.
 Thes files are always named cluslin1.asc, cluslin2.asc and cluslin3.asc, they are placed in the directory from which SPEX is running,
 and they are overwritten each time the model is being evaluated. When the user wishes to store these files, a simple spex command like
-*sys exe "cp cluslin1.asc newa1.asc "* is sufficient to copy it to a file newa1.asc, for example.
+*sys exe "cp cluslin1.asc newa1.asc"* is sufficient to copy it to a file newa1.asc, for example.
 
 If the user does not want to produce this output, the parameters out1, out2 and out3 should be set to zero (see below).
 The default value for them is 1, i.e. produce the output. If some of these numbers are put to zero, no output of that kind is produced.
 
-In most other cases of SPEX output, we make use of the ascc-output options. However, in particular when the number of shells is large or the
-number of iterations N is large, the computational time can be very large
+In most other cases of SPEX output, we make use of the asc-output options. However, in particular when the number of shells is large or the
+number of iterations N is large, the computational time can be very large, and with different random seeds for each run results may not be
+fully reproducable. For that reason, the resonance scattering line information is given "on the fly".
 
 The relevant parameters are listed below.
 
@@ -495,8 +496,8 @@ The relevant parameters are listed below.
 | out3    | out3            | 1               |                 |
 +---------+-----------------+-----------------+-----------------+
 
-.. Warning:: when running resonance sattering, be aware that the computation times may become very large.
-   For example, a run with 128 radial shells, 256 projected annuli, with cluster parameters adjsuted to 
+.. Warning:: When running resonance sattering, be aware that the computation times may become very large.
+   For example, a run with 128 radial shells, 256 projected annuli, with cluster parameters adjusted to 
    the Perseus cluster, and with nit0 equal to :math:`10^5` and thus :math:`1.28\times 10^7` random drawings
    per spectral line (and 666 spectral lines included) takes about 6 hours to complete on a single core of a 2.3 GHz processor
    using the gfortran compiler; it may be faster using other processors or compilers. For less ambituous accuracy
@@ -505,7 +506,7 @@ The relevant parameters are listed below.
 Output files for resonance scattering
 -------------------------------------
 
-As noted, in principle three files are produced when resoance scattering is included in the calculations.
+As noted, in principle three files are produced when resonance scattering is included in the calculations.
 These file cluslin1.asc, cluslin2.asc and cluslin3.asc are stored in the directory where SPEX is running, and 
 are overwritten each time the model is evaluated again. Here we describe the contents of these files.
 
@@ -515,10 +516,9 @@ This is a summary of all the spectral lines where resonance scattering is taken 
 The file contains a descriptive header (one line) followed by several lines for each spectral line.
 The columns are as follows:
 
-1. Line number. This is a unique number for each line, which is used as a label for the cluslin2.asc and cluslin3.asc files to identify the spectral lines.
-These numbers are always the same for a given transition, but note that the numbering is different for the "old" set of atomic lines and the "new" set of atomic lines.
+1. Line number. This is a unique number for each line, which is used as a label for the cluslin2.asc and cluslin3.asc files to identify the spectral lines. These numbers are always the same for a given transition, but note that the numbering is different for the "old" set of atomic lines and the "new" set of atomic lines.
 
-2. Element and ionisation stage
+2. Element and ionisation stage.
 
 3. Designation of the transition. For the "old" calculation, typically the Mewe et al. (1985) notation, for the "new" calculation, it gives the lower and upper level of the transition. Both notations are the same as for the line-ascii output option.
 
@@ -531,9 +531,9 @@ rather than to an intermediate energy level.
 
 7. tau_l: the optical depth of the line at line centre.
 
-8. tau_c: the continuum optical depth (i.e., the optical depth relevant for absorption of the photon in the continuum)
+8. tau_c: the continuum optical depth (i.e., the optical depth relevant for absorption of the photon in the continuum).
 
-9. photons: the number of photons that leave the cluster (either as original, scattered or splitted photon)
+9. photons: the number of photons that leave the cluster (either as original, scattered or splitted photon).
 
 10. lost: the number of photons lost by continuum absorption. This number, added to the number of escaping photons gives the original number of photons for this line for the Monte-Carlo calculation.
 
@@ -542,7 +542,7 @@ rather than to an intermediate energy level.
 **cluslin2.asc:**
 
 This file gives the projected properties of all the lines summarized in cluslin1.asc. 
-The file contains a descriptive header (one line) followed by one line for each spectral line.
+The file contains a descriptive header (one line) followed by npro lines for each spectral line.
 The columns are as follows:
 
 1. line number (corresponding to the first number in cluslin1.asc)
@@ -551,21 +551,21 @@ The columns are as follows:
 
 3. r: the radius of the projected annulus in :math:`10^{22}` m. The radius is here the mean of the inner and outer radius of the annulus.
 
-4. fluxscale: the scaling factor by which the number of photons in the next three columns (5 to 7) need to be multiplied in order to get fluxes in photons per square meter per second, emitted at the cluster (not to be confused with the flux received at Earth!).
+4. fluxscale: the scaling factor by which the number of photons in the next three columns (5 to 7) needs to be multiplied in order to get fluxes in photons per square meter per second, emitted at the cluster (not to be confused with the flux received at Earth!).
 
 5. f1: the number of photons that would have been visible in this annulus if no resonance scattering occurs.
 
-6. f2: the actual number of photons that leave the cluster from thjis annulus to the observer.
+6. f2: the actual number of photons that leave the cluster from this annulus to the observer.
 
-7. f2-f1: the difference f2-f1
+7. f2-f1: the difference f2-f1.
 
-8. f2/f1: the ratio between f2 and f1. This is actually the relative flux decrease or increase due to resoance scattering.
+8. f2/f1: the ratio between f2 and f1. This is actually the relative flux decrease or increase due to resonance scattering.
 
 9. # scat: The average number of scatterings that the observed photon has experienced, since creation of the photon.
 
 10. DelE: the average energy shift of the photons, in eV.
 
-11. sigma: The r.m.s. line width in eV. This incorporates the original all effects of the resoance scattering. 
+11. sigma: The r.m.s. line width in eV. This incorporates the original line width and  all effects of the resonance scattering. 
 Note that some lines may have Lorentzian wings in reality; those are visible in the final spectrum. Voigt profiles are computed there based on this r.m.s. and the original natural broadening of the line. The Gaussian component of the line therefore ignores any non-gaussianity, but only considers the width of the line, which is accurate enough in the majority of cases.
 
 **cluslin3.asc:**
@@ -597,9 +597,9 @@ It is based on the simple scaling laws for cluster mass M, radius R and density 
 
 :math:`M\sim R^3\rho` , :math:`\rho` constant, :math:`M\sim T^{1.5}` and :math:`N_{\rm H} \sim \rho R`
 
-2. For a grid of temperatures T from 0.25 to 16 keV, step size a factor of 2, assuming no turbulence (i.e., the higehst possible optical depths) and a column density of 5 times higher than the scalinf relation given under 1. above, we calculated the optical depths of all ground-state absorption lines in SPEX using the "hot" absorption model.
+2. For a grid of temperatures T from 0.25 to 16 keV, step size a factor of 2, assuming no turbulence (i.e., the higehst possible optical depths) and a column density of 5 times higher than the scaling relation given under 1. above, we calculated the optical depths of all ground-state absorption lines in SPEX using the "hot" absorption model.
 
-3. From this list, we selected all lines with energy larger than 0.1 keV, optical depth larger than 0.03, and optical depth larger than 1% of the strongest line at that temperature.
+3. From this list, we selected all lines with energy larger than 0.1 keV, optical depth larger than 0.03, and optical depth larger than 1% of the strongest line of that ion at that temperature.
 
 4. For each resonance line, we only considered the most important decay channels from the excited state (typically stronger than 1% of the total decay rate) in order to limit the number of decay routes to the ground to a manageable number. In practice, the number of decay routes was thus limited to a maximum of 7 (including the main resonance line), and we limited the number of lines to a maximum of 3 per route (ignoring the lowest energy lines in a few cases; these ingnored lines were always at much lower energy than the X-ray band).
 
