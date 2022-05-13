@@ -49,6 +49,19 @@ The method returns the reference as a text string::
     >>> print(ab)
     Lodders et al. (2009)
 
+Aerror
+^^^^^^
+
+Calculate the uncertainties for several parameters of a model component due to the uncertainties in the
+atomic data.
+
+  .. automethod:: pyspex.spex.Session.aerror
+
+Example::
+
+    >>> aerr = s.aerror(1,1,'norm')
+    >>> aerr = s.aerror(1,1,'26',shell=1)
+
 Calculate
 ^^^^^^^^^
 

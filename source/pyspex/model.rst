@@ -49,6 +49,14 @@ Abundance
 
 .. _class_distance:
 
+Aerror
+------
+
+    .. autoclass:: pyspex.model.Aerror
+       :members:
+
+.. _class_aerror:
+
 Distance
 --------
 

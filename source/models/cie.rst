@@ -118,6 +118,18 @@ when it is another element, like O, the normalisation is still the
 product of :math:`n_{\mathrm e}n_{\mathrm X}V` where X stands for the
 fictitious hydrogen density derived from the solar O/H ratio.
 
+External magnetic field
+-----------------------
+
+External magnetic field resolves the degeneracy of the magnetic sublevels of a
+given level and allows mixing with neighbour levels of the same magnetic quantum
+number and parity, which could not happen in the field-free case. The appearance
+and intensities of these otherwise forbidden transitions depend on the magnetic
+field.
+
+The magnetic field strength is given in unit of Gauss. For very strong fields
+(:math:`$B\geq 10^{10}$` Gauss), the calculation likely becomes less reliable.
+
 Example
 """""""
 
@@ -204,5 +216,6 @@ The parameters of the model are:
   Default 1.
 | ``file`` : Filename for the non-thermal electron distribution. If not
   present, non-thermal effects are not taken into account (default).
+| ``b`` : External magnetic field strength in Gauss. Default value: 0.
 
 *Recommended citation:* `Kaastra et al. (1996) <https://ui.adsabs.harvard.edu/abs/1996uxsa.conf..411K/abstract>`_.

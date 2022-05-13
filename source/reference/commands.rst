@@ -9,6 +9,7 @@ the use of syntax followed by some practical examples.
    :maxdepth: 1
 
    commands/abundance
+   commands/aerror
    commands/ascdump
    commands/ascdump/tabel.rst
    commands/bin
