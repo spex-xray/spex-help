@@ -16,6 +16,10 @@ function to obtain the same plot using matplotlib:
 This function plots the model spectrum as a function of energy (keV). The axis can be made
 logarithmic by setting ``xlog=True`` and ``ylog=True`` for the x and y axis, respectively.
 
+  .. warning:: Due to a bug in pyspex 3.06.01, the unit on the y axis is not photons/s/m**2/keV,
+               but photons/s/m**2. So it shows the spectra without dividing by the bin width.
+               This issue will be fixed in pyspex 3.07.00.
+
 Examples::
 
     >>> s.plot_model()
@@ -32,6 +36,10 @@ In PYSPEX, this is done with one command called ``plot_data``:
 This function plots the observed spectra in black, the convolved model in red, and the background
 spectrum as a dashed blue line. The axis can be made logarithmic by setting ``xlog=True``
 and ``ylog=True`` for the x and y axis, respectively.
+
+  .. warning:: Due to a bug in pyspex 3.06.01, the unit on the y axis is not counts/s/keV,
+               but counts/s. So it shows the spectra without dividing by the bin width.
+               This issue will be fixed in pyspex 3.07.00.
 
 Examples::
 
