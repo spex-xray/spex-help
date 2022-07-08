@@ -58,7 +58,7 @@ The following parameters are common to all our absorption models:
   components
 | ``dv`` : Velocity distance :math:`\Delta v` between different blend
   components
-| ``zv`` : Average systematic velocity :math:`v` of the absorber
+| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 | The following parameter is the same as for the xabs-model (see there
   for a description): 
 | ``col`` : File name for the photoionisation
