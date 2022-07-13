@@ -340,7 +340,7 @@ passed instead of a value. Text parameters cannot be free parameters as well.
 Examples::
 
     >>> s.par(1, 1, 'norm', 1E+8, thawn=True)
-    >>> s.par_text(1, 1, file, 'dist.dat')
+    >>> s.par_text(1, 1, 'file', 'dist.dat')
 
 Fix & Free parameters
 """""""""""""""""""""
