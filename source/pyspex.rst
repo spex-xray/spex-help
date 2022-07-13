@@ -26,13 +26,14 @@ Basic commands
    pyspex/spex
    pyspex/commands
 
-Analysis threads
-----------------
+Analysis threads & other tricks
+-------------------------------
 
 .. toctree::
    :maxdepth: 1
 
    pyspex/threads
+   pyspex/astropy
 
 Advanced class descriptions
 ---------------------------
