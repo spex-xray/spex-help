@@ -38,7 +38,7 @@ These fluxes and luminosities are now returned with a unit attached::
     1.8976663101053723e+27 W
 
 One of the parameters available in the ``flx`` object that ``s.flux_get()`` returns is the luminosity
-in energy, called ``enerlum`` (see class_flux_ for a full description of the available numbers). When
+in energy, called ``enerlum`` (see :ref:`class_flux` for a full description of the available numbers). When
 we print this number, we see a ``W`` behind it, which means unit Watt.
 
 The unit is explicitly encoded into the ``flx.enerlum`` object. The type of ``flx.enerlum`` is not a
