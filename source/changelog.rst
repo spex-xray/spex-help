@@ -361,7 +361,8 @@ Changes in SPEX 3.07.00:
 
 - Added time-dependent photoionisation model (TPHO), see :ref:`sec:tpho`.
 
-- Generalized output from the ascdump command. Now also fits output is possible (see :ref:`sec:ascdump`).
+- Generalized output from the ascdump command. Includes many more selection, sorting and
+  display options. Now also fits output is possible (see :ref:`sec:ascdump`).
 
 - Added support for multiple matrix extensions in new XRISM and Athena response matrices.
 
@@ -382,7 +383,8 @@ Changes in SPEXACT 3.07.00:
 
 - Atomic data updates on L-shell calculation of Mg, Si, S, Ar, Ca, Cr, Mn, Ni.
 
-- The hot and slab model now use SPEXACT v3 atomic data.
+- The hot and slab model now use SPEXACT v3 atomic data. It is still possible to switch
+  between SPEXACT v2 and v3 by using the ``var calc old/new`` command.
 
 - Charge exchange recombination and ionization rates update: Kingdon-Ferland
   rates added; also allow to choose between Arnaud-Rothenflug and Kingdon-Ferland (var cxcon).
