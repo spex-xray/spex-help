@@ -346,3 +346,56 @@ In SPEXACT 3.06.01:
 
 - Updates to ions: C I, N II, O II, Ne IV, Cr IV, Cr V, Mn V, Mn VI.
 
+Version 3.07.00
+---------------
+
+This is a SPEX version with a number of new models, updates to atomic data and many more new features
+and bugfixes.
+
+Changes in SPEX 3.07.00:
+''''''''''''''''''''''''
+
+- Doppler velocity parameter ``zv`` and the ``reds`` model in velocity mode is now relativistic.
+
+- Added 3D cluster model including resonant scattering, see :ref:`sect:clus`.
+
+- Added time-dependent photoionisation model (TPHO), see :ref:`sec:tpho`.
+
+- Generalized output from the ascdump command. Now also fits output is possible (see :ref:`sec:ascdump`).
+
+- Added support for multiple matrix extensions in new XRISM and Athena response matrices.
+
+- Use different fit statistics for different instruments (see :ref:`sec:fit`).
+
+- Extended the ebv model to include the Gordon et al. SMC model (see :ref:`model_evb`).
+
+- Several fixes to make SPEX compile on newer GCC versions and Macs.
+
+- Trafo now contains an option to calculate response derivatives.
+
+- Expanded the use of double precision to a large part of SPEX.
+
+Changes in SPEXACT 3.07.00:
+'''''''''''''''''''''''''''
+
+- Updated ions: Fe IX, Ni XI, Ni XX, Cr XII, Cr XVI, Ti XIV, Ca XII.
+
+- Atomic data updates on L-shell calculation of Mg, Si, S, Ar, Ca, Cr, Mn, Ni.
+
+- The hot and slab model now use SPEXACT v3 atomic data.
+
+- Charge exchange recombination and ionization rates update: Kingdon-Ferland
+  rates added; also allow to choose between Arnaud-Rothenflug and Kingdon-Ferland (var cxcon).
+
+- Magnetic field dependence of lines added to the hot (:ref:`sect:hot`) and cie (:ref:`sect:cie`) models.
+
+- Added ``aerror`` command to estimate errors in parameters due to uncertainties in atomic data (see :ref:`sec:aerror`).
+
+Changes in PYSPEX 3.07.00:
+''''''''''''''''''''''''''
+
+- Added and modified PYSPEX commands to match new SPEX commands.
+
+- Output data is now offered as Astropy Quantities and QTables (see :ref:`pyspex_astropy`).
+
+- Added option to plot in wavelength (Angstrom), see :ref:`pyspex_plot`.

@@ -1,3 +1,5 @@
+.. _pyspex_astropy:
+
 Astropy units and tables
 ========================
 

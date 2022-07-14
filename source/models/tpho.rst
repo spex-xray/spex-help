@@ -1,3 +1,5 @@
+.. _sec:tpho:
+
 Tpho: Time-dependent, non-equilibrium, photoionised plasma model
 ================================================================
 

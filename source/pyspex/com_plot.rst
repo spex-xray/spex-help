@@ -1,3 +1,5 @@
+.. _pyspex_plot:
+
 Plot commands
 -------------
 
