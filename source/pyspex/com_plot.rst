@@ -63,7 +63,7 @@ Some examples to try::
     >>> print(data['Model'].unit) # see the unit of the Model column
     >>> print(data)               # Print the table nicely formatted
 
-See :ref:`class_plot_model_sector` for a description of the individual numpy arrays available within
+See :ref:`class_plot_model` for a description of the individual numpy arrays available within
 the sector object.
 
 Plot data
@@ -164,7 +164,7 @@ Some examples to try::
     >>> print(data['Model'].unit)  # Print the unit of the Model column
     >>> print(data)                # Print the table nicely formatted
 
-See :ref:`class_plot_data_reg` for a description of the individual numpy arrays available within
+See :ref:`class_plot_data` for a description of the individual numpy arrays available within
 the region object.
 
 
@@ -221,7 +221,7 @@ Some examples to try::
     >>> print(data['Area'].unit)  # see the unit of the Area column
     >>> print(data)               # Print the table nicely formatted
 
-See :ref:`class_plot_area_reg` for a description of the individual numpy arrays available within
+See :ref:`class_plot_area` for a description of the individual numpy arrays available within
 the region object.
 
 Plotting Astropy Table data
