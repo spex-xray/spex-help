@@ -1,6 +1,7 @@
 Optimization functions
 ======================
 
+.. _sec:pyspex_optimize:
 
 Fitting spectra
 ---------------
