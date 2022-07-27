@@ -31,7 +31,7 @@ is not allowed that two neighbouring boundaries have the same value.
 Finally, the default energy grid at startup of SPEX is a logarithmic
 grid between 0.001 and 100 keV, with 8192 energy bins.
 
-.. warning:: When a dataset is already loaded, the egrid command overwrites the model grid set by the response matrix. This can cause problems when convolving the model spectrum with the matrix. Therefore, if you need a special energy grid (for instance, extended energy range needed for photoionisation models such as pion), first issue the egrif command, and after that read your data files.
+.. warning:: When a dataset is already loaded, the egrid command overwrites the model grid set by the response matrix. This can cause problems when convolving the model spectrum with the matrix. Therefore, if you need a special energy grid (for instance, extended energy range needed for photoionisation models such as pion), first issue the egrid command, and after that read your data files.
 
 Syntax
 ~~~~~~
