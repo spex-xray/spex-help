@@ -23,6 +23,10 @@ Please enter the following command::
 
 This creates the ``spex`` conda environment for you. This step should only be done once.
 
+From SPEX version 3.07.00, we also provide a conda environment for Python 3.9 for cases when you need a
+more recent python version. This Python 3.9 environment can be installed using the file ``$SPEX90/python/spex39.yml``.
+The conda environment will be called ``spex39``.
+
 .. Note:: If you installed SPEX through the Mac package installer, then ``spex.yml`` is not located in a writeable
    directory. Please copy ``spex.yml`` first to your home directory (``cp /opt/spex/python/spex.yml ~/``) and then
    create the conda environment like: ``conda env create -f ~/spex.yml``.

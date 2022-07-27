@@ -58,10 +58,16 @@ Remove the tar file: rm SPEX-3.06.01-Linux-x86_64.tar.gz
 Mac OS
 ------
 
+We provide a SPEX binary version for Mac OS that has been built on Intel processors. This version
+also works on new Apple M1 chips.
+
+  .. Note:: This version of SPEX has been compiled using XQuartz 2.8.0, so please upgrade XQuartz
+            to a version >=2.8.0.
+
 Administrator install
 ^^^^^^^^^^^^^^^^^^^^^
 
-If you have administrator rights on your Mac, this option is the easiest one. Download the DMG file from Zenodo (SPEX-3.06.01-MacOS.dmg),
+If you have administrator rights on your Mac, this option is the easiest one. Download the PKG file from Zenodo (SPEX-3.06.01-MacOS.dmg),
 open it in Mac OS and follow the instructions on the screen.
 
 MacOS may complain about not being able to verify the developer of the software. Please close this dialog and
