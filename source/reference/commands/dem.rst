@@ -1,3 +1,6 @@
+.. _sec:dem_command:
+
+
 DEM: differential emission measure analysis
 ===========================================
 
