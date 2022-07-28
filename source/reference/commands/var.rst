@@ -111,12 +111,12 @@ syntax word added here).
 based upon Solar flare spectra; in addition, the 1s-np wavelengths of
 Ni XXVII and Ni XXVIII have been improved.
 
-``Fe17:`` The strongest Fe XVII lines are corrected in order to agree with
+``Fe17:`` The strongest Fe XVII lines are corrected in order to agree with
 the rates as calculated by `Doron & Behar (2002)
 <https://ui.adsabs.harvard.edu/abs/2002ApJ...574..518D/abstract>`_.
 
 ``Update:`` several minor corrections: the Si IX C7 line has been deleted;
-the Si VIII N6 line now only has the 319.83 Å line strength instead of
+the Si VIII N6 line now only has the 319.83 Å line strength instead of
 the total triplet strength; the Ni XVIII and Fe XVI Na1A and NA1B lines
 plus their satellites have been deleted.
 
@@ -148,6 +148,19 @@ we use the old calculations from the Mekal code (with only the *dr* and
 The user has the option, however, to use only Mekal data (for
 comparison) by setting the command ``var newcooldr false``.
 
+Charge exchange recombination and ionization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The charge exchange recombination and ionization rates can be set either from
+`Arnaud and Rothenflug (1985) <https://ui.adsabs.harvard.edu/abs/1985A&AS...60..425A>`_
+or `Kingdon and Ferland (1996) <http://dx.doi.org/10.1086/192335>`_
+using the ``var cxcon`` command.
+
+ 1. Use Arnaud and Rothenflug rates for charge exchange recombination and ionization (``var cxcon 1``).
+ 2. Use Kingdon and Ferland rates for charge exchange recombination and ionization (``var cxcon 2``).
+
+Default rates are Kingdon and Ferland.
+
 Syntax
 ------
 
@@ -166,7 +179,7 @@ The following syntax rules apply:
 | ``var doppler #i`` : Line broadening, see the four allowed values in
   the above description
 | ``var calc old`` : Use the old Mekal code
-| ``var calc new`` : Use the new updated atomic data (for SPEX version
+| ``var calc new`` : Use the new updated atomic data (for SPEX version
   3.0 and higher)
 | ``var occstart ground`` : Start new line calculation iteration with
   initial guess that all ions are in the ground state. This is the
@@ -191,6 +204,8 @@ The following syntax rules apply:
   collisional excitation calculations
 | ``var newcooldr #l`` : if true (default), use the latest cooling by
   dielectronic recombination calculations
+| ``var cxcon #i`` : If 1, Arnaud and Rothenflug charge exchange rates
+  are used. If 2 (default), Kingdon and Ferland rates are used.
 
 Examples
 --------
@@ -217,3 +232,4 @@ Examples
   cooling calculations
 | ``var newcooldr f`` : Change to the old dielectronic recombination
   cooling calculations
+| ``var cxcon 1`` : Change to Arnaud and Rothenflug (1985) charge exchange rates.

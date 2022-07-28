@@ -704,3 +704,14 @@ Example::
 
     >>> s.var_newcooldr(False)
 
+Charge exchange recombination and ionization
+""""""""""""""""""""""""""""""""""""""""""""
+
+Set the origin of the charge exchange recombination and ionization rates.
+
+   .. automethod:: pyspex.spex.Session.var_cxcon
+
+Example::
+
+    >>> s.var_cxcon(1)
+

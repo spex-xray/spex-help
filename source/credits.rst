@@ -68,6 +68,8 @@ Mao incorporated new radiative recombination data.
 
 Gu developed the charge exchange models.
 
+Missagh Mehdipour and Daniele Rogantini developed the tpho model.
+
 The non-equilibrium ionization balance routine was developed by Jansen,
 based on earlier work by Hans Schrijver (1974) and Gronenschild (1981).
 It was extended and updated together with Sawada (2014).
