@@ -88,3 +88,20 @@ With iPython and Jupyter notebook, it can be helpful to install the spex conda e
 
 In your Jupyter notebook, you can now select ``spex`` from the drop-down menu if you are creating a new project. The
 ``spex`` conda environment should now be linked to your Jupyter project.
+
+Dependencies
+------------
+
+PYSPEX depends on the ``numpy``, ``astropy``, ``future`` and ``matplotlib`` python modules. The current
+numpy versions should include the f2py program that is necessary to create the Fortran to python
+interface.
+
+Please take care that both modules are often distributed in a python 2 and python 3 version.
+If you compile SPEX for python 3, then also the python3 versions of the modules need to be
+installed. In Linux distributions, packages often have the python version in the name. In
+Debian, for example, the python 2 version of ``numpy`` is called ``python-numpy`` and the python 3
+version ``python3-numpy``.
+
+Since Python 2 is no longer maintained, we do not actively support the Python 2 application of
+PYSPEX anymore.
+
