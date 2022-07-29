@@ -387,7 +387,7 @@ Changes in SPEXACT 3.07.00:
   between SPEXACT v2 and v3 by using the ``var calc old/new`` command.
 
 - Charge exchange recombination and ionization rates update: Kingdon-Ferland
-  rates added; also allow to choose between Arnaud-Rothenflug and Kingdon-Ferland (var cxcon).
+  rates added; also allow to choose between Arnaud-Rothenflug and Kingdon-Ferland (:ref:`sec:var_cxcon`).
 
 - Magnetic field dependence of lines added to the hot (:ref:`sect:hot`) and cie (:ref:`sect:cie`) models.
 
@@ -396,7 +396,7 @@ Changes in SPEXACT 3.07.00:
 Changes in PYSPEX 3.07.00:
 ''''''''''''''''''''''''''
 
-- Added and modified PYSPEX commands to match new SPEX commands.
+- Added and modified PYSPEX commands to match new SPEX commands and added DEM modeling.
 
 - Output data is now offered as Astropy Quantities and QTables (see :ref:`pyspex_astropy`).
 

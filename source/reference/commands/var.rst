@@ -148,6 +148,8 @@ we use the old calculations from the Mekal code (with only the *dr* and
 The user has the option, however, to use only Mekal data (for
 comparison) by setting the command ``var newcooldr false``.
 
+ .. _sec:var_cxcon:
+
 Charge exchange recombination and ionization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
