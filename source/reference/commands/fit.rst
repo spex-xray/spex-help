@@ -220,7 +220,7 @@ Mixed modes
 
 Although usually it is recommended to use C-stat, there can be situations where some data
 are delivered as Gaussian variables, hence chi-squared statistics should be used.
-Obviously the user can swithc between such modes, but in cas there is a mixture of instruments
+Obviously the user can switch between such modes, but in case there is a mixture of instruments
 that require different statistics, the preferred statistic can be set per instrument region.
 The total fit statistic is then the sum of the contributions from the different regions, be it
 C-stat or chi-squared.

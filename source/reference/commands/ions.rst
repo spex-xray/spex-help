@@ -131,7 +131,7 @@ A performance test shows that a speed gain of a factor of 2-3 gan be reached wit
 parameter values. Try experimenting with this.
 
 .. warning:: it is advised, after obtaining a best fit with some setting of ewlim, to set the parameter ewlim to -25 (including all lines), issue
-a calculate command, and compare the cstat value of this model with the cstat value of your fit. Dicide if this is good enough for your purpose.
+   a calculate command, and compare the cstat value of this model with the cstat value of your fit. Dicide if this is good enough for your purpose.
 
 Mute lines
 ''''''''''

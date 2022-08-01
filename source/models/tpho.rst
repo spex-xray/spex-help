@@ -1,3 +1,5 @@
+.. _sec:tpho:
+
 Tpho: Time-dependent, non-equilibrium, photoionised plasma model
 ================================================================
 
@@ -48,7 +50,7 @@ ASCII outputs for further examination by the user outside of SPEX.
 | ``v``: Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``rms``: Rms velocity :math:`\sigma_{\mathrm b}` of line blend components
 | ``dv``: Velocity distance :math:`\Delta v` between different blend components
-| ``zv``: Average systematic velocity :math:`v` of the absorber
+| ``zv``: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 | ``ref``: Reference element for abundances
 | ``01..28``: Abundances of H to Ni; only here we take H, He, C, N, O,
   Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.

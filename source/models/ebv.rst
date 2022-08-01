@@ -1,3 +1,5 @@
+.. _model_evb:
+
 Ebv: Galactic interstellar extinction model
 ===========================================
 

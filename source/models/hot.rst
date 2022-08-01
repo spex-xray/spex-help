@@ -56,13 +56,14 @@ The following parameters are common to all our absorption models:
   components
 | ``dv`` : Velocity distance :math:`\Delta v` between different blend
   components
-| ``zv`` : Average systematic velocity :math:`v` of the absorber
+| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 
 The following parameters are the same as for the cie-model (:ref:`sect:cie`):
 
 | ``ref`` : Reference element
 | ``01...30`` : Abundances of H to Zn
 | ``file`` : Filename for the nonthermal electron distribution
+| ``b`` : External magnetic field strength in Gauss. See *cie* section. Default value: 0
 
 *Recommended citation:* `de Plaa et al. (2004)
 <https://ui.adsabs.harvard.edu/abs/2004A%26A...423...49D/abstract>`_ and

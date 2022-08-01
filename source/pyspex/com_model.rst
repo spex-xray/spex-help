@@ -49,6 +49,19 @@ The method returns the reference as a text string::
     >>> print(ab)
     Lodders et al. (2009)
 
+Aerror
+^^^^^^
+
+Calculate the uncertainties for several parameters of a model component due to the uncertainties in the
+atomic data.
+
+  .. automethod:: pyspex.spex.Session.aerror
+
+Example::
+
+    >>> aerr = s.aerror(1,1,'norm')
+    >>> aerr = s.aerror(1,1,'26',shell=1)
+
 Calculate
 ^^^^^^^^^
 
@@ -459,6 +472,149 @@ Examples::
     There are 3 sectors
     >>> s.sector_del(2)
 
+
+Differential Emission Measure (DEM) modeling
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+SPEX offers the functionality to fit thermal spectra with Differential Emission Measure (DEM)
+models. Some of these models do not have parametrisations for the DEM structure and allow
+users to fit the DEM distribution itself using various methods. In SPEX this is done using the
+DEM model and commands (:ref:`sec:dem_command`).
+
+The DEM commands are also available in PYSPEX. To use it, the ``dem`` model needs to be loaded
+using ``s.com('dem')``. The temperature grid can be set by setting the ``t1``, ``t2`` and ``nr``
+parameters. It is advised not to free any parameters.
+
+More information about the PYSPEX DEM class can be found at :ref:`class_dem`.
+
+Creating the DEM spectral library
+"""""""""""""""""""""""""""""""""
+
+As a first step, the spectrum needs to be calculated for all temperatures on the grid. This is 
+done using ``s.dem_lib()``:
+
+   .. automethod:: pyspex.spex.Session.dem_lib
+
+The next commands use various fitting methods to find a suitable DEM distribution using this 
+spectral library.
+
+Regularization method
+"""""""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_reg
+   
+There is also an automatic regularisation method:
+
+   .. automethod:: pyspex.spex.Session.dem_reg_auto
+   
+Both functions above return the best fit :math:`\chi^2` value and the DEM penalty.
+
+One can also do a grid search using ``s.dem_chireg()``, which outputs a table with best-fit 
+:math:`\chi^2` values and regularisation parameters:
+
+   .. automethod:: pyspex.spex.Session.dem_chireg
+
+For example::
+
+    >>> (chisq, penalty) = s.dem_reg(10.0)
+    >>> (chisq, penalty) = s.dem_reg_auto(s=5.0)
+    >>> table = s.dem_chireg(0.1,10,10)
+
+The output table has the columns: Regularisation parameter (Reg), Chi squared (Chi2) and 
+Penalty (Penalty).
+
+Clean method
+""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_clean
+   
+For example::
+
+    >>> (chisq, penalty) = s.dem_clean()
+    
+Polynomial method
+"""""""""""""""""
+
+The DEM can also be parametrised by a polynomial:
+
+   .. automethod:: pyspex.spex.Session.dem_poly
+
+For example::
+
+    >>> (chisq, penalty) = s.dem_poly(5)
+    
+Multi-temperature method
+""""""""""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_mult
+
+For example::
+
+    >>> (chisq, table) = s.dem_mult(3)
+    >>> print(table)
+
+The method outputs the :math:`\chi^2` value and a table with columns for the temperature (kT), 
+the error on temperature (dkT), and differential emission measure (DY).
+
+Genetic algorithm
+"""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_gene
+   
+For example::
+
+    >>> (chisq, penalty) = s.dem_gene(512,80)
+
+DEM smooth
+""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_smooth
+   
+For example::
+
+    >>> s.dem_smooth(0.5)
+
+Get the DEM distribution in python
+""""""""""""""""""""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_get
+
+For example::
+
+    >>> table = s.dem_get()
+    >>> print(table)
+    
+The output table has the columns temperature (kT), differential emission measure (DY) and
+the error on the emission measure (DY_Err), if available.
+
+Plot the DEM distribution
+"""""""""""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_plot
+
+For example:
+
+    >>> s.dem_plot()
+
+Reading the DEM distribution from file
+""""""""""""""""""""""""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_read
+
+For example::
+
+    >>> s.dem_read('mydem')
+
+Writing the DEM distribution to file
+""""""""""""""""""""""""""""""""""""
+
+   .. automethod:: pyspex.spex.Session.dem_write
+
+For example::
+
+    >>> s.dem_write('mydem')
+
+
 Plasma model parameters
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -547,4 +703,15 @@ And for the cooling by di-electronic recombination:
 Example::
 
     >>> s.var_newcooldr(False)
+
+Charge exchange recombination and ionization
+""""""""""""""""""""""""""""""""""""""""""""
+
+Set the origin of the charge exchange recombination and ionization rates.
+
+   .. automethod:: pyspex.spex.Session.var_cxcon
+
+Example::
+
+    >>> s.var_cxcon(1)
 

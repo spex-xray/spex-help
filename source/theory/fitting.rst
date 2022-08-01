@@ -11,5 +11,6 @@ spectral modelling and fitting.
    fitting/modtype
    fitting/sectors
    fitting/fitting
+   fitting/model_tests
 
 

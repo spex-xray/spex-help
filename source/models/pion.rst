@@ -299,7 +299,7 @@ The following parameters are common to all our absorption models:
   components
 | ``dv`` : Velocity distance :math:`\Delta v` between different blend
   components
-| ``zv`` : Average systematic velocity :math:`v` of the absorber
+| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 | The following parameters are the same as for the cie-model (see there
   for a description):
 | ``ref`` : Reference element
@@ -312,8 +312,7 @@ The following parameters are common to all our absorption models:
   parameter; if type equals 1, it uses lixi (see next parameter) as its
   main parameter
 | ``lixi`` : Optional alternative ionisation parameter, defines as
-  :math:`L_{\mathrm
-  {ion}}/\xi` in units of :math:`10^{39}` :math:`\mathrm{m}^{-1}`. This is useful
+  :math:`{L_\mathrm{ion}}/\xi` in units of :math:`10^{39}` :math:`\mathrm{m}^{-1}`. This is useful
   for time-variable spectra where :math:`\xi` has been determined from
   one spectrum and where one wants to calculated the transmitted
   spectrum for fixed :math:`nr^2` for a different ionising spectrum; in

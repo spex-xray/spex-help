@@ -56,6 +56,38 @@ Example::
 
     >>> s.fit_stat('chi2')
 
+If you have more instruments or regions which require a different fit statistic (optical or UV spectra
+for example), then it is possible to set a different statistic for specific regions with the
+``fit_stat_inst`` command:
+
+  .. automethod:: pyspex.spex.Session.fit_stat_inst
+
+One needs to specify the instrument and region number for which the new statistics apply.
+
+Example::
+
+    >>> s.fit_stat_inst('chi2',2,1)
+
+Fit method
+""""""""""
+Next to the default Levenberg-Marquardt algorithm, SPEX also offers Simplex and Simulated annealing
+methods (see :ref:`sec:fit`). The method can be selected using the following command:
+
+  .. automethod:: pyspex.spex.Session.fit_method
+
+The simulated annealing method has a number of parameters that can be altered. This can be done
+using the ``fit_set_ann`` method:
+
+  .. automethod:: pyspex.spex.Session.fit_set_ann
+
+The current parameters can also be found in the ``s.opt_fit`` object. See :ref:`sec:pyspex_optimize`
+for more information.
+
+Examples::
+
+    >>> s.fit_method('ann')
+    >>> s.fit_set_ann('rt', 0.85)
+
 Fit verbosity
 """""""""""""
 The intermediate results from the fit iterations can be shown in the terminal (and in a pgplot

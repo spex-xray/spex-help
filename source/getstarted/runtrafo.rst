@@ -86,6 +86,17 @@ performance, but results should be carefully checked. More
 information about re-arranging response matrices can be found in
 the SPEX Manual.
 
+Calculating response derivatives
+--------------------------------
+
+After the response structure, ``trafo`` asks whether one wants to calculate response derivatives::
+
+    Do you want to calculate the response derivatives (if not available)? (y/n) [no]:
+
+For high resolution spectra, this feature can optimize the response. See :ref:`sect:matrices`
+for more information. The default choice is `no`, which will return a classic response file
+without derivatives.
+
 Reading the spectra
 -------------------
 

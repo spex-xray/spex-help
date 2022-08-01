@@ -55,7 +55,7 @@ The parameters of the model are:
 | The following parameters are common to all our absorption models:
 | ``fcov`` : The covering factor of the absorber. Default value: 1 (full
   covering)
-| ``zv`` : Average systematic velocity :math:`v` of the absorber
+| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 
 *Recommended citation:* `Wilms et al. (2000)
 <https://ui.adsabs.harvard.edu/abs/2000ApJ...542..914W/abstract>`_ and

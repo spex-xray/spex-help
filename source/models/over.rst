@@ -15,6 +15,7 @@ Currently the following models are implemented in SPEX:
    bb
    cf
    cie
+   clus
    comt
    cx
    dabs
@@ -26,6 +27,7 @@ Currently the following models are implemented in SPEX:
    etau
    euve
    file
+   gain
    gaus
    hot
    hyd
@@ -44,6 +46,7 @@ Currently the following models are implemented in SPEX:
    rrc
    slab
    spln
+   tpho
    user
    vblo
    vgau
