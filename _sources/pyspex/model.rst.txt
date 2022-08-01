@@ -49,6 +49,14 @@ Abundance
 
 .. _class_distance:
 
+Aerror
+------
+
+    .. autoclass:: pyspex.model.Aerror
+       :members:
+
+.. _class_aerror:
+
 Distance
 --------
 
@@ -98,6 +106,13 @@ Model spectra
    .. autoclass:: pyspex.model.Spectrum
       :members:
 
+.. _class_dem:
+
+DEM Modeling
+------------
+
+   .. autoclass:: pyspex.model.Dem
+      :members:
 
 .. _class_var:
 

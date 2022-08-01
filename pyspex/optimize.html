@@ -4,15 +4,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6.3.4. Optimization functions &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6.3.4. Optimization functions &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/optimize.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -34,163 +34,199 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="optimization-functions">
+  <section id="optimization-functions">
 <h1><span class="section-number">6.3.4. </span>Optimization functions<a class="headerlink" href="#optimization-functions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="fitting-spectra">
-<h2><span class="section-number">6.3.4.1. </span>Fitting spectra<a class="headerlink" href="#fitting-spectra" title="Permalink to this headline">¶</a></h2>
+<section id="fitting-spectra">
+<span id="sec-pyspex-optimize"></span><h2><span class="section-number">6.3.4.1. </span>Fitting spectra<a class="headerlink" href="#fitting-spectra" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
-<dt id="pyspex.optimize.Fit">
-<em class="property">class </em><code class="sig-prename descclassname">pyspex.optimize.</code><code class="sig-name descname">Fit</code><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.optimize.</span></span><span class="sig-name descname"><span class="pre">Fit</span></span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the parent class of all fit related commands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/stat.html#module-stat" title="(in Python v3.9)"><strong>stat</strong></a> (<em>basestring</em>) – Fit statistics.</p></li>
-<li><p><strong>cstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – C-statistics value.</p></li>
-<li><p><strong>chisq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Chi-squared value.</p></li>
-<li><p><strong>wstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – W-statistics value (not recommended).</p></li>
-<li><p><strong>nfree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Degrees of freedom.</p></li>
-<li><p><strong>cstatexp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Expected C-statistics value (C-stat only).</p></li>
-<li><p><strong>cstatrms</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – RMS uncertainty on expected C-stat value.</p></li>
+<li><p><strong>stat</strong> (<em>basestring</em>) – Fit statistics.</p></li>
+<li><p><strong>cstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – C-statistics value.</p></li>
+<li><p><strong>chisq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Chi-squared value.</p></li>
+<li><p><strong>wstat</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – W-statistics value (not recommended).</p></li>
+<li><p><strong>nfree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Degrees of freedom.</p></li>
+<li><p><strong>cstatexp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Expected C-statistics value (C-stat only).</p></li>
+<li><p><strong>cstatrms</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – RMS uncertainty on expected C-stat value.</p></li>
+<li><p><strong>ann_rt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Simulated annealing: rt</p></li>
+<li><p><strong>ann_eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Simulated annealing: eps</p></li>
+<li><p><strong>ann_t</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Simulated annealing: t</p></li>
+<li><p><strong>ann_vm</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Simulated annealing: vm</p></li>
+<li><p><strong>ann_ns</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Simulated annealing: ns</p></li>
+<li><p><strong>ann_max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Simulated annealing: max evaluations</p></li>
+<li><p><strong>ann_print</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Simulated annealing: print flag</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">niter</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.fit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">niter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the SPEX fit command. The maximum number of iterations (niter) can be optionally set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of fit iterations.</p>
+<dd class="field-odd"><p><strong>niter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of fit iterations.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.get_method">
-<code class="sig-name descname">get_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.get_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.get_method" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.get_method">
+<span class="sig-name descname"><span class="pre">get_method</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.get_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.get_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.get_statistic">
-<code class="sig-name descname">get_statistic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.get_statistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.get_statistic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.get_statistic">
+<span class="sig-name descname"><span class="pre">get_statistic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.get_statistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.get_statistic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.print">
-<code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.print" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.print"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.print" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print each fit iteration to the console (default is True). The status variable can be either True or False,
 which means printing is on or off, respectively.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Set fit to high verbosity (True is yes, False is no).</p>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set fit to high verbosity (True is yes, False is no).</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.set_method">
-<code class="sig-name descname">set_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meth</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_method" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.set_ann">
+<span class="sig-name descname"><span class="pre">set_ann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_ann"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_ann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the simulating annealing method parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Type of annealing parameter (rt, t, eps, vm, ns, max, or print).</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Value of the parameter (will be converted to the nearest int if necessary).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.set_method">
+<span class="sig-name descname"><span class="pre">set_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the desired fit statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
+<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.set_statistic">
-<code class="sig-name descname">set_statistic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stat</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_statistic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_statistic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.set_statistic">
+<span class="sig-name descname"><span class="pre">set_statistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_statistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_statistic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the desired fit statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
+<dd class="field-odd"><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.show">
-<code class="sig-name descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.show" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.set_statistic_inst">
+<span class="sig-name descname"><span class="pre">set_statistic_inst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.set_statistic_inst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.set_statistic_inst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the desired fit statistics per instrument and region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stat</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Abbreviation for the fit statistics to be used. For example: ‘csta’, ‘chi2’, ‘wsta’.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Region number.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the fit statistics to the terminal.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Fit.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Fit.update" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Fit.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Fit.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Fit.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the most recent statistics values from SPEX.</p>
 </dd></dl>
 
 </dd></dl>
 
 </div></blockquote>
-</div>
-<div class="section" id="error-calculation">
+</section>
+<section id="error-calculation">
 <h2><span class="section-number">6.3.4.2. </span>Error calculation<a class="headerlink" href="#error-calculation" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
-<dt id="pyspex.optimize.Error">
-<em class="property">class </em><code class="sig-prename descclassname">pyspex.optimize.</code><code class="sig-name descname">Error</code><a class="reference internal" href="../_modules/pyspex/optimize.html#Error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Error">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.optimize.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to calculate errors for free fit parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="com_model.html#pyspex.spex.Session.sector" title="pyspex.spex.Session.sector"><strong>sector</strong></a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number of parameter</p></li>
-<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number of parameter</p></li>
-<li><p><strong>parameter</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Parameter name</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Parameter value</p></li>
-<li><p><strong>lerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Lower error boundary</p></li>
-<li><p><strong>uerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Upper error boundary</p></li>
-<li><p><strong>lc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Is there a lower C-stat or chi**2 value found?</p></li>
-<li><p><strong>cmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Lowest C-stat or chi**2 value</p></li>
-<li><p><strong>pmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Parameter value for which a better C-stat or Chi**2 was found</p></li>
-<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Delta C-stat or chi**2 to optimize for</p></li>
-<li><p><strong>calculated</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Is the error calculated?</p></li>
+<li><p><strong>sector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Sector number of parameter</p></li>
+<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Component number of parameter</p></li>
+<li><p><strong>parameter</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Parameter name</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Parameter value</p></li>
+<li><p><strong>lerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Lower error boundary</p></li>
+<li><p><strong>uerr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Upper error boundary</p></li>
+<li><p><strong>lc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Is there a lower C-stat or chi**2 value found?</p></li>
+<li><p><strong>cmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Lowest C-stat or chi**2 value</p></li>
+<li><p><strong>pmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Parameter value for which a better C-stat or Chi**2 was found</p></li>
+<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Delta C-stat or chi**2 to optimize for</p></li>
+<li><p><strong>calculated</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Is the error calculated?</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="pyspex.optimize.Error.error">
-<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">isect</span></em>, <em class="sig-param"><span class="n">icomp</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">dchi</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.error" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Error.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Error.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the error value for a particular parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – (Optional) <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Error.get_value">
-<code class="sig-name descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.get_value" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Error.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.get_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Error.get_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function to return the parameter value and the errors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A tuple with the parameter value, lower error and upper error.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyspex.optimize.Error.set_dchi">
-<code class="sig-name descname">set_dchi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dchi</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.set_dchi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyspex.optimize.Error.set_dchi" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.optimize.Error.set_dchi">
+<span class="sig-name descname"><span class="pre">set_dchi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dchi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/optimize.html#Error.set_dchi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.optimize.Error.set_dchi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the delta c-stat or delta chi**2 value that the error search should optimize for.
 The default value is 1.0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p>
+<dd class="field-odd"><p><strong>dchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – <img class="math" src="../_images/math/898c26c3d40f43357e80bbd91d0d88771b2ac6a9.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value to optimize for (Default: 1.0, 68% errors)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -198,8 +234,8 @@ The default value is 1.0.</p>
 </dd></dl>
 
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -231,7 +267,7 @@ The default value is 1.0.</p>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads">6.2. Analysis threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#analysis-threads-other-tricks">6.2. Analysis threads &amp; other tricks</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
 </ul>
 </li>
@@ -257,7 +293,7 @@ The default value is 1.0.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -276,9 +312,9 @@ The default value is 1.0.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

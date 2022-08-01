@@ -45,6 +45,13 @@ Different options exist and several parameters can be set:
    specific seed can be set. The command will show the seeds used for
    the maximum number of expected threads.
 
+Please note that by default, only the first instrument and region are being
+simulated. If you want to simulate all instruments and regions, then this 
+can be arranged by the commands::
+    
+    SPEX> simulate instrument 1:2
+    SPEX> simulate region 1:2
+
 .. Warning:: A response matrix and spectrum of the region and the
    instrument you want to simulate are necessary, because SPEX needs the
    response matrix as well as the background to be subtracted for the

@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1.6. Use SPEX through Docker &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.7. Use SPEX through Docker &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/getstarted/docker.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Analysis threads" href="../threads.html" />
-    <link rel="prev" title="1.5. Compile SPEX from source" href="compile.html" />
+    <link rel="prev" title="1.6. Compile SPEX from source" href="compile.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,49 +34,49 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="use-spex-through-docker">
-<span id="sec-docker"></span><h1><span class="section-number">1.6. </span>Use SPEX through Docker<a class="headerlink" href="#use-spex-through-docker" title="Permalink to this headline">¶</a></h1>
+  <section id="use-spex-through-docker">
+<span id="sec-docker"></span><h1><span class="section-number">1.7. </span>Use SPEX through Docker<a class="headerlink" href="#use-spex-through-docker" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div></div></blockquote>
 <p>SPEX is written mostly in Fortran 90 and depends on a few system libraries. This makes it difficult to provide a few
 binary versions that will continue to run on multiple platforms over many years. Therefore, we have also created a
 Docker image for SPEX that can be run on the Docker platform, which is available for Linux, Mac OS and Windows.</p>
-<div class="section" id="step-1-download-and-install-docker-on-your-computer">
-<h2><span class="section-number">1.6.1. </span>Step 1: Download and install Docker on your computer<a class="headerlink" href="#step-1-download-and-install-docker-on-your-computer" title="Permalink to this headline">¶</a></h2>
+<section id="step-1-download-and-install-docker-on-your-computer">
+<h2><span class="section-number">1.7.1. </span>Step 1: Download and install Docker on your computer<a class="headerlink" href="#step-1-download-and-install-docker-on-your-computer" title="Permalink to this headline">¶</a></h2>
 <p>To run a Docker image, please install Docker on your computer. See the <a class="reference external" href="https://www.docker.com/">Docker website</a>
 for details and look for the Docker Engine community edition. Once you have downloaded and installed Docker, you can
 continue with this tutorial.</p>
-</div>
-<div class="section" id="step-2-download-the-spex-docker-image-from-zenodo">
-<h2><span class="section-number">1.6.2. </span>Step 2: Download the SPEX docker image from Zenodo<a class="headerlink" href="#step-2-download-the-spex-docker-image-from-zenodo" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-2-download-the-spex-docker-image-from-zenodo">
+<h2><span class="section-number">1.7.2. </span>Step 2: Download the SPEX docker image from Zenodo<a class="headerlink" href="#step-2-download-the-spex-docker-image-from-zenodo" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX Docker image is available on <a class="reference external" href="https://doi.org/10.5281/zenodo.1924563">this Zenodo page</a> as a tar.gz file.
 Please download the file called spex-[version]-Docker.tar.gz, for example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>spex-3.06.01-Docker.tar.gz
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>spex-3.07.00-Docker.tar.gz
 </pre></div>
 </div>
 <p>Or, alternatively, you can pull the image from Docker hub with the command: <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">spexxray/spex:latest</span></code>.</p>
-</div>
-<div class="section" id="step-3-import-the-spex-image-into-docker">
-<h2><span class="section-number">1.6.3. </span>Step 3: Import the SPEX image into Docker<a class="headerlink" href="#step-3-import-the-spex-image-into-docker" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-3-import-the-spex-image-into-docker">
+<h2><span class="section-number">1.7.3. </span>Step 3: Import the SPEX image into Docker<a class="headerlink" href="#step-3-import-the-spex-image-into-docker" title="Permalink to this headline">¶</a></h2>
 <p>Before you can run the docker file, it should be imported into the docker system. This can be done on the command line:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; docker load -i spex-3.06.01-docker.tar.gz
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; docker load -i spex-3.07.00-docker.tar.gz
 </pre></div>
 </div>
-<p>The image will be named spexxray/spex with the tag 3.05.00 and can be found with the command:</p>
+<p>The image will be named spexxray/spex with the tag 3.07.00 and can be found with the command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; docker images
 REPOSITORY TAG IMAGE ID CREATED SIZE
-spexxray/spex 3.06.01 0a0a0a0a0a0 1 minute ago 996MB
+spexxray/spex 3.07.00 0a0a0a0a0a0 1 minute ago 996MB
 </pre></div>
 </div>
-</div>
-<div class="section" id="step-4-run-spex-on-docker">
-<h2><span class="section-number">1.6.4. </span>Step 4: Run SPEX on Docker<a class="headerlink" href="#step-4-run-spex-on-docker" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-4-run-spex-on-docker">
+<h2><span class="section-number">1.7.4. </span>Step 4: Run SPEX on Docker<a class="headerlink" href="#step-4-run-spex-on-docker" title="Permalink to this headline">¶</a></h2>
 <p>Using the docker run command, the image can be executed and SPEX can be run in a so-called container. To enjoy all the
 capabilities of SPEX, two things need to be arranged in the docker run command: access to local directories and a graphical
 X11 connection. To arrange this, additional flags need to be specified on the command line.</p>
-</div>
-<div class="section" id="mounting-local-directories-to-the-container">
-<h2><span class="section-number">1.6.5. </span>Mounting local directories to the container<a class="headerlink" href="#mounting-local-directories-to-the-container" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mounting-local-directories-to-the-container">
+<h2><span class="section-number">1.7.5. </span>Mounting local directories to the container<a class="headerlink" href="#mounting-local-directories-to-the-container" title="Permalink to this headline">¶</a></h2>
 <p>If you would like to mount your own home directory into the SPEX container such that you can use some spo and res files there
 or save the output files, then you need the following flags:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-e LOCAL_USER_ID=`id -u $USER`
@@ -87,9 +87,9 @@ or save the output files, then you need the following flags:</p>
 write to your home directory from within the container.</p>
 <p>The second flag arranges that your true local home directory called /home/myusername is mounted to /home/user inside the SPEX container.</p>
 <p>MAC users: Please note that on OSX your home directory is in /Users/myusername.</p>
-</div>
-<div class="section" id="arranging-the-x11-connection">
-<h2><span class="section-number">1.6.6. </span>Arranging the X11 connection<a class="headerlink" href="#arranging-the-x11-connection" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="arranging-the-x11-connection">
+<h2><span class="section-number">1.7.6. </span>Arranging the X11 connection<a class="headerlink" href="#arranging-the-x11-connection" title="Permalink to this headline">¶</a></h2>
 <p>To make sure PGPLOT can connect to the X11 server on the host, we need to make a few connections from the container to the host machine.
 This is done with the following flags:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-e DISPLAY=$DISPLAY
@@ -104,9 +104,9 @@ in the XQuartz settings. In addition, the X server should be set to allow incomi
 </pre></div>
 </div>
 <p>Then the DISPLAY variable on the docker run line should be set to host.docker.internal:0</p>
-</div>
-<div class="section" id="the-complete-docker-run-command">
-<h2><span class="section-number">1.6.7. </span>The complete docker run command<a class="headerlink" href="#the-complete-docker-run-command" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-complete-docker-run-command">
+<h2><span class="section-number">1.7.7. </span>The complete docker run command<a class="headerlink" href="#the-complete-docker-run-command" title="Permalink to this headline">¶</a></h2>
 <p>The full run commands for docker now look like below, where -w means that the container will start in working directory /home/user.</p>
 <p>For Linux:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it \
@@ -115,7 +115,7 @@ in the XQuartz settings. In addition, the X server should be set to allow incomi
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /home/myusername:/home/user \
 -w /home/user \
-spexxray/spex:3.06.01
+spexxray/spex:3.07.00
 </pre></div>
 </div>
 <p>For Mac:</p>
@@ -125,13 +125,13 @@ spexxray/spex:3.06.01
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v /Users/myusername:/home/user \
 -w /home/user \
-spexxray/spex:3.06.01
+spexxray/spex:3.07.00
 </pre></div>
 </div>
 <p>The docker run command above will provide you with a prompt that will allow you to run spex:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@linux:~&gt; docker run -it -e DISPLAY=$DISPLAY -e LOCAL_USER_ID=`id -u $USER` \
 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/myusername:/home/user -w /home/user \
-spexxray/spex:3.06.01
+spexxray/spex:3.07.00
 
 Welcome to the SPEX Docker Container!
 Just type &#39;spex&#39; to start the program.
@@ -140,22 +140,23 @@ user@0922f2e4ff85:~&gt;
 </div>
 <p>In this environment, you can just run spex or trafo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@0922f2e4ff85:~&gt; spex
- Welcome user to SPEX version 3.06.01
+ Welcome user to SPEX version 3.07.00
 
  NEW in this version of SPEX:
-22-07-2020 Bugfix: neij gives line emission while abundance is zero.
-18-08-2020 Changed reference density from electron density to hydrogen density.
-04-09-2020 Added pyroxene back to the amol model.
-23-10-2020 Update of H I collision strengths (IMPORTANT)
-24-11-2020 Added ascdump and par_show functions for the Python interface.
+10-08-2021 Added tpho model for time-dependent photo-ionisation modeling
+18-11-2021 Added spherically symmetric cluster model
+13-05-2022 Included resonant scattering in cluster model
+13-05-2022 Added aerror command to calculate atomic data errors
+24-06-2022 Double precision now also for data handling and plotting
+01-08-2022 Final release
 
  Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
 SPEX&gt;
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -185,8 +186,9 @@ SPEX&gt;
 <li class="toctree-l2"><a class="reference internal" href="runspex.html">1.2. How to run SPEX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtrafo.html">1.3. How to convert spectra to SPEX format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyspex.html">1.4. Install the SPEX Python interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compile.html">1.5. Compile SPEX from source</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.6. Use SPEX through Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html#dependencies">1.5. Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compile.html">1.6. Compile SPEX from source</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.7. Use SPEX through Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -206,7 +208,7 @@ SPEX&gt;
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../getstarted.html"><span class="section-number">1. </span>Getting started</a><ul>
-      <li>Previous: <a href="compile.html" title="previous chapter"><span class="section-number">1.5. </span>Compile SPEX from source</a></li>
+      <li>Previous: <a href="compile.html" title="previous chapter"><span class="section-number">1.6. </span>Compile SPEX from source</a></li>
       <li>Next: <a href="../threads.html" title="next chapter"><span class="section-number">2. </span>Analysis threads</a></li>
   </ul></li>
   </ul></li>
@@ -216,7 +218,7 @@ SPEX&gt;
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -235,9 +237,9 @@ SPEX&gt;
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

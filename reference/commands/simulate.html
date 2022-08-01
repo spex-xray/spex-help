@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.26. Simulate: Simulation of data &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1.28. Simulate: Simulation of data &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/simulate.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1.27. Step: Grid search for spectral fits" href="step.html" />
-    <link rel="prev" title="3.1.25. Shiftplot: shift the plotted spectrum for display purposes" href="shiftplot.html" />
+    <link rel="next" title="3.1.29. Step: Grid search for spectral fits" href="step.html" />
+    <link rel="prev" title="3.1.27. Shiftplot: shift the plotted spectrum for display purposes" href="shiftplot.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,10 +34,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="simulate-simulation-of-data">
-<span id="sec-simulate"></span><h1><span class="section-number">3.1.26. </span>Simulate: Simulation of data<a class="headerlink" href="#simulate-simulation-of-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2><span class="section-number">3.1.26.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+  <section id="simulate-simulation-of-data">
+<span id="sec-simulate"></span><h1><span class="section-number">3.1.28. </span>Simulate: Simulation of data<a class="headerlink" href="#simulate-simulation-of-data" title="Permalink to this headline">¶</a></h1>
+<section id="overview">
+<h2><span class="section-number">3.1.28.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This command is used for spectral simulations. The user should start
 with a spectral model and a spectral data set (both matrix and
 spectrum). After giving the “simulate” command, the observed spectrum
@@ -71,6 +71,13 @@ generator based on the system clock, but through this command a
 specific seed can be set. The command will show the seeds used for
 the maximum number of expected threads.</p></li>
 </ul>
+<p>Please note that by default, only the first instrument and region are being
+simulated. If you want to simulate all instruments and regions, then this
+can be arranged by the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">simulate</span> <span class="n">instrument</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">simulate</span> <span class="n">region</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span>
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A response matrix and spectrum of the region and the
@@ -116,9 +123,9 @@ channel), then scaling the background is slightly inaccurate as it takes
 the observed instead of expected number of background counts as the
 starting point for the simulation.</p>
 </div>
-</div>
-<div class="section" id="syntax">
-<h2><span class="section-number">3.1.26.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="syntax">
+<h2><span class="section-number">3.1.28.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>Note that only the “simulate” keyword followed by a number (the exposure
 time will do the actual simulation. All other syntax rules just set some
 parameters. The following syntax rules apply:</p>
@@ -146,9 +153,9 @@ added to the model background (this is the default).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">seed</span> <span class="pre">random</span></code> : Set random seed randomly based on system
 clock.</div>
 </div>
-</div>
-<div class="section" id="examples">
-<h2><span class="section-number">3.1.26.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.1.28.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">10000.</span></code> : This simulates a new spectrum/dataset with
 10 000 s exposure time.</div>
@@ -163,8 +170,8 @@ instruments 2–4 only</div>
 instrument involved</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">seed</span> <span class="pre">2</span></code> : Set random number seed to 2.</div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -212,8 +219,8 @@ instrument involved</div>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
   <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
-      <li>Previous: <a href="shiftplot.html" title="previous chapter"><span class="section-number">3.1.25. </span>Shiftplot: shift the plotted spectrum for display purposes</a></li>
-      <li>Next: <a href="step.html" title="next chapter"><span class="section-number">3.1.27. </span>Step: Grid search for spectral fits</a></li>
+      <li>Previous: <a href="shiftplot.html" title="previous chapter"><span class="section-number">3.1.27. </span>Shiftplot: shift the plotted spectrum for display purposes</a></li>
+      <li>Next: <a href="step.html" title="next chapter"><span class="section-number">3.1.29. </span>Step: Grid search for spectral fits</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -223,7 +230,7 @@ instrument involved</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -242,9 +249,9 @@ instrument involved</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

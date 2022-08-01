@@ -18,7 +18,8 @@ to be used for cosmological redshifts.
 Case 2 (flag=1): By setting this flag, the time dilatation correction 
 to the flux is not applied. This is used for a redshift caused by motion 
 away from us. It should be used for any velocity fields other than the 
-Hubble flow.
+Hubble flow. Make sure that you limit z to a range -1<z<1 to remain within
+physical limits.
 
 .. Warning:: Note that this component should be used in tandem with the
    distance command (:ref:`sec:distance`) to

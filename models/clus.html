@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.6. Clus: projected cluster model &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/clus.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.7. Comt: comptonisation model" href="comt.html" />
+    <link rel="prev" title="4.1.5. Cie: collisional ionisation equilibrium model" href="cie.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="clus-projected-cluster-model">
+<span id="sect-clus"></span><h1><span class="section-number">4.1.6. </span>Clus: projected cluster model<a class="headerlink" href="#clus-projected-cluster-model" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a complex model, so please read carefully this documentation before using the model</p>
+</div>
+<section id="overview">
+<h2><span class="section-number">4.1.6.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This model calculates the spectrum and radial profiles of a cluster of galaxies.
+The 3-D density, temperature, abundance, turbulence and in/outflow fields are
+parameterized. The cluster is subdivided into 3D-shells; the number of shells can be adjusted.
+For each shell, the spectrum is calculated using the collisional equilibrium (CIE) model for
+the proper parameters.</p>
+<p>The shell spectra are projected on the sky, and the user can choose an inner and outer
+projected radius between which the spectrum is calculated. By choosing different radii,
+the spectra of different regions of the cluster can be evaluated.</p>
+<p>The model calculates the total spectrum, and this spectrum can be fit like any other SPEX model.
+At this moment, there are two ascii-output options associated with the model.</p>
+<p>The first option (“clus”) provides output of radius, hydrogen density, temperature,
+gas pressure, emission measure, turbulent velocity, outflow velocity and relative abundances.
+The second option (“clup”) provides the projected radial profile of the number of photons and energy flux,
+in an energy band specified by the user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>this model has a lot of free parameters (currently 80). Do not blindly thaw
+all parameters, but make as much as possible use of other constraints and common sense.</p>
+</div>
+</section>
+<section id="two-important-radii">
+<h2><span class="section-number">4.1.6.2. </span>Two important radii<a class="headerlink" href="#two-important-radii" title="Permalink to this headline">¶</a></h2>
+<p>It is important to distinguish two important radii in the model.</p>
+<p>Internally, everything is scaled to <img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/> , which is the first parameter of the
+model (input name r500). It should be given in units of <img class="math" src="../_images/math/5294cfd02629a9ede75606a475e5ef604c0e65c8.svg" alt="10^{22}" style="vertical-align: 0px"/> meter.
+The default value is 3 (i.e., <img class="math" src="../_images/math/777e3db638c04945daa5c33fe200d29df9c03009.svg" alt="r_{500} = 3\times 10^{22}" style="vertical-align: -2px"/> m, or approximately (but not exactly!))
+1 Mpc.</p>
+<p>The cluster is terminated at a radius <img class="math" src="../_images/math/03018ab2606e2a5ec467615968b43b6b05d30257.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/> (input name: rout).
+Outside this radius, the density is cut-off to zero, so this means the effective edge
+of the cluster is at <img class="math" src="../_images/math/03018ab2606e2a5ec467615968b43b6b05d30257.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/>. It should be provided in units of
+<img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/>, and its default value is 2 (i.e., <img class="math" src="../_images/math/ffb37c6ebdb5bed80bbd31c5b070338b600ccf34.svg" alt="2\times 3" style="vertical-align: -1px"/> or <img class="math" src="../_images/math/8c09dd157c1d43ebe03d22ddc11d05d386d07178.svg" alt="6\times 10^{22}" style="vertical-align: -1px"/> m
+or approximately 648 kpc).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you really want to go to the outermost cluster outskirts,
+and you increase <img class="math" src="../_images/math/03018ab2606e2a5ec467615968b43b6b05d30257.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/> , then you should take care to adjust
+possibly the number of shells (default 25) and/or projected annuli (default 50),
+otherwise the spatial resolution of your model may be insufficient.</p>
+</div>
+<p>The two parameters governing the radial scaling are summarized below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 38%" />
+<col style="width: 22%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>r500</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p>3.0</p></td>
+<td><p><img class="math" src="../_images/math/5294cfd02629a9ede75606a475e5ef604c0e65c8.svg" alt="10^{22}" style="vertical-align: 0px"/> m</p></td>
+</tr>
+<tr class="row-odd"><td><p>rout</p></td>
+<td><p><img class="math" src="../_images/math/03018ab2606e2a5ec467615968b43b6b05d30257.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/></p></td>
+<td><p>2.0</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="radial-grid-3-d-shells">
+<h2><span class="section-number">4.1.6.3. </span>Radial grid: 3-d shells<a class="headerlink" href="#radial-grid-3-d-shells" title="Permalink to this headline">¶</a></h2>
+<p>The 3-d model is evaluated for a logarithmic radius grid, in order to cover the possible
+large dynamical range between the core of the cluster and the outermost radius.
+The user specifies <img class="math" src="../_images/math/32187c9863dac11c8e875917a69cde56c787507a.svg" alt="n_{r}" style="vertical-align: -2px"/> (input name nr), the number of shells for which the
+model is evaluated.</p>
+<p>The default value for nr is 25, but it can be changed (obviously, for large values the computation
+time increases). The logarithmic grid is chosen to be beween <img class="math" src="../_images/math/cc56081f55ff839b1d2d27f2cbbb4bf237adbb87.svg" alt="r_{\mathrm{in}}" style="vertical-align: -2px"/>
+and <img class="math" src="../_images/math/03018ab2606e2a5ec467615968b43b6b05d30257.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/>.
+Here <img class="math" src="../_images/math/cc56081f55ff839b1d2d27f2cbbb4bf237adbb87.svg" alt="r_{\mathrm{in}}" style="vertical-align: -2px"/> is taken as 1% of <img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/>, or if that is smaller,
+10% of the smallest of the core radii for the density profile (see later).
+Obviously, for the innermost shell the inner boundary <img class="math" src="../_images/math/cc56081f55ff839b1d2d27f2cbbb4bf237adbb87.svg" alt="r_{\mathrm{in}}" style="vertical-align: -2px"/> is replaced by 0 instead.</p>
+<p>The hydrodynamical parameters like density, temperature etc. are then evaluated for the middle
+radius of each shell using analytical parameterisation of the profiles (see later), and we assume
+that these quantities are constant within the shell.</p>
+<p>Therefore, the emission measure of each shell is simply evaluated as the product of
+electron and hydrogen density at the central radius of the shell, multiplied by the volume of the
+shell; we do not perform finer integration.</p>
+<p>In case the user introduces a density discontinuity in the model, the radius of the density
+discontinuity is also chosen as an additional grid point (if it is close to an existing grid point,
+that existing grid point is moved to the discontinuity).</p>
+</section>
+<section id="radial-grid-projected-profile">
+<h2><span class="section-number">4.1.6.4. </span>Radial grid: projected profile<a class="headerlink" href="#radial-grid-projected-profile" title="Permalink to this headline">¶</a></h2>
+<p>While as said we take a logarithmic grid for the 3-d shells of the cluster, to cover the large
+dynamical range, we take a linear grid for the projected 2-d profile. This is because that projected
+profile is often closely linked to a real detector, which has a linear scale.</p>
+<p>The default number of projected annuli (input name: npro) is 50, but again that number can be changed.</p>
+<p>While for the 3-d shells we only evaluate quantities at the shell central radii, in evaluating the
+projected profiles we do some sub-shell evaluation (typically using 20 points for each shell).
+This is in order to avid a kind of “saw-tooth” projected profiles, which would result
+if we simply kept the emission measure constant within the shell. Within the shell, we adopt
+a power-law behaviour of the emission measure as a function of radius. The power-law slope
+is simply determined by comparing the emission measures of the neighbouring shells.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you adjust the parameters for the model, take care that the radial bin sizes of the
+outermost shells are compatible in magnitude with the bin sizes of the projected profiles.
+You can see both grids by using the ascii-output options for the “clus” and “clup” options,
+respectively.</p>
+</div>
+<p>The parameters governing both the 3-d and projected bins are summarized below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 46%" />
+<col style="width: 26%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>nr</p></td>
+<td><p><img class="math" src="../_images/math/32187c9863dac11c8e875917a69cde56c787507a.svg" alt="n_{r}" style="vertical-align: -2px"/></p></td>
+<td><p>25</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>npro</p></td>
+<td><p>npro</p></td>
+<td><p>50</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="radial-density-distribution">
+<h2><span class="section-number">4.1.6.5. </span>Radial density distribution<a class="headerlink" href="#radial-density-distribution" title="Permalink to this headline">¶</a></h2>
+<p>The hydrogen density distribution is parametrised as the sum of two beta-models,
+modified by a possible density jump (shock):</p>
+<div class="math">
+<p><img src="../_images/math/8153a1638fddd815e6f192f60923de89d92dc66a.svg" alt="n(r) = \bigl[ n_1(r) + n_2(r) \bigr] f(r)"/></p>
+</div><p>with for <img class="math" src="../_images/math/88c9388f12c77eee440e01df0effa50de223c940.svg" alt="i=1,2:" style="vertical-align: -3px"/></p>
+<div class="math">
+<p><img src="../_images/math/4bb0b06bc6e64d5d9a6960ec6ac7c9435ab6307d.svg" alt="n_i(r) = \frac {n_{0,i}}{ \bigl[ 1 + (r/r_{c,i})^2 ) \bigl] ^{1.5\beta_{i}}}"/></p>
+</div><p>where <img class="math" src="../_images/math/eeecca7a32f7816a04bbabeb59db5dee085e231f.svg" alt="n_0" style="vertical-align: -2px"/> is the central density in units of per cubic meter for both components
+(input names hd1 and hd2), <img class="math" src="../_images/math/ba49f606547750bfdbe415420c09f60776ed57c0.svg" alt="r_c" style="vertical-align: -2px"/> are the core radii (rc1 and rc2 in the input)
+in units of <img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> the beta parameters (bet1 and bet2 in the input).</p>
+<p>The optional density jump parameterisation <img class="math" src="../_images/math/7e5207cbc72de00653767e70e7e0a3186f3b19d9.svg" alt="f(r)" style="vertical-align: -4px"/> is:</p>
+<div class="math">
+<p><img src="../_images/math/17776c89ed8f28079da9ef33163df0d8971be49d.svg" alt="r&lt;r_s:\quad f(r) = 1"/></p>
+</div><div class="math">
+<p><img src="../_images/math/cefc535126aeae94e8b8cefbdfc3d4a07c963691.svg" alt="r&gt;r_s:\quad f(r) = \Delta_d (r/r_s)^{\gamma_d}"/></p>
+</div><p>where the discontinuity radius <img class="math" src="../_images/math/c7f3b2787e4420238ee7e041b3176e85fba5f884.svg" alt="r_{s}" style="vertical-align: -2px"/> (input name rsh)
+is given again in units of <img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/>
+and further <img class="math" src="../_images/math/42b93d76eafca6b91f32296d30c70edc8427a28d.svg" alt="\Delta_d" style="vertical-align: -2px"/> is the density jump at <img class="math" src="../_images/math/c7f3b2787e4420238ee7e041b3176e85fba5f884.svg" alt="r_{s}" style="vertical-align: -2px"/> (its input name is dfac).
+Note that for <img class="math" src="../_images/math/0596f9f4dda4118ef357940f97693fd54a097fc0.svg" alt="\Delta_d &gt; 1" style="vertical-align: -2px"/> the density increases outside <img class="math" src="../_images/math/c7f3b2787e4420238ee7e041b3176e85fba5f884.svg" alt="r_{s}" style="vertical-align: -2px"/> relative
+to the undisturbed model, while for <img class="math" src="../_images/math/0596f9f4dda4118ef357940f97693fd54a097fc0.svg" alt="\Delta_d &gt; 1" style="vertical-align: -2px"/> it decreases.
+Further fine-tuning of the discontinuity can be achieved by playing with the power-law
+parameter <img class="math" src="../_images/math/5561573ab6dd22962d59bbe3907442efae8513ab.svg" alt="\gamma_d" style="vertical-align: -3px"/> (input name dgad). Positive values means increasing effects at
+large radii, z zero value (the default) a constant jump, and negative values correspond to
+a decreasing effect of the jump at large radii.</p>
+<p>The parameters describing the density profile are summarized below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 32%" />
+<col style="width: 21%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>hd1</p></td>
+<td><p><img class="math" src="../_images/math/da8499b90d4d99612a6ce631f9e2251dcd2785c0.svg" alt="n_{0,1}" style="vertical-align: -5px"/></p></td>
+<td><p>5000</p></td>
+<td><p><img class="math" src="../_images/math/f96b29556801d726695139541f1d31e3a7efebd8.svg" alt="{\textrm m}^{-3}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>rc1</p></td>
+<td><p><img class="math" src="../_images/math/4dac09d26dc766cfdd2a2fe27b18f0933dec737f.svg" alt="r_{c,1}" style="vertical-align: -5px"/></p></td>
+<td><p>0.1</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>bet1</p></td>
+<td><p><img class="math" src="../_images/math/12fbd7550b511b8c18d4780bd0a449d5ac7ff565.svg" alt="\beta_1" style="vertical-align: -3px"/></p></td>
+<td><p>0.7</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>hd2</p></td>
+<td><p><img class="math" src="../_images/math/ae8563d02a1f133e22a4b3bd8a5c32513818ea97.svg" alt="n_{0,2}" style="vertical-align: -5px"/></p></td>
+<td><p>25000</p></td>
+<td><p><img class="math" src="../_images/math/f96b29556801d726695139541f1d31e3a7efebd8.svg" alt="{\textrm m}^{-3}" style="vertical-align: 0px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>rc2</p></td>
+<td><p><img class="math" src="../_images/math/90a4666940bb3b81c0197be222e8c939a9de4634.svg" alt="r_{c,2}" style="vertical-align: -5px"/></p></td>
+<td><p>0.01</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>bet2</p></td>
+<td><p><img class="math" src="../_images/math/bf577000435de650eca0fe15fea6d6dd300ba756.svg" alt="\beta_2" style="vertical-align: -3px"/></p></td>
+<td><p>1.0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rsh</p></td>
+<td><p><img class="math" src="../_images/math/5241fa881120087f6702dacb229f63a32a39e0ac.svg" alt="r_s" style="vertical-align: -2px"/></p></td>
+<td><p>2.0</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>dfac</p></td>
+<td><p><img class="math" src="../_images/math/a8d741cefba63d694a144e61d63c9057174b8264.svg" alt="\Delta_{d}" style="vertical-align: -2px"/></p></td>
+<td><p>1.0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dgad</p></td>
+<td><p><img class="math" src="../_images/math/c3ea7aeac752d8e4297d1048a7ce9ec27968dfac.svg" alt="\gamma_{d}" style="vertical-align: -3px"/></p></td>
+<td><p>0.0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="radial-temperature-distribution">
+<h2><span class="section-number">4.1.6.6. </span>Radial temperature distribution<a class="headerlink" href="#radial-temperature-distribution" title="Permalink to this headline">¶</a></h2>
+<p>The temperature distribution is based upon Vikhlinin et al. (2006) (Eq. 6)  (2006ApJ…640..691V)
+but with a temperature jump added and described below.</p>
+<p>The Vikhlinin parameterisation is the product of two terms. For the first term, describing the
+inner part of the cluster (<img class="math" src="../_images/math/8dec3af5fba25f2533a5806985a9be977c7dec22.svg" alt="T_1(r)" style="vertical-align: -4px"/> below), we rewrite his expression to an equivalent but slightly
+different form, as given by Kaastra et al. 2004, eq. 10 (<a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2004/02/aah4230.pdf">https://www.aanda.org/articles/aa/pdf/2004/02/aah4230.pdf</a>),
+which in turn is based on Allen et al. 2001.</p>
+<p>With this, the temperature profile can be written as</p>
+<div class="math">
+<p><img src="../_images/math/4a41b9912db59b6c43658939bbd1bfa7edc38243.svg" alt="T(r) = T_1(r) f_1(r) f_2(r)"/></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../_images/math/9dd30cbfedc0bbdc20131e7d8b6d96dec3f8c245.svg" alt="T_1(r) = T_c + (T_h - T_c) \frac{x^\mu}{1+x^\mu}"/></p>
+</div><div class="math">
+<p><img src="../_images/math/7119febceb80158cde7270a4a1e83cc8b089ea18.svg" alt="x = r / r_{tc}"/></p>
+</div><div class="math">
+<p><img src="../_images/math/b6264856d65f938ecf024587dfc8cc2abf4c7e3c.svg" alt="f_1(r) = \frac{y^{-a}}{\bigl[ 1 + y^b \bigr]^{c/b}}"/></p>
+</div><div class="math">
+<p><img src="../_images/math/d207ea9c4720ceae85f08275739ab748e2740752.svg" alt="y = r / r_{to}"/></p>
+</div><div class="math">
+<p><img src="../_images/math/4ac367bc18421b533f73f26fb26aaf3fc6834952.svg" alt="r&lt;r_s:\quad  f_2(r) = 1"/></p>
+</div><div class="math">
+<p><img src="../_images/math/0e9a3264c09357a033112ca6b21971b7ccba1a53.svg" alt="r&gt;r_s:\quad  f_2(r) = \Delta_t (r/r_s)^{\gamma_t}"/></p>
+</div><p>The central and outer temperatures <img class="math" src="../_images/math/741d4f1a73e469cd1e9e0ab318d6b706a7a4edb8.svg" alt="T_c" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/4f6d8f2f0ebd008b308049d895ba73be746df1a0.svg" alt="T_h" style="vertical-align: -2px"/> are not the actual temperatures,
+but the temperatures that would exist without the  <img class="math" src="../_images/math/3848885e55fbb9c1e0d662eae081bd8d8f0f5c49.svg" alt="f_1(r)" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/131125e9d382c8662f326f86f5b1ddfab39a888c.svg" alt="f_2(r)" style="vertical-align: -4px"/> terms.</p>
+<p>Similar to the density profile, we allow for a possible temperature jump of any magnitude
+(i.e., increase or decrease) at the radius <img class="math" src="../_images/math/5241fa881120087f6702dacb229f63a32a39e0ac.svg" alt="r_s" style="vertical-align: -2px"/> (which is the same radius where a possible
+density jump may occur).</p>
+<p>Most default parameters are based on Vikhlinin et al. Eq. 8 for the typical
+temperature profile that they derived. Note that their gas-mas weighted temperature
+<img class="math" src="../_images/math/2d2e2a2982e0d7825679e15413ec8fc37ac22b8e.svg" alt="T_{mg}" style="vertical-align: -5px"/> is related to our parameter <img class="math" src="../_images/math/4f6d8f2f0ebd008b308049d895ba73be746df1a0.svg" alt="T_h" style="vertical-align: -2px"/> by <img class="math" src="../_images/math/a7f6e2c5e45c2c25b4af8a20cc43f3a57df31548.svg" alt="T_h = 1.35 T_{mg}" style="vertical-align: -5px"/>.</p>
+<p>We assume that the ion temperature equals the electron temperature for each shell.
+The parameters describing the temperature profile are summarized below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 36%" />
+<col style="width: 23%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>tc</p></td>
+<td><p><img class="math" src="../_images/math/741d4f1a73e469cd1e9e0ab318d6b706a7a4edb8.svg" alt="T_c" style="vertical-align: -2px"/></p></td>
+<td><p>1.8</p></td>
+<td><p>keV</p></td>
+</tr>
+<tr class="row-odd"><td><p>th</p></td>
+<td><p><img class="math" src="../_images/math/4f6d8f2f0ebd008b308049d895ba73be746df1a0.svg" alt="T_h" style="vertical-align: -2px"/></p></td>
+<td><p>4.0</p></td>
+<td><p>keV</p></td>
+</tr>
+<tr class="row-even"><td><p>rtc</p></td>
+<td><p><img class="math" src="../_images/math/370ea9b055710e16a6cdeb1030d7956637860cda.svg" alt="r_{tc}" style="vertical-align: -2px"/></p></td>
+<td><p>0.045</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>mu</p></td>
+<td><p><img class="math" src="../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/></p></td>
+<td><p>1.9</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rto</p></td>
+<td><p><img class="math" src="../_images/math/514089f3a3928de4611c480e93de84d64a841e3f.svg" alt="r_{to}" style="vertical-align: -2px"/></p></td>
+<td><p>0.6</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>at</p></td>
+<td><p><img class="math" src="../_images/math/bd23af321acb3c2291fc451fe18f5fc46d850c03.svg" alt="a" style="vertical-align: 0px"/></p></td>
+<td><p>0.0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bt</p></td>
+<td><p><img class="math" src="../_images/math/8aaf558a717020bc124866266e87da264d553c11.svg" alt="b" style="vertical-align: 0px"/></p></td>
+<td><p>2.0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ct</p></td>
+<td><p><img class="math" src="../_images/math/d3b9cae74c16a962ba8209e5b9b21828b5fb5c4e.svg" alt="c" style="vertical-align: 0px"/></p></td>
+<td><p>2.0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>tfac</p></td>
+<td><p><img class="math" src="../_images/math/48b73f066bbdd6945f000db5f0e06645589211e0.svg" alt="\Delta_{t}" style="vertical-align: -2px"/></p></td>
+<td><p>1.0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>gamt</p></td>
+<td><p><img class="math" src="../_images/math/8b70a9e99badca678f3f5ad87946a3f6f01f1c0d.svg" alt="\gamma_{t}" style="vertical-align: -3px"/></p></td>
+<td><p>0.0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="radial-abundance-profile">
+<h2><span class="section-number">4.1.6.7. </span>Radial abundance profile<a class="headerlink" href="#radial-abundance-profile" title="Permalink to this headline">¶</a></h2>
+<p>The relative metal abundances can be adjusted similar to the CIE model
+(see the last parts of this chapter).
+But these abundances can be multiplied by a radial scaling law <img class="math" src="../_images/math/7e5207cbc72de00653767e70e7e0a3186f3b19d9.svg" alt="f(r)" style="vertical-align: -4px"/>.</p>
+<p>The scaling law, including the default parameters, is taken from
+Mernier et al. (2017)
+<a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf">https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf</a>
+However, we write it in a slightly different, equivalent form as follows:</p>
+<div class="math">
+<p><img src="../_images/math/8f22245488ab2d1b91673c0d8d06767d727bc147.svg" alt="f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-De{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G"/></p>
+</div><p>If the abundances should be kept constant as a function of radius,
+the user should take care that <img class="math" src="../_images/math/f3f3ba71a6fd5b6a7fb092e393bbae8ea02bfba7.svg" alt="f(r)\equiv 1" style="vertical-align: -4px"/> for all radii.
+This can be achieved for instance by setting A=0, G=1.</p>
+<p>The constant term with G was not included in Mernier et al. (2017), but may be useful for some applications.
+Its default value is 0.</p>
+<p>Note that the radial scaling works the same way for all chemical elements; the abundances
+themselves (as given by the parameters 01, 02, 03 etc.) can of course be different.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The radial scaling is only done for elements with nuclear charge 3 or more
+(i.e., Li and higher). Hydrogen and helium are excluded from the scaling.
+It is therefore highly recommended to keep the reference atom to its default
+(Hydrogen) for this model, and not to use another one.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you do a spectral fit of a spectrum that is for example dominated
+by iron lines, take care that the parameter afe and the iron abundance 26 are strongly
+correlated. In those situations it may be wise to keep one of them frozen.</p>
+</div>
+<p>The parameters describing the abundance profile are summarized below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 29%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>afe</p></td>
+<td><p>A</p></td>
+<td><p>1.34</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>bfe</p></td>
+<td><p>B</p></td>
+<td><p>0.021</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>cfe</p></td>
+<td><p>C</p></td>
+<td><p>0.48</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dfe</p></td>
+<td><p>D</p></td>
+<td><p>0.414</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>efe</p></td>
+<td><p>E</p></td>
+<td><p>0.163</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>ffe</p></td>
+<td><p>F</p></td>
+<td><p>0.0165</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>gfe</p></td>
+<td><p>G</p></td>
+<td><p>0.0.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="turbulence">
+<h2><span class="section-number">4.1.6.8. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h2>
+<p>The plasma turbulence can also be parametrised. We use the following description:</p>
+<div class="math">
+<p><img src="../_images/math/36651706cda21a48cc52a0695801bbfa3986f75e.svg" alt="v^2 = v_a^2 + \frac{v_b \lvert v_b \rvert x^2}{1+x^2}"/></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../_images/math/a449076bde7475f30f4eed3c3e6d2de064fb3100.svg" alt="x = r / r_v"/></p>
+</div><p>Here <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> has the same meaning as the vrms parameter of the CIE model of SPEX
+(see there for more documentation).</p>
+<p>At the center, v is given by <img class="math" src="../_images/math/b3b5c7d165ece683690f7d63325eb8290603a3f3.svg" alt="v=v_a" style="vertical-align: -2px"/>, at large distances it is given by
+<img class="math" src="../_images/math/5fdccc8e16c9537e1e331d12d4632e54ffdb104d.svg" alt="v^2=v_a^2 + v_b \lvert v_b \rvert" style="vertical-align: -4px"/>
+Note that due to this definition, positive values of <img class="math" src="../_images/math/0a55549baf03ec873adcecfef243986acaaa9e00.svg" alt="v_b" style="vertical-align: -2px"/> means increasing turbulence
+for larger radii, while negative values means decreasing turbulence for larger radii.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you do a spectral fit or evaluate the model, take care that for negative
+values of <img class="math" src="../_images/math/0a55549baf03ec873adcecfef243986acaaa9e00.svg" alt="v_b" style="vertical-align: -2px"/> with <img class="math" src="../_images/math/0a55549baf03ec873adcecfef243986acaaa9e00.svg" alt="v_b" style="vertical-align: -2px"/> smaller than <img class="math" src="../_images/math/d0c059311057691e395864db8a0af3b624d14b21.svg" alt="-v_a" style="vertical-align: -2px"/>, the turbulent velocity
+would become imaginary (<img class="math" src="../_images/math/df53251fffe60cc9b8f9d443c3a4384a26ac0d5b.svg" alt="v^2&lt;0" style="vertical-align: 0px"/>). To avoid a crash, SPEX cuts these values off to zero,
+and continues, but be aware that your results are not realistic anymore in those situations.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The turbulent velocity here is only the component due to microscopic or
+macroscopic motions of the gas cells. In addition, the thermal motions of the ions will be added
+in quadrature using the relevant (ion) temperature.</p>
+</div>
+<p>The parameters describing the turbulence profile are summarized below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 28%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>av</p></td>
+<td><p><img class="math" src="../_images/math/355c8f02fa07064cb4dee39825ffcc8ee0ec8c0f.svg" alt="v_a" style="vertical-align: -2px"/></p></td>
+<td><p>100</p></td>
+<td><p>km/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>bv</p></td>
+<td><p><img class="math" src="../_images/math/0a55549baf03ec873adcecfef243986acaaa9e00.svg" alt="v_b" style="vertical-align: -2px"/></p></td>
+<td><p>0</p></td>
+<td><p>km/s</p></td>
+</tr>
+<tr class="row-even"><td><p>rv</p></td>
+<td><p><img class="math" src="../_images/math/fc0b59ac3b324886a77aaed73dfc096cf689632c.svg" alt="r_v" style="vertical-align: -2px"/></p></td>
+<td><p>1</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="radial-velocity-fields">
+<h2><span class="section-number">4.1.6.9. </span>Radial velocity fields<a class="headerlink" href="#radial-velocity-fields" title="Permalink to this headline">¶</a></h2>
+<p>In addition to turbulence, the model allows for systematic radial motion (inflow or outflow).
+This is done as follows:</p>
+<div class="math">
+<p><img src="../_images/math/6014c008f92d9a54c39b54b062a68821a18dfd08.svg" alt="v = v_c + \frac{(v_h - v_c) x^2}{1+x^2}"/></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../_images/math/270f82a3858f065aaa276f659c29b25310eb869b.svg" alt="x = r / r_z"/></p>
+</div><p>Positive values correspond to inflow, negative values to outflow.
+The parameter <img class="math" src="../_images/math/610f6046cb7785cf3d820e526507d47c45ec8ce7.svg" alt="v_c" style="vertical-align: -2px"/> corresponds to the flow velocity at the core,
+<img class="math" src="../_images/math/610f6046cb7785cf3d820e526507d47c45ec8ce7.svg" alt="v_c" style="vertical-align: -2px"/> is the flow velocity at large distances. Note that the default
+values for these parameters correspond to no in- or outflow.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 28%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>zc</p></td>
+<td><p><img class="math" src="../_images/math/610f6046cb7785cf3d820e526507d47c45ec8ce7.svg" alt="v_c" style="vertical-align: -2px"/></p></td>
+<td><p>0</p></td>
+<td><p>km/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>zh</p></td>
+<td><p><img class="math" src="../_images/math/9ce8033c2045b16fd3cefc4b9a3140005cec0bf9.svg" alt="v_h" style="vertical-align: -2px"/></p></td>
+<td><p>0</p></td>
+<td><p>km/s</p></td>
+</tr>
+<tr class="row-even"><td><p>rz</p></td>
+<td><p><img class="math" src="../_images/math/df12f558acbbcbaaaf694043e235156d19684dd4.svg" alt="r_z" style="vertical-align: -2px"/></p></td>
+<td><p>1</p></td>
+<td><p><img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="projected-spectra-and-radial-profiles">
+<h2><span class="section-number">4.1.6.10. </span>Projected spectra and radial profiles<a class="headerlink" href="#projected-spectra-and-radial-profiles" title="Permalink to this headline">¶</a></h2>
+<p>The cluster model projects the spectra of all shells onto the sky. But sometimes the
+user is not interested in the spectrum of the full cluster, but only in the spectrum within
+a projected annulus.</p>
+<p>One can specify the inner and outer radius <img class="math" src="../_images/math/02ae248af1fc91b7f76bd5c4895bf29c1652d65b.svg" alt="r_{min}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/790c7d18986fb3ab3ac3e930a0b9cc5fd1ddff3f.svg" alt="r_{max}" style="vertical-align: -2px"/>
+for this projected annulus annulus.
+The spectrum is then only calculated between those boundaries.</p>
+<p>Contrary to all other radii, we specify these radii in units of <img class="math" src="../_images/math/404d595a6f1a4eb89236d75c5b5c04991b53d408.svg" alt="r_{out}" style="vertical-align: -2px"/>,
+the outer radius of the cluster. Thus, for <img class="math" src="../_images/math/07c90b275c3f88d3ed2077b0f4ccecae5cc0187d.svg" alt="r_{min}=0" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/c31202f1957d3bae194fb6e524abbf60505313e6.svg" alt="r_{max}=1" style="vertical-align: -2px"/>,
+the full cluster spectrum is obtained.</p>
+<p>On the other hand, the “clup” output option allows to display the
+radial intensity profile of the cluster for a given energy band. These energies
+(always in keV) can be specified by the parameters <img class="math" src="../_images/math/0c9ec7e8c8f72cef4c0e83ac72caf14ce08bc0ea.svg" alt="E_{min}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/1a7b18ef96dc91fe45b800293554c9a278fb1654.svg" alt="E_{max}" style="vertical-align: -2px"/>.</p>
+<p>It may be that the user wants the spectrum or profile in a more complex region than
+a simple annulus, for instance the projection of a square detector (pixel).
+The cluster model provides an option for this by using the parameter with name
+“azim”. When this parameter has value 0, the full annulus is used. When it has a value
+of 1, a more complex region can be used. In this latter case, the user must specify the
+name of an ascii-file (parameter fazi).</p>
+<p>This file must have the following contents:</p>
+<p>first line: number of points</p>
+<p>next lines: for each specified radius, from small to large radii, two numbers, namely the
+radius <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> and the azimuthal fraction <img class="math" src="../_images/math/f46104bfe8a92be14f8a8435ea095a9e99f83602.svg" alt="f_a" style="vertical-align: -3px"/>.</p>
+<p>The radius <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> must be in units of <img class="math" src="../_images/math/404d595a6f1a4eb89236d75c5b5c04991b53d408.svg" alt="r_{out}" style="vertical-align: -2px"/>, the azimuthal fraction <img class="math" src="../_images/math/f46104bfe8a92be14f8a8435ea095a9e99f83602.svg" alt="f_a" style="vertical-align: -3px"/>
+should be between 0 (no contribution of this annular radius) and 1 (the full annulus is contributing.)
+The spacing between the radial points should be such that linear extrapolation between the
+points gives a fair representation of the shape of the extraction region.</p>
+<p>For example, if the extraction region is for example a quarter of the sky counted from the
+cluster center (e.g, everything between 0 and 90 degrees azimuthal angle), the content of the
+file could be simply three lines:</p>
+<p>2</p>
+<p>0 0.25</p>
+<p>1 0.25</p>
+<p>If the first radius is larger than 0 or the last radius less than 1, we adopt
+<img class="math" src="../_images/math/a420c8cb343d3932d0a43e993092f2e9a5adad3c.svg" alt="f_a=0" style="vertical-align: -3px"/> (no emission) for the non-specified regions.</p>
+<p>An error message will be given if the file is incorrect, and in that case
+the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_images/math/7b420e312bf7116c399fb269f8e39a92559deb27.svg" alt="f_a=1" style="vertical-align: -3px"/> everywhere).</p>
+<p>We summarise the parameters below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>rmin</p></td>
+<td><p><img class="math" src="../_images/math/02ae248af1fc91b7f76bd5c4895bf29c1652d65b.svg" alt="r_{min}" style="vertical-align: -2px"/></p></td>
+<td><p>0</p></td>
+<td><p><img class="math" src="../_images/math/404d595a6f1a4eb89236d75c5b5c04991b53d408.svg" alt="r_{out}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-odd"><td><p>rmax</p></td>
+<td><p><img class="math" src="../_images/math/790c7d18986fb3ab3ac3e930a0b9cc5fd1ddff3f.svg" alt="r_{max}" style="vertical-align: -2px"/></p></td>
+<td><p>1</p></td>
+<td><p><img class="math" src="../_images/math/404d595a6f1a4eb89236d75c5b5c04991b53d408.svg" alt="r_{out}" style="vertical-align: -2px"/></p></td>
+</tr>
+<tr class="row-even"><td><p>emin</p></td>
+<td><p><img class="math" src="../_images/math/0c9ec7e8c8f72cef4c0e83ac72caf14ce08bc0ea.svg" alt="E_{min}" style="vertical-align: -2px"/></p></td>
+<td><p>0</p></td>
+<td><p>keV</p></td>
+</tr>
+<tr class="row-odd"><td><p>emax</p></td>
+<td><p><img class="math" src="../_images/math/1a7b18ef96dc91fe45b800293554c9a278fb1654.svg" alt="E_{max}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/></p></td>
+<td><p>keV</p></td>
+</tr>
+<tr class="row-even"><td><p>azim</p></td>
+<td></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>fazi</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="resonance-scattering">
+<h2><span class="section-number">4.1.6.11. </span>Resonance scattering<a class="headerlink" href="#resonance-scattering" title="Permalink to this headline">¶</a></h2>
+<p>Resonance scattering of the strong resonance lines can be taken into account, if the user needs this.
+This is indicated by the parameter with name rsca. Allowed values are 0 (no resonance scattering)
+or 1 (resonance scattering).</p>
+<p>The resonance scattering is calculated using a Monte Carlo approach. It is therefore less suited for
+spectral fitting, due to the random effect inherently caused by this technique.</p>
+<p>The initial 3D emissivity profile for the relevant lines is taken as starting point. From this profile,
+N x nr random photons are drawn (here nr is the number of shells introduced earlier, and N is an adjustable number that
+can be set by the user, see the table below).</p>
+<p>There are two modes: for mode=2, each shell starts with the same number of photons
+(the final result is of course weighted with the proper shell emissivity).
+This has the advantage that the calculation also have a reasonable accuracy in the outer parts, where the emissivity is
+small. It is therefore most relevant when studying radial line profiles of the resonant lines in the outskirts.
+For the default mode=1, the number of initial photons is distributed according to emissivity; therefore this case is
+more suited for the overall spectrum of the full cluster. Experience shows it is slightly more accurate in the part
+of the cluster that emits the bulk of the photons.</p>
+<p>The fate of each individual photon is followed. The calculation for the photon stops when either it is absorbed in the
+continuum, or when it leaves the cluster. Alternatively, it can be absorbed and then a) re-emitted in a new random
+direction (the resonance scattering), or b) it decays to a non-ground level, resulting in two or more photons until the
+atom reaches the ground state again. The fate of these multiple photons is followed until they are destroyed or escape.
+At the end of the calculation, some statistics is collected on the history of the photon.</p>
+<p>When resonance scattering is included, in principle three diagnostic files with information on the resonant lines are
+produced. These files are always named <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>, <code class="docutils literal notranslate"><span class="pre">cluslin2.asc</span></code> and <code class="docutils literal notranslate"><span class="pre">cluslin3.asc</span></code>, they are placed in
+the directory from which SPEX is running, and they are overwritten each time the model is being evaluated. When the
+user wishes to store these files, a simple spex command like <code class="docutils literal notranslate"><span class="pre">sys</span> <span class="pre">exe</span> <span class="pre">&quot;cp</span> <span class="pre">cluslin1.asc</span> <span class="pre">newa1.asc&quot;</span></code> is sufficient
+to copy it to a file <code class="docutils literal notranslate"><span class="pre">newa1.asc</span></code>, for example.</p>
+<p>If the user does not want to produce this output, the parameters out1, out2 and out3 should be set to zero (see below).
+The default value for them is 1, i.e. produce the output. If some of these numbers are put to zero, no output of that
+kind is produced.</p>
+<p>In most other cases of SPEX output, we make use of the asc-output options. However, in particular when the number of
+shells is large or the number of iterations N is large, the computational time can be very large, and with different
+random seeds for each run results may not be fully reproducible. For that reason, the resonance scattering line
+information is given “on the fly”.</p>
+<p>The relevant parameters are listed below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Acronym</p></td>
+<td><p>Variable</p></td>
+<td><p>Default value</p></td>
+<td><p>Units</p></td>
+</tr>
+<tr class="row-even"><td><p>rsca</p></td>
+<td></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>nit0</p></td>
+<td><p>N</p></td>
+<td><p>10000</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rmod</p></td>
+<td><p>mode</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>out1</p></td>
+<td><p>out1</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>out2</p></td>
+<td><p>out2</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>out3</p></td>
+<td><p>out3</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When running resonance scattering, be aware that the computation times may become very large.
+For example, a run with 128 radial shells, 256 projected annuli, with cluster parameters adjusted to
+the Perseus cluster, and with nit0 equal to <img class="math" src="../_images/math/bb87a13002fce52f836ad81368f55ea74b5c1910.svg" alt="10^5" style="vertical-align: 0px"/> and thus <img class="math" src="../_images/math/e57ceb4102d26d71d9f210ece76b507ab4260737.svg" alt="1.28\times 10^7" style="vertical-align: -1px"/> random drawings
+per spectral line (and 666 spectral lines included) takes about 6 hours to complete on a single core of a 2.3 GHz processor
+using the gfortran compiler; it may be faster using other processors or compilers. For less ambitious accuracy
+a couple of minutes per model evaluation is more realistic.</p>
+</div>
+</section>
+<section id="output-files-for-resonance-scattering">
+<h2><span class="section-number">4.1.6.12. </span>Output files for resonance scattering<a class="headerlink" href="#output-files-for-resonance-scattering" title="Permalink to this headline">¶</a></h2>
+<p>As noted, in principle three files are produced when resonance scattering is included in the calculations.
+These file <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>, <code class="docutils literal notranslate"><span class="pre">cluslin2.asc</span></code> and <code class="docutils literal notranslate"><span class="pre">cluslin3.asc</span></code> are stored in the directory where SPEX is running,
+and are overwritten each time the model is evaluated again. Here we describe the contents of these files.</p>
+<p><strong>cluslin1.asc:</strong></p>
+<p>This is a summary of all the spectral lines where resonance scattering is taken into account.
+The file contains a descriptive header (one line) followed by several lines for each spectral line.
+The columns are as follows:</p>
+<ol class="arabic simple">
+<li><p>Line number. This is a unique number for each line, which is used as a label for the <code class="docutils literal notranslate"><span class="pre">cluslin2.asc</span></code> and <code class="docutils literal notranslate"><span class="pre">cluslin3.asc</span></code>
+files to identify the spectral lines. These numbers are always the same for a given transition, but note that the
+numbering is different for the “old” set of atomic lines and the “new” set of atomic lines.</p></li>
+<li><p>Element and ionisation stage.</p></li>
+<li><p>Designation of the transition. For the “old” calculation, typically the Mewe et al. (1985) notation, for the “new”
+calculation, it gives the lower and upper level of the transition. Both notations are the same as for the line-ascii
+output option.</p></li>
+<li><p>The energy of the line, in keV.</p></li>
+<li><p>The oscillator strength of the line. However, for lines not ending at the ground level (the non-resonant lines),
+we put here a value of zero, even if the true oscillator strength is non-zero. The cluster model assumes that all
+ions are in their ground state when they absorb a photon.</p></li>
+<li><p>Branching ratio. This is the probability that an atom that has absorbed a resonant photon falls back to the ground
+state immediately, rather than to an intermediate energy level.</p></li>
+<li><p>tau_l: the optical depth of the line at line centre.</p></li>
+<li><p>tau_c: the continuum optical depth (i.e., the optical depth relevant for absorption of the photon in the continuum).</p></li>
+<li><p>photons: the number of photons that leave the cluster (either as original, scattered or splitted photon).</p></li>
+<li><p>lost: the number of photons lost by continuum absorption. This number, added to the number of escaping photons
+gives the original number of photons for this line for the Monte-Carlo calculation.</p></li>
+<li><p>ori_flux: the original emitted flux (number of photons per second) in the line, without resonance scattering.</p></li>
+</ol>
+<p><strong>cluslin2.asc:</strong></p>
+<p>This file gives the projected properties of all the lines summarized in cluslin1.asc.
+The file contains a descriptive header (one line) followed by npro lines for each spectral line.
+The columns are as follows:</p>
+<ol class="arabic simple">
+<li><p>line number (corresponding to the first number in <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>)</p></li>
+<li><p>ir: the projected annulus number</p></li>
+<li><p>r: the radius of the projected annulus in <img class="math" src="../_images/math/5294cfd02629a9ede75606a475e5ef604c0e65c8.svg" alt="10^{22}" style="vertical-align: 0px"/> m. The radius is here the mean of the inner and outer
+radius of the annulus.</p></li>
+<li><p>fluxscale: the scaling factor by which the number of photons in the next three columns (5 to 7) needs to be
+multiplied in order to get fluxes in photons per square meter per second, emitted at the cluster (not to be
+confused with the flux received at Earth!).</p></li>
+<li><p>f1: the number of photons that would have been visible in this annulus if no resonance scattering occurs.</p></li>
+<li><p>f2: the actual number of photons that leave the cluster from this annulus to the observer.</p></li>
+<li><p>f2-f1: the difference f2-f1.</p></li>
+<li><p>f2/f1: the ratio between f2 and f1. This is actually the relative flux decrease or increase due to resonance
+scattering.</p></li>
+<li><p># scat: The average number of scatterings that the observed photon has experienced, since creation of the photon.</p></li>
+<li><p>DelE: the average energy shift of the photons, in eV.</p></li>
+<li><p>sigma: The r.m.s. line width in eV. This incorporates the original line width and  all effects of the resonance
+scattering. Note that some lines may have Lorentzian wings in reality; those are visible in the final spectrum.
+Voigt profiles are computed there based on this r.m.s. and the original natural broadening of the line. The
+Gaussian component of the line therefore ignores any non-gaussianity, but only considers the width of the line,
+which is accurate enough in the majority of cases.</p></li>
+</ol>
+<p><strong>cluslin3.asc:</strong></p>
+<p>This file gives the 3D, radial properties of all the lines summarized in <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>.
+The file contains a descriptive header (one line) followed by several lines for each spectral line.
+The columns are as follows:</p>
+<ol class="arabic simple">
+<li><p>line number (corresponding to the first number in <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>)</p></li>
+<li><p>ir: the 3D shell number</p></li>
+<li><p>r: the radius of the shell in <img class="math" src="../_images/math/5294cfd02629a9ede75606a475e5ef604c0e65c8.svg" alt="10^{22}" style="vertical-align: 0px"/> m. The radius is here the mean of the inner and outer radius of the shell.</p></li>
+<li><p>T: the temperature of the shell at mid-radius</p></li>
+<li><p>fr: the fraction of the total line flux of the cluster emitted from this shell (without resonance scattering)</p></li>
+<li><p>concentrat: the ion concentration of the emitting ion at this radius.</p></li>
+</ol>
+</section>
+<section id="atomic-physics-of-the-resonance-lines">
+<h2><span class="section-number">4.1.6.13. </span>Atomic physics of the resonance lines<a class="headerlink" href="#atomic-physics-of-the-resonance-lines" title="Permalink to this headline">¶</a></h2>
+<p>For the “old” atomic data set, we used a list of 204 selected lines deemed to be relevant in 1996, when the first
+version of this model was created. For the “new” atomic data set, we selected 666 transitions for H-like to Na-like
+ions, under the following assumptions:</p>
+<ol class="arabic simple">
+<li><p>We use a simple scaling law <img class="math" src="../_images/math/32e1852c7f0a7e76e6cac74e918e43e2a0445ae3.svg" alt="N_{\rm H} = 10^{25} \sqrt{T}" style="vertical-align: -2px"/> where <img class="math" src="../_images/math/c3398c7b630636ce7a0b2eee3c82876f4b60f73b.svg" alt="N_{\rm H}" style="vertical-align: -2px"/> is the total column density
+from the core of the cluster to infinity, in units of per square meter, and <img class="math" src="../_images/math/ff15c6bbec47612e72f60cd80de6dfc63d0a6b32.svg" alt="{T}" style="vertical-align: 0px"/> the temperature in keV. This
+matches approximately the Perseus cluster at a temperature of 4 keV. It is based on the simple scaling laws for
+cluster mass M, radius R and density <img class="math" src="../_images/math/aa5c13ff92a8ff10b24ef9c9ec6f485ff7548125.svg" alt="\rho" style="vertical-align: -3px"/></p></li>
+</ol>
+<p><img class="math" src="../_images/math/a041d9a49fd7f666ed468d81ef06e690f30c29a1.svg" alt="M\sim R^3\rho" style="vertical-align: -3px"/> , <img class="math" src="../_images/math/aa5c13ff92a8ff10b24ef9c9ec6f485ff7548125.svg" alt="\rho" style="vertical-align: -3px"/> constant, <img class="math" src="../_images/math/88851cf7a4aa1c1eafe926a7ce16140b35b2aac6.svg" alt="M\sim T^{1.5}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/362c7ce85b40639118ba57a4efbfa3c4055e332c.svg" alt="N_{\rm H} \sim \rho R" style="vertical-align: -3px"/></p>
+<ol class="arabic simple" start="2">
+<li><p>For a grid of temperatures T from 0.25 to 16 keV, step size a factor of 2, assuming no turbulence (i.e., the highest
+possible optical depths) and a column density of 5 times higher than the scaling relation given under 1. above, we
+calculated the optical depths of all ground-state absorption lines in SPEX using the “hot” absorption model.</p></li>
+<li><p>From this list, we selected all lines with energy larger than 0.1 keV, optical depth larger than 0.03, and optical
+depth larger than 1% of the strongest line of that ion at that temperature.</p></li>
+<li><p>For each resonance line, we only considered the most important decay channels from the excited state (typically
+stronger than 1% of the total decay rate) in order to limit the number of decay routes to the ground to a manageable
+number. In practice, the number of decay routes was thus limited to a maximum of 7 (including the main resonance
+line), and we limited the number of lines to a maximum of 3 per route (ignoring the lowest energy lines in a few
+cases; these ignored lines were always at much lower energy than the X-ray band).</p></li>
+<li><p>Transition energies, oscillator strengths and branching ratios were thus obtained from the current atomic data
+base of SPEX. When this database will be updated, the same transitions will be used for the resonance scattering,
+but branching ratios, oscillator strengths and line energies will automatically be adjusted; these quantities are
+initialised each time upon the first call to the cluster model.</p></li>
+</ol>
+</section>
+<section id="non-thermal-electron-distributions-and-abundances">
+<h2><span class="section-number">4.1.6.14. </span>Non-thermal electron distributions and abundances<a class="headerlink" href="#non-thermal-electron-distributions-and-abundances" title="Permalink to this headline">¶</a></h2>
+<p>The effects of non-thermal electron distribution on the spectrum can be
+included like any SPEX model. See <a class="reference internal" href="../theory/spexact/nonthermal.html#sec-nonthermal"><span class="std std-ref">Non-thermal electron distributions</span></a> for more details.</p>
+<p>We refer here to the description of the CIE model for the abundances.
+We use the same parameters as in that model.
+See description below.</p>
+</section>
+<section id="parameter-description">
+<h2><span class="section-number">4.1.6.15. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<p>The remaining parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : reference element. Default value 1 (hydrogen). See above for
+more details. The value corresponds to the atomic number of the
+reference element.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">01</span></code> : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">02</span></code> : Abundance of helium (He, Z=2) in Solar units. Default 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">03...30</span></code> : Abundance of all elements up to zinc (Zn, Z=30) in Solar units.
+Default 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the non-thermal electron distribution. If not
+present, non-thermal effects are not taken into account (default).</div>
+</div>
+<p><em>Recommended citation:</em> Kaastra et al. (2022) (this manual for the moment).</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="cie.html" title="previous chapter"><span class="section-number">4.1.5. </span>Cie: collisional ionisation equilibrium model</a></li>
+      <li>Next: <a href="comt.html" title="next chapter"><span class="section-number">4.1.7. </span>Comt: comptonisation model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Aug 01, 2022.<br>
+    
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

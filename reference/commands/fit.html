@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.12. Fit: spectral fitting &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1.14. Fit: spectral fitting &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/fit.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1.13. Ibal: set type of ionisation balance" href="ibal.html" />
-    <link rel="prev" title="3.1.11. Error: Calculate the errors of the fitted parameters" href="error.html" />
+    <link rel="next" title="3.1.15. Ibal: set type of ionisation balance" href="ibal.html" />
+    <link rel="prev" title="3.1.13. Error: Calculate the errors of the fitted parameters" href="error.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,18 +34,18 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="fit-spectral-fitting">
-<span id="sec-fit"></span><h1><span class="section-number">3.1.12. </span>Fit: spectral fitting<a class="headerlink" href="#fit-spectral-fitting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2><span class="section-number">3.1.12.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+  <section id="fit-spectral-fitting">
+<span id="sec-fit"></span><h1><span class="section-number">3.1.14. </span>Fit: spectral fitting<a class="headerlink" href="#fit-spectral-fitting" title="Permalink to this headline">¶</a></h1>
+<section id="overview">
+<h2><span class="section-number">3.1.14.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>With this command one fits the spectral model to the data. Only
 parameters that are thawn are changed during the fitting process.
 Options allow you to do a weighted fit (according to the model or the
 data), have the fit parameters and plot printed and updated during the
 fit, and limit the number of iterations done.</p>
-</div>
-<div class="section" id="fit-methods">
-<h2><span class="section-number">3.1.12.2. </span>Fit methods<a class="headerlink" href="#fit-methods" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="fit-methods">
+<h2><span class="section-number">3.1.14.2. </span>Fit methods<a class="headerlink" href="#fit-methods" title="Permalink to this headline">¶</a></h2>
 <p>There are three methods implemented that can provide the best fit. All these
 methods are described in detail in the book of <a class="reference external" href="http://numerical.recipes/">Press et al. (Numerical Recipes)</a>. We refer to that book for more details (our
 algorithms, however, are taken from other sources).</p>
@@ -60,9 +60,9 @@ there is no guarantee that the true minimum is reached. In addition, they requir
 significantly more function evaluations compared with the Levenberg-Marquardt
 algorithm. It is advised to turn back to the Levenberg-Marquardt method when
 error search is done.</p>
-</div>
-<div class="section" id="simulated-annealing-details">
-<h2><span class="section-number">3.1.12.3. </span>Simulated annealing details<a class="headerlink" href="#simulated-annealing-details" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="simulated-annealing-details">
+<h2><span class="section-number">3.1.14.3. </span>Simulated annealing details<a class="headerlink" href="#simulated-annealing-details" title="Permalink to this headline">¶</a></h2>
 <p>It is beyond the scope of this paper to describe the method in detail.
 More can be found in the Numerical Recipes book mentioned above, and for our
 implementation in <a class="reference external" href="https://econpapers.repec.org/RePEc:eee:econom:v:60:y:1994:i:1-2:p:65-99">Goffe et al. (1994)</a>.
@@ -80,18 +80,18 @@ decrease <img class="math" src="../../_images/math/dd056e2cd1410aa248543d7fc23a5
 the scaling for the number of function evaluations at each temperature
 <img class="math" src="../../_images/math/6a93812f69f733e6dd86e11835f9a5cdc2c37890.svg" alt="ns" style="vertical-align: 0px"/>, the maximum number of function evaluations <img class="math" src="../../_images/math/361eeebfe08476c6ce3606f13479d32a5ab39665.svg" alt="max" style="vertical-align: 0px"/>, and a
 flag controlling the printing of intermediate results.</p>
-</div>
-<div class="section" id="fit-statistic">
-<h2><span class="section-number">3.1.12.4. </span>Fit statistic<a class="headerlink" href="#fit-statistic" title="Permalink to this headline">¶</a></h2>
-<p>At the moment SPEX uses two types of fit statistic, <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> and
-C-stat. We first treat the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic, because
+</section>
+<section id="fit-statistic">
+<h2><span class="section-number">3.1.14.4. </span>Fit statistic<a class="headerlink" href="#fit-statistic" title="Permalink to this headline">¶</a></h2>
+<p>At the moment SPEX uses three types of fit statistic, <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> C-stat and
+W-stat. We first treat the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic, because
 historically that has been most widely used. However, in the present
 version of SPEX  C-stat is the default because in the far majority of
 the cases it gives more robust results. Both statistics can be used for all
-of the fitting methods.</p>
-</div>
-<div class="section" id="chi-squared-fitting">
-<h2><span class="section-number">3.1.12.5. </span>Chi-squared fitting<a class="headerlink" href="#chi-squared-fitting" title="Permalink to this headline">¶</a></h2>
+of the fitting methods. W-stat is not recommended to be used (see later).</p>
+</section>
+<section id="chi-squared-fitting">
+<h2><span class="section-number">3.1.14.5. </span>Chi-squared fitting<a class="headerlink" href="#chi-squared-fitting" title="Permalink to this headline">¶</a></h2>
 <p>First we make a few remarks about proper data weighting. <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>
 is usually calculated as the sum over all data bins <img class="math" src="../../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> of
 <img class="math" src="../../_images/math/5e4e4a776c2e53ecb2aed10a359745bf61ae9588.svg" alt="(N_i - s_i)^2 / \sigma_i^2" style="vertical-align: -4px"/>, i.e.</p>
@@ -134,9 +134,9 @@ converged (under the assumption that the fitted model gives a
 reasonable description of the data, if your spectral model is way off
 you are in trouble anyway!).</p></li>
 </ol>
-</div>
-<div class="section" id="c-stat">
-<h2><span class="section-number">3.1.12.6. </span>C-stat<a class="headerlink" href="#c-stat" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="c-stat">
+<h2><span class="section-number">3.1.14.6. </span>C-stat<a class="headerlink" href="#c-stat" title="Permalink to this headline">¶</a></h2>
 <p>There is yet another option to try for spectral fitting with low count
 rate statistics and that is maximum likelyhood fitting. It can be shown
 that a good alternative to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> in that limit is</p>
@@ -164,12 +164,14 @@ of <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b
 quantities are simply determined by adding the expected contributions
 and their variances over all bins. See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A&amp;A...605A..51K/abstract">Kaastra et al. (2017)</a>
 for more details.</p>
-<div class="figure align-default" id="fig-cstat">
+<figure class="align-default" id="fig-cstat">
 <img alt="Expected value of the contribution per bin to :math:`C`, and its r.m.s. uncertainty, as a function of the mean expected number of counts :math:`\mu`." src="../../_images/cstat.png" />
-<p class="caption"><span class="caption-text">Expected value of the contribution per bin to <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/>, and its
+<figcaption>
+<p><span class="caption-text">Expected value of the contribution per bin to <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/>, and its
 r.m.s. uncertainty, as a function of the mean expected number of
 counts <img class="math" src="../../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/>.</span><a class="headerlink" href="#fig-cstat" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 <p>The expected value <img class="math" src="../../_images/math/79a0ceeed4231ac9fe78e3c88117e93f37208df2.svg" alt="C_{\rm e}" style="vertical-align: -2px"/> for <img class="math" src="../../_images/math/648e7a40a60e5043e966ad004eadb15104b2883a.svg" alt="C" style="vertical-align: 0px"/> in a bin <img class="math" src="../../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/>
 and its variance <img class="math" src="../../_images/math/76ee3295c937d0ab35058fbd97d85410a54cf1d7.svg" alt="C_{\rm v}" style="vertical-align: -2px"/> are given by:</p>
 <div class="math">
@@ -199,9 +201,9 @@ the subtracted background. It works on a .spo file and creates an
 improved .spo file. See the documentation of backfilter for more
 details.</p>
 </div>
-</div>
-<div class="section" id="w-stat">
-<h2><span class="section-number">3.1.12.7. </span>W-stat<a class="headerlink" href="#w-stat" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="w-stat">
+<h2><span class="section-number">3.1.14.7. </span>W-stat<a class="headerlink" href="#w-stat" title="Permalink to this headline">¶</a></h2>
 <p>The above problem is mitigated in the Xspec package by introducing the
 so-called W-statistic. See the Xspec manual for more details. We provide
 here the option to fit using W-stat for compatibility reasons,</p>
@@ -227,9 +229,18 @@ non-monotonous behaviour of W-stat versus iteration, with annoying
 oscillatory behaviour. Also, a full fit with error search of that
 spectrum required four times more model evaluations compared with C-stat
 fitting with filtered background.</p>
-</div>
-<div class="section" id="syntax">
-<h2><span class="section-number">3.1.12.8. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mixed-modes">
+<h2><span class="section-number">3.1.14.8. </span>Mixed modes<a class="headerlink" href="#mixed-modes" title="Permalink to this headline">¶</a></h2>
+<p>Although usually it is recommended to use C-stat, there can be situations where some data
+are delivered as Gaussian variables, hence chi-squared statistics should be used.
+Obviously the user can switch between such modes, but in case there is a mixture of instruments
+that require different statistics, the preferred statistic can be set per instrument region.
+The total fit statistic is then the sum of the contributions from the different regions, be it
+C-stat or chi-squared.</p>
+</section>
+<section id="syntax">
+<h2><span class="section-number">3.1.14.9. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Execute a spectral fit to the data.</div>
@@ -246,11 +257,16 @@ the statistical weight in all subsequent spectral fitting.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">weight</span> <span class="pre">data</span></code> : Use the errors in the spectral data file as a
 basis for the statistical weight in all subsequent spectral fitting.
 This is the default at the start of SPEX.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Use the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic for the
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Use the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic for all instruments for the
 minimisation.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Use the C-statistics for the minimisation.
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Use the C-statistic for all instruments for the minimisation.
 This is the default at start-up.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">wstat</span></code> : Use the W-statistics for the minimisation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">wstat</span></code> : Use the W-statistic for all instruments for the minimisation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span> <span class="pre">#i1:</span> <span class="pre">#i2:</span></code> : Change to the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic for the instrument (range) #i1: and region (range) #i2: for the
+minimisation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span> <span class="pre">#i1:</span> <span class="pre">#i2:</span></code> : Change to the C-statistic for the instrument (range) #i1: and region (range) #i2: for the minimisation.
+This is the default at start-up.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">wstat</span> <span class="pre">#i1:</span> <span class="pre">#i2:</span></code> : Change to the W-statistic for the instrument (range) #i1: and region (range) #i2: for the minimisation.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">method</span> <span class="pre">classical</span></code> : Use the classical Levenberg-Marquardt
 minimisation as the fitting method.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">method</span> <span class="pre">simplex</span></code> : Use simplex
@@ -287,9 +303,9 @@ Default value: 0 (no printing). This is overruled by the fit print …
 command, which for the simulated annealing method prints every new set of
 parameters and plots its spectrum if a new minimum is found.</div>
 </div>
-</div>
-<div class="section" id="examples">
-<h2><span class="section-number">3.1.12.9. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.1.14.10. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Performs a spectral fit. At the end the list of best fit
 parameters is printed, and if there is a plot this will be updated.</div>
@@ -307,11 +323,12 @@ in the fit.</div>
 find minima.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">rt</span> <span class="pre">0.5</span></code> : changes the temperature reduction factor for simulated
 annealing to 0.5.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Switch from C-statistics to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Switch from C-statistics to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> (for all instruments and regions).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Switch back to C-statistics.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span> <span class="pre">2</span> <span class="pre">3:4</span></code> : Switch to <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> statistics for instrument 2, regions 3 to 4.</div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -359,8 +376,8 @@ annealing to 0.5.</div>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
   <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
-      <li>Previous: <a href="error.html" title="previous chapter"><span class="section-number">3.1.11. </span>Error: Calculate the errors of the fitted parameters</a></li>
-      <li>Next: <a href="ibal.html" title="next chapter"><span class="section-number">3.1.13. </span>Ibal: set type of ionisation balance</a></li>
+      <li>Previous: <a href="error.html" title="previous chapter"><span class="section-number">3.1.13. </span>Error: Calculate the errors of the fitted parameters</a></li>
+      <li>Next: <a href="ibal.html" title="next chapter"><span class="section-number">3.1.15. </span>Ibal: set type of ionisation balance</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -370,7 +387,7 @@ annealing to 0.5.</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -389,9 +406,9 @@ annealing to 0.5.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

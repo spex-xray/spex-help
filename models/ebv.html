@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.1.13. Ebv: Galactic interstellar extinction model &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.14. Ebv: Galactic interstellar extinction model &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/ebv.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.14. Etau: simple transmission model" href="etau.html" />
-    <link rel="prev" title="4.1.12. Dust: dust scattering model" href="dust.html" />
+    <link rel="next" title="4.1.15. Etau: simple transmission model" href="etau.html" />
+    <link rel="prev" title="4.1.13. Dust: dust scattering model" href="dust.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,13 +34,16 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="ebv-galactic-interstellar-extinction-model">
-<h1><span class="section-number">4.1.13. </span>Ebv: Galactic interstellar extinction model<a class="headerlink" href="#ebv-galactic-interstellar-extinction-model" title="Permalink to this headline">¶</a></h1>
+  <section id="ebv-galactic-interstellar-extinction-model">
+<span id="model-evb"></span><h1><span class="section-number">4.1.14. </span>Ebv: Galactic interstellar extinction model<a class="headerlink" href="#ebv-galactic-interstellar-extinction-model" title="Permalink to this headline">¶</a></h1>
 <p>This model can be used to correct fluxes of optical/UV data for
 interstellar reddening in our Galaxy. The reddening is caused by dust
-absorption and scattering (extinction) in the interstellar medium. The
+absorption and scattering (extinction) in the interstellar medium.</p>
+<p>There are two different models used, indicated by the parameter <code class="docutils literal notranslate"><span class="pre">mode</span></code></p>
+<p>For mode=1 or 2, the
 model uses the extinction curve of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989ApJ...345..245C/abstract">Cardelli et al. (1989)</a>.
 including the update for near-UV given by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...422..158O/abstract">O’Donnell et al. (1994)</a>.</p>
+<p>For mode=3, the model uses the SMC extinction curve of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003ApJ...594..279G/abstract">Gordon et al. (2003)</a>.</p>
 <p>The extinction law can be expressed as:</p>
 <div class="math">
 <p><img src="../_images/math/bf0fb77b799cbc78310e7eba41aa085e47332045.svg" alt="({A_\lambda }/{A_V}) = {a_\lambda } + ({b_\lambda }/{R_V})"/></p>
@@ -53,7 +56,7 @@ of total extinction <img class="math" src="../_images/math/6b89b247207bc4eec9248
 <img class="math" src="../_images/math/127654bafefe4eaac2998d2da61833c9d90f05ce.svg" alt="{A_{B} - A_{V}}" style="vertical-align: -2px"/>, where <img class="math" src="../_images/math/3623f1a9624944692844117d0eaed32ea1acd517.svg" alt="A_B" style="vertical-align: -2px"/> is the total extinction at
 the <img class="math" src="../_images/math/9ddeb0bff8fad837f30df7617a1f052ff2f1e34c.svg" alt="B" style="vertical-align: 0px"/>-band. So the selective extinction
 <img class="math" src="../_images/math/127654bafefe4eaac2998d2da61833c9d90f05ce.svg" alt="{A_{B} - A_{V}}" style="vertical-align: -2px"/> represents a colour excess, which is commonly
-denoted as <img class="math" src="../_images/math/b07573a113883f562c236455cf1fdccecd2a3540.svg" alt="{E(B-V)}" style="vertical-align: -4px"/>. For Milky Way, the typical value for
+denoted as <img class="math" src="../_images/math/b07573a113883f562c236455cf1fdccecd2a3540.svg" alt="{E(B-V)}" style="vertical-align: -4px"/>. For the Milky Way, the typical value for
 <img class="math" src="../_images/math/5c389a64a75013faf71101b9b5c7a062931103ee.svg" alt="R_V" style="vertical-align: -2px"/> is reported to be 3.1. Thus, by specifying <img class="math" src="../_images/math/7cc9b5d920e706062dcab0d8e176047664eee497.svg" alt="E(B-V)" style="vertical-align: -4px"/>
 and <img class="math" src="../_images/math/5c389a64a75013faf71101b9b5c7a062931103ee.svg" alt="R_V" style="vertical-align: -2px"/>, the extinction <img class="math" src="../_images/math/714ff7abe110da45a45648ece9eed72ec3eab4bc.svg" alt="A_\lambda" style="vertical-align: -2px"/> can be derived,
 which in turn gives us the unreddened flux (<img class="math" src="../_images/math/a00759ab65ef620e884bd3de52e58fa3fe1ae85e.svg" alt="F_\lambda" style="vertical-align: -2px"/>) from
@@ -62,25 +65,37 @@ the observed reddened flux (<img class="math" src="../_images/math/e55464a8c4b59
 Note that at energies above the Lyman limit, the transmission of the
 model is set to 1 in SPEX, thus it can be used alongside the Galactic
 interstellar X-ray absorption models in SPEX.</p>
-<p>This extinction model is currently the best model for the Milky Way.
+<p>These parameterisations are in particular derived for the optical-UV band.
+The model can formally be used also at longer wavelengths; we have secured
+that the transmission does not rise above 1 at long wavelengths, which for
+some parameter settings may occur. Note however that for an accurate
+IR extinction model (inclusive silicate features etc.) other models are needed which are not (yet)
+included in SPEX.</p>
+<p>The extinction model of Cardelli et al. is currently the best model for the Milky Way.
 However, the extinction curve of the Milky Way has a famous broad bump
 at 2175 <img class="math" src="../_images/math/c1058e8dccbf6b0bcd82329cff62cbc8a3c7d841.svg" alt="\mathrm{\AA}" style="vertical-align: 0px"/>. The origin of this bump is still not fully
 understood. Interestingly, this feature (due to dust) is seen in the
 Milky Way and not in other galaxies like in AGN. If one would use the <code class="docutils literal notranslate"><span class="pre">ebv</span></code>
 model to correct for extinction in the host galaxy of an AGN, it is best
 to remove this bump from the model as it can have an effect on the fit
-to the data. The bump can be removed by setting the <code class="docutils literal notranslate"><span class="pre">mway</span></code> parameter to 0.</p>
+to the data. The bump can be removed by setting the <code class="docutils literal notranslate"><span class="pre">model</span></code> parameter to 2;
+alternatively, the Gordon et al. SMC model can be used.</p>
 <div class="line-block">
 <div class="line">The parameters of the model are:</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ebv</span></code> : The colour excess <img class="math" src="../_images/math/7cc9b5d920e706062dcab0d8e176047664eee497.svg" alt="E(B-V)" style="vertical-align: -4px"/>. The value is set by the
 user.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rv</span></code> : The scalar <img class="math" src="../_images/math/39fb57cfda40e102e4c279adcf0146d92923b8c7.svg" alt="R_{V}" style="vertical-align: -2px"/>. Default (recommended) value: 3.1</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full covering)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">mway</span></code> : Include the Milky Way broad bump (1 = Yes, 0 = No).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code> : 1: Cardelli et al. model with bump (default); 2:
+Cardelli et al. model without bump; 3: Gordon et al. SMC model. It is suggested to
+use R_V = 4 for this last case.</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989ApJ...345..245C/abstract">Cardelli et al. (1989)</a> and
-<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...422..158O/abstract">O’Donnell et al. (1994)</a>.</p>
-</div>
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1994ApJ...422..158O/abstract">O’Donnell et al. (1994)</a>
+for mode=1 and 2, and
+&lt;<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003ApJ...594..279G/abstract">https://ui.adsabs.harvard.edu/abs/2003ApJ…594..279G/abstract</a>&gt;`_
+for mode=3</p>
+</section>
 
 
           </div>
@@ -128,8 +143,8 @@ user.</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="dust.html" title="previous chapter"><span class="section-number">4.1.12. </span>Dust: dust scattering model</a></li>
-      <li>Next: <a href="etau.html" title="next chapter"><span class="section-number">4.1.14. </span>Etau: simple transmission model</a></li>
+      <li>Previous: <a href="dust.html" title="previous chapter"><span class="section-number">4.1.13. </span>Dust: dust scattering model</a></li>
+      <li>Next: <a href="etau.html" title="next chapter"><span class="section-number">4.1.15. </span>Etau: simple transmission model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -139,7 +154,7 @@ user.</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -158,9 +173,9 @@ user.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

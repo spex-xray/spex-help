@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.24. Sector: creating, copying and deleting of a sector &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1.26. Sector: creating, copying and deleting of a sector &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/sector.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1.25. Shiftplot: shift the plotted spectrum for display purposes" href="shiftplot.html" />
-    <link rel="prev" title="3.1.23. Quit: finish the program" href="quit.html" />
+    <link rel="next" title="3.1.27. Shiftplot: shift the plotted spectrum for display purposes" href="shiftplot.html" />
+    <link rel="prev" title="3.1.25. Quit: finish the program" href="quit.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,10 +34,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="sector-creating-copying-and-deleting-of-a-sector">
-<span id="sec-sector"></span><h1><span class="section-number">3.1.24. </span>Sector: creating, copying and deleting of a sector<a class="headerlink" href="#sector-creating-copying-and-deleting-of-a-sector" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2><span class="section-number">3.1.24.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+  <section id="sector-creating-copying-and-deleting-of-a-sector">
+<span id="sec-sector"></span><h1><span class="section-number">3.1.26. </span>Sector: creating, copying and deleting of a sector<a class="headerlink" href="#sector-creating-copying-and-deleting-of-a-sector" title="Permalink to this headline">¶</a></h1>
+<section id="overview">
+<h2><span class="section-number">3.1.26.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This allows one to create, delete, copy, and show the number of sectors,
 used for the analysis of the data. Sectors are designed to allow
 modeling of different sources of radiation with its own spectral model.
@@ -55,9 +55,9 @@ writes the model spectrum to an ascii file, formatted such that it is
 suited for the SPEX file model. The first line of the output file is an
 integer showing the number of bins, and the following lines show the
 energy bin centroid and the luminosity in <img class="math" src="../../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> ph/s/keV.</p>
-</div>
-<div class="section" id="syntax">
-<h2><span class="section-number">3.1.24.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="syntax">
+<h2><span class="section-number">3.1.26.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">new</span></code> : Creates a new sector, which can have its own model.</div>
@@ -67,9 +67,9 @@ energy bin centroid and the luminosity in <img class="math" src="../../_images/m
 <div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adump</span> <span class="pre">#i</span> <span class="pre">#a</span> <span class="pre">overwrite</span></code> : Writes the model spectrum of sector
 number #i to an ASCII file with name #a.</div>
 </div>
-</div>
-<div class="section" id="examples">
-<h2><span class="section-number">3.1.24.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.1.26.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">new</span></code> : Creates a new sector.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">copy</span> <span class="pre">2</span></code> : Creates a new sector, with the same spectral model
@@ -79,8 +79,8 @@ different sectors are very similar in composition.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">sector</span> <span class="pre">adump</span> <span class="pre">1</span> <span class="pre">model.txt</span></code> : Dumps the spectrum in sector 1 to
 model.txt</div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -128,8 +128,8 @@ model.txt</div>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
   <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
-      <li>Previous: <a href="quit.html" title="previous chapter"><span class="section-number">3.1.23. </span>Quit: finish the program</a></li>
-      <li>Next: <a href="shiftplot.html" title="next chapter"><span class="section-number">3.1.25. </span>Shiftplot: shift the plotted spectrum for display purposes</a></li>
+      <li>Previous: <a href="quit.html" title="previous chapter"><span class="section-number">3.1.25. </span>Quit: finish the program</a></li>
+      <li>Next: <a href="shiftplot.html" title="next chapter"><span class="section-number">3.1.27. </span>Shiftplot: shift the plotted spectrum for display purposes</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -139,7 +139,7 @@ model.txt</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -158,9 +158,9 @@ model.txt</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

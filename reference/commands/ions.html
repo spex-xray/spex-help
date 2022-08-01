@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.15. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1.17. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/ions.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1.16. Log: Making and using command files" href="log.html" />
-    <link rel="prev" title="3.1.14. Ignore: ignoring part of the spectrum" href="ignore.html" />
+    <link rel="next" title="3.1.18. Log: Making and using command files" href="log.html" />
+    <link rel="prev" title="3.1.16. Ignore: ignoring part of the spectrum" href="ignore.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,10 +34,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="ion-select-ions-for-the-plasma-models">
-<span id="sec-ions"></span><h1><span class="section-number">3.1.15. </span>Ion: select ions for the plasma models<a class="headerlink" href="#ion-select-ions-for-the-plasma-models" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2><span class="section-number">3.1.15.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+  <section id="ion-select-ions-for-the-plasma-models">
+<span id="sec-ions"></span><h1><span class="section-number">3.1.17. </span>Ion: select ions for the plasma models<a class="headerlink" href="#ion-select-ions-for-the-plasma-models" title="Permalink to this headline">¶</a></h1>
+<section id="overview">
+<h2><span class="section-number">3.1.17.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>For the plasma models, it is possible to include or exclude specific
 groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
@@ -46,8 +46,8 @@ requested.</p>
 for specific analysis purposes.</p>
 <p>There are two main reasons why the user may use this option: computational speed
 and educational reasons.</p>
-<div class="section" id="computational-speed">
-<h3><span class="section-number">3.1.15.1.1. </span>Computational speed<a class="headerlink" href="#computational-speed" title="Permalink to this headline">¶</a></h3>
+<section id="computational-speed">
+<h3><span class="section-number">3.1.17.1.1. </span>Computational speed<a class="headerlink" href="#computational-speed" title="Permalink to this headline">¶</a></h3>
 <p>The first reason is <strong>accelerating the calculations</strong>. For complex spectral models,
 the computational time may be long due to the large number of ions and transitions
 that need to be taken into account, in particular for the line calculations.</p>
@@ -70,9 +70,9 @@ an ion, it also cannot contribute to its neighbours.</p>
 calculation of the ionisation balance as well as the continuum always
 all ions are taken into account (unless of course the abundance is put
 to zero).</p>
-</div>
-<div class="section" id="diagnostics-education">
-<h3><span class="section-number">3.1.15.1.2. </span>Diagnostics &amp; education<a class="headerlink" href="#diagnostics-education" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="diagnostics-education">
+<h3><span class="section-number">3.1.17.1.2. </span>Diagnostics &amp; education<a class="headerlink" href="#diagnostics-education" title="Permalink to this headline">¶</a></h3>
 <p>The second reason to include or exclude ions is for
 <strong>diagnostic or educational reasons</strong>. It may be of interest to know how the spectrum
 of a single ion looks, or how the total spectrum would look without an ion.
@@ -101,9 +101,9 @@ make an ascii-output of the plasma parameters, take the temperature from
 there as the “tinp” parameter, and set tmod=1.
 You can play then with the mute/unmute command.</p>
 </div>
-</div>
-<div class="section" id="quicklook">
-<h3><span class="section-number">3.1.15.1.3. </span>Quicklook<a class="headerlink" href="#quicklook" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="quicklook">
+<h3><span class="section-number">3.1.17.1.3. </span>Quicklook<a class="headerlink" href="#quicklook" title="Permalink to this headline">¶</a></h3>
 <p>A new <strong>quicklook mode</strong> is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
@@ -237,9 +237,9 @@ captured by charge exchange usually populate the outer shells.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="ewlim">
-<h3><span class="section-number">3.1.15.1.4. </span>Ewlim<a class="headerlink" href="#ewlim" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ewlim">
+<h3><span class="section-number">3.1.17.1.4. </span>Ewlim<a class="headerlink" href="#ewlim" title="Permalink to this headline">¶</a></h3>
 <p>An alternative, tunable method to reduce the computation time is the <strong>ewlim mode</strong>. For a grid of temperatures and non-equilibrium
 ionisation or recombination parameters, for each spectral line in SPEX the maximum equivalent width <img class="math" src="../../_images/math/b8176ea3f9cd37ef8a7d22fa52dfbee689b1b823.svg" alt="W" style="vertical-align: 0px"/> has been computed.
 The equivalent width is here the line intensity divided by the continuum intensity for the same model. From this, we compute for each line
@@ -255,16 +255,16 @@ parameter values. Try experimenting with this.</p>
 <p>it is advised, after obtaining a best fit with some setting of ewlim, to set the parameter ewlim to -25 (including all lines), issue
 a calculate command, and compare the cstat value of this model with the cstat value of your fit. Dicide if this is good enough for your purpose.</p>
 </div>
-</div>
-<div class="section" id="mute-lines">
-<h3><span class="section-number">3.1.15.1.5. </span>Mute lines<a class="headerlink" href="#mute-lines" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mute-lines">
+<h3><span class="section-number">3.1.17.1.5. </span>Mute lines<a class="headerlink" href="#mute-lines" title="Permalink to this headline">¶</a></h3>
 <p>A new feature since version 3.06.01 is the line mute command. In some cases,
 when users what to study a particular line, they want to remove the line
 from the spectrum to replace it, for example, with a delta line or Gaussian.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">line</span></code> command allows to mute up to 10 spectral lines
 identified from the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">line</span></code> output. Please note that this command
 only works for SPEXACT v3 (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code>). When SPEXACT v3 is enabled, the
-<code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">line</span></code> command (<a class="reference internal" href="ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma properties</span></a>) will show a line list with line
+<code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">line</span></code> command (<a class="reference internal" href="ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a>) will show a line list with line
 id numbers:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1   O  VIII   1s 2S1/2                         - 2p 2P1/2                        0.6534939       18.97252      1.418E+42  1.689E-06  3.957E-04
 2   O  VIII   1s 2S1/2                         - 2s 2S1/2                        0.6535030       18.97225      1.011E+39  1.419E-12  3.957E-04
@@ -282,10 +282,10 @@ SPEX&gt; ions mute line 3 ion 8 8
 are the atomic number and ionisation stage, respectively. If necessary, the
 lines can be unmuted with the <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">line</span></code> command which has a very
 similar syntax.</p>
-</div>
-</div>
-<div class="section" id="syntax">
-<h2><span class="section-number">3.1.15.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="syntax">
+<h2><span class="section-number">3.1.17.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">show</span></code> : Display the list of ions currently taken into account</div>
@@ -361,9 +361,9 @@ element #i2 at ionisation stage #i3.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">line</span> <span class="pre">#i1</span> <span class="pre">ion</span> <span class="pre">#i2</span> <span class="pre">#i3</span></code> : Unmute a line with id #i1 for
 element #i2 at ionisation stage #i3.</div>
 </div>
-</div>
-<div class="section" id="examples">
-<h2><span class="section-number">3.1.15.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.1.17.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">all</span></code> : Do not take any line calculation into account</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">iso</span> <span class="pre">3</span></code> : Use ions from the <img class="math" src="../../_images/math/3c678eaf6b9647d804860e60ea42cc857c1fee7e.svg" alt="Z=3" style="vertical-align: 0px"/> (Li) iso-electronic
@@ -386,8 +386,8 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">mute</span> <span class="pre">line</span> <span class="pre">1</span> <span class="pre">ion</span> <span class="pre">8</span> <span class="pre">8</span></code> : Mute line id 1 for O VIII.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">unmute</span> <span class="pre">line</span> <span class="pre">1</span> <span class="pre">ion</span> <span class="pre">8</span> <span class="pre">8</span></code> : Unmute line id 1 for O VIII.</div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -435,8 +435,8 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
   <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
-      <li>Previous: <a href="ignore.html" title="previous chapter"><span class="section-number">3.1.14. </span>Ignore: ignoring part of the spectrum</a></li>
-      <li>Next: <a href="log.html" title="next chapter"><span class="section-number">3.1.16. </span>Log: Making and using command files</a></li>
+      <li>Previous: <a href="ignore.html" title="previous chapter"><span class="section-number">3.1.16. </span>Ignore: ignoring part of the spectrum</a></li>
+      <li>Next: <a href="log.html" title="next chapter"><span class="section-number">3.1.18. </span>Log: Making and using command files</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -446,7 +446,7 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -465,9 +465,9 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

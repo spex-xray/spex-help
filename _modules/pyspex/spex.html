@@ -4,15 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pyspex.spex &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyspex.spex &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/_modules/pyspex/spex.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -37,28 +36,32 @@
 
 <span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
-<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">int</span>
 
-<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
+<span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
 
 <span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">data</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">model</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">log</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">ascdump</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">pyspex_f2py</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">model</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ascdump</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">FuncFormatter</span>
+<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">quantity_support</span>
+<span class="n">quantity_support</span><span class="p">()</span>
 
-<span class="n">pyspex</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_version</span><span class="p">()</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;|S1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_version</span><span class="p">()</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;|S1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">_Singleton</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
@@ -69,7 +72,7 @@
        
     <span class="n">instance</span> <span class="o">=</span> <span class="kc">None</span>
     
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span><span class="p">:</span>
             <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">_Singleton</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -84,7 +87,7 @@
 <div class="viewcode-block" id="Session"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session">[docs]</a><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="n">Singleton</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This class contains all the classes and commands that are available in a pySPEX session.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Session.__init__"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.__init__"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Function to initialize the PYSPEX session. It starts an instance of SPEX in the background.</span>
 <span class="sd">        Furthermore, it initializes a set of objects containing information about the loaded data,</span>
 <span class="sd">        model values, optimization and logs.</span>
@@ -109,6 +112,8 @@
 <span class="sd">        :vartype mod_ions: model.Ions</span>
 <span class="sd">        :ivar mod_var: Model class for plasma model settings</span>
 <span class="sd">        :vartype mod_var: model.Var</span>
+<span class="sd">        :ivar mod_dem: Model class for DEM modeling</span>
+<span class="sd">        :vartype mod_dem: model.Dem</span>
 <span class="sd">        :ivar mod_spectrum: Model class containing commands to extract model results from SPEX</span>
 <span class="sd">        :vartype mod_spectrum: model.Spectrum</span>
 <span class="sd">        :ivar mod: Model class containing sectors, components and parameters.</span>
@@ -124,7 +129,7 @@
 <span class="sd">        :vartype logs: log.Log</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
-        <span class="n">pyspex</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_init</span><span class="p">()</span>  <span class="c1"># Initialize Fortran to Python interface</span>
+        <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_init</span><span class="p">()</span>  <span class="c1"># Initialize Fortran to Python interface</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span>  <span class="c1">#: The SPEX version number</span>
 
@@ -139,6 +144,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mod_ibal</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Ibal</span><span class="p">()</span>            <span class="c1">#: Model class for the ionisation balance setting</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod_ions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Ions</span><span class="p">()</span>            <span class="c1">#: Model class for setting the used ions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod_var</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Var</span><span class="p">()</span>              <span class="c1">#: Model class for plasma model settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Dem</span><span class="p">()</span>              <span class="c1">#: Model class for DEM modeling</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod_spectrum</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">()</span>    <span class="c1">#: Model class containing commands to extract model results from SPEX.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>                <span class="c1">#: Model class containing sectors, components and parameters.</span>
 
@@ -157,7 +163,7 @@
 <span class="sd">        :param comm: SPEX command.</span>
 <span class="sd">        :type comm: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
     <span class="c1"># ======================================================</span>
@@ -188,397 +194,46 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_abundance</span><span class="o">.</span><span class="n">ref</span></div>
 
     <span class="c1"># ======================================================</span>
-    <span class="c1"># Ascdump commands</span>
+    <span class="c1"># Aerror command</span>
     <span class="c1"># ======================================================</span>
-<div class="viewcode-block" id="Session.ascdump_plas"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_plas">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_plas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Basic plasma properties like temperature, electron density etc.</span>
+<div class="viewcode-block" id="Session.aerror"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.aerror">[docs]</a>    <span class="k">def</span> <span class="nf">aerror</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Command to calculate the uncertainty in a model parameter due to the uncertainties</span>
+<span class="sd">        in the atomic data.</span>
 
-<span class="sd">        :param isect: Sector number.</span>
+<span class="sd">        :param isect: Sector number of the component.</span>
 <span class="sd">        :type isect: int</span>
 <span class="sd">        :param icomp: Component number.</span>
 <span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump plasma object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Plas</span>
+<span class="sd">        :param name: Parameter name.</span>
+<span class="sd">        :type name: str</span>
+<span class="sd">        :param shell: Shell number for calculation (L-shell = 1, K-shell = 2)</span>
+<span class="sd">        :type shell: int</span>
+
+<span class="sd">        :return: The atomic uncertainty for the selected parameter.</span>
+<span class="sd">        :rtype: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Plas</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
+        <span class="n">aerror</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Aerror</span><span class="p">()</span>
+        <span class="n">aerr</span> <span class="o">=</span> <span class="n">aerror</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="n">shell</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Session.ascdump_abun"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_abun">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_abun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Elemental abundances and average charge per element.</span>
+        <span class="k">return</span> <span class="n">aerr</span></div>
 
-<span class="sd">        :param isect: Sector number.</span>
+    <span class="c1"># ======================================================</span>
+    <span class="c1"># Ascdump command</span>
+    <span class="c1"># ======================================================</span>
+<div class="viewcode-block" id="Session.ascdump"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">atype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generic ascdump method to obtain the various numeric outputs of the spectral models.</span>
+<span class="sd">        (see https://spex-xray.github.io/spex-help/reference/commands/ascdump.html for</span>
+<span class="sd">        more information).</span>
+
+<span class="sd">        :param isect: Sector number of the component.</span>
 <span class="sd">        :type isect: int</span>
 <span class="sd">        :param icomp: Component number.</span>
 <span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump abundance object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Abun</span>
+<span class="sd">        :param atype: Ascdump type</span>
+<span class="sd">        :type atype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Abun</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_icon"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_icon">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_icon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ion concentrations, both with respect to Hydrogen and the relevant elemental abundance.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump ion concentrations object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Icon</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Icon</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_rate"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_rate">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Total ionization, recombination and charge-transfer rates specified per ion.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump rate object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Rate</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Rate</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_rion"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_rion">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_rion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ionization rates per atomic subshell, specified according to the different contributing processes.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump rion object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Rion</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Rion</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_pop"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_pop">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The occupation numbers as well as upwards/downwards loss and gain rates to all quantum levels included.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump pop object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Pop</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Pop</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_elex"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_elex">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_elex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The electron collision excitation and de-excitation rates.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump Elex object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Elex</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Elex</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_prex"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_prex">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_prex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The proton collision excitation and de-excitation rates.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump Prex object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Prex</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Prex</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_rad"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_rad">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_rad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The radiative transition rates from each level.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump Rad object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Rad</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Rad</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_two"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_two">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_two</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The two-photon emission transition rates from each level.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump Two object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Two</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Two</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_time"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_time">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Recombination time scale per ion according to the Bottorf et al. (2000) definition,</span>
-<span class="sd">        and relative ion concentrations. Note that the recombination time scale depends upon</span>
-<span class="sd">        the hydrogen density, so do not forget to set the relevant density in the model.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump Two object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Time</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_rec"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_rec">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_rec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Outputs for each atomic level the populating contributions from radiative, dielectronic</span>
-<span class="sd">        and charge exchange recombination, as well as inner-shell ionisation.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump Rec object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Rec</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Rec</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_grid"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_grid">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The energy and wavelength grid used in the last evaluation of the spectrum.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump grid object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Grid</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Grid</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_clin"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_clin">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_clin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The continuum, line and total spectrum for each energy bin for the last plasma layer of the model.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump clin object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Clin</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Clin</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_line"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_line">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;ener&#39;</span><span class="p">,</span> <span class="n">erange</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">10.</span><span class="p">),</span> <span class="n">fluxlim</span><span class="o">=</span><span class="mf">1.E+35</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The line energy and wavelength, as well as the total line emission (photons/s)</span>
-<span class="sd">        for each line contributing to the spectrum, for the last plasma layer of the model.</span>
-<span class="sd">        Also given is the natural line width and the Doppler broadening (including thermal</span>
-<span class="sd">        and turbulent broadening), expressed as a FWHM in keV.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :param sort: Column to sort.</span>
-<span class="sd">        :type sort: str</span>
-<span class="sd">        :param erange: Energy range for output.</span>
-<span class="sd">        :type erange: Tuple</span>
-<span class="sd">        :param fluxlim: Minimum line emissivity to show (in photons/s).</span>
-<span class="sd">        :type fluxlim: float</span>
-<span class="sd">        :return: Ascdump Line object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Line</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span> <span class="n">erange</span><span class="o">=</span><span class="n">erange</span><span class="p">,</span> <span class="n">fluxlim</span><span class="o">=</span><span class="n">fluxlim</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_con"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_con">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;List of the ions that contribute to the free-free, free-bound and two-photon continuum emission,</span>
-<span class="sd">        followed by the free-free, free-bound, two-photon and total continuum spectrum for the last plasma layer of</span>
-<span class="sd">        the model.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump con object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Con</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Con</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_tcl"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_tcl">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_tcl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The continuum, line and total spectrum for each energy bin added for all plasma layers of the model.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump tcl object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Tcl</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Tcl</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_tcon"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_tcon">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_tcon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;List of the ions that contribute to the free-free, free-bound and two-photon continuum emission,</span>
-<span class="sd">        followed by the free-free, free-bound, two-photon and total continuum spectrum added for all plasma layers of</span>
-<span class="sd">        the model.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump con object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Tcon</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Tcon</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_nei"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_nei">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_nei</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The history of ionisation parameter and temperature in NEI calculations.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump nei object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Nei</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Nei</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_heat"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_heat">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_heat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Plasma heating rates (only for photoionized plasmas).</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump heat object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Heat</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Heat</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_ebal"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_ebal">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_ebal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the cooling and heating balance from the model for each model iteration (photoionization models only).</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump ebal object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Ebal</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Ebal</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_col"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_col">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_col</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The ionic column densities for the hot, pion, slab, xabs and warm models.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump col object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Col</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Col</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_tran"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_tran">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_tran</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">sortn</span><span class="o">=</span><span class="s1">&#39;ener&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;In two subsequent objects, the transmission and equivalent width of</span>
-<span class="sd">        absorption lines (asc.line) and absorption edges (asc.edge)</span>
-<span class="sd">        are listed for the hot, pion, slab, xabs and warm models. Optionally,</span>
-<span class="sd">        the lines can be sorted according to one of the output parameters.</span>
-<span class="sd">        See the sortn option for details.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :param sortn: Sort the data based on column: energy (ener), wavelength (wav), ion (ion), line power (powe), natural line width (wid).</span>
-<span class="sd">        :type sortn: str</span>
-<span class="sd">        :return: Ascdump tran object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Tran</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Tran</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">sortn</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_tranline"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_tranline">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_tranline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">sortn</span><span class="o">=</span><span class="s1">&#39;ener&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The transmission and equivalent width of absorption lines for the hot, pion, slab,</span>
-<span class="sd">        xabs, and warm models. Optionally, the lines can be sorted according to one of the output parameters.</span>
-<span class="sd">        See the sortn option for details.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :param sortn: Sort the data based on column: energy (ener), wavelength (wav), ion (ion), line power (powe), natural line width (wid).</span>
-<span class="sd">        :type sortn: str</span>
-<span class="sd">        :return: Ascdump tran object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Tranline</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Tranline</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">sortn</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_tranedge"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_tranedge">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_tranedge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The transmission and equivalent width of absorption edges for the hot, pion, slab,</span>
-<span class="sd">        xabs, and warm models.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump tran object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Tranedge</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Tranedge</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">asc</span></div>
-
-<div class="viewcode-block" id="Session.ascdump_warm"><a class="viewcode-back" href="../../pyspex/com_ascdump.html#pyspex.spex.Session.ascdump_warm">[docs]</a>    <span class="k">def</span> <span class="nf">ascdump_warm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The column densities, effective ionization parameters and temperatures of the warm model.</span>
-
-<span class="sd">        :param isect: Sector number.</span>
-<span class="sd">        :type isect: int</span>
-<span class="sd">        :param icomp: Component number.</span>
-<span class="sd">        :type icomp: int</span>
-<span class="sd">        :return: Ascdump warm object</span>
-<span class="sd">        :rtype: pyspex.ascdump.Warm</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Warm</span><span class="p">()</span>
-        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">)</span>
+        <span class="n">asc</span> <span class="o">=</span> <span class="n">ascdump</span><span class="o">.</span><span class="n">Ascdump</span><span class="p">()</span>
+        <span class="n">asc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">atype</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">asc</span></div>
 
     <span class="c1"># ======================================================</span>
@@ -657,7 +312,8 @@
 <span class="sd">        :param spofile: SPEX spectrum file name (including .spo extension).</span>
 <span class="sd">        :type spofile: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">resfile</span><span class="p">,</span> <span class="n">spofile</span><span class="p">)</span></div>
+        <span class="n">ier</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">resfile</span><span class="p">,</span> <span class="n">spofile</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Session.data_del"><a class="viewcode-back" href="../../pyspex/com_data.html#pyspex.spex.Session.data_del">[docs]</a>    <span class="k">def</span> <span class="nf">data_del</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Delete an instrument from the dataset.</span>
@@ -684,15 +340,195 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;data show&#39;</span><span class="p">)</span>
 
-
     <span class="c1"># ======================================================</span>
     <span class="c1"># Dem commands</span>
     <span class="c1"># ======================================================</span>
+<div class="viewcode-block" id="Session.dem_lib"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_lib">[docs]</a>    <span class="k">def</span> <span class="nf">dem_lib</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create the basic DEM library of isothermal spectra.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem lib&#39;</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Session.dem_reg_auto"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_reg_auto">[docs]</a>    <span class="k">def</span> <span class="nf">dem_reg_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do DEM analysis using the regularization method using an automatic search of the optimum regularization</span>
+<span class="sd">        parameter. It determines the regularisation parameter R in such a way that</span>
+<span class="sd">        :math:`\chi^2(R) = \chi^2(0) [1 + s \sqrt{2/(n-n_{\mathrm T}}]` where the scaling factor s=1, n is the number of</span>
+<span class="sd">        spectral bins in the data set and :math:`n_{\mathrm T}` is the number of temperature components in the DEM library.</span>
+
+<span class="sd">        :param s: Scaling factor in the automatic search for R (optional).</span>
+<span class="sd">        :type s: int</span>
+<span class="sd">        :return chisq: Best fit :math:`\chi^2(R)`.</span>
+<span class="sd">        :rtype chisq: float</span>
+<span class="sd">        :return dempen: DEM penalty (number of zero emission components)</span>
+<span class="sd">        :rtype dempen: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem reg auto </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chisq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">dempen</span></div>
+
+<div class="viewcode-block" id="Session.dem_reg"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_reg">[docs]</a>    <span class="k">def</span> <span class="nf">dem_reg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do DEM analysis using the regularization method, using a</span>
+<span class="sd">        fixed regularization parameter R = r.</span>
+
+<span class="sd">        :param r: Regularization parameter R</span>
+<span class="sd">        :type r: int</span>
+<span class="sd">        :return chisq: Best fit :math:`\chi^2`.</span>
+<span class="sd">        :rtype chisq: float</span>
+<span class="sd">        :return dempen: DEM penalty (number of zero emission components)</span>
+<span class="sd">        :rtype dempen: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem reg </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chisq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">dempen</span></div>
+
+<div class="viewcode-block" id="Session.dem_chireg"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_chireg">[docs]</a>    <span class="k">def</span> <span class="nf">dem_chireg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do a grid search over the regularization parameter R, with ``n`` steps and R distributed logarithmically</span>
+<span class="sd">        between ``r1`` and ``r2``. Useful to scan the :math:`\chi^2(R)` curve whenever it is complicated and to see how</span>
+<span class="sd">        much `penalty` (negative DEM values) there are for each value of R.</span>
+
+<span class="sd">        :param r1: Lower boundary for R.</span>
+<span class="sd">        :type r1: float</span>
+<span class="sd">        :param r2: Upper boundary for R.</span>
+<span class="sd">        :type r2: float</span>
+<span class="sd">        :param n: Number of steps.</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :return chi_table: Table with the Chi^2 and DEM penalty values for each regularization parameter.</span>
+<span class="sd">        :rtype chi_table: astropy.table.QTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem chireg </span><span class="si">{0}</span><span class="s1">:</span><span class="si">{1}</span><span class="s1"> </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chi_table</span></div>
+
+<div class="viewcode-block" id="Session.dem_clean"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_clean">[docs]</a>    <span class="k">def</span> <span class="nf">dem_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do DEM analysis using the clean method.</span>
+
+<span class="sd">        :return chisq: Best fit :math:`\chi^2`.</span>
+<span class="sd">        :rtype chisq: float</span>
+<span class="sd">        :return dempen: DEM penalty (number of zero emission components)</span>
+<span class="sd">        :rtype dempen: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem clean&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chisq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">dempen</span></div>
+
+<div class="viewcode-block" id="Session.dem_poly"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_poly">[docs]</a>    <span class="k">def</span> <span class="nf">dem_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do DEM analysis using the polynomial method, where ``degree`` is the degree of the polynomial.</span>
+
+<span class="sd">        :param degree: The degree of the polynomial.</span>
+<span class="sd">        :type degree: int</span>
+<span class="sd">        :return chisq: Best fit :math:`\chi^2`.</span>
+<span class="sd">        :rtype chisq: float</span>
+<span class="sd">        :return dempen: DEM penalty (number of zero emission components)</span>
+<span class="sd">        :rtype dempen: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem poly </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">degree</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chisq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">dempen</span></div>
+
+<div class="viewcode-block" id="Session.dem_mult"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_mult">[docs]</a>    <span class="k">def</span> <span class="nf">dem_mult</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ncomp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do DEM analysis using the multi-temperature method, where ``ncomp`` is the number of broad components.</span>
+
+<span class="sd">        :param ncomp: Number of broad temperature components.</span>
+<span class="sd">        :type ncomp: int</span>
+<span class="sd">        :return mult_table: Table containing the best temperature components and their emission measure.</span>
+<span class="sd">        :rtype mult_table: astropy.table.QTable</span>
+<span class="sd">        :return chisq: Best fit :math:`\chi^2`.</span>
+<span class="sd">        :rtype chisq: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem mult </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ncomp</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chisq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">mult_table</span></div>
+
+<div class="viewcode-block" id="Session.dem_gene"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_gene">[docs]</a>    <span class="k">def</span> <span class="nf">dem_gene</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pop</span><span class="p">,</span> <span class="n">gen</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do DEM analysis using the genetic algorithm, using a population size given by ``pop`` (maximum value 1024)</span>
+<span class="sd">        and ``gen`` is the number of generations (no limit, in practice after about 100 generations not much change in</span>
+<span class="sd">        the solution. Experiment with these numbers for your practical case).</span>
+
+<span class="sd">        :param pop: Population size</span>
+<span class="sd">        :type pop: int</span>
+<span class="sd">        :param gen: Number of generations</span>
+<span class="sd">        :type gen: int</span>
+<span class="sd">        :return mult_table: Table containing the best temperature components and their emission measure.</span>
+<span class="sd">        :rtype mult_table: astropy.table.QTable</span>
+<span class="sd">        :return chisq: Best fit :math:`\chi^2`.</span>
+<span class="sd">        :rtype chisq: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem gene </span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">gen</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">chisq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">dempen</span></div>
+
+<div class="viewcode-block" id="Session.dem_read"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_read">[docs]</a>    <span class="k">def</span> <span class="nf">dem_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Read a DEM distribution from a file named #a which automatically gets the extension ``.dem``. It is an ascii</span>
+<span class="sd">        file with at least two columns, the first column is the temperature in keV and the second column the</span>
+<span class="sd">        differential emission measure, in units of :math:`10^{64} m^{-3} keV^{-1}`. The maximum number of data points</span>
+<span class="sd">        in this file is 8192. Temperature should be in increasing order. The data will be interpolated to match</span>
+<span class="sd">        the temperature grid defined in the dem model (which is set by the user).</span>
+
+<span class="sd">        :param file: Filename without ``.dem`` extension.</span>
+<span class="sd">        :type file: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem read </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Session.dem_write"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_write">[docs]</a>    <span class="k">def</span> <span class="nf">dem_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save the DEM to a file ``file`` with extension “.dem”. The same format as above is used for the file. A third</span>
+<span class="sd">        column has the corresponding error bars on the DEM as determined by the DEM method used (not always relevant</span>
+<span class="sd">        or well defined, exept for the regularization method).</span>
+
+<span class="sd">        :param file: Filename without ``.dem`` extension.</span>
+<span class="sd">        :type file: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem write </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Session.dem_smooth"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_smooth">[docs]</a>    <span class="k">def</span> <span class="nf">dem_smooth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Smoothes a DEM previously determined by any DEM method using a block filter/ Here ``width`` is the full width</span>
+<span class="sd">        of the filter expressed in :math:`^{10}\log T`. Note that this smoothing will in principle worsen the</span>
+<span class="sd">        :math:`\chi^2` of the solution, but it is sometimes useful to “wash out” some residual noise in the DEM</span>
+<span class="sd">        distribution, preserving total emission measure.</span>
+
+<span class="sd">        :param width: The full width of the filter expressed in :math:`^{10}\log T`.</span>
+<span class="sd">        :type width: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;dem smooth </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">width</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Session.dem_get"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_get">[docs]</a>    <span class="k">def</span> <span class="nf">dem_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the best-fit DEM distribution.</span>
+
+<span class="sd">        :return table: Table with the DEM distribution</span>
+<span class="sd">        :rtype table: astropy.table.QTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">table</span></div>
+
+<div class="viewcode-block" id="Session.dem_plot"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dem_plot">[docs]</a>    <span class="k">def</span> <span class="nf">dem_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Plot the DEM distribution.</span>
+
+<span class="sd">        :param xlog: Make the X-axis logarithmic.</span>
+<span class="sd">        :type xlog: bool</span>
+<span class="sd">        :param ylog: Make the Y-axis logarithmic.</span>
+<span class="sd">        :type ylog: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;kT&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;DY&#39;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;DY_Err&#39;</span><span class="p">],</span>
+                    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">xlog</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+            <span class="n">formatter</span> <span class="o">=</span> <span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:.16g}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ylog</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (</span><span class="si">{0}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;kT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="s1">&#39;latex_inline&#39;</span><span class="p">)))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Differential Emission Measure (</span><span class="si">{0}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_dem</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;DY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="s1">&#39;latex_inline&#39;</span><span class="p">)))</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
 
     <span class="c1"># ======================================================</span>
     <span class="c1"># Distance commands</span>
     <span class="c1"># ======================================================</span>
+
 <div class="viewcode-block" id="Session.dist"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.dist">[docs]</a>    <span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set the distance in SPEX.</span>
 
@@ -878,6 +714,26 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">set_statistic</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Session.fit_stat_inst"><a class="viewcode-back" href="../../pyspex/com_opt.html#pyspex.spex.Session.fit_stat_inst">[docs]</a>    <span class="k">def</span> <span class="nf">fit_stat_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the fit statistics for a particular instrument and region.</span>
+
+<span class="sd">        :param stat: Fit statistics, for example: &#39;csta&#39;, &#39;chi2&#39;, &#39;wsta&#39;</span>
+<span class="sd">        :type stat: str</span>
+<span class="sd">        :param inst: Instrument number.</span>
+<span class="sd">        :type inst: int</span>
+<span class="sd">        :param reg: Region number.</span>
+<span class="sd">        :type reg: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">set_statistic_inst</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Session.fit_method"><a class="viewcode-back" href="../../pyspex/com_opt.html#pyspex.spex.Session.fit_method">[docs]</a>    <span class="k">def</span> <span class="nf">fit_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the fit statistics for a particular instrument and region.</span>
+
+<span class="sd">        :param method: Fit method: classical, simplex or anneal</span>
+<span class="sd">        :type stat: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">set_method</span><span class="p">(</span><span class="n">method</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Session.fit_cstat"><a class="viewcode-back" href="../../pyspex/com_opt.html#pyspex.spex.Session.fit_cstat">[docs]</a>    <span class="k">def</span> <span class="nf">fit_cstat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the current C-statistics from the model.</span>
 
@@ -895,6 +751,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">chisq</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">nfree</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Session.fit_set_ann"><a class="viewcode-back" href="../../pyspex/com_opt.html#pyspex.spex.Session.fit_set_ann">[docs]</a>    <span class="k">def</span> <span class="nf">fit_set_ann</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the simulating annealing method parameters.</span>
+
+<span class="sd">        :param param: Type of annealing parameter (rt, t, eps, vm, ns, max, or print).</span>
+<span class="sd">        :type param: str</span>
+<span class="sd">        :param value: Value of the parameter (will be converted to the nearest int if necessary).</span>
+<span class="sd">        :type value: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opt_fit</span><span class="o">.</span><span class="n">set_ann</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
     <span class="c1"># Help commands not implemented</span>
 
@@ -1171,6 +1037,22 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="o">.</span><span class="n">par_aset</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
+    <span class="k">def</span> <span class="nf">par_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return all the properties of a parameter with sector (isect), component (icomp) and name (name).</span>
+<span class="sd">        The output is a parameter object.</span>
+
+<span class="sd">        :param isect: Sector number of the parameter.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :param icomp: Component number of the parameter.</span>
+<span class="sd">        :type icomp: int</span>
+<span class="sd">        :param name: Parameter name.</span>
+<span class="sd">        :type name: str</span>
+<span class="sd">        :return par: Parameter properties</span>
+<span class="sd">        :rtype par: pyspex.model.Parameter</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">par</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="o">.</span><span class="n">par_get</span><span class="p">(</span><span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">par</span>
+
 <div class="viewcode-block" id="Session.par_fix"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.par_fix">[docs]</a>    <span class="k">def</span> <span class="nf">par_fix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fix a model parameter during the fit.</span>
 
@@ -1311,13 +1193,15 @@
     <span class="c1"># ======================================================</span>
     <span class="c1"># Plot</span>
     <span class="c1"># ======================================================</span>
-<div class="viewcode-block" id="Session.plot_area"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_area">[docs]</a>    <span class="k">def</span> <span class="nf">plot_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Effective Area&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.plot_area"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_area">[docs]</a>    <span class="k">def</span> <span class="nf">plot_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Effective Area&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the effective area of all instruments.</span>
 
 <span class="sd">        :param xlog: (Optional) Set the X-axis to be logarithmic.</span>
 <span class="sd">        :type xlog: bool</span>
 <span class="sd">        :param ylog: (Optional) Set the Y-axis to be logarithmic.</span>
 <span class="sd">        :type ylog: bool</span>
+<span class="sd">        :param wave: (Optional) Plot the effective area as function of wavelength (Angstrom)</span>
+<span class="sd">        :type wave: bool</span>
 <span class="sd">        :param title: (Optional) Set the title of the plot.</span>
 <span class="sd">        :type title: str</span>
 <span class="sd">        :param show: (Optional) Show the plot (True) or return the plot object (False).</span>
@@ -1328,13 +1212,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pl</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">PlotArea</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
-            <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span><span class="p">,</span> <span class="n">plt</span></div>
 
-<div class="viewcode-block" id="Session.plot_data"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.plot_data"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the observed spectrum with the convolved model for all instruments.</span>
 
 <span class="sd">        :param xlog: (Optional) Set the X-axis to be logarithmic.</span>
@@ -1351,13 +1235,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pl</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">PlotData</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
-            <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span><span class="p">,</span> <span class="n">plt</span></div>
 
-<div class="viewcode-block" id="Session.plot_chi"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_chi">[docs]</a>    <span class="k">def</span> <span class="nf">plot_chi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">chi</span><span class="o">=</span><span class="s1">&#39;dchi&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.plot_chi"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_chi">[docs]</a>    <span class="k">def</span> <span class="nf">plot_chi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">chi</span><span class="o">=</span><span class="s1">&#39;dchi&#39;</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the observed spectrum with the convolved model and their residuals for all instruments.</span>
 
 <span class="sd">        :param xlog: (Optional) Set the X-axis to be logarithmic.</span>
@@ -1366,6 +1250,8 @@
 <span class="sd">        :type ylog: bool</span>
 <span class="sd">        :param chi: (Optional) Type of residual, either &#39;dchi&#39; or &#39;rel&#39;.</span>
 <span class="sd">        :type chi: str</span>
+<span class="sd">        :param wave: (Optional) Plot residuals as function of wavelength (Angstrom)</span>
+<span class="sd">        :type wave: bool</span>
 <span class="sd">        :param title: (Optional) Set the title of the plot.</span>
 <span class="sd">        :type title: str</span>
 <span class="sd">        :param show: (Optional) Show the plot (True) or return the plot object (False).</span>
@@ -1376,19 +1262,21 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pl</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">PlotData</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
-            <span class="n">pl</span><span class="o">.</span><span class="n">chiplot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">chi</span><span class="o">=</span><span class="n">chi</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">chiplot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">chi</span><span class="o">=</span><span class="n">chi</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">chiplot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">chi</span><span class="o">=</span><span class="n">chi</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">chiplot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">chi</span><span class="o">=</span><span class="n">chi</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span><span class="p">,</span> <span class="n">plt</span></div>
 
-<div class="viewcode-block" id="Session.plot_comp"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_comp">[docs]</a>    <span class="k">def</span> <span class="nf">plot_comp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.plot_comp"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_comp">[docs]</a>    <span class="k">def</span> <span class="nf">plot_comp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the individual model components.</span>
 
 <span class="sd">        :param xlog: (Optional) Set the X-axis to be logarithmic.</span>
 <span class="sd">        :type xlog: bool</span>
 <span class="sd">        :param ylog: (Optional) Set the Y-axis to be logarithmic.</span>
 <span class="sd">        :type ylog: bool</span>
+<span class="sd">        :param wave: (Optional) Plot the components as function of wavelength (Angstrom)</span>
+<span class="sd">        :type wave: bool</span>
 <span class="sd">        :param title: (Optional) Set the title of the plot.</span>
 <span class="sd">        :type title: str</span>
 <span class="sd">        :param show: (Optional) Show the plot (True) or return the plot object (False).</span>
@@ -1399,19 +1287,21 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pl</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">PlotData</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
-            <span class="n">pl</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span><span class="p">,</span> <span class="n">plt</span></div>
 
-<div class="viewcode-block" id="Session.plot_model"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_model">[docs]</a>    <span class="k">def</span> <span class="nf">plot_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX Model Spectrum&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.plot_model"><a class="viewcode-back" href="../../pyspex/com_plot.html#pyspex.spex.Session.plot_model">[docs]</a>    <span class="k">def</span> <span class="nf">plot_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xlog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;SPEX Model Spectrum&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot the spectral model.</span>
 
 <span class="sd">        :param xlog: (Optional) Set the X-axis to be logarithmic.</span>
 <span class="sd">        :type xlog: bool</span>
 <span class="sd">        :param ylog: (Optional) Set the Y-axis to be logarithmic.</span>
 <span class="sd">        :type ylog: bool</span>
+<span class="sd">        :param wave: (Optional) Plot in wavelength (Angstrom)</span>
+<span class="sd">        :type wave: bool</span>
 <span class="sd">        :param title: (Optional) Set the title of the plot.</span>
 <span class="sd">        :type title: str</span>
 <span class="sd">        :param show: (Optional) Show the plot (True) or return the plot object (False).</span>
@@ -1422,10 +1312,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pl</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">PlotModel</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
-            <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">plt</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="o">=</span><span class="n">xlog</span><span class="p">,</span> <span class="n">ylog</span><span class="o">=</span><span class="n">ylog</span><span class="p">,</span> <span class="n">wave</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">pl</span><span class="p">,</span> <span class="n">plt</span></div>
 
     <span class="c1"># ======================================================</span>
@@ -1450,6 +1340,21 @@
 <span class="sd">        :type isect: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="o">.</span><span class="n">sector_delete</span><span class="p">(</span><span class="n">isect</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">sector_adump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dump the spectrum of this sector to an object.</span>
+
+<span class="sd">        :param isect: Sector number.</span>
+<span class="sd">        :type isect: int</span>
+<span class="sd">        :return: Spectrum object.</span>
+<span class="sd">        :rtype: pyspex.model.Spectrum</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isect</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">isect</span><span class="p">)</span>
+            <span class="n">spectrum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spectrum</span>
+            <span class="k">return</span> <span class="n">spectrum</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
 
     <span class="c1"># Shiftplot</span>
 
@@ -1610,6 +1515,15 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mod_var</span><span class="o">.</span><span class="n">set_newcooldr</span><span class="p">(</span><span class="n">status</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Session.var_cxcon"><a class="viewcode-back" href="../../pyspex/com_model.html#pyspex.spex.Session.var_cxcon">[docs]</a>    <span class="k">def</span> <span class="nf">var_cxcon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set charge exchange recombination and ionization rates according to either</span>
+<span class="sd">        1 = Arnaud &amp; Rothenflug (1985) or 2 = Kingdon &amp; Ferland (1996). Default is 2.</span>
+
+<span class="sd">        :param value: Recombination and ionisation rateset. 1 = Arnaud &amp; Rothenflug, 2 = Kingdon &amp; Ferland.</span>
+<span class="sd">        :type value: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_var</span><span class="o">.</span><span class="n">set_cxcon</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
     <span class="c1"># ======================================================</span>
     <span class="c1"># Vbin</span>
     <span class="c1"># ======================================================</span>
@@ -1640,9 +1554,9 @@
     <span class="c1"># ======================================================</span>
     <span class="c1"># Quit command (automatic)</span>
     <span class="c1"># ======================================================</span>
-    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Automatic quit command.&quot;&quot;&quot;</span>
-        <span class="n">pyspex</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_final</span><span class="p">()</span></div>
+        <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_final</span><span class="p">()</span></div>
 </pre></div>
 
           </div>
@@ -1693,7 +1607,7 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -1712,9 +1626,9 @@
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Jul 28, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2021, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

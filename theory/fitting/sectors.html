@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8.2.3. Sectors and regions &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8.3.3. Sectors and regions &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/fitting/sectors.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.2.4. Spectral Fitting" href="fitting.html" />
-    <link rel="prev" title="8.2.2. Different types of spectral components" href="modtype.html" />
+    <link rel="next" title="8.3.4. Spectral Fitting" href="fitting.html" />
+    <link rel="prev" title="8.3.2. Different types of spectral components" href="modtype.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,10 +34,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="sectors-and-regions">
-<span id="sec-sectorsandregions"></span><h1><span class="section-number">8.2.3. </span>Sectors and regions<a class="headerlink" href="#sectors-and-regions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2><span class="section-number">8.2.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+  <section id="sectors-and-regions">
+<span id="sec-sectorsandregions"></span><h1><span class="section-number">8.3.3. </span>Sectors and regions<a class="headerlink" href="#sectors-and-regions" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2><span class="section-number">8.3.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In many cases an observer analyses the observed spectrum of a single
 X-ray source with a single instrument. There are however situations
 with more complex geometries or multiple instruments involved that
@@ -66,9 +66,9 @@ background simultaneously with the source spectrum, the particle
 background needs to be folded with a different response function.</p>
 <p>These examples can be modeled and fitted using the SPEX concept
 of sectors and regions.</p>
-</div>
-<div class="section" id="sectors">
-<h2><span class="section-number">8.2.3.2. </span>Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sectors">
+<h2><span class="section-number">8.3.3.2. </span>Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">¶</a></h2>
 <p>Sectors are a way in SPEX to organize or group model components
 that are related to each other. For example, we may put components
 related to the source spectrum and components related to the
@@ -90,9 +90,9 @@ using a power law, and the spectrum from the surrounding cluster
 emission using a thermal plasma model.</p>
 <p>Sectors can be defined using the command <a class="reference internal" href="../../reference/commands/sector.html#sec-sector"><span class="std std-ref">Sector: creating, copying and deleting of a sector</span></a> in combination
 with the <a class="reference internal" href="../../reference/commands/component.html#sec-comp"><span class="std std-ref">Comp: create, delete and relate spectral components</span></a> command.</p>
-</div>
-<div class="section" id="regions-and-instruments">
-<h2><span class="section-number">8.2.3.3. </span>Regions and instruments<a class="headerlink" href="#regions-and-instruments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="regions-and-instruments">
+<h2><span class="section-number">8.3.3.3. </span>Regions and instruments<a class="headerlink" href="#regions-and-instruments" title="Permalink to this headline">¶</a></h2>
 <p>The observed count rate spectra are extracted in practice in different
 regions of the detector. It is necessary here to distinguish clearly the
 model sectors and detector regions. A detector region for the XMM EPIC
@@ -118,9 +118,9 @@ difference is that regions usually have the same or similar response
 properties, while different instruments have different responses.
 Although this difference exists, in practice instruments and regions
 are often mixed.</p>
-</div>
-<div class="section" id="including-sectors-and-regions-in-trafo">
-<h2><span class="section-number">8.2.3.4. </span>Including sectors and regions in trafo<a class="headerlink" href="#including-sectors-and-regions-in-trafo" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="including-sectors-and-regions-in-trafo">
+<h2><span class="section-number">8.3.3.4. </span>Including sectors and regions in trafo<a class="headerlink" href="#including-sectors-and-regions-in-trafo" title="Permalink to this headline">¶</a></h2>
 <p>If certain model components need to be applied to particular spectra,
 the <code class="docutils literal notranslate"><span class="pre">trafo</span></code> program (<a class="reference internal" href="../../tools/trafo.html#sect-trafo"><span class="std std-ref">Trafo</span></a>) can be used to predefine
 the sector and region numbers in the .res and .spo files. This can be
@@ -131,8 +131,8 @@ components are folded with a different response than the source
 components. In addition, model spectra from both sectors can be
 added and applied to one detector region. This example is explained in
 more detail in <a class="reference internal" href="../../threads/partbkg/partbkg.html#sec-modpartbkg"><span class="std std-ref">Modeling particle background</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -166,9 +166,10 @@ more detail in <a class="reference internal" href="../../threads/partbkg/partbkg
 <li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../spexact.html">8.1. SPEX Atomic Code &amp; Tables</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../fitting.html">8.2. Modelling and fitting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../response.html">8.3. Optimal definition of respons matrices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../turbulence.html">8.4. Definition of the micro-turbulent velocity in SPEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spex2notation.html">8.2. SPEX 2 notation of atomic transitions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../fitting.html">8.3. Modelling and fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../response.html">8.4. Optimal definition of respons matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../turbulence.html">8.5. Definition of the micro-turbulent velocity in SPEX</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
@@ -181,9 +182,9 @@ more detail in <a class="reference internal" href="../../threads/partbkg/partbkg
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../theory.html"><span class="section-number">8. </span>SPEX Theory</a><ul>
-  <li><a href="../fitting.html"><span class="section-number">8.2. </span>Modelling and fitting</a><ul>
-      <li>Previous: <a href="modtype.html" title="previous chapter"><span class="section-number">8.2.2. </span>Different types of spectral components</a></li>
-      <li>Next: <a href="fitting.html" title="next chapter"><span class="section-number">8.2.4. </span>Spectral Fitting</a></li>
+  <li><a href="../fitting.html"><span class="section-number">8.3. </span>Modelling and fitting</a><ul>
+      <li>Previous: <a href="modtype.html" title="previous chapter"><span class="section-number">8.3.2. </span>Different types of spectral components</a></li>
+      <li>Next: <a href="fitting.html" title="next chapter"><span class="section-number">8.3.4. </span>Spectral Fitting</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -193,7 +194,7 @@ more detail in <a class="reference internal" href="../../threads/partbkg/partbkg
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -212,9 +213,9 @@ more detail in <a class="reference internal" href="../../threads/partbkg/partbkg
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

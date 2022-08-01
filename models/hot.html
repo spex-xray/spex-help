@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.1.18. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.20. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/hot.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.19. Hyd: model with user-own hydrodynamical simulation" href="hyd.html" />
-    <link rel="prev" title="4.1.17. Gaus: gaussian line model" href="gaus.html" />
+    <link rel="next" title="4.1.21. Hyd: model with user-own hydrodynamical simulation" href="hyd.html" />
+    <link rel="prev" title="4.1.19. Gaus: gaussian line model" href="gaus.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,8 +34,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="hot-collisional-ionisation-equilibrium-absorption-model">
-<span id="sect-hot"></span><h1><span class="section-number">4.1.18. </span>Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Permalink to this headline">¶</a></h1>
+  <section id="hot-collisional-ionisation-equilibrium-absorption-model">
+<span id="sect-hot"></span><h1><span class="section-number">4.1.20. </span>Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the transmission of a plasma in collisional
 ionisation equilibrium with cosmic abundances.</p>
 <p>For a given temperature and set of abundances, the model calculates the
@@ -84,17 +84,18 @@ covering)</div>
 components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
 components</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift)</div>
 </div>
 <p>The following parameters are the same as for the cie-model (<a class="reference internal" href="cie.html#sect-cie"><span class="std std-ref">Cie: collisional ionisation equilibrium model</span></a>):</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">b</span></code> : External magnetic field strength in Gauss. See <em>cie</em> section. Default value: 0</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...423...49D/abstract">de Plaa et al. (2004)</a> and
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract">Steenbrugge et al. (2005)</a>.</p>
-</div>
+</section>
 
 
           </div>
@@ -142,8 +143,8 @@ components</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="gaus.html" title="previous chapter"><span class="section-number">4.1.17. </span>Gaus: gaussian line model</a></li>
-      <li>Next: <a href="hyd.html" title="next chapter"><span class="section-number">4.1.19. </span>Hyd: model with user-own hydrodynamical simulation</a></li>
+      <li>Previous: <a href="gaus.html" title="previous chapter"><span class="section-number">4.1.19. </span>Gaus: gaussian line model</a></li>
+      <li>Next: <a href="hyd.html" title="next chapter"><span class="section-number">4.1.21. </span>Hyd: model with user-own hydrodynamical simulation</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -153,7 +154,7 @@ components</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -172,9 +173,9 @@ components</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

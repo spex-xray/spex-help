@@ -53,7 +53,7 @@ The following parameters are common to all our absorption models:
   components
 | ``dv`` : Velocity distance :math:`\Delta v` between different blend
   components
-| ``zv`` : Average systematic velocity :math:`v` of the absorber
+| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift).
 
 The following parameters are the same as for the cie-model (see there
 for a description):

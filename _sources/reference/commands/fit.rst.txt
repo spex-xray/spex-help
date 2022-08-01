@@ -57,12 +57,12 @@ flag controlling the printing of intermediate results.
 Fit statistic
 ~~~~~~~~~~~~~
 
-At the moment SPEX uses two types of fit statistic, :math:`\chi^2` and
-C-stat. We first treat the :math:`\chi^2` statistic, because
+At the moment SPEX uses three types of fit statistic, :math:`\chi^2` C-stat and
+W-stat. We first treat the :math:`\chi^2` statistic, because
 historically that has been most widely used. However, in the present
 version of SPEX  C-stat is the default because in the far majority of
 the cases it gives more robust results. Both statistics can be used for all
-of the fitting methods.
+of the fitting methods. W-stat is not recommended to be used (see later).
 
 Chi-squared fitting
 ~~~~~~~~~~~~~~~~~~~
@@ -215,6 +215,16 @@ oscillatory behaviour. Also, a full fit with error search of that
 spectrum required four times more model evaluations compared with C-stat
 fitting with filtered background.
 
+Mixed modes
+~~~~~~~~~~~
+
+Although usually it is recommended to use C-stat, there can be situations where some data
+are delivered as Gaussian variables, hence chi-squared statistics should be used.
+Obviously the user can switch between such modes, but in case there is a mixture of instruments
+that require different statistics, the preferred statistic can be set per instrument region.
+The total fit statistic is then the sum of the contributions from the different regions, be it
+C-stat or chi-squared.
+
 Syntax
 ~~~~~~
 
@@ -234,11 +244,16 @@ The following syntax rules apply:
 | ``fit weight data`` : Use the errors in the spectral data file as a
   basis for the statistical weight in all subsequent spectral fitting.
   This is the default at the start of SPEX.
-| ``fit statistic chi2`` : Use the :math:`\chi^2` statistic for the
+| ``fit statistic chi2`` : Use the :math:`\chi^2` statistic for all instruments for the
   minimisation.
-| ``fit statistic cstat`` : Use the C-statistics for the minimisation.
+| ``fit statistic cstat`` : Use the C-statistic for all instruments for the minimisation.
   This is the default at start-up.
-| ``fit statistic wstat`` : Use the W-statistics for the minimisation.
+| ``fit statistic wstat`` : Use the W-statistic for all instruments for the minimisation.
+| ``fit statistic chi2 #i1: #i2:`` : Change to the :math:`\chi^2` statistic for the instrument (range) #i1: and region (range) #i2: for the
+  minimisation.
+| ``fit statistic cstat #i1: #i2:`` : Change to the C-statistic for the instrument (range) #i1: and region (range) #i2: for the minimisation.
+  This is the default at start-up.
+| ``fit statistic wstat #i1: #i2:`` : Change to the W-statistic for the instrument (range) #i1: and region (range) #i2: for the minimisation.
 | ``fit method classical`` : Use the classical Levenberg-Marquardt
   minimisation as the fitting method.
 | ``fit method simplex`` : Use simplex
@@ -294,5 +309,6 @@ Examples
   find minima.
 | ``fit ann rt 0.5`` : changes the temperature reduction factor for simulated
   annealing to 0.5.
-| ``fit statistic chi2`` : Switch from C-statistics to :math:`\chi^2`.
+| ``fit statistic chi2`` : Switch from C-statistics to :math:`\chi^2` (for all instruments and regions).
 | ``fit statistic cstat`` : Switch back to C-statistics.
+| ``fit statistic chi2 2 3:4`` : Switch to :math:`\chi^2` statistics for instrument 2, regions 3 to 4.

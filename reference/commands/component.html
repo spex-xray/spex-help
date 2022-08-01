@@ -4,20 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.5. Comp: create, delete and relate spectral components &#8212; SPEX Help Center 3.06.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1.7. Comp: create, delete and relate spectral components &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/component.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1.6. Data: read response file and spectrum" href="data.html" />
-    <link rel="prev" title="3.1.4. Calculate: evaluate the spectrum" href="calculate.html" />
+    <link rel="next" title="3.1.8. Data: read response file and spectrum" href="data.html" />
+    <link rel="prev" title="3.1.6. Calculate: evaluate the spectrum" href="calculate.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,10 +34,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="comp-create-delete-and-relate-spectral-components">
-<span id="sec-comp"></span><h1><span class="section-number">3.1.5. </span>Comp: create, delete and relate spectral components<a class="headerlink" href="#comp-create-delete-and-relate-spectral-components" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2><span class="section-number">3.1.5.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+  <section id="comp-create-delete-and-relate-spectral-components">
+<span id="sec-comp"></span><h1><span class="section-number">3.1.7. </span>Comp: create, delete and relate spectral components<a class="headerlink" href="#comp-create-delete-and-relate-spectral-components" title="Permalink to this headline">¶</a></h1>
+<section id="overview">
+<h2><span class="section-number">3.1.7.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In fitting or evaluating a spectrum, one needs to build up a model made
 out of at least 1 component. This set of commands can create a new
 component in the model, as well as delete any component. Usually we
@@ -85,9 +85,9 @@ always omit the sector numbers.</p>
 So if you have components 1,2,3 for example as pow, cie, gaus,
 and you type “comp del 2”, you are left with 1=pow, 2=gaus.</p>
 </div>
-</div>
-<div class="section" id="syntax">
-<h2><span class="section-number">3.1.5.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="syntax">
+<h2><span class="section-number">3.1.7.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">comp</span> <span class="pre">[#i:]</span> <span class="pre">#a</span></code> : Creates a component #a as part of the model for
@@ -100,9 +100,9 @@ components given in the range #i2: of sectors in the range #i1
 (optional). Note that the multiplicative components must be separated
 by a “,”</div>
 </div>
-</div>
-<div class="section" id="examples">
-<h2><span class="section-number">3.1.5.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2><span class="section-number">3.1.7.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">comp</span> <span class="pre">pow</span></code> : Creates a power-law component for modeling the spectrum
 for all sectors that are present.</div>
@@ -137,8 +137,8 @@ emission spectra of both component 1 (pow) and 2 (cie).</div>
 (if those are defined).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">comp</span> <span class="pre">rel</span> <span class="pre">3</span> <span class="pre">0</span></code> : Remove all relations from component 3.</div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -186,8 +186,8 @@ emission spectra of both component 1 (pow) and 2 (cie).</div>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
   <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
-      <li>Previous: <a href="calculate.html" title="previous chapter"><span class="section-number">3.1.4. </span>Calculate: evaluate the spectrum</a></li>
-      <li>Next: <a href="data.html" title="next chapter"><span class="section-number">3.1.6. </span>Data: read response file and spectrum</a></li>
+      <li>Previous: <a href="calculate.html" title="previous chapter"><span class="section-number">3.1.6. </span>Calculate: evaluate the spectrum</a></li>
+      <li>Next: <a href="data.html" title="next chapter"><span class="section-number">3.1.8. </span>Data: read response file and spectrum</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -197,7 +197,7 @@ emission spectra of both component 1 (pow) and 2 (cie).</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -216,9 +216,9 @@ emission spectra of both component 1 (pow) and 2 (cie).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Apr 14, 2021.<br>
+        Last updated on: Aug 01, 2022.<br>
     
-        &copy;2020, Jelle de Plaa, Jelle Kaastra, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

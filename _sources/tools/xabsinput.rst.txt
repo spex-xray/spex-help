@@ -113,7 +113,11 @@ should update regularly. If it does not, then it is possible that the
 calculation is stuck. This usually happens if the used model cannot
 calculate the lowest values for :math:`\xi`. If so, you may want to
 change the :math:`\log\xi` range. This can be done by providing the flag
-``-r`` at the command line when xabsinput is started.
+``-r`` at the command line when xabsinput is started. If you do that,
+make sure that when you use the ``xabs`` model in SPEX, you adjust the 
+lower and upper limit of the ``xil`` parameter as well to the limits given to 
+xabsinput. This way one can avoid possible problems when ``xil`` is
+out of the calculated range. 
 
 .. warning:: We note that up to and including version 13.03 of Cloudy,
    :math:`L_{\mathrm ion}` in the definition of :math:`\xi` was actually the

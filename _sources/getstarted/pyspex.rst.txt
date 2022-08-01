@@ -23,6 +23,10 @@ Please enter the following command::
 
 This creates the ``spex`` conda environment for you. This step should only be done once.
 
+From SPEX version 3.07.00, we also provide a conda environment for Python 3.9 for cases when you need a
+more recent python version. This Python 3.9 environment can be installed using the file ``$SPEX90/python/spex39.yml``.
+The conda environment will be called ``spex39``.
+
 .. Note:: If you installed SPEX through the Mac package installer, then ``spex.yml`` is not located in a writeable
    directory. Please copy ``spex.yml`` first to your home directory (``cp /opt/spex/python/spex.yml ~/``) and then
    create the conda environment like: ``conda env create -f ~/spex.yml``.
@@ -39,14 +43,15 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.06.01
+     Welcome user to SPEX version 3.07.00
 
      NEW in this version of SPEX:
-    22-07-2020 Bugfix: neij gives line emission while abundance is zero.
-    18-08-2020 Changed reference density from electron density to hydrogen density.
-    04-09-2020 Added pyroxene back to the amol model.
-    23-10-2020 Update of H I collision strengths (IMPORTANT)
-    24-11-2020 Added ascdump and par_show functions for the Python interface.
+    10-08-2021 Added tpho model for time-dependent photo-ionisation modeling
+    18-11-2021 Added spherically symmetric cluster model
+    13-05-2022 Included resonant scattering in cluster model
+    13-05-2022 Added aerror command to calculate atomic data errors
+    24-06-2022 Double precision now also for data handling and plotting
+    01-08-2022 Final release
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
     >>>
@@ -84,3 +89,20 @@ With iPython and Jupyter notebook, it can be helpful to install the spex conda e
 
 In your Jupyter notebook, you can now select ``spex`` from the drop-down menu if you are creating a new project. The
 ``spex`` conda environment should now be linked to your Jupyter project.
+
+Dependencies
+------------
+
+PYSPEX depends on the ``numpy``, ``astropy``, ``future`` and ``matplotlib`` python modules. The current
+numpy versions should include the f2py program that is necessary to create the Fortran to python
+interface.
+
+Please take care that both modules are often distributed in a python 2 and python 3 version.
+If you compile SPEX for python 3, then also the python3 versions of the modules need to be
+installed. In Linux distributions, packages often have the python version in the name. In
+Debian, for example, the python 2 version of ``numpy`` is called ``python-numpy`` and the python 3
+version ``python3-numpy``.
+
+Since Python 2 is no longer maintained, we do not actively support the Python 2 application of
+PYSPEX anymore.
+

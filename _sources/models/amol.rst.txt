@@ -204,8 +204,8 @@ becomes 1.
 
 .. Warning:: The normalisation is the total *molecular* column density.
    Thus, a value of :math:`10^{-7}` for :math:`\mathrm{CO_2}` means
-   :math:`10^{21}` :math:`\mathrm{CO_2}` molecules :math:`\mathrm{m}^{-2}`, but of course
-   :math:`2\times 10^{21}` O atoms :math:`\mathrm{m}^{-2}`, because each
+   :math:`10^{21}` :math:`\mathrm{CO_2}` molecules :math:`\mathrm{m}^{-2}`, but of course
+   :math:`2\times 10^{21}` atoms :math:`\mathrm{m}^{-2}`, because each
    :math:`\mathrm{CO_2}` molecule contains 2 oxygen atoms.
 
 .. Warning:: The Tables above shows for which edges and atoms the XAFS
@@ -215,19 +215,19 @@ becomes 1.
    cross sections in the optical/UV band, as at these low energies the
    effects of chemical binding, crystal structure etc. are very important
    for the optical transmission constants. This is contrary to the
-   SPEX models for pure atomic or ionised gas, where our models can be used
+   SPEX models for pure atomic or ionised gas, where our models can be used
    in the optical band.
 
 .. Warning:: It is possible to change the values of the output atomic
    column densities of H–Zn, that are shown when you issue the "show par"
-   command of SPEX. However, SPEX completely ignores this and when you
+   command of SPEX. However, SPEX completely ignores this and when you
    issue the ``calc`` or ``fit`` commands, they will be reset to the proper
    values. Morale: just read of those parameters, don’t touch them!
 
 The parameters of the model are:
 
 | ``n1--n4`` : Molecular column density in
-  :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
+  :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
   :math:`10^{-6}` for molecule 1, and zero for the others.
 | ``i1--i4`` : the molecule numbers for molecules 1–4 in the list
   (:ref:`tab:xride-table` and :ref:`tab:additional_compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
@@ -238,11 +238,11 @@ The parameters of the model are:
 | The following parameters are common to all our absorption models:
 
 - ``f`` : The covering factor of the absorber. Default value: 1 (full covering)
-- ``zv`` : Average systematic velocity :math:`v` of the absorber
+- ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 
 | The following parameters are *only* output parameters:
 
-- ``h--zn`` : The column densities in :math:`10^{28}` :math:`\mathrm{m}^{-2}` for
+- ``h--zn`` : The column densities in :math:`10^{28}` :math:`\mathrm{m}^{-2}` for
   all *atoms* added together for the all molecules that are present in
   this component.
 

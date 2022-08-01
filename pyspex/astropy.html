@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6.2.2. Astropy units and tables &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/astropy.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3.1. Session class structure" href="session.html" />
+    <link rel="prev" title="6.2.1. Jupyter Notebooks" href="threads.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="astropy-units-and-tables">
+<span id="pyspex-astropy"></span><h1><span class="section-number">6.2.2. </span>Astropy units and tables<a class="headerlink" href="#astropy-units-and-tables" title="Permalink to this headline">¶</a></h1>
+<p>Since SPEX 3.07.00, pyspex returns Astropy Quantities and Tables for many numerical output functions.
+On this page, we explain how to make optimal use of these new features.</p>
+<section id="why-astropy-units-and-tables">
+<h2><span class="section-number">6.2.2.1. </span>Why Astropy units and tables?<a class="headerlink" href="#why-astropy-units-and-tables" title="Permalink to this headline">¶</a></h2>
+<p>Astropy has done a great job developing a framework to work with and convert physical units often used
+in Astrophysics. The <code class="docutils literal notranslate"><span class="pre">Quantity</span></code> object from Astropy couples the number and unit of a parameter at the
+same time. By providing a Quantity as PYSPEX output instead of a number, it is immediately clear which
+unit the number is in.</p>
+<p>While SPEX uses SI units, which are actually recommended to use for the physical sciences, many astronomers
+are still thinking in CGS. Using Astropy units, the output numbers can be easily converted to CGS units
+if necessary.</p>
+<p>The output can be organised in Astropy Tables or Qtables, which have a lot of helpful features. Tables
+can be easily be sorted, written to FITS files or converted to Pandas, for example. Offering Astropy
+units and tables can make the SPEX output much easier to use in follow-up analysis.</p>
+</section>
+<section id="how-to-use-astropy-units">
+<h2><span class="section-number">6.2.2.2. </span>How to use Astropy units<a class="headerlink" href="#how-to-use-astropy-units" title="Permalink to this headline">¶</a></h2>
+<p>Let’s get an Astropy unit from one of the more simple SPEX outputs to show how it works. If we define
+a spectral model, SPEX will also calculate the flux and luminosity of the spectrum in a certain band.
+These fluxes and luminosities are now returned with a unit attached:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="nd">@linux</span><span class="p">:</span><span class="o">~&gt;</span> <span class="n">python</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyspex.spex</span> <span class="kn">import</span> <span class="n">Session</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">=</span><span class="n">Session</span><span class="p">()</span>             <span class="c1"># Starts the SPEX session</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">com</span><span class="p">(</span><span class="s1">&#39;cie&#39;</span><span class="p">)</span>            <span class="c1"># Add model component CIE</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">calc</span><span class="p">()</span>                <span class="c1"># Calculate the model</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">flx</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">flux_get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># Get the calculated fluxes and luminosities</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">flx</span><span class="o">.</span><span class="n">enerlum</span><span class="p">)</span>      <span class="c1"># Print the luminosity in energy units</span>
+<span class="mf">1.8976663101053723e+27</span> <span class="n">W</span>
+</pre></div>
+</div>
+<p>One of the parameters available in the <code class="docutils literal notranslate"><span class="pre">flx</span></code> object that <code class="docutils literal notranslate"><span class="pre">s.flux_get()</span></code> returns is the luminosity
+in energy, called <code class="docutils literal notranslate"><span class="pre">enerlum</span></code> (see <a class="reference internal" href="model.html#class-flux"><span class="std std-ref">Fluxes and luminosities</span></a> for a full description of the available numbers). When
+we print this number, we see a <code class="docutils literal notranslate"><span class="pre">W</span></code> behind it, which means unit Watt.</p>
+<p>The unit is explicitly encoded into the <code class="docutils literal notranslate"><span class="pre">flx.enerlum</span></code> object. The type of <code class="docutils literal notranslate"><span class="pre">flx.enerlum</span></code> is not a
+float, but a Quantity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">flx</span><span class="o">.</span><span class="n">enerlum</span><span class="p">))</span>
+<span class="go">&lt;class &#39;astropy.units.quantity.Quantity&#39;&gt;</span>
+</pre></div>
+</div>
+<section id="getting-numbers-from-a-quantity-object">
+<h3><span class="section-number">6.2.2.2.1. </span>Getting numbers from a Quantity object<a class="headerlink" href="#getting-numbers-from-a-quantity-object" title="Permalink to this headline">¶</a></h3>
+<p>If we only want the number itself, then it can be obtained by adding <code class="docutils literal notranslate"><span class="pre">.value</span></code> after the parameter
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">flx</span><span class="o">.</span><span class="n">enerlum</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="go">1.8976663101053723e+27</span>
+</pre></div>
+</div>
+<p>We can also get the unit from the object in a similar way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">flx</span><span class="o">.</span><span class="n">enerlum</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+<span class="go">W</span>
+</pre></div>
+</div>
+</section>
+<section id="converting-the-units">
+<h3><span class="section-number">6.2.2.2.2. </span>Converting the units<a class="headerlink" href="#converting-the-units" title="Permalink to this headline">¶</a></h3>
+<p>One of the reasons for using Astropy Quantities is that they are easily converted to other units.
+For example, many astronomers would like to know the luminosity in erg/s instead of W, because they
+are used to the CGS system. To get our luminosity in CGS units, the only thing we need to do is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">flx</span><span class="o">.</span><span class="n">enerlum</span><span class="o">.</span><span class="n">cgs</span><span class="p">)</span>
+<span class="go">1.8976663101053722e+34 erg / s</span>
+</pre></div>
+</div>
+<p>Just appending <code class="docutils literal notranslate"><span class="pre">.cgs</span></code> at the end of the variable name is enough to return a converted number. As we
+can see, the unit is erg/s now, which we would expect.</p>
+<p>More examples about how to use Astropy units and how to use them in calculations can be found in the
+<a class="reference external" href="https://docs.astropy.org/en/stable/units/index.html">Astropy units documentation</a>.</p>
+</section>
+</section>
+<section id="astropy-tables">
+<h2><span class="section-number">6.2.2.3. </span>Astropy Tables<a class="headerlink" href="#astropy-tables" title="Permalink to this headline">¶</a></h2>
+<p>When we continue our example of the previous section, we can get the plot data for a plot
+of the CIE model as follows from PYSPEX:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="n">plt</span><span class="p">)</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">plot_model</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">sector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tabmodel</span><span class="p">)</span>
+<span class="go">        X_ctr                 X_upp               Model</span>
+<span class="go">         keV                   keV           ph / (keV m2 s)</span>
+<span class="go">--------------------- --------------------- ------------------</span>
+<span class="go">0.0010007031872137865 0.0010014063744275728  149.9039074938181</span>
+<span class="go">0.0010021105505858743  0.001002814726744176 149.66520271469315</span>
+<span class="go">                  ...                   ...                ...</span>
+<span class="go">    99.78943871942874     99.85956006837118                0.0</span>
+<span class="go">     99.9297800341856                 100.0                0.0</span>
+<span class="go">Length = 8192 rows</span>
+</pre></div>
+</div>
+<p>Because the spectral models are organised by sector, we need to get the data for the first sector.
+In Python indices start at 0, so we select sector[0] to get the tabmodel table for sector 1. When we
+print the table, it clearly consists of three columns with the names <code class="docutils literal notranslate"><span class="pre">X_ctr</span></code>, <code class="docutils literal notranslate"><span class="pre">X_upp</span></code> and <code class="docutils literal notranslate"><span class="pre">Model</span></code>.
+Each column also has a unit associated to it, so these columns are effectively Astropy Quantities.</p>
+<p>Suppose that we are interested in the <code class="docutils literal notranslate"><span class="pre">Model</span></code> column, then we can extract that from the table quite
+easily. For convenience, we first make a reference to the table in a separate variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">sector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tabmodel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;Model&#39;</span><span class="p">])</span>
+<span class="go">[149.90390749 149.66520271 149.42688589 ...   0.           0.</span>
+<span class="go">   0.        ] ph / (keV m2 s)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">table['Model']</span></code> array has the same properties as a well known numpy array and can be manipulated
+using the same functions.</p>
+<p>More examples and information about Astropy QTables can be found in the
+<a class="reference external" href="https://docs.astropy.org/en/stable/table/index.html">Astropy Tables documentation</a>.</p>
+</section>
+<section id="plotting-quantities-and-qtables">
+<h2><span class="section-number">6.2.2.4. </span>Plotting Quantities and QTables<a class="headerlink" href="#plotting-quantities-and-qtables" title="Permalink to this headline">¶</a></h2>
+<p>Since Astropy Quantities and QTables have a slightly different structure than regular numpy arrays,
+matplotlib cannot handle these arrays by default. Luckily, the compatibility can be added easily by
+importing and running the following at the start of your python session or script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">quantity_support</span>
+<span class="n">quantity_support</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you do not want to have Quantity support throughout your script, you can also add it locally before
+the plot commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">quantity_support</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;X_ctr&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;Model&#39;</span><span class="p">],</span> <span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../pyspex.html">6. Python Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#basic-commands">6.1. Basic commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../pyspex.html#analysis-threads-other-tricks">6.2. Analysis threads &amp; other tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyspex.html#advanced-class-descriptions">6.3. Advanced class descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../pyspex.html"><span class="section-number">6. </span>Python Interface</a><ul>
+      <li>Previous: <a href="threads.html" title="previous chapter"><span class="section-number">6.2.1. </span>Jupyter Notebooks</a></li>
+      <li>Next: <a href="session.html" title="next chapter"><span class="section-number">6.3.1. </span>Session class structure</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Aug 01, 2022.<br>
+    
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

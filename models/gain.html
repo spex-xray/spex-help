@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.18. Gain: Modify the energy scale of the model to compensate instrumental gain errors &#8212; SPEX Help Center 3.07.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/gain.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.19. Gaus: gaussian line model" href="gaus.html" />
+    <link rel="prev" title="4.1.17. File: model read from a file" href="file.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="gain-modify-the-energy-scale-of-the-model-to-compensate-instrumental-gain-errors">
+<h1><span class="section-number">4.1.18. </span>Gain: Modify the energy scale of the model to compensate instrumental gain errors<a class="headerlink" href="#gain-modify-the-energy-scale-of-the-model-to-compensate-instrumental-gain-errors" title="Permalink to this headline">¶</a></h1>
+<p>This multiplicative, operative model allows to stretch the energy scale of the spectral
+model to which it is applied. The number of photons is conserved, but the energy
+<img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> of each photon is changed to <img class="math" src="../_images/math/fe01fdcc91bfa1ed030db9265f23bcf96401ed01.svg" alt="E^{\prime}" style="vertical-align: 0px"/> with the relation:</p>
+<div class="math">
+<p><img src="../_images/math/6ed01ba19a8dca68ea1768f08a918abb4e083aeb.svg" alt="E^{\prime} = E (1 + z(x)),"/></p>
+</div><p>where <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> can be either energy E, wavelength <img class="math" src="../_images/math/76566000ccc091eb223afe3a02d385191b144e7e.svg" alt="\lambda" style="vertical-align: 0px"/>, or the logarithm of energy or wavelength.
+The function <img class="math" src="../_images/math/71a30d2a5b16053e1f48482799ae5725de13211a.svg" alt="z(x)" style="vertical-align: -4px"/> is a Chebychev polynomial with up to 10 terms, defined in
+the energy interval <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> to <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (always given as energy in keV, even when the user
+chooses to use <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> as logarithmic value or wavelength.</p>
+<p>The user also has an option to produce an ascii-file named ‘spexgain.asc’ in the directory
+where SPEX is running. This contains three columns: the original energy <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> in keV, the
+modified energy <img class="math" src="../_images/math/fe01fdcc91bfa1ed030db9265f23bcf96401ed01.svg" alt="E^{\prime}" style="vertical-align: 0px"/> in keV, and the factor <img class="math" src="../_images/math/71a30d2a5b16053e1f48482799ae5725de13211a.svg" alt="z(x)" style="vertical-align: -4px"/> at that energy.
+This output is only produced when the parameter out=1 is set.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>although the model does not put constraints upon the amplitudes of the Chebychev
+polynomials (they are in principle fittable parameters), the user must take care that their
+values are not too extreme. For extreme values, the modified energies <img class="math" src="../_images/math/fe01fdcc91bfa1ed030db9265f23bcf96401ed01.svg" alt="E^{\prime}" style="vertical-align: 0px"/>
+may not be a monotonous function of their index, which may lead to unreliable or wrong results.
+When the flag “out=1” is turned on, the user gets a warning when this condition occurs
+(turning the mode on during spectral fitting may produces repeated error warnings for each
+evaluation where this condition occurs, so be warned).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><img class="math" src="../_images/math/71a30d2a5b16053e1f48482799ae5725de13211a.svg" alt="z(x)" style="vertical-align: -4px"/> is only evaluated between the energies <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>. Outside this range, we put <img class="math" src="../_images/math/892a8f435ee96bda61427fa532e2d0b1de9ff0e5.svg" alt="z(x)=0" style="vertical-align: -4px"/>. Note that this may lead to some
+discontinuities at the energies <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> or  <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>. For this reason, their
+derfault values are put to very small resp. very high values.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">n</span></code> :  The maximum number of polynomial terms that is desired. Default value is 1,
+maximum is 10. Note  that for n less than 10, all Chebychev terms larger than n are ignored,
+even if the corresponding scaling parameter is non-zero.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">wav</span></code> : Wheter to use an energy grid (wav=0, default) or a wavelength grid (wav=1) for the
+evaluation of the Chebychev polynomials.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">log</span></code> : Wheter to use a linear grid (log=0, default) or a logarithmic grid (log=1) for the
+evaluation of the Chebychev polynomials.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">e1</span></code> : The Chebychev polynomials are evaluated only between energy <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (both in keV). Default value: <img class="math" src="../_images/math/41fd9f26c5e2bf832b3599e7b579e886f854cb5a.svg" alt="E_1=10^{-20}" style="vertical-align: -2px"/>. Outside this range
+we force <img class="math" src="../_images/math/892a8f435ee96bda61427fa532e2d0b1de9ff0e5.svg" alt="z(x)=0" style="vertical-align: -4px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">e2</span></code> : The Chebychev polynomials are evaluated only between energy <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (both in keV). Default value: <img class="math" src="../_images/math/296ec54e716b8ba7d724856a407389984eb53312.svg" alt="E_2=10^{20}" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">out</span></code> : Whether output of the gain correction (out=1) is desired or not (out=0, default).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">p0</span></code> : first chebychev term (a constant). Note that due to the definition of chebychev
+polynomials, the gain is half of this; for example, p0=0.1 leads toa 5% gain correction.
+Default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">p1</span></code> : next chebychev term (linear). Default value 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">p2</span></code> : next chebychev term (linear). Default value 0.</div>
+<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">p9</span></code> : 9th order chebychev term. Default value 0.</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="file.html" title="previous chapter"><span class="section-number">4.1.17. </span>File: model read from a file</a></li>
+      <li>Next: <a href="gaus.html" title="next chapter"><span class="section-number">4.1.19. </span>Gaus: gaussian line model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Aug 01, 2022.<br>
+    
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

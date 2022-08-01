@@ -1,6 +1,7 @@
 Plot functions
 ==============
 
+.. _class_plot_model:
 
 Model spectrum plots
 --------------------
@@ -11,6 +12,7 @@ Model spectrum plots
    .. autoclass:: pyspex.plot.PlotModelSector
       :members:
 
+.. _class_plot_data:
 
 Data plots
 ----------
@@ -24,6 +26,7 @@ Data plots
    .. autoclass:: pyspex.plot.PlotDataReg
       :members:
 
+.. _class_plot_area:
 
 Effective area plots
 --------------------
