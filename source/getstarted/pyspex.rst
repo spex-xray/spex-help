@@ -43,14 +43,15 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.06.01
+     Welcome user to SPEX version 3.07.00
 
      NEW in this version of SPEX:
-    22-07-2020 Bugfix: neij gives line emission while abundance is zero.
-    18-08-2020 Changed reference density from electron density to hydrogen density.
-    04-09-2020 Added pyroxene back to the amol model.
-    23-10-2020 Update of H I collision strengths (IMPORTANT)
-    24-11-2020 Added ascdump and par_show functions for the Python interface.
+    10-08-2021 Added tpho model for time-dependent photo-ionisation modeling
+    18-11-2021 Added spherically symmetric cluster model
+    13-05-2022 Included resonant scattering in cluster model
+    13-05-2022 Added aerror command to calculate atomic data errors
+    24-06-2022 Double precision now also for data handling and plotting
+    01-08-2022 Final release
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
     >>>

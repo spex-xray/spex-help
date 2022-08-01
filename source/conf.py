@@ -279,7 +279,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'SPEXHelpCenter.tex', u'SPEX Help Center Documentation',
-     u'Jelle de Plaa, Jelle Kaastra, SPEX Development Team', 'manual'),
+     u'J. de Plaa, J. Kaastra, L. Gu, the SPEX Development Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
