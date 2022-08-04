@@ -8,7 +8,8 @@ How to install SPEX
 Download
 --------
 
-SPEX install files can be downloaded from `our Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_.
+The current SPEX version 3.07.00 was released on 2022-08-01. SPEX install files can be downloaded from
+`our Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_.
 
 .. only:: html
 
