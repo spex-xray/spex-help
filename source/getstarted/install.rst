@@ -59,8 +59,9 @@ Remove the tar file: rm SPEX-3.07.01-Linux-Intel.tar.gz
 Mac OS
 ------
 
-We provide a SPEX binary version for Mac OS that has been built on Intel processors. This version
-also works on new Apple M1 chips.
+We provide a SPEX binary version for Mac OS that has been built on Intel processors. The classic SPEX
+interface also works directly on new Apple M1 chips. For the python interface on M1, one needs to
+install an x86_64 version of anaconda through Rosetta 2. We are working on a native M1 version of SPEX.
 
   .. Note:: This version of SPEX has been compiled using XQuartz 2.8.0, so please upgrade XQuartz
             to a version >=2.8.0.
