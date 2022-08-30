@@ -401,3 +401,13 @@ Changes in PYSPEX 3.07.00:
 - Output data is now offered as Astropy Quantities and QTables (see :ref:`pyspex_astropy`).
 
 - Added option to plot in wavelength (Angstrom), see :ref:`pyspex_plot`.
+
+Version 3.07.01
+---------------
+
+Changes in SPEX 3.07.01:
+''''''''''''''''''''''''
+
+- Fixed a bug in the SPEX obin command.
+
+- On some Apple M1 machines SPEX crashed with an Intel MKL error. This has been resolved.
