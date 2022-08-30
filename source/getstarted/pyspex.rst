@@ -43,15 +43,11 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.07.00
+     Welcome user to SPEX version 3.07.01
 
      NEW in this version of SPEX:
-    10-08-2021 Added tpho model for time-dependent photo-ionisation modeling
-    18-11-2021 Added spherically symmetric cluster model
-    13-05-2022 Included resonant scattering in cluster model
-    13-05-2022 Added aerror command to calculate atomic data errors
-    24-06-2022 Double precision now also for data handling and plotting
-    01-08-2022 Final release
+    02-08-2022 Fixed issue with optimal binning
+    31-08-2022 Fixed issue with SPEX binaries on Apple M1 chips
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
     >>>

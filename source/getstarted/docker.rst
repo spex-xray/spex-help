@@ -22,7 +22,7 @@ Step 2: Download the SPEX docker image from Zenodo
 The SPEX Docker image is available on `this Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_ as a tar.gz file.
 Please download the file called spex-[version]-Docker.tar.gz, for example::
 
-    spex-3.07.00-Docker.tar.gz
+    spex-3.07.01-Docker.tar.gz
 
 Or, alternatively, you can pull the image from Docker hub with the command: ``docker pull spexxray/spex:latest``.
 
@@ -31,7 +31,7 @@ Step 3: Import the SPEX image into Docker
 
 Before you can run the docker file, it should be imported into the docker system. This can be done on the command line::
 
-    user@linux:~> docker load -i spex-3.07.00-docker.tar.gz
+    user@linux:~> docker load -i spex-3.07.01-docker.tar.gz
 
 The image will be named spexxray/spex with the tag 3.07.00 and can be found with the command::
 
@@ -94,7 +94,7 @@ For Linux::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.07.00
+    spexxray/spex:3.07.01
 
 For Mac::
 
@@ -104,13 +104,13 @@ For Mac::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /Users/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.07.00
+    spexxray/spex:3.07.01
 
 The docker run command above will provide you with a prompt that will allow you to run spex::
 
     user@linux:~> docker run -it -e DISPLAY=$DISPLAY -e LOCAL_USER_ID=`id -u $USER` \
     -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/myusername:/home/user -w /home/user \
-    spexxray/spex:3.07.00
+    spexxray/spex:3.07.01
 
     Welcome to the SPEX Docker Container!
     Just type 'spex' to start the program.
@@ -119,16 +119,12 @@ The docker run command above will provide you with a prompt that will allow you 
 In this environment, you can just run spex or trafo::
 
     user@0922f2e4ff85:~> spex
-     Welcome user to SPEX version 3.07.00
+     Welcome user to SPEX version 3.07.01
 
      NEW in this version of SPEX:
-    10-08-2021 Added tpho model for time-dependent photo-ionisation modeling
-    18-11-2021 Added spherically symmetric cluster model
-    13-05-2022 Included resonant scattering in cluster model
-    13-05-2022 Added aerror command to calculate atomic data errors
-    24-06-2022 Double precision now also for data handling and plotting
-    01-08-2022 Final release
+    02-08-2022 Fixed issue with optimal binning
+    31-08-2022 Fixed issue with SPEX binaries on Apple M1 chips
 
-     Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
+    Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
     SPEX>
