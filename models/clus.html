@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>4.1.6. Clus: projected cluster model &#8212; SPEX Help Center 3.07.00 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.1.6. Clus: projected cluster model &#8212; SPEX Help Center 3.07.01 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -34,13 +33,13 @@
 
           <div class="body" role="main">
             
-  <section id="clus-projected-cluster-model">
+  <div class="section" id="clus-projected-cluster-model">
 <span id="sect-clus"></span><h1><span class="section-number">4.1.6. </span>Clus: projected cluster model<a class="headerlink" href="#clus-projected-cluster-model" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is a complex model, so please read carefully this documentation before using the model</p>
 </div>
-<section id="overview">
+<div class="section" id="overview">
 <h2><span class="section-number">4.1.6.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This model calculates the spectrum and radial profiles of a cluster of galaxies.
 The 3-D density, temperature, abundance, turbulence and in/outflow fields are
@@ -61,8 +60,8 @@ in an energy band specified by the user.</p>
 <p>this model has a lot of free parameters (currently 80). Do not blindly thaw
 all parameters, but make as much as possible use of other constraints and common sense.</p>
 </div>
-</section>
-<section id="two-important-radii">
+</div>
+<div class="section" id="two-important-radii">
 <h2><span class="section-number">4.1.6.2. </span>Two important radii<a class="headerlink" href="#two-important-radii" title="Permalink to this headline">¶</a></h2>
 <p>It is important to distinguish two important radii in the model.</p>
 <p>Internally, everything is scaled to <img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/> , which is the first parameter of the
@@ -107,8 +106,8 @@ otherwise the spatial resolution of your model may be insufficient.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="radial-grid-3-d-shells">
+</div>
+<div class="section" id="radial-grid-3-d-shells">
 <h2><span class="section-number">4.1.6.3. </span>Radial grid: 3-d shells<a class="headerlink" href="#radial-grid-3-d-shells" title="Permalink to this headline">¶</a></h2>
 <p>The 3-d model is evaluated for a logarithmic radius grid, in order to cover the possible
 large dynamical range between the core of the cluster and the outermost radius.
@@ -129,8 +128,8 @@ shell; we do not perform finer integration.</p>
 <p>In case the user introduces a density discontinuity in the model, the radius of the density
 discontinuity is also chosen as an additional grid point (if it is close to an existing grid point,
 that existing grid point is moved to the discontinuity).</p>
-</section>
-<section id="radial-grid-projected-profile">
+</div>
+<div class="section" id="radial-grid-projected-profile">
 <h2><span class="section-number">4.1.6.4. </span>Radial grid: projected profile<a class="headerlink" href="#radial-grid-projected-profile" title="Permalink to this headline">¶</a></h2>
 <p>While as said we take a logarithmic grid for the 3-d shells of the cluster, to cover the large
 dynamical range, we take a linear grid for the projected 2-d profile. This is because that projected
@@ -175,8 +174,8 @@ respectively.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="radial-density-distribution">
+</div>
+<div class="section" id="radial-density-distribution">
 <h2><span class="section-number">4.1.6.5. </span>Radial density distribution<a class="headerlink" href="#radial-density-distribution" title="Permalink to this headline">¶</a></h2>
 <p>The hydrogen density distribution is parametrised as the sum of two beta-models,
 modified by a possible density jump (shock):</p>
@@ -264,8 +263,8 @@ a decreasing effect of the jump at large radii.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="radial-temperature-distribution">
+</div>
+<div class="section" id="radial-temperature-distribution">
 <h2><span class="section-number">4.1.6.6. </span>Radial temperature distribution<a class="headerlink" href="#radial-temperature-distribution" title="Permalink to this headline">¶</a></h2>
 <p>The temperature distribution is based upon Vikhlinin et al. (2006) (Eq. 6)  (2006ApJ…640..691V)
 but with a temperature jump added and described below.</p>
@@ -364,8 +363,8 @@ The parameters describing the temperature profile are summarized below.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="radial-abundance-profile">
+</div>
+<div class="section" id="radial-abundance-profile">
 <h2><span class="section-number">4.1.6.7. </span>Radial abundance profile<a class="headerlink" href="#radial-abundance-profile" title="Permalink to this headline">¶</a></h2>
 <p>The relative metal abundances can be adjusted similar to the CIE model
 (see the last parts of this chapter).
@@ -447,8 +446,8 @@ correlated. In those situations it may be wise to keep one of them frozen.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="turbulence">
+</div>
+<div class="section" id="turbulence">
 <h2><span class="section-number">4.1.6.8. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h2>
 <p>The plasma turbulence can also be parametrised. We use the following description:</p>
 <div class="math">
@@ -506,8 +505,8 @@ in quadrature using the relevant (ion) temperature.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="radial-velocity-fields">
+</div>
+<div class="section" id="radial-velocity-fields">
 <h2><span class="section-number">4.1.6.9. </span>Radial velocity fields<a class="headerlink" href="#radial-velocity-fields" title="Permalink to this headline">¶</a></h2>
 <p>In addition to turbulence, the model allows for systematic radial motion (inflow or outflow).
 This is done as follows:</p>
@@ -550,8 +549,8 @@ values for these parameters correspond to no in- or outflow.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="projected-spectra-and-radial-profiles">
+</div>
+<div class="section" id="projected-spectra-and-radial-profiles">
 <h2><span class="section-number">4.1.6.10. </span>Projected spectra and radial profiles<a class="headerlink" href="#projected-spectra-and-radial-profiles" title="Permalink to this headline">¶</a></h2>
 <p>The cluster model projects the spectra of all shells onto the sky. But sometimes the
 user is not interested in the spectrum of the full cluster, but only in the spectrum within
@@ -635,8 +634,8 @@ the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_i
 </tr>
 </tbody>
 </table>
-</section>
-<section id="resonance-scattering">
+</div>
+<div class="section" id="resonance-scattering">
 <h2><span class="section-number">4.1.6.11. </span>Resonance scattering<a class="headerlink" href="#resonance-scattering" title="Permalink to this headline">¶</a></h2>
 <p>Resonance scattering of the strong resonance lines can be taken into account, if the user needs this.
 This is indicated by the parameter with name rsca. Allowed values are 0 (no resonance scattering)
@@ -725,8 +724,8 @@ per spectral line (and 666 spectral lines included) takes about 6 hours to compl
 using the gfortran compiler; it may be faster using other processors or compilers. For less ambitious accuracy
 a couple of minutes per model evaluation is more realistic.</p>
 </div>
-</section>
-<section id="output-files-for-resonance-scattering">
+</div>
+<div class="section" id="output-files-for-resonance-scattering">
 <h2><span class="section-number">4.1.6.12. </span>Output files for resonance scattering<a class="headerlink" href="#output-files-for-resonance-scattering" title="Permalink to this headline">¶</a></h2>
 <p>As noted, in principle three files are produced when resonance scattering is included in the calculations.
 These file <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>, <code class="docutils literal notranslate"><span class="pre">cluslin2.asc</span></code> and <code class="docutils literal notranslate"><span class="pre">cluslin3.asc</span></code> are stored in the directory where SPEX is running,
@@ -793,8 +792,8 @@ The columns are as follows:</p>
 <li><p>fr: the fraction of the total line flux of the cluster emitted from this shell (without resonance scattering)</p></li>
 <li><p>concentrat: the ion concentration of the emitting ion at this radius.</p></li>
 </ol>
-</section>
-<section id="atomic-physics-of-the-resonance-lines">
+</div>
+<div class="section" id="atomic-physics-of-the-resonance-lines">
 <h2><span class="section-number">4.1.6.13. </span>Atomic physics of the resonance lines<a class="headerlink" href="#atomic-physics-of-the-resonance-lines" title="Permalink to this headline">¶</a></h2>
 <p>For the “old” atomic data set, we used a list of 204 selected lines deemed to be relevant in 1996, when the first
 version of this model was created. For the “new” atomic data set, we selected 666 transitions for H-like to Na-like
@@ -822,16 +821,16 @@ base of SPEX. When this database will be updated, the same transitions will be u
 but branching ratios, oscillator strengths and line energies will automatically be adjusted; these quantities are
 initialised each time upon the first call to the cluster model.</p></li>
 </ol>
-</section>
-<section id="non-thermal-electron-distributions-and-abundances">
+</div>
+<div class="section" id="non-thermal-electron-distributions-and-abundances">
 <h2><span class="section-number">4.1.6.14. </span>Non-thermal electron distributions and abundances<a class="headerlink" href="#non-thermal-electron-distributions-and-abundances" title="Permalink to this headline">¶</a></h2>
 <p>The effects of non-thermal electron distribution on the spectrum can be
 included like any SPEX model. See <a class="reference internal" href="../theory/spexact/nonthermal.html#sec-nonthermal"><span class="std std-ref">Non-thermal electron distributions</span></a> for more details.</p>
 <p>We refer here to the description of the CIE model for the abundances.
 We use the same parameters as in that model.
 See description below.</p>
-</section>
-<section id="parameter-description">
+</div>
+<div class="section" id="parameter-description">
 <h2><span class="section-number">4.1.6.15. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
 <p>The remaining parameters of the model are:</p>
 <div class="line-block">
@@ -846,8 +845,8 @@ Default 1.</div>
 present, non-thermal effects are not taken into account (default).</div>
 </div>
 <p><em>Recommended citation:</em> Kaastra et al. (2022) (this manual for the moment).</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -906,7 +905,7 @@ present, non-thermal effects are not taken into account (default).</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -925,7 +924,7 @@ present, non-thermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 01, 2022.<br>
+        Last updated on: Aug 31, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

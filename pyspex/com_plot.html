@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6.1.2.5. Plot commands &#8212; SPEX Help Center 3.07.00 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.1.2.5. Plot commands &#8212; SPEX Help Center 3.07.01 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -34,19 +33,19 @@
 
           <div class="body" role="main">
             
-  <section id="plot-commands">
+  <div class="section" id="plot-commands">
 <span id="pyspex-plot"></span><h1><span class="section-number">6.1.2.5. </span>Plot commands<a class="headerlink" href="#plot-commands" title="Permalink to this headline">¶</a></h1>
 <p>Next to the PGPLOT plotting system of SPEX, the python interface can also be used for plotting.
 In this section, we provide a list of commands for plotting spectral models, the effective area and
 spectral data (including residuals).</p>
-<section id="plot-spectral-model">
+<div class="section" id="plot-spectral-model">
 <h2><span class="section-number">6.1.2.5.1. </span>Plot spectral model<a class="headerlink" href="#plot-spectral-model" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX plot type ‘model’ plots the model spectrum as a function of energy or wavelength.
 In PYSPEX there is a function to obtain the same plot using matplotlib:</p>
 <blockquote>
 <div><dl class="py method">
-<dt class="sig sig-object py" id="pyspex.spex.Session.plot_model">
-<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">plot_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX</span> <span class="pre">Model</span> <span class="pre">Spectrum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_model" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.spex.Session.plot_model">
+<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">plot_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX</span> <span class="pre">Model</span> <span class="pre">Spectrum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the spectral model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -86,7 +85,7 @@ This issue will be fixed in pyspex 3.07.00.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_model</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="obtain-the-raw-plot-data">
+<div class="section" id="obtain-the-raw-plot-data">
 <h3><span class="section-number">6.1.2.5.1.1. </span>Obtain the raw plot data<a class="headerlink" href="#obtain-the-raw-plot-data" title="Permalink to this headline">¶</a></h3>
 <p>It is possible to get the raw plot data through the pyspex interface. The <code class="docutils literal notranslate"><span class="pre">plot_model</span></code> command
 can return an object containing the plot data organised by model sector. Per sector, the data
@@ -119,16 +118,16 @@ the units of the values are included in the table data and all the features of a
 </div>
 <p>See <a class="reference internal" href="plot.html#class-plot-model"><span class="std std-ref">Model spectrum plots</span></a> for a description of the individual numpy arrays available within
 the sector object.</p>
-</section>
-</section>
-<section id="plot-data">
+</div>
+</div>
+<div class="section" id="plot-data">
 <h2><span class="section-number">6.1.2.5.2. </span>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX data plot type plots the observed spectrum, the folded model and background spectrum.
 In PYSPEX, this is done with one command called <code class="docutils literal notranslate"><span class="pre">plot_data</span></code>:</p>
 <blockquote>
 <div><dl class="py method">
-<dt class="sig sig-object py" id="pyspex.spex.Session.plot_data">
-<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_data" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.spex.Session.plot_data">
+<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">plot_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed spectrum with the convolved model for all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -167,14 +166,14 @@ This issue will be fixed in pyspex 3.07.00.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_data</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="plot-data-with-residuals">
+<div class="section" id="plot-data-with-residuals">
 <h3><span class="section-number">6.1.2.5.2.1. </span>Plot data with residuals<a class="headerlink" href="#plot-data-with-residuals" title="Permalink to this headline">¶</a></h3>
 <p>It is also possible to attach a subplot with residuals to the main data plot. To do this,
 one uses the <code class="docutils literal notranslate"><span class="pre">plot_chi</span></code> command:</p>
 <blockquote>
 <div><dl class="py method">
-<dt class="sig sig-object py" id="pyspex.spex.Session.plot_chi">
-<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">plot_chi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_chi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_chi" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.spex.Session.plot_chi">
+<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">plot_chi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_chi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_chi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed spectrum with the convolved model and their residuals for all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -206,15 +205,15 @@ values will be plotted as a function of wavelength (<img class="math" src="../_i
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_chi</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="plot-data-with-model-components">
+</div>
+<div class="section" id="plot-data-with-model-components">
 <h3><span class="section-number">6.1.2.5.2.2. </span>Plot data with model components<a class="headerlink" href="#plot-data-with-model-components" title="Permalink to this headline">¶</a></h3>
 <p>For models with multiple additive components, it is possible in PYSPEX to plot the total model and
 the contributions from the individual additive components with the <code class="docutils literal notranslate"><span class="pre">plot_comp</span></code> method.</p>
 <blockquote>
 <div><dl class="py method">
-<dt class="sig sig-object py" id="pyspex.spex.Session.plot_comp">
-<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">plot_comp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_comp" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.spex.Session.plot_comp">
+<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">plot_comp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_comp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the individual model components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -242,8 +241,8 @@ the contributions from the individual additive components with the <code class="
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_comp</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h3><span class="section-number">6.1.2.5.2.3. </span>Obtain the raw plot data<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>It is possible to get the raw plot data through the pyspex interface. The <code class="docutils literal notranslate"><span class="pre">plot_data</span></code> command
 can return an object containing the plot data organised by instrument and region. Per region, the data
@@ -285,16 +284,16 @@ the units of the values are included in the table data and all the features of a
 </div>
 <p>See <a class="reference internal" href="plot.html#class-plot-data"><span class="std std-ref">Data plots</span></a> for a description of the individual numpy arrays available within
 the region object.</p>
-</section>
-</section>
-<section id="plot-effective-area">
+</div>
+</div>
+<div class="section" id="plot-effective-area">
 <h2><span class="section-number">6.1.2.5.3. </span>Plot effective area<a class="headerlink" href="#plot-effective-area" title="Permalink to this headline">¶</a></h2>
 <p>The SPEX plot type ‘area’ plots the effective area as a function of energy. In PYSPEX there is a
 function to obtain the same plot using matplotlib:</p>
 <blockquote>
 <div><dl class="py method">
-<dt class="sig sig-object py" id="pyspex.spex.Session.plot_area">
-<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">plot_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Effective</span> <span class="pre">Area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_area" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.spex.Session.plot_area">
+<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">plot_area</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Effective</span> <span class="pre">Area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.plot_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.plot_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the effective area of all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -326,7 +325,7 @@ respectively.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">plot_area</span><span class="p">(</span><span class="n">wave</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="id5">
+<div class="section" id="id5">
 <h3><span class="section-number">6.1.2.5.3.1. </span>Obtain the raw plot data<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>It is possible to get the raw plot data through the pyspex interface. The <code class="docutils literal notranslate"><span class="pre">plot_area</span></code> command
 can return an object containing the plot data organised by instrument and region. Per region, the data
@@ -359,21 +358,21 @@ the units of the values are included in the table data and all the features of a
 </div>
 <p>See <a class="reference internal" href="plot.html#class-plot-area"><span class="std std-ref">Effective area plots</span></a> for a description of the individual numpy arrays available within
 the region object.</p>
-</section>
-</section>
-<section id="plotting-astropy-table-data">
+</div>
+</div>
+<div class="section" id="plotting-astropy-table-data">
 <h2><span class="section-number">6.1.2.5.4. </span>Plotting Astropy Table data<a class="headerlink" href="#plotting-astropy-table-data" title="Permalink to this headline">¶</a></h2>
 <p>There are some caveats to keep in mind when plotting Astropy QTable data with Matplotlib. First,
 matplotlib cannot plot columns directly, since they are in a non-standard format. It needs some
 information to decode the arrays. Luckily, the Astropy module provides those. At the beginning
 of your program, you can add the following lines to make it work:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">quantity_support</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="k">import</span> <span class="n">quantity_support</span>
 <span class="n">quantity_support</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The above will enable quantity support for the entire file. If you do not want that, you can
 also enable it for a single or series of commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">quantity_support</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="k">import</span> <span class="n">quantity_support</span>
 <span class="o">...</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -384,8 +383,8 @@ also enable it for a single or series of commands:</p>
 </div>
 <p>More information about <a class="reference external" href="https://docs.astropy.org/en/stable/table/index.html">Astropy Tables</a> and
 <a class="reference external" href="https://docs.astropy.org/en/stable/units/index.html">Astropy Units</a>.</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -445,7 +444,7 @@ also enable it for a single or series of commands:</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -464,7 +463,7 @@ also enable it for a single or series of commands:</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 01, 2022.<br>
+        Last updated on: Aug 31, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

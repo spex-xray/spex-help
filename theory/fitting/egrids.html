@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>8.3.1. Calculating models on grids &#8212; SPEX Help Center 3.07.00 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3.1. Calculating models on grids &#8212; SPEX Help Center 3.07.01 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -34,7 +33,7 @@
 
           <div class="body" role="main">
             
-  <section id="calculating-models-on-grids">
+  <div class="section" id="calculating-models-on-grids">
 <span id="sec-calcmodel"></span><h1><span class="section-number">8.3.1. </span>Calculating models on grids<a class="headerlink" href="#calculating-models-on-grids" title="Permalink to this headline">¶</a></h1>
 <p>Model spectra are generally calculated for an energy or wavelength grid. In SPEX,
 the default energy grid has 8192 bins between 0.001 and 100 keV. This grid is used
@@ -42,7 +41,7 @@ when calculating models without an instrument defined, for example, when you
 plot a model spectrum using the <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">type</span> <span class="pre">model</span></code> command (<a class="reference internal" href="../../reference/plot/types.html#sect-plottypes"><span class="std std-ref">Plot types</span></a>).
 The resolution of this grid is usually enough, but when it is not, the egrid command
 can help to increase the resolution or broaden the energy range (<a class="reference internal" href="../../reference/commands/egrid.html#sec-egrid"><span class="std std-ref">Egrid: define model energy grids</span></a>).</p>
-<section id="energy-grids-when-loading-data">
+<div class="section" id="energy-grids-when-loading-data">
 <h2><span class="section-number">8.3.1.1. </span>Energy grids when loading data<a class="headerlink" href="#energy-grids-when-loading-data" title="Permalink to this headline">¶</a></h2>
 <p>When data is loaded into SPEX, then the energy grid is automatically adapted to
 the loaded response matrix. Because response matrices already contain a model
@@ -50,8 +49,8 @@ energy grid and a channel grid, the SPEX energy grid should match the one from
 the response, at least within the energy range defined in the response matrix.
 This way, the model is always calculated at a resolution that is set by the
 response matrix.</p>
-</section>
-<section id="special-cases">
+</div>
+<div class="section" id="special-cases">
 <h2><span class="section-number">8.3.1.2. </span>Special cases<a class="headerlink" href="#special-cases" title="Permalink to this headline">¶</a></h2>
 <p>For some models, like PION, the broad-band spectrum is very important for the
 calculation. In those cases, the energy band should be extended. Recommended
@@ -77,8 +76,8 @@ you might have joint HST/COS data with high resolution. Fortunately, whenever
 the corresponding UV data (response &amp; spectrum) is added, the way SPEX determines
 its energy grid as described above would include the high-resolution UV part
 automatically at the desirable high resolution.</p>
-</section>
-<section id="checking-the-energy-grid">
+</div>
+<div class="section" id="checking-the-energy-grid">
 <h2><span class="section-number">8.3.1.3. </span>Checking the energy grid<a class="headerlink" href="#checking-the-energy-grid" title="Permalink to this headline">¶</a></h2>
 <p>Whenever you read data (a single spectrum, or from multiple instruments), SPEX
 creates a new energy grid on which the model is evaluated, before folding with
@@ -92,8 +91,8 @@ issue the command <code class="docutils literal notranslate"><span class="pre">p
 This should show the binning of your response matrix/matrices as well as the extension.</p>
 <p>Another method to inspect the energy grid is running the <code class="docutils literal notranslate"><span class="pre">egrid</span> <span class="pre">save</span></code> command
 (<a class="reference internal" href="../../reference/commands/egrid.html#sec-egrid"><span class="std std-ref">Egrid: define model energy grids</span></a>). This will save the full energy grid to file.</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -155,7 +154,7 @@ This should show the binning of your response matrix/matrices as well as the ext
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -174,7 +173,7 @@ This should show the binning of your response matrix/matrices as well as the ext
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 01, 2022.<br>
+        Last updated on: Aug 31, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

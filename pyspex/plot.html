@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6.3.5. Plot functions &#8212; SPEX Help Center 3.07.00 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.3.5. Plot functions &#8212; SPEX Help Center 3.07.01 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -34,26 +33,26 @@
 
           <div class="body" role="main">
             
-  <section id="plot-functions">
+  <div class="section" id="plot-functions">
 <h1><span class="section-number">6.3.5. </span>Plot functions<a class="headerlink" href="#plot-functions" title="Permalink to this headline">¶</a></h1>
-<section id="model-spectrum-plots">
+<div class="section" id="model-spectrum-plots">
 <span id="class-plot-model"></span><h2><span class="section-number">6.3.5.1. </span>Model spectrum plots<a class="headerlink" href="#model-spectrum-plots" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotModel</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotModel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotModel</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the model spectra for plotting purposes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nsector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of sectors available.</p></li>
-<li><p><strong>sector</strong> (<em>list of objects</em>) – List of plot objects for each sector.</p></li>
+<li><p><a class="reference internal" href="com_model.html#pyspex.spex.Session.sector" title="pyspex.spex.Session.sector"><strong>sector</strong></a> (<em>list of objects</em>) – List of plot objects for each sector.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotModel.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX</span> <span class="pre">Model</span> <span class="pre">Spectrum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotModel.plot">
+<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX</span> <span class="pre">Model</span> <span class="pre">Spectrum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the model spectrum for all sectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -75,16 +74,16 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotModel.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotModel.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the model spectrum information for all sectors.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotModelSector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotModelSector</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModelSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModelSector" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotModelSector">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotModelSector</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModelSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModelSector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the spectral model for a particular sector for plotting purposes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -98,8 +97,8 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotModelSector.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModelSector.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModelSector.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotModelSector.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModelSector.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModelSector.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the values of the model spectrum for this sector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -111,13 +110,13 @@
 </dd></dl>
 
 </div></blockquote>
-</section>
-<section id="data-plots">
+</div>
+<div class="section" id="data-plots">
 <span id="class-plot-data"></span><h2><span class="section-number">6.3.5.2. </span>Data plots<a class="headerlink" href="#data-plots" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotData</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotData</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the observed spectrum and the convolved model spectrum for plotting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -129,8 +128,8 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData.chiplot">
-<span class="sig-name descname"><span class="pre">chiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.chiplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.chiplot" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData.chiplot">
+<code class="sig-name descname"><span class="pre">chiplot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.chiplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.chiplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed data, model and background spectra for all instruments, and include a subwindow
 with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘rel’: (observed - model)/model.</p>
 <dl class="field-list simple">
@@ -154,8 +153,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData.plot">
+<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed data, model and background spectra for all instruments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -177,8 +176,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData.plot_chi">
-<span class="sig-name descname"><span class="pre">plot_chi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_chi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_chi" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData.plot_chi">
+<code class="sig-name descname"><span class="pre">plot_chi</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_chi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_chi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate plot data for a plot of the residuals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -188,8 +187,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData.plot_comp">
-<span class="sig-name descname"><span class="pre">plot_comp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_comp" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData.plot_comp">
+<code class="sig-name descname"><span class="pre">plot_comp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_comp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the total spectrum and the individual additive model components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -211,8 +210,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData.plot_data">
-<span class="sig-name descname"><span class="pre">plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_data" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData.plot_data">
+<code class="sig-name descname"><span class="pre">plot_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate plot of the data, model and background spectrum. This is a subfunction of plot() and chiplot().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -226,8 +225,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotData.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotData.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update data plot information for this instrument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -239,8 +238,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotDataInst">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotDataInst</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataInst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataInst" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotDataInst">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotDataInst</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataInst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataInst" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the data plot information for this instrument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -251,8 +250,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotDataInst.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataInst.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataInst.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotDataInst.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataInst.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataInst.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the data plot information for this instrument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -267,8 +266,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotDataReg">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotDataReg</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotDataReg">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotDataReg</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the data plot information for a region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -293,8 +292,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotDataReg.chitype">
-<span class="sig-name descname"><span class="pre">chitype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tchi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg.chitype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg.chitype" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotDataReg.chitype">
+<code class="sig-name descname"><span class="pre">chitype</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tchi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg.chitype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg.chitype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the residuals for the chi plot window.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -304,8 +303,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotDataReg.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotDataReg.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the data plot information for this region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,13 +320,13 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 </div></blockquote>
-</section>
-<section id="effective-area-plots">
+</div>
+<div class="section" id="effective-area-plots">
 <span id="class-plot-area"></span><h2><span class="section-number">6.3.5.3. </span>Effective area plots<a class="headerlink" href="#effective-area-plots" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotArea">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotArea</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotArea">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotArea</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for plotting effective area.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -338,8 +337,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotArea.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Effective</span> <span class="pre">Area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotArea.plot">
+<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Effective</span> <span class="pre">Area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the effective area.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -361,16 +360,16 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotArea.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotArea.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the effective area information for the plot.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotAreaInst">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotAreaInst</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaInst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaInst" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotAreaInst">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotAreaInst</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaInst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaInst" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instrument definition and region list for area plots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -381,8 +380,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotAreaInst.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaInst.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaInst.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotAreaInst.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaInst.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaInst.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the area information in the regions of this instrument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -394,8 +393,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pyspex.plot.PlotAreaReg">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotAreaReg</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaReg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaReg" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotAreaReg">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></code><code class="sig-name descname"><span class="pre">PlotAreaReg</span></code><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaReg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaReg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective area information for each region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -408,8 +407,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyspex.plot.PlotAreaReg.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaReg.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaReg.update" title="Permalink to this definition">¶</a></dt>
+<dt id="pyspex.plot.PlotAreaReg.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaReg.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaReg.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update effective area information for this region (reg) in instrument (inst).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -424,8 +423,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </dd></dl>
 
 </div></blockquote>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -483,7 +482,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -502,7 +501,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 01, 2022.<br>
+        Last updated on: Aug 31, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
