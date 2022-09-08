@@ -10,4 +10,5 @@ Getting started
    getstarted/pyspex
    getstarted/compile
    getstarted/docker
+   getstarted/conda
 
