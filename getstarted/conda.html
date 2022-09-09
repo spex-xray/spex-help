@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.8. How to install SPEX using Anaconda &#8212; SPEX Help Center 3.07.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/getstarted/conda.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Analysis threads" href="../threads.html" />
+    <link rel="prev" title="1.7. Use SPEX through Docker" href="docker.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <blockquote id="sec-conda">
+<div></div></blockquote>
+<section id="how-to-install-spex-using-anaconda">
+<h1><span class="section-number">1.8. </span>How to install SPEX using Anaconda<a class="headerlink" href="#how-to-install-spex-using-anaconda" title="Permalink to this headline">¶</a></h1>
+<p>SPEX is now also available through Anaconda for Linux and (Intel) MacOS. The instructions
+below assume that you have a working version of Anaconda on your system (otherwise see
+<a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda download</a> or
+<a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, which installs the
+minimum needed).</p>
+<section id="check-your-platform">
+<h2><span class="section-number">1.8.1. </span>Check your platform<a class="headerlink" href="#check-your-platform" title="Permalink to this headline">¶</a></h2>
+<p>SPEX for Anaconda is currently only available for Linux 64-bit (linux64) and MacOS Intel (osx64),
+so please make sure that your machine provides the right environment. If you have an Apple Mac
+with an M1 processor, then SPEX can run in an x86_64 environment using Rosetta (see
+<a class="reference external" href="https://taylorreiter.github.io/2022-04-05-Managing-multiple-architecture-specific-installations-of-conda-on-apple-M1/">Managing multiple architecture specific conda installations on Apple M1</a>).</p>
+</section>
+<section id="create-a-conda-environment-for-spex-optional-but-recommended">
+<h2><span class="section-number">1.8.2. </span>Create a conda environment for SPEX (optional, but recommended)<a class="headerlink" href="#create-a-conda-environment-for-spex-optional-but-recommended" title="Permalink to this headline">¶</a></h2>
+<p>To make sure that SPEX keeps having access to its dependencies, it is best to install it in its own environment.
+This way, the number of potential conflicts with other packages remains minimal.</p>
+<p>Currently, SPEX is available for Python 3.8, 3.9 and 3.10, so please choose a version that matches your needs.
+A conda environment can be created with the command below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) user@linux:~&gt; conda create -n spex python=3.9
+</pre></div>
+</div>
+<p>Replace the version number in the flag <code class="docutils literal notranslate"><span class="pre">python=3.9</span></code> with the Python version you need. Once the environment
+is created and the minimal packages are installed, the environment can be activated:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) user@linux:~&gt; conda activate spex
+(spex) user@linux:~&gt;
+</pre></div>
+</div>
+<p>You now have a minimal environment to install SPEX into.</p>
+</section>
+<section id="install-spex-using-conda">
+<h2><span class="section-number">1.8.3. </span>Install SPEX using conda<a class="headerlink" href="#install-spex-using-conda" title="Permalink to this headline">¶</a></h2>
+<p>Installing SPEX in a conda environment is as simple as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) user@linux:~&gt; conda install -c spexxray spex
+</pre></div>
+</div>
+<p>Conda will automatically install the dependencies of SPEX. It is possible that you need to re-initialize the
+conda environment to make SPEX run directly from the command line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) user@linux:~&gt; conda deactivate
+(base) user@linux:~&gt; conda activate spex
+(spex) user@linux:~&gt; spex
+ Welcome user to SPEX version 3.07.01
+
+ NEW in this version of SPEX:
+02-08-2022 Fixed issue with optimal binning
+31-08-2022 Fixed issue with SPEX binaries on Apple M1 chips
+
+ Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
+
+SPEX&gt; quit
+ Thank you for using SPEX
+</pre></div>
+</div>
+<p>You probably want to install more packages in this environment for your purposes, like Jupyterlab or other
+scientific packages. This can be done using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command as well.</p>
+<p>On an Apple Mac, it is necessary to install an Xserver, like <a class="reference external" href="https://www.xquartz.org/">XQuartz</a>.</p>
+</section>
+<section id="running-spex-in-conda">
+<h2><span class="section-number">1.8.4. </span>Running SPEX in conda<a class="headerlink" href="#running-spex-in-conda" title="Permalink to this headline">¶</a></h2>
+<p>Every time that you want to use SPEX in a new terminal, you have to activate the spex environment:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) user@linux:~&gt; conda activate spex
+(spex) user@linux:~&gt;
+</pre></div>
+</div>
+<p>After this command also the python interface of SPEX should be automatically initialized:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) user@linux:~&gt; python
+&gt;&gt;&gt; from pyspex.spex import Session
+&gt;&gt;&gt; s=Session()
+</pre></div>
+</div>
+</section>
+<section id="more-information">
+<h2><span class="section-number">1.8.5. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://anaconda.org/spexxray/spex">our SPEX page at Anaconda</a> for more information.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../getstarted.html">1. Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">1.1. How to install SPEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runspex.html">1.2. How to run SPEX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtrafo.html">1.3. How to convert spectra to SPEX format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html">1.4. Install the SPEX Python interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspex.html#dependencies">1.5. Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compile.html">1.6. Compile SPEX from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">1.7. Use SPEX through Docker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.8. How to install SPEX using Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../getstarted.html"><span class="section-number">1. </span>Getting started</a><ul>
+      <li>Previous: <a href="docker.html" title="previous chapter"><span class="section-number">1.7. </span>Use SPEX through Docker</a></li>
+      <li>Next: <a href="../threads.html" title="next chapter"><span class="section-number">2. </span>Analysis threads</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Sep 09, 2022.<br>
+    
+        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>
