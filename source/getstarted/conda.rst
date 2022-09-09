@@ -52,7 +52,7 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome jellep to SPEX version 3.07.01
+     Welcome user to SPEX version 3.07.01
 
      NEW in this version of SPEX:
     02-08-2022 Fixed issue with optimal binning
