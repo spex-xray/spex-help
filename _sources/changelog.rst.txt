@@ -411,3 +411,21 @@ Changes in SPEX 3.07.01:
 - Fixed a bug in the SPEX obin command.
 
 - On some Apple M1 machines SPEX crashed with an Intel MKL error. This has been resolved.
+
+Version 3.07.02
+---------------
+
+Changes in SPEX 3.07.02:
+''''''''''''''''''''''''
+
+- Fixed an issue where plot area produced a wrong Y axis scale when cm units were used.
+
+- Fixed an issue with dividing response matrix in trafo.
+
+- Fixed an issue where the labels in the table resulting from an error command were printed incorrectly.
+
+- Plot adum now outputs full range of double precision numbers.
+
+- Fixed issue with quotes not appearing in log save output.
+
+- Fixed issue with line broadening not working in the cluster model.

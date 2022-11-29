@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.1.5. Cie: collisional ionisation equilibrium model &#8212; SPEX Help Center 3.07.01 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.5. Cie: collisional ionisation equilibrium model &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -33,14 +34,14 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="cie-collisional-ionisation-equilibrium-model">
+  <section id="cie-collisional-ionisation-equilibrium-model">
 <span id="sect-cie"></span><h1><span class="section-number">4.1.5. </span>Cie: collisional ionisation equilibrium model<a class="headerlink" href="#cie-collisional-ionisation-equilibrium-model" title="Permalink to this headline">¶</a></h1>
 <p>This model calculates the spectrum of a plasma in collisional ionisation
 equilibrium (CIE). It consists essentially of two steps, first a
 calculation of the ionisation balance and then the calculation of the
 X-ray spectrum. The basis for this model is formed by the mekal model,
 but several updates have been included (see <a class="reference internal" href="../theory/spexact/plasma.html#chap-plasmamodel"><span class="std std-ref">Plasma model in SPEX 3.0</span></a>).</p>
-<div class="section" id="temperatures">
+<section id="temperatures">
 <h2><span class="section-number">4.1.5.1. </span>Temperatures<a class="headerlink" href="#temperatures" title="Permalink to this headline">¶</a></h2>
 <p>Some remarks should be made about the temperatures. SPEX knows three
 temperatures that are used for this model.</p>
@@ -82,16 +83,16 @@ high-temperature side. Usually (default) <img class="math" src="../_images/math/
 that case the normal isothermal spectrum is chosen. Note that for larger
 values of <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> the cpu time may become larger due to the
 fact that the code has to evaluate many isothermal spectra.</p>
-</div>
-<div class="section" id="line-broadening">
+</section>
+<section id="line-broadening">
 <h2><span class="section-number">4.1.5.2. </span>Line broadening<a class="headerlink" href="#line-broadening" title="Permalink to this headline">¶</a></h2>
 <p>Apart from line broadening due to the thermal velocity of the ions
 (caused by <img class="math" src="../_images/math/83ed096a4ed554838dea908e6eec35a82670f51d.svg" alt="T_{\mathrm i} &gt; 0" style="vertical-align: -2px"/>) it is also possible to get line
 broadening due to (micro)turbulence. Since SPEX version 3.06, we use
 the RMS velocity broadening in km/s in our models. For more information
 about this change see: <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>.</p>
-</div>
-<div class="section" id="density-effects">
+</section>
+<section id="density-effects">
 <h2><span class="section-number">4.1.5.3. </span>Density effects<a class="headerlink" href="#density-effects" title="Permalink to this headline">¶</a></h2>
 <p>It is also possible to vary the hydrogen density <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/>
 of the plasma. This does not affect the overall shape of the spectrum
@@ -102,13 +103,13 @@ are sensitive to the hydrogen density will get different intensities.
 Usually this occurs for higher densities, for example under typical ISM
 conditions (<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> = 1 cm<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>) this is not an
 important effect.</p>
-</div>
-<div class="section" id="non-thermal-electron-distributions">
+</section>
+<section id="non-thermal-electron-distributions">
 <h2><span class="section-number">4.1.5.4. </span>Non-thermal electron distributions<a class="headerlink" href="#non-thermal-electron-distributions" title="Permalink to this headline">¶</a></h2>
 <p>The effects of non-thermal electron distribution on the spectrum can be
 included. See <a class="reference internal" href="../theory/spexact/nonthermal.html#sec-nonthermal"><span class="std std-ref">Non-thermal electron distributions</span></a> for more details.</p>
-</div>
-<div class="section" id="abundances">
+</section>
+<section id="abundances">
 <h2><span class="section-number">4.1.5.5. </span>Abundances<a class="headerlink" href="#abundances" title="Permalink to this headline">¶</a></h2>
 <p>The abundances are given in Solar units. Which set of solar units is
 being used can be set using the <code class="docutils literal notranslate"><span class="pre">abun</span></code> command (<a class="reference internal" href="../reference/commands/abundance.html#sec-abundance"><span class="std std-ref">Abundance: standard abundances</span></a>).
@@ -136,8 +137,8 @@ case; when the reference element is H, you mays substitute X=H; however
 when it is another element, like O, the normalisation is still the
 product of <img class="math" src="../_images/math/635e974bc1aa1401668cb3d6baf13a250968ebf5.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> where X stands for the
 fictitious hydrogen density derived from the solar O/H ratio.</p>
-</div>
-<div class="section" id="external-magnetic-field">
+</section>
+<section id="external-magnetic-field">
 <h2><span class="section-number">4.1.5.6. </span>External magnetic field<a class="headerlink" href="#external-magnetic-field" title="Permalink to this headline">¶</a></h2>
 <p>External magnetic field resolves the degeneracy of the magnetic sublevels of a
 given level and allows mixing with neighbour levels of the same magnetic quantum
@@ -146,7 +147,7 @@ and intensities of these otherwise forbidden transitions depend on the magnetic
 field.</p>
 <p>The magnetic field strength is given in unit of Gauss. For very strong fields
 (<img class="math" src="../_images/math/955db151686dec23b7845bbc3af60ffdea7fbd59.svg" alt="$B\geq 10^{10}$" style="vertical-align: 0px"/> Gauss), the calculation likely becomes less reliable.</p>
-<div class="section" id="example">
+<section id="example">
 <h3><span class="section-number">4.1.5.6.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>Suppose the Solar O abundance is 1E-3 (i.e. there is 0.001
 oxygen atom per hydrogen atom in the Sun). Take the reference atom
@@ -161,9 +162,9 @@ The nominal oxygen emission measure is
 <img class="math" src="../_images/math/bd00d38bb2f89985e84824f96ed364d083432ccf.svg" alt="n_{\mathrm e}n_{\mathrm O}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/9e311df78b7ae884cc8d2ef7f43a2db4dfd622c6.svg" alt="0.001 \times 3\times
 10^{64}" style="vertical-align: -1px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, and nominally oxygen would have 5 times
 overabundance as compared to hydrogen, in terms of solar ratios.</p>
-</div>
-</div>
-<div class="section" id="parameter-description">
+</section>
+</section>
+<section id="parameter-description">
 <h2><span class="section-number">4.1.5.7. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -242,8 +243,8 @@ present, non-thermal effects are not taken into account (default).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">b</span></code> : External magnetic field strength in Gauss. Default value: 0.</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996uxsa.conf..411K/abstract">Kaastra et al. (1996)</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -302,7 +303,7 @@ present, non-thermal effects are not taken into account (default).</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -321,7 +322,7 @@ present, non-thermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 31, 2022.<br>
+        Last updated on: Nov 29, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

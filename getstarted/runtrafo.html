@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.3. How to convert spectra to SPEX format &#8212; SPEX Help Center 3.07.01 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.3. How to convert spectra to SPEX format &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -33,7 +34,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="how-to-convert-spectra-to-spex-format">
+  <section id="how-to-convert-spectra-to-spex-format">
 <span id="sect-runtrafo"></span><h1><span class="section-number">1.3. </span>How to convert spectra to SPEX format<a class="headerlink" href="#how-to-convert-spectra-to-spex-format" title="Permalink to this headline">¶</a></h1>
 <p>Trafo is a program to convert OGIP spectra and responses into SPEX format.
 Before trafo is started, you need the OGIP spectra and responses
@@ -52,7 +53,7 @@ command line and is easy for scripting. More information
 about ogip2spex can be found on the <a class="reference external" href="https://spex-xray.github.io/pyspextools/tutorials/ogip2spex.html">Pyspex Github
 documentation page</a>.</p>
 </div>
-<div class="section" id="starting-trafo">
+<section id="starting-trafo">
 <h2><span class="section-number">1.3.1. </span>Starting trafo<a class="headerlink" href="#starting-trafo" title="Permalink to this headline">¶</a></h2>
 <p>It is best to run trafo in the directory where your OGIP files
 are. It is an interactive program, so it will ask the user for
@@ -81,8 +82,8 @@ Enter the maximum number of response groups per energy per spectrum: 100000
 number in nearly all cases. In special cases, it can put a limit
 on the number of response groups that will be saved in the .res
 file.</p>
-</div>
-<div class="section" id="optimizing-the-response-matrix">
+</section>
+<section id="optimizing-the-response-matrix">
 <h2><span class="section-number">1.3.2. </span>Optimizing the response matrix<a class="headerlink" href="#optimizing-the-response-matrix" title="Permalink to this headline">¶</a></h2>
 <p>The following feature is present in trafo since version 1.02 (SPEX
 version 2.02). It allows the user to re-arrange the response
@@ -107,8 +108,8 @@ slowest. Option 2 and 3 can provide a significant increase in
 performance, but results should be carefully checked. More
 information about re-arranging response matrices can be found in
 the SPEX Manual.</p>
-</div>
-<div class="section" id="calculating-response-derivatives">
+</section>
+<section id="calculating-response-derivatives">
 <h2><span class="section-number">1.3.3. </span>Calculating response derivatives<a class="headerlink" href="#calculating-response-derivatives" title="Permalink to this headline">¶</a></h2>
 <p>After the response structure, <code class="docutils literal notranslate"><span class="pre">trafo</span></code> asks whether one wants to calculate response derivatives:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Do you want to calculate the response derivatives (if not available)? (y/n) [no]:
@@ -117,8 +118,8 @@ the SPEX Manual.</p>
 <p>For high resolution spectra, this feature can optimize the response. See <a class="reference internal" href="../theory/response.html#sect-matrices"><span class="std std-ref">Optimal definition of respons matrices</span></a>
 for more information. The default choice is <cite>no</cite>, which will return a classic response file
 without derivatives.</p>
-</div>
-<div class="section" id="reading-the-spectra">
+</section>
+<section id="reading-the-spectra">
 <h2><span class="section-number">1.3.4. </span>Reading the spectra<a class="headerlink" href="#reading-the-spectra" title="Permalink to this headline">¶</a></h2>
 <p>Then, trafo asks for the filenames of the source and background
 spectra. First, provide the file name of the source spectrum.
@@ -155,8 +156,8 @@ No RESPFILE keyword found
 No ANCRFILE keyword found
 </pre></div>
 </div>
-</div>
-<div class="section" id="bad-channels-and-grouping">
+</section>
+<section id="bad-channels-and-grouping">
 <h2><span class="section-number">1.3.5. </span>Bad channels and grouping<a class="headerlink" href="#bad-channels-and-grouping" title="Permalink to this headline">¶</a></h2>
 <p>Depending on the instrument used, there is a chance that the
 spectrum contains bad channels. This is especially true for
@@ -182,8 +183,8 @@ binning spectra. For spectra with Poisson statistics (most X-ray
 spectra), it is much better to use C-statistics and use an optimal
 binning algorithm in SPEX based on the spectral resolution of the
 instrument.</p>
-</div>
-<div class="section" id="read-response-and-effective-area-files">
+</section>
+<section id="read-response-and-effective-area-files">
 <h2><span class="section-number">1.3.6. </span>Read response and effective area files<a class="headerlink" href="#read-response-and-effective-area-files" title="Permalink to this headline">¶</a></h2>
 <p>In the next step, the response matrix is read. Sometimes, the
 response matrices start at channel 0, which can be somewhat
@@ -232,8 +233,8 @@ order will not be swapped ...
 <p>If there are bins with zero response, then they are excluded from
 the resulting file. Also here a shift in bins can be set, but the
 recommended value is 0.</p>
-</div>
-<div class="section" id="writing-res-and-spo-files">
+</section>
+<section id="writing-res-and-spo-files">
 <h2><span class="section-number">1.3.7. </span>Writing res and spo files<a class="headerlink" href="#writing-res-and-spo-files" title="Permalink to this headline">¶</a></h2>
 <p>The final step is writing the spectra in SPEX format. The file
 names should be provided without an extension. The .spo and .res
@@ -245,8 +246,8 @@ Final number of response elements:   435950
 </div>
 <p>The PN.spo and PN.res file have been saved in the current
 directory.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -279,6 +280,7 @@ directory.</p>
 <li class="toctree-l2"><a class="reference internal" href="pyspex.html#dependencies">1.5. Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compile.html">1.6. Compile SPEX from source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">1.7. Use SPEX through Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conda.html">1.8. How to install SPEX using Anaconda</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -308,7 +310,7 @@ directory.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -327,7 +329,7 @@ directory.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 31, 2022.<br>
+        Last updated on: Nov 29, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

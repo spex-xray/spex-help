@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.1.2.6. Log commands &#8212; SPEX Help Center 3.07.01 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6.1.2.6. Log commands &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -33,22 +34,22 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="log-commands">
+  <section id="log-commands">
 <h1><span class="section-number">6.1.2.6. </span>Log commands<a class="headerlink" href="#log-commands" title="Permalink to this headline">¶</a></h1>
 <p>Being an interactive program, SPEX has facilities to save commands, execute lists of commands and
 save outputs to files. This is arranged through the <code class="docutils literal notranslate"><span class="pre">log</span></code> commands.</p>
-<div class="section" id="log-execute">
+<section id="log-execute">
 <h2><span class="section-number">6.1.2.6.1. </span>Log execute<a class="headerlink" href="#log-execute" title="Permalink to this headline">¶</a></h2>
 <p>Executing lists of SPEX commands can be done using the <code class="docutils literal notranslate"><span class="pre">log_exe</span></code> method, similar to the
 <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span></code> command in SPEX:</p>
 <blockquote>
 <div><dl class="py method">
-<dt id="pyspex.spex.Session.log_exe">
-<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">log_exe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_exe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_exe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.spex.Session.log_exe">
+<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">log_exe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_exe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_exe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute log file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Filename of the ASCII file with the SPEX commands (including .com extension).</p>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename of the ASCII file with the SPEX commands (including .com extension).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -59,21 +60,21 @@ save outputs to files. This is arranged through the <code class="docutils litera
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_exe</span><span class="p">(</span><span class="s1">&#39;mysource.com&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="log-save">
+</section>
+<section id="log-save">
 <h2><span class="section-number">6.1.2.6.2. </span>Log save<a class="headerlink" href="#log-save" title="Permalink to this headline">¶</a></h2>
 <p>To save the commands typed into SPEX (or passed through the <code class="docutils literal notranslate"><span class="pre">command</span></code> function in
 PYSPEX or the API), one can use the <code class="docutils literal notranslate"><span class="pre">log_save</span></code> command.</p>
 <blockquote>
 <div><dl class="py method">
-<dt id="pyspex.spex.Session.log_save">
-<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">log_save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_save" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.spex.Session.log_save">
+<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">log_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the commands for a session in an ascii file. The status is optional and either overwrite or append.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>savefile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Filename of the output command file (including .com extension).</p></li>
-<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (Optional) Overwrite or append an existing file name. String can be ‘overwrite’ or ‘append’.</p></li>
+<li><p><strong>savefile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename of the output command file (including .com extension).</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Overwrite or append an existing file name. String can be ‘overwrite’ or ‘append’.</p></li>
 </ul>
 </dd>
 </dl>
@@ -87,21 +88,21 @@ PYSPEX or the API), one can use the <code class="docutils literal notranslate"><
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_save</span><span class="p">(</span><span class="s1">&#39;session_01.com&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="log-output">
+</section>
+<section id="log-output">
 <h2><span class="section-number">6.1.2.6.3. </span>Log output<a class="headerlink" href="#log-output" title="Permalink to this headline">¶</a></h2>
 <p>The terminal output can be saved in another file with the .out extension using the method
 <code class="docutils literal notranslate"><span class="pre">log_out</span></code>:</p>
 <blockquote>
 <div><dl class="py method">
-<dt id="pyspex.spex.Session.log_out">
-<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">log_out</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_out" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.spex.Session.log_out">
+<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">log_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_out" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save SPEX terminal output to file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>outfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Filename of the output file (including .out extension).</p></li>
-<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (Optional) Overwrite or append an existing file name. String can be ‘overwrite’ or ‘append’.</p></li>
+<li><p><strong>outfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename of the output file (including .out extension).</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Overwrite or append an existing file name. String can be ‘overwrite’ or ‘append’.</p></li>
 </ul>
 </dd>
 </dl>
@@ -115,19 +116,19 @@ PYSPEX or the API), one can use the <code class="docutils literal notranslate"><
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_out</span><span class="p">(</span><span class="s1">&#39;mylog.out&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;overwrite&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="log-close">
+</section>
+<section id="log-close">
 <h2><span class="section-number">6.1.2.6.4. </span>Log close<a class="headerlink" href="#log-close" title="Permalink to this headline">¶</a></h2>
 <p>The logging done by the <code class="docutils literal notranslate"><span class="pre">log_save</span></code> or <code class="docutils literal notranslate"><span class="pre">log_out</span></code> methods can be stopped by calling the
 <code class="docutils literal notranslate"><span class="pre">log_close</span></code> method:</p>
 <blockquote>
 <div><dl class="py method">
-<dt id="pyspex.spex.Session.log_close">
-<code class="sig-prename descclassname"><span class="pre">Session.</span></code><code class="sig-name descname"><span class="pre">log_close</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_close" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.spex.Session.log_close">
+<span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">log_close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logtype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.log_close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.log_close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Close the save or output file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>logtype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – String indicating the type of log to close (‘save’ or ‘out’).</p>
+<dd class="field-odd"><p><strong>logtype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – String indicating the type of log to close (‘save’ or ‘out’).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -139,8 +140,8 @@ PYSPEX or the API), one can use the <code class="docutils literal notranslate"><
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">log_close</span><span class="p">(</span><span class="s1">&#39;save&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -200,7 +201,7 @@ PYSPEX or the API), one can use the <code class="docutils literal notranslate"><
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -219,7 +220,7 @@ PYSPEX or the API), one can use the <code class="docutils literal notranslate"><
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 31, 2022.<br>
+        Last updated on: Nov 29, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

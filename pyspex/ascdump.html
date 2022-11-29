@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.3.6. Ascdump class &#8212; SPEX Help Center 3.07.01 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6.3.6. Ascdump class &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -33,7 +34,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="ascdump-class">
+  <section id="ascdump-class">
 <h1><span class="section-number">6.3.6. </span>Ascdump class<a class="headerlink" href="#ascdump-class" title="Permalink to this headline">¶</a></h1>
 <p>Running an ascdump command to retrieve internal model parameters will return an
 <a class="reference external" href="https://docs.astropy.org/en/stable/table/index.html">Astropy table</a> with the
@@ -41,8 +42,8 @@ desired values. This section shows the structure of the Ascdump class used to
 receive the numbers from SPEX.</p>
 <blockquote>
 <div><dl class="py class">
-<dt id="pyspex.ascdump.Ascdump">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">pyspex.ascdump.</span></code><code class="sig-name descname"><span class="pre">Ascdump</span></code><a class="reference internal" href="../_modules/pyspex/ascdump.html#Ascdump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.ascdump.Ascdump" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.ascdump.Ascdump">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.ascdump.</span></span><span class="sig-name descname"><span class="pre">Ascdump</span></span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Ascdump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.ascdump.Ascdump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic ascdump interface to retreive ascdump output tables and return an Astropy table.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -50,16 +51,16 @@ receive the numbers from SPEX.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="pyspex.ascdump.Ascdump.get">
-<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Ascdump.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.ascdump.Ascdump.get" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyspex.ascdump.Ascdump.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/ascdump.html#Ascdump.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.ascdump.Ascdump.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run and get the ascdump output for a certain ascdump type (atype) for a model component
 defined by its sector number (isect) and component number (icomp).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Sector number of the component.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Component number.</p></li>
-<li><p><strong>atype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Ascdump type (see <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a> for more information).</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number.</p></li>
+<li><p><strong>atype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Ascdump type (see <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a> for more information).</p></li>
 </ul>
 </dd>
 </dl>
@@ -70,7 +71,7 @@ defined by its sector number (isect) and component number (icomp).</p>
 </div></blockquote>
 <p>An overview of the different ascdump outputs and an explanation about the acronyms in the output table can be
 found in the section <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a>.</p>
-</div>
+</section>
 
 
           </div>
@@ -128,7 +129,7 @@ found in the section <a class="reference internal" href="../reference/commands/a
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -147,7 +148,7 @@ found in the section <a class="reference internal" href="../reference/commands/a
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 31, 2022.<br>
+        Last updated on: Nov 29, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

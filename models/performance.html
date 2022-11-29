@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2. Optimizing model performance &#8212; SPEX Help Center 3.07.01 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.2. Optimizing model performance &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -33,7 +34,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="optimizing-model-performance">
+  <section id="optimizing-model-performance">
 <span id="sect-performance"></span><h1><span class="section-number">4.2. </span>Optimizing model performance<a class="headerlink" href="#optimizing-model-performance" title="Permalink to this headline">¶</a></h1>
 <p>Since the release of SPEX version 3, which contain major atomic data updates, the models that depend on this
 new atomic data run slower then before. Especially for cases which need a lot of model evaluations, this can be
@@ -42,7 +43,7 @@ a nuisance.</p>
 course, speeding up the calculation usually means you also pay a (small) price in terms of accuracy. Therefore,
 we will also provide an estimate of the loss of accuracy where possible to help you to find the right balance
 between calculation speed and accuracy for your project.</p>
-<div class="section" id="setting-a-maximum-n">
+<section id="setting-a-maximum-n">
 <h2><span class="section-number">4.2.1. </span>Setting a maximum N<a class="headerlink" href="#setting-a-maximum-n" title="Permalink to this headline">¶</a></h2>
 <p>In many cases, the most important spectral lines are formed by transitions between the lower principle quantum
 numbers <cite>n</cite>. In the past couple of years, we added atomic levels with a higher <cite>n</cite> to improve the accuracy of
@@ -109,8 +110,8 @@ that is missing in the model.</p>
 even do the error calculations with the Nmax setting for most of the parameters, as long as you do the final fit with
 the full model to update the best-fit values. The errors should not be affected significantly within their precision,
 unless the parameter is strongly correlated to another one.</p>
-</div>
-<div class="section" id="replacing-secondary-components-by-the-file-model">
+</section>
+<section id="replacing-secondary-components-by-the-file-model">
 <h2><span class="section-number">4.2.2. </span>Replacing secondary components by the file model<a class="headerlink" href="#replacing-secondary-components-by-the-file-model" title="Permalink to this headline">¶</a></h2>
 <p>To deal with astrophysical complexity, models can become rather large. Especially when there are many atomic model
 components to calculate, this can cost a significant amount of time. In some cases, it is not really necessary to
@@ -148,8 +149,8 @@ The <code class="docutils literal notranslate"><span class="pre">norm</span></co
 should be applied to the file model component or not!</p></li>
 </ol>
 <p>The fitting should now be faster, because there are now two CIE components that do not need to be calculated anymore.</p>
-</div>
-<div class="section" id="optimizing-the-number-of-threads">
+</section>
+<section id="optimizing-the-number-of-threads">
 <h2><span class="section-number">4.2.3. </span>Optimizing the number of threads<a class="headerlink" href="#optimizing-the-number-of-threads" title="Permalink to this headline">¶</a></h2>
 <p>By default, SPEX tries to use as many CPU cores as the system has available. However, dividing the calculations over
 multiple cores also causes overhead. The more cores, the more overhead! It has been observed that calculations performed
@@ -166,8 +167,8 @@ limit the number of cores by setting the <code class="docutils literal notransla
 </div>
 <p>If you need to do a large number of calculations, it may be good to test a few settings first to see which one is
 optimal for your model and machine.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -224,7 +225,7 @@ optimal for your model and machine.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -243,7 +244,7 @@ optimal for your model and machine.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 31, 2022.<br>
+        Last updated on: Nov 29, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

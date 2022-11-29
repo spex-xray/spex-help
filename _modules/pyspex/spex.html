@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyspex.spex &#8212; SPEX Help Center 3.07.01 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <title>pyspex.spex &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -36,28 +36,28 @@
 
 <span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
-<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">int</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">int</span>
 
-<span class="kn">from</span> <span class="nn">future</span> <span class="k">import</span> <span class="n">standard_library</span>
+<span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
 
 <span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">pyspex_f2py</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">data</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">model</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">log</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">ascdump</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">pyspex_f2py</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">model</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ascdump</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="k">import</span> <span class="n">FuncFormatter</span>
-<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="k">import</span> <span class="n">quantity_support</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">FuncFormatter</span>
+<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">quantity_support</span>
 <span class="n">quantity_support</span><span class="p">()</span>
 
 <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_version</span><span class="p">()</span>
@@ -72,7 +72,7 @@
        
     <span class="n">instance</span> <span class="o">=</span> <span class="kc">None</span>
     
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span><span class="p">:</span>
             <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">_Singleton</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -87,7 +87,7 @@
 <div class="viewcode-block" id="Session"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session">[docs]</a><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="n">Singleton</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This class contains all the classes and commands that are available in a pySPEX session.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Session.__init__"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Session.__init__"><a class="viewcode-back" href="../../pyspex/session.html#pyspex.spex.Session.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Function to initialize the PYSPEX session. It starts an instance of SPEX in the background.</span>
 <span class="sd">        Furthermore, it initializes a set of objects containing information about the loaded data,</span>
 <span class="sd">        model values, optimization and logs.</span>
@@ -1554,7 +1554,7 @@
     <span class="c1"># ======================================================</span>
     <span class="c1"># Quit command (automatic)</span>
     <span class="c1"># ======================================================</span>
-    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Automatic quit command.&quot;&quot;&quot;</span>
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">spexapi</span><span class="o">.</span><span class="n">api_final</span><span class="p">()</span></div>
 </pre></div>
@@ -1607,7 +1607,7 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -1626,7 +1626,7 @@
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Aug 31, 2022.<br>
+        Last updated on: Nov 29, 2022.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
