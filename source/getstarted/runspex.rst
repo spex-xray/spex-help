@@ -118,7 +118,7 @@ plot to a linear-linear plot in Å and add a title to the plot::
    SPEX> plot
 
 To make sure the axes are linear, we give the commands (``plot x lin`` and
-``plot y lin``) and change the axes to unit Å  (``plot ux a`` and ``plot uy a``).
+``plot y lin``) and change the axes to unit Å (``plot ux a`` and ``plot uy a``).
 The commands ``plot rx 8.:35.`` and ``plot ry 0.:0.05`` change the
 ranges on the x and y axes, respectively. Then the color of the data,
 background spectrum and model are set. The last commands beginning with
@@ -143,7 +143,7 @@ it is necessary to remove wavelength intervals which contain bad data
 and rebin your spectrum. The SPEX command to ignore parts of the spectrum
 is called ``ignore`` (:ref:`sec:ignore`) and the command to rebin is called
 ``bin`` (:ref:`sec:bin`). In the next example we bin the spectrum over
-the 8–35 Å range with a factor of 5 and ignore the rest of the
+the 8–35 Å range with a factor of 5 and ignore the rest of the
 spectrum:
 
 ::
@@ -162,7 +162,7 @@ one instrument), you can add an extra instrument statement:
    ign ins 1:2 35:100 unit a
    bin ins 1:2 8:35 5 unit a
 
-Here, instrument 1 to 2 are binned with a factor of 5 over the 8–35 Å 
+Here, instrument 1 to 2 are binned with a factor of 5 over the 8–35 Å
 range.
 
 Defining a model

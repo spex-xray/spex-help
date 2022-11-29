@@ -52,11 +52,15 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.07.01
+     Welcome user to SPEX version 3.07.02
 
      NEW in this version of SPEX:
-    02-08-2022 Fixed issue with optimal binning
-    31-08-2022 Fixed issue with SPEX binaries on Apple M1 chips
+    05-09-2022 Fixed m2 to cm2 conversion factor in plot area
+    06-09-2022 Fixed issue with dividing response matrix in trafo
+    19-10-2022 Fixed issue with error output table format
+    07-11-2022 Plot adum now outputs full range of double precision numbers
+    10-11-2022 Fixed issue with quotes not appearing in log save output
+    21-11-2022 Fixed issue with line broadening in the cluster model
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 

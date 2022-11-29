@@ -22,7 +22,7 @@ Step 2: Download the SPEX docker image from Zenodo
 The SPEX Docker image is available on `this Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_ as a tar.gz file.
 Please download the file called spex-[version]-Docker.tar.gz, for example::
 
-    spex-3.07.01-Docker.tar.gz
+    spex-3.07.02-Docker.tar.gz
 
 Or, alternatively, you can pull the image from Docker hub with the command: ``docker pull spexxray/spex:latest``.
 
@@ -31,9 +31,9 @@ Step 3: Import the SPEX image into Docker
 
 Before you can run the docker file, it should be imported into the docker system. This can be done on the command line::
 
-    user@linux:~> docker load -i spex-3.07.01-docker.tar.gz
+    user@linux:~> docker load -i spex-3.07.02-docker.tar.gz
 
-The image will be named spexxray/spex with the tag 3.07.00 and can be found with the command::
+The image will be named spexxray/spex with the tag 3.07.02 and can be found with the command::
 
     user@linux:~> docker images
     REPOSITORY TAG IMAGE ID CREATED SIZE
@@ -94,7 +94,7 @@ For Linux::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.07.01
+    spexxray/spex:3.07.02
 
 For Mac::
 
@@ -104,13 +104,13 @@ For Mac::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /Users/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.07.01
+    spexxray/spex:3.07.02
 
 The docker run command above will provide you with a prompt that will allow you to run spex::
 
     user@linux:~> docker run -it -e DISPLAY=$DISPLAY -e LOCAL_USER_ID=`id -u $USER` \
     -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/myusername:/home/user -w /home/user \
-    spexxray/spex:3.07.01
+    spexxray/spex:3.07.02
 
     Welcome to the SPEX Docker Container!
     Just type 'spex' to start the program.
@@ -119,11 +119,15 @@ The docker run command above will provide you with a prompt that will allow you 
 In this environment, you can just run spex or trafo::
 
     user@0922f2e4ff85:~> spex
-     Welcome user to SPEX version 3.07.01
+     Welcome user to SPEX version 3.07.02
 
      NEW in this version of SPEX:
-    02-08-2022 Fixed issue with optimal binning
-    31-08-2022 Fixed issue with SPEX binaries on Apple M1 chips
+    05-09-2022 Fixed m2 to cm2 conversion factor in plot area
+    06-09-2022 Fixed issue with dividing response matrix in trafo
+    19-10-2022 Fixed issue with error output table format
+    07-11-2022 Plot adum now outputs full range of double precision numbers
+    10-11-2022 Fixed issue with quotes not appearing in log save output
+    21-11-2022 Fixed issue with line broadening in the cluster model
 
     Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
