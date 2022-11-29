@@ -7,7 +7,7 @@ Overview
 ~~~~~~~~
 
 This command calculates the atomic error on a certain parameter of the {\it cie}
-model. 1 :math:`$\sigma$` error (68% confidence level) is calculated. The atomic error
+model. 1 :math:`\sigma` error (68% confidence level) is calculated. The atomic error
 is estimated based on the approach in `Gu et al. (2022) <https://doi.org/10.3390/s22030752>`_.
 In this paper, the uncertainties on the line emissivities of the *cie* model are
 estimated by comparing the model with the observed spectra of stellar coronae and

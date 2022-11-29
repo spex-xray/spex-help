@@ -42,7 +42,7 @@ photospheric values, but in most cases consistent), except for He
 at the bottom of the convection zone), C, N and O (largely escaped
 from meteorites) Ne and Ar (noble gases).
 
-In `the table below <#tab:abuset>`__ we show the values of the
+In the table below, we show the values of the
 standard abundances. They are expressed in logarithmic units, with
 hydrogen by definition 12.0.
 

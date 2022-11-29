@@ -1,9 +1,9 @@
 .. _sec:conda:
 
-  .. highlight:: none
-
 How to install SPEX using Anaconda
 ==================================
+
+  .. highlight:: none
 
 SPEX is now also available through Anaconda for Linux and (Intel) MacOS. The instructions
 below assume that you have a working version of Anaconda on your system (otherwise see

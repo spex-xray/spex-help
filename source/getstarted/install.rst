@@ -60,8 +60,8 @@ Mac OS
 ------
 
 We provide a SPEX binary version for Mac OS that has been built on Intel processors as an install package.
-Although this Intel build works mostly on Apple Silicon processors, we recommend to follow the :ref:`_sec:conda`
-install instead on Apple Silicon machines as this is a native build on that platform.
+Although this Intel build works mostly on Apple Silicon processors, we recommend to follow the :ref:`sec:conda`
+instead on Apple Silicon machines as this is a native build on that platform.
 
   .. Note:: This version of SPEX has been compiled using XQuartz 2.8.0, so please upgrade XQuartz
             to a version >=2.8.0.
