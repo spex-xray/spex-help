@@ -14,11 +14,8 @@ minimum needed).
 Check your platform
 -------------------
 
-SPEX for Anaconda is currently only available for Linux 64-bit (linux64) and MacOS Intel (osx64),
-so please make sure that your machine provides the right environment. If you have an Apple Mac
-with an M1 processor, then SPEX can run in an x86_64 environment using Rosetta (see
-`Managing multiple architecture specific conda installations on Apple M1
-<https://taylorreiter.github.io/2022-04-05-Managing-multiple-architecture-specific-installations-of-conda-on-apple-M1/>`_).
+SPEX for Anaconda is currently available for Linux 64-bit (linux64), MacOS Intel (osx64),
+and MacOS Silicon (osx-arm64), so please make sure that your machine provides the right environment.
 
 Create a conda environment for SPEX (optional, but recommended)
 ---------------------------------------------------------------
