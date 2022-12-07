@@ -16,18 +16,23 @@ SPEX status at Anaconda
 
 .. raw:: html
 
-    <a href="https://anaconda.org/spexxray/spex">
-        <img src="https://anaconda.org/spexxray/spex/badges/version.svg" alt="Last SPEX version"/></a>
-        Last SPEX version.
-    </br></br>
-    <a href="https://anaconda.org/spexxray/spex">
-        <img src="https://anaconda.org/spexxray/spex/badges/platforms.svg" alt="Platforms for which SPEX is available"/></a>
-        Platforms for which SPEX is available.
-    </br></br>
-    <a href="https://anaconda.org/spexxray/spex">
-        <img src="https://anaconda.org/spexxray/spex/badges/downloads.svg" alt="Total number of downloads of SPEX through Anaconda"/></a>
-        Total number of downloads of SPEX through Anaconda.
-
+    <table>
+    <tr>
+    <td>Current SPEX version:</td>
+    <td><a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/version.svg" alt="Last SPEX version"/></a></td>
+    </tr>
+    <tr>
+    <td>Platforms for which SPEX is available:</td>
+    <td><a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/platforms.svg" alt="Platforms for which SPEX is available"/></a></td>
+    </tr>
+    <tr>
+    <td>Total number of downloads of SPEX through Anaconda:</td>
+    <td><a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/downloads.svg" alt="Total number of downloads of SPEX through Anaconda"/></a></td>
+    </tr>
+    </table>
 
 Create a conda environment for SPEX (optional, but recommended)
 ---------------------------------------------------------------
