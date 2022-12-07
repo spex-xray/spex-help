@@ -5,17 +5,29 @@ How to install SPEX using Anaconda
 
   .. highlight:: none
 
-SPEX is now also available through Anaconda for Linux and (Intel) MacOS. The instructions
+SPEX is now also available through Anaconda for Linux and MacOS. The instructions
 below assume that you have a working version of Anaconda on your system (otherwise see
 `Anaconda download <https://www.anaconda.com/products/distribution>`_ or
 `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_, which installs the
 minimum needed).
 
-Check your platform
--------------------
+SPEX status at Anaconda
+-----------------------
 
-SPEX for Anaconda is currently available for Linux 64-bit (linux64), MacOS Intel (osx64),
-and MacOS Silicon (osx-arm64), so please make sure that your machine provides the right environment.
+.. raw:: html
+
+    <a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/version.svg" alt="Last SPEX version"/></a>
+        Last SPEX version.
+    </br></br>
+    <a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/platforms.svg" alt="Platforms for which SPEX is available"/></a>
+        Platforms for which SPEX is available.
+    </br></br>
+    <a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/downloads.svg" alt="Total number of downloads of SPEX through Anaconda"/></a>
+        Total number of downloads of SPEX through Anaconda.
+
 
 Create a conda environment for SPEX (optional, but recommended)
 ---------------------------------------------------------------
