@@ -62,7 +62,7 @@
 <td><p><a class="reference external" href="https://zenodo.org/record/7376309/files/spex-3.07.02-Linux-Intel.tar.gz?download=1">spex-3.07.02-Linux-Intel.tar.gz</a></p></td>
 <td><p><a class="reference external" href="https://zenodo.org/record/7376309/files/spex-3.07.02-MacOS-Intel.tar.gz?download=1">SPEX-3.07.02-MacOS.tar.gz</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Windows 10</p></td>
+<tr class="row-even"><td><p>Windows 10/11</p></td>
 <td><p><a class="reference external" href="https://zenodo.org/record/7376309/files/spex-3.07.02-Ubuntu-WSL.tar.gz?download=1">SPEX Ubuntu 22.04 WSL</a></p></td>
 <td></td>
 </tr>
@@ -153,16 +153,20 @@ SPEX release.</p>
 </div></blockquote>
 </section>
 </section>
-<section id="windows-10">
-<h2><span class="section-number">1.1.4. </span>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">¶</a></h2>
-<p>SPEX can be installed in Windows 10 using the new linux subsystem in Windows. SPEX can run in an Ubuntu Linux
+<section id="windows-10-11">
+<h2><span class="section-number">1.1.4. </span>Windows 10/11<a class="headerlink" href="#windows-10-11" title="Permalink to this headline">¶</a></h2>
+<p>SPEX can be installed in Windows 10/11 using the linux subsystem in Windows (WSL2). SPEX can run in an Ubuntu Linux
 environment that can be installed through the Microsoft Store.</p>
-<p><a class="reference external" href="https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0">How to install Ubuntu in Windows 10</a></p>
-<p>In addition to the Ubuntu terminal, you also need a graphical X server. We recommend the <a class="reference external" href="https://sourceforge.net/projects/vcxsrv/">Vcxsrv server</a>.
-Otherwise, the <a class="reference external" href="https://sourceforge.net/projects/xming/">XMING server</a> is an alternative.
-This will make sure that you can plot in SPEX.</p>
+<p><a class="reference external" href="https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support">How to install Ubuntu in Windows 10/11</a></p>
+<p>Since November 2022, WSL2 should support graphics output from Ubuntu, so a separate X-server should no longer be
+necessary. Section 5 of the tutorial above shows some examples of running graphical programs. It should not be
+necessary to run all of those, but they can be helpful to test your installation. After installing the x11 apps
+using the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">x11-apps</span></code>, you should be able to continue with the SPEX installation below.</p>
 <section id="install-spex-in-the-ubuntu-environment">
 <h3><span class="section-number">1.1.4.1. </span>Install SPEX in the Ubuntu environment<a class="headerlink" href="#install-spex-in-the-ubuntu-environment" title="Permalink to this headline">¶</a></h3>
+<p>The steps below describe how to install a SPEX version tailored to Ubuntu 22.04. If you are planning to
+use Anaconda in this Ubuntu WSL2 environment, then we would recommend to install SPEX through Anaconda directly.
+See <a class="reference internal" href="conda.html#sec-conda"><span class="std std-ref">How to install SPEX using Anaconda</span></a> for details.</p>
 <ol class="arabic">
 <li><p>On the Ubuntu terminal, first install the OpenBlas library: apt-get install libopenblas-base</p></li>
 <li><p>Download spex-3.07.02-Ubuntu-WSL.tar.gz from Zenodo.
@@ -290,7 +294,7 @@ source $SPEX90/spexdist.csh (C-type shell)
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Nov 29, 2022.<br>
+        Last updated on: Jan 04, 2023.<br>
     
         &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
