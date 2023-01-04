@@ -22,7 +22,7 @@ The current SPEX version 3.07.02 was released on 2022-11-29. SPEX install files 
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
     |Binary (Non-Administrator)|`spex-3.07.02-Linux-Intel.tar.gz <https://zenodo.org/record/7376309/files/spex-3.07.02-Linux-Intel.tar.gz?download=1>`_    |`SPEX-3.07.02-MacOS.tar.gz <https://zenodo.org/record/7376309/files/spex-3.07.02-MacOS-Intel.tar.gz?download=1>`_|
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
-    |Windows 10                |`SPEX Ubuntu 22.04 WSL <https://zenodo.org/record/7376309/files/spex-3.07.02-Ubuntu-WSL.tar.gz?download=1>`_               |                                                                                                                 |
+    |Windows 10/11             |`SPEX Ubuntu 22.04 WSL <https://zenodo.org/record/7376309/files/spex-3.07.02-Ubuntu-WSL.tar.gz?download=1>`_               |                                                                                                                 |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
     |Source code               | `spex-3.07.02-Source.tar.bz2 <https://zenodo.org/record/7376309/files/spex-3.07.02-Source.tar.bz2?download=1>`_                                                                                                                             |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -104,20 +104,25 @@ Remove the tar file: rm SPEX-3.07.02-MacOS.tar.gz
             SPEX release.
 
 
-Windows 10
-----------
+Windows 10/11
+-------------
 
-SPEX can be installed in Windows 10 using the new linux subsystem in Windows. SPEX can run in an Ubuntu Linux 
+SPEX can be installed in Windows 10/11 using the linux subsystem in Windows (WSL2). SPEX can run in an Ubuntu Linux
 environment that can be installed through the Microsoft Store.
 
-`How to install Ubuntu in Windows 10 <https://tutorials.ubuntu.com/tutorial/tutorial-ubuntu-on-windows#0>`_
+`How to install Ubuntu in Windows 10/11 <https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support>`_
 
-In addition to the Ubuntu terminal, you also need a graphical X server. We recommend the `Vcxsrv server <https://sourceforge.net/projects/vcxsrv/>`_.
-Otherwise, the `XMING server <https://sourceforge.net/projects/xming/>`_ is an alternative. 
-This will make sure that you can plot in SPEX.
+Since November 2022, WSL2 should support graphics output from Ubuntu, so a separate X-server should no longer be
+necessary. Section 5 of the tutorial above shows some examples of running graphical programs. It should not be
+necessary to run all of those, but they can be helpful to test your installation. After installing the x11 apps
+using the command ``sudo apt install x11-apps``, you should be able to continue with the SPEX installation below.
 
 Install SPEX in the Ubuntu environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The steps below describe how to install a SPEX version tailored to Ubuntu 22.04. If you are planning to
+use Anaconda in this Ubuntu WSL2 environment, then we would recommend to install SPEX through Anaconda directly.
+See :ref:`sec:conda` for details.
 
 1. On the Ubuntu terminal, first install the OpenBlas library: apt-get install libopenblas-base
 
