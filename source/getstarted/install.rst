@@ -8,7 +8,7 @@ How to install SPEX
 Download
 --------
 
-The current SPEX version 3.07.02 was released on 2022-11-29. SPEX install files can be downloaded from
+The current SPEX version 3.07.03 was released on 2023-03-28. SPEX install files can be downloaded from
 `our Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_.
 
 .. only:: html
@@ -34,21 +34,21 @@ Linux
 
 Unpack the tar file in the destination directory (for example /usr/local/):: 
 
-    tar xvfz spex-3.07.02-Linux-Intel.tar.gz
+    tar xvfz spex-3.07.03-Linux-Intel.tar.gz
 
-The tar file will create a directory called SPEX-3.07.02-Linux in which the program will be installed.
+The tar file will create a directory called SPEX-3.07.03-Linux in which the program will be installed.
 
-Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.07.02-Linux)::
+Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.07.03-Linux)::
  
-    export SPEX90=/usr/local/SPEX-3.07.02-Linux (bash shell)
-    setenv SPEX90 /usr/local/SPEX-3.07.02-Linux (C-type shell)
+    export SPEX90=/usr/local/SPEX-3.07.03-Linux (bash shell)
+    setenv SPEX90 /usr/local/SPEX-3.07.03-Linux (C-type shell)
 
 Source the script provided by the distribution::
  
     source $SPEX90/spexdist.sh (bash shell)
     source $SPEX90/spexdist.csh (C-type shell)
 
-Remove the tar file: rm SPEX-3.07.02-Linux-Intel.tar.gz
+Remove the tar file: rm SPEX-3.07.03-Linux-Intel.tar.gz
 
   .. Note:: In some cases the ``csh`` script fails because either PATH, LD_LIBRARY_PATH or PYTHONPATH
             are not defined. This can be temporarily fixed by defining an empty variable using setenv,
@@ -70,7 +70,7 @@ Administrator install (Intel)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have administrator rights on your Mac, this option is the easiest one. Download the PKG file from Zenodo
-(SPEX-3.07.02-MacOS.pkg), open it in Mac OS and follow the instructions on the screen.
+(SPEX-3.07.03-MacOS.pkg), open it in Mac OS and follow the instructions on the screen.
 
 MacOS may complain about not being able to verify the developer of the software. Please close this dialog and
 go to the MacOS System Preferences >> Security & Privacy. In that dialog, you are offered to open the SPEX package
@@ -82,21 +82,21 @@ Non-administrator install (Intel)
 
 Unpack the tar file in the destination directory (for example /usr/local/):: 
 
-    tar xvfz spex-3.07.02-MacOS.tar.gz
+    tar xvfz spex-3.07.03-MacOS.tar.gz
 
-The tar file will create a directory called SPEX-3.07.02-Darwin in which the program will be installed.
+The tar file will create a directory called SPEX-3.07.03-Darwin in which the program will be installed.
 
-Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.07.02-Darwin)::
+Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.07.03-Darwin)::
  
-    export SPEX90=/usr/local/SPEX-3.07.02-Darwin (bash shell)
-    setenv SPEX90 /usr/local/SPEX-3.07.02-Darwin (C-type shell)
+    export SPEX90=/usr/local/SPEX-3.07.03-Darwin (bash shell)
+    setenv SPEX90 /usr/local/SPEX-3.07.03-Darwin (C-type shell)
 
 Source the script provided by the distribution::
  
     source $SPEX90/spexdist.sh (bash shell)
     source $SPEX90/spexdist.csh (C-type shell)
 
-Remove the tar file: rm SPEX-3.07.02-MacOS.tar.gz
+Remove the tar file: rm SPEX-3.07.03-MacOS.tar.gz
 
   .. Note:: In some cases the ``csh`` script fails because either PATH, DYLD_LIBRARY_PATH or PYTHONPATH
             are not defined. This can be temporarily fixed by defining an empty variable using setenv,
@@ -114,7 +114,7 @@ environment that can be installed through the Microsoft Store.
 
 Since November 2022, WSL2 should support graphics output from Ubuntu, so a separate X-server should no longer be
 necessary. Section 5 of the tutorial above shows some examples of running graphical programs. It should not be
-necessary to run all of those, but they can be helpful to test your installation. After installing the x11 apps
+necessary to run all of those, but they can be helpful to test your installation. After installing the X11 apps
 using the command ``sudo apt install x11-apps``, you should be able to continue with the SPEX installation below.
 
 Install SPEX in the Ubuntu environment
@@ -126,24 +126,24 @@ See :ref:`sec:conda` for details.
 
 1. On the Ubuntu terminal, first install the OpenBlas library: apt-get install libopenblas-base
 
-2. Download spex-3.07.02-Ubuntu-WSL.tar.gz from Zenodo.
+2. Download spex-3.07.03-Ubuntu-WSL.tar.gz from Zenodo.
    Unpack the tar file in the destination directory (for example /usr/local/)::
 
-       tar xvfz spex-3.07.02-Ubuntu-WSL.tar.gz
+       tar xvfz spex-3.07.03-Ubuntu-WSL.tar.gz
 
-   The tar file will create a directory called SPEX-3.07.02-Linux in which the program will be installed.
+   The tar file will create a directory called SPEX-3.07.03-Linux in which the program will be installed.
 
-3. Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.07.02-Linux)::
+3. Set the environment variable SPEX90 to the installation directory (for example /usr/local/SPEX-3.07.03-Linux)::
  
-       export SPEX90=/usr/local/SPEX-3.07.02-Linux (bash shell)
-       setenv SPEX90 /usr/local/SPEX-3.07.02-Linux (C-type shell)
+       export SPEX90=/usr/local/SPEX-3.07.03-Linux (bash shell)
+       setenv SPEX90 /usr/local/SPEX-3.07.03-Linux (C-type shell)
 
 4. Source the script provided by the distribution::
  
        source $SPEX90/spexdist.sh (bash shell)
        source $SPEX90/spexdist.csh (C-type shell)
 
-5. Remove the tar file: rm spex-3.07.02-Ubuntu-WSL.tar.gz
+5. Remove the tar file: rm spex-3.07.03-Ubuntu-WSL.tar.gz
 
 6. Set the DISPLAY variable in ~/.bashrc::
  

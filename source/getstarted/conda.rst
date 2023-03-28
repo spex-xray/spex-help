@@ -66,15 +66,13 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.07.02
+     Welcome user to SPEX version 3.07.03
 
      NEW in this version of SPEX:
-    05-09-2022 Fixed m2 to cm2 conversion factor in plot area
-    06-09-2022 Fixed issue with dividing response matrix in trafo
-    19-10-2022 Fixed issue with error output table format
-    07-11-2022 Plot adum now outputs full range of double precision numbers
-    10-11-2022 Fixed issue with quotes not appearing in log save output
-    21-11-2022 Fixed issue with line broadening in the cluster model
+    01-12-2022 Fixed issue with plot cap command
+    05-12-2022 Fixed issue with knak model
+    22-03-2023 Fixed issue with treatment of bad quality bins in trafo
+    23-03-2023 Fixed small issues in the pyspex interface
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
@@ -99,6 +97,16 @@ After this command also the python interface of SPEX should be automatically ini
     (spex) user@linux:~> python
     >>> from pyspex.spex import Session
     >>> s=Session()
+
+
+Pyspextools in conda
+--------------------
+
+Our python support package `pyspextools <https://spex-xray.github.io/pyspextools/index.html>`_ is now also available
+on Conda::
+
+   (spex) user@linux:~> conda install -c spexxray pyspextools
+
 
 More information
 ----------------
