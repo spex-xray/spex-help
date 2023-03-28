@@ -16,7 +16,7 @@ The transmission includes both continuum and line opacity. For a
 description of what is currently in the absorption line database, we
 refer to :ref:`sect:absmodels`. By default, the model mimics
 the transmission of a neutral plasma by setting the default
-temperature to 8E-3 eV (:math:`8 \times 10^{-6}` keV).
+temperature to 1E-3 eV (:math:`1 \times 10^{-6}` keV).
 
 Please note that since SPEXACT updates 3.06.00 and 3.06.01, the
 behaviour of the hot model at low temperatures changed. Since these
@@ -24,12 +24,12 @@ versions, SPEX includes also charge exchange processes in the hot
 model and these change the ionisation balance at low temperature.
 While for previous SPEX versions, setting a temperature of
 :math:`5 \times 10^{-4}` was enough to obtain a neutral gas,
-now, the temperature needs to be set to :math:`8 \times 10^{-6}` keV
+now, the temperature needs to be set to :math:`1 \times 10^{-6}` keV
 to obtain the same result.
 
 Since the hot model is mostly used to model neutral gas in the ISM,
 we decided to set the default temperature to the minimum temperature
-of :math:`8 \times 10^{-6}` keV. This should result in a neutral gas
+of :math:`1 \times 10^{-6}` keV. This should result in a neutral gas
 and give the user the result most users expect.
 
 The parameters of the model are:
@@ -39,7 +39,7 @@ The parameters of the model are:
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
 | ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
-  value: :math:`8 \times 10^{-6}` keV.
+  value: :math:`1 \times 10^{-6}` keV.
 | ``rt`` : the ratio of ionization balance to electron temperature,
   :math:`R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}` in keV. Default
   value: 1.

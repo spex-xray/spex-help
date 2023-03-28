@@ -429,3 +429,17 @@ Changes in SPEX 3.07.02:
 - Fixed issue with quotes not appearing in log save output.
 
 - Fixed issue with line broadening not working in the cluster model.
+
+Version 3.07.03
+---------------
+
+Changes in SPEX 3.07.03:
+''''''''''''''''''''''''
+
+- Fixed bug that did not allow to change plot captions.
+
+- Fixed issue with the knak model.
+
+- Fixed issue with masking bad channels in trafo.
+
+- Fixed issues in the pyspex interface regarding plotting.

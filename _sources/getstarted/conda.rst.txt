@@ -5,20 +5,34 @@ How to install SPEX using Anaconda
 
   .. highlight:: none
 
-SPEX is now also available through Anaconda for Linux and (Intel) MacOS. The instructions
+SPEX is now also available through Anaconda for Linux and MacOS. The instructions
 below assume that you have a working version of Anaconda on your system (otherwise see
 `Anaconda download <https://www.anaconda.com/products/distribution>`_ or
 `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_, which installs the
 minimum needed).
 
-Check your platform
--------------------
+SPEX status at Anaconda
+-----------------------
 
-SPEX for Anaconda is currently only available for Linux 64-bit (linux64) and MacOS Intel (osx64),
-so please make sure that your machine provides the right environment. If you have an Apple Mac
-with an M1 processor, then SPEX can run in an x86_64 environment using Rosetta (see
-`Managing multiple architecture specific conda installations on Apple M1
-<https://taylorreiter.github.io/2022-04-05-Managing-multiple-architecture-specific-installations-of-conda-on-apple-M1/>`_).
+.. raw:: html
+
+    <table>
+    <tr>
+    <td>Current SPEX version:</td>
+    <td><a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/version.svg" alt="Last SPEX version"/></a></td>
+    </tr>
+    <tr>
+    <td>Platforms for which SPEX is available:</td>
+    <td><a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/platforms.svg" alt="Platforms for which SPEX is available"/></a></td>
+    </tr>
+    <tr>
+    <td>Total number of downloads of SPEX through Anaconda:</td>
+    <td><a href="https://anaconda.org/spexxray/spex">
+        <img src="https://anaconda.org/spexxray/spex/badges/downloads.svg" alt="Total number of downloads of SPEX through Anaconda"/></a></td>
+    </tr>
+    </table>
 
 Create a conda environment for SPEX (optional, but recommended)
 ---------------------------------------------------------------
@@ -52,15 +66,13 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.07.02
+     Welcome user to SPEX version 3.07.03
 
      NEW in this version of SPEX:
-    05-09-2022 Fixed m2 to cm2 conversion factor in plot area
-    06-09-2022 Fixed issue with dividing response matrix in trafo
-    19-10-2022 Fixed issue with error output table format
-    07-11-2022 Plot adum now outputs full range of double precision numbers
-    10-11-2022 Fixed issue with quotes not appearing in log save output
-    21-11-2022 Fixed issue with line broadening in the cluster model
+    01-12-2022 Fixed issue with plot cap command
+    05-12-2022 Fixed issue with knak model
+    22-03-2023 Fixed issue with treatment of bad quality bins in trafo
+    23-03-2023 Fixed small issues in the pyspex interface
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
@@ -85,6 +97,16 @@ After this command also the python interface of SPEX should be automatically ini
     (spex) user@linux:~> python
     >>> from pyspex.spex import Session
     >>> s=Session()
+
+
+Pyspextools in conda
+--------------------
+
+Our python support package `pyspextools <https://spex-xray.github.io/pyspextools/index.html>`_ is now also available
+on Conda::
+
+   (spex) user@linux:~> conda install -c spexxray pyspextools
+
 
 More information
 ----------------

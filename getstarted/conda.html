@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1.8. How to install SPEX using Anaconda &#8212; SPEX Help Center 3.07.02 documentation</title>
+    <title>1.8. How to install SPEX using Anaconda &#8212; SPEX Help Center 3.07.03 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -38,16 +38,30 @@
 <span id="sec-conda"></span><h1><span class="section-number">1.8. </span>How to install SPEX using Anaconda<a class="headerlink" href="#how-to-install-spex-using-anaconda" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div></div></blockquote>
-<p>SPEX is now also available through Anaconda for Linux and (Intel) MacOS. The instructions
+<p>SPEX is now also available through Anaconda for Linux and MacOS. The instructions
 below assume that you have a working version of Anaconda on your system (otherwise see
 <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda download</a> or
 <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, which installs the
 minimum needed).</p>
-<section id="check-your-platform">
-<h2><span class="section-number">1.8.1. </span>Check your platform<a class="headerlink" href="#check-your-platform" title="Permalink to this headline">¶</a></h2>
-<p>SPEX for Anaconda is currently available for Linux 64-bit (linux64), MacOS Intel (osx64),
-and MacOS Silicon (osx-arm64), so please make sure that your machine provides the right environment.</p>
-</section>
+<section id="spex-status-at-anaconda">
+<h2><span class="section-number">1.8.1. </span>SPEX status at Anaconda<a class="headerlink" href="#spex-status-at-anaconda" title="Permalink to this headline">¶</a></h2>
+<table>
+<tr>
+<td>Current SPEX version:</td>
+<td><a href="https://anaconda.org/spexxray/spex">
+    <img src="https://anaconda.org/spexxray/spex/badges/version.svg" alt="Last SPEX version"/></a></td>
+</tr>
+<tr>
+<td>Platforms for which SPEX is available:</td>
+<td><a href="https://anaconda.org/spexxray/spex">
+    <img src="https://anaconda.org/spexxray/spex/badges/platforms.svg" alt="Platforms for which SPEX is available"/></a></td>
+</tr>
+<tr>
+<td>Total number of downloads of SPEX through Anaconda:</td>
+<td><a href="https://anaconda.org/spexxray/spex">
+    <img src="https://anaconda.org/spexxray/spex/badges/downloads.svg" alt="Total number of downloads of SPEX through Anaconda"/></a></td>
+</tr>
+</table></section>
 <section id="create-a-conda-environment-for-spex-optional-but-recommended">
 <h2><span class="section-number">1.8.2. </span>Create a conda environment for SPEX (optional, but recommended)<a class="headerlink" href="#create-a-conda-environment-for-spex-optional-but-recommended" title="Permalink to this headline">¶</a></h2>
 <p>To make sure that SPEX keeps having access to its dependencies, it is best to install it in its own environment.
@@ -76,15 +90,13 @@ conda environment to make SPEX run directly from the command line:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) user@linux:~&gt; conda deactivate
 (base) user@linux:~&gt; conda activate spex
 (spex) user@linux:~&gt; spex
- Welcome user to SPEX version 3.07.02
+ Welcome user to SPEX version 3.07.03
 
  NEW in this version of SPEX:
-05-09-2022 Fixed m2 to cm2 conversion factor in plot area
-06-09-2022 Fixed issue with dividing response matrix in trafo
-19-10-2022 Fixed issue with error output table format
-07-11-2022 Plot adum now outputs full range of double precision numbers
-10-11-2022 Fixed issue with quotes not appearing in log save output
-21-11-2022 Fixed issue with line broadening in the cluster model
+01-12-2022 Fixed issue with plot cap command
+05-12-2022 Fixed issue with knak model
+22-03-2023 Fixed issue with treatment of bad quality bins in trafo
+23-03-2023 Fixed small issues in the pyspex interface
 
  Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
@@ -110,8 +122,16 @@ scientific packages. This can be done using the <code class="docutils literal no
 </pre></div>
 </div>
 </section>
+<section id="pyspextools-in-conda">
+<h2><span class="section-number">1.8.5. </span>Pyspextools in conda<a class="headerlink" href="#pyspextools-in-conda" title="Permalink to this headline">¶</a></h2>
+<p>Our python support package <a class="reference external" href="https://spex-xray.github.io/pyspextools/index.html">pyspextools</a> is now also available
+on Conda:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) user@linux:~&gt; conda install -c spexxray pyspextools
+</pre></div>
+</div>
+</section>
 <section id="more-information">
-<h2><span class="section-number">1.8.5. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.8.6. </span>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference external" href="https://anaconda.org/spexxray/spex">our SPEX page at Anaconda</a> for more information.</p>
 </section>
 </section>
@@ -196,9 +216,9 @@ scientific packages. This can be done using the <code class="docutils literal no
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Nov 29, 2022.<br>
+        Last updated on: Mar 28, 2023.<br>
     
-        &copy;2022, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

@@ -214,9 +214,7 @@ Similar to the density profile, we allow for a possible temperature jump of any 
 density jump may occur).
 
 Most default parameters are based on Vikhlinin et al. Eq. 8 for the typical 
-temperature profile that they derived. Note that their gas-mas weighted temperature
-:math:`T_{mg}` is related to our parameter :math:`T_h` by :math:`T_h = 1.35 T_{mg}`.
-
+temperature profile that they derived.
 
 We assume that the ion temperature equals the electron temperature for each shell.
 The parameters describing the temperature profile are summarized below.
