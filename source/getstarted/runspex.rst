@@ -21,8 +21,9 @@ need to be in the correct format. In the SPEX installation, we provide a
 program called :ref:`sect:trafo` to convert OGIP standard fits files into SPEX
 format (see :ref:`sect:runtrafo` for an explanation of how to use
 trafo). In this chapter, we assume that you already have spectra in SPEX
-format. For example, the `demo spectra from the SPEX web site
-<https://www.sron.nl/astrophysics-spex/manual>`_.
+format. If not, you can find example files in the SPEX :ref:`sec:exercises`
+section. Each exercise contains a ``.spo`` and ``.res`` file that can
+be downloaded.
 
 SPEX needs two files per spectrum:
 
