@@ -10,9 +10,9 @@ either of ``spexicon_abs.dat`` or ``spexicon_rel.dat``. Then the user runs
 SPEX and loads the Hyd model to calculate the spectrum.
 
 For users who are familiar with Fortran, we offer the supporting
-fortran90 subroutine, *hydro_driver*, to make the ion concentration file
-conveniently. The usage of the *hydro_driver* is described in
-:ref:`sect:hydrodriver`.
+fortran90 subroutine, :download:`hydro_driver.f90 </_static/user/hydro_driver.f90>`,
+to make the ion concentration file conveniently. The usage of the
+*hydro_driver* is described in :ref:`sect:hydrodriver`.
 
 For more general cases users can directly load the Hyd model and just
 calculate the spectrum. The model has two modes to specify the format
