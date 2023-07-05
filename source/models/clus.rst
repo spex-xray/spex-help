@@ -255,7 +255,7 @@ Mernier et al. (2017)
 https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf
 However, we write it in a slightly different, equivalent form as follows:
 
-.. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-De{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G
+.. math:: f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-De^{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G
 
 If the abundances should be kept constant as a function of radius,
 the user should take care that :math:`f(r)\equiv 1` for all radii. 
