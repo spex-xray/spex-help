@@ -32,6 +32,10 @@ SPEX Help Center
    Can you find what you are looking for? If not, please use the 'Quick search' function on the left
    or ask your question though our issue-tracker_.
 
+   .. note::
+      If you want to visit SRON to learn SPEX, then please have a look at the `AHEAD2020 TNA call
+      <https://ahead2020.le.ac.uk/ahead.php>`_ for proposals. Deadline for submission is September 1st 2023. 
+
 .. toctree::
    :maxdepth: 2
    :numbered:
