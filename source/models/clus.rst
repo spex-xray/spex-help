@@ -352,7 +352,7 @@ with
 
 Positive values correspond to inflow, negative values to outflow.
 The parameter :math:`v_c` corresponds to the flow velocity at the core,
-:math:`v_c` is the flow velocity at large distances. Note that the default
+:math:`v_h` is the flow velocity at large distances. Note that the default
 values for these parameters correspond to no in- or outflow.
 
 +---------+-------------+---------------+-----------------+
