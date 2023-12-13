@@ -34,7 +34,7 @@ SPEX Help Center
 
    .. note::
       If you want to visit SRON to learn SPEX, then please have a look at the `AHEAD2020 TNA call
-      <https://ahead2020.le.ac.uk/ahead.php>`_ for proposals. Deadline for submission is September 1st 2023. 
+      <https://ahead2020.le.ac.uk/ahead.php>`_ for proposals. Deadline for submission is in 2024.
 
 .. toctree::
    :maxdepth: 2
