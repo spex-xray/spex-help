@@ -29,6 +29,7 @@ Analysis threads & other tricks
 
    pyspex/threads
    pyspex/astropy
+   pyspex/multip
 
 Advanced class descriptions
 ---------------------------

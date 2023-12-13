@@ -1,3 +1,5 @@
+.. _pyspex_session:
+
 Session class structure
 =======================
 
