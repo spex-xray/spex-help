@@ -58,6 +58,17 @@ that case the normal isothermal spectrum is chosen. Note that for larger
 values of :math:`\sigma_T` the cpu time may become larger due to the
 fact that the code has to evaluate many isothermal spectra.
 
+The actual emission measure distribution that SPEX uses can be shown
+using :ref:`sec:ascdump`. The subcommand for this is ``dem``::
+
+    ascdump ter 1 1 dem
+
+(if your cie model is in sector 1 and component 1).
+SPEX creates a temperature grid (either logarithmic or linear)
+and for each grid point, it calculates an emission measure
+following the Gaussian distribution. The sum of all the emission
+measures is equal to the total emission measure :math:`Y_0` (``norm``).
+
 Line broadening
 ---------------
 
