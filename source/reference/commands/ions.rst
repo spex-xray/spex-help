@@ -115,14 +115,14 @@ To undo the quicklook mode, just type ``ions use all``.
    Zn XXX   2              1                                                                            
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
 
-.. Notice:: the quicklook mode is different from the quick CIE mode set by ``ions qc`` or ``var calc qc``.   
+.. Note:: the quicklook mode is different from the quick CIE mode set by ``ions qc`` or ``var calc qc``.
 
 QC mode
 '''''''
 QC, or the **quick cie** mode, is introduced in SPEX v3.08 for a quick evalulation of CIE-family models, including
 *CIE*, *dem*, *pdem*, *wdem*, *cf*, and *clus*. This mode can be turned on and off for individual ions or elements.
 
-.. Notice:: ``ion qc`` is only valid when the system flag ``var calc`` is set to ``new`` or ``qc``.
+.. Note:: ``ion qc`` is only valid when the system flag ``var calc`` is set to ``new`` or ``qc``.
 
 Ewlim
 '''''

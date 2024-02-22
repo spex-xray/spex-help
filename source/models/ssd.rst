@@ -1,5 +1,5 @@
-SSd: Shakura-Sunyaev disk model
-=========================
+SSD: Shakura-Sunyaev disk model
+===============================
 
 This model performs on-the-fly exact calculations for a standard Shakura-Sunyaev
 accretion disk. It distinguishes itself from the dbb model, which utilizes a 
