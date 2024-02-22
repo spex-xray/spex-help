@@ -45,8 +45,8 @@ Currently the following models are implemented in SPEX:
    refl
    rrc
    slab
-   speith
    spln
+   ssd
    tpho
    user
    vblo

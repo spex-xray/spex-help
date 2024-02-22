@@ -34,8 +34,9 @@ it is done by using the "ions ignore ..." or "ions use ..." commands (for gettin
 rid of, or including line emission from specific ions), or the "ions nmax ..." or 
 "ions lmax ..." commands, to reduce the maximum principal quantum number 
 :math:`n` and the maximum orbital quantum number :math:`l`, respectively.
-Also, by using the "ions old ..." and "ions new ..." commands one may switch between
-the default (new) spex calculations and the (old) *mekal* calculations.
+Also, by using the "ions new ...", "ions qc ...", and "ions old ..." commands
+one may switch between the default (new) spex calculations, the quick-cie mode,
+and the (old) *mekal* calculations.
 See :ref:`sect:performance` for more details.
 
 A minor note must be made here: when excluding a single ion, the calculations
@@ -113,6 +114,15 @@ To undo the quicklook mode, just type ``ions use all``.
    Co XXVII 2              1              Ni XXVIII 8              2              Cu XXIX 2              1
    Zn XXX   2              1                                                                            
    ======== ============== ============== ========= ============== ============== ======= ============== ==============
+
+.. Notice:: the quicklook mode is different from the quick CIE mode set by ``ions qc`` or ``var calc qc``.   
+
+QC mode
+'''''''
+QC, or the **quick cie** mode, is introduced in SPEX v3.08 for a quick evalulation of CIE-family models, including
+*CIE*, *dem*, *pdem*, *wdem*, *cf*, and *clus*. This mode can be turned on and off for individual ions or elements.
+
+.. Notice:: ``ion qc`` is only valid when the system flag ``var calc`` is set to ``new`` or ``qc``.
 
 Ewlim
 '''''
@@ -228,6 +238,13 @@ The following syntax rules apply:
   indicated by #i1
 | ``ions old ion #i1 #i2:`` : Force the old calculation for atomic
   number indicated by #i1 and ionisation stage indicated by #i2.
+| ``ions qc all`` : Force the quick-cie calculation for all ions
+| ``ions qc iso #i1:`` : Force the quick-cie calculation for the
+  isoelectronic sequence indicated by #i1
+| ``ions qc z #i1:`` : Force the quick-cie calculation for atomic number
+  indicated by #i1
+| ``ions qc ion #i1 #i2:`` : Force the quick-cie calculation for atomic
+  number indicated by #i1 and ionisation stage indicated by #i2.  
 | ``ions new all`` : Force the new calculation for all ions
 | ``ions new iso #i1:`` : Force the new calculation for the
   isoelectronic sequence indicated by #i1
@@ -257,6 +274,7 @@ Examples
 | ``ions ql`` : Quicklook mode on
 | ``ions ewlim 1.2`` : Select strongest lines using the cut-off value 1.2
 | ``ions old ion 6 6`` : Use old calculation for C VI
+| ``ions qc ion 6 5`` : Use quick-cie calculation for C V
 | ``ions nmax ion 26 25 5`` : Set maximum principal quantum number for
   Fe XXV to :math:`n=5`.
 | ``ions lmax ion 26 25 3`` : Set maximum angular momentum quantum

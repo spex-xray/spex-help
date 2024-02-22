@@ -139,7 +139,8 @@ and intensities of these otherwise forbidden transitions depend on the magnetic
 field.
 
 The magnetic field strength is given in unit of Gauss. For very strong fields
-(:math:`$B\geq 10^{10}$` Gauss), the calculation likely becomes less reliable.
+(:math:`$B\geq 10^{9}$` Gauss), the calculation likely becomes less reliable as
+the Lorentzian field versus Coulomb field strength ratio reaches or goes beyond unity.
 
 Example
 """""""
