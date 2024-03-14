@@ -51,6 +51,7 @@ Currently the following models are implemented in SPEX:
    tpho
    user
    vblo
+   vcom
    vgau
    vpro
    warm

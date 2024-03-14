@@ -33,6 +33,7 @@ the use of syntax followed by some practical examples.
    commands/par
    commands/plot
    commands/quit
+   commands/rbin
    commands/sector
    commands/shiftplot
    commands/simulate
