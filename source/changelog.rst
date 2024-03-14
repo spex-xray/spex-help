@@ -458,9 +458,13 @@ Changes in SPEX 3.08.00:
 
 - Added `spei` model for relativistic broadening of lines following Speith et al.
 
+- Added 'vcom' model to get a simple Compton shoulder model
+
 - Add QDP output option to pyspex for input to the HEASIM simulator.
 
 - Added new extension to the etau model.
+
+- Added new rbin option to create and store optimally binned spectra and response matrices
 
 - User model `comptt` example for Xspec updated.
 
