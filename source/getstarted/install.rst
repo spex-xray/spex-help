@@ -8,7 +8,7 @@ How to install SPEX
 Download
 --------
 
-The current SPEX version 3.08.00 was released on 2024-03-XX. SPEX install files can be downloaded from
+The current SPEX version 3.08.00 was released on 2024-03-15. SPEX install files can be downloaded from
 `our Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_.
 
 .. only:: html
@@ -70,7 +70,8 @@ Administrator install (Intel)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have administrator rights on your Mac, this option is the easiest one. Download the PKG file from Zenodo
-(SPEX-3.08.00-MacOS.pkg), open it in Mac OS and follow the instructions on the screen.
+(SPEX-3.08.00-Apple-Intel.pkg or SPEX-3.08.00-Apple-Silicon.pkg for M1/M2/M3 processors), open it in Mac OS and
+follow the instructions on the screen.
 
 MacOS may complain about not being able to verify the developer of the software. Please close this dialog and
 go to the MacOS System Preferences >> Security & Privacy. In that dialog, you are offered to open the SPEX package
@@ -82,7 +83,7 @@ Non-administrator install (Intel)
 
 Unpack the tar file in the destination directory (for example /usr/local/):: 
 
-    tar xvfz spex-3.08.00-MacOS.tar.gz
+    tar xvfz spex-3.08.00-Apple-Intel.tar.gz
 
 The tar file will create a directory called SPEX-3.08.00-Darwin in which the program will be installed.
 
@@ -96,7 +97,7 @@ Source the script provided by the distribution::
     source $SPEX90/spexdist.sh (bash shell)
     source $SPEX90/spexdist.csh (C-type shell)
 
-Remove the tar file: rm SPEX-3.08.00-MacOS.tar.gz
+Remove the tar file: rm SPEX-3.08.00-Apple-Intel.tar.gz
 
   .. Note:: In some cases the ``csh`` script fails because either PATH, DYLD_LIBRARY_PATH or PYTHONPATH
             are not defined. This can be temporarily fixed by defining an empty variable using setenv,

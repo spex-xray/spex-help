@@ -89,6 +89,12 @@ In this example, we optimally bin the spectrum between 0.3 and 10 keV::
 
     >>> s.obin(1,1,0.3,10.,'kev')
 
+The response binning algorithm rebins the spectrum and the response matrix:
+
+  .. automethod:: pyspex.spex.Session.rbin
+
+This command creates new response files that can be read into SPEX again.
+
 Data selection
 """"""""""""""
 
