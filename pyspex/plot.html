@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6.3.5. Plot functions &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>6.3.5. Plot functions &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/plot.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,40 +36,56 @@
           <div class="body" role="main">
             
   <section id="plot-functions">
-<h1><span class="section-number">6.3.5. </span>Plot functions<a class="headerlink" href="#plot-functions" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.3.5. </span>Plot functions<a class="headerlink" href="#plot-functions" title="Permalink to this heading">¶</a></h1>
 <section id="model-spectrum-plots">
-<span id="class-plot-model"></span><h2><span class="section-number">6.3.5.1. </span>Model spectrum plots<a class="headerlink" href="#model-spectrum-plots" title="Permalink to this headline">¶</a></h2>
+<span id="class-plot-model"></span><h2><span class="section-number">6.3.5.1. </span>Model spectrum plots<a class="headerlink" href="#model-spectrum-plots" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
 <dt class="sig sig-object py" id="pyspex.plot.PlotModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotModel</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the model spectra for plotting purposes.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nsector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of sectors available.</p></li>
+<li><p><strong>nsector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of sectors available.</p></li>
 <li><p><strong>sector</strong> (<em>list of objects</em>) – List of plot objects for each sector.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="pyspex.plot.PlotModel.adum_xspec_qdp">
+<span class="sig-name descname"><span class="pre">adum_xspec_qdp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qdpfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel.adum_xspec_qdp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel.adum_xspec_qdp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the model to a QDP file in Xspec output format. This is useful to use SPEX models as input
+for various simulation programs, like SIMX, SIXTE and HEASIM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number to write (Usually 1).</p></li>
+<li><p><strong>qdpfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – File name of the QDP file to write.</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Overwrite existing files (default=False).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pyspex.plot.PlotModel.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX</span> <span class="pre">Model</span> <span class="pre">Spectrum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModel.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModel.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the model spectrum for all sectors.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Plot in wavelength (Angstrom)</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot in wavelength (Angstrom)</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Matplotlib plt object.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>matplotlib.pyplot</p>
 </dd>
 </dl>
@@ -87,12 +104,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotModelSector</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModelSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModelSector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the spectral model for a particular sector for plotting purposes.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xc</strong> (<em>astropy.units.quantity.Quantity</em>) – Central bin energy (keV).</p></li>
 <li><p><strong>xb</strong> (<em>astropy.units.quantity.Quantity</em>) – Upper boundary of bin energy (keV).</p></li>
 <li><p><strong>m</strong> (<em>astropy.units.quantity.Quantity</em>) – Model spectrum (Photons/m**2/s/keV).</p></li>
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of bins.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of bins.</p></li>
 <li><p><strong>tabmodel</strong> (<em>astropy.table.table.QTable</em>) – Astropy QTable containing the model spectrum</p></li>
 </ul>
 </dd>
@@ -102,8 +119,8 @@
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotModelSector.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotModelSector.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the values of the model spectrum for this sector.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -113,18 +130,18 @@
 </div></blockquote>
 </section>
 <section id="data-plots">
-<span id="class-plot-data"></span><h2><span class="section-number">6.3.5.2. </span>Data plots<a class="headerlink" href="#data-plots" title="Permalink to this headline">¶</a></h2>
+<span id="class-plot-data"></span><h2><span class="section-number">6.3.5.2. </span>Data plots<a class="headerlink" href="#data-plots" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
 <dt class="sig sig-object py" id="pyspex.plot.PlotData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotData</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the observed spectrum and the convolved model spectrum for plotting.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of instruments</p></li>
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – List of instruments with data plot information</p></li>
-<li><p><strong>colors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><em>tuple</em></a>) – List of colors.</p></li>
+<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of instruments</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of instruments with data plot information</p></li>
+<li><p><strong>colors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – List of colors.</p></li>
 </ul>
 </dd>
 </dl>
@@ -134,20 +151,20 @@
 <dd><p>Plot the observed data, model and background spectra for all instruments, and include a subwindow
 with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘rel’: (observed - model)/model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Plot residuals as a function of wavelength (Angstrom)</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot residuals as a function of wavelength (Angstrom)</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Matplotlib plt object.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>matplotlib.pyplot</p>
 </dd>
 </dl>
@@ -158,19 +175,19 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the observed data, model and background spectra for all instruments.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Plot the data on a wavelength scale (Angstrom).</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot the data on a wavelength scale (Angstrom).</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Matplotlib plt object.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>matplotlib.pyplot</p>
 </dd>
 </dl>
@@ -181,7 +198,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">plot_chi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_chi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_chi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate plot data for a plot of the residuals.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – Axis object from Matplotlib.</p>
 </dd>
 </dl>
@@ -192,19 +209,19 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">plot_comp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SPEX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_comp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the total spectrum and the individual additive model components.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Plot as function of wavelenght (Angstrom).</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot as function of wavelenght (Angstrom).</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Matplotlib plt object.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>matplotlib.pyplot</p>
 </dd>
 </dl>
@@ -215,11 +232,11 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.plot_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate plot of the data, model and background spectrum. This is a subfunction of plot() and chiplot().</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – Axis object from Matplotlib.</p></li>
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
 </ul>
 </dd>
 </dl>
@@ -230,8 +247,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotData.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotData.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update data plot information for this instrument.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -243,10 +260,10 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotDataInst</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataInst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataInst" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the data plot information for this instrument.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of regions.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – List of regions with data plot information</p></li>
+<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of regions.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of regions with data plot information</p></li>
 </ul>
 </dd>
 </dl>
@@ -255,10 +272,10 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataInst.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataInst.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the data plot information for this instrument.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
 </ul>
 </dd>
 </dl>
@@ -271,9 +288,9 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotDataReg</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class containing the data plot information for a region.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of bins</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of bins</p></li>
 <li><p><strong>elow</strong> (<em>astropy.units.quantity.Quantity</em>) – Bin lower boundary (keV)</p></li>
 <li><p><strong>ectr</strong> (<em>astropy.units.quantity.Quantity</em>) – Bin center value (keV)</p></li>
 <li><p><strong>eupp</strong> (<em>astropy.units.quantity.Quantity</em>) – Bin upper boundary (keV)</p></li>
@@ -284,8 +301,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <li><p><strong>perror</strong> (<em>astropy.units.quantity.Quantity</em>) – Error value</p></li>
 <li><p><strong>tints</strong> (<em>astropy.units.quantity.Quantity</em>) – Exposure time (s)</p></li>
 <li><p><strong>tarea</strong> (<em>astropy.units.quantity.Quantity</em>) – Inverse of the effective area value (1/m**2)</p></li>
-<li><p><strong>comp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – List of model components for a component plot</p></li>
-<li><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of model components</p></li>
+<li><p><strong>comp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of model components for a component plot</p></li>
+<li><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of model components</p></li>
 <li><p><strong>tabdata</strong> (<em>astropy.table.QTable</em>) – Astropy QTable containing the plot data</p></li>
 <li><p><strong>chi</strong> (<em>numpy.ndarray</em>) – Residual value</p></li>
 <li><p><strong>chierr</strong> (<em>numpy.ndarray</em>) – Residual error</p></li>
@@ -297,8 +314,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">chitype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tchi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg.chitype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg.chitype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the residuals for the chi plot window.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -308,11 +325,11 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tchi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dchi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotDataReg.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotDataReg.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the data plot information for this region.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Region number.</p></li>
-<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
 </ul>
 </dd>
 </dl>
@@ -323,16 +340,16 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 </div></blockquote>
 </section>
 <section id="effective-area-plots">
-<span id="class-plot-area"></span><h2><span class="section-number">6.3.5.3. </span>Effective area plots<a class="headerlink" href="#effective-area-plots" title="Permalink to this headline">¶</a></h2>
+<span id="class-plot-area"></span><h2><span class="section-number">6.3.5.3. </span>Effective area plots<a class="headerlink" href="#effective-area-plots" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="py class">
 <dt class="sig sig-object py" id="pyspex.plot.PlotArea">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotArea</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for plotting effective area.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of instruments.</p></li>
+<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of instruments.</p></li>
 <li><p><strong>inst</strong> (<em>list of objects</em>) – List of instrument objects.</p></li>
 </ul>
 </dd>
@@ -342,19 +359,19 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Effective</span> <span class="pre">Area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotArea.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotArea.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the effective area.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Plot the effective area as a function of wavelength.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot the effective area as a function of wavelength.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Matplotlib plt object.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>matplotlib.pyplot</p>
 </dd>
 </dl>
@@ -373,10 +390,10 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotAreaInst</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaInst"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaInst" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instrument definition and region list for area plots.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of regions.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – List of region area plots.</p></li>
+<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of regions.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of region area plots.</p></li>
 </ul>
 </dd>
 </dl>
@@ -385,8 +402,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaInst.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaInst.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the area information in the regions of this instrument.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Instrument number to update.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number to update.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -398,7 +415,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyspex.plot.</span></span><span class="sig-name descname"><span class="pre">PlotAreaReg</span></span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaReg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaReg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective area information for each region.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xc</strong> (<em>astropy.units.quantity.Quantity</em>) – Energy bin center value (keV)</p></li>
 <li><p><strong>xb</strong> (<em>astropy.units.quantity.Quantity</em>) – Energy bin upper boundary value (keV)</p></li>
@@ -412,10 +429,10 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/plot.html#PlotAreaReg.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.plot.PlotAreaReg.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update effective area information for this region (reg) in instrument (inst).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Region number.</p></li>
 </ul>
 </dd>
 </dl>
@@ -488,7 +505,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -502,7 +519,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

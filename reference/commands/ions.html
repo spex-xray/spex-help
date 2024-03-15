@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1.17. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>3.1.17. Ion: select ions for the plasma models &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/ions.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -35,9 +36,9 @@
           <div class="body" role="main">
             
   <section id="ion-select-ions-for-the-plasma-models">
-<span id="sec-ions"></span><h1><span class="section-number">3.1.17. </span>Ion: select ions for the plasma models<a class="headerlink" href="#ion-select-ions-for-the-plasma-models" title="Permalink to this headline">¶</a></h1>
+<span id="sec-ions"></span><h1><span class="section-number">3.1.17. </span>Ion: select ions for the plasma models<a class="headerlink" href="#ion-select-ions-for-the-plasma-models" title="Permalink to this heading">¶</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1.17.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.17.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>For the plasma models, it is possible to include or exclude specific
 groups of ions from the line calculations. This is helpful if a better
 physical understanding of the (atomic) physics behind the spectrum is
@@ -47,7 +48,7 @@ for specific analysis purposes.</p>
 <p>There are two main reasons why the user may use this option: computational speed
 and educational reasons.</p>
 <section id="computational-speed">
-<h3><span class="section-number">3.1.17.1.1. </span>Computational speed<a class="headerlink" href="#computational-speed" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.17.1.1. </span>Computational speed<a class="headerlink" href="#computational-speed" title="Permalink to this heading">¶</a></h3>
 <p>The first reason is <strong>accelerating the calculations</strong>. For complex spectral models,
 the computational time may be long due to the large number of ions and transitions
 that need to be taken into account, in particular for the line calculations.</p>
@@ -59,8 +60,9 @@ it is done by using the “ions ignore …” or “ions use …” commands (fo
 rid of, or including line emission from specific ions), or the “ions nmax …” or
 “ions lmax …” commands, to reduce the maximum principal quantum number
 <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and the maximum orbital quantum number <img class="math" src="../../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/>, respectively.
-Also, by using the “ions old …” and “ions new …” commands one may switch between
-the default (new) spex calculations and the (old) <em>mekal</em> calculations.
+Also, by using the “ions new …”, “ions qc …”, and “ions old …” commands
+one may switch between the default (new) spex calculations, the quick-cie mode,
+and the (old) <em>mekal</em> calculations.
 See <a class="reference internal" href="../../models/performance.html#sect-performance"><span class="std std-ref">Optimizing model performance</span></a> for more details.</p>
 <p>A minor note must be made here: when excluding a single ion, the calculations
 becomes less accurate, because level populations of ions depend also on how many
@@ -72,7 +74,7 @@ all ions are taken into account (unless of course the abundance is put
 to zero).</p>
 </section>
 <section id="diagnostics-education">
-<h3><span class="section-number">3.1.17.1.2. </span>Diagnostics &amp; education<a class="headerlink" href="#diagnostics-education" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.17.1.2. </span>Diagnostics &amp; education<a class="headerlink" href="#diagnostics-education" title="Permalink to this heading">¶</a></h3>
 <p>The second reason to include or exclude ions is for
 <strong>diagnostic or educational reasons</strong>. It may be of interest to know how the spectrum
 of a single ion looks, or how the total spectrum would look without an ion.
@@ -103,7 +105,7 @@ You can play then with the mute/unmute command.</p>
 </div>
 </section>
 <section id="quicklook">
-<h3><span class="section-number">3.1.17.1.3. </span>Quicklook<a class="headerlink" href="#quicklook" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.17.1.3. </span>Quicklook<a class="headerlink" href="#quicklook" title="Permalink to this heading">¶</a></h3>
 <p>A new <strong>quicklook mode</strong> is introduced in SPEX 3.0. This mode can greatly
 reduce computation time by excluding the atomic levels of outer shells
 that barely affect the obtained spectrum. The maximum quantum numbers
@@ -121,17 +123,6 @@ captured by charge exchange usually populate the outer shells.</p>
 </div>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Preset maximum <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/> for quicklook mode (H-like)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 7%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 8%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 6%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Ion</p></th>
 <th class="head"><p>max. <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/></p></th>
@@ -237,9 +228,22 @@ captured by charge exchange usually populate the outer shells.</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the quicklook mode is different from the quick CIE mode set by <code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">qc</span></code> or <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">qc</span></code>.</p>
+</div>
+</section>
+<section id="qc-mode">
+<h3><span class="section-number">3.1.17.1.4. </span>QC mode<a class="headerlink" href="#qc-mode" title="Permalink to this heading">¶</a></h3>
+<p>QC, or the <strong>quick cie</strong> mode, is introduced in SPEX v3.08 for a quick evalulation of CIE-family models, including
+<em>CIE</em>, <em>dem</em>, <em>pdem</em>, <em>wdem</em>, <em>cf</em>, and <em>clus</em>. This mode can be turned on and off for individual ions or elements.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">ion</span> <span class="pre">qc</span></code> is only valid when the system flag <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span></code> is set to <code class="docutils literal notranslate"><span class="pre">new</span></code> or <code class="docutils literal notranslate"><span class="pre">qc</span></code>.</p>
+</div>
 </section>
 <section id="ewlim">
-<h3><span class="section-number">3.1.17.1.4. </span>Ewlim<a class="headerlink" href="#ewlim" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.17.1.5. </span>Ewlim<a class="headerlink" href="#ewlim" title="Permalink to this heading">¶</a></h3>
 <p>An alternative, tunable method to reduce the computation time is the <strong>ewlim mode</strong>. For a grid of temperatures and non-equilibrium
 ionisation or recombination parameters, for each spectral line in SPEX the maximum equivalent width <img class="math" src="../../_images/math/b8176ea3f9cd37ef8a7d22fa52dfbee689b1b823.svg" alt="W" style="vertical-align: 0px"/> has been computed.
 The equivalent width is here the line intensity divided by the continuum intensity for the same model. From this, we compute for each line
@@ -257,7 +261,7 @@ a calculate command, and compare the cstat value of this model with the cstat va
 </div>
 </section>
 <section id="mute-lines">
-<h3><span class="section-number">3.1.17.1.5. </span>Mute lines<a class="headerlink" href="#mute-lines" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.17.1.6. </span>Mute lines<a class="headerlink" href="#mute-lines" title="Permalink to this heading">¶</a></h3>
 <p>A new feature since version 3.06.01 is the line mute command. In some cases,
 when users what to study a particular line, they want to remove the line
 from the spectrum to replace it, for example, with a delta line or Gaussian.</p>
@@ -285,7 +289,7 @@ similar syntax.</p>
 </section>
 </section>
 <section id="syntax">
-<h2><span class="section-number">3.1.17.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.17.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">show</span></code> : Display the list of ions currently taken into account</div>
@@ -349,6 +353,13 @@ isoelectronic sequence indicated by #i1</div>
 indicated by #i1</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">old</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Force the old calculation for atomic
 number indicated by #i1 and ionisation stage indicated by #i2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">qc</span> <span class="pre">all</span></code> : Force the quick-cie calculation for all ions</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">qc</span> <span class="pre">iso</span> <span class="pre">#i1:</span></code> : Force the quick-cie calculation for the
+isoelectronic sequence indicated by #i1</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">qc</span> <span class="pre">z</span> <span class="pre">#i1:</span></code> : Force the quick-cie calculation for atomic number
+indicated by #i1</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">qc</span> <span class="pre">ion</span> <span class="pre">#i1</span> <span class="pre">#i2:</span></code> : Force the quick-cie calculation for atomic
+number indicated by #i1 and ionisation stage indicated by #i2.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">new</span> <span class="pre">all</span></code> : Force the new calculation for all ions</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">new</span> <span class="pre">iso</span> <span class="pre">#i1:</span></code> : Force the new calculation for the
 isoelectronic sequence indicated by #i1</div>
@@ -363,7 +374,7 @@ element #i2 at ionisation stage #i3.</div>
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">3.1.17.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.17.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ignore</span> <span class="pre">all</span></code> : Do not take any line calculation into account</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">use</span> <span class="pre">iso</span> <span class="pre">3</span></code> : Use ions from the <img class="math" src="../../_images/math/3c678eaf6b9647d804860e60ea42cc857c1fee7e.svg" alt="Z=3" style="vertical-align: 0px"/> (Li) iso-electronic
@@ -379,6 +390,7 @@ the displayed spectrum</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ql</span></code> : Quicklook mode on</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">ewlim</span> <span class="pre">1.2</span></code> : Select strongest lines using the cut-off value 1.2</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">old</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">6</span></code> : Use old calculation for C VI</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">qc</span> <span class="pre">ion</span> <span class="pre">6</span> <span class="pre">5</span></code> : Use quick-cie calculation for C V</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">nmax</span> <span class="pre">ion</span> <span class="pre">26</span> <span class="pre">25</span> <span class="pre">5</span></code> : Set maximum principal quantum number for
 Fe XXV to <img class="math" src="../../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ions</span> <span class="pre">lmax</span> <span class="pre">ion</span> <span class="pre">26</span> <span class="pre">25</span> <span class="pre">3</span></code> : Set maximum angular momentum quantum
@@ -451,7 +463,7 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -465,7 +477,7 @@ number for Fe XXV to <img class="math" src="../../_images/math/aa781d3553d44b3f9
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

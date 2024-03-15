@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.42. Vcom: Compton shoulder broadening model &#8212; SPEX Help Center 3.08.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/vcom.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.43. Vgau: gaussian velocity broadening model" href="vgau.html" />
+    <link rel="prev" title="4.1.41. Vblo: rectangular velocity broadening model" href="vblo.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="vcom-compton-shoulder-broadening-model">
+<h1><span class="section-number">4.1.42. </span>Vcom: Compton shoulder broadening model<a class="headerlink" href="#vcom-compton-shoulder-broadening-model" title="Permalink to this heading">¶</a></h1>
+<p>This multiplicative model broadens an arbitrary additive component with
+a Compton shoulder.</p>
+<p>The profile shape is given by <img class="math" src="../_images/math/17013c2a3e773887da45c7d535ae02fda153eda2.svg" alt="(1+x^2)(1+ax)" style="vertical-align: -4px"/></p>
+<p>Here <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> is a dimensionless parameter between -2 and 0.
+A value of -1 corresponds to an energy offset of E/mc^2 with E the energy
+of the original photon.</p>
+<p>The parameter <img class="math" src="../_images/math/bd23af321acb3c2291fc451fe18f5fc46d850c03.svg" alt="a" style="vertical-align: 0px"/> is introduced to allow some empirical skewness of
+the line profile.</p>
+<p>The profile can be scaled in the energy direction by <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/>. For truly
+Compton scattering, this parameter should be kept to 1, otherwise it is
+not physical. However, if the user wants to mimic a double-horned profile
+(without the physics of Compton scattering), they may use this parameter
+for scaling.</p>
+<p><img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/>. Therefore if a delta-line at energy <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is convolved
+with this component, its full energy width will be <img class="math" src="../_images/math/14dd153865f407283e30da713421f058c9a80d5f.svg" alt="2Ev/c" style="vertical-align: -4px"/>, and
+line photons get a rectangular distribution between <img class="math" src="../_images/math/da5eb664711da97cb5e31520abbd8f3185b9c371.svg" alt="E-Ev/c" style="vertical-align: -4px"/> and
+<img class="math" src="../_images/math/800d0562f4a746ab9890893e1cf4df428ee50c09.svg" alt="E+Ev/c" style="vertical-align: -4px"/>. Of course, any line or continuum emission component can
+be convolved with the this broadening model.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">s</span></code> : Scaling of the profile in energy space <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/>, dimensionless. Default
+value: 1.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code> : Skewness parameter <img class="math" src="../_images/math/bd23af321acb3c2291fc451fe18f5fc46d850c03.svg" alt="a" style="vertical-align: 0px"/>, dimensionless. Default
+value: 0.</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="vblo.html" title="previous chapter"><span class="section-number">4.1.41. </span>Vblo: rectangular velocity broadening model</a></li>
+      <li>Next: <a href="vgau.html" title="next chapter"><span class="section-number">4.1.43. </span>Vgau: gaussian velocity broadening model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Mar 15, 2024.<br>
+    
+        &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

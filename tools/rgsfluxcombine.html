@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.6. RGS_fluxcombine &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>5.6. RGS_fluxcombine &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/tools/rgsfluxcombine.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="rgs-fluxcombine">
-<span id="sect-rgsfluxcombine"></span><h1><span class="section-number">5.6. </span>RGS_fluxcombine<a class="headerlink" href="#rgs-fluxcombine" title="Permalink to this headline">¶</a></h1>
+<span id="sect-rgsfluxcombine"></span><h1><span class="section-number">5.6. </span>RGS_fluxcombine<a class="headerlink" href="#rgs-fluxcombine" title="Permalink to this heading">¶</a></h1>
 <p>Program <em>RGS_fluxcombine</em> combines fluxed spectra, created by the
 XMM-Newton SAS task <em>rgsfluxer</em>. It has two options:</p>
 <ol class="arabic simple">
@@ -69,7 +70,7 @@ numbers, namely the RGS (1 or 2 for RGS1 and RGS2), and the spectral
 order (1 or 2 for first and second spectral order), in such a way that
 the format is (I1,1X,I1,1X,F11.2,1X,A).</p>
 <section id="option-1-combining-rgs-spectra-of-the-same-detector-and-spectral-order">
-<h2><span class="section-number">5.6.1. </span>Option 1: combining RGS spectra of the same detector and spectral order<a class="headerlink" href="#option-1-combining-rgs-spectra-of-the-same-detector-and-spectral-order" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6.1. </span>Option 1: combining RGS spectra of the same detector and spectral order<a class="headerlink" href="#option-1-combining-rgs-spectra-of-the-same-detector-and-spectral-order" title="Permalink to this heading">¶</a></h2>
 <p>It is important to realise that when data of a time-variable source are
 combined, artifacts due to missing data (bad pixels) will arise. This
 can be simply illustrated by an example. Suppose that source X is
@@ -155,7 +156,7 @@ fluxes by <img class="math" src="../_images/math/dbc8bdb56f07862bbd1226242c9a174
 fits for ideal data and models.</p>
 </section>
 <section id="option-2-combine-spectra-of-rgs1-rgs2-and-first-and-second-order-of-both-4-spectra-into-one-spectrum">
-<h2><span class="section-number">5.6.2. </span>Option 2: combine spectra of RGS1, RGS2 and first and second order of both (4 spectra) into one spectrum<a class="headerlink" href="#option-2-combine-spectra-of-rgs1-rgs2-and-first-and-second-order-of-both-4-spectra-into-one-spectrum" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6.2. </span>Option 2: combine spectra of RGS1, RGS2 and first and second order of both (4 spectra) into one spectrum<a class="headerlink" href="#option-2-combine-spectra-of-rgs1-rgs2-and-first-and-second-order-of-both-4-spectra-into-one-spectrum" title="Permalink to this heading">¶</a></h2>
 <p>This procedure is similar to option 1, but with some differences.</p>
 <p>No corrections for effective area or binning bias are allowed here, as
 this should be taken into account in the steps that use option 1. In
@@ -239,7 +240,7 @@ they should be weighted less in the combined spectra.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -253,7 +254,7 @@ they should be weighted less in the combined spectra.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

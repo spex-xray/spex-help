@@ -63,8 +63,14 @@ Atomic data
 ~~~~~~~~~~~
 
 The user can choose between the "old" Mekal code (the current default,
-also referred to as SPEXACT v2) and updated calculations with the
-command ``var calc new`` (referred to as SPEXACT v3).
+also referred to as SPEXACT v2), the updated calculations with the
+command ``var calc new`` (referred to as SPEXACT v3), and a "quick-cie"
+mode with the command ``var calc qc``.
+
+The quick CIE mode is designed only for CIE-family models, including
+*cie*, *dem*, *pdem*, *wdem*, *cf*, and *clus*. It is not compatible with
+non-equilibrium scenarios like *nei* or any cases involving photon fields,
+like *pion*, *tpho*, and *xabs*.
 
 Calculation level occupations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,6 +169,25 @@ using the ``var cxcon`` command.
 
 Default rates are Kingdon and Ferland.
 
+ .. _sec:var_pixsec:
+
+Photoionization cross sections 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The photoionization cross section in the balance calculation, and the relevant
+photoabsorption continuum and the free-bound emission, can be set either from
+the `OPEN-ADAS database <https://open.adas.ac.uk/>`_ or by the classical recipe
+which involves `Verner et al. (1996) <https://ui.adsabs.harvard.edu/abs/1996ApJ...465..487V/abstract>`_
+for the photoionization/photoabsorption and
+`Mao et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...587A..84M/abstract>`_
+for the free-bound emission. This option is available with the ``var pixsec`` command.
+
+1. Use Verner for photoionization/photoabsorption and Mao for free-bound (``var pixsec 1``).
+2. Use OPEN-ADAS for all (``var pixsec 2``).
+
+Default rates are OPEN-ADAS. With this option the photoexcitation-autoionization resonances are evaluated in
+the balance calculation.
+
 Syntax
 ------
 
@@ -183,6 +208,8 @@ The following syntax rules apply:
 | ``var calc old`` : Use the old Mekal code
 | ``var calc new`` : Use the new updated atomic data (for SPEX version
   3.0 and higher)
+| ``var calc qc`` : Use the quick-cie line calculation (for SPEX version
+  3.08 and higher)  
 | ``var occstart ground`` : Start new line calculation iteration with
   initial guess that all ions are in the ground state. This is the
   default
@@ -221,7 +248,8 @@ Examples
 | ``var line reset`` : Include all line emission processes
 | ``var line show`` : Show status of all line emission proceses
 | ``var doppler f`` : Do not use thermal Doppler bvroadening
-| ``var calc new`` : Use the new atomic data (EXPERIMENTAL)
+| ``var calc new`` : Use the new atomic data
+| ``var calc qc`` : Use the quick-cie line calculation (experimental)
 | ``var calc boltzmann`` : Start level occupation calculations with
   Boltzmann distribution
 | ``var newmekal wav f`` : Use the original Mekal wavelengths instead
@@ -235,3 +263,4 @@ Examples
 | ``var newcooldr f`` : Change to the old dielectronic recombination
   cooling calculations
 | ``var cxcon 1`` : Change to Arnaud and Rothenflug (1985) charge exchange rates.
+| ``var pixsec 1`` : Change to Verner and Mao rates for photoionization.

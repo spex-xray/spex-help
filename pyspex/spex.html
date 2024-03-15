@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6.1.1. Basic usage of PYSPEX &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>6.1.1. Basic usage of PYSPEX &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/spex.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="basic-usage-of-pyspex">
-<h1><span class="section-number">6.1.1. </span>Basic usage of PYSPEX<a class="headerlink" href="#basic-usage-of-pyspex" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.1. </span>Basic usage of PYSPEX<a class="headerlink" href="#basic-usage-of-pyspex" title="Permalink to this heading">¶</a></h1>
 <p>The PYSPEX python module offers a python interface to the SPEX program. This means that you can
 use SPEX directly either in interactive python mode and in python scripts. In this short tutorial,
 we assume you are using PYSPEX in interactive mode.</p>
@@ -46,7 +47,7 @@ it easy to incorporate the SPEX results inside your own program.</p>
 <p>In addition to the classes, you can also simply send a SPEX command-line command using the
 <code class="docutils literal notranslate"><span class="pre">command</span></code> function (see Section below).</p>
 <section id="start-a-pyspex-session">
-<h2><span class="section-number">6.1.1.1. </span>Start a PYSPEX session<a class="headerlink" href="#start-a-pyspex-session" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.1.1. </span>Start a PYSPEX session<a class="headerlink" href="#start-a-pyspex-session" title="Permalink to this heading">¶</a></h2>
 <p>For this example PYSPEX session in python, we use the interactive mode of python. We simply start
 python from the Linux command line (making sure that the environment is set using a spexdist script
 located in the SPEX install directory):</p>
@@ -70,7 +71,7 @@ located in the SPEX install directory):</p>
 <span class="go">18-12-2018 SPEX is now using the GPL license</span>
 
 <span class="go">Currently using SPEXACT version 2.07.00. Type `help var calc` for details.</span>
-<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">s</span></code> object now contains all the functions and commands that are available to control
@@ -93,7 +94,7 @@ of SPEX. To really benefit from PYSPEX, you need to use the additional classes w
 in the next sections.</p>
 </section>
 <section id="the-command-function">
-<h2><span class="section-number">6.1.1.2. </span>The command function<a class="headerlink" href="#the-command-function" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.1.2. </span>The command function<a class="headerlink" href="#the-command-function" title="Permalink to this heading">¶</a></h2>
 <p>The PYSPEX module contains a general function to send SPEX commands to the SPEX session. This
 function is especially helpful for SPEX commands that have not been implemented (yet) in PYSPEX.
 The function returns 0 when the command was successfully executed. If not a non-zero value is
@@ -103,8 +104,8 @@ returned.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send a command to SPEX. The command string uses the same syntax as the SPEX commands on the command line.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>comm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – SPEX command.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>comm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – SPEX command.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -173,7 +174,7 @@ returned.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -187,7 +188,7 @@ returned.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

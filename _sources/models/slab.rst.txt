@@ -16,7 +16,7 @@ refer to :ref:`sect:abs_models`. Below we do
 not list all the parameters of the model, but for each ion of H, He, C,
 N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe and Ni there is a parameter,
 namely the logarithm (base 10) of the column density in SI units
-(:math:`\mathrm{m}^{-2}`). So, a H  column of :math:`10^{28}` :math:`\mathrm{m}^{-2}`
+(:math:`\mathrm{m}^{-2}`). So, a H column of :math:`10^{28}` :math:`\mathrm{m}^{-2}`
 (:math:`10^{24}` :math:`\mathrm{cm}^{-2}` should be entered as 28.0. The default
 values of 1 therefore correspond to an almost negligible column.
 
@@ -30,19 +30,19 @@ values of 1 therefore correspond to an almost negligible column.
 
 The parameters of the model are:
 
-| ``h1`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
-| ``h2`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
-| ``he1`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
+| ``h1`` : log column density (:math:`\mathrm{m}^{-2}`) of H. Default value: 1.
+| ``h2`` : log column density (:math:`\mathrm{m}^{-2}`) of H. Default value: 1.
+| ``he1`` : log column density (:math:`\mathrm{m}^{-2}`) of He. Default value:
   1.
-| ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
+| ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He. Default value:
   1.
-| ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
+| ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He. Default value:
   1.
-| ``c1`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
+| ``c1`` : log column density (:math:`\mathrm{m}^{-2}`) of H. Default value: 1.
 | :math:`\ldots`
-| ``ni27`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
+| ``ni27`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni. Default value:
   1.
-| ``ni28`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
+| ``ni28`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni. Default value:
   1.
 
 The following parameters are common to all our absorption models:

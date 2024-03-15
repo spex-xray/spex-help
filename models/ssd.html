@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.38. SSD: Shakura-Sunyaev disk model &#8212; SPEX Help Center 3.08.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/ssd.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.39. Tpho: Time-dependent, non-equilibrium, photoionised plasma model" href="tpho.html" />
+    <link rel="prev" title="4.1.37. Spln: spline continuum model" href="spln.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="ssd-shakura-sunyaev-disk-model">
+<h1><span class="section-number">4.1.38. </span>SSD: Shakura-Sunyaev disk model<a class="headerlink" href="#ssd-shakura-sunyaev-disk-model" title="Permalink to this heading">¶</a></h1>
+<p>This model performs on-the-fly exact calculations for a standard Shakura-Sunyaev
+accretion disk. It distinguishes itself from the dbb model, which utilizes a
+solution based on analytic approximation.</p>
+<p>Solving the energy balance in the vertical direction relies on the total weighted
+mean absorption cross-section as a function of temperature and mass density.
+We incorporate the Rosseland opacity obtained from the Opacity project (Badnell
+2005, MNRAS 360 2 458).</p>
+<p>We calculate the self-gravity of the disk in the vertical direction. While in
+the radial direction, this effect is negligible.</p>
+<p>There is no radiative allowed below the plasma frequency calculated at each radius.
+The frequencies are shown in the info file.</p>
+<p>The coherence frequency serves as the critical point where Compton scattering becomes
+important, causing photons to undergo significant energy changes through scattering
+before leaving the disk. Utilizing the <code class="docutils literal notranslate"><span class="pre">comp</span></code> flag enables the option to calculate
+the Comptonization spectrum above the coherence frequency, while below this frequency,
+scattering is coherent and represented by a modified blackbody.</p>
+<p>We incorporate the Compton kernel developed in Sunyaev and Titarchuk (1980).
+The local disk spectrum are convolved with the kernel when the <code class="docutils literal notranslate"><span class="pre">comp</span></code> flag is turned on.</p>
+<p>Apart from the Compton kernel, the local energy spectrum of the modified blackbody is characterized by,</p>
+<div class="math">
+<p><img src="../_images/math/240194ac0bd78193fbc494a7ffa201844576eec5.svg" alt="B(T) = \frac{2 h \nu^3}{ c^2 (e^{h \nu / kT} - 1) } \frac{2}{1+\sqrt{1+\frac{\kappa_{\rm es}}{\kappa_{\rm ff}}}},"/></p>
+</div><p>where <img class="math" src="../_images/math/2e0f9f13f9f9367112c49c3a296b609adf7ba226.svg" alt="\kappa_{\rm es}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/868251c5f13bdade30d5b920f500e8451f044b1e.svg" alt="\kappa_{\rm ff}" style="vertical-align: -2px"/> are the opacities of scattering and free-free
+absorption. We can transform the above form into a photon spectrum by</p>
+<div class="math">
+<p><img src="../_images/math/0fb279c9348022b98297b7c88045807652a92dd7.svg" alt="S(E) dE = 2 \pi c \left( 10^3 e / hc \right)^3  \frac{E^2}{e^{E/kT}-1} \frac{2}{1+\sqrt{1+\frac{\kappa_{\rm es}}{\kappa_{\rm ff}}}} dE \\
+= 1.97395 \times 10^{36} \frac{1}{1+\sqrt{1+\frac{\kappa_{\rm es}}{\kappa_{\rm ff}}}} \frac{E^2}{e^{E/kT}-1} dE."/></p>
+</div><p>The total spectrum of the disk is obtained by integrating,</p>
+<div class="math">
+<p><img src="../_images/math/24a1b9718863bc44f219fd12fe8ef4f6a65d2de6.svg" alt="L = 8 \pi^2 {\rm cos}i \int_{R_{i}}^{R_{o}} B(R) RdR."/></p>
+</div><p>By numerically summing over radius range <img class="math" src="../_images/math/17307b77b02a15859e4bd1d6f65dbae3633faa84.svg" alt="R_{i}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/604e4854e0d1ad33dcf1f6f98a6d43f57fffc856.svg" alt="R_{o}" style="vertical-align: -2px"/>, we obtain the photon spectrum</p>
+<div class="math">
+<p><img src="../_images/math/a68a24eba6485bc88df1797ad4a9d3c7f80eadf6.svg" alt="N(E) = 1.55857 \times 10^{38} {\rm cos}i \sum_{R_{i}}^{1000 R_{i}} \frac{1}{1+\sqrt{1+\frac{\kappa_{\rm es}}{\kappa_{\rm ff}}}} \frac{E^2}{e^{E/kT}-1} R \delta R"/></p>
+</div><p>in the unit of photons per second per keV.</p>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cosi</span></code> : Cos inclination. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">alfa</span></code> : Viscosity alpha. Default value: 0.1</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mass</span></code> : Log blackhole mass. Default value: 8.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">mdot</span></code> : Mass accretion Eddington ratio. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rin</span></code> : Inner radius in Schwarzschild radius. Default value: 3.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rout</span></code> : Outermost radius in Schwarzschild radius. Default value: 1000.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">comp</span></code> : 1 turns on Comptonization. 0 turns off. Default value: 0.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">info</span></code> : 1 Disk diagnostics saved in ssd_info.txt. Default value: 1.</div>
+</div>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1973A%26A....24..337S/abstract">Shakura &amp; Sunyaev (1973)</a>.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="spln.html" title="previous chapter"><span class="section-number">4.1.37. </span>Spln: spline continuum model</a></li>
+      <li>Next: <a href="tpho.html" title="next chapter"><span class="section-number">4.1.39. </span>Tpho: Time-dependent, non-equilibrium, photoionised plasma model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Mar 15, 2024.<br>
+    
+        &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

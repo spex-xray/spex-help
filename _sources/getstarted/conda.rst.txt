@@ -66,13 +66,12 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.07.03
+     Welcome user to SPEX version 3.08.00
 
      NEW in this version of SPEX:
-    01-12-2022 Fixed issue with plot cap command
-    05-12-2022 Fixed issue with knak model
-    22-03-2023 Fixed issue with treatment of bad quality bins in trafo
-    23-03-2023 Fixed small issues in the pyspex interface
+    21-04-2023 Added Quick CIE calculations (var calc qc)
+    21-04-2023 Added Shakura-Sunyaev model for accretion disk
+    04-03-2024 Added Speith model for relativistic broadening of lines
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 

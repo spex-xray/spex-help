@@ -1,16 +1,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyspex.optimize &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>pyspex.optimize &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/_modules/pyspex/optimize.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,25 +35,12 @@
   <h1>Source code for pyspex.optimize</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
-
-<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">int</span>
-
-<span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
-
-<span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
-
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">pyspex_f2py</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
 
 <div class="viewcode-block" id="Fit"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit">[docs]</a><span class="k">class</span> <span class="nc">Fit</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This is the parent class of all fit related commands.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is the parent class of all fit related commands.</span>
 
 <span class="sd">    :ivar stat: Fit statistics.</span>
 <span class="sd">    :vartype stat: basestring</span>
@@ -107,7 +95,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Fit.fit"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Execute the SPEX fit command. The maximum number of iterations (niter) can be optionally set.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the SPEX fit command. The maximum number of iterations (niter) can be optionally set.</span>
 
 <span class="sd">        :param niter: Number of fit iterations.</span>
 <span class="sd">        :type niter: int</span>
@@ -116,7 +104,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Fit.set_statistic"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.set_statistic">[docs]</a>    <span class="k">def</span> <span class="nf">set_statistic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stat</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the desired fit statistics.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the desired fit statistics.</span>
 
 <span class="sd">        :param stat: Abbreviation for the fit statistics to be used. For example: &#39;csta&#39;, &#39;chi2&#39;, &#39;wsta&#39;.</span>
 <span class="sd">        :type stat: str</span>
@@ -124,7 +112,7 @@
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_set_statistics</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Fit.set_statistic_inst"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.set_statistic_inst">[docs]</a>    <span class="k">def</span> <span class="nf">set_statistic_inst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the desired fit statistics per instrument and region.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the desired fit statistics per instrument and region.</span>
 
 <span class="sd">        :param stat: Abbreviation for the fit statistics to be used. For example: &#39;csta&#39;, &#39;chi2&#39;, &#39;wsta&#39;.</span>
 <span class="sd">        :type stat: str</span>
@@ -136,11 +124,11 @@
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_set_statistics_inst</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">reg</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Fit.get_statistic"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.get_statistic">[docs]</a>    <span class="k">def</span> <span class="nf">get_statistic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stat</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_stat</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Fit.set_method"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.set_method">[docs]</a>    <span class="k">def</span> <span class="nf">set_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meth</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the desired fit statistics.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the desired fit statistics.</span>
 
 <span class="sd">        :param stat: Abbreviation for the fit statistics to be used. For example: &#39;csta&#39;, &#39;chi2&#39;, &#39;wsta&#39;.</span>
 <span class="sd">        :type stat: str</span>
@@ -148,11 +136,11 @@
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_set_method</span><span class="p">(</span><span class="n">meth</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Fit.get_method"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.get_method">[docs]</a>    <span class="k">def</span> <span class="nf">get_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current type of statistics being used in the fit, for example chi2, cstat or wstat.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">meth</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_meth</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Fit.set_ann"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.set_ann">[docs]</a>    <span class="k">def</span> <span class="nf">set_ann</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the simulating annealing method parameters.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the simulating annealing method parameters.</span>
 
 <span class="sd">        :param param: Type of annealing parameter (rt, t, eps, vm, ns, max, or print).</span>
 <span class="sd">        :type param: str</span>
@@ -163,7 +151,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Fit.print"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.print">[docs]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Print each fit iteration to the console (default is True). The status variable can be either True or False,</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Print each fit iteration to the console (default is True). The status variable can be either True or False,</span>
 <span class="sd">        which means printing is on or off, respectively.</span>
 
 <span class="sd">        :param status: Set fit to high verbosity (True is yes, False is no).</span>
@@ -175,7 +163,7 @@
             <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;fit print 0&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Fit.update"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the most recent statistics values from SPEX.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the most recent statistics values from SPEX.&quot;&quot;&quot;</span>
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">api_fit_update</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cstat</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_fit</span><span class="o">.</span><span class="n">fit_cstat</span>
@@ -198,7 +186,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">get_statistic</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Fit.show"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Fit.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Print the fit statistics to the terminal.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Print the fit statistics to the terminal.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;clas&#39;</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fit method        : Classical Levenberg-Marquardt&quot;</span><span class="p">)</span>
@@ -226,7 +214,7 @@
 
 
 <div class="viewcode-block" id="Error"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error">[docs]</a><span class="k">class</span> <span class="nc">Error</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class to calculate errors for free fit parameters.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to calculate errors for free fit parameters.</span>
 
 <span class="sd">    :ivar sector: Sector number of parameter</span>
 <span class="sd">    :vartype sector: int</span>
@@ -266,7 +254,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">calculated</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Is the error calculated?</span>
 
 <div class="viewcode-block" id="Error.error"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dchi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate the error value for a particular parameter.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the error value for a particular parameter.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -301,7 +289,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">pmin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_optimize_error</span><span class="o">.</span><span class="n">error_pmin</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Error.set_dchi"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error.set_dchi">[docs]</a>    <span class="k">def</span> <span class="nf">set_dchi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dchi</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the delta c-stat or delta chi**2 value that the error search should optimize for.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the delta c-stat or delta chi**2 value that the error search should optimize for.</span>
 <span class="sd">        The default value is 1.0.</span>
 
 <span class="sd">        :param dchi: :math:`\Delta\chi^2` value to optimize for (Default: 1.0, 68% errors)</span>
@@ -316,7 +304,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Error.get_value"><a class="viewcode-back" href="../../pyspex/optimize.html#pyspex.optimize.Error.get_value">[docs]</a>    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Convenience function to return the parameter value and the errors.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convenience function to return the parameter value and the errors.</span>
 
 <span class="sd">        :return: A tuple with the parameter value, lower error and upper error.</span>
 <span class="sd">        :rtype: tuple</span>
@@ -381,7 +369,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -395,7 +383,7 @@
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

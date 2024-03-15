@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.30. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>4.1.30. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/pion.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="pion-spex-photoionised-plasma-model">
-<span id="sec-pion"></span><h1><span class="section-number">4.1.30. </span>Pion: SPEX photoionised plasma model<a class="headerlink" href="#pion-spex-photoionised-plasma-model" title="Permalink to this headline">¶</a></h1>
+<span id="sec-pion"></span><h1><span class="section-number">4.1.30. </span>Pion: SPEX photoionised plasma model<a class="headerlink" href="#pion-spex-photoionised-plasma-model" title="Permalink to this heading">¶</a></h1>
 <p>The <em>pion</em> model calculates the transmission and emission of a slab of
 photo-ionized plasma, where all ionic column densities are linked
 through a photoionisation model. The relevant parameter is the
@@ -126,7 +127,7 @@ model spectrum with your initial parameter values (see <a class="reference inter
 This helps to see if the initial values are reasonable numbers
 and the model is not too far off the data.</p>
 <section id="emission-from-the-pion-model">
-<h2><span class="section-number">4.1.30.1. </span>Emission from the <em>pion</em> model<a class="headerlink" href="#emission-from-the-pion-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.30.1. </span>Emission from the <em>pion</em> model<a class="headerlink" href="#emission-from-the-pion-model" title="Permalink to this heading">¶</a></h2>
 <p>We have now incorporated a first version of emission
 from the same layer. We cannot give you any guarantee at the moment that
 it is bug-free. We know at the moment that the source has problems when
@@ -198,9 +199,9 @@ Galactic absorption) using the <code class="docutils literal notranslate"><span 
 refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-abs-models"><span class="std std-ref">Different types of absorption models</span></a>.</p>
 </section>
 <section id="more-options">
-<h2><span class="section-number">4.1.30.2. </span>More options<a class="headerlink" href="#more-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.30.2. </span>More options<a class="headerlink" href="#more-options" title="Permalink to this heading">¶</a></h2>
 <section id="no-energy-balance-solution-needed">
-<h3><span class="section-number">4.1.30.2.1. </span>No energy balance solution needed<a class="headerlink" href="#no-energy-balance-solution-needed" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.30.2.1. </span>No energy balance solution needed<a class="headerlink" href="#no-energy-balance-solution-needed" title="Permalink to this heading">¶</a></h3>
 <p>The default option (<em>tmod=0</em>) for the <em>pion</em> model is to solve
 simultaneously for the ionisation balance and the energy balance
 equations. This option is useful for e.g. photoionised winds of AGN or
@@ -220,7 +221,7 @@ to a finite value (the default is zero), otherwise the emitted spectrum
 is zero.</p>
 </section>
 <section id="external-heat-sources">
-<h3><span class="section-number">4.1.30.2.2. </span>External heat sources<a class="headerlink" href="#external-heat-sources" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.30.2.2. </span>External heat sources<a class="headerlink" href="#external-heat-sources" title="Permalink to this heading">¶</a></h3>
 <p>In some cases there may be an other external heat or cooling source,
 like shock heating, magnetic reconnection, adiabatic expansion etc. If
 one wishes to solve for the photoionisation equilibrium, then this
@@ -229,7 +230,7 @@ the proper value (units: W <img class="math" src="../_images/math/fe3f93d068e006
 a cooling contribution.</p>
 </section>
 <section id="multiple-solutions">
-<h3><span class="section-number">4.1.30.2.3. </span>Multiple solutions<a class="headerlink" href="#multiple-solutions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.30.2.3. </span>Multiple solutions<a class="headerlink" href="#multiple-solutions" title="Permalink to this heading">¶</a></h3>
 <p>There are situations where there is not a unique solution to the energy
 balance equations. A simple example can be obtained as follows: take a
 logarithmic energy grid between <img class="math" src="../_images/math/239744e80301f8983928bd3eaf79a843600616cc.svg" alt="10^{-6}-10^6" style="vertical-align: -1px"/> keV, use a powerlaw
@@ -250,7 +251,7 @@ otherwise SPEX may crash.</p>
 </div>
 </section>
 <section id="no-equilibrium-solution">
-<h3><span class="section-number">4.1.30.2.4. </span>No equilibrium solution<a class="headerlink" href="#no-equilibrium-solution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.30.2.4. </span>No equilibrium solution<a class="headerlink" href="#no-equilibrium-solution" title="Permalink to this heading">¶</a></h3>
 <p>There are also situations where there is no equilibrium solution to the
 energy balance equations. This may happen for instance if you put so
 much heat in the plasma that it cannot be balanced anymore by cooling.
@@ -261,7 +262,7 @@ anymore. The only remedy is to adjust your model parameters or the
 allowed range for them in case of spectral fitting or error searches.</p>
 </section>
 <section id="adiabatic-cooling">
-<h3><span class="section-number">4.1.30.2.5. </span>Adiabatic cooling<a class="headerlink" href="#adiabatic-cooling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.30.2.5. </span>Adiabatic cooling<a class="headerlink" href="#adiabatic-cooling" title="Permalink to this heading">¶</a></h3>
 <p>The effects of adiabatic cooling can be taken into account by setting
 the parameter <em>tadi</em>. This represents the adiabatic cooling time
 <img class="math" src="../_images/math/31e6eed419aca284f026c0f48dc96f22573508f1.svg" alt="t_{\mathrm adi}" style="vertical-align: -2px"/>. The associated cooling rate is calculated as
@@ -275,7 +276,7 @@ adiabatic expansion. Check this for example by running the <code class="docutils
 <span class="pre">...</span> <span class="pre">heat</span></code> output.</p>
 </section>
 <section id="radiative-acceleration">
-<h3><span class="section-number">4.1.30.2.6. </span>Radiative acceleration<a class="headerlink" href="#radiative-acceleration" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.30.2.6. </span>Radiative acceleration<a class="headerlink" href="#radiative-acceleration" title="Permalink to this heading">¶</a></h3>
 <p>The radiative acceleration caused by the absorption or scattering of the
 incoming radiation on the layer is calculated, and given as output
 parameter <em>acc</em>. Physically, it is given by the following equation,
@@ -306,7 +307,7 @@ stronger acceleration.</p>
 </section>
 </section>
 <section id="model-parameters">
-<h2><span class="section-number">4.1.30.3. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.30.3. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this heading">¶</a></h2>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
@@ -440,7 +441,7 @@ and
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -454,7 +455,7 @@ and
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

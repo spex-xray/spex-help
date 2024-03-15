@@ -1,16 +1,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyspex.model &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>pyspex.model &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/_modules/pyspex/model.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,19 +35,6 @@
   <h1>Source code for pyspex.model</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 
-<span class="c1"># Stuff to import for compatibility between python 2 and 3</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
-
-<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">int</span>
-
-<span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
-
-<span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
-
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">pyspex_f2py</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">Elements</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -56,7 +44,7 @@
 
 
 <div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Top class containing the entire model, containing all sectors and components.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Top class containing the entire model, containing all sectors and components.</span>
 
 <span class="sd">    :ivar nsector: Number of sectors in this model</span>
 <span class="sd">    :vartype nsector: int</span>
@@ -70,7 +58,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Model.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the Sectors from SPEX.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the Sectors from SPEX.&quot;&quot;&quot;</span>
 
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_sector</span><span class="o">.</span><span class="n">api_sector_update</span><span class="p">()</span>
 
@@ -84,14 +72,14 @@
 
     <span class="c1"># Sector commands</span>
 <div class="viewcode-block" id="Model.sector_new"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.sector_new">[docs]</a>    <span class="k">def</span> <span class="nf">sector_new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a new sector.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new sector.&quot;&quot;&quot;</span>
         <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_sector</span><span class="o">.</span><span class="n">api_sector_new</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.sector_copy"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.sector_copy">[docs]</a>    <span class="k">def</span> <span class="nf">sector_copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Copy an existing sector to a new one.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Copy an existing sector to a new one.</span>
 
 <span class="sd">        :param isect: Sector number to copy.</span>
 <span class="sd">        :type isect: int</span>
@@ -102,7 +90,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.sector_delete"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.sector_delete">[docs]</a>    <span class="k">def</span> <span class="nf">sector_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Delete an existing sector.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete an existing sector.</span>
 
 <span class="sd">        :param isect: Sector number to delete.</span>
 <span class="sd">        :type isect: int</span>
@@ -114,7 +102,7 @@
 
     <span class="c1"># Component commands</span>
 <div class="viewcode-block" id="Model.comp_new"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.comp_new">[docs]</a>    <span class="k">def</span> <span class="nf">comp_new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">isect</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add new component to the model. By default in sector 1.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add new component to the model. By default in sector 1.</span>
 
 <span class="sd">        :param name: Name of the model component, for example &#39;reds&#39;, &#39;hot&#39;, &#39;cie&#39;, etc.</span>
 <span class="sd">        :type name: str</span>
@@ -129,7 +117,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.comp_delete"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.comp_delete">[docs]</a>    <span class="k">def</span> <span class="nf">comp_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Delete component from sector.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete component from sector.</span>
 
 <span class="sd">        :param isect: Sector number of the component to delete.</span>
 <span class="sd">        :type isect: int</span>
@@ -144,7 +132,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.comp_set_rel"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.comp_set_rel">[docs]</a>    <span class="k">def</span> <span class="nf">comp_set_rel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">rel</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set component relation.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set component relation.</span>
 
 <span class="sd">        :param isect: Sector number of the component to relate.</span>
 <span class="sd">        :type isect: int</span>
@@ -163,7 +151,7 @@
 
     <span class="c1"># Parameter commands</span>
 <div class="viewcode-block" id="Model.par_set"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_set">[docs]</a>    <span class="k">def</span> <span class="nf">par_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">thawn</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set parameter to value and optionally indicate thawn or frozen status.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set parameter to value and optionally indicate thawn or frozen status.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -184,7 +172,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_aset"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_aset">[docs]</a>    <span class="k">def</span> <span class="nf">par_aset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set a text type parameter value.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a text type parameter value.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -203,7 +191,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_fix"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_fix">[docs]</a>    <span class="k">def</span> <span class="nf">par_fix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fix a parameter in the fit.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fix a parameter in the fit.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -221,7 +209,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_free"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_free">[docs]</a>    <span class="k">def</span> <span class="nf">par_free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Free a parameter in the fit.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Free a parameter in the fit.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -239,7 +227,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_set_range"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_set_range">[docs]</a>    <span class="k">def</span> <span class="nf">par_set_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">rlow</span><span class="p">,</span> <span class="n">rupp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the fit range for a parameter.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the fit range for a parameter.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -260,7 +248,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_get">[docs]</a>    <span class="k">def</span> <span class="nf">par_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the parameter object for sector isect, component icomp and parameter with name.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the parameter object for sector isect, component icomp and parameter with name.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -284,7 +272,7 @@
         <span class="k">return</span> <span class="n">parout</span></div>
 
 <div class="viewcode-block" id="Model.par_couple"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_couple">[docs]</a>    <span class="k">def</span> <span class="nf">par_couple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">iname</span><span class="p">,</span> <span class="n">csect</span><span class="p">,</span> <span class="n">ccomp</span><span class="p">,</span> <span class="n">cname</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Couple parameter (iname) to another parameter with cname, with a coupling factor.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Couple parameter (iname) to another parameter with cname, with a coupling factor.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -310,7 +298,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_decouple"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_decouple">[docs]</a>    <span class="k">def</span> <span class="nf">par_decouple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">iname</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Decouple parameter.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decouple parameter.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -327,7 +315,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_norm_set"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_norm_set">[docs]</a>    <span class="k">def</span> <span class="nf">par_norm_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the instrument normalisation for an instrument number and region number.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the instrument normalisation for an instrument number and region number.</span>
 
 <span class="sd">        :param ins: Instrument number.</span>
 <span class="sd">        :type ins: int</span>
@@ -343,7 +331,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Model.par_norm_get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_norm_get">[docs]</a>    <span class="k">def</span> <span class="nf">par_norm_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the instrument normalisation for instrument ins and region reg.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the instrument normalisation for instrument ins and region reg.</span>
 
 <span class="sd">        :param ins: Instrument number.</span>
 <span class="sd">        :type ins: int</span>
@@ -355,7 +343,7 @@
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">norm_renorm</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_instnorm</span><span class="o">.</span><span class="n">norm_free</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Model.par_show_classic"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_classic">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_classic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display parameter overview in terminal through the Fortran interface.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display parameter overview in terminal through the Fortran interface.</span>
 
 <span class="sd">        :param option: Select which information should be shown (free/couple/flux/stat/corr/all)</span>
 <span class="sd">        :type option: str</span>
@@ -379,7 +367,7 @@
         <span class="k">return</span></div>
 
 <div class="viewcode-block" id="Model.par_show"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show">[docs]</a>    <span class="k">def</span> <span class="nf">par_show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display parameter overview through the Python interface.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display parameter overview through the Python interface.</span>
 
 <span class="sd">        :param option: Select which information should be shown (free/couple/flux/stat/corr/all)</span>
 <span class="sd">        :type option: str</span>
@@ -401,10 +389,16 @@
         <span class="k">return</span></div>
 
 <div class="viewcode-block" id="Model.par_show_param"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_param">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display the parameters through the Python interface.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display the parameters through the Python interface and create Astropy table.</span>
+
+<span class="sd">        :return: par_show_table</span>
+<span class="sd">        :rtype par_show_table: astropy.table.QTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod  acro parameter with unit      value     status    minimum   maximum lsec lcom lpar&quot;</span><span class="p">)</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
             <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
@@ -429,18 +423,33 @@
                     <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2">     </span><span class="si">{5:64s}</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+                        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+                                     <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2"> </span><span class="si">{5:#11.6G}</span><span class="s2">   </span><span class="si">{6:6s}</span><span class="s2">    </span><span class="si">{7:#7.2G}</span><span class="s2">   </span><span class="si">{8:#7.2G}</span><span class="s2"> </span><span class="si">{9:10s}</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span>
                                         <span class="n">cpar</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">upp</span><span class="p">,</span> <span class="n">link</span><span class="p">))</span>
+                        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span>
+                                     <span class="n">cpar</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">upp</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="p">))</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">par_show_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">,</span> <span class="s1">&#39;Comp&#39;</span><span class="p">,</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span> <span class="s1">&#39;Acro&#39;</span><span class="p">,</span> <span class="s1">&#39;Par&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="s1">&#39;AValue&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span>
+                                                  <span class="s1">&#39;Min&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">,</span> <span class="s1">&#39;Link_sect&#39;</span><span class="p">,</span> <span class="s1">&#39;Link_comp&#39;</span><span class="p">,</span> <span class="s1">&#39;Link_par&#39;</span><span class="p">],</span>
+                                <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Par show&#39;</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">par_show_table</span></div>
 
 <div class="viewcode-block" id="Model.par_show_free"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_free">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_free</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display the free parameters through the Python interface.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display the free parameters through the Python interface.</span>
+
+<span class="sd">        :return: par_show_table</span>
+<span class="sd">        :rtype par_show_table: astropy.table.QTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod  acro parameter with unit      value     status    minimum   maximum lsec lcom lpar&quot;</span><span class="p">)</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
             <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
@@ -463,19 +472,35 @@
                         <span class="k">if</span> <span class="n">cpar</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span>
                             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2">     </span><span class="si">{5:64s}</span><span class="s2">&quot;</span>
                                   <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+                            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+                                         <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2"> </span><span class="si">{3:4s}</span><span class="s2"> </span><span class="si">{4:20s}</span><span class="s2"> </span><span class="si">{5:#11.6G}</span><span class="s2">   </span><span class="si">{6:6s}</span><span class="s2">    </span><span class="si">{7:#7.2G}</span><span class="s2">   </span><span class="si">{8:#7.2G}</span><span class="s2"> &quot;</span>
                                   <span class="s2">&quot;</span><span class="si">{9:10s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span>
                                                    <span class="n">cpar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">upp</span><span class="p">,</span> <span class="n">link</span><span class="p">))</span>
+                            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">desc</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                         <span class="n">stat</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">upp</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="p">))</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">par_show_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">,</span> <span class="s1">&#39;Comp&#39;</span><span class="p">,</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span> <span class="s1">&#39;Acro&#39;</span><span class="p">,</span> <span class="s1">&#39;Par&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="s1">&#39;AValue&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span>
+                                                  <span class="s1">&#39;Min&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">,</span> <span class="s1">&#39;Link_sect&#39;</span><span class="p">,</span> <span class="s1">&#39;Link_comp&#39;</span><span class="p">,</span> <span class="s1">&#39;Link_par&#39;</span><span class="p">],</span>
+                                <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Par show free&#39;</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">par_show_table</span></div>
 
 <div class="viewcode-block" id="Model.par_show_couple"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_couple">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_couple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display the coupled parameters through the Python interface.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display the coupled parameters through the Python interface and as Astropy table.</span>
+
+<span class="sd">        :return: par_show_table</span>
+<span class="sd">        :rtype par_show_table: astropy.table.QTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coupled parameter   |   coupling  |Parameter on which it depends&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod  para |    factor   |sect comp mod  para&quot;</span><span class="p">)</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
             <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
@@ -492,17 +517,37 @@
                               <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">coupling</span><span class="p">,</span>
                                         <span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                                         <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+                        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">coupling</span><span class="p">,</span>
+                                     <span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="p">,</span> <span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_sector</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_comp</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">par</span><span class="p">[</span><span class="n">cpar</span><span class="o">.</span><span class="n">link_par</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">par_show_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">,</span> <span class="s1">&#39;Comp&#39;</span><span class="p">,</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span> <span class="s1">&#39;Acro&#39;</span><span class="p">,</span> <span class="s1">&#39;Factor&#39;</span><span class="p">,</span> <span class="s1">&#39;CSect&#39;</span><span class="p">,</span> <span class="s1">&#39;CComp&#39;</span><span class="p">,</span>
+                                                  <span class="s1">&#39;CModel&#39;</span><span class="p">,</span> <span class="s1">&#39;CAcro&#39;</span><span class="p">],</span>
+                                <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Par show couple&#39;</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">par_show_table</span></div>
 
 <div class="viewcode-block" id="Model.par_show_flux"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_show_flux">[docs]</a>    <span class="k">def</span> <span class="nf">par_show_flux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Display the flux information of the model components.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display the flux information of the model components.</span>
 
-        <span class="n">elim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">elimflux</span>
+<span class="sd">        :return: par_show_table</span>
+<span class="sd">        :rtype par_show_table: astropy.table.QTable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
+            <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">icomp</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">ncomp</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
+                    <span class="n">elim</span> <span class="o">=</span> <span class="n">csect</span><span class="o">.</span><span class="n">comp</span><span class="p">[</span><span class="n">icomp</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">elimflux</span>
+
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fluxes and restframe luminosities between </span><span class="si">{0:#11.6G}</span><span class="s2"> and </span><span class="si">{1:#11.6G}</span><span class="s2"> keV&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">elim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fluxes and restframe luminosities between </span><span class="si">{0:#11.6G}</span><span class="s2"> and </span><span class="si">{1:#11.6G}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">elim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sect comp mod   photon flux   energy flux   nr of photons  luminosity&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                (phot/m**2/s) (W/m**2)      (photons/s)    (W)&quot;</span><span class="p">)</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">isect</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nsector</span><span class="p">):</span>
             <span class="n">csect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sect</span><span class="p">[</span><span class="n">isect</span><span class="p">]</span>
@@ -513,10 +558,17 @@
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2"> </span><span class="si">{1:4d}</span><span class="s2"> </span><span class="si">{2:4s}</span><span class="s2">  </span><span class="si">{3:#11.6G}</span><span class="s2">   </span><span class="si">{4:#11.6G}</span><span class="s2">   </span><span class="si">{5:#11.6G}</span><span class="s2">    </span><span class="si">{6:#11.6G}</span><span class="s2">&quot;</span>
                           <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">photflux</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                                     <span class="n">cflux</span><span class="o">.</span><span class="n">enerflux</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">photlum</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">enerlum</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+                    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">csect</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ccomp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">photflux</span><span class="p">,</span>
+                                 <span class="n">cflux</span><span class="o">.</span><span class="n">enerflux</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">photlum</span><span class="p">,</span> <span class="n">cflux</span><span class="o">.</span><span class="n">enerlum</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">par_show_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sect&#39;</span><span class="p">,</span> <span class="s1">&#39;Comp&#39;</span><span class="p">,</span> <span class="s1">&#39;Model&#39;</span><span class="p">,</span> <span class="s1">&#39;Phot_flux&#39;</span><span class="p">,</span> <span class="s1">&#39;Ener_flux&#39;</span><span class="p">,</span> <span class="s1">&#39;Nr_phot&#39;</span><span class="p">,</span> <span class="s1">&#39;Lum&#39;</span><span class="p">],</span>
+                                <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Par show flux&#39;</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">par_show_table</span></div>
 
 <div class="viewcode-block" id="Model.par_write"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Model.par_write">[docs]</a>    <span class="k">def</span> <span class="nf">par_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comfile</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Write parameters to a .com file.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write parameters to a .com file.</span>
 
 <span class="sd">        :param comfile: Output file name (with .com extension!)</span>
 <span class="sd">        :type comfile: str</span>
@@ -540,7 +592,7 @@
         <span class="k">return</span> <span class="n">ier</span></div></div>
 
 <div class="viewcode-block" id="Sector"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Sector">[docs]</a><span class="k">class</span> <span class="nc">Sector</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class describing a Sector.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class describing a Sector.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar index: Sector number.</span>
 <span class="sd">    :vartype index: int</span>
@@ -562,7 +614,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span>  <span class="c1"># The spectrum for this sector</span>
 
 <div class="viewcode-block" id="Sector.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Sector.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the information from SPEX for sector isect.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the information from SPEX for sector isect.</span>
 <span class="sd">        </span>
 <span class="sd">        :param isect: Sector number.</span>
 <span class="sd">        :type isect: int</span>
@@ -580,7 +632,7 @@
 
 
 <div class="viewcode-block" id="Component"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Component">[docs]</a><span class="k">class</span> <span class="nc">Component</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class containing a model component.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class containing a model component.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar index: Component number.</span>
 <span class="sd">    :vartype index: int</span>
@@ -621,7 +673,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">flux</span> <span class="o">=</span> <span class="n">Fluxes</span><span class="p">()</span>            <span class="c1"># Flux for this component</span>
 
 <div class="viewcode-block" id="Component.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Component.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the information from SPEX for sector isect and component icomp.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the information from SPEX for sector isect and component icomp.</span>
 
 <span class="sd">        :param isect: Sector number of the component.</span>
 <span class="sd">        :type isect: int</span>
@@ -659,8 +711,12 @@
 
 
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class for model parameters.</span>
-<span class="sd">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for model parameters.</span>
+
+<span class="sd">    :ivar isect: Sector number</span>
+<span class="sd">    :vartype index: int</span>
+<span class="sd">    :ivar icomp: Component number</span>
+<span class="sd">    :vartype index: int</span>
 <span class="sd">    :ivar index: Parameter number</span>
 <span class="sd">    :vartype index: int</span>
 <span class="sd">    :ivar name: Name of parameter</span>
@@ -694,6 +750,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isect</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># Sector number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">icomp</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># Component number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># Parameter number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>        <span class="c1"># Name of parameter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>        <span class="c1"># Type of parameter (norm, abun, fitp, cons or text)</span>
@@ -712,7 +770,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">coupling</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1"># Coupling factor</span>
 
 <div class="viewcode-block" id="Parameter.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Parameter.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">ipar</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the parameter values from SPEX memory.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the parameter values from SPEX memory.</span>
 <span class="sd">        </span>
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -723,6 +781,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">api_par_update</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">isect</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">icomp</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">ipar</span><span class="p">))</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">isect</span> <span class="o">=</span> <span class="n">isect</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">icomp</span> <span class="o">=</span> <span class="n">icomp</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_index</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_parameter</span><span class="o">.</span><span class="n">par_acronym</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -746,7 +806,7 @@
 
 
 <div class="viewcode-block" id="Abundance"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Abundance">[docs]</a><span class="k">class</span> <span class="nc">Abundance</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This class manages the SPEX abundance setting.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class manages the SPEX abundance setting.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar index: Abundance index in list</span>
 <span class="sd">    :vartype index: int</span>
@@ -765,7 +825,7 @@
                      <span class="s2">&quot;Asplund et al. (2009)&quot;</span><span class="p">)</span>   <span class="c1"># The available abundance sets.</span>
 
 <div class="viewcode-block" id="Abundance.set"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Abundance.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">abun</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the abundance in SPEX to another set.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the abundance in SPEX to another set.</span>
 <span class="sd">        </span>
 <span class="sd">        :param abun: Abbreviation of the abundance set.</span>
 <span class="sd">        :type abun: str</span>
@@ -775,20 +835,20 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Abundance.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Abundance.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the current Abundance setting (reference).&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current Abundance setting (reference).&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Abundance.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Abundance.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the abundance setting in pyspex.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the abundance setting in pyspex.&quot;&quot;&quot;</span>
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_abundance</span><span class="o">.</span><span class="n">api_abun_update</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_abundance</span><span class="o">.</span><span class="n">abun_index</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_abundance</span><span class="o">.</span><span class="n">abun_ref</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S48&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Distance"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Distance">[docs]</a><span class="k">class</span> <span class="nc">Distance</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This class is used to set and get the distances in SPEX.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class is used to set and get the distances in SPEX.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar m: Distance in meter</span>
 <span class="sd">    :vartype m: astropy.units.quantity.Quantity</span>
@@ -837,7 +897,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">omega_r</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimensionless_unscaled</span>  <span class="c1"># Omega R</span>
 
 <div class="viewcode-block" id="Distance.set"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Distance.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the distance in units for a particular sector (isect).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the distance in units for a particular sector (isect).</span>
 <span class="sd">        </span>
 <span class="sd">        :param isect: Sector number.</span>
 <span class="sd">        :type isect: int</span>
@@ -863,7 +923,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Distances not set correctly.&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Distance.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Distance.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the distances for a sector from SPEX.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the distances for a sector from SPEX.</span>
 <span class="sd">        </span>
 <span class="sd">        :param isect: Sector number.</span>
 <span class="sd">        :type isect: int</span>
@@ -884,7 +944,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Distances could not be retrieved.&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Distance.set_cosmo"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Distance.set_cosmo">[docs]</a>    <span class="k">def</span> <span class="nf">set_cosmo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">omega_m</span><span class="p">,</span> <span class="n">omega_l</span><span class="p">,</span> <span class="n">omega_r</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the cosmological constants for the distance calculation.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the cosmological constants for the distance calculation.</span>
 <span class="sd">        </span>
 <span class="sd">        :param h0: Hubble constant (km/s/Mpc).</span>
 <span class="sd">        :type h0: astropy.units.quantity.Quantity</span>
@@ -907,7 +967,7 @@
 
 
 <div class="viewcode-block" id="Egrid"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid">[docs]</a><span class="k">class</span> <span class="nc">Egrid</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This class is used to specify the model energy grid.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class is used to specify the model energy grid.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar nbins: Number of bins</span>
 <span class="sd">    :vartype nbins: int</span>
@@ -933,7 +993,7 @@
         <span class="k">return</span> <span class="mi">0</span>
 
 <div class="viewcode-block" id="Egrid.set"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set egrid using limits and number of bins.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set egrid using limits and number of bins.</span>
 <span class="sd">        </span>
 <span class="sd">        :param elow: Lowest energy/wavelength for energy grid.</span>
 <span class="sd">        :type elow: float</span>
@@ -951,7 +1011,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Egrid.set_step"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid.set_step">[docs]</a>    <span class="k">def</span> <span class="nf">set_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set egrid using limits and step size.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set egrid using limits and step size.</span>
 <span class="sd">        </span>
 <span class="sd">        :param elow: Lowest energy/wavelength for energy grid.</span>
 <span class="sd">        :type elow: float</span>
@@ -969,7 +1029,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Egrid.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the current energy grid from SPEX.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current energy grid from SPEX.&quot;&quot;&quot;</span>
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_egrid</span><span class="o">.</span><span class="n">api_egrid_get</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">nbins</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_egrid</span><span class="o">.</span><span class="n">nbins</span>
@@ -985,7 +1045,7 @@
         <span class="k">return</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="Egrid.save"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">savefile</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Save the energy grid to a file named savefile (extension: .egr).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save the energy grid to a file named savefile (extension: .egr).</span>
 <span class="sd">        </span>
 <span class="sd">        :param savefile: Filename to save the energy grid to (including .egr extension)</span>
 <span class="sd">        :type savefile: str</span>
@@ -1002,7 +1062,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Egrid.read"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">readfile</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Read the energy grid from a file named readfile (extension: .egr).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read the energy grid from a file named readfile (extension: .egr).</span>
 <span class="sd">        </span>
 <span class="sd">        :param readfile: Filename to read the energy grid from (including .egr extension)</span>
 <span class="sd">        :type readfile: str</span>
@@ -1019,7 +1079,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Egrid.grid"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Egrid.grid">[docs]</a>    <span class="k">def</span> <span class="nf">grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ebounds</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provide a grid to SPEX by providing a numpy array with the bin boundaries.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Provide a grid to SPEX by providing a numpy array with the bin boundaries.</span>
 <span class="sd">        Please note that the length of this array is the number of bins + 1!</span>
 <span class="sd">        </span>
 <span class="sd">        :param ebounds: Array containing the energy boundaries of the new energy grid (keV).</span>
@@ -1035,7 +1095,7 @@
 
 
 <div class="viewcode-block" id="Fluxes"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Fluxes">[docs]</a><span class="k">class</span> <span class="nc">Fluxes</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This class is used to calculate fluxes and luminosities of spectra in a spectral band.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class is used to calculate fluxes and luminosities of spectra in a spectral band.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar sector: Sector number of flux calculation</span>
 <span class="sd">    :vartype sector: int</span>
@@ -1065,7 +1125,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">elimflux</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">keV</span>  <span class="c1">#: Flux energy limits (keV)</span>
 
 <div class="viewcode-block" id="Fluxes.elim"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Fluxes.elim">[docs]</a>    <span class="k">def</span> <span class="nf">elim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elow</span><span class="p">,</span> <span class="n">ehigh</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the energy limits for the flux and luminosity calculation.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the energy limits for the flux and luminosity calculation.</span>
 <span class="sd">        </span>
 <span class="sd">        :param elow: Lowest energy/wavelength for energy interval.</span>
 <span class="sd">        :type elow: float</span>
@@ -1083,7 +1143,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Fluxes.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Fluxes.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the flux and luminosity from SPEX for a given sector and component number.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the flux and luminosity from SPEX for a given sector and component number.</span>
 <span class="sd">        </span>
 <span class="sd">        :param isect: Sector number of the component to obtain the flux from.</span>
 <span class="sd">        :type isect: int</span>
@@ -1105,7 +1165,7 @@
         <span class="k">return</span></div>
 
 <div class="viewcode-block" id="Fluxes.calc"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Fluxes.calc">[docs]</a>    <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate and get flux and luminosity from SPEX for a given sector and component number.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate and get flux and luminosity from SPEX for a given sector and component number.</span>
 <span class="sd">        </span>
 <span class="sd">        :param isect: Sector number of the component to calculate.</span>
 <span class="sd">        :type isect: int</span>
@@ -1119,7 +1179,7 @@
 
 
 <div class="viewcode-block" id="Ibal"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ibal">[docs]</a><span class="k">class</span> <span class="nc">Ibal</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This class manages the SPEX ionisation balance setting.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class manages the SPEX ionisation balance setting.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar index: Index number for list of ionisation balance sets.</span>
 <span class="sd">    :vartype index: int</span>
@@ -1138,7 +1198,7 @@
                      <span class="s2">&quot;Urdampilleta et al. (2017)&quot;</span><span class="p">)</span>  <span class="c1"># List of available ibal data.</span>
 
 <div class="viewcode-block" id="Ibal.set"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ibal.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ibal</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the abundance in SPEX to another set.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the abundance in SPEX to another set.</span>
 <span class="sd">        </span>
 <span class="sd">        :param ibal: Abbreviation of the reference to the ionisation balance.</span>
 <span class="sd">        :type ibal: str</span>
@@ -1148,13 +1208,13 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ibal.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ibal.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the current Abundance setting (reference).&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current Abundance setting (reference).&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Ibal.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ibal.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the abundance setting in pyspex.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the abundance setting in pyspex.&quot;&quot;&quot;</span>
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ibal</span><span class="o">.</span><span class="n">api_ibal_update</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ibal</span><span class="o">.</span><span class="n">ibal_index</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ibal</span><span class="o">.</span><span class="n">ibal_ref</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;S80&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div></div>
@@ -1163,7 +1223,7 @@
 <span class="c1"># Classes for ions in the model calculation</span>
 
 <span class="k">class</span> <span class="nc">Ion</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class containing the settings of an ion.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class containing the settings of an ion.</span>
 <span class="sd">    </span>
 <span class="sd">    :ivar z: Atomic number.</span>
 <span class="sd">    :vartype z: int</span>
@@ -1190,7 +1250,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the information for an ion with atomic number z and ionisation stage i.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the information for an ion with atomic number z and ionisation stage i.&quot;&quot;&quot;</span>
         <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nmax</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lmax</span><span class="p">,</span> <span class="n">use</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_get</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">use</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">use</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1203,18 +1263,18 @@
 
 
 <div class="viewcode-block" id="Aerror"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Aerror">[docs]</a><span class="k">class</span> <span class="nc">Aerror</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class for calculating the uncertainty in a parameter due to atomic data uncertainties.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for calculating the uncertainty in a parameter due to atomic data uncertainties.</span>
 
 <span class="sd">    :ivar aerr: Error value for the requested parameter.</span>
 <span class="sd">    :vartype aerr: float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Initialize Aerror.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize Aerror.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aerr</span> <span class="o">=</span> <span class="mf">0.</span>
 
 <div class="viewcode-block" id="Aerror.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Aerror.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">iname</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the atomic data error for parameter `iname` in sector `isect` and component number `icomp`.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the atomic data error for parameter `iname` in sector `isect` and component number `icomp`.</span>
 
 <span class="sd">        :param isect: Sector number of the parameter.</span>
 <span class="sd">        :type isect: int</span>
@@ -1241,7 +1301,7 @@
 
 
 <span class="k">class</span> <span class="nc">Atom</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class containing all ions for an atom.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class containing all ions for an atom.</span>
 
 <span class="sd">    :ivar nion: Number of ions for this atom.</span>
 <span class="sd">    :vartype nion: int</span>
@@ -1252,7 +1312,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Initialize the information for an atom.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the information for an atom.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1264,14 +1324,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the properties for this atom.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the properties for this atom.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nion</span><span class="p">):</span>
             <span class="n">ion</span> <span class="o">=</span> <span class="n">Ion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">ii</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ion</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="Ions"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions">[docs]</a><span class="k">class</span> <span class="nc">Ions</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class to manage the ions taken into account in the model calculation.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to manage the ions taken into account in the model calculation.</span>
 
 <span class="sd">    :ivar nz: Total number of atoms considered.</span>
 <span class="sd">    :vartype nz: int</span>
@@ -1285,14 +1345,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Ions.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the properties of all atoms.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the properties of all atoms.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">):</span>
             <span class="n">atom</span> <span class="o">=</span> <span class="n">Atom</span><span class="p">(</span><span class="n">iz</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Ions.show"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Show the settings for the ions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Show the settings for the ions.&quot;&quot;&quot;</span>
         <span class="n">names</span> <span class="o">=</span> <span class="n">Elements</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">jz</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span><span class="o">.</span><span class="n">nion</span><span class="p">):</span>
@@ -1307,7 +1367,7 @@
 
     <span class="c1"># Set nmax</span>
 <div class="viewcode-block" id="Ions.nmax_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.nmax_all">[docs]</a>    <span class="k">def</span> <span class="nf">nmax_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set all ions to maximum quantum number nmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set all ions to maximum quantum number nmax.</span>
 
 <span class="sd">        :param nmax: Maximum principle quantum number to use.</span>
 <span class="sd">        :type nmax: int</span>
@@ -1317,7 +1377,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.nmax_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.nmax_iso">[docs]</a>    <span class="k">def</span> <span class="nf">nmax_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">,</span> <span class="n">nmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set this iso-electronic sequence to maximum quantum number nmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set this iso-electronic sequence to maximum quantum number nmax.</span>
 
 <span class="sd">        :param iso: Iso-electronic sequence.</span>
 <span class="sd">        :type iso: int</span>
@@ -1329,7 +1389,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.nmax_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.nmax_z">[docs]</a>    <span class="k">def</span> <span class="nf">nmax_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">nmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set all ions of this element to maximum quantum number nmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set all ions of this element to maximum quantum number nmax.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1341,7 +1401,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.nmax_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.nmax_ion">[docs]</a>    <span class="k">def</span> <span class="nf">nmax_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">nmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set this ion to maximum quantum number nmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set this ion to maximum quantum number nmax.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1356,7 +1416,7 @@
     
     <span class="c1"># Set lmax</span>
 <div class="viewcode-block" id="Ions.lmax_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.lmax_all">[docs]</a>    <span class="k">def</span> <span class="nf">lmax_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set all ions to maximum angular momentum lmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set all ions to maximum angular momentum lmax.</span>
 
 <span class="sd">        :param lmax: Maximum angular momentum to use.</span>
 <span class="sd">        :type lmax: int</span>
@@ -1366,7 +1426,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.lmax_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.lmax_iso">[docs]</a>    <span class="k">def</span> <span class="nf">lmax_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">,</span> <span class="n">lmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set this iso-electronic sequence to maximum angular momentum lmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set this iso-electronic sequence to maximum angular momentum lmax.</span>
 
 <span class="sd">        :param iso: Iso-electronic sequence.</span>
 <span class="sd">        :type iso: int</span>
@@ -1378,7 +1438,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.lmax_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.lmax_z">[docs]</a>    <span class="k">def</span> <span class="nf">lmax_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">lmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set all ions of this element to maximum angular momentum lmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set all ions of this element to maximum angular momentum lmax.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1390,7 +1450,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.lmax_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.lmax_ion">[docs]</a>    <span class="k">def</span> <span class="nf">lmax_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">lmax</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set this ion to maximum angular momentum lmax.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set this ion to maximum angular momentum lmax.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1405,13 +1465,13 @@
 
     <span class="c1"># Set use</span>
 <div class="viewcode-block" id="Ions.use_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.use_all">[docs]</a>    <span class="k">def</span> <span class="nf">use_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use all ions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use all ions.&quot;&quot;&quot;</span>
         <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_use_all</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.use_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.use_iso">[docs]</a>    <span class="k">def</span> <span class="nf">use_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use this iso-electronic sequence.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use this iso-electronic sequence.</span>
 
 <span class="sd">        :param iso: Iso-electronic sequence.</span>
 <span class="sd">        :type iso: int</span>
@@ -1421,7 +1481,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.use_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.use_z">[docs]</a>    <span class="k">def</span> <span class="nf">use_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use all ions of this element.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use all ions of this element.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1431,7 +1491,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.use_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.use_ion">[docs]</a>    <span class="k">def</span> <span class="nf">use_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use this ion.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use this ion.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1444,13 +1504,13 @@
 
     <span class="c1"># Set ignore</span>
 <div class="viewcode-block" id="Ions.ignore_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.ignore_all">[docs]</a>    <span class="k">def</span> <span class="nf">ignore_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ignore all ions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ignore all ions.&quot;&quot;&quot;</span>
         <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_ignore_all</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.ignore_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.ignore_iso">[docs]</a>    <span class="k">def</span> <span class="nf">ignore_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ignore this iso-electronic sequence.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ignore this iso-electronic sequence.</span>
 
 <span class="sd">        :param iso: Iso-electronic sequence.</span>
 <span class="sd">        :type iso: int</span>
@@ -1460,7 +1520,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.ignore_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.ignore_z">[docs]</a>    <span class="k">def</span> <span class="nf">ignore_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ignore all ions of this element.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ignore all ions of this element.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1470,7 +1530,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.ignore_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.ignore_ion">[docs]</a>    <span class="k">def</span> <span class="nf">ignore_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ignore this ion.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ignore this ion.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1483,13 +1543,13 @@
     
     <span class="c1"># Set new</span>
 <div class="viewcode-block" id="Ions.new_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.new_all">[docs]</a>    <span class="k">def</span> <span class="nf">new_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use new calculations for all ions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use new calculations for all ions.&quot;&quot;&quot;</span>
         <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_new_all</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.new_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.new_iso">[docs]</a>    <span class="k">def</span> <span class="nf">new_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use new calculations for this iso-electronic sequence.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use new calculations for this iso-electronic sequence.</span>
 
 <span class="sd">        :param iso: Iso-electronic sequence.</span>
 <span class="sd">        :type iso: int</span>
@@ -1499,7 +1559,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.new_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.new_z">[docs]</a>    <span class="k">def</span> <span class="nf">new_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use new calculations for all ions of this element.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use new calculations for all ions of this element.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1509,7 +1569,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.new_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.new_ion">[docs]</a>    <span class="k">def</span> <span class="nf">new_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use new calculations for this ion.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use new calculations for this ion.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1522,13 +1582,13 @@
 
     <span class="c1"># Set old</span>
 <div class="viewcode-block" id="Ions.old_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.old_all">[docs]</a>    <span class="k">def</span> <span class="nf">old_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use old calculations for all ions.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use old calculations for all ions.&quot;&quot;&quot;</span>
         <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_old_all</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.old_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.old_iso">[docs]</a>    <span class="k">def</span> <span class="nf">old_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use old calculations for this iso-electronic sequence.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use old calculations for this iso-electronic sequence.</span>
 
 <span class="sd">        :param iso: Iso-electronic sequence.</span>
 <span class="sd">        :type iso: int</span>
@@ -1538,7 +1598,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.old_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.old_z">[docs]</a>    <span class="k">def</span> <span class="nf">old_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use old calculations for all ions of this element.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use old calculations for all ions of this element.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
@@ -1548,20 +1608,58 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Ions.old_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.old_ion">[docs]</a>    <span class="k">def</span> <span class="nf">old_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Use old calculations for this ion.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use old calculations for this ion.</span>
 
 <span class="sd">        :param z: Atomic number</span>
 <span class="sd">        :type z: int</span>
 <span class="sd">        :param i: Ion number</span>
 <span class="sd">        :type i: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_old_ion</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_qc_ion</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ier</span></div>
+    
+    <span class="c1"># Set qc</span>
+<div class="viewcode-block" id="Ions.qc_all"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.qc_all">[docs]</a>    <span class="k">def</span> <span class="nf">qc_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use qc calculations for all ions.&quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_qc_all</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Ions.qc_iso"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.qc_iso">[docs]</a>    <span class="k">def</span> <span class="nf">qc_iso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iso</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use qc calculations for this iso-electronic sequence.</span>
+
+<span class="sd">        :param iso: Iso-electronic sequence.</span>
+<span class="sd">        :type iso: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_qc_iso</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">iso</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Ions.qc_z"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.qc_z">[docs]</a>    <span class="k">def</span> <span class="nf">qc_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use qc calculations for all ions of this element.</span>
+
+<span class="sd">        :param z: Atomic number</span>
+<span class="sd">        :type z: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_qc_z</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ier</span></div>
+
+<div class="viewcode-block" id="Ions.qc_ion"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Ions.qc_ion">[docs]</a>    <span class="k">def</span> <span class="nf">qc_ion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use qc calculations for this ion.</span>
+
+<span class="sd">        :param z: Atomic number</span>
+<span class="sd">        :type z: int</span>
+<span class="sd">        :param i: Ion number</span>
+<span class="sd">        :type i: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_ions</span><span class="o">.</span><span class="n">api_ion_qc_ion</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div></div>
-    
 
 <div class="viewcode-block" id="Spectrum"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Spectrum">[docs]</a><span class="k">class</span> <span class="nc">Spectrum</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This class obtains and stores the model spectrum from SPEX.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class obtains and stores the model spectrum from SPEX.</span>
 
 <span class="sd">    :ivar nbins: Number of bins</span>
 <span class="sd">    :vartype nbins: int</span>
@@ -1597,7 +1695,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">luminosity</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">ph</span> <span class="o">*</span> <span class="mf">1E+44</span> <span class="o">/</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">keV</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Spectrum.get"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Spectrum.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">isect</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the model spectra from SPEX for sector number isect.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the model spectra from SPEX for sector number isect.&quot;&quot;&quot;</span>
 
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_spectrum</span><span class="o">.</span><span class="n">api_model_spectrum_total</span><span class="p">(</span><span class="n">isect</span><span class="p">)</span>
 
@@ -1619,7 +1717,7 @@
 
 
 <div class="viewcode-block" id="Var"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var">[docs]</a><span class="k">class</span> <span class="nc">Var</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Various settings for the plasma models.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Various settings for the plasma models.</span>
 
 <span class="sd">    :ivar gacc: Free-bound accuracy</span>
 <span class="sd">    :vartype gacc: float</span>
@@ -1679,7 +1777,7 @@
                                 <span class="c1"># 4 = Doppler and natural broadening, Voigt profiles (best physical representation,</span>
                                 <span class="c1">#     works only for var calc new)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">newcalc</span> <span class="o">=</span> <span class="kc">False</span>       <span class="c1"># SPEXACT 3 calculations (False: SPEXACT 2)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newcalc</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># SPEXACT 3 calculations (0 = SPEXACT 2; 1 = Quick CIE; 2 = SPEXACT 3)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">occstart</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># Occupation calculations</span>
                                 <span class="c1"># 0 = from ground state</span>
@@ -1698,7 +1796,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cxcon</span> <span class="o">=</span> <span class="mi">2</span>           <span class="c1"># Charge exchange rates (1 = Arnaud &amp; Rothenflug, 2 = Kingdon &amp; Ferland)</span>
 
 <div class="viewcode-block" id="Var.update"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Obtain the current plasma model settings from SPEX.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the current plasma model settings from SPEX.&quot;&quot;&quot;</span>
 
         <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_var</span><span class="o">.</span><span class="n">api_var_update</span><span class="p">()</span>
 
@@ -1713,7 +1811,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">doppler</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_var</span><span class="o">.</span><span class="n">var_line_doppler</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">newcalc</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_var</span><span class="o">.</span><span class="n">var_calc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newcalc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_var</span><span class="o">.</span><span class="n">var_calc</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">occstart</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_var</span><span class="o">.</span><span class="n">var_occstart</span><span class="p">)</span>
 
@@ -1729,7 +1827,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cxcon</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_model_var</span><span class="o">.</span><span class="n">var_cxcon</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Var.set_gacc"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_gacc">[docs]</a>    <span class="k">def</span> <span class="nf">set_gacc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set the free-bound emission accuracy.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the free-bound emission accuracy.</span>
 
 <span class="sd">        :param value: Free-bound emission accuracy.</span>
 <span class="sd">        :type value: float</span>
@@ -1740,13 +1838,13 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.reset_gacc"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.reset_gacc">[docs]</a>    <span class="k">def</span> <span class="nf">reset_gacc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reset the free-bound emission accuracy.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the free-bound emission accuracy.&quot;&quot;&quot;</span>
         <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;var gacc reset&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_line"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_line">[docs]</a>    <span class="k">def</span> <span class="nf">set_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ltype</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set a line emission contribution on or off.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a line emission contribution on or off.</span>
 
 <span class="sd">        :param ltype: Line emission contribution (&#39;ex&#39;, &#39;px&#39;, &#39;rr&#39;, &#39;dr&#39;, &#39;ds&#39;, &#39;ii&#39;, &#39;reset&#39;)</span>
 <span class="sd">        :type ltype: str</span>
@@ -1764,7 +1862,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Var.set_doppler"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_doppler">[docs]</a>    <span class="k">def</span> <span class="nf">set_doppler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Doppler broadening.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Doppler broadening.</span>
 
 <span class="sd">        :param value: Doppler broadening type.</span>
 <span class="sd">        :type value: int</span>
@@ -1775,21 +1873,25 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_calc"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_calc">[docs]</a>    <span class="k">def</span> <span class="nf">set_calc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Perform SPEXACT 3 line calculations.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform SPEXACT 3 line calculations.</span>
 
-<span class="sd">        :param status: Use SPEXACT 3 (True) or SPEXACT 2 (False)</span>
-<span class="sd">        :type status: bool</span>
+<span class="sd">        :param status: Use SPEXACT 2 (0), Quick SPEXACT 3 (1), or SPEXACT 3 (1)</span>
+<span class="sd">        :type status: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;var calc old&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;var calc qc&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">status</span><span class="o">==</span><span class="mi">2</span><span class="p">):</span>
             <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;var calc new&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">ier</span> <span class="o">=</span> <span class="n">pyspex_f2py</span><span class="o">.</span><span class="n">api_command</span><span class="p">(</span><span class="s1">&#39;var calc old&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Option &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; is unknown.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_occstart"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_occstart">[docs]</a>    <span class="k">def</span> <span class="nf">set_occstart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otype</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;At which occupation level to start.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;At which occupation level to start.</span>
 
 <span class="sd">        :param otype: Occupation level (&#39;ground&#39;, &#39;boltz&#39;, &#39;last&#39;)</span>
 <span class="sd">        :type otype: str</span>
@@ -1800,7 +1902,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_mekal"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_mekal">[docs]</a>    <span class="k">def</span> <span class="nf">set_mekal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">utype</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Switch old Mekal updates on/off.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch old Mekal updates on/off.</span>
 
 <span class="sd">        :param utype: Update type (&#39;wav&#39;, &#39;fe17&#39;, &#39;update&#39;, &#39;all&#39;)</span>
 <span class="sd">        :type utype: str</span>
@@ -1817,7 +1919,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_ibalmaxw"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_ibalmaxw">[docs]</a>    <span class="k">def</span> <span class="nf">set_ibalmaxw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Switch the Multi-Maxwellians for the ionisation balance on/off (True/False).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch the Multi-Maxwellians for the ionisation balance on/off (True/False).</span>
 
 <span class="sd">        :param status: On (True) or off (False)</span>
 <span class="sd">        :type status: bool</span>
@@ -1832,7 +1934,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_newcoolexc"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_newcoolexc">[docs]</a>    <span class="k">def</span> <span class="nf">set_newcoolexc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Cooling by collisional excitation by Stofanova (SPEXACT 3) on/off (True/False).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cooling by collisional excitation by Stofanova (SPEXACT 3) on/off (True/False).</span>
 
 <span class="sd">        :param status: On (True) or off (False)</span>
 <span class="sd">        :type status: bool</span>
@@ -1847,7 +1949,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_newcooldr"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_newcooldr">[docs]</a>    <span class="k">def</span> <span class="nf">set_newcooldr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Cooling by dielectronic recombination (SPEXACT 3) on/off (True/False).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cooling by dielectronic recombination (SPEXACT 3) on/off (True/False).</span>
 
 <span class="sd">        :param status: On (True) or off (False)</span>
 <span class="sd">        :type status: bool</span>
@@ -1862,7 +1964,7 @@
         <span class="k">return</span> <span class="n">ier</span></div>
 
 <div class="viewcode-block" id="Var.set_cxcon"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Var.set_cxcon">[docs]</a>    <span class="k">def</span> <span class="nf">set_cxcon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set charge exchange recombination and ionization rates according to either</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set charge exchange recombination and ionization rates according to either</span>
 <span class="sd">        1 = Arnaud &amp; Rothenflug (1985) or 2 = Kingdon &amp; Ferland (1996). Default is 2.</span>
 
 <span class="sd">        :param value: Recombination and ionisation rateset. 1 = Arnaud &amp; Rothenflug, 2 = Kingdon &amp; Ferland.</span>
@@ -1873,7 +1975,7 @@
         <span class="k">return</span> <span class="n">ier</span></div></div>
 
 <div class="viewcode-block" id="Dem"><a class="viewcode-back" href="../../pyspex/model.html#pyspex.model.Dem">[docs]</a><span class="k">class</span> <span class="nc">Dem</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;SPEX DEM modeling interface.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;SPEX DEM modeling interface.</span>
 
 <span class="sd">    :ivar nr: Number of temperature bins.</span>
 <span class="sd">    :vartype nr: int</span>
@@ -2014,7 +2116,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -2028,7 +2130,7 @@
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

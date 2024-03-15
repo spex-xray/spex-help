@@ -1,23 +1,24 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1.33. Var: various settings for the plasma models &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>3.1.34. Var: various settings for the plasma models &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/var.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.1.34. Vbin: variable rebinning of the data" href="vbin.html" />
-    <link rel="prev" title="3.1.32. Use: reuse part of the spectrum" href="use.html" />
+    <link rel="next" title="3.1.35. Vbin: variable rebinning of the data" href="vbin.html" />
+    <link rel="prev" title="3.1.33. Use: reuse part of the spectrum" href="use.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -35,14 +36,14 @@
           <div class="body" role="main">
             
   <section id="var-various-settings-for-the-plasma-models">
-<span id="sec-var"></span><h1><span class="section-number">3.1.33. </span>Var: various settings for the plasma models<a class="headerlink" href="#var-various-settings-for-the-plasma-models" title="Permalink to this headline">¶</a></h1>
+<span id="sec-var"></span><h1><span class="section-number">3.1.34. </span>Var: various settings for the plasma models<a class="headerlink" href="#var-various-settings-for-the-plasma-models" title="Permalink to this heading">¶</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1.33.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.34.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>For the plasma models, there are several quantities that have useful
 default values but can be adjusted manually for specific purposes. We
 list them below.</p>
 <section id="free-bound-emission">
-<h3><span class="section-number">3.1.33.1.1. </span>Free-bound emission<a class="headerlink" href="#free-bound-emission" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.1. </span>Free-bound emission<a class="headerlink" href="#free-bound-emission" title="Permalink to this heading">¶</a></h3>
 <p>Usually the freebound emission takes most of the computing time for the
 plasma models. This is because it needs to be evaluated for all
 energies, ions and atomic sublevels that are relevant. In order to reduce
@@ -54,17 +55,13 @@ less accurate). The users are advised not to change this parameter
 unless they are knowing what they do!</p>
 </section>
 <section id="line-emission-contributions">
-<h3><span class="section-number">3.1.33.1.2. </span>Line emission contributions<a class="headerlink" href="#line-emission-contributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.2. </span>Line emission contributions<a class="headerlink" href="#line-emission-contributions" title="Permalink to this heading">¶</a></h3>
 <p>By default, all possible line emission processes are taken into account
 in the plasma models. For testing purposes, it is possible to include or
 exclude specific contributions. These are listed below in
 the table below.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Possible line emission processes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Abbrevation</p></th>
 <th class="head"><p>Process</p></th>
@@ -90,7 +87,7 @@ the table below.</p>
 </table>
 </section>
 <section id="doppler-broadening">
-<h3><span class="section-number">3.1.33.1.3. </span>Doppler broadening<a class="headerlink" href="#doppler-broadening" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.3. </span>Doppler broadening<a class="headerlink" href="#doppler-broadening" title="Permalink to this heading">¶</a></h3>
 <p>By default, thermal Doppler broadening is taken into account. However,
 the user can put this off for testing purposes. The options for the
 broadening are:</p>
@@ -103,13 +100,18 @@ representation, works only for <em>var calc new</em>)</p></li>
 </ol>
 </section>
 <section id="atomic-data">
-<h3><span class="section-number">3.1.33.1.4. </span>Atomic data<a class="headerlink" href="#atomic-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.4. </span>Atomic data<a class="headerlink" href="#atomic-data" title="Permalink to this heading">¶</a></h3>
 <p>The user can choose between the “old” Mekal code (the current default,
-also referred to as SPEXACT v2) and updated calculations with the
-command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code> (referred to as SPEXACT v3).</p>
+also referred to as SPEXACT v2), the updated calculations with the
+command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code> (referred to as SPEXACT v3), and a “quick-cie”
+mode with the command <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">qc</span></code>.</p>
+<p>The quick CIE mode is designed only for CIE-family models, including
+<em>cie</em>, <em>dem</em>, <em>pdem</em>, <em>wdem</em>, <em>cf</em>, and <em>clus</em>. It is not compatible with
+non-equilibrium scenarios like <em>nei</em> or any cases involving photon fields,
+like <em>pion</em>, <em>tpho</em>, and <em>xabs</em>.</p>
 </section>
 <section id="calculation-level-occupations">
-<h3><span class="section-number">3.1.33.1.5. </span>Calculation level occupations<a class="headerlink" href="#calculation-level-occupations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.5. </span>Calculation level occupations<a class="headerlink" href="#calculation-level-occupations" title="Permalink to this heading">¶</a></h3>
 <p>In the new line calculations, the occupation of the different atomic
 energy levels is determined self-consistently. Consider an ion for which
 we want to determine these occupations. If the occupation of the
@@ -140,7 +142,7 @@ studied).</p>
 </div>
 </section>
 <section id="mekal-code">
-<h3><span class="section-number">3.1.33.1.6. </span>Mekal code<a class="headerlink" href="#mekal-code" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.6. </span>Mekal code<a class="headerlink" href="#mekal-code" title="Permalink to this heading">¶</a></h3>
 <p>Over the years, we have made several minor improvements to the original Mekal plasma
 model. These improvements are included by default. However, it is
 possible to discard some of these improvements by going back to the old
@@ -158,7 +160,7 @@ the total triplet strength; the Ni XVIII and Fe XVI Na1A and NA1B lines
 plus their satellites have been deleted.</p>
 </section>
 <section id="cooling-by-collisional-excitation">
-<h3><span class="section-number">3.1.33.1.7. </span>Cooling by collisional excitation<a class="headerlink" href="#cooling-by-collisional-excitation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.7. </span>Cooling by collisional excitation<a class="headerlink" href="#cooling-by-collisional-excitation" title="Permalink to this heading">¶</a></h3>
 <p>In the oldest version of the <em>pion</em> model, for the cooling by
 collisional excitation the Mekal code was used, with all processes
 except for collisonal excitation on. This has now improved by using a
@@ -171,7 +173,7 @@ default, but the user can switch between both by selecting the <code class="docu
 <span class="pre">newcoolexc</span> <span class="pre">#l</span></code> option.</p>
 </section>
 <section id="cooling-by-dielectronic-recombination">
-<h3><span class="section-number">3.1.33.1.8. </span>Cooling by dielectronic recombination<a class="headerlink" href="#cooling-by-dielectronic-recombination" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.34.1.8. </span>Cooling by dielectronic recombination<a class="headerlink" href="#cooling-by-dielectronic-recombination" title="Permalink to this heading">¶</a></h3>
 <p>In the oldest version of the <em>pion</em> model, cooling by di-electronic
 recombination was not included. This has now been corrected. Wherever
 available, cooling rates are calculated directly from the di-electronic
@@ -185,7 +187,7 @@ comparison) by setting the command <code class="docutils literal notranslate"><s
 <div></div></blockquote>
 </section>
 <section id="charge-exchange-recombination-and-ionization">
-<span id="sec-var-cxcon"></span><h3><span class="section-number">3.1.33.1.9. </span>Charge exchange recombination and ionization<a class="headerlink" href="#charge-exchange-recombination-and-ionization" title="Permalink to this headline">¶</a></h3>
+<span id="sec-var-cxcon"></span><h3><span class="section-number">3.1.34.1.9. </span>Charge exchange recombination and ionization<a class="headerlink" href="#charge-exchange-recombination-and-ionization" title="Permalink to this heading">¶</a></h3>
 <p>The charge exchange recombination and ionization rates can be set either from
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1985A&amp;AS...60..425A">Arnaud and Rothenflug (1985)</a>
 or <a class="reference external" href="http://dx.doi.org/10.1086/192335">Kingdon and Ferland (1996)</a>
@@ -197,10 +199,28 @@ using the <code class="docutils literal notranslate"><span class="pre">var</span
 </ol>
 </div></blockquote>
 <p>Default rates are Kingdon and Ferland.</p>
+<blockquote>
+<div></div></blockquote>
+</section>
+<section id="photoionization-cross-sections">
+<span id="sec-var-pixsec"></span><h3><span class="section-number">3.1.34.1.10. </span>Photoionization cross sections<a class="headerlink" href="#photoionization-cross-sections" title="Permalink to this heading">¶</a></h3>
+<p>The photoionization cross section in the balance calculation, and the relevant
+photoabsorption continuum and the free-bound emission, can be set either from
+the <a class="reference external" href="https://open.adas.ac.uk/">OPEN-ADAS database</a> or by the classical recipe
+which involves <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996ApJ...465..487V/abstract">Verner et al. (1996)</a>
+for the photoionization/photoabsorption and
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...587A..84M/abstract">Mao et al. (2016)</a>
+for the free-bound emission. This option is available with the <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">pixsec</span></code> command.</p>
+<ol class="arabic simple">
+<li><p>Use Verner for photoionization/photoabsorption and Mao for free-bound (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">pixsec</span> <span class="pre">1</span></code>).</p></li>
+<li><p>Use OPEN-ADAS for all (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">pixsec</span> <span class="pre">2</span></code>).</p></li>
+</ol>
+<p>Default rates are OPEN-ADAS. With this option the photoexcitation-autoionization resonances are evaluated in
+the balance calculation.</p>
 </section>
 </section>
 <section id="syntax">
-<h2><span class="section-number">3.1.33.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.34.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">gacc</span> <span class="pre">#r</span></code> : Set the accuracy gfbacc for free-bound emission.
@@ -218,6 +238,8 @@ the above description</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">old</span></code> : Use the old Mekal code</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code> : Use the new updated atomic data (for SPEX version
 3.0 and higher)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">qc</span></code> : Use the quick-cie line calculation (for SPEX version
+3.08 and higher)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">occstart</span> <span class="pre">ground</span></code> : Start new line calculation iteration with
 initial guess that all ions are in the ground state. This is the
 default</div>
@@ -246,7 +268,7 @@ are used. If 2 (default), Kingdon and Ferland rates are used.</div>
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">3.1.33.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.34.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">gacc</span> <span class="pre">0.01</span></code> : Set the accuracy gfbacc for free-bound emission.to
 0.01</div>
@@ -257,7 +279,8 @@ emission.to its default value of 0.001</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">line</span> <span class="pre">reset</span></code> : Include all line emission processes</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">line</span> <span class="pre">show</span></code> : Show status of all line emission proceses</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">doppler</span> <span class="pre">f</span></code> : Do not use thermal Doppler bvroadening</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code> : Use the new atomic data (EXPERIMENTAL)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">new</span></code> : Use the new atomic data</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">qc</span></code> : Use the quick-cie line calculation (experimental)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">calc</span> <span class="pre">boltzmann</span></code> : Start level occupation calculations with
 Boltzmann distribution</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">newmekal</span> <span class="pre">wav</span> <span class="pre">f</span></code> : Use the original Mekal wavelengths instead</div>
@@ -271,6 +294,7 @@ cooling calculations</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">newcooldr</span> <span class="pre">f</span></code> : Change to the old dielectronic recombination
 cooling calculations</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">cxcon</span> <span class="pre">1</span></code> : Change to Arnaud and Rothenflug (1985) charge exchange rates.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">pixsec</span> <span class="pre">1</span></code> : Change to Verner and Mao rates for photoionization.</div>
 </div>
 </section>
 </section>
@@ -321,8 +345,8 @@ cooling calculations</div>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
   <li><a href="../commands.html"><span class="section-number">3.1. </span>Command syntax</a><ul>
-      <li>Previous: <a href="use.html" title="previous chapter"><span class="section-number">3.1.32. </span>Use: reuse part of the spectrum</a></li>
-      <li>Next: <a href="vbin.html" title="next chapter"><span class="section-number">3.1.34. </span>Vbin: variable rebinning of the data</a></li>
+      <li>Previous: <a href="use.html" title="previous chapter"><span class="section-number">3.1.33. </span>Use: reuse part of the spectrum</a></li>
+      <li>Next: <a href="vbin.html" title="next chapter"><span class="section-number">3.1.35. </span>Vbin: variable rebinning of the data</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -337,7 +361,7 @@ cooling calculations</div>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -351,7 +375,7 @@ cooling calculations</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

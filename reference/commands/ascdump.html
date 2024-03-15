@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1.3. Ascdump: ascii output of plasma and spectral properties &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>3.1.3. Ascdump: ascii output of plasma and spectral properties &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/ascdump.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -35,9 +36,9 @@
           <div class="body" role="main">
             
   <section id="ascdump-ascii-output-of-plasma-and-spectral-properties">
-<span id="sec-ascdump"></span><h1><span class="section-number">3.1.3. </span>Ascdump: ascii output of plasma and spectral properties<a class="headerlink" href="#ascdump-ascii-output-of-plasma-and-spectral-properties" title="Permalink to this headline">¶</a></h1>
+<span id="sec-ascdump"></span><h1><span class="section-number">3.1.3. </span>Ascdump: ascii output of plasma and spectral properties<a class="headerlink" href="#ascdump-ascii-output-of-plasma-and-spectral-properties" title="Permalink to this heading">¶</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1.3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>One of the drivers in developing SPEX is the desire to be able to get
 insight into the astrophysics of X-ray sources, beyond merely deriving a
 set of best-fit parameters like temperature or abundances. The general
@@ -54,7 +55,7 @@ broad choice of properties that can be displayed.</p>
 formatting options.</p>
 </section>
 <section id="output-types">
-<span id="sec-asc-output-types"></span><h2><span class="section-number">3.1.3.2. </span>Output types<a class="headerlink" href="#output-types" title="Permalink to this headline">¶</a></h2>
+<span id="sec-asc-output-types"></span><h2><span class="section-number">3.1.3.2. </span>Output types<a class="headerlink" href="#output-types" title="Permalink to this heading">¶</a></h2>
 <p>The possible output types are listed below. Depending on the specific
 spectral model, not all types are allowed for each spectral component.
 The keyword in front of each item is the one that should be used for the
@@ -62,7 +63,7 @@ appropriate syntax.</p>
 <p>Most options give output as a table with several columns. They are labeled here below with T1 after the keyword.
 A few options provide only a list of parameters. They are labeled below with T0 after the keyword.</p>
 <section id="general">
-<h3><span class="section-number">3.1.3.2.1. </span>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.1. </span>General<a class="headerlink" href="#general" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>plas (T0):</dt><dd><p>basic plasma properties like temperatures, densities, sound speed, etc.
 (<a class="reference internal" href="ascdump/tabel.html#tabout-plas"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -73,7 +74,7 @@ A few options provide only a list of parameters. They are labeled below with T0 
 </dl>
 </section>
 <section id="ionisation-balance-rates-timescales">
-<h3><span class="section-number">3.1.3.2.2. </span>Ionisation balance &amp; rates, timescales<a class="headerlink" href="#ionisation-balance-rates-timescales" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.2. </span>Ionisation balance &amp; rates, timescales<a class="headerlink" href="#ionisation-balance-rates-timescales" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>icon (T1):</dt><dd><p>ion concentrations, both with respect to Hydrogen and the relevant
 elemental abundance. (<a class="reference internal" href="ascdump/tabel.html#tabout-icon"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -92,7 +93,7 @@ hydrogen density, so do not forget to set the relevant density in the model.
 </dl>
 </section>
 <section id="energy-level-populations-and-processes-contributing-to-it">
-<h3><span class="section-number">3.1.3.2.3. </span>Energy level populations and processes contributing to it<a class="headerlink" href="#energy-level-populations-and-processes-contributing-to-it" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.3. </span>Energy level populations and processes contributing to it<a class="headerlink" href="#energy-level-populations-and-processes-contributing-to-it" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>pop (T1):</dt><dd><p>the occupation numbers as well as upwards/downwards loss and gain
 rates to all quantum levels included. (<a class="reference internal" href="ascdump/tabel.html#tabout-pop"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -116,7 +117,7 @@ charge exchange recombination, as well as inner-shell ionisation (<a class="refe
 </dl>
 </section>
 <section id="emitted-spectrum-with-continuum-and-line-emission-contributions">
-<h3><span class="section-number">3.1.3.2.4. </span>Emitted spectrum with continuum and line emission contributions<a class="headerlink" href="#emitted-spectrum-with-continuum-and-line-emission-contributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.4. </span>Emitted spectrum with continuum and line emission contributions<a class="headerlink" href="#emitted-spectrum-with-continuum-and-line-emission-contributions" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>grid (T1):</dt><dd><p>the energy and wavelength grid used in the last evaluation of the
 spectrum. (<a class="reference internal" href="ascdump/tabel.html#tabout-grid"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -154,7 +155,7 @@ plasma layers of the model. (<a class="reference internal" href="ascdump/tabel.h
 </dl>
 </section>
 <section id="absorbed-spectrum-with-continuum-and-line-contributions">
-<h3><span class="section-number">3.1.3.2.5. </span>Absorbed spectrum with continuum and line contributions<a class="headerlink" href="#absorbed-spectrum-with-continuum-and-line-contributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.5. </span>Absorbed spectrum with continuum and line contributions<a class="headerlink" href="#absorbed-spectrum-with-continuum-and-line-contributions" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>tral (T1):</dt><dd><p>absorption line properties (energies, equivalent widths, optical depths, etc)
 are listed for the hot, pion, slab, xabs and warm models.
@@ -175,7 +176,7 @@ temperatures of the <em>warm</em> model only.</p>
 </dl>
 </section>
 <section id="energy-balance-for-photoionized-plasmas-only">
-<h3><span class="section-number">3.1.3.2.6. </span>Energy balance for photoionized plasmas only<a class="headerlink" href="#energy-balance-for-photoionized-plasmas-only" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.6. </span>Energy balance for photoionized plasmas only<a class="headerlink" href="#energy-balance-for-photoionized-plasmas-only" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>heat (T0):</dt><dd><p>heating and cooling rates for various processes
 (<a class="reference internal" href="ascdump/tabel.html#tabout-heat"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -186,7 +187,7 @@ plasmas). (<a class="reference internal" href="ascdump/tabel.html#tabout-ebal"><
 </dl>
 </section>
 <section id="non-equilibrium-ionisation-supernova-remnant-and-cluster-models">
-<h3><span class="section-number">3.1.3.2.7. </span>Non-equilibrium ionisation, supernova remnant and cluster models<a class="headerlink" href="#non-equilibrium-ionisation-supernova-remnant-and-cluster-models" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.7. </span>Non-equilibrium ionisation, supernova remnant and cluster models<a class="headerlink" href="#non-equilibrium-ionisation-supernova-remnant-and-cluster-models" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>nei (T1):</dt><dd><p>the history of ionisation parameter and temperature in NEI
 calculations. (<a class="reference internal" href="ascdump/tabel.html#tabout-nei"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -202,7 +203,7 @@ for supernova remnant models such as Sedov, Chevalier etc.).
 </dl>
 </section>
 <section id="differential-emission-measure-models">
-<h3><span class="section-number">3.1.3.2.8. </span>Differential emission measure models<a class="headerlink" href="#differential-emission-measure-models" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3.2.8. </span>Differential emission measure models<a class="headerlink" href="#differential-emission-measure-models" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>dem (T1):</dt><dd><p>the emission measure distribution (for the pdem model)
 (<a class="reference internal" href="ascdump/tabel.html#tabout-dem"><span class="std std-ref">Output table properties</span></a>)</p>
@@ -211,7 +212,7 @@ for supernova remnant models such as Sedov, Chevalier etc.).
 </section>
 </section>
 <section id="output-devices">
-<h2><span class="section-number">3.1.3.3. </span>Output devices<a class="headerlink" href="#output-devices" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3.3. </span>Output devices<a class="headerlink" href="#output-devices" title="Permalink to this heading">¶</a></h2>
 <p>The following output options are currently implemented:</p>
 <dl class="simple">
 <dt>ter:</dt><dd><p>output to the screen of the terminal</p>
@@ -223,7 +224,7 @@ for supernova remnant models such as Sedov, Chevalier etc.).
 </dl>
 </section>
 <section id="selection-sorting-and-formatting-of-the-data">
-<h2><span class="section-number">3.1.3.4. </span>Selection, sorting and formatting of the data<a class="headerlink" href="#selection-sorting-and-formatting-of-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3.4. </span>Selection, sorting and formatting of the data<a class="headerlink" href="#selection-sorting-and-formatting-of-the-data" title="Permalink to this heading">¶</a></h2>
 <p>The data can be sorted according to any column of the table, and the user can make selections of which data
 to display in the output. Further, for ascii-type of output, more formatting options of the data are possible.
 The information on sorting, selection and formatting should be provided by the user, in an ascii-file.
@@ -284,7 +285,7 @@ rather than the default for this column of 2.349E+32</p></li>
 <p>See the relevant subsection of <a class="reference internal" href="#sec-asc-output-types"><span class="std std-ref">Output types</span></a> for the column acronyms to be used in the file for the selection, sorting and formatting of the data.</p>
 </section>
 <section id="syntax">
-<h2><span class="section-number">3.1.3.5. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3.5. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
 <p>The following syntax rules apply for ascii output:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">terminal</span> <span class="pre">#i1</span> <span class="pre">#i2</span> <span class="pre">#a</span></code> : Dump the output for sky sector #i1
@@ -309,7 +310,7 @@ is the name of a the file setting the sorting, selection and formatting of the c
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">3.1.3.6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3.6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">terminal</span> <span class="pre">3</span> <span class="pre">2</span> <span class="pre">icon</span></code> : dumps the ion concentrations of
 component 2 of sky sector 3 to the terminal screen.</div>
@@ -386,7 +387,7 @@ options as described in the file mysel.sel</div>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -400,7 +401,7 @@ options as described in the file mysel.sel</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

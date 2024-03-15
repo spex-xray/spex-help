@@ -8,9 +8,8 @@ simulations, and want to be able to calculate the corresponding X-ray
 spectrum. Without having to implement these hydro-codes into it is now
 possible to do this.
 
-For that purpose we offer the fortran90 subroutine *hydro_driver*. The
-source code of that routine is available in the SPEX distribution.
-Basically, it does the following:
+For that purpose we offer the Fortran90 subroutine :download:`hydro_driver.f90
+</_static/user/hydro_driver.f90>`. Basically, it does the following:
 
 #. It reads the needed parameters as subroutine arguments.
 

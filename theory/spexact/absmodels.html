@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8.1.3. Absorption model theory &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>8.1.3. Absorption model theory &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/spexact/absmodels.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -35,9 +36,9 @@
           <div class="body" role="main">
             
   <section id="absorption-model-theory">
-<span id="sect-absmodels"></span><h1><span class="section-number">8.1.3. </span>Absorption model theory<a class="headerlink" href="#absorption-model-theory" title="Permalink to this headline">¶</a></h1>
+<span id="sect-absmodels"></span><h1><span class="section-number">8.1.3. </span>Absorption model theory<a class="headerlink" href="#absorption-model-theory" title="Permalink to this heading">¶</a></h1>
 <section id="introduction">
-<h2><span class="section-number">8.1.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>In most astrophysical situations we have to take into account
 absorption of photons between the emitting region and the observer.
 Apart from a few standard models like the ones by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract">Morrison &amp; McCammon
@@ -59,7 +60,7 @@ to calculate the transmission simply as <img class="math" src="../../_images/mat
 <img class="math" src="../../_images/math/bd753a97a8afa4db2f2b2a14a8aaf724c6595d1d.svg" alt="\tau(E)" style="vertical-align: -4px"/> the optical depth.</p>
 </section>
 <section id="thomson-scattering">
-<span id="sect-thomson-scattering"></span><h2><span class="section-number">8.1.3.2. </span>Thomson scattering<a class="headerlink" href="#thomson-scattering" title="Permalink to this headline">¶</a></h2>
+<span id="sect-thomson-scattering"></span><h2><span class="section-number">8.1.3.2. </span>Thomson scattering<a class="headerlink" href="#thomson-scattering" title="Permalink to this heading">¶</a></h2>
 <p>The above approach also allows us to include Thomson-scattering in the
 transmission. Any source photon aimed at the observer but that suffers
 from Thomson scattering is scattered out of the line of sight and hanec
@@ -94,11 +95,11 @@ precision arithmetics:</p>
 \right."/></p>
 </div></section>
 <section id="different-types-of-absorption-models">
-<span id="sect-abs-models"></span><h2><span class="section-number">8.1.3.3. </span>Different types of absorption models<a class="headerlink" href="#different-types-of-absorption-models" title="Permalink to this headline">¶</a></h2>
+<span id="sect-abs-models"></span><h2><span class="section-number">8.1.3.3. </span>Different types of absorption models<a class="headerlink" href="#different-types-of-absorption-models" title="Permalink to this heading">¶</a></h2>
 <p>We have a set of spectral models available with different levels of
 sophistication and applicability, that we list below.</p>
 <section id="slab-model">
-<h3><span class="section-number">8.1.3.3.1. </span>Slab model<a class="headerlink" href="#slab-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.3.3.1. </span>Slab model<a class="headerlink" href="#slab-model" title="Permalink to this heading">¶</a></h3>
 <p>The <em>slab</em> model calculates the transmission of a slab of material,
 where all ionic column densities can be chosen independently. This has
 the advantage that a spectrum can be fit without any knowledge of the
@@ -108,7 +109,7 @@ predictions from any model (as calculated by , Cloudy, XSTAR, ION or any
 other existing (photo)ionization code).</p>
 </section>
 <section id="xabs-model">
-<h3><span class="section-number">8.1.3.3.2. </span>Xabs model<a class="headerlink" href="#xabs-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.3.3.2. </span>Xabs model<a class="headerlink" href="#xabs-model" title="Permalink to this heading">¶</a></h3>
 <p>In the <em>xabs</em> model, the ionic column densities are not independent
 quantities, but are linked through a set of runs using a photo
 ionization code. See the description of the <em>xabs</em> model for more
@@ -126,7 +127,7 @@ photo ionization code. In that case the <em>xabs</em> model may fail to give an
 acceptable fit, while the <em>slab</em> model may perform better.</p>
 </section>
 <section id="warm-model">
-<h3><span class="section-number">8.1.3.3.3. </span>Warm model<a class="headerlink" href="#warm-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.3.3.3. </span>Warm model<a class="headerlink" href="#warm-model" title="Permalink to this heading">¶</a></h3>
 <p>In the <em>warm</em> model, we construct a model for a continuous distribution
 of column density <img class="math" src="../../_images/math/0b919b210fa90074cf729813b68a05162c34fbf1.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. It
 is in some sense comparable to the differential emission measure models
@@ -141,7 +142,7 @@ source, one may of course avoid this problem by taking multiple,
 non-overlapping <em>warm</em> components.</p>
 </section>
 <section id="hot-model">
-<h3><span class="section-number">8.1.3.3.4. </span>Hot model<a class="headerlink" href="#hot-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.3.3.4. </span>Hot model<a class="headerlink" href="#hot-model" title="Permalink to this heading">¶</a></h3>
 <p>In the <em>hot</em> model, we link the different ionic column densities simply
 by using a collisional ionsation (CIE) plasma. It may be useful in
 situations where photoionisation is relatively unimportant but the
@@ -150,13 +151,13 @@ course the case for a low temperature, where it can be used to mimick
 the absorption of (almost) neutral gas.</p>
 </section>
 <section id="pion-model">
-<h3><span class="section-number">8.1.3.3.5. </span>Pion model<a class="headerlink" href="#pion-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.3.3.5. </span>Pion model<a class="headerlink" href="#pion-model" title="Permalink to this heading">¶</a></h3>
 <p>Finally we have in the pion model, which does a self-consistent photo
 ionization calculation of the slab of material.</p>
 </section>
 </section>
 <section id="dynamical-model-for-the-absorbers">
-<span id="sect-abs-transm"></span><h2><span class="section-number">8.1.3.4. </span>Dynamical model for the absorbers<a class="headerlink" href="#dynamical-model-for-the-absorbers" title="Permalink to this headline">¶</a></h2>
+<span id="sect-abs-transm"></span><h2><span class="section-number">8.1.3.4. </span>Dynamical model for the absorbers<a class="headerlink" href="#dynamical-model-for-the-absorbers" title="Permalink to this heading">¶</a></h2>
 <p>For each of the absorption models described in the previous section, we
 have the freedom to prescribe the dynamics of the source. The way we
 have implemented this in is described below.</p>
@@ -281,7 +282,7 @@ therefore in using the slab model one should be aware that
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -295,7 +296,7 @@ therefore in using the slab model one should be aware that
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

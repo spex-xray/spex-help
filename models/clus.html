@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.6. Clus: projected cluster model &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>4.1.6. Clus: projected cluster model &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/clus.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,13 +36,13 @@
           <div class="body" role="main">
             
   <section id="clus-projected-cluster-model">
-<span id="sect-clus"></span><h1><span class="section-number">4.1.6. </span>Clus: projected cluster model<a class="headerlink" href="#clus-projected-cluster-model" title="Permalink to this headline">¶</a></h1>
+<span id="sect-clus"></span><h1><span class="section-number">4.1.6. </span>Clus: projected cluster model<a class="headerlink" href="#clus-projected-cluster-model" title="Permalink to this heading">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is a complex model, so please read carefully this documentation before using the model</p>
 </div>
 <section id="overview">
-<h2><span class="section-number">4.1.6.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>This model calculates the spectrum and radial profiles of a cluster of galaxies.
 The 3-D density, temperature, abundance, turbulence and in/outflow fields are
 parameterized. The cluster is subdivided into 3D-shells; the number of shells can be adjusted.
@@ -63,7 +64,7 @@ all parameters, but make as much as possible use of other constraints and common
 </div>
 </section>
 <section id="two-important-radii">
-<h2><span class="section-number">4.1.6.2. </span>Two important radii<a class="headerlink" href="#two-important-radii" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.2. </span>Two important radii<a class="headerlink" href="#two-important-radii" title="Permalink to this heading">¶</a></h2>
 <p>It is important to distinguish two important radii in the model.</p>
 <p>Internally, everything is scaled to <img class="math" src="../_images/math/8265797e3d9a5734654d2fbe0d54bcdf020fdc04.svg" alt="r_{500}" style="vertical-align: -2px"/> , which is the first parameter of the
 model (input name r500). It should be given in units of <img class="math" src="../_images/math/5294cfd02629a9ede75606a475e5ef604c0e65c8.svg" alt="10^{22}" style="vertical-align: 0px"/> meter.
@@ -83,12 +84,6 @@ otherwise the spatial resolution of your model may be insufficient.</p>
 </div>
 <p>The two parameters governing the radial scaling are summarized below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 38%" />
-<col style="width: 22%" />
-<col style="width: 28%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -109,7 +104,7 @@ otherwise the spatial resolution of your model may be insufficient.</p>
 </table>
 </section>
 <section id="radial-grid-3-d-shells">
-<h2><span class="section-number">4.1.6.3. </span>Radial grid: 3-d shells<a class="headerlink" href="#radial-grid-3-d-shells" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.3. </span>Radial grid: 3-d shells<a class="headerlink" href="#radial-grid-3-d-shells" title="Permalink to this heading">¶</a></h2>
 <p>The 3-d model is evaluated for a logarithmic radius grid, in order to cover the possible
 large dynamical range between the core of the cluster and the outermost radius.
 The user specifies <img class="math" src="../_images/math/32187c9863dac11c8e875917a69cde56c787507a.svg" alt="n_{r}" style="vertical-align: -2px"/> (input name nr), the number of shells for which the
@@ -131,7 +126,7 @@ discontinuity is also chosen as an additional grid point (if it is close to an e
 that existing grid point is moved to the discontinuity).</p>
 </section>
 <section id="radial-grid-projected-profile">
-<h2><span class="section-number">4.1.6.4. </span>Radial grid: projected profile<a class="headerlink" href="#radial-grid-projected-profile" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.4. </span>Radial grid: projected profile<a class="headerlink" href="#radial-grid-projected-profile" title="Permalink to this heading">¶</a></h2>
 <p>While as said we take a logarithmic grid for the 3-d shells of the cluster, to cover the large
 dynamical range, we take a linear grid for the projected 2-d profile. This is because that projected
 profile is often closely linked to a real detector, which has a linear scale.</p>
@@ -151,12 +146,6 @@ respectively.</p>
 </div>
 <p>The parameters governing both the 3-d and projected bins are summarized below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 46%" />
-<col style="width: 26%" />
-<col style="width: 12%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -177,7 +166,7 @@ respectively.</p>
 </table>
 </section>
 <section id="radial-density-distribution">
-<h2><span class="section-number">4.1.6.5. </span>Radial density distribution<a class="headerlink" href="#radial-density-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.5. </span>Radial density distribution<a class="headerlink" href="#radial-density-distribution" title="Permalink to this heading">¶</a></h2>
 <p>The hydrogen density distribution is parametrised as the sum of two beta-models,
 modified by a possible density jump (shock):</p>
 <div class="math">
@@ -205,12 +194,6 @@ large radii, z zero value (the default) a constant jump, and negative values cor
 a decreasing effect of the jump at large radii.</p>
 <p>The parameters describing the density profile are summarized below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 32%" />
-<col style="width: 21%" />
-<col style="width: 36%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -266,7 +249,7 @@ a decreasing effect of the jump at large radii.</p>
 </table>
 </section>
 <section id="radial-temperature-distribution">
-<h2><span class="section-number">4.1.6.6. </span>Radial temperature distribution<a class="headerlink" href="#radial-temperature-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.6. </span>Radial temperature distribution<a class="headerlink" href="#radial-temperature-distribution" title="Permalink to this heading">¶</a></h2>
 <p>The temperature distribution is based upon Vikhlinin et al. (2006) (Eq. 6)  (2006ApJ…640..691V)
 but with a temperature jump added and described below.</p>
 <p>The Vikhlinin parameterisation is the product of two terms. For the first term, describing the
@@ -299,12 +282,6 @@ temperature profile that they derived.</p>
 <p>We assume that the ion temperature equals the electron temperature for each shell.
 The parameters describing the temperature profile are summarized below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 36%" />
-<col style="width: 23%" />
-<col style="width: 27%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -365,7 +342,7 @@ The parameters describing the temperature profile are summarized below.</p>
 </table>
 </section>
 <section id="radial-abundance-profile">
-<h2><span class="section-number">4.1.6.7. </span>Radial abundance profile<a class="headerlink" href="#radial-abundance-profile" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.7. </span>Radial abundance profile<a class="headerlink" href="#radial-abundance-profile" title="Permalink to this heading">¶</a></h2>
 <p>The relative metal abundances can be adjusted similar to the CIE model
 (see the last parts of this chapter).
 But these abundances can be multiplied by a radial scaling law <img class="math" src="../_images/math/7e5207cbc72de00653767e70e7e0a3186f3b19d9.svg" alt="f(r)" style="vertical-align: -4px"/>.</p>
@@ -397,12 +374,6 @@ correlated. In those situations it may be wise to keep one of them frozen.</p>
 </div>
 <p>The parameters describing the abundance profile are summarized below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 21%" />
-<col style="width: 29%" />
-<col style="width: 33%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -448,7 +419,7 @@ correlated. In those situations it may be wise to keep one of them frozen.</p>
 </table>
 </section>
 <section id="turbulence">
-<h2><span class="section-number">4.1.6.8. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.8. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this heading">¶</a></h2>
 <p>The plasma turbulence can also be parametrised. We use the following description:</p>
 <div class="math">
 <p><img src="../_images/math/36651706cda21a48cc52a0695801bbfa3986f75e.svg" alt="v^2 = v_a^2 + \frac{v_b \lvert v_b \rvert x^2}{1+x^2}"/></p>
@@ -476,12 +447,6 @@ in quadrature using the relevant (ion) temperature.</p>
 </div>
 <p>The parameters describing the turbulence profile are summarized below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 24%" />
-<col style="width: 28%" />
-<col style="width: 31%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -507,7 +472,7 @@ in quadrature using the relevant (ion) temperature.</p>
 </table>
 </section>
 <section id="radial-velocity-fields">
-<h2><span class="section-number">4.1.6.9. </span>Radial velocity fields<a class="headerlink" href="#radial-velocity-fields" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.9. </span>Radial velocity fields<a class="headerlink" href="#radial-velocity-fields" title="Permalink to this heading">¶</a></h2>
 <p>In addition to turbulence, the model allows for systematic radial motion (inflow or outflow).
 This is done as follows:</p>
 <div class="math">
@@ -517,15 +482,9 @@ This is done as follows:</p>
 <p><img src="../_images/math/270f82a3858f065aaa276f659c29b25310eb869b.svg" alt="x = r / r_z"/></p>
 </div><p>Positive values correspond to inflow, negative values to outflow.
 The parameter <img class="math" src="../_images/math/610f6046cb7785cf3d820e526507d47c45ec8ce7.svg" alt="v_c" style="vertical-align: -2px"/> corresponds to the flow velocity at the core,
-<img class="math" src="../_images/math/610f6046cb7785cf3d820e526507d47c45ec8ce7.svg" alt="v_c" style="vertical-align: -2px"/> is the flow velocity at large distances. Note that the default
+<img class="math" src="../_images/math/9ce8033c2045b16fd3cefc4b9a3140005cec0bf9.svg" alt="v_h" style="vertical-align: -2px"/> is the flow velocity at large distances. Note that the default
 values for these parameters correspond to no in- or outflow.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 24%" />
-<col style="width: 28%" />
-<col style="width: 31%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -551,7 +510,7 @@ values for these parameters correspond to no in- or outflow.</p>
 </table>
 </section>
 <section id="projected-spectra-and-radial-profiles">
-<h2><span class="section-number">4.1.6.10. </span>Projected spectra and radial profiles<a class="headerlink" href="#projected-spectra-and-radial-profiles" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.10. </span>Projected spectra and radial profiles<a class="headerlink" href="#projected-spectra-and-radial-profiles" title="Permalink to this heading">¶</a></h2>
 <p>The cluster model projects the spectra of all shells onto the sky. But sometimes the
 user is not interested in the spectrum of the full cluster, but only in the spectrum within
 a projected annulus.</p>
@@ -590,12 +549,6 @@ file could be simply three lines:</p>
 the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_images/math/7b420e312bf7116c399fb269f8e39a92559deb27.svg" alt="f_a=1" style="vertical-align: -3px"/> everywhere).</p>
 <p>We summarise the parameters below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -636,7 +589,7 @@ the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_i
 </table>
 </section>
 <section id="resonance-scattering">
-<h2><span class="section-number">4.1.6.11. </span>Resonance scattering<a class="headerlink" href="#resonance-scattering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.11. </span>Resonance scattering<a class="headerlink" href="#resonance-scattering" title="Permalink to this heading">¶</a></h2>
 <p>Resonance scattering of the strong resonance lines can be taken into account, if the user needs this.
 This is indicated by the parameter with name rsca. Allowed values are 0 (no resonance scattering)
 or 1 (resonance scattering).</p>
@@ -671,12 +624,6 @@ random seeds for each run results may not be fully reproducible. For that reason
 information is given “on the fly”.</p>
 <p>The relevant parameters are listed below.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Acronym</p></td>
 <td><p>Variable</p></td>
@@ -726,7 +673,7 @@ a couple of minutes per model evaluation is more realistic.</p>
 </div>
 </section>
 <section id="output-files-for-resonance-scattering">
-<h2><span class="section-number">4.1.6.12. </span>Output files for resonance scattering<a class="headerlink" href="#output-files-for-resonance-scattering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.12. </span>Output files for resonance scattering<a class="headerlink" href="#output-files-for-resonance-scattering" title="Permalink to this heading">¶</a></h2>
 <p>As noted, in principle three files are produced when resonance scattering is included in the calculations.
 These file <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>, <code class="docutils literal notranslate"><span class="pre">cluslin2.asc</span></code> and <code class="docutils literal notranslate"><span class="pre">cluslin3.asc</span></code> are stored in the directory where SPEX is running,
 and are overwritten each time the model is evaluated again. Here we describe the contents of these files.</p>
@@ -794,7 +741,7 @@ The columns are as follows:</p>
 </ol>
 </section>
 <section id="atomic-physics-of-the-resonance-lines">
-<h2><span class="section-number">4.1.6.13. </span>Atomic physics of the resonance lines<a class="headerlink" href="#atomic-physics-of-the-resonance-lines" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.13. </span>Atomic physics of the resonance lines<a class="headerlink" href="#atomic-physics-of-the-resonance-lines" title="Permalink to this heading">¶</a></h2>
 <p>For the “old” atomic data set, we used a list of 204 selected lines deemed to be relevant in 1996, when the first
 version of this model was created. For the “new” atomic data set, we selected 666 transitions for H-like to Na-like
 ions, under the following assumptions:</p>
@@ -823,7 +770,7 @@ initialised each time upon the first call to the cluster model.</p></li>
 </ol>
 </section>
 <section id="non-thermal-electron-distributions-and-abundances">
-<h2><span class="section-number">4.1.6.14. </span>Non-thermal electron distributions and abundances<a class="headerlink" href="#non-thermal-electron-distributions-and-abundances" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.14. </span>Non-thermal electron distributions and abundances<a class="headerlink" href="#non-thermal-electron-distributions-and-abundances" title="Permalink to this heading">¶</a></h2>
 <p>The effects of non-thermal electron distribution on the spectrum can be
 included like any SPEX model. See <a class="reference internal" href="../theory/spexact/nonthermal.html#sec-nonthermal"><span class="std std-ref">Non-thermal electron distributions</span></a> for more details.</p>
 <p>We refer here to the description of the CIE model for the abundances.
@@ -831,7 +778,7 @@ We use the same parameters as in that model.
 See description below.</p>
 </section>
 <section id="parameter-description">
-<h2><span class="section-number">4.1.6.15. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.6.15. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this heading">¶</a></h2>
 <p>The remaining parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : reference element. Default value 1 (hydrogen). See above for
@@ -910,7 +857,7 @@ present, non-thermal effects are not taken into account (default).</div>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -924,7 +871,7 @@ present, non-thermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Jul 05, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

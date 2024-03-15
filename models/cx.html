@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.8. CX: model for charge exchange plasmas &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>4.1.8. CX: model for charge exchange plasmas &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/cx.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="cx-model-for-charge-exchange-plasmas">
-<span id="sect-cx"></span><h1><span class="section-number">4.1.8. </span>CX: model for charge exchange plasmas<a class="headerlink" href="#cx-model-for-charge-exchange-plasmas" title="Permalink to this headline">¶</a></h1>
+<span id="sect-cx"></span><h1><span class="section-number">4.1.8. </span>CX: model for charge exchange plasmas<a class="headerlink" href="#cx-model-for-charge-exchange-plasmas" title="Permalink to this heading">¶</a></h1>
 <p>This model calculates the spectrum emitted from a hot plasma when it
 recombines with cold neutral materials. This model is based on three key
 assumptions: (1) it considers only single electron capture in a
@@ -44,7 +45,7 @@ atomic hydrogen target, (3) electronic collisional excitation and
 recombination are ignored in the spectral calculation. More information
 can be found in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
 <section id="charge-exchange-cross-sections">
-<h2><span class="section-number">4.1.8.1. </span>Charge exchange cross sections<a class="headerlink" href="#charge-exchange-cross-sections" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.8.1. </span>Charge exchange cross sections<a class="headerlink" href="#charge-exchange-cross-sections" title="Permalink to this heading">¶</a></h2>
 <p>The CX cross section data used in the model are partly taken from
 literature, including quantum molecular-orbital close-coupling
 calculations for <img class="math" src="../_images/math/389a469d4d9c3d57a3607a9b38fadd13ed592445.svg" alt="\mathrm C^{5+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ba3e7fc78c209c2e3f5b64b6e6952fb1c01a4763.svg" alt="\mathrm O^{6+}" style="vertical-align: 0px"/> by
@@ -55,7 +56,7 @@ multi-channel Laudau-Zener results for <img class="math" src="../_images/math/63
 compilations for <img class="math" src="../_images/math/7cc4dd3aed1a07cbbc7bef17f7f740948f64eeaa.svg" alt="\mathrm C^{6+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/b5d29ad1d7318eaf8dd111a4637c8a7d14f155fb.svg" alt="\mathrm O^{8+}" style="vertical-align: 0px"/> by
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993ADNDT..55..201J/abstract">Janev et al. (1993)</a>,
 and the NIFS Charge Transfer Database
-(CHART)  <a class="footnote-reference brackets" href="#id8" id="id1">1</a> for <img class="math" src="../_images/math/d9b8b2cc4ebac007b9ff14df828f83bb82912ba8.svg" alt="\mathrm Be^{4+}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/c82a316f1fd773cfa6467044b22047e077d0dfc3.svg" alt="\mathrm B^{5+}" style="vertical-align: 0px"/>,
+(CHART)  <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for <img class="math" src="../_images/math/d9b8b2cc4ebac007b9ff14df828f83bb82912ba8.svg" alt="\mathrm Be^{4+}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/c82a316f1fd773cfa6467044b22047e077d0dfc3.svg" alt="\mathrm B^{5+}" style="vertical-align: 0px"/>,
 <img class="math" src="../_images/math/20fb6d5646f28f85af6addf12a910b5d5393960e.svg" alt="\mathrm N^{7+}" style="vertical-align: 0px"/>, and <img class="math" src="../_images/math/8441ea480fdf6b1f0d016c3f5dbfeb0a8d827b83.svg" alt="\mathrm Ne^{10+}" style="vertical-align: 0px"/>. For CHART database, we
 extracted all the data, from both theoretical calculations and
 experiments (see a full list in Table 1 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>),
@@ -90,7 +91,7 @@ experiments become available.</p>
 </div>
 </section>
 <section id="parameter-description">
-<h2><span class="section-number">4.1.8.2. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.8.2. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this heading">¶</a></h2>
 <p>The parameters of the CX model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : the normalisation, which is the emission measure
@@ -143,11 +144,10 @@ Default 1.</div>
 nonthermal effects are not taken into account (default).</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
-<dl class="footnote brackets">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="http://dbshino.nifs.ac.jp/">http://dbshino.nifs.ac.jp/</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="id8" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://dbshino.nifs.ac.jp/">http://dbshino.nifs.ac.jp/</a></p>
+</aside>
 </section>
 </section>
 
@@ -213,7 +213,7 @@ nonthermal effects are not taken into account (default).</div>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -227,7 +227,7 @@ nonthermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

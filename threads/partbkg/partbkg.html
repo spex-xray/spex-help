@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.2. Modeling particle background &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>2.2. Modeling particle background &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/threads/partbkg/partbkg.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -35,9 +36,9 @@
           <div class="body" role="main">
             
   <section id="modeling-particle-background">
-<span id="sec-modpartbkg"></span><h1><span class="section-number">2.2. </span>Modeling particle background<a class="headerlink" href="#modeling-particle-background" title="Permalink to this headline">¶</a></h1>
+<span id="sec-modpartbkg"></span><h1><span class="section-number">2.2. </span>Modeling particle background<a class="headerlink" href="#modeling-particle-background" title="Permalink to this heading">¶</a></h1>
 <section id="goal">
-<h2><span class="section-number">2.2.1. </span>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.1. </span>Goal<a class="headerlink" href="#goal" title="Permalink to this heading">¶</a></h2>
 <p>Time dependent particle backgrounds in X-ray spectra are very difficult
 to correctly subtract, especially for extended sources. Many times, a
 quiescent particle background remains present in the spectrum after
@@ -51,7 +52,7 @@ a general method to deal with these kind of problems in SPEX. The choice
 of models probably needs to be different in other cases.</p>
 </section>
 <section id="spex-solution">
-<h2><span class="section-number">2.2.2. </span>SPEX solution<a class="headerlink" href="#spex-solution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.2. </span>SPEX solution<a class="headerlink" href="#spex-solution" title="Permalink to this heading">¶</a></h2>
 <p>The basic problem we have to solve here, is that we need a number of
 model components that are folded through the mirror effective area
 (the cosmic X-rays) and a few components describing the particle
@@ -75,7 +76,7 @@ The result of the folding is added and applied to the first spectrum
 </figcaption>
 </figure>
 <section id="running-trafo">
-<h3><span class="section-number">2.2.2.1. </span>Running trafo<a class="headerlink" href="#running-trafo" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.2.1. </span>Running trafo<a class="headerlink" href="#running-trafo" title="Permalink to this heading">¶</a></h3>
 <p>In this trafo run, we will actually load the same spectrum twice. One
 for every sector. Here we use a MOS1 spectrum extracted from an annulus
 between 6 and 9 arcmin from the cluster core. The background spectrum
@@ -138,7 +139,7 @@ Enter filename response to be saved (without .res): M1_annulus
 </div>
 </section>
 <section id="running-spex">
-<h3><span class="section-number">2.2.2.2. </span>Running SPEX<a class="headerlink" href="#running-spex" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.2.2. </span>Running SPEX<a class="headerlink" href="#running-spex" title="Permalink to this heading">¶</a></h3>
 <figure class="align-default" id="fig-partbkg-s1">
 <img alt="../../_images/spectrum1.png" src="../../_images/spectrum1.png" />
 <figcaption>
@@ -328,7 +329,7 @@ which parameters can be left free.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -342,7 +343,7 @@ which parameters can be left free.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

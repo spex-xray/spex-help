@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.36. Spei: relativistic line broadening model &#8212; SPEX Help Center 3.08.00 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/speith.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.37. Spln: spline continuum model" href="spln.html" />
+    <link rel="prev" title="4.1.35. Slab: thin slab absorption model" href="slab.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="spei-relativistic-line-broadening-model">
+<span id="sec-speith"></span><h1><span class="section-number">4.1.36. </span>Spei: relativistic line broadening model<a class="headerlink" href="#spei-relativistic-line-broadening-model" title="Permalink to this heading">¶</a></h1>
+<p>This multiplicative model broadens an arbitrary additive component with
+a relativistic line profile. The relativistic line profile is based
+on the theory of transfer functions as presented by Cunningham (1975)
+and worked out in a fortran code by Ronald Speith.</p>
+<p>The original code by Speith has four important issues.</p>
+<p>First, the computation
+of all transfer function values needed for a full integration over a disk is
+computational expensive. Therefore we have pre-calculated the transfer function
+for a grid of black hole spin a and inclination i values, and also the minimum and maximum
+redshift for each combination of spin and inclination. For an arbitrary set of parameters
+(like inner and outer radius, emissivity profile etc.) we first compute the model for
+a few grid values of spin and inclination close to the desired spin and inclination,
+and interpolate the spectra on those grid points.</p>
+<p>Secondly, at large radii the Speith algorithm gets enhanced numerical noise. We have circumvented
+this by testing automatically on irregularities for each grid transfer function, and replacing
+the irregular points by an extrapolation from smaller radii.</p>
+<p>Third, the original algorithm is not applicable beyond 400 gravitational radii. We have corrected
+this by adding to our grid transfer functions the Newtonian limit as given in Cunningham’s paper.</p>
+<p>Finally, the Speith model has a double integration over radius and redshift. The user chooses
+an observed photon energy, from which the emitted photon energy is computed; then the
+transfer function for that emitted energy combined with the emissivity for that emitted energy
+are used in the double integration. This works well for emissivity laws that are smooth as a
+function of energy, but not for convolution kernels where the emissivity is typically
+a delta-function in energy. We have rewritten the equations by substituting such a delta-function,
+thereby effectively removing one integration. Details of all this can be found in an internal SPEX
+memo.</p>
+<p>The model is rather flexible and fast. The parameters are described in more detail below, but
+they can be grouped into four categories:</p>
+<ol class="arabic simple">
+<li><p>Geometry of the disk and black hole: black hole spin and inclination, inner and outer radius.</p></li>
+</ol>
+<p>2. Emissivity law which is given by
+<img class="math" src="../_images/math/359c48357ba646f37ec460271e916a31552c35aa.svg" alt="I(r) \sim f(r) / (r^2 + h^2)^{q/2}" style="vertical-align: -4px"/>,
+where <img class="math" src="../_images/math/51d1350b216f077bf44a059fee9f3ff87fd5dde2.svg" alt="f(r) = 1" style="vertical-align: -4px"/> for <img class="math" src="../_images/math/1e083e7ec8c7bc2792b959ca97cb4df622e71a87.svg" alt="r&lt;r_b" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/da7416bf6ff4e23dabed11dfb17527e7673ba2a4.svg" alt="f_r = (r_b/r)^dq" style="vertical-align: -4px"/> for <img class="math" src="../_images/math/2e296a5758e053f2f0c996ced9fec51da59f380f.svg" alt="r&gt;r_b" style="vertical-align: -2px"/>.
+With this choice, we combine the emissivity laws of Laor (1991) for the first part,
+with that of Fabian et al. (2002) for the second part.</p>
+<ol class="arabic simple" start="3">
+<li><p>Angular dependence emissivity</p></li>
+<li><p>A performance speed parameter.</p></li>
+</ol>
+<blockquote>
+<div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It should be noted that we compute the model only for radii larger than the innermost stable circular orbit.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Of course, any line or continuum emission component can be convolved with the this broadening model;
+for continuum components the computational time may be very large, however, due to the convolution involved.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is advised not to have both h as a free parameter and to vary the pair r_b, dq. Both can be used to
+describe a break in the emissivity law, but having both free may lead to undesired correlations in the
+fitting process.</p>
+</div>
+</div></blockquote>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r1</span></code> : Inner radius of the disk, in units of GM/c^2. The minimum allowed value is 1.234 (for a maximally rotating Kerr black
+hole). For a Schwarzschild black hole, one should take r_i = 6. Default value: 1.234.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r2</span></code> : Outer radius of the disk, in units of GM/c^2. Default value 400. Take care that r2&gt;r1.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code> : black hole spin. Default value 0 (Schwarzchild case), maximum value 0.9982 (maximally rotating Kerr black hole).</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">i</span></code> : Inclination angle (in degrees) of the disk (angle between line of sight and the rotation axis of the disk).
+Default value: 45 degrees.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">q</span></code> : Emissivity slope q as described above. Default value: 2.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">h</span></code> : Emissivity scale height. Default value: 0.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dq</span></code>: Emissivity break index. Default value: 0 (no break)</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rb</span></code>: Emissivity break radius. Default value: 10^20.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">limb</span></code>: limb brightening law <img class="math" src="../_images/math/a09506eaaaa08804965e793ff38e60e82bebfd94.svg" alt="I \sim 1 + limb * \mu" style="vertical-align: -3px"/> where <img class="math" src="../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -3px"/> is the cosine of the emission angle.
+Default value: 2.06 following Laor (1991).</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dres</span></code>: resolution of the profile. Computation time is inverse proportional to this number. Recommended value is
+0.01 for CCD-type resolution, and 0.001 for high-resolution X-ray spectra. Default value: 0.001.</div>
+</div>
+<p>The following parameters are not free parameters, but output parameters of the model.</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">s</span></code>: Integrated flux of the line before renormalising to 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gmin</span></code>: minimum redshift, occurs at the innermost radius r1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gmax</span></code>: maximum redshift, occurs at some intermediate radius.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gint</span></code>: maximum redshift at the innermost radius r1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">g1</span></code>: minimum redshift at the outermost radius r2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">g2</span></code>: maximum redshift at the outermost radius r2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code>: radius of the innermost stable circular orbit in units of GM/c^2.</div>
+</div>
+<p>Recommended citation: <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995CoPhC..88..109S/abstract">Speith et al. (1995)</a>.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="slab.html" title="previous chapter"><span class="section-number">4.1.35. </span>Slab: thin slab absorption model</a></li>
+      <li>Next: <a href="spln.html" title="next chapter"><span class="section-number">4.1.37. </span>Spln: spline continuum model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Mar 15, 2024.<br>
+    
+        &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

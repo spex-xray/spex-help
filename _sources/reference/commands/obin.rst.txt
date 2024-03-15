@@ -49,7 +49,7 @@ Examples
 
 | ``obin 1:10000`` : Optimally bins the data channels 1:10000.
 | ``obin 1:4000 unit ev`` : Does the same as the above, but now the data
-  range to be binned is given in eV, from 1\ :math:`-`\ 4000 eV, instead
+  range to be binned is given in eV, from 1\ :math:`-`\ 4000 eV, instead
   of in data channels.
 | ``obin instrument 1 region 1 1:19 unit a`` : Bins the data from
   instrument 1 and region 1 between 1 and 19 Å.

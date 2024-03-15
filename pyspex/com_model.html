@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6.1.2.2. Model related commands &#8212; SPEX Help Center 3.07.03 documentation</title>
+    <title>6.1.2.2. Model related commands &#8212; SPEX Help Center 3.08.00 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_model.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -35,12 +36,12 @@
           <div class="body" role="main">
             
   <section id="model-related-commands">
-<h1><span class="section-number">6.1.2.2. </span>Model related commands<a class="headerlink" href="#model-related-commands" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1.2.2. </span>Model related commands<a class="headerlink" href="#model-related-commands" title="Permalink to this heading">¶</a></h1>
 <p>A SPEX model is organised in sectors and components. Sectors are groups of components that model
 a particular source of radiation. Below, the basic commands for building the model and change its
 parameters are listed.</p>
 <section id="abundance">
-<h2><span class="section-number">6.1.2.2.1. </span>Abundance<a class="headerlink" href="#abundance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.1. </span>Abundance<a class="headerlink" href="#abundance" title="Permalink to this heading">¶</a></h2>
 <p>The solar abundance table used is set in SPEX using the <code class="docutils literal notranslate"><span class="pre">abundance</span></code> command. In PYSPEX, this
 is abbreviated to <code class="docutils literal notranslate"><span class="pre">abun</span></code>. The desired abundance table should be loaded by providing the
 abbreviation for the table (<code class="docutils literal notranslate"><span class="pre">abunset</span></code>):</p>
@@ -51,13 +52,13 @@ abbreviation for the table (<code class="docutils literal notranslate"><span cla
 <dd><p>Set the abundance table in SPEX. The abunset parameter is one of ‘reset’, ‘ag’, ‘allen’, ‘asplund’,
 ‘ra’, ‘grevesse’, ‘gs’, ‘lodders’, and ‘solar’.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>abunset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – String representing the abundance set used in SPEX.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>abunset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – String representing the abundance set used in SPEX.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Object containing the abundance class.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="model.html#pyspex.model.Abundance" title="pyspex.model.Abundance">pyspex.model.Abundance</a></p>
 </dd>
 </dl>
@@ -86,7 +87,7 @@ for details.</p>
 </pre></div>
 </div>
 <section id="abundance-show">
-<h3><span class="section-number">6.1.2.2.1.1. </span>Abundance show<a class="headerlink" href="#abundance-show" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.1.1. </span>Abundance show<a class="headerlink" href="#abundance-show" title="Permalink to this heading">¶</a></h3>
 <p>To show the current abundance table, use the <code class="docutils literal notranslate"><span class="pre">abun_show</span></code> method:</p>
 <blockquote>
 <div><dl class="py method">
@@ -94,11 +95,11 @@ for details.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">abun_show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.abun_show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.abun_show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the current ionisation balance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Reference to the used ionisation balance.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -114,7 +115,7 @@ for details.</p>
 </section>
 </section>
 <section id="aerror">
-<h2><span class="section-number">6.1.2.2.2. </span>Aerror<a class="headerlink" href="#aerror" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.2. </span>Aerror<a class="headerlink" href="#aerror" title="Permalink to this heading">¶</a></h2>
 <p>Calculate the uncertainties for several parameters of a model component due to the uncertainties in the
 atomic data.</p>
 <blockquote>
@@ -124,19 +125,19 @@ atomic data.</p>
 <dd><p>Command to calculate the uncertainty in a model parameter due to the uncertainties
 in the atomic data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the component.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>shell</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Shell number for calculation (L-shell = 1, K-shell = 2)</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the component.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>shell</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Shell number for calculation (L-shell = 1, K-shell = 2)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The atomic uncertainty for the selected parameter.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -149,7 +150,7 @@ in the atomic data.</p>
 </div>
 </section>
 <section id="calculate">
-<h2><span class="section-number">6.1.2.2.3. </span>Calculate<a class="headerlink" href="#calculate" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.3. </span>Calculate<a class="headerlink" href="#calculate" title="Permalink to this heading">¶</a></h2>
 <p>Once the model sectors and components are set-up and the parameters are set, the model spectrum
 can be calculated using the SPEX <code class="docutils literal notranslate"><span class="pre">calculate</span></code> command. For convenience, this command has been
 abbreviated to <code class="docutils literal notranslate"><span class="pre">calc</span></code> in PYSPEX.</p>
@@ -167,7 +168,7 @@ abbreviated to <code class="docutils literal notranslate"><span class="pre">calc
 </div>
 </section>
 <section id="components">
-<h2><span class="section-number">6.1.2.2.4. </span>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.4. </span>Components<a class="headerlink" href="#components" title="Permalink to this heading">¶</a></h2>
 <p>Spectral components, like power laws, thermal and absorption models are loaded using the
 SPEX <code class="docutils literal notranslate"><span class="pre">comp</span></code> command. Since the command is often typed simply as <code class="docutils literal notranslate"><span class="pre">com</span></code> in practice, the
 PYSPEX command is also <code class="docutils literal notranslate"><span class="pre">com</span></code>:</p>
@@ -177,10 +178,10 @@ PYSPEX command is also <code class="docutils literal notranslate"><span class="p
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">com</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.com" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add model component.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the model component, for example ‘reds’, ‘hot’, ‘cie’, etc.</p></li>
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number to add component to (default is sector 1).</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Name of the model component, for example ‘reds’, ‘hot’, ‘cie’, etc.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number to add component to (default is sector 1).</p></li>
 </ul>
 </dd>
 </dl>
@@ -196,7 +197,7 @@ different sector, then please use the optional <code class="docutils literal not
 </div>
 <p>See the SPEX reference manual for a list of spectral components.</p>
 <section id="component-delete">
-<h3><span class="section-number">6.1.2.2.4.1. </span>Component delete<a class="headerlink" href="#component-delete" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.4.1. </span>Component delete<a class="headerlink" href="#component-delete" title="Permalink to this heading">¶</a></h3>
 <p>Deleting a component from the model is done using the sector and component number of the component.</p>
 <blockquote>
 <div><dl class="py method">
@@ -204,10 +205,10 @@ different sector, then please use the optional <code class="docutils literal not
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">com_del</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com_del"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.com_del" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete component from model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the component to delete.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number to delete.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the component to delete.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number to delete.</p></li>
 </ul>
 </dd>
 </dl>
@@ -221,7 +222,7 @@ different sector, then please use the optional <code class="docutils literal not
 <p>The command above deletes the first component in sector number 1.</p>
 </section>
 <section id="component-relate">
-<h3><span class="section-number">6.1.2.2.4.2. </span>Component relate<a class="headerlink" href="#component-relate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.4.2. </span>Component relate<a class="headerlink" href="#component-relate" title="Permalink to this heading">¶</a></h3>
 <p>The relation between the additive and multiplicative components is set with a <code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">rel</span></code> command
 in SPEX. In PYSPEX this is:</p>
 <blockquote>
@@ -230,10 +231,10 @@ in SPEX. In PYSPEX this is:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">com_rel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.com_rel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.com_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relate model components.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the component to relate.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number to relate.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the component to relate.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number to relate.</p></li>
 <li><p><strong>rel</strong> (<em>numpy.ndarray</em>) – Array containing the multiplicative component numbers counted from the source to the observer.</p></li>
 </ul>
 </dd>
@@ -252,7 +253,7 @@ models should be entered (in the right order) using a numpy array. For example:<
 </section>
 </section>
 <section id="distance">
-<h2><span class="section-number">6.1.2.2.5. </span>Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.5. </span>Distance<a class="headerlink" href="#distance" title="Permalink to this heading">¶</a></h2>
 <p>To calculate fluxes and luminosities, SPEX needs an assumed distance of the source. In SPEX this
 is done with the <code class="docutils literal notranslate"><span class="pre">distance</span></code> command. In PYSPEX this is abbreviated to <code class="docutils literal notranslate"><span class="pre">dist</span></code> for convenience.</p>
 <p>The distance can be set with the dist command:</p>
@@ -262,11 +263,11 @@ is done with the <code class="docutils literal notranslate"><span class="pre">di
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the distance in SPEX.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number.</p></li>
-<li><p><strong>dist</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Distance value.</p></li>
-<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The unit of the distance value, for example: ‘m’, ‘au’, ‘ly’, ‘pc’, ‘kpc’, ‘mpc’, ‘z’, ‘cz’</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number.</p></li>
+<li><p><strong>dist</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Distance value.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – The unit of the distance value, for example: ‘m’, ‘au’, ‘ly’, ‘pc’, ‘kpc’, ‘mpc’, ‘z’, ‘cz’</p></li>
 </ul>
 </dd>
 </dl>
@@ -291,8 +292,8 @@ command can be used:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dist_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dist_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current distances in SPEX.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -300,7 +301,7 @@ command can be used:</p>
 </div></blockquote>
 <p>Like the dist command, this method returns an object with the distances in all available units.</p>
 <section id="cosmology">
-<h3><span class="section-number">6.1.2.2.5.1. </span>Cosmology<a class="headerlink" href="#cosmology" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.5.1. </span>Cosmology<a class="headerlink" href="#cosmology" title="Permalink to this heading">¶</a></h3>
 <p>Next to the distance, the cosmology used by SPEX can also be specified. In SPEX all parameters
 should be provided through seperate lines, but in PYSPEX this has been combined in one command:</p>
 <blockquote>
@@ -309,12 +310,12 @@ should be provided through seperate lines, but in PYSPEX this has been combined 
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dist_cosmo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega_r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dist_cosmo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dist_cosmo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the cosmology for the distance calculation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>h0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Hubble constant (km/s/Mpc).</p></li>
-<li><p><strong>omega_m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Omega matter.</p></li>
-<li><p><strong>omega_l</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Omega lambda.</p></li>
-<li><p><strong>omega_r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Omega R.</p></li>
+<li><p><strong>h0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Hubble constant (km/s/Mpc).</p></li>
+<li><p><strong>omega_m</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Omega matter.</p></li>
+<li><p><strong>omega_l</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Omega lambda.</p></li>
+<li><p><strong>omega_r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Omega R.</p></li>
 </ul>
 </dd>
 </dl>
@@ -331,7 +332,7 @@ SPEX commands are executed separately…)</p>
 </section>
 </section>
 <section id="energy-grid">
-<h2><span class="section-number">6.1.2.2.6. </span>Energy grid<a class="headerlink" href="#energy-grid" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.6. </span>Energy grid<a class="headerlink" href="#energy-grid" title="Permalink to this heading">¶</a></h2>
 <p>The model energy grid can be manipulated with the SPEX <code class="docutils literal notranslate"><span class="pre">egrid</span></code> command. In PYSPEX, this command
 has been splitted into two varieties:</p>
 <blockquote>
@@ -340,13 +341,13 @@ has been splitted into two varieties:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">egrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ehigh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.egrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Egrid command when the number of desired bins is known.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lowest energy/wavelength for energy grid.</p></li>
-<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Highest energy/wavelength for energy grid.</p></li>
-<li><p><strong>nbins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of bins for energy grid.</p></li>
-<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Unit of the energy/wavelength range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
-<li><p><strong>log</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Make the energy grid logarithmic (True or False)</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Lowest energy/wavelength for energy grid.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Highest energy/wavelength for energy grid.</p></li>
+<li><p><strong>nbins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of bins for energy grid.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Unit of the energy/wavelength range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+<li><p><strong>log</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Make the energy grid logarithmic (True or False)</p></li>
 </ul>
 </dd>
 </dl>
@@ -357,13 +358,13 @@ has been splitted into two varieties:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">egrid_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ehigh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Egrid command when the stepsize for the grid is known.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lowest energy/wavelength for energy grid.</p></li>
-<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Highest energy/wavelength for energy grid.</p></li>
-<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Step size for the energy grid.</p></li>
-<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Unit of the energy/wavelength range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
-<li><p><strong>log</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Make the energy grid logarithmic (True or False)</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Lowest energy/wavelength for energy grid.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Highest energy/wavelength for energy grid.</p></li>
+<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Step size for the energy grid.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Unit of the energy/wavelength range, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’</p></li>
+<li><p><strong>log</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Make the energy grid logarithmic (True or False)</p></li>
 </ul>
 </dd>
 </dl>
@@ -380,7 +381,7 @@ text string and the grid can be logarithmic if the <code class="docutils literal
 </pre></div>
 </div>
 <section id="reading-saving-grids">
-<h3><span class="section-number">6.1.2.2.6.1. </span>Reading &amp; saving grids<a class="headerlink" href="#reading-saving-grids" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.6.1. </span>Reading &amp; saving grids<a class="headerlink" href="#reading-saving-grids" title="Permalink to this heading">¶</a></h3>
 <p>Grids can also be save and read from a text file. The two methods below save and read a <code class="docutils literal notranslate"><span class="pre">.egr</span></code>
 file, respectively:</p>
 <blockquote>
@@ -389,8 +390,8 @@ file, respectively:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">egrid_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savefile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save energy grid to file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>savefile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename to save the energy grid to (including .egr extension)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>savefile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Filename to save the energy grid to (including .egr extension)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -400,8 +401,8 @@ file, respectively:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">egrid_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readfile</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read energy grid from file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>readfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename to read the energy grid from (including .egr extension)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>readfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Filename to read the energy grid from (including .egr extension)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -416,7 +417,7 @@ or read, including the <code class="docutils literal notranslate"><span class="p
 </div>
 </section>
 <section id="get-set-custom-grids">
-<h3><span class="section-number">6.1.2.2.6.2. </span>Get &amp; set custom grids<a class="headerlink" href="#get-set-custom-grids" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.6.2. </span>Get &amp; set custom grids<a class="headerlink" href="#get-set-custom-grids" title="Permalink to this heading">¶</a></h3>
 <p>If the grid needs to be transfered from or to Python memory, then the <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span></code> methods
 can be used:</p>
 <blockquote>
@@ -425,10 +426,10 @@ can be used:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">egrid_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.egrid_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.egrid_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the energy grid and return the grid as an object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>An Egrid object from pyspex.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="model.html#pyspex.model.Egrid" title="pyspex.model.Egrid">pyspex.model.Egrid</a></p>
 </dd>
 </dl>
@@ -440,7 +441,7 @@ can be used:</p>
 <dd><p>Provide a grid to SPEX by providing a numpy array with the bin boundaries.
 Please note that the length of this array is the number of bins + 1!</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ebounds</strong> (<em>numpy.ndarray</em>) – Array containing the energy boundaries of the new energy grid.</p>
 </dd>
 </dl>
@@ -459,7 +460,7 @@ of elements of this array would be of length n + 1, where n is the number of bin
 </section>
 </section>
 <section id="flux-luminosity">
-<h2><span class="section-number">6.1.2.2.7. </span>Flux &amp; Luminosity<a class="headerlink" href="#flux-luminosity" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.7. </span>Flux &amp; Luminosity<a class="headerlink" href="#flux-luminosity" title="Permalink to this heading">¶</a></h2>
 <p>For each component, the fluxes and luminosities are calculated using the set distance and energy
 boundaries. These energy limits for the flux and luminosity can be set using the <code class="docutils literal notranslate"><span class="pre">elim</span></code> command:</p>
 <blockquote>
@@ -468,11 +469,11 @@ boundaries. These energy limits for the flux and luminosity can be set using the
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">elim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ehigh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.elim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.elim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the energy limits for flux output.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lowest energy/wavelength for energy interval.</p></li>
-<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Highest energy/wavelength for energy interval.</p></li>
-<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Unit of the energy/wavelength interval, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’.</p></li>
+<li><p><strong>elow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Lowest energy/wavelength for energy interval.</p></li>
+<li><p><strong>ehigh</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Highest energy/wavelength for energy interval.</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Unit of the energy/wavelength interval, for example: ‘kev’, ‘ev’, ‘ryd’, ‘j’, ‘hz’, ‘ang’, ‘nm’.</p></li>
 </ul>
 </dd>
 </dl>
@@ -486,7 +487,7 @@ determines the units of the input values, for example ‘kev’ for keV.</p>
 </pre></div>
 </div>
 <section id="get-flux">
-<h3><span class="section-number">6.1.2.2.7.1. </span>Get flux<a class="headerlink" href="#get-flux" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.7.1. </span>Get flux<a class="headerlink" href="#get-flux" title="Permalink to this heading">¶</a></h3>
 <p>The fluxes and luminosities calculated in SPEX can be extracted using the <code class="docutils literal notranslate"><span class="pre">flux_get</span></code> method.</p>
 <blockquote>
 <div><dl class="py method">
@@ -494,16 +495,16 @@ determines the units of the input values, for example ‘kev’ for keV.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">flux_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.flux_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.flux_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the fluxes and luminosities for component icomp in sector isect.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the component to obtain the flux from.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number to obtain the flux from.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the component to obtain the flux from.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number to obtain the flux from.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Return flux<span class="colon">:</span></dt>
 <dd class="field-even"><p>A Flux object from pyspex.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Rtype flux<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pyspex.model.Flux</p>
 </dd>
 </dl>
@@ -521,7 +522,7 @@ Fluxes class.</p>
 </section>
 </section>
 <section id="ionisation-balance">
-<h2><span class="section-number">6.1.2.2.8. </span>Ionisation balance<a class="headerlink" href="#ionisation-balance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.8. </span>Ionisation balance<a class="headerlink" href="#ionisation-balance" title="Permalink to this heading">¶</a></h2>
 <p>There are several ionisation balances available in SPEX. The Urdampilleta ionisation balance
 is the current default set.</p>
 <p>The ionisation balance can be set using the <code class="docutils literal notranslate"><span class="pre">ibal</span></code> method:</p>
@@ -531,8 +532,8 @@ is the current default set.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ibal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ibal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ibal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the ionisation balance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ref</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Abbreviation of the reference to the ionisation balance.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ref</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Abbreviation of the reference to the ionisation balance.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -551,7 +552,7 @@ is the current default set.</p>
 </pre></div>
 </div>
 <section id="show">
-<h3><span class="section-number">6.1.2.2.8.1. </span>Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.8.1. </span>Show<a class="headerlink" href="#show" title="Permalink to this heading">¶</a></h3>
 <p>To show the current ionisation balance, the <code class="docutils literal notranslate"><span class="pre">ibal_show</span></code> method can be used:</p>
 <blockquote>
 <div><dl class="py method">
@@ -559,11 +560,11 @@ is the current default set.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ibal_show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ibal_show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ibal_show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the current ionisation balance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Reference to the used ionisation balance.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -578,7 +579,7 @@ is the current default set.</p>
 </section>
 </section>
 <section id="ion-selection">
-<h2><span class="section-number">6.1.2.2.9. </span>Ion selection<a class="headerlink" href="#ion-selection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.9. </span>Ion selection<a class="headerlink" href="#ion-selection" title="Permalink to this heading">¶</a></h2>
 <p>In original SPEX models that use the SPEX atomic data, ions can be turned on or off, or can be
 calculated using the old SPEX version 2 or the new SPEX version 3. In addition, the maximum
 principle quantum number (nmax) and the maximum angular momentum (lmax) can be set.</p>
@@ -589,10 +590,10 @@ iso-electronic sequence or ion.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ions_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">par</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ions_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for all values.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Value to set.</p></li>
+<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Value to set.</p></li>
 </ul>
 </dd>
 </dl>
@@ -603,11 +604,11 @@ iso-electronic sequence or ion.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ions_iso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iso</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_iso"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ions_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for an iso-electronic sequence.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>iso</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Iso-electronic sequence number</p></li>
-<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Value to set.</p></li>
+<li><p><strong>iso</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Iso-electronic sequence number</p></li>
+<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Value to set.</p></li>
 </ul>
 </dd>
 </dl>
@@ -618,11 +619,11 @@ iso-electronic sequence or ion.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ions_z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_z"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ions_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for an atom.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Atomic number of the element.</p></li>
-<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Value to set.</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Atomic number of the element.</p></li>
+<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Value to set.</p></li>
 </ul>
 </dd>
 </dl>
@@ -633,19 +634,19 @@ iso-electronic sequence or ion.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ions_ion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">par</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_ion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ions_ion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter for a specific ion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Atomic number of the element.</p></li>
-<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Ionisation stage (in astrophysical notation, e.g. 1, 2, 3, etc.)</p></li>
-<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Value to set.</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Atomic number of the element.</p></li>
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Ionisation stage (in astrophysical notation, e.g. 1, 2, 3, etc.)</p></li>
+<li><p><strong>par</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name to set, e.g.: ‘use’, ‘new’, ‘nmax’, ‘lmax’.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Value to set.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <section id="id1">
-<h3><span class="section-number">6.1.2.2.9.1. </span>Show<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.9.1. </span>Show<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>The ion selections can be shown by calling the <code class="docutils literal notranslate"><span class="pre">ions_show</span></code> function below:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.ions_show">
@@ -655,17 +656,17 @@ iso-electronic sequence or ion.</p>
 
 </section>
 <section id="line-selection">
-<h3><span class="section-number">6.1.2.2.9.2. </span>Line selection<a class="headerlink" href="#line-selection" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.9.2. </span>Line selection<a class="headerlink" href="#line-selection" title="Permalink to this heading">¶</a></h3>
 <p>Up to 10 specific lines can be ‘muted’ using the <code class="docutils literal notranslate"><span class="pre">ions_line</span></code> function below:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.ions_line">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">ions_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.ions_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.ions_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mutes or unmutes a spectral line from an emission spectrum.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Atomic number of the element.</p></li>
-<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Ionisation stage (in astrophysical notation, e.g. 1, 2, 3, etc.)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Atomic number of the element.</p></li>
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Ionisation stage (in astrophysical notation, e.g. 1, 2, 3, etc.)</p></li>
 <li><p><strong>lid</strong> – Line ID number (see ascdump_line for the line ID number).</p></li>
 <li><p><strong>add</strong> – If False, the line is not added to the spectrum. True will add the line to the spectrum again.</p></li>
 </ul>
@@ -676,7 +677,7 @@ iso-electronic sequence or ion.</p>
 </section>
 </section>
 <section id="setting-parameters">
-<h2><span class="section-number">6.1.2.2.10. </span>Setting parameters<a class="headerlink" href="#setting-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.10. </span>Setting parameters<a class="headerlink" href="#setting-parameters" title="Permalink to this heading">¶</a></h2>
 <p>Model parameters in SPEX are set using the <code class="docutils literal notranslate"><span class="pre">par</span></code> command. Since this command has subcommands,
 there are a number of methods to cover most of the functionality in PYSPEX. The most basic function
 is to set a parameter value and determine whether it should be free in the fit or thawn. These
@@ -687,13 +688,13 @@ functions have been combined into one:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thawn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter value and status.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – New value of the parameter.</p></li>
-<li><p><strong>thawn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Should the parameter be free (True) or frozen (False).</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – New value of the parameter.</p></li>
+<li><p><strong>thawn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Should the parameter be free (True) or frozen (False).</p></li>
 </ul>
 </dd>
 </dl>
@@ -704,12 +705,12 @@ functions have been combined into one:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set text type parameter value.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – New value of the parameter.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – New value of the parameter.</p></li>
 </ul>
 </dd>
 </dl>
@@ -728,7 +729,7 @@ passed instead of a value. Text parameters cannot be free parameters as well.</p
 </pre></div>
 </div>
 <section id="fix-free-parameters">
-<h3><span class="section-number">6.1.2.2.10.1. </span>Fix &amp; Free parameters<a class="headerlink" href="#fix-free-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.10.1. </span>Fix &amp; Free parameters<a class="headerlink" href="#fix-free-parameters" title="Permalink to this heading">¶</a></h3>
 <p>Many times, we want to fix and free parameters without changing the values. For this purpose,
 two convenience functions have been created:</p>
 <blockquote>
@@ -737,11 +738,11 @@ two convenience functions have been created:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_fix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_fix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_fix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fix a model parameter during the fit.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
 </ul>
 </dd>
 </dl>
@@ -752,11 +753,11 @@ two convenience functions have been created:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_free</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_free"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_free" title="Permalink to this definition">¶</a></dt>
 <dd><p>Free a model parameter during the fit.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
 </ul>
 </dd>
 </dl>
@@ -772,7 +773,7 @@ and component (<code class="docutils literal notranslate"><span class="pre">icom
 </div>
 </section>
 <section id="parameter-range">
-<h3><span class="section-number">6.1.2.2.10.2. </span>Parameter range<a class="headerlink" href="#parameter-range" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.10.2. </span>Parameter range<a class="headerlink" href="#parameter-range" title="Permalink to this heading">¶</a></h3>
 <p>Parameters have ranges in which they can be safely varied without causing undesired errors or
 unphysical results. These ranges can be set using the <code class="docutils literal notranslate"><span class="pre">par_range</span></code> method:</p>
 <blockquote>
@@ -781,13 +782,13 @@ unphysical results. These ranges can be set using the <code class="docutils lite
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rupp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter range.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>rlow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lower limit of the parameter range.</p></li>
-<li><p><strong>rupp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Upper limit of the parameter range.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>rlow</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Lower limit of the parameter range.</p></li>
+<li><p><strong>rupp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Upper limit of the parameter range.</p></li>
 </ul>
 </dd>
 </dl>
@@ -803,7 +804,7 @@ the parameter.</p>
 </div>
 </section>
 <section id="couple-parameters">
-<h3><span class="section-number">6.1.2.2.10.3. </span>Couple parameters<a class="headerlink" href="#couple-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.10.3. </span>Couple parameters<a class="headerlink" href="#couple-parameters" title="Permalink to this heading">¶</a></h3>
 <p>Parameters can be coupled to each other such they have the same values in the fit. Or, optionally,
 remain coupled with a given multiplication factor. The PYSPEX method for this is <code class="docutils literal notranslate"><span class="pre">par_couple</span></code>:</p>
 <blockquote>
@@ -812,15 +813,15 @@ remain coupled with a given multiplication factor. The PYSPEX method for this is
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_couple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_couple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_couple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Couple one parameter to another with a given multiplication factor.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>iname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
-<li><p><strong>csect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter to couple to.</p></li>
-<li><p><strong>ccomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter to couple to.</p></li>
-<li><p><strong>cname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name of the parameter to couple to.</p></li>
-<li><p><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Multiplication factor (value(name) = factor * value(cname)).</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>iname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>csect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter to couple to.</p></li>
+<li><p><strong>ccomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter to couple to.</p></li>
+<li><p><strong>cname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name of the parameter to couple to.</p></li>
+<li><p><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Multiplication factor (value(name) = factor * value(cname)).</p></li>
 </ul>
 </dd>
 </dl>
@@ -837,11 +838,11 @@ coupling.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_decouple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icomp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_decouple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_decouple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decouple a parameter.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number of the parameter.</p></li>
-<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Component number of the parameter.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Parameter name.</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number of the parameter.</p></li>
+<li><p><strong>icomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Component number of the parameter.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Parameter name.</p></li>
 </ul>
 </dd>
 </dl>
@@ -855,7 +856,7 @@ coupling.</p>
 </div>
 </section>
 <section id="set-instrument-normalisation">
-<h3><span class="section-number">6.1.2.2.10.4. </span>Set instrument normalisation<a class="headerlink" href="#set-instrument-normalisation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.10.4. </span>Set instrument normalisation<a class="headerlink" href="#set-instrument-normalisation" title="Permalink to this heading">¶</a></h3>
 <p>With SPEX the instrument normalisations can be set with the par command, but then with negative
 sector numbers. Since that can be confusing, there is a separate command to set the instrument
 normalisation, which has a similar syntax as the <code class="docutils literal notranslate"><span class="pre">par</span></code> method:</p>
@@ -865,12 +866,12 @@ normalisation, which has a similar syntax as the <code class="docutils literal n
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thawn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_norm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set an instrument normalisation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Region number.</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – New value of the instrument normalisation.</p></li>
-<li><p><strong>thawn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Should the parameter be free (True) or frozen (False).</p></li>
+<li><p><strong>ins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – New value of the instrument normalisation.</p></li>
+<li><p><strong>thawn</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Should the parameter be free (True) or frozen (False).</p></li>
 </ul>
 </dd>
 </dl>
@@ -886,7 +887,7 @@ normalisation, which has a similar syntax as the <code class="docutils literal n
 </div>
 </section>
 <section id="show-parameters">
-<h3><span class="section-number">6.1.2.2.10.5. </span>Show parameters<a class="headerlink" href="#show-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.10.5. </span>Show parameters<a class="headerlink" href="#show-parameters" title="Permalink to this heading">¶</a></h3>
 <p>Show the model parameters in the terminal (or Jupyter Notebook). One can specify a couple of options to
 show more or less information:</p>
 <blockquote>
@@ -901,8 +902,8 @@ show more or less information:</p>
 <li><p>flux: Show summary of the fluxes of each emission component.</p></li>
 </ul>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>option</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Select which information should be shown (free/couple/flux/all)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>option</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Select which information should be shown (free/couple/flux/all)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -920,8 +921,8 @@ show more or less information:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_show_classic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_show_classic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_show_classic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display parameter overview in terminal through the Fortran backend.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>option</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Select which information should be shown (free/couple/flux/stat/corr/all)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>option</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Select which information should be shown (free/couple/flux/stat/corr/all)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -934,7 +935,7 @@ show more or less information:</p>
 <p>See also the SPEX documentation for <a class="reference external" href="https://spex-xray.github.io/spex-help/reference/commands/par.html">par_show</a>.</p>
 </section>
 <section id="write-parameters-to-com-file">
-<h3><span class="section-number">6.1.2.2.10.6. </span>Write parameters to .com file<a class="headerlink" href="#write-parameters-to-com-file" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.10.6. </span>Write parameters to .com file<a class="headerlink" href="#write-parameters-to-com-file" title="Permalink to this heading">¶</a></h3>
 <p>The current parameter settings can be saved to a command file (.com) and be loaded later by
 the <code class="docutils literal notranslate"><span class="pre">log_exe</span></code> command. The <code class="docutils literal notranslate"><span class="pre">par_write</span></code> method in pyspex is called like this:</p>
 <blockquote>
@@ -943,10 +944,10 @@ the <code class="docutils literal notranslate"><span class="pre">log_exe</span><
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">par_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.par_write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.par_write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write parameters to a .com file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>comfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Output file name (with .com extension!)</p></li>
-<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – (Optional) Overwrite existing files if necessary (True/False).</p></li>
+<li><p><strong>comfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Output file name (with .com extension!)</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Overwrite existing files if necessary (True/False).</p></li>
 </ul>
 </dd>
 </dl>
@@ -960,7 +961,7 @@ the <code class="docutils literal notranslate"><span class="pre">log_exe</span><
 </section>
 </section>
 <section id="sectors">
-<h2><span class="section-number">6.1.2.2.11. </span>Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.11. </span>Sectors<a class="headerlink" href="#sectors" title="Permalink to this heading">¶</a></h2>
 <p>Sectors group spectral components to form the model for a particular source or phenomenon.
 If the sectors need a different response, the sectors should also be defined in the .spo and
 .res files. When starting SPEX, the number of sectors is 1 by default, even if loaded
@@ -982,8 +983,8 @@ a previous one. In this case, the sector can be copied:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">sector_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector_copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.sector_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy sector with number isect.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -996,8 +997,8 @@ a previous one. In this case, the sector can be copied:</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">sector_del</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.sector_del"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.sector_del" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete sector with number isect.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Sector number.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1014,7 +1015,7 @@ a previous one. In this case, the sector can be copied:</p>
 </div>
 </section>
 <section id="differential-emission-measure-dem-modeling">
-<h2><span class="section-number">6.1.2.2.12. </span>Differential Emission Measure (DEM) modeling<a class="headerlink" href="#differential-emission-measure-dem-modeling" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.12. </span>Differential Emission Measure (DEM) modeling<a class="headerlink" href="#differential-emission-measure-dem-modeling" title="Permalink to this heading">¶</a></h2>
 <p>SPEX offers the functionality to fit thermal spectra with Differential Emission Measure (DEM)
 models. Some of these models do not have parametrisations for the DEM structure and allow
 users to fit the DEM distribution itself using various methods. In SPEX this is done using the
@@ -1024,7 +1025,7 @@ using <code class="docutils literal notranslate"><span class="pre">s.com('dem')<
 parameters. It is advised not to free any parameters.</p>
 <p>More information about the PYSPEX DEM class can be found at <a class="reference internal" href="model.html#class-dem"><span class="std std-ref">DEM Modeling</span></a>.</p>
 <section id="creating-the-dem-spectral-library">
-<h3><span class="section-number">6.1.2.2.12.1. </span>Creating the DEM spectral library<a class="headerlink" href="#creating-the-dem-spectral-library" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.1. </span>Creating the DEM spectral library<a class="headerlink" href="#creating-the-dem-spectral-library" title="Permalink to this heading">¶</a></h3>
 <p>As a first step, the spectrum needs to be calculated for all temperatures on the grid. This is
 done using <code class="docutils literal notranslate"><span class="pre">s.dem_lib()</span></code>:</p>
 <blockquote>
@@ -1039,7 +1040,7 @@ done using <code class="docutils literal notranslate"><span class="pre">s.dem_li
 spectral library.</p>
 </section>
 <section id="regularization-method">
-<h3><span class="section-number">6.1.2.2.12.2. </span>Regularization method<a class="headerlink" href="#regularization-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.2. </span>Regularization method<a class="headerlink" href="#regularization-method" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_reg">
@@ -1047,19 +1048,19 @@ spectral library.</p>
 <dd><p>Do DEM analysis using the regularization method, using a
 fixed regularization parameter R = r.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Regularization parameter R</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Regularization parameter R</p>
 </dd>
-<dt class="field-even">Return chisq</dt>
+<dt class="field-even">Return chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>Best fit <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
 </dd>
-<dt class="field-odd">Rtype chisq</dt>
+<dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
-<dt class="field-even">Return dempen</dt>
+<dt class="field-even">Return dempen<span class="colon">:</span></dt>
 <dd class="field-even"><p>DEM penalty (number of zero emission components)</p>
 </dd>
-<dt class="field-odd">Rtype dempen</dt>
+<dt class="field-odd">Rtype dempen<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1076,19 +1077,19 @@ parameter. It determines the regularisation parameter R in such a way that
 <img class="math" src="../_images/math/a1f8b1cfbbf0d08517d5204ae13b96e650b967b6.svg" alt="\chi^2(R) = \chi^2(0) [1 + s \sqrt{2/(n-n_{\mathrm T}}]" style="vertical-align: -5px"/> where the scaling factor s=1, n is the number of
 spectral bins in the data set and <img class="math" src="../_images/math/1984ffeaa7eed72cc82dd61c13f80e368ba7a706.svg" alt="n_{\mathrm T}" style="vertical-align: -2px"/> is the number of temperature components in the DEM library.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Scaling factor in the automatic search for R (optional).</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Scaling factor in the automatic search for R (optional).</p>
 </dd>
-<dt class="field-even">Return chisq</dt>
+<dt class="field-even">Return chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>Best fit <img class="math" src="../_images/math/7f4f72c9d6e9ba4cbe0f1538e4758bed12ac2d8b.svg" alt="\chi^2(R)" style="vertical-align: -4px"/>.</p>
 </dd>
-<dt class="field-odd">Rtype chisq</dt>
+<dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
-<dt class="field-even">Return dempen</dt>
+<dt class="field-even">Return dempen<span class="colon">:</span></dt>
 <dd class="field-even"><p>DEM penalty (number of zero emission components)</p>
 </dd>
-<dt class="field-odd">Rtype dempen</dt>
+<dt class="field-odd">Rtype dempen<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1106,17 +1107,17 @@ spectral bins in the data set and <img class="math" src="../_images/math/1984ffe
 between <code class="docutils literal notranslate"><span class="pre">r1</span></code> and <code class="docutils literal notranslate"><span class="pre">r2</span></code>. Useful to scan the <img class="math" src="../_images/math/7f4f72c9d6e9ba4cbe0f1538e4758bed12ac2d8b.svg" alt="\chi^2(R)" style="vertical-align: -4px"/> curve whenever it is complicated and to see how
 much <cite>penalty</cite> (negative DEM values) there are for each value of R.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>r1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lower boundary for R.</p></li>
-<li><p><strong>r2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Upper boundary for R.</p></li>
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of steps.</p></li>
+<li><p><strong>r1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Lower boundary for R.</p></li>
+<li><p><strong>r2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Upper boundary for R.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of steps.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return chi_table</dt>
+<dt class="field-even">Return chi_table<span class="colon">:</span></dt>
 <dd class="field-even"><p>Table with the Chi^2 and DEM penalty values for each regularization parameter.</p>
 </dd>
-<dt class="field-odd">Rtype chi_table</dt>
+<dt class="field-odd">Rtype chi_table<span class="colon">:</span></dt>
 <dd class="field-odd"><p>astropy.table.QTable</p>
 </dd>
 </dl>
@@ -1133,23 +1134,23 @@ much <cite>penalty</cite> (negative DEM values) there are for each value of R.</
 Penalty (Penalty).</p>
 </section>
 <section id="clean-method">
-<h3><span class="section-number">6.1.2.2.12.3. </span>Clean method<a class="headerlink" href="#clean-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.3. </span>Clean method<a class="headerlink" href="#clean-method" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_clean">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_clean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do DEM analysis using the clean method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return chisq</dt>
+<dt class="field-odd">Return chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Best fit <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
 </dd>
-<dt class="field-even">Rtype chisq</dt>
+<dt class="field-even">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
 </dd>
-<dt class="field-odd">Return dempen</dt>
+<dt class="field-odd">Return dempen<span class="colon">:</span></dt>
 <dd class="field-odd"><p>DEM penalty (number of zero emission components)</p>
 </dd>
-<dt class="field-even">Rtype dempen</dt>
+<dt class="field-even">Rtype dempen<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
 </dd>
 </dl>
@@ -1162,7 +1163,7 @@ Penalty (Penalty).</p>
 </div>
 </section>
 <section id="polynomial-method">
-<h3><span class="section-number">6.1.2.2.12.4. </span>Polynomial method<a class="headerlink" href="#polynomial-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.4. </span>Polynomial method<a class="headerlink" href="#polynomial-method" title="Permalink to this heading">¶</a></h3>
 <p>The DEM can also be parametrised by a polynomial:</p>
 <blockquote>
 <div><dl class="py method">
@@ -1170,19 +1171,19 @@ Penalty (Penalty).</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_poly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do DEM analysis using the polynomial method, where <code class="docutils literal notranslate"><span class="pre">degree</span></code> is the degree of the polynomial.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>degree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The degree of the polynomial.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>degree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – The degree of the polynomial.</p>
 </dd>
-<dt class="field-even">Return chisq</dt>
+<dt class="field-even">Return chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>Best fit <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
 </dd>
-<dt class="field-odd">Rtype chisq</dt>
+<dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
-<dt class="field-even">Return dempen</dt>
+<dt class="field-even">Return dempen<span class="colon">:</span></dt>
 <dd class="field-even"><p>DEM penalty (number of zero emission components)</p>
 </dd>
-<dt class="field-odd">Rtype dempen</dt>
+<dt class="field-odd">Rtype dempen<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1195,26 +1196,26 @@ Penalty (Penalty).</p>
 </div>
 </section>
 <section id="multi-temperature-method">
-<h3><span class="section-number">6.1.2.2.12.5. </span>Multi-temperature method<a class="headerlink" href="#multi-temperature-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.5. </span>Multi-temperature method<a class="headerlink" href="#multi-temperature-method" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_mult">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_mult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ncomp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_mult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_mult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do DEM analysis using the multi-temperature method, where <code class="docutils literal notranslate"><span class="pre">ncomp</span></code> is the number of broad components.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of broad temperature components.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of broad temperature components.</p>
 </dd>
-<dt class="field-even">Return mult_table</dt>
+<dt class="field-even">Return mult_table<span class="colon">:</span></dt>
 <dd class="field-even"><p>Table containing the best temperature components and their emission measure.</p>
 </dd>
-<dt class="field-odd">Rtype mult_table</dt>
+<dt class="field-odd">Rtype mult_table<span class="colon">:</span></dt>
 <dd class="field-odd"><p>astropy.table.QTable</p>
 </dd>
-<dt class="field-even">Return chisq</dt>
+<dt class="field-even">Return chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>Best fit <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
 </dd>
-<dt class="field-odd">Rtype chisq</dt>
+<dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1230,7 +1231,7 @@ Penalty (Penalty).</p>
 the error on temperature (dkT), and differential emission measure (DY).</p>
 </section>
 <section id="genetic-algorithm">
-<h3><span class="section-number">6.1.2.2.12.6. </span>Genetic algorithm<a class="headerlink" href="#genetic-algorithm" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.6. </span>Genetic algorithm<a class="headerlink" href="#genetic-algorithm" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_gene">
@@ -1239,22 +1240,22 @@ the error on temperature (dkT), and differential emission measure (DY).</p>
 and <code class="docutils literal notranslate"><span class="pre">gen</span></code> is the number of generations (no limit, in practice after about 100 generations not much change in
 the solution. Experiment with these numbers for your practical case).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Population size</p></li>
-<li><p><strong>gen</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of generations</p></li>
+<li><p><strong>pop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Population size</p></li>
+<li><p><strong>gen</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of generations</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return mult_table</dt>
+<dt class="field-even">Return mult_table<span class="colon">:</span></dt>
 <dd class="field-even"><p>Table containing the best temperature components and their emission measure.</p>
 </dd>
-<dt class="field-odd">Rtype mult_table</dt>
+<dt class="field-odd">Rtype mult_table<span class="colon">:</span></dt>
 <dd class="field-odd"><p>astropy.table.QTable</p>
 </dd>
-<dt class="field-even">Return chisq</dt>
+<dt class="field-even">Return chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>Best fit <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
 </dd>
-<dt class="field-odd">Rtype chisq</dt>
+<dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1267,7 +1268,7 @@ the solution. Experiment with these numbers for your practical case).</p>
 </div>
 </section>
 <section id="dem-smooth">
-<h3><span class="section-number">6.1.2.2.12.7. </span>DEM smooth<a class="headerlink" href="#dem-smooth" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.7. </span>DEM smooth<a class="headerlink" href="#dem-smooth" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_smooth">
@@ -1277,8 +1278,8 @@ of the filter expressed in <img class="math" src="../_images/math/bc16cb2471360b
 <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> of the solution, but it is sometimes useful to “wash out” some residual noise in the DEM
 distribution, preserving total emission measure.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The full width of the filter expressed in <img class="math" src="../_images/math/bc16cb2471360bb4aa9a7f3fed9c63cd439f6fe3.svg" alt="^{10}\log T" style="vertical-align: -3px"/>.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – The full width of the filter expressed in <img class="math" src="../_images/math/bc16cb2471360bb4aa9a7f3fed9c63cd439f6fe3.svg" alt="^{10}\log T" style="vertical-align: -3px"/>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1290,17 +1291,17 @@ distribution, preserving total emission measure.</p>
 </div>
 </section>
 <section id="get-the-dem-distribution-in-python">
-<h3><span class="section-number">6.1.2.2.12.8. </span>Get the DEM distribution in python<a class="headerlink" href="#get-the-dem-distribution-in-python" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.8. </span>Get the DEM distribution in python<a class="headerlink" href="#get-the-dem-distribution-in-python" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_get">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the best-fit DEM distribution.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return table</dt>
+<dt class="field-odd">Return table<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Table with the DEM distribution</p>
 </dd>
-<dt class="field-even">Rtype table</dt>
+<dt class="field-even">Rtype table<span class="colon">:</span></dt>
 <dd class="field-even"><p>astropy.table.QTable</p>
 </dd>
 </dl>
@@ -1316,17 +1317,17 @@ distribution, preserving total emission measure.</p>
 the error on the emission measure (DY_Err), if available.</p>
 </section>
 <section id="plot-the-dem-distribution">
-<h3><span class="section-number">6.1.2.2.12.9. </span>Plot the DEM distribution<a class="headerlink" href="#plot-the-dem-distribution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.9. </span>Plot the DEM distribution<a class="headerlink" href="#plot-the-dem-distribution" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_plot">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the DEM distribution.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Make the X-axis logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Make the Y-axis logarithmic.</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Make the X-axis logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Make the Y-axis logarithmic.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1339,7 +1340,7 @@ the error on the emission measure (DY_Err), if available.</p>
 </div>
 </section>
 <section id="reading-the-dem-distribution-from-file">
-<h3><span class="section-number">6.1.2.2.12.10. </span>Reading the DEM distribution from file<a class="headerlink" href="#reading-the-dem-distribution-from-file" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.10. </span>Reading the DEM distribution from file<a class="headerlink" href="#reading-the-dem-distribution-from-file" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_read">
@@ -1350,8 +1351,8 @@ differential emission measure, in units of <img class="math" src="../_images/mat
 in this file is 8192. Temperature should be in increasing order. The data will be interpolated to match
 the temperature grid defined in the dem model (which is set by the user).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename without <code class="docutils literal notranslate"><span class="pre">.dem</span></code> extension.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Filename without <code class="docutils literal notranslate"><span class="pre">.dem</span></code> extension.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1363,7 +1364,7 @@ the temperature grid defined in the dem model (which is set by the user).</p>
 </div>
 </section>
 <section id="writing-the-dem-distribution-to-file">
-<h3><span class="section-number">6.1.2.2.12.11. </span>Writing the DEM distribution to file<a class="headerlink" href="#writing-the-dem-distribution-to-file" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.12.11. </span>Writing the DEM distribution to file<a class="headerlink" href="#writing-the-dem-distribution-to-file" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_write">
@@ -1372,8 +1373,8 @@ the temperature grid defined in the dem model (which is set by the user).</p>
 column has the corresponding error bars on the DEM as determined by the DEM method used (not always relevant
 or well defined, exept for the regularization method).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Filename without <code class="docutils literal notranslate"><span class="pre">.dem</span></code> extension.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Filename without <code class="docutils literal notranslate"><span class="pre">.dem</span></code> extension.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1386,21 +1387,21 @@ or well defined, exept for the regularization method).</p>
 </section>
 </section>
 <section id="plasma-model-parameters">
-<h2><span class="section-number">6.1.2.2.13. </span>Plasma model parameters<a class="headerlink" href="#plasma-model-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.2.2.13. </span>Plasma model parameters<a class="headerlink" href="#plasma-model-parameters" title="Permalink to this heading">¶</a></h2>
 <p>There are a number of settings for the SPEX plasma models that can be changed by the user. In
 SPEX these are done using the <code class="docutils literal notranslate"><span class="pre">var</span></code> command. The <code class="docutils literal notranslate"><span class="pre">var</span></code> commands have been implemented in
 pyspex through the methods below. The current settings can be obtained using the
 <a class="reference internal" href="model.html#class-var"><span class="std std-ref">Var class</span></a> which is referenced in the SPEX session as <code class="docutils literal notranslate"><span class="pre">s.mod_var</span></code>.</p>
 <section id="free-bound-accuracy">
-<h3><span class="section-number">6.1.2.2.13.1. </span>Free-bound accuracy<a class="headerlink" href="#free-bound-accuracy" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.1. </span>Free-bound accuracy<a class="headerlink" href="#free-bound-accuracy" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_gacc">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_gacc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_gacc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_gacc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the free-bound emission accuracy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Free-bound emission accuracy.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Free-bound emission accuracy.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1412,17 +1413,17 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="line-emission-contributions">
-<h3><span class="section-number">6.1.2.2.13.2. </span>Line emission contributions<a class="headerlink" href="#line-emission-contributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.2. </span>Line emission contributions<a class="headerlink" href="#line-emission-contributions" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_line">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ltype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a line emission contribution on or off.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ltype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Line emission contribution (‘ex’, ‘px’, ‘rr’, ‘dr’, ‘ds’, ‘ii’, ‘reset’)</p></li>
-<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Boolean indicator whether contribution is on (True) or off (False).</p></li>
+<li><p><strong>ltype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Line emission contribution (‘ex’, ‘px’, ‘rr’, ‘dr’, ‘ds’, ‘ii’, ‘reset’)</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Boolean indicator whether contribution is on (True) or off (False).</p></li>
 </ul>
 </dd>
 </dl>
@@ -1435,15 +1436,15 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="doppler-broadening">
-<h3><span class="section-number">6.1.2.2.13.3. </span>Doppler broadening<a class="headerlink" href="#doppler-broadening" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.3. </span>Doppler broadening<a class="headerlink" href="#doppler-broadening" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_doppler">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_doppler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_doppler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_doppler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Doppler broadening.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Doppler broadening type.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Doppler broadening type.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1455,15 +1456,15 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="spexact-version-3-calculations">
-<h3><span class="section-number">6.1.2.2.13.4. </span>SPEXACT version 3 calculations<a class="headerlink" href="#spexact-version-3-calculations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.4. </span>SPEXACT version 3 calculations<a class="headerlink" href="#spexact-version-3-calculations" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_calc">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_calc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform SPEXACT 3 line calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Use SPEXACT 3 (True) or SPEXACT 2 (False)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Use SPEXACT 2 (0), Quick SPEXACT 3 (1), or SPEXACT 3 (2)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1475,15 +1476,15 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="occupation-numbers-starting-values">
-<h3><span class="section-number">6.1.2.2.13.5. </span>Occupation numbers starting values<a class="headerlink" href="#occupation-numbers-starting-values" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.5. </span>Occupation numbers starting values<a class="headerlink" href="#occupation-numbers-starting-values" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_occstart">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_occstart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_occstart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_occstart" title="Permalink to this definition">¶</a></dt>
 <dd><p>At which occupation level to start.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>otype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Occupation level (‘ground’, ‘boltz’, ‘last’)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>otype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Occupation level (‘ground’, ‘boltz’, ‘last’)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1495,17 +1496,17 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="spexact-version-2-settings-mekal">
-<h3><span class="section-number">6.1.2.2.13.6. </span>SPEXACT version 2 settings (MEKAL)<a class="headerlink" href="#spexact-version-2-settings-mekal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.6. </span>SPEXACT version 2 settings (MEKAL)<a class="headerlink" href="#spexact-version-2-settings-mekal" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_mekal">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_mekal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">utype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_mekal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_mekal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch old Mekal updates on/off.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>utype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Update type (‘wav’, ‘fe17’, ‘update’, ‘all’)</p></li>
-<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – On (True) or off (False)</p></li>
+<li><p><strong>utype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Update type (‘wav’, ‘fe17’, ‘update’, ‘all’)</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – On (True) or off (False)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1519,15 +1520,15 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="multi-maxwellians-for-the-ionisation-balance">
-<h3><span class="section-number">6.1.2.2.13.7. </span>Multi-Maxwellians for the ionisation balance<a class="headerlink" href="#multi-maxwellians-for-the-ionisation-balance" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.7. </span>Multi-Maxwellians for the ionisation balance<a class="headerlink" href="#multi-maxwellians-for-the-ionisation-balance" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_ibalmaxw">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_ibalmaxw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_ibalmaxw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_ibalmaxw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch the Multi-Maxwellians for the ionisation balance on/off (True/False).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – On (True) or off (False)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – On (True) or off (False)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1539,15 +1540,15 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="spexact-version-3-cooling">
-<h3><span class="section-number">6.1.2.2.13.8. </span>SPEXACT version 3 cooling<a class="headerlink" href="#spexact-version-3-cooling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.8. </span>SPEXACT version 3 cooling<a class="headerlink" href="#spexact-version-3-cooling" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.var_newcoolexc">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_newcoolexc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_newcoolexc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_newcoolexc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cooling by collisional excitation by Stofanova (SPEXACT 3) on/off (True/False).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – On (True) or off (False)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – On (True) or off (False)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1564,8 +1565,8 @@ pyspex through the methods below. The current settings can be obtained using the
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">var_newcooldr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.var_newcooldr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.var_newcooldr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cooling by dielectronic recombination (SPEXACT 3) on/off (True/False).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – On (True) or off (False)</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – On (True) or off (False)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1577,7 +1578,7 @@ pyspex through the methods below. The current settings can be obtained using the
 </div>
 </section>
 <section id="charge-exchange-recombination-and-ionization">
-<h3><span class="section-number">6.1.2.2.13.9. </span>Charge exchange recombination and ionization<a class="headerlink" href="#charge-exchange-recombination-and-ionization" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2.2.13.9. </span>Charge exchange recombination and ionization<a class="headerlink" href="#charge-exchange-recombination-and-ionization" title="Permalink to this heading">¶</a></h3>
 <p>Set the origin of the charge exchange recombination and ionization rates.</p>
 <blockquote>
 <div><dl class="py method">
@@ -1586,8 +1587,8 @@ pyspex through the methods below. The current settings can be obtained using the
 <dd><p>Set charge exchange recombination and ionization rates according to either
 1 = Arnaud &amp; Rothenflug (1985) or 2 = Kingdon &amp; Ferland (1996). Default is 2.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Recombination and ionisation rateset. 1 = Arnaud &amp; Rothenflug, 2 = Kingdon &amp; Ferland.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Recombination and ionisation rateset. 1 = Arnaud &amp; Rothenflug, 2 = Kingdon &amp; Ferland.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1664,7 +1665,7 @@ pyspex through the methods below. The current settings can be obtained using the
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -1678,7 +1679,7 @@ pyspex through the methods below. The current settings can be obtained using the
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 28, 2023.<br>
+        Last updated on: Mar 15, 2024.<br>
     
         &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
