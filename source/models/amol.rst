@@ -158,9 +158,13 @@ For DNA we assume equal contributions of adenine, cytosine, guanine and thymine,
 for each of these on average one phosphate and one 2-deoxyribose molecule. We
 take the cross-sections from the references as listed in
 :ref:`tab:additional_compounds` in the energy interval where these
-are given, and use the cross section for free atoms `Verner & Yakovlev (1995)
+are given. Outside this range, the cross sections for free atoms
+`Verner & Yakovlev (1995)
 <https://ui.adsabs.harvard.edu/abs/1995A%26AS..109..125V/abstract>`_
-outside this range.
+:math:`var pixsec 1` or
+`Badnell et al. (2005)
+<https://ui.adsabs.harvard.edu/abs/2005MNRAS.360..458B/abstract>`_
+:math:`var pixsec 2` are used.
 
 `Van Aken et al. (1998) <https://ui.adsabs.harvard.edu/abs/1998PCM....25..494V/abstract>`_
 do not list the precise composition of iron oxide. We assume here that :math:`x=0.5`.

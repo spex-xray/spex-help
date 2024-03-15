@@ -47,9 +47,11 @@ Currently the following models are implemented in SPEX:
    slab
    speith
    spln
+   ssd
    tpho
    user
    vblo
+   vcom
    vgau
    vpro
    warm

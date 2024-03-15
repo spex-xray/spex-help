@@ -443,3 +443,48 @@ Changes in SPEX 3.07.03:
 - Fixed issue with masking bad channels in trafo.
 
 - Fixed issues in the pyspex interface regarding plotting.
+
+Version 3.08.00
+---------------
+
+Changes in SPEX 3.08.00:
+''''''''''''''''''''''''
+
+- New ascdump option `time`.
+
+- New Shakura-Sunyaev model for accretion disks.
+
+- Added obscurer option to the `tpho` model.
+
+- Added `spei` model for relativistic broadening of lines following Speith et al.
+
+- Added 'vcom' model to get a simple Compton shoulder model
+
+- Add QDP output option to pyspex for input to the HEASIM simulator.
+
+- Added new extension to the etau model.
+
+- Added new rbin option to create and store optimally binned spectra and response matrices
+
+- User model `comptt` example for Xspec updated.
+
+- Removed pyspex compatibility with Python 2.
+
+- Many small bugfixes.
+
+Changes in SPEXACT 3.08.00:
+'''''''''''''''''''''''''''
+
+- Quick calculation for cie and cluster model.
+
+- Update to two-photon emission data.
+
+- Updated atomic cross-sections. Edge energies were updated with NIST values and photo-ionisation cross sections
+  with OPEN-ADAS values.
+
+- Added R-matrix collision data from Mao et al. for H- and He-like ions.
+
+- Included photo-excitation auto-ionisation resonances in the photo-ionisation rate.
+
+- Fe XXIV DR lines changed from FAC to Safronova et al. 1996.
+

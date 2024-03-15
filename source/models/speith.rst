@@ -1,7 +1,7 @@
 .. _sec:speith:
 
-Speith: relativistic line broadening model
-==========================================
+Spei: relativistic line broadening model
+========================================
 
 This multiplicative model broadens an arbitrary additive component with
 a relativistic line profile. The relativistic line profile is based
@@ -32,7 +32,7 @@ transfer function for that emitted energy combined with the emissivity for that 
 are used in the double integration. This works well for emissivity laws that are smooth as a 
 function of energy, but not for convolution kernels where the emissivity is typically
 a delta-function in energy. We have rewritten the equations by substituting such a delta-function,
-thereby effectively removing one integration. Details of all this can be found inan internal SPEX
+thereby effectively removing one integration. Details of all this can be found in an internal SPEX
 memo.
 
 The model is rather flexible and fast. The parameters are described in more detail below, but
