@@ -7,7 +7,7 @@ Overview
 ~~~~~~~~
 
 The plot command cause the plot to be (re)drawn on the graphics device.
-Multiple graphics devices can be defined in one SPEX session. For
+Multiple graphics devices can be defined in one SPEX session. For
 example, a plot can be sent to both a postscript and a xs device.
 
 A user can also set the number of plot frames in the currently active
@@ -291,6 +291,9 @@ The following syntax rules apply for plot:
 | ``plot data fh #r`` : Give the symbols for the data font height #r.
 | ``plot data symbol #i`` : Plot the data with symbol number #i. For
   symbol numbers, see :ref:`sect:plotmarkers`.
+| ``plot ion new #i #i`` : Plot the energies of the strongest lines of
+  the ion with atomic number #i and ionisation stage #i.
+| ``plot ion del`` : Delete the plotted energies of the strongest lines.
 | ``plot adum #a [overwrite] [append]`` : Dump the data and model in the
   plot in an ascii file with filename #a. The extension ".qdp" will
   automatically be appended. Note that the data will be written as they
@@ -348,3 +351,5 @@ Examples
 | ``plot`` : Redraw the plot on all frames and devices
 | ``plot close 2`` : Close device number 2, which is the postscript
   device in this case
+| ``plot ion new 14 13`` : Label the strongest lines of Si XIII.
+| ``plot ion del`` : Delete all the line labels.
