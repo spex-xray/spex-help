@@ -40,7 +40,7 @@ Create a conda environment for SPEX (optional, but recommended)
 To make sure that SPEX keeps having access to its dependencies, it is best to install it in its own environment.
 This way, the number of potential conflicts with other packages remains minimal.
 
-Currently, SPEX is available for Python 3.8, 3.9 and 3.10, so please choose a version that matches your needs.
+Currently, SPEX is available for Python 3.9, 3.10 and 3.11, so please choose a version that matches your needs.
 A conda environment can be created with the command below::
 
     (base) user@linux:~> conda create -n spex python=3.9
@@ -66,12 +66,13 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.08.00
+     Welcome user to SPEX version 3.08.01
 
      NEW in this version of SPEX:
-    21-04-2023 Added Quick CIE calculations (var calc qc)
-    21-04-2023 Added Shakura-Sunyaev model for accretion disk
-    04-03-2024 Added Speith model for relativistic broadening of lines
+    29-03-2024 Added plot ion command and linid program for line identification
+    27-05-2024 Fixed issue with trafo converting large XRISM matrix
+    15-07-2024 Multiple bugfixes for response binning, tpho, and pyspex
+    15-07-2024 Neutral nitrogen N I oscilator strength correction based on Garcia+09
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
