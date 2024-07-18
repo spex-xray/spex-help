@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.8. How to install SPEX using Anaconda &#8212; SPEX Help Center 3.08.00 documentation</title>
+    <title>1.8. How to install SPEX using Anaconda &#8212; SPEX Help Center 3.08.01 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -67,7 +67,7 @@ minimum needed).</p>
 <h2><span class="section-number">1.8.2. </span>Create a conda environment for SPEX (optional, but recommended)<a class="headerlink" href="#create-a-conda-environment-for-spex-optional-but-recommended" title="Permalink to this heading">¶</a></h2>
 <p>To make sure that SPEX keeps having access to its dependencies, it is best to install it in its own environment.
 This way, the number of potential conflicts with other packages remains minimal.</p>
-<p>Currently, SPEX is available for Python 3.8, 3.9 and 3.10, so please choose a version that matches your needs.
+<p>Currently, SPEX is available for Python 3.9, 3.10 and 3.11, so please choose a version that matches your needs.
 A conda environment can be created with the command below:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) user@linux:~&gt; conda create -n spex python=3.9
 </pre></div>
@@ -91,12 +91,13 @@ conda environment to make SPEX run directly from the command line:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(spex) user@linux:~&gt; conda deactivate
 (base) user@linux:~&gt; conda activate spex
 (spex) user@linux:~&gt; spex
- Welcome user to SPEX version 3.08.00
+ Welcome user to SPEX version 3.08.01
 
  NEW in this version of SPEX:
-21-04-2023 Added Quick CIE calculations (var calc qc)
-21-04-2023 Added Shakura-Sunyaev model for accretion disk
-04-03-2024 Added Speith model for relativistic broadening of lines
+29-03-2024 Added plot ion command and linid program for line identification
+27-05-2024 Fixed issue with trafo converting large XRISM matrix
+15-07-2024 Multiple bugfixes for response binning, tpho, and pyspex
+15-07-2024 Neutral nitrogen N I oscilator strength correction based on Garcia+09
 
  Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
@@ -216,9 +217,9 @@ on Conda:</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Mar 15, 2024.<br>
+        Last updated on: Jul 18, 2024.<br>
     
-        &copy;2023, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

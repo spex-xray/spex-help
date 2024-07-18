@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3.2.10. Plot line labels &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/plot/ion.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Spectral models" href="../../models.html" />
+    <link rel="prev" title="3.2.9. Plot asciidump file format" href="adum.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="plot-line-labels">
+<span id="sect-plotion"></span><h1><span class="section-number">3.2.10. </span>Plot line labels<a class="headerlink" href="#plot-line-labels" title="Permalink to this heading">¶</a></h1>
+<p>Since SPEX 3.08.01, we have a command to show labels for the strongest lines for an ion.
+The labels can be added per ion of an element.</p>
+<section id="example">
+<h2><span class="section-number">3.2.10.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<p>In the figure below, we add line labels for Si XIII and Si XIV on top of a CIE model spectrum using the following
+SPEX commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First set the model and create the plot</span>
+<span class="n">com</span> <span class="n">cie</span>
+<span class="n">var</span> <span class="n">calc</span> <span class="n">qc</span>
+<span class="n">calc</span>
+<span class="n">plot</span> <span class="n">dev</span> <span class="n">xs</span>
+<span class="n">plot</span> <span class="nb">type</span> <span class="n">model</span>
+<span class="n">plot</span> <span class="n">y</span> <span class="n">lin</span>
+<span class="n">plot</span> <span class="n">rx</span> <span class="mf">1.7</span><span class="p">:</span><span class="mf">2.7</span>
+<span class="n">plot</span> <span class="n">ry</span> <span class="mf">0.0</span><span class="p">:</span><span class="mf">0.4</span>
+<span class="n">plot</span>
+
+<span class="c1"># Add the line labels</span>
+<span class="n">plot</span> <span class="n">ion</span> <span class="n">new</span> <span class="mi">14</span> <span class="mi">14</span>
+<span class="n">plot</span> <span class="n">ion</span> <span class="n">new</span> <span class="mi">14</span> <span class="mi">13</span>
+<span class="n">plot</span>
+
+<span class="c1"># See the result in the figure below</span>
+
+<span class="c1"># Delete the line labels</span>
+<span class="n">plot</span> <span class="n">ion</span> <span class="k">del</span>
+</pre></div>
+</div>
+<figure class="align-default" id="fig-linelabels-png">
+<a class="reference internal image-reference" href="../../_images/linelabels.png"><img alt="A CIE spectrum with line labels for Si XIII and Si XIV." src="../../_images/linelabels.png" style="width: 12cm;" /></a>
+</figure>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">3. Command overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../commands.html">3.1. Command syntax</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../plot.html">3.2. Plotting reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">4. Spectral models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../reference.html"><span class="section-number">3. </span>Command overview</a><ul>
+  <li><a href="../plot.html"><span class="section-number">3.2. </span>Plotting reference</a><ul>
+      <li>Previous: <a href="adum.html" title="previous chapter"><span class="section-number">3.2.9. </span>Plot asciidump file format</a></li>
+      <li>Next: <a href="../../models.html" title="next chapter"><span class="section-number">4. </span>Spectral models</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Jul 18, 2024.<br>
+    
+        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

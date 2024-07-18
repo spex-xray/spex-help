@@ -13,4 +13,5 @@ Plotting reference
    plot/marker
    plot/axes
    plot/adum
+   plot/ion
 

@@ -38,12 +38,13 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.08.00
+     Welcome user to SPEX version 3.08.01
 
      NEW in this version of SPEX:
-    21-04-2023 Added Quick CIE calculations (var calc qc)
-    21-04-2023 Added Shakura-Sunyaev model for accretion disk
-    04-03-2024 Added Speith model for relativistic broadening of lines
+    29-03-2024 Added plot ion command and linid program for line identification
+    27-05-2024 Fixed issue with trafo converting large XRISM matrix
+    15-07-2024 Multiple bugfixes for response binning, tpho, and pyspex
+    15-07-2024 Neutral nitrogen N I oscilator strength correction based on Garcia+09
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
     >>>

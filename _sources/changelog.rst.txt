@@ -488,3 +488,25 @@ Changes in SPEXACT 3.08.00:
 
 - Fe XXIV DR lines changed from FAC to Safronova et al. 1996.
 
+Version 3.08.01
+---------------
+
+Changes in SPEX 3.08.01:
+''''''''''''''''''''''''
+
+- Added plot ion functionality.
+
+- Fixed a couple of bugs in the new rbin command.
+
+- Fixed a couple of bugs in tpho when choosing an empty custom output directory and when using it in mode=3.
+
+- Fixed a bug in the SSD model: spectroscopic temperature now correctly set by the self-consistency with radiation loss.
+
+- Fixed an issue with par_norm and par_show in pyspex.
+
+- Fixed an issue with writing character arrays in astropy tables.
+
+Changes in SPEXACT 3.08.01:
+'''''''''''''''''''''''''''
+
+- Neutral nitrogen N I oscilator strength correction based on Garcia+09.
