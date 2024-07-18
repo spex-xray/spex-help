@@ -25,7 +25,7 @@ Since SPEX is programmed mostly in Fortran 90, it is recommended to use a recent
 been tested with GFortran (version 4 and above) and the Intel Fortran Compiler.
 
 This Zenodo contains a tar.bz2 file containing the source code of SPEX:
-`spex-3.08.01-Source.tar.bz2 <>`_.
+`spex-3.08.01-Source.tar.bz2 <https://zenodo.org/records/12771915/files/spex-3.08.01-Source.tar.bz2?download=1>`_.
 Unpack it in a convenient directory::
 
     unix:~/Software> tar xvfj spex-3.08.01-Source.tar.bz2
