@@ -74,6 +74,9 @@ fit again. This should be your best result. For the error calculations, you can
 switch back to ``var calc qc``. The errors derived using ``qc`` should be 
 statistically the same as the errors in ``var calc new``.
 
+In addition, it is also possible to ignore or set a quicker calculation for 
+individual ions. See :ref:`sect:performance` for details.
+
 
 Python interface
 ----------------
