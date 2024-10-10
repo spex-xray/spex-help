@@ -11,4 +11,5 @@ Getting started
    getstarted/compile
    getstarted/docker
    getstarted/conda
+   getstarted/optimize
 
