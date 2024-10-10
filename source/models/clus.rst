@@ -145,7 +145,7 @@ The optional density jump parameterisation :math:`f(r)` is:
 where the discontinuity radius :math:`r_{s}` (input name rsh) 
 is given again in units of :math:`r_{500}`
 and further :math:`\Delta_d` is the density jump at :math:`r_{s}` (its input name is dfac).
-Please note that, in the case of no jump (i.e. $\Delta_d = 1$), the term $f(r)$ is ignored.
+Please note that, in the case of no jump (i.e. :math:`\Delta_d = 1`), the term :math:`f(r)` is ignored.
 For :math:`\Delta_d > 1` the density increases outside :math:`r_{s}` relative
 to the undisturbed model, while for :math:`\Delta_d > 1` it decreases.
 Further fine-tuning of the discontinuity can be achieved by playing with the power-law
