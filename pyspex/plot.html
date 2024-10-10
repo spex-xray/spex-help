@@ -47,7 +47,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nsector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of sectors available.</p></li>
+<li><p><strong>nsector</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of sectors available.</p></li>
 <li><p><strong>sector</strong> (<em>list of objects</em>) – List of plot objects for each sector.</p></li>
 </ul>
 </dd>
@@ -60,9 +60,9 @@ for various simulation programs, like SIMX, SIXTE and HEASIM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number to write (Usually 1).</p></li>
-<li><p><strong>qdpfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – File name of the QDP file to write.</p></li>
-<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Overwrite existing files (default=False).</p></li>
+<li><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Sector number to write (Usually 1).</p></li>
+<li><p><strong>qdpfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – File name of the QDP file to write.</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Overwrite existing files (default=False).</p></li>
 </ul>
 </dd>
 </dl>
@@ -75,11 +75,11 @@ for various simulation programs, like SIMX, SIXTE and HEASIM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot in wavelength (Angstrom)</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Plot in wavelength (Angstrom)</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -109,7 +109,7 @@ for various simulation programs, like SIMX, SIXTE and HEASIM.</p>
 <li><p><strong>xc</strong> (<em>astropy.units.quantity.Quantity</em>) – Central bin energy (keV).</p></li>
 <li><p><strong>xb</strong> (<em>astropy.units.quantity.Quantity</em>) – Upper boundary of bin energy (keV).</p></li>
 <li><p><strong>m</strong> (<em>astropy.units.quantity.Quantity</em>) – Model spectrum (Photons/m**2/s/keV).</p></li>
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of bins.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of bins.</p></li>
 <li><p><strong>tabmodel</strong> (<em>astropy.table.table.QTable</em>) – Astropy QTable containing the model spectrum</p></li>
 </ul>
 </dd>
@@ -120,7 +120,7 @@ for various simulation programs, like SIMX, SIXTE and HEASIM.</p>
 <dd><p>Update the values of the model spectrum for this sector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Sector number.</p>
+<dd class="field-odd"><p><strong>isect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Sector number.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -139,9 +139,9 @@ for various simulation programs, like SIMX, SIXTE and HEASIM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of instruments</p></li>
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of instruments with data plot information</p></li>
-<li><p><strong>colors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><em>tuple</em></a>) – List of colors.</p></li>
+<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of instruments</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – List of instruments with data plot information</p></li>
+<li><p><strong>colors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a>) – List of colors.</p></li>
 </ul>
 </dd>
 </dl>
@@ -153,12 +153,12 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot residuals as a function of wavelength (Angstrom)</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Plot residuals as a function of wavelength (Angstrom)</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -177,11 +177,11 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot the data on a wavelength scale (Angstrom).</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Plot the data on a wavelength scale (Angstrom).</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -211,11 +211,11 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot as function of wavelenght (Angstrom).</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Plot as function of wavelenght (Angstrom).</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -235,8 +235,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – Axis object from Matplotlib.</p></li>
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
 </ul>
 </dd>
 </dl>
@@ -248,7 +248,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dd><p>Update data plot information for this instrument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
+<dd class="field-odd"><p><strong>chi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -262,8 +262,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of regions.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of regions with data plot information</p></li>
+<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of regions.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – List of regions with data plot information</p></li>
 </ul>
 </dd>
 </dl>
@@ -274,8 +274,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
 </ul>
 </dd>
 </dl>
@@ -290,7 +290,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of bins</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of bins</p></li>
 <li><p><strong>elow</strong> (<em>astropy.units.quantity.Quantity</em>) – Bin lower boundary (keV)</p></li>
 <li><p><strong>ectr</strong> (<em>astropy.units.quantity.Quantity</em>) – Bin center value (keV)</p></li>
 <li><p><strong>eupp</strong> (<em>astropy.units.quantity.Quantity</em>) – Bin upper boundary (keV)</p></li>
@@ -301,8 +301,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <li><p><strong>perror</strong> (<em>astropy.units.quantity.Quantity</em>) – Error value</p></li>
 <li><p><strong>tints</strong> (<em>astropy.units.quantity.Quantity</em>) – Exposure time (s)</p></li>
 <li><p><strong>tarea</strong> (<em>astropy.units.quantity.Quantity</em>) – Inverse of the effective area value (1/m**2)</p></li>
-<li><p><strong>comp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of model components for a component plot</p></li>
-<li><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of model components</p></li>
+<li><p><strong>comp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – List of model components for a component plot</p></li>
+<li><p><strong>ncomp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of model components</p></li>
 <li><p><strong>tabdata</strong> (<em>astropy.table.QTable</em>) – Astropy QTable containing the plot data</p></li>
 <li><p><strong>chi</strong> (<em>numpy.ndarray</em>) – Residual value</p></li>
 <li><p><strong>chierr</strong> (<em>numpy.ndarray</em>) – Residual error</p></li>
@@ -315,7 +315,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dd><p>Calculate the residuals for the chi plot window.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
+<dd class="field-odd"><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -327,9 +327,9 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Region number.</p></li>
-<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>tchi</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Type of residual. Either ‘dchi’ (data-model)/error or ‘rel’ (data-model)/model.</p></li>
 </ul>
 </dd>
 </dl>
@@ -349,7 +349,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of instruments.</p></li>
+<li><p><strong>ninst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of instruments.</p></li>
 <li><p><strong>inst</strong> (<em>list of objects</em>) – List of instrument objects.</p></li>
 </ul>
 </dd>
@@ -361,11 +361,11 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
-<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
-<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Plot the effective area as a function of wavelength.</p></li>
-<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
+<li><p><strong>xlog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the X-axis to be logarithmic.</p></li>
+<li><p><strong>ylog</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Set the Y-axis to be logarithmic.</p></li>
+<li><p><strong>wave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Plot the effective area as a function of wavelength.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (Optional) Set the title of the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – (Optional) Show the plot (True) or return the plot object (False).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -392,8 +392,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Number of regions.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a>) – List of region area plots.</p></li>
+<li><p><strong>nreg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of regions.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – List of region area plots.</p></li>
 </ul>
 </dd>
 </dl>
@@ -403,7 +403,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dd><p>Update the area information in the regions of this instrument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number to update.</p>
+<dd class="field-odd"><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Instrument number to update.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -431,8 +431,8 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Instrument number.</p></li>
-<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Region number.</p></li>
+<li><p><strong>inst</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Instrument number.</p></li>
+<li><p><strong>reg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Region number.</p></li>
 </ul>
 </dd>
 </dl>
@@ -519,7 +519,7 @@ with the residuals. Chi options are ‘dchi’: (observed - model)/error and ‘
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 10, 2024.<br>
+        Last updated on: Oct 10, 2024.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
