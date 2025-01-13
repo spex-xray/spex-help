@@ -661,4 +661,5 @@ The remaining parameters of the model are:
 | ``file`` : Filename for the non-thermal electron distribution. If not
   present, non-thermal effects are not taken into account (default).
 
-*Recommended citation:* Kaastra et al. (2022) (this manual for the moment).
+*Recommended citation:* `Stofanova et al. (2025)
+<https://ui.adsabs.harvard.edu/abs/2024arXiv241213252S/abstract>`_.
