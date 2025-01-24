@@ -76,5 +76,10 @@ The parameters of the model are:
   program, not an input variable.
 | ``ewa`` : Equivalent width of the line in Å. Calculated by the
   program, not an input variable.
-| ``fcov`` : The covering factor of the absorption/emission line.
-  Default value: 1 (full covering).
+|  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+|  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
+|  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
+  covering)
+|  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
+  covering)
+|  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
