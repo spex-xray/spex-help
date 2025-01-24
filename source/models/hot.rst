@@ -49,13 +49,14 @@ The parameters of the model are:
 
 The following parameters are common to all our absorption models:
 
-| ``f`` : The covering factor of the absorber. Default value: 1 (full
+|  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+|  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
+|  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
   covering)
+|  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
+  covering)
+|  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend
-  components
-| ``dv`` : Velocity distance :math:`\Delta v` between different blend
-  components
 | ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 
 The following parameters are the same as for the cie-model (:ref:`sect:cie`):
