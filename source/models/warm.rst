@@ -51,13 +51,13 @@ The parameters of the model are:
 
 The following parameters are common to all our absorption models:
 
-``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
-  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
-  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
+| ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+| ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
+| ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
   covering)
-  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
+| ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
   covering)
-  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
+| ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 | The following parameter is the same as for the xabs-model (see there
