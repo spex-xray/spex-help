@@ -69,6 +69,22 @@ precision arithmetics:
    } 
    \right.
 
+.. _sect:covering factor:
+
+Covering factor
+---------------
+
+Most users would be happy with a model where an absorbing medium covers the full emitting source.
+However, there are situations where the background source is larger than the absorbing medium.
+In that case the covering factor :math:`f<1`. This option has been implemented in older versions
+of our software through the parameter ``fcov``.
+However, there can be more complex situations. This occurs for example in active galactic nuclei,
+where the X-ray continuum source may be smaller than the UV continuum source. In that case, for spectral
+lines from the same ion, the covering factor of the X-ray absorption lines may be larger that the covering
+factor of the UV lines. In order to model this situation, in the later versions (from 3.08.03 onwards)
+we include the option of energy-dependent covering factors. Instead of the single parameter ``fcov`` we now
+use five parameters, described below.
+
 .. _sect:abs_models:
 
 Different types of absorption models
