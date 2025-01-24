@@ -31,7 +31,12 @@ The parameters of the model are:
   Default value: :math:`10^{-4}` (corresponding to
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
-| ``f`` : The covering factor of the absorber. Default value: 1 (full
+|  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+|  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
+|  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
   covering)
+|  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
+  covering)
+|  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
 
 *Recommended citation:* `Morrison & McCammon (1983) <https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract>`_.
