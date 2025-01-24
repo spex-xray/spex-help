@@ -63,7 +63,13 @@ alternatively, the Gordon et al. SMC model can be used.
 | ``ebv`` : The colour excess :math:`E(B-V)`. The value is set by the
   user.
 | ``rv`` : The scalar :math:`R_{V}`. Default (recommended) value: 3.1
-| ``fcov`` : The covering factor of the absorber. Default value: 1 (full covering)
+|  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+|  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
+|  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
+  covering)
+|  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
+  covering)
+|  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
 | ``mode`` : 1: Cardelli et al. model with bump (default); 2:
  Cardelli et al. model without bump; 3: Gordon et al. SMC model. It is suggested to
  use R_V = 4 for this last case.
