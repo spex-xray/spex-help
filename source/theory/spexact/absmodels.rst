@@ -85,6 +85,38 @@ factor of the UV lines. In order to model this situation, in the later versions 
 we include the option of energy-dependent covering factors. Instead of the single parameter ``fcov`` we now
 use five parameters, described below.
 
+The covering factor is now given as
+
+.. math::
+  f = f_0 + \Delta f \times c(x).
+A
+where :math:`x=\ln{E/E_c}/a` and :math:`c(x)` is a function of :math:`x` described below.
+The parameter :math:`f_0=(c_2+c_1)/2` and :math:`\Delta f = (c_2-c_1)/2`.
+
+We distinguish four cases using the parameter ``icov``:
+
+``icov=1:`` :math:`f=1` corresponding to :math:`c_1=c_2=1`
+
+``icov=2:`` (the default case, corresponding to the variable ``fcov`` in older versions of spex): math:`c_1=c_2` but both values 
+can have any value between 0 and 1 (or equivalent math:`\Delta f = 0` ).
+
+``icov=3:`` arbitrary values for :math:`c_1` and :math:`c_2` (but both between 0 and 1), and :math:`f(x)=\tanh (x)`. This gives a somewhat sharper transittion between low- and high energies.
+
+``icov=4:`` arbitrary values for :math:`c_1` and :math:`c_2` (but both between 0 and 1), and :math:`f(x)=(2/\pi ) \arctan (x)`. This gives a somewhat smoother transittion between low- and high energies.
+
+The other four parameters of the model are:
+
+``fcov:`` corresponds to the variable :math:`c_2` above, i.e. the high-energy (asymptotic) covering factor.
+
+``lcov:`` corresponds to the variable :math:`c_1` above, i.e. the low-energy (asymptotic) covering factor.
+
+``ecov:`` corresponds to the variable :math:`E_c` above, i.e. the energy (keV) where the covering factor equals
+:math:`f_0` above, or the mean between high- and low-energy limits.
+
+``acov:`` corresponds to the variable :math:`a` above, i.e. the logarithmic scaling factor of the transition from low- to high energy limit.
+This is therefore a dimensionless variable. A value of 1 corresponds to a transition over typically a factor of :math:`e=2.71828` in energy.
+Sharp transitions are obtained for small values of this parameter.
+
 .. _sect:abs_models:
 
 Different types of absorption models
@@ -173,36 +205,7 @@ optical depth, respectively. As long as the thickness of the slab is not
 too large, this most simple approximation allows a fast computation of
 the spectrum, which is desirable for spectral fitting.
 
-In particular UV observations of AGN show that the absorption lines can
-often be decomposed into multiple velocity components. In the X-ray band
-these are not always fully resolvable, which led us to the following
-approach. Each absorption line is split into different velocity
-components, using
-
-.. math::
-
-   \tau_l(v) = \sum_{i}^{}\tau_i \exp\left[
-   -(v-v_i)^2/2\sigma_{\mathrm v}^2
-      \right]
-
-(or the equivalent generalisation to the Voigt profile). Further, we
-take
-
-.. math:: v_i = v_0 + i\,\Delta v,
-
-.. math::
-
-   \label{eqn:taui}
-   \tau_i = K \exp\left[ -v_i^2/2 \sigma_{\mathrm b}^2 \right],
-
-where :math:`v_0` is the average velocity of the blend (a negative value
-corresponds to a blue-shift or outflow), :math:`\Delta v` is the
-separation between the velocity components, and the r.m.s. width of the
-blend :math:`\sigma_{\mathrm b}` is in general larger than the intrinsic
-width :math:`\sigma_{\mathrm v}` of the components (do never confuse
-both :math:`\sigma`\ ’s!). The normalization :math:`K` is defined in
-such a way that :math:`\sum \tau_i = \tau_0`. Finally, the total optical
-depth :math:`\tau_0` is given by
+ The total optical depth at line center :math:`\tau_0` is given by
 
 .. math::
 
@@ -213,14 +216,6 @@ Here :math:`f` is the oscillator strength, :math:`\lambda` the
 wavelength in Å, :math:`\sigma_{\mathrm v,100}` the velocity dispersion in
 units of :math:`100` km/s and :math:`N_{20}` the total column density of
 the ion in units of :math:`10^{20}` :math:`\mathrm{m}^{-2}`.
-
-This dynamical structure offers the user a broad range of applicability.
-However, we advise the user to use the extension with
-:math:`\sigma_{\mathrm b}` with caution! Always start with the most
-simple case. The default values for are defined in such a way that
-:math:`\sigma_{\mathrm b} = 0`. This will produce the “normal” case of
-single absorption lines. In that case, the velocity separation
-:math:`\Delta v` is an irrelevant parameter.
 
 Finally, we make a remark on the r.m.s. line width of individual lines,
 :math:`\sigma_{\mathrm v}`. In our code, this *only* includes the
