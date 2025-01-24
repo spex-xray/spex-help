@@ -51,7 +51,7 @@ The parameters of the model are:
 
 The following parameters are common to all our absorption models:
 
-  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
   ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
   ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
   covering)
