@@ -46,10 +46,13 @@ ASCII outputs for further examination by the user outside of SPEX.
   (energy per unit area per second). Remember to use ’aval’ instead of
   ’val’ when setting the name of the parameter in SPEX.
 | ``hden``: Hydrogen number density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
-| ``fcov``: The covering factor of the absorber. Default value: 1 (full covering)
-| ``v``: Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``rms``: Rms velocity :math:`\sigma_{\mathrm b}` of line blend components
-| ``dv``: Velocity distance :math:`\Delta v` between different blend components
+|  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
+|  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
+|  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
+  covering)
+|  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
+  covering)
+|  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1| ``v``: Root mean square velocity :math:`\sigma_{\mathrm v}`
 | ``zv``: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 | ``ref``: Reference element for abundances
 | ``01..28``: Abundances of H to Ni; only here we take H, He, C, N, O,
