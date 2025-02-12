@@ -662,4 +662,4 @@ The remaining parameters of the model are:
   present, non-thermal effects are not taken into account (default).
 
 *Recommended citation:* `Stofanova et al. (2025)
-<https://ui.adsabs.harvard.edu/abs/2024arXiv241213252S/abstract>`_.
+<https://doi.org/10.1051/0004-6361/202451431>`_.
