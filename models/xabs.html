@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.47. Xabs: photoionised absorption model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.48. Xabs: photoionised absorption model &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/xabs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.2. Optimizing model performance" href="performance.html" />
-    <link rel="prev" title="4.1.46. Wdem: power law differential emission measure model" href="wdem.html" />
+    <link rel="prev" title="4.1.47. Wdem: power law differential emission measure model" href="wdem.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,12 +34,12 @@
           <div class="body" role="main">
             
   <section id="xabs-photoionised-absorption-model">
-<span id="sec-xabs"></span><h1><span class="section-number">4.1.47. </span>Xabs: photoionised absorption model<a class="headerlink" href="#xabs-photoionised-absorption-model" title="Permalink to this heading">¶</a></h1>
+<span id="sec-xabs"></span><h1><span class="section-number">4.1.48. </span>Xabs: photoionised absorption model<a class="headerlink" href="#xabs-photoionised-absorption-model" title="Link to this heading">¶</a></h1>
 <p>The <em>xabs</em> model calculates the transmission of a slab of material,
 where all ionic column densities are linked through a photoionization
 model. The relevant parameter is the ionization parameter
-<img class="math" src="../_images/math/c19ef854df1a92ba39d56396dc0579f7632c0f6d.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>
-the hydrogen density and <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
+<img class="math" src="../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>
+the hydrogen density and <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
 source. The advantage of the <em>xabs</em> model over the <em>slab</em> model is that
 all relevant ions are taken into account, also those which would be
 detected only with marginal significance using the <em>slab</em> model. In some
@@ -67,23 +65,23 @@ use that program.</p>
 refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-abs-models"><span class="std std-ref">Different types of absorption models</span></a>.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
-Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/c82f983f78a3e6ca7341f7bdf44e0a7c9c6dccfa.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/51c02b157c3292b0e10b5faa5291d538d5f8b1a8.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
 latitudes).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/8ff31b2c8f84170bfd0788bcfb7a90613424c145.svg" alt="{ }^{10}\log" style="vertical-align: -3px"/> of the ionisation parameter
-<img class="math" src="../_images/math/f4b734e9e2ef12084970f859b71af22504059ee7.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> Wm. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : the <img class="math" src="../_images/math/0b62977a07a3c7d1be84f5d0fbf027e678de2c3c.svg" alt="{ }^{10}\log" style="vertical-align: -3px"/> of the ionisation parameter
+<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}" style="vertical-align: 0px"/> Wm. Default value: 1.</div>
 </div>
 <p>The following parameters are common to all our absorption models:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fcov</span></code> : The covering factor of the absorber. Default value: 1 (full
 covering)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/cb9340f8edc9c90f166f9bc3ca9324e362ab550f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
 components</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/0ab13866f2e184cf618e658fa8eac854400b7834.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
 components</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift).</div>
 </div>
 <p>The following parameters are the same as for the cie-model (see there
 for a description):</p>
@@ -108,7 +106,9 @@ N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -145,14 +145,14 @@ N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="wdem.html" title="previous chapter"><span class="section-number">4.1.46. </span>Wdem: power law differential emission measure model</a></li>
+      <li>Previous: <a href="wdem.html" title="previous chapter"><span class="section-number">4.1.47. </span>Wdem: power law differential emission measure model</a></li>
       <li>Next: <a href="performance.html" title="next chapter"><span class="section-number">4.2. </span>Optimizing model performance</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -160,7 +160,7 @@ N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -175,7 +175,7 @@ N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

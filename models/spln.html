@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.37. Spln: spline continuum model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.38. Spln: spline continuum model &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/spln.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.38. SSD: Shakura-Sunyaev disk model" href="ssd.html" />
-    <link rel="prev" title="4.1.36. Spei: relativistic line broadening model" href="speith.html" />
+    <link rel="next" title="4.1.39. SSD: Shakura-Sunyaev disk model" href="ssd.html" />
+    <link rel="prev" title="4.1.37. Spei: relativistic line broadening model" href="speith.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="spln-spline-continuum-model">
-<h1><span class="section-number">4.1.37. </span>Spln: spline continuum model<a class="headerlink" href="#spln-spline-continuum-model" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4.1.38. </span>Spln: spline continuum model<a class="headerlink" href="#spln-spline-continuum-model" title="Link to this heading">¶</a></h1>
 <p>Sometimes the continuum of an X-ray source may be too complex to model
 with known physical components. A situation like that may be found in
 AGN continua, which are a complex superposition of hard power law, soft
@@ -48,111 +46,111 @@ in order to get first an accurate description of the absorber, and then
 after having “removed” the absorber try to understand the underlying
 continuum spectrum.</p>
 <p>For these situations the <em>spln</em> model introduced here is useful. It
-allows the user to model the continuum within two boundaries <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>
-and <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> with a cubic spline.</p>
-<p>The algorithm works as follows. The user selects the limits <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>
-and <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> as well as the number of grid points <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>.
-SPEX then creates a grid <img class="math" src="../_images/math/9e2b6f0929fd056b266a43b0dfe6b66b7dca817f.svg" alt="x_1,\,x_2,\,\ldots,\,x_n" style="vertical-align: -3px"/> with uniform
-spacing in <img class="math" src="../_images/math/8aaf558a717020bc124866266e87da264d553c11.svg" alt="b" style="vertical-align: 0px"/> (see below for details). The spectrum at these grid
+allows the user to model the continuum within two boundaries <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>
+and <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> with a cubic spline.</p>
+<p>The algorithm works as follows. The user selects the limits <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>
+and <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> as well as the number of grid points <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>.
+SPEX then creates a grid <img class="math" src="../_images/math/941bd5bce77e66f112c37b913e679e1d699ea236.svg" alt="x_1,\,x_2,\,\ldots,\,x_n" style="vertical-align: -3px"/> with uniform
+spacing in <img class="math" src="../_images/math/b5d55b92e296bb3aa41b5598c2f19f05a607dfd3.svg" alt="b" style="vertical-align: 0px"/> (see below for details). The spectrum at these grid
 points is contained in the corresponding array
-<img class="math" src="../_images/math/6cf5b96c71c05157f79d328a1f8fc7e6d258334c.svg" alt="y_1,\,y_2,\,\ldots,\,y_n" style="vertical-align: -3px"/>. These have the usual units of
-<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> photons <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> used throughout
+<img class="math" src="../_images/math/36ab028c5fab5ae34aa5fd7e32f841e2c156ff7e.svg" alt="y_1,\,y_2,\,\ldots,\,y_n" style="vertical-align: -3px"/>. These have the usual units of
+<img class="math" src="../_images/math/a36065d5c5a7b087b5eed391e899f7542044a61d.svg" alt="10^{44}" style="vertical-align: 0px"/> photons <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/68f9c723a4514b8ef6d38009c2e67e7fdc381fb4.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> used throughout
 SPEX, and is the spectrum emitted at the source. The parameters
-<img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/> can be adjusted during the spectral fitting, but
-<img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and thereby <img class="math" src="../_images/math/db30b90f42f2f72f22a2ef51099f73f830ddc5b0.svg" alt="x_i" style="vertical-align: -2px"/> remain
-fixed. At intermediate points between the <img class="math" src="../_images/math/db30b90f42f2f72f22a2ef51099f73f830ddc5b0.svg" alt="x_i" style="vertical-align: -2px"/>, the photon
+<img class="math" src="../_images/math/1a9aa621cf896b76118d007c0bcfaa05f7089bb1.svg" alt="y_i" style="vertical-align: -3px"/> can be adjusted during the spectral fitting, but
+<img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> and thereby <img class="math" src="../_images/math/d63cf61e71d6f6d39172e785a036e33eefd450f7.svg" alt="x_i" style="vertical-align: -2px"/> remain
+fixed. At intermediate points between the <img class="math" src="../_images/math/d63cf61e71d6f6d39172e785a036e33eefd450f7.svg" alt="x_i" style="vertical-align: -2px"/>, the photon
 spectrum is determined by cubic spline interpolation on the
-<img class="math" src="../_images/math/36a13b64d3385e7c865fec259f7aadf171bcf233.svg" alt="(x_i,y_i)" style="vertical-align: -4px"/> data pairs. We take a natural spline, i.e. at
-<img class="math" src="../_images/math/5427d2a8328c094c26651bcd6c730d7b1f7530b7.svg" alt="x_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/d942cbac9de4209a4efd856102d789ac0e4f0596.svg" alt="x_n" style="vertical-align: -2px"/> the second derivative of the spline is zero.</p>
-<p>Outside of the range <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>–<img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> however, the photon
+<img class="math" src="../_images/math/814d1f88380567d9d047b5c8dc660e6aa7b2416f.svg" alt="(x_i,y_i)" style="vertical-align: -4px"/> data pairs. We take a natural spline, i.e. at
+<img class="math" src="../_images/math/b18edbb01fc63bf4d157c080d5e9c1d724401689.svg" alt="x_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/eb89f42f739d791b30797db44c2dec6324375b4a.svg" alt="x_n" style="vertical-align: -2px"/> the second derivative of the spline is zero.</p>
+<p>Outside of the range <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>–<img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> however, the photon
 spectrum is put to zero, i.e. no extrapolation is made!</p>
 <p>Finally note that we have chosen to define the spline in logarithmic
-space of <img class="math" src="../_images/math/da3d5a93edea243a09f9e0b6771fc54167121192.svg" alt="y" style="vertical-align: -3px"/>, i.e. the <img class="math" src="../_images/math/44f1c8477eade18e958206a6f72190a35eeb2faf.svg" alt="\log" style="vertical-align: -3px"/> of the photon spectrum is fit
+space of <img class="math" src="../_images/math/b7216b278103166781d56f1f401bc11e7d2a07ad.svg" alt="y" style="vertical-align: -3px"/>, i.e. the <img class="math" src="../_images/math/d6320f5c1305a69b783d618faafbaca93d6cfc98.svg" alt="\log" style="vertical-align: -3px"/> of the photon spectrum is fit
 by a spline. This is done in order to guarantee that the spectrum
-remains non-negative everywhere. However, the <img class="math" src="../_images/math/da3d5a93edea243a09f9e0b6771fc54167121192.svg" alt="y" style="vertical-align: -3px"/>-values listed is
+remains non-negative everywhere. However, the <img class="math" src="../_images/math/b7216b278103166781d56f1f401bc11e7d2a07ad.svg" alt="y" style="vertical-align: -3px"/>-values listed is
 the (linear) photon spectrum itself.</p>
-<p>There are four different options for the energy grid <img class="math" src="../_images/math/db30b90f42f2f72f22a2ef51099f73f830ddc5b0.svg" alt="x_i" style="vertical-align: -2px"/>,
+<p>There are four different options for the energy grid <img class="math" src="../_images/math/d63cf61e71d6f6d39172e785a036e33eefd450f7.svg" alt="x_i" style="vertical-align: -2px"/>,
 indicated by the parameter <em>type</em>:</p>
 <ul class="simple">
-<li><p><em>type</em>=1: <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/> is the lower energy in keV, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> is
+<li><p><em>type</em>=1: <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/> is the lower energy in keV, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> is
 the upper energy in keV, and the grid is linear in energy in between.</p></li>
-<li><p><em>type</em>=2: <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/> is the lower energy in keV, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> is
+<li><p><em>type</em>=2: <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/> is the lower energy in keV, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> is
 the upper energy in keV, and the grid is logarithmic in energy in
 between.</p></li>
-<li><p><em>type</em>=3: <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/> is the lower wavelength in Å, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> is
+<li><p><em>type</em>=3: <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/> is the lower wavelength in Å, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> is
 the upper wavelength in Å, and the grid is linear in wavelength in
 between.</p></li>
-<li><p><em>type</em>=4: <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/> is the lower wavelength in Å, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> is
+<li><p><em>type</em>=4: <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/> is the lower wavelength in Å, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> is
 the upper wavelength in Å, and the grid is logarithmic in wavelength
 in between.</p></li>
 </ul>
 <p>Note that the logarithmic grids can also be used if one wants to keep a
 fixed velocity resolution (for broadened line features for example).
 Further, each time that the model is being evaluated, the relevant
-values of the <img class="math" src="../_images/math/db30b90f42f2f72f22a2ef51099f73f830ddc5b0.svg" alt="x_i" style="vertical-align: -2px"/> grid points are evaluated.</p>
+values of the <img class="math" src="../_images/math/d63cf61e71d6f6d39172e785a036e33eefd450f7.svg" alt="x_i" style="vertical-align: -2px"/> grid points are evaluated.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Be aware that if you just set <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> but do not issue the “calc” command or the “fit” command, the
-<img class="math" src="../_images/math/db30b90f42f2f72f22a2ef51099f73f830ddc5b0.svg" alt="x_i" style="vertical-align: -2px"/> values have not yet been calculated and any listed values
+<p>Be aware that if you just set <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> but do not issue the “calc” command or the “fit” command, the
+<img class="math" src="../_images/math/d63cf61e71d6f6d39172e785a036e33eefd450f7.svg" alt="x_i" style="vertical-align: -2px"/> values have not yet been calculated and any listed values
 that you get with the <code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">show</span></code> command will be wrong. After the first
 calculation, they are right.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If at any time you change one of the parameters
-<img class="math" src="../_images/math/77616cbdb2d70fc8c5226a7e1156735921585d8f.svg" alt="type" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> or <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>, the <img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/>
+<img class="math" src="../_images/math/067a20ab2e8d0f93a88f67cac7fb9427237438eb.svg" alt="type" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> or <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>, the <img class="math" src="../_images/math/1a9aa621cf896b76118d007c0bcfaa05f7089bb1.svg" alt="y_i" style="vertical-align: -3px"/>
 values will not be appropriate anymore as they correspond to the
-previous set of <img class="math" src="../_images/math/db30b90f42f2f72f22a2ef51099f73f830ddc5b0.svg" alt="x_i" style="vertical-align: -2px"/> values.</p>
+previous set of <img class="math" src="../_images/math/d63cf61e71d6f6d39172e785a036e33eefd450f7.svg" alt="x_i" style="vertical-align: -2px"/> values.</p>
 </div>
-<p>The maximum number <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> of grid points that is allowed is 999, for
+<p>The maximum number <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> of grid points that is allowed is 999, for
 practical reasons. Should you wish to have a larger number, then you
 must define multiple <em>spln</em> components, each spanning its own (disjunct)
-<img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>–<img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/> range.</p>
-<p>It should be noted, however, that if you take <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> very large,
+<img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>–<img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/> range.</p>
+<p>It should be noted, however, that if you take <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> very large,
 spectral fitting may become slow, in particular if you take your initial
-guesses of the <img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/> parameters not too close to the true values.
+guesses of the <img class="math" src="../_images/math/1a9aa621cf896b76118d007c0bcfaa05f7089bb1.svg" alt="y_i" style="vertical-align: -3px"/> parameters not too close to the true values.
 The reason for the slowness is two-fold; first, the computational time
 for each fitting step is proportional to the number of free parameters
 (if the number of free parameters is large). The second reason is
 unavoidable due to our spectral fitting algorithm: our splines are
-defined in <img class="math" src="../_images/math/44f1c8477eade18e958206a6f72190a35eeb2faf.svg" alt="\log" style="vertical-align: -3px"/> photon spectrum space; if you start for example
-with the same value for each <img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/>, the fitting algorithm will
+defined in <img class="math" src="../_images/math/d6320f5c1305a69b783d618faafbaca93d6cfc98.svg" alt="\log" style="vertical-align: -3px"/> photon spectrum space; if you start for example
+with the same value for each <img class="math" src="../_images/math/1a9aa621cf896b76118d007c0bcfaa05f7089bb1.svg" alt="y_i" style="vertical-align: -3px"/>, the fitting algorithm will
 start to vary each parameter in turn; if it changes for example
-parameter <img class="math" src="../_images/math/b3a446177b7a5e83b0dc23d912f7c2e9dc54c2c6.svg" alt="x_j" style="vertical-align: -5px"/> by 1, this means a factor of 10; since the
-neighbouring points (like <img class="math" src="../_images/math/612fb95a9003dcb32fcf91a4a830224708953f7f.svg" alt="x_{j-1}" style="vertical-align: -5px"/> and <img class="math" src="../_images/math/09897835e360be72d6764a4ad54ae7fbaae8dfb8.svg" alt="x_{j+1}" style="vertical-align: -5px"/> however
+parameter <img class="math" src="../_images/math/6a391c18fea4ca9b97dd3e2ec4ed46513be93b4d.svg" alt="x_j" style="vertical-align: -5px"/> by 1, this means a factor of 10; since the
+neighbouring points (like <img class="math" src="../_images/math/8455644e700bc0ba687516ffaa618026d0ba01ea.svg" alt="x_{j-1}" style="vertical-align: -5px"/> and <img class="math" src="../_images/math/f662af3091fb5c5c46450c10ae85eb3cdb0301c8.svg" alt="x_{j+1}" style="vertical-align: -5px"/> however
 are not adjusted in third step, the photon spectrum has to be drawn as a
 cubic spline through this very sharp function, and it will show the
 well-known over-and undershooting at the intermediate x-values between
-<img class="math" src="../_images/math/612fb95a9003dcb32fcf91a4a830224708953f7f.svg" alt="x_{j-1}" style="vertical-align: -5px"/> and <img class="math" src="../_images/math/b3a446177b7a5e83b0dc23d912f7c2e9dc54c2c6.svg" alt="x_j" style="vertical-align: -5px"/> and between <img class="math" src="../_images/math/b3a446177b7a5e83b0dc23d912f7c2e9dc54c2c6.svg" alt="x_j" style="vertical-align: -5px"/> and
-<img class="math" src="../_images/math/09897835e360be72d6764a4ad54ae7fbaae8dfb8.svg" alt="x_{j+1}" style="vertical-align: -5px"/>; as the data do not show this strong oscillation,
-<img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> will be poor and the fitting algorithm will decide to
-adjust the parameter <img class="math" src="../_images/math/dd2452992229e3caed399ac26f1f522487356413.svg" alt="y_j" style="vertical-align: -5px"/> only with a tiny amount; the big
-improvement in <img class="math" src="../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> would only come if <em>all</em> values of
-<img class="math" src="../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -3px"/> were adjusted simultaneously.</p>
+<img class="math" src="../_images/math/8455644e700bc0ba687516ffaa618026d0ba01ea.svg" alt="x_{j-1}" style="vertical-align: -5px"/> and <img class="math" src="../_images/math/6a391c18fea4ca9b97dd3e2ec4ed46513be93b4d.svg" alt="x_j" style="vertical-align: -5px"/> and between <img class="math" src="../_images/math/6a391c18fea4ca9b97dd3e2ec4ed46513be93b4d.svg" alt="x_j" style="vertical-align: -5px"/> and
+<img class="math" src="../_images/math/f662af3091fb5c5c46450c10ae85eb3cdb0301c8.svg" alt="x_{j+1}" style="vertical-align: -5px"/>; as the data do not show this strong oscillation,
+<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> will be poor and the fitting algorithm will decide to
+adjust the parameter <img class="math" src="../_images/math/3039f26f795da97b6740f394e827650bc4aa7a77.svg" alt="y_j" style="vertical-align: -5px"/> only with a tiny amount; the big
+improvement in <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> would only come if <em>all</em> values of
+<img class="math" src="../_images/math/1a9aa621cf896b76118d007c0bcfaa05f7089bb1.svg" alt="y_i" style="vertical-align: -3px"/> were adjusted simultaneously.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">type</span></code> : The parameter <em>type</em> defined above; allowed values are 1–4.
 Default value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">n</span></code> : The number of grid points <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>. Should be at least 2.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">low</span></code> : Lower x-value <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">upp</span></code> : Upper x-value <img class="math" src="../_images/math/9f7e9f63b74b9c414caf25a307cd65512c6f117a.svg" alt="b_2" style="vertical-align: -2px"/>. Take care to take
-<img class="math" src="../_images/math/b69dc59688e7840e8d657f3e6d40d1af6530f185.svg" alt="b_2&gt;b_1" style="vertical-align: -2px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">x001</span></code> : First x-value, by definition equal to <img class="math" src="../_images/math/bf6c924c070f6d86800eda4b5b122642616964a3.svg" alt="b_1" style="vertical-align: -2px"/>.
-<img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>-values are not allowed to vary (i.e. you may not fit them).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">n</span></code> : The number of grid points <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>. Should be at least 2.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">low</span></code> : Lower x-value <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">upp</span></code> : Upper x-value <img class="math" src="../_images/math/3dda060367488e532a494355b4e9d2241b04fffc.svg" alt="b_2" style="vertical-align: -2px"/>. Take care to take
+<img class="math" src="../_images/math/7ffbf7a6179e083ea2292f1ee689e024a26c4285.svg" alt="b_2&gt;b_1" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">x001</span></code> : First x-value, by definition equal to <img class="math" src="../_images/math/c4aebd911df62071785d77e30eba3375b31fee5e.svg" alt="b_1" style="vertical-align: -2px"/>.
+<img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/>-values are not allowed to vary (i.e. you may not fit them).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">x002</span></code> : Second x-value</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">x003</span></code> : Third x-value</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">...</span></code> : Other x-values</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">x999</span></code> : last x-value, by definition equal to <img class="math" src="../_images/math/f741f4b7933167dd5b16f5c8fd8f6987da44b673.svg" alt="b_n" style="vertical-align: -2px"/>. If
-<img class="math" src="../_images/math/36f7ae03e40aa9faf1cedf54369f6c42175628d4.svg" alt="n&lt;999" style="vertical-align: 0px"/>, replace the 999 by the relevant value (for example, if
-<img class="math" src="../_images/math/a71a40c43f1b26e7a424f7bccd85473e0af70eb2.svg" alt="n=237" style="vertical-align: 0px"/>, then the last <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/>-value is x237).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">x999</span></code> : last x-value, by definition equal to <img class="math" src="../_images/math/a282624a398330a2488305936eb190e997fd2efc.svg" alt="b_n" style="vertical-align: -2px"/>. If
+<img class="math" src="../_images/math/98ee63de0b74a2f76b78f3cdece607beab8b3e95.svg" alt="n&lt;999" style="vertical-align: 0px"/>, replace the 999 by the relevant value (for example, if
+<img class="math" src="../_images/math/a4fb8fe16ac2de4d50ffb9bcb5139592128eeee0.svg" alt="n=237" style="vertical-align: 0px"/>, then the last <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/>-value is x237).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">y001</span></code> : First y-value. This is a fittable parameter.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">y002</span></code> : Second y-value</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">y003</span></code> : Third y-value</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">...</span></code> : Other y-values</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">y999</span></code> : last y-value. If <img class="math" src="../_images/math/36f7ae03e40aa9faf1cedf54369f6c42175628d4.svg" alt="n&lt;999" style="vertical-align: 0px"/>, replace the 999 by the
-relevant value (for example, if <img class="math" src="../_images/math/a71a40c43f1b26e7a424f7bccd85473e0af70eb2.svg" alt="n=237" style="vertical-align: 0px"/>, then the last
-<img class="math" src="../_images/math/da3d5a93edea243a09f9e0b6771fc54167121192.svg" alt="y" style="vertical-align: -3px"/>-value is 237).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y999</span></code> : last y-value. If <img class="math" src="../_images/math/98ee63de0b74a2f76b78f3cdece607beab8b3e95.svg" alt="n&lt;999" style="vertical-align: 0px"/>, replace the 999 by the
+relevant value (for example, if <img class="math" src="../_images/math/a4fb8fe16ac2de4d50ffb9bcb5139592128eeee0.svg" alt="n=237" style="vertical-align: 0px"/>, then the last
+<img class="math" src="../_images/math/b7216b278103166781d56f1f401bc11e7d2a07ad.svg" alt="y" style="vertical-align: -3px"/>-value is 237).</div>
 </div>
 </section>
 
@@ -165,7 +163,9 @@ relevant value (for example, if <img class="math" src="../_images/math/a71a40c43
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -202,14 +202,14 @@ relevant value (for example, if <img class="math" src="../_images/math/a71a40c43
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="speith.html" title="previous chapter"><span class="section-number">4.1.36. </span>Spei: relativistic line broadening model</a></li>
-      <li>Next: <a href="ssd.html" title="next chapter"><span class="section-number">4.1.38. </span>SSD: Shakura-Sunyaev disk model</a></li>
+      <li>Previous: <a href="speith.html" title="previous chapter"><span class="section-number">4.1.37. </span>Spei: relativistic line broadening model</a></li>
+      <li>Next: <a href="ssd.html" title="next chapter"><span class="section-number">4.1.39. </span>SSD: Shakura-Sunyaev disk model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -217,7 +217,7 @@ relevant value (for example, if <img class="math" src="../_images/math/a71a40c43
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -232,7 +232,7 @@ relevant value (for example, if <img class="math" src="../_images/math/a71a40c43
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

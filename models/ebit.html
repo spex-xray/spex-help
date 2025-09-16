@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4.1.14. Ebit: laboratory astrophysics model &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/ebit.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1.15. Ebv: Galactic interstellar extinction model" href="ebv.html" />
+    <link rel="prev" title="4.1.13. Dust: dust scattering model" href="dust.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="ebit-laboratory-astrophysics-model">
+<h1><span class="section-number">4.1.14. </span>Ebit: laboratory astrophysics model<a class="headerlink" href="#ebit-laboratory-astrophysics-model" title="Link to this heading">¶</a></h1>
+<p>The EBIT model is a flexible emission line model designed to benchmark the
+SPEX atomic database directly against laboratory spectra, particularly from
+Electron Beam Ion Trap (EBIT) experiments.</p>
+<p>This model calculates collisional excitation, including resonant excitation,
+and the resulting line emission due to ion-electron interactions. It operates
+per ion, as specified by the user. The EBIT model does not include other
+processes such as radiative recombination, dielectronic recombination, or
+continuum emission.</p>
+<p>EBIT assumes a mono-energetic electron beam, as opposed to the Maxwellian
+electron distribution used in the CIE model.</p>
+<p>There are no assumptions about ion concentration. Neighboring ion populations
+are typically set to zero or to a minimal value to prevent numerical overflow.</p>
+<p>To simulate spectra involving multiple charge states, multiple EBIT components must be included.</p>
+<p>The model enables line fitting as a function of principal quantum number <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>.
+All lines within the same <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> shell are scaled by a shared coefficient.</p>
+<p>For details on the excitation cross sections used, please refer to the citations below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Resonant excitation is not fully resolved. For more reliable results, it
+is recommended to focus on continuum excitation.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some emission lines may be underestimated due to difficulty in separating
+resonant from continuum excitation.If significant discrepancies with laboratory
+data are observed, consult the SPEX support team for validation.</p>
+</div>
+<p>The parameters of the model are:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : Beam energy <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">iz</span></code> : Element number <img class="math" src="../_images/math/6e0711c9f4bd8428022cf1194f1718a6c2b5e565.svg" alt="iz" style="vertical-align: 0px"/>. Default value: 26.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">jz</span></code> : Spectroscopic charge <img class="math" src="../_images/math/84fa6b6fbb281590ebe31e9faa736fb6640c16a4.svg" alt="jz" style="vertical-align: -3px"/>. Default value: 25. (Default is set to Fe XXV)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : The emission measure <img class="math" src="../_images/math/b19d78f84f7d5834acb101c820ea6911516ca0f0.svg" alt="n_{\mathrm e} n_{\mathrm i} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/d0f3c90ec9ef5341be5994a6bfcf739550c28d0f.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cn02</span></code> : Scaling coefficient for n=2. Default value: 1</div>
+<div class="line"><img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cn30</span></code> : Scaling coefficient for n=30. Default value: 1</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cnde</span></code> : Scaling coefficient for doubly excited lines. Default value: 1</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fwhm</span></code> : Full width half maximum of the instrumental broadening in keV. Default value: 0.001</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">info</span></code> : If set to 1, save model vs. database comparison to ebit_info:math:<cite>iz_</cite><img class="math" src="../_images/math/84fa6b6fbb281590ebe31e9faa736fb6640c16a4.svg" alt="jz" style="vertical-align: -3px"/>.txt.</div>
+</div>
+<p>Default value: 1</p>
+<p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..51G/abstract">Gu et al. (2019)</a>
+and
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJS..263...35M/abstract">Mao et al. (2022)</a></p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">3. Command overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../models.html">4. Spectral models</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="over.html">4.1. Overview of spectral components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">4.2. Optimizing model performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">5. Additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">7. Help &amp; troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory.html">8. SPEX Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises.html">9. Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">10. Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">11. Credits</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
+  <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
+      <li>Previous: <a href="dust.html" title="previous chapter"><span class="section-number">4.1.13. </span>Dust: dust scattering model</a></li>
+      <li>Next: <a href="ebv.html" title="next chapter"><span class="section-number">4.1.15. </span>Ebv: Galactic interstellar extinction model</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+        Last updated on: Sep 16, 2025.<br>
+    
+        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+    
+
+</div>
+
+  </body>
+</html>

@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.18. Gain: Modify the energy scale of the model to compensate instrumental gain errors &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.19. Gain: Modify the energy scale of the model to compensate instrumental gain errors &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/gain.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.19. Gaus: gaussian line model" href="gaus.html" />
-    <link rel="prev" title="4.1.17. File: model read from a file" href="file.html" />
+    <link rel="next" title="4.1.20. Gaus: gaussian line model" href="gaus.html" />
+    <link rel="prev" title="4.1.18. File: model read from a file" href="file.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,25 +34,25 @@
           <div class="body" role="main">
             
   <section id="gain-modify-the-energy-scale-of-the-model-to-compensate-instrumental-gain-errors">
-<h1><span class="section-number">4.1.18. </span>Gain: Modify the energy scale of the model to compensate instrumental gain errors<a class="headerlink" href="#gain-modify-the-energy-scale-of-the-model-to-compensate-instrumental-gain-errors" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4.1.19. </span>Gain: Modify the energy scale of the model to compensate instrumental gain errors<a class="headerlink" href="#gain-modify-the-energy-scale-of-the-model-to-compensate-instrumental-gain-errors" title="Link to this heading">¶</a></h1>
 <p>This multiplicative, operative model allows to stretch the energy scale of the spectral
 model to which it is applied. The number of photons is conserved, but the energy
-<img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> of each photon is changed to <img class="math" src="../_images/math/fe01fdcc91bfa1ed030db9265f23bcf96401ed01.svg" alt="E^{\prime}" style="vertical-align: 0px"/> with the relation:</p>
+<img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E" style="vertical-align: 0px"/> of each photon is changed to <img class="math" src="../_images/math/6c828961c7bcc71bf9dd5d561c4441e4b6106aa1.svg" alt="E^{\prime}" style="vertical-align: 0px"/> with the relation:</p>
 <div class="math">
-<p><img src="../_images/math/6ed01ba19a8dca68ea1768f08a918abb4e083aeb.svg" alt="E^{\prime} = E (1 + z(x)),"/></p>
-</div><p>where <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> can be either energy E, wavelength <img class="math" src="../_images/math/76566000ccc091eb223afe3a02d385191b144e7e.svg" alt="\lambda" style="vertical-align: 0px"/>, or the logarithm of energy or wavelength.
-The function <img class="math" src="../_images/math/71a30d2a5b16053e1f48482799ae5725de13211a.svg" alt="z(x)" style="vertical-align: -4px"/> is a Chebychev polynomial with up to 10 terms, defined in
-the energy interval <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> to <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (always given as energy in keV, even when the user
-chooses to use <img class="math" src="../_images/math/b064738a8e2d0580f36fda1fd227044f81a1c482.svg" alt="x" style="vertical-align: 0px"/> as logarithmic value or wavelength.</p>
+<p><img src="../_images/math/8dacf173fe19274d0268acddb38070e483e2d10a.svg" alt="E^{\prime} = E (1 + z(x)),"/></p>
+</div><p>where <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> can be either energy E, wavelength <img class="math" src="../_images/math/a3d74b08114f0efde832335b7892e04944b1e258.svg" alt="\lambda" style="vertical-align: 0px"/>, or the logarithm of energy or wavelength.
+The function <img class="math" src="../_images/math/e34352077817b1189171ce61cdbb8204197bceab.svg" alt="z(x)" style="vertical-align: -4px"/> is a Chebychev polynomial with up to 10 terms, defined in
+the energy interval <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> to <img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> (always given as energy in keV, even when the user
+chooses to use <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> as logarithmic value or wavelength.</p>
 <p>The user also has an option to produce an ascii-file named ‘spexgain.asc’ in the directory
-where SPEX is running. This contains three columns: the original energy <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> in keV, the
-modified energy <img class="math" src="../_images/math/fe01fdcc91bfa1ed030db9265f23bcf96401ed01.svg" alt="E^{\prime}" style="vertical-align: 0px"/> in keV, and the factor <img class="math" src="../_images/math/71a30d2a5b16053e1f48482799ae5725de13211a.svg" alt="z(x)" style="vertical-align: -4px"/> at that energy.
+where SPEX is running. This contains three columns: the original energy <img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E" style="vertical-align: 0px"/> in keV, the
+modified energy <img class="math" src="../_images/math/6c828961c7bcc71bf9dd5d561c4441e4b6106aa1.svg" alt="E^{\prime}" style="vertical-align: 0px"/> in keV, and the factor <img class="math" src="../_images/math/e34352077817b1189171ce61cdbb8204197bceab.svg" alt="z(x)" style="vertical-align: -4px"/> at that energy.
 This output is only produced when the parameter out=1 is set.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>although the model does not put constraints upon the amplitudes of the Chebychev
 polynomials (they are in principle fittable parameters), the user must take care that their
-values are not too extreme. For extreme values, the modified energies <img class="math" src="../_images/math/fe01fdcc91bfa1ed030db9265f23bcf96401ed01.svg" alt="E^{\prime}" style="vertical-align: 0px"/>
+values are not too extreme. For extreme values, the modified energies <img class="math" src="../_images/math/6c828961c7bcc71bf9dd5d561c4441e4b6106aa1.svg" alt="E^{\prime}" style="vertical-align: 0px"/>
 may not be a monotonous function of their index, which may lead to unreliable or wrong results.
 When the flag “out=1” is turned on, the user gets a warning when this condition occurs
 (turning the mode on during spectral fitting may produces repeated error warnings for each
@@ -62,9 +60,9 @@ evaluation where this condition occurs, so be warned).</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><img class="math" src="../_images/math/71a30d2a5b16053e1f48482799ae5725de13211a.svg" alt="z(x)" style="vertical-align: -4px"/> is only evaluated between the energies <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>. Outside this range, we put <img class="math" src="../_images/math/892a8f435ee96bda61427fa532e2d0b1de9ff0e5.svg" alt="z(x)=0" style="vertical-align: -4px"/>. Note that this may lead to some
-discontinuities at the energies <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> or  <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/>. For this reason, their
+<p><img class="math" src="../_images/math/e34352077817b1189171ce61cdbb8204197bceab.svg" alt="z(x)" style="vertical-align: -4px"/> is only evaluated between the energies <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/>. Outside this range, we put <img class="math" src="../_images/math/e31d004cc4b6b0f0307c27ec73a21f97ea5d1fcc.svg" alt="z(x)=0" style="vertical-align: -4px"/>. Note that this may lead to some
+discontinuities at the energies <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> or  <img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/>. For this reason, their
 derfault values are put to very small resp. very high values.</p>
 </div>
 <p>The parameters of the model are:</p>
@@ -76,18 +74,18 @@ even if the corresponding scaling parameter is non-zero.</div>
 evaluation of the Chebychev polynomials.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">log</span></code> : Wheter to use a linear grid (log=0, default) or a logarithmic grid (log=1) for the
 evaluation of the Chebychev polynomials.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">e1</span></code> : The Chebychev polynomials are evaluated only between energy <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (both in keV). Default value: <img class="math" src="../_images/math/41fd9f26c5e2bf832b3599e7b579e886f854cb5a.svg" alt="E_1=10^{-20}" style="vertical-align: -2px"/>. Outside this range
-we force <img class="math" src="../_images/math/892a8f435ee96bda61427fa532e2d0b1de9ff0e5.svg" alt="z(x)=0" style="vertical-align: -4px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">e2</span></code> : The Chebychev polynomials are evaluated only between energy <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (both in keV). Default value: <img class="math" src="../_images/math/296ec54e716b8ba7d724856a407389984eb53312.svg" alt="E_2=10^{20}" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">e1</span></code> : The Chebychev polynomials are evaluated only between energy <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> (both in keV). Default value: <img class="math" src="../_images/math/8512e6fd9711f93c6326c4ea3624ca4071d1aa9d.svg" alt="E_1=10^{-20}" style="vertical-align: -2px"/>. Outside this range
+we force <img class="math" src="../_images/math/e31d004cc4b6b0f0307c27ec73a21f97ea5d1fcc.svg" alt="z(x)=0" style="vertical-align: -4px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">e2</span></code> : The Chebychev polynomials are evaluated only between energy <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> (both in keV). Default value: <img class="math" src="../_images/math/09830d405472220492cb93c5bc205d03aef680e0.svg" alt="E_2=10^{20}" style="vertical-align: -2px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">out</span></code> : Whether output of the gain correction (out=1) is desired or not (out=0, default).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">p0</span></code> : first chebychev term (a constant). Note that due to the definition of chebychev
 polynomials, the gain is half of this; for example, p0=0.1 leads toa 5% gain correction.
 Default value: 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">p1</span></code> : next chebychev term (linear). Default value 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">p2</span></code> : next chebychev term (linear). Default value 0.</div>
-<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">p9</span></code> : 9th order chebychev term. Default value 0.</div>
+<div class="line"><img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">p9</span></code> : 9th order chebychev term. Default value 0.</div>
 </div>
 </section>
 
@@ -100,7 +98,9 @@ Default value: 0.</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -137,14 +137,14 @@ Default value: 0.</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="file.html" title="previous chapter"><span class="section-number">4.1.17. </span>File: model read from a file</a></li>
-      <li>Next: <a href="gaus.html" title="next chapter"><span class="section-number">4.1.19. </span>Gaus: gaussian line model</a></li>
+      <li>Previous: <a href="file.html" title="previous chapter"><span class="section-number">4.1.18. </span>File: model read from a file</a></li>
+      <li>Next: <a href="gaus.html" title="next chapter"><span class="section-number">4.1.20. </span>Gaus: gaussian line model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -152,7 +152,7 @@ Default value: 0.</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -167,7 +167,7 @@ Default value: 0.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

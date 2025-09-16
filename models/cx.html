@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4.1.8. CX: model for charge exchange plasmas &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/cx.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="cx-model-for-charge-exchange-plasmas">
-<span id="sect-cx"></span><h1><span class="section-number">4.1.8. </span>CX: model for charge exchange plasmas<a class="headerlink" href="#cx-model-for-charge-exchange-plasmas" title="Permalink to this heading">¶</a></h1>
+<span id="sect-cx"></span><h1><span class="section-number">4.1.8. </span>CX: model for charge exchange plasmas<a class="headerlink" href="#cx-model-for-charge-exchange-plasmas" title="Link to this heading">¶</a></h1>
 <p>This model calculates the spectrum emitted from a hot plasma when it
 recombines with cold neutral materials. This model is based on three key
 assumptions: (1) it considers only single electron capture in a
@@ -45,34 +43,34 @@ atomic hydrogen target, (3) electronic collisional excitation and
 recombination are ignored in the spectral calculation. More information
 can be found in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
 <section id="charge-exchange-cross-sections">
-<h2><span class="section-number">4.1.8.1. </span>Charge exchange cross sections<a class="headerlink" href="#charge-exchange-cross-sections" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.8.1. </span>Charge exchange cross sections<a class="headerlink" href="#charge-exchange-cross-sections" title="Link to this heading">¶</a></h2>
 <p>The CX cross section data used in the model are partly taken from
 literature, including quantum molecular-orbital close-coupling
-calculations for <img class="math" src="../_images/math/389a469d4d9c3d57a3607a9b38fadd13ed592445.svg" alt="\mathrm C^{5+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ba3e7fc78c209c2e3f5b64b6e6952fb1c01a4763.svg" alt="\mathrm O^{6+}" style="vertical-align: 0px"/> by
+calculations for <img class="math" src="../_images/math/8e03c3459d53184858e09c5b65fbe023d4682de2.svg" alt="\mathrm C^{5+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/fb33d06fd092414cf07d247c8568d0727f74e557.svg" alt="\mathrm O^{6+}" style="vertical-align: 0px"/> by
 <a class="reference external" href="https://doi.org/10.1088/0953-4075/45/23/235201">Wu et al. (2012)</a>
 and <a class="reference external" href="https://doi.org/10.1088/0953-4075/45/24/245202">Nolte et al. (2012)</a>,
-multi-channel Laudau-Zener results for <img class="math" src="../_images/math/63b2706ca3e2a3cf684da16fc5acfb8f2d688f07.svg" alt="\mathrm Fe^{25+}" style="vertical-align: 0px"/> and
-<img class="math" src="../_images/math/a19afdd029aa9f9a5ade5ba05e2a0b1e6abc735a.svg" alt="\mathrm Fe^{26+}" style="vertical-align: 0px"/> by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ApJS..224...31M/abstract">Mullen et al. (2016)</a>, other data
-compilations for <img class="math" src="../_images/math/7cc4dd3aed1a07cbbc7bef17f7f740948f64eeaa.svg" alt="\mathrm C^{6+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/b5d29ad1d7318eaf8dd111a4637c8a7d14f155fb.svg" alt="\mathrm O^{8+}" style="vertical-align: 0px"/> by
+multi-channel Laudau-Zener results for <img class="math" src="../_images/math/3f9f8270c4c8e63315031d3f8314c72f7732c82a.svg" alt="\mathrm Fe^{25+}" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/1703a335ea7dae9930026ad81d9b479fd0a2419b.svg" alt="\mathrm Fe^{26+}" style="vertical-align: 0px"/> by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ApJS..224...31M/abstract">Mullen et al. (2016)</a>, other data
+compilations for <img class="math" src="../_images/math/bedc6af9108a433b56b1814b434a21b7fc03cc90.svg" alt="\mathrm C^{6+}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/2570b1c0d012afaecf790ae6427cbd5d8ca24bbd.svg" alt="\mathrm O^{8+}" style="vertical-align: 0px"/> by
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993ADNDT..55..201J/abstract">Janev et al. (1993)</a>,
 and the NIFS Charge Transfer Database
-(CHART)  <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for <img class="math" src="../_images/math/d9b8b2cc4ebac007b9ff14df828f83bb82912ba8.svg" alt="\mathrm Be^{4+}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/c82a316f1fd773cfa6467044b22047e077d0dfc3.svg" alt="\mathrm B^{5+}" style="vertical-align: 0px"/>,
-<img class="math" src="../_images/math/20fb6d5646f28f85af6addf12a910b5d5393960e.svg" alt="\mathrm N^{7+}" style="vertical-align: 0px"/>, and <img class="math" src="../_images/math/8441ea480fdf6b1f0d016c3f5dbfeb0a8d827b83.svg" alt="\mathrm Ne^{10+}" style="vertical-align: 0px"/>. For CHART database, we
+(CHART)  <a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for <img class="math" src="../_images/math/224451f5af04864a2f005b0fa52e4d0244a36da9.svg" alt="\mathrm Be^{4+}" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/30165b6c5a4ff1ee5c64727e66dd50bce11356ed.svg" alt="\mathrm B^{5+}" style="vertical-align: 0px"/>,
+<img class="math" src="../_images/math/26fb3f9f51988676167a6187d9cb0947434e10d8.svg" alt="\mathrm N^{7+}" style="vertical-align: 0px"/>, and <img class="math" src="../_images/math/d5ca6baa6b8a796fcebf1acabfb18f19ad948f7b.svg" alt="\mathrm Ne^{10+}" style="vertical-align: 0px"/>. For CHART database, we
 extracted all the data, from both theoretical calculations and
 experiments (see a full list in Table 1 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>),
 and fitted them with Eq.2 of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a> in the energy
 range of interests. In typical astrophysical velocity range
-(<img class="math" src="../_images/math/e2195ccada191eb57b0342c5fa887af793e23976.svg" alt="\sim 100-5000" style="vertical-align: -1px"/> km <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>), the useful CHART data are
+(<img class="math" src="../_images/math/d7c623cfc45f93002a31313b09168e47215c25da.svg" alt="\sim 100-5000" style="vertical-align: -1px"/> km <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>), the useful CHART data are
 usually from molecular-orbital and atomic-orbital close-coupling
 methods, and a few classical trajectory Monte Carlo calculations. All
 the above data are dependent on collision energy, and resolved to levels
-described by quantum number <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/bccad83a1105dedc3922a21dbc9435e7bbe4d62d.svg" alt="l" style="vertical-align: 0px"/>.</p>
+described by quantum number <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/4e3f6621e5e5202679ec75e7d4b93a8913b9aff1.svg" alt="l" style="vertical-align: 0px"/>.</p>
 <p>For ions not available in public sources, we developed a new method to
 interpolate by analyzing the known ions. First we used a scaling law to
 determine total cross section for each ion, and applied another scaling
-law to represent the <img class="math" src="../_images/math/101e77fe425252eb6c0ba042f4a0a8cc5cfb002a.svg" alt="n-" style="vertical-align: -1px"/> selectivity. The <img class="math" src="../_images/math/8c76fc64a6522d468ab25613ce650d2efdf1cff0.svg" alt="l-" style="vertical-align: -1px"/> dependence
+law to represent the <img class="math" src="../_images/math/c914553ca0d675772aa1b39902903f5cdf5d61a0.svg" alt="n-" style="vertical-align: -1px"/> selectivity. The <img class="math" src="../_images/math/8807847f3a4da3257b8291716444c7b93a1d2afb.svg" alt="l-" style="vertical-align: -1px"/> dependence
 is approximated by one of the five empirical weighting functions
-presented in Eqs.<img class="math" src="../_images/math/ce92356a81b5b234e064c37f3c4e0612cb89dfec.svg" alt="4-8" style="vertical-align: -1px"/> of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
+presented in Eqs.<img class="math" src="../_images/math/6283fb1a85bed367c97251106d3b93bf34461664.svg" alt="4-8" style="vertical-align: -1px"/> of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The CX model only works with the updated atomic database set
@@ -91,62 +89,64 @@ experiments become available.</p>
 </div>
 </section>
 <section id="parameter-description">
-<h2><span class="section-number">4.1.8.2. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.8.2. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Link to this heading">¶</a></h2>
 <p>The parameters of the CX model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : the normalisation, which is the emission measure
-<img class="math" src="../_images/math/b617b9341d6633769a5e847859155a4354a8e32a.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm nh} V" style="vertical-align: -2px"/> in units of
-<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, where
-<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/8fe55f1a0687a70933a508b585f88e130d23a2d5.svg" alt="n_{\mathrm nh}" style="vertical-align: -2px"/> are the Hydrogen
+<img class="math" src="../_images/math/017ca934fca642de5d39ab377095bb83e1fda9b2.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm nh} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/d0f3c90ec9ef5341be5994a6bfcf739550c28d0f.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, where
+<img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/21a95cb828d708384ea9e3c5270936223d4475d3.svg" alt="n_{\mathrm nh}" style="vertical-align: -2px"/> are the Hydrogen
 densities of the ionized and neutral materials, respectively, and
-<img class="math" src="../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> is the effective interaction volume. Default value: 1.</div>
+<img class="math" src="../_images/math/54621bdbc29ff70df385cb16c46bbbe8af511788.svg" alt="V" style="vertical-align: 0px"/> is the effective interaction volume. Default value: 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density of the neutral materials in units of
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> (or <img class="math" src="../_images/math/ec8f0eda6b74e73d2064fccc92e96a21c1983abc.svg" alt="10^{14}" style="vertical-align: 0px"/>
-<img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>).
-Default value: <img class="math" src="../_images/math/e6a84054eab4e0a886622798559262af5b4ebe58.svg" alt="10^{-14}" style="vertical-align: 0px"/>.</div>
+<img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> (or <img class="math" src="../_images/math/b3d63983ea18bc99414b037a2b8f2e07f7b1323e.svg" alt="10^{14}" style="vertical-align: 0px"/>
+<img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>).
+Default value: <img class="math" src="../_images/math/69ffa4e748436e49710d68523f412d7a63a84b78.svg" alt="10^{-14}" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code> : Switch between a hot-cold interaction driven by thermal
 motion of hot plasma, and the one dominated by flow velocity. Default
 value: 2 (kinematic).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the ionization temperature of hot matter in keV. It is also
 used to approximate the thermal motion when mode is set to 1. Default
 value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">sig</span></code> : the width <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the gaussian emission measure
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sig</span></code> : the width <img class="math" src="../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the gaussian emission measure
 profile. Default value: 0. (no temperature distribution i.e.
 isothermal)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">sup</span></code> : the width <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the high-temperature part of
-the gaussian emission measure profile. If larger than <img class="math" src="../_images/math/373534238f84ddb3c99a028005ff5f9c61d9f2bc.svg" alt="10^{-5}" style="vertical-align: 0px"/>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sup</span></code> : the width <img class="math" src="../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the high-temperature part of
+the gaussian emission measure profile. If larger than <img class="math" src="../_images/math/e10def739f2f5a73a8853a6ce1148bece2cae3b3.svg" alt="10^{-5}" style="vertical-align: 0px"/>
 keV, the sig parameter becomes the sigma value for the low-temperature
 end. Default value: 0</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">logt</span></code> : Switch between linear and logarithmic temperature scale for
 the gaussian emission measure profile. Default value: 1 (logarithmic)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Collision velocity in unit of km <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>, used when
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Collision velocity in unit of km <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>, used when
 mode is set to 2. Default value: 100</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">op</span></code> : Switch between single and multiple collisions for each ion.
 In multiple collision case, one ion would continuously undergo CX and
 produce various emission lines, until it becomes neutral. Default: 1
 (single)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">wt</span></code> : Weighting functions for subshell <img class="math" src="../_images/math/8c76fc64a6522d468ab25613ce650d2efdf1cff0.svg" alt="l-" style="vertical-align: -1px"/> population. When
-wt is set to 1, the <img class="math" src="../_images/math/8c76fc64a6522d468ab25613ce650d2efdf1cff0.svg" alt="l-" style="vertical-align: -1px"/> population is approximated by a series
+<div class="line"><code class="docutils literal notranslate"><span class="pre">wt</span></code> : Weighting functions for subshell <img class="math" src="../_images/math/8807847f3a4da3257b8291716444c7b93a1d2afb.svg" alt="l-" style="vertical-align: -1px"/> population. When
+wt is set to 1, the <img class="math" src="../_images/math/8807847f3a4da3257b8291716444c7b93a1d2afb.svg" alt="l-" style="vertical-align: -1px"/> population is approximated by a series
 of empirical functions that switchs from one to another as a function
 of collision velocity. See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a> for details.
-These empirical functions are defined in Eqs. <img class="math" src="../_images/math/ce92356a81b5b234e064c37f3c4e0612cb89dfec.svg" alt="4-8" style="vertical-align: -1px"/> of
+These empirical functions are defined in Eqs. <img class="math" src="../_images/math/6283fb1a85bed367c97251106d3b93bf34461664.svg" alt="4-8" style="vertical-align: -1px"/> of
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>,
-and will be selected when wt is set to <img class="math" src="../_images/math/9aab044c575c57394efed2c9860a665d465f8831.svg" alt="2-6" style="vertical-align: -1px"/>, respectively. Default: 1</div>
+and will be selected when wt is set to <img class="math" src="../_images/math/1f4345903fb2c64af692a182849cdb0c3ac6efa6.svg" alt="2-6" style="vertical-align: -1px"/>, respectively. Default: 1</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">vrms</span></code> : RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : reference element. Default value 1 (hydrogen). See above for
 more details. The value corresponds to the atomic number of the
 reference element.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">01</span></code> : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">02</span></code> : Abundance of helium (He, Z=2) in Solar units. Default 1.</div>
-<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">30</span></code> : Abundance of zinc (Zn, Z=30) in Solar units.
+<div class="line"><img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">30</span></code> : Abundance of zinc (Zn, Z=30) in Solar units.
 Default 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal distribution. If not present,
 nonthermal effects are not taken into account (default).</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract">Gu et al. (2016)</a>.</p>
+<aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id8" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="http://dbshino.nifs.ac.jp/">http://dbshino.nifs.ac.jp/</a></p>
+</aside>
 </aside>
 </section>
 </section>
@@ -160,7 +160,9 @@ nonthermal effects are not taken into account (default).</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -204,7 +206,7 @@ nonthermal effects are not taken into account (default).</div>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -212,7 +214,7 @@ nonthermal effects are not taken into account (default).</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -227,7 +229,7 @@ nonthermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

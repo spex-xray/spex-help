@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.26. Mbb: modified blackbody model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.27. Mbb: modified blackbody model &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/mbb.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.27. Musr: User defined multiplicative model" href="musr.html" />
-    <link rel="prev" title="4.1.25. Lpro: spatial broadening model" href="lpro.html" />
+    <link rel="next" title="4.1.28. Musr: User defined multiplicative model" href="musr.html" />
+    <link rel="prev" title="4.1.26. Lpro: spatial broadening model" href="lpro.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="mbb-modified-blackbody-model">
-<h1><span class="section-number">4.1.26. </span>Mbb: modified blackbody model<a class="headerlink" href="#mbb-modified-blackbody-model" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4.1.27. </span>Mbb: modified blackbody model<a class="headerlink" href="#mbb-modified-blackbody-model" title="Link to this heading">¶</a></h1>
 <p>This model describes the spectrum of a black body modified by coherent
 Compton scattering. This is in several instances a much better
 description than a simple black body (for example accretion disk spectra
@@ -44,22 +42,22 @@ of AGN). The physical background is described for example by
 <a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman (1986)</a>,
 pages 218–219. The formulae that we use here with a derivation are given by
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989A%26A...226...59K/abstract">Kaastra &amp; Barr (1989)</a>.
-From that work we derive the spectrum (<img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> photons/s/keV):</p>
+From that work we derive the spectrum (<img class="math" src="../_images/math/a36065d5c5a7b087b5eed391e899f7542044a61d.svg" alt="10^{44}" style="vertical-align: 0px"/> photons/s/keV):</p>
 <div class="math">
-<p><img src="../_images/math/96d86c61b7cce8910bb66e97e1c13fc66eee1f1c.svg" alt="N(E) = 1358. \frac{A E^{0.25} }{ e^{E/T} (e^{E/T}-1)}"/></p>
-</div><p>where <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> the temperature
-in keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> the normalisation in units of
-<img class="math" src="../_images/math/eee001ced025872b6c8700b002fac1c650a74de3.svg" alt="10^{26}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/6e9ec13d1cc11c77997c26fa0cda965a0d9f6b7b.svg" alt="\mathrm{m}^{0.5}" style="vertical-align: 0px"/>, defined by</p>
+<p><img src="../_images/math/274a5845f6a13c8fa0d405cc3bfc798dfa29ff79.svg" alt="N(E) = 1358. \frac{A E^{0.25} }{ e^{E/T} (e^{E/T}-1)}"/></p>
+</div><p>where <img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/> the temperature
+in keV and <img class="math" src="../_images/math/16d06aab1997308bd05dbe19b75775631dd6bc62.svg" alt="A" style="vertical-align: 0px"/> the normalisation in units of
+<img class="math" src="../_images/math/f97bd57077ee28e5e386540a9c31167613e69bed.svg" alt="10^{26}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/1d8c0e3fd72d9cf0ae30b8b7922b309af904851b.svg" alt="\mathrm{m}^{0.5}" style="vertical-align: 0px"/>, defined by</p>
 <div class="math">
-<p><img src="../_images/math/81e653e81283d8271caf2261f63afa541646b097.svg" alt="A = n_{\mathrm e}^{0.5}O"/></p>
-</div><p>with <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> the electron density (units:
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/07872deda91e0a79433faaed619be0ad1ff6e6bd.svg" alt="O" style="vertical-align: 0px"/> the emitting source area
-(units: <img class="math" src="../_images/math/a0236e3d3ceabddd953324dad75f50c1f83ce39e.svg" alt="10^{16}" style="vertical-align: 0px"/> m).</p>
+<p><img src="../_images/math/2c95e4b7de450e5364d742ff2965034e33bbbe83.svg" alt="A = n_{\mathrm e}^{0.5}O"/></p>
+</div><p>with <img class="math" src="../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> the electron density (units:
+<img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/b353e3a436e890fcd02db0de3983d578fd2baea3.svg" alt="O" style="vertical-align: 0px"/> the emitting source area
+(units: <img class="math" src="../_images/math/70ba2a5ebf6fda50d1c7275d7f9aa4a24cef512b.svg" alt="10^{16}" style="vertical-align: 0px"/> m).</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> (in units of
-<img class="math" src="../_images/math/eee001ced025872b6c8700b002fac1c650a74de3.svg" alt="10^{26}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/6e9ec13d1cc11c77997c26fa0cda965a0d9f6b7b.svg" alt="\mathrm{m}^{0.5}" style="vertical-align: 0px"/>). Default value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : The temperature <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 1 keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/16d06aab1997308bd05dbe19b75775631dd6bc62.svg" alt="A" style="vertical-align: 0px"/> (in units of
+<img class="math" src="../_images/math/f97bd57077ee28e5e386540a9c31167613e69bed.svg" alt="10^{26}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/1d8c0e3fd72d9cf0ae30b8b7922b309af904851b.svg" alt="\mathrm{m}^{0.5}" style="vertical-align: 0px"/>). Default value: 1.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : The temperature <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/> in keV. Default value: 1 keV.</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1989A%26A...226...59K/abstract">Kaastra &amp; Barr (1989)</a> and
 <a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman (1986)</a>.</p>
@@ -74,7 +72,9 @@ in keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22d
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -111,14 +111,14 @@ in keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22d
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="lpro.html" title="previous chapter"><span class="section-number">4.1.25. </span>Lpro: spatial broadening model</a></li>
-      <li>Next: <a href="musr.html" title="next chapter"><span class="section-number">4.1.27. </span>Musr: User defined multiplicative model</a></li>
+      <li>Previous: <a href="lpro.html" title="previous chapter"><span class="section-number">4.1.26. </span>Lpro: spatial broadening model</a></li>
+      <li>Next: <a href="musr.html" title="next chapter"><span class="section-number">4.1.28. </span>Musr: User defined multiplicative model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -126,7 +126,7 @@ in keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22d
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -141,7 +141,7 @@ in keV and <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22d
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

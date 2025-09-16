@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.23. Laor: relativistic line broadening model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.24. Laor: relativistic line broadening model &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/laor.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.24. Line: transmission model for a single spectral line" href="line.html" />
-    <link rel="prev" title="4.1.22. Knak: segmented power law transmission model" href="knak.html" />
+    <link rel="next" title="4.1.25. Line: transmission model for a single spectral line" href="line.html" />
+    <link rel="prev" title="4.1.23. Knak: segmented power law transmission model" href="knak.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,28 +34,28 @@
           <div class="body" role="main">
             
   <section id="laor-relativistic-line-broadening-model">
-<h1><span class="section-number">4.1.23. </span>Laor: relativistic line broadening model<a class="headerlink" href="#laor-relativistic-line-broadening-model" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4.1.24. </span>Laor: relativistic line broadening model<a class="headerlink" href="#laor-relativistic-line-broadening-model" title="Link to this heading">¶</a></h1>
 <p>This multiplicative model broadens an arbitrary additive component with
 a relativistic line profile. The relativistic line profile is
 interpolated from tables produced by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1991ApJ...376...90L/abstract">Laor (1991)</a>. In
 his model, the line transfer function is determined for emission from
 the equatorial plane around a Kerr black hole, assuming an emissivity
-law <img class="math" src="../_images/math/b3cc34a5dd96d840b4b585b2ebc15560d6520332.svg" alt="I(\cos\theta) \sim 1. +
+law <img class="math" src="../_images/math/a88dcf923c15c7d23c077ef7aaa39cfc7f76242c.svg" alt="I(\cos\theta) \sim 1. +
 2.06\cos\theta" style="vertical-align: -4px"/>. The transfer function is calculated at a grid of 35
-radii (<img class="math" src="../_images/math/c1abed1eef06f7d5b44428eada91a780d19598d9.svg" alt="r_n = 1600 / (n+1)^2" style="vertical-align: -4px"/> for <img class="math" src="../_images/math/644990c75d96ff796df5b6bbb1650364c31047d6.svg" alt="n=1,\ldots,35" style="vertical-align: -3px"/>, in units
-of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>), 31 inclinations uniformly spaced in <img class="math" src="../_images/math/35e916312e8c6b9d8ec805b6801a0b2587de6872.svg" alt="\cos i" style="vertical-align: 0px"/>,
+radii (<img class="math" src="../_images/math/b306d405e688ec4a07aaccd24fbf8d0ef55e2fce.svg" alt="r_n = 1600 / (n+1)^2" style="vertical-align: -4px"/> for <img class="math" src="../_images/math/c73dc2bc6757de8640028004986a9d0c7fe289fa.svg" alt="n=1,\ldots,35" style="vertical-align: -3px"/>, in units
+of <img class="math" src="../_images/math/97c48b0a2989261b33a8a174c266089ddbd2f356.svg" alt="GM/c^2" style="vertical-align: -4px"/>), 31 inclinations uniformly spaced in <img class="math" src="../_images/math/3d844322140dd3e0fe906b86155805d7d1e7581c.svg" alt="\cos i" style="vertical-align: 0px"/>,
 and 300 frequencies, logarithmically spaced between 0.1 and 5 times the
 emission frequency, respectively.</p>
 <p>Using these numbers, a radial integration is done using an emissivity
 law</p>
 <div class="math">
-<p><img src="../_images/math/8cb0c51f7c0e82ce2250be4c70c3cbbd8e4ba1ad.svg" alt="I(r) \sim 1 / (r^2 + h^2)^{q/2},"/></p>
-</div><p>where <img class="math" src="../_images/math/6f9cefe9e20e56872ed9330a00a13f76cdde82e3.svg" alt="h" style="vertical-align: 0px"/> is a characteristic scale height and <img class="math" src="../_images/math/1d87f1a3525beebc9c67d456d82f14c4d0a7bdf1.svg" alt="q" style="vertical-align: -3px"/> an
-asymptotic power law index (for large <img class="math" src="../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/>,
-<img class="math" src="../_images/math/b094d6e339b1759c071ceebd9307effa02017ce9.svg" alt="I(r)\sim r^{-q}" style="vertical-align: -4px"/>). The integration is done between an inner
-radius <img class="math" src="../_images/math/60c5649c039395020528849f3f354d8b22f94771.svg" alt="r_1" style="vertical-align: -2px"/> and an outer radius <img class="math" src="../_images/math/aadf6890b17b6213b0dacfcbbe7ee01af3e01bfa.svg" alt="r_2" style="vertical-align: -2px"/>. Given the radial
+<p><img src="../_images/math/f93b748a66c0e98712057b04511abbdbf3f735ab.svg" alt="I(r) \sim 1 / (r^2 + h^2)^{q/2},"/></p>
+</div><p>where <img class="math" src="../_images/math/bb4763e4ca1692f0d33ce4f1c36306a0ae33bc40.svg" alt="h" style="vertical-align: 0px"/> is a characteristic scale height and <img class="math" src="../_images/math/f2a3d49cd5812a2807b027877b2816714b4d2390.svg" alt="q" style="vertical-align: -3px"/> an
+asymptotic power law index (for large <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/>,
+<img class="math" src="../_images/math/53f72721277c47c9babef440db68a97535c2f143.svg" alt="I(r)\sim r^{-q}" style="vertical-align: -4px"/>). The integration is done between an inner
+radius <img class="math" src="../_images/math/cdea3fcdf7cc55b689538b712b414ffec47ff62e.svg" alt="r_1" style="vertical-align: -2px"/> and an outer radius <img class="math" src="../_images/math/9f694bbbfbb53ae3ed4dab7052e05e94445d9dc9.svg" alt="r_2" style="vertical-align: -2px"/>. Given the radial
 grid that is provided in Laor’s data, the outer radius extends out to at
-most <img class="math" src="../_images/math/528a19b1cf5bc9770a298ed82871901dae2f9375.svg" alt="400GM/c^2" style="vertical-align: -4px"/>.</p>
+most <img class="math" src="../_images/math/97c55d8dd34ce542ef25fe076dc3e80e4a70b0df.svg" alt="400GM/c^2" style="vertical-align: -4px"/>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Of course, any line or continuum emission component can be
@@ -67,17 +65,17 @@ involved.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The outer radius cannot be larger than <img class="math" src="../_images/math/528a19b1cf5bc9770a298ed82871901dae2f9375.svg" alt="400GM/c^2" style="vertical-align: -4px"/>.</p>
+<p>The outer radius cannot be larger than <img class="math" src="../_images/math/97c55d8dd34ce542ef25fe076dc3e80e4a70b0df.svg" alt="400GM/c^2" style="vertical-align: -4px"/>.</p>
 </div>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">r1</span></code> : Inner radius of the disk, in units of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>. The
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r1</span></code> : Inner radius of the disk, in units of <img class="math" src="../_images/math/97c48b0a2989261b33a8a174c266089ddbd2f356.svg" alt="GM/c^2" style="vertical-align: -4px"/>. The
 minimum allowed value is 1.234 (for a maximally rotating Kerr black
 hole). For a Schwarzschild black hole, one should take
-<img class="math" src="../_images/math/075890fc63dda3e8906c10db540f0bbbbe987d06.svg" alt="r_i = 6" style="vertical-align: -2px"/>. Default value: 1.234.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">r2</span></code> : Outer radius of the disk, in units of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Keep
+<img class="math" src="../_images/math/65c3d1b18aa65f997b975e16f567aeff4ea52da5.svg" alt="r_i = 6" style="vertical-align: -2px"/>. Default value: 1.234.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r2</span></code> : Outer radius of the disk, in units of <img class="math" src="../_images/math/97c48b0a2989261b33a8a174c266089ddbd2f356.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Keep
 this radius less than 400 (default value)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">q</span></code> : Emissivity slope <img class="math" src="../_images/math/1d87f1a3525beebc9c67d456d82f14c4d0a7bdf1.svg" alt="q" style="vertical-align: -3px"/> as described above. Default value:
+<div class="line"><code class="docutils literal notranslate"><span class="pre">q</span></code> : Emissivity slope <img class="math" src="../_images/math/f2a3d49cd5812a2807b027877b2816714b4d2390.svg" alt="q" style="vertical-align: -3px"/> as described above. Default value:
 2.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">h</span></code> : Emissivity scale height. Default value: 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">i</span></code> : Inclination angle (in degrees) of the disk (angle between line
@@ -96,7 +94,9 @@ degrees.</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -133,14 +133,14 @@ degrees.</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="knak.html" title="previous chapter"><span class="section-number">4.1.22. </span>Knak: segmented power law transmission model</a></li>
-      <li>Next: <a href="line.html" title="next chapter"><span class="section-number">4.1.24. </span>Line: transmission model for a single spectral line</a></li>
+      <li>Previous: <a href="knak.html" title="previous chapter"><span class="section-number">4.1.23. </span>Knak: segmented power law transmission model</a></li>
+      <li>Next: <a href="line.html" title="next chapter"><span class="section-number">4.1.25. </span>Line: transmission model for a single spectral line</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -148,7 +148,7 @@ degrees.</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -163,7 +163,7 @@ degrees.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.20. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.21. Hot: collisional ionisation equilibrium absorption model &#8212; SPEX Help Center 3.08.01 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/hot.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.21. Hyd: model with user-own hydrodynamical simulation" href="hyd.html" />
-    <link rel="prev" title="4.1.19. Gaus: gaussian line model" href="gaus.html" />
+    <link rel="next" title="4.1.22. Hyd: model with user-own hydrodynamical simulation" href="hyd.html" />
+    <link rel="prev" title="4.1.20. Gaus: gaussian line model" href="gaus.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="hot-collisional-ionisation-equilibrium-absorption-model">
-<span id="sect-hot"></span><h1><span class="section-number">4.1.20. </span>Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Permalink to this heading">¶</a></h1>
+<span id="sect-hot"></span><h1><span class="section-number">4.1.21. </span>Hot: collisional ionisation equilibrium absorption model<a class="headerlink" href="#hot-collisional-ionisation-equilibrium-absorption-model" title="Link to this heading">¶</a></h1>
 <p>This model calculates the transmission of a plasma in collisional
 ionisation equilibrium with cosmic abundances.</p>
 <p>For a given temperature and set of abundances, the model calculates the
@@ -48,44 +46,44 @@ multiplying the transmission of the individual ions.</p>
 description of what is currently in the absorption line database, we
 refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-absmodels"><span class="std std-ref">Absorption model theory</span></a>. By default, the model mimics
 the transmission of a neutral plasma by setting the default
-temperature to 1E-3 eV (<img class="math" src="../_images/math/16a748e84fd1a50b0b47b94e8f2a0705f20affcc.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV).</p>
+temperature to 1E-3 eV (<img class="math" src="../_images/math/ca0aec24c3adbbe3a221e0a51b73ed0f0b865552.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV).</p>
 <p>Please note that since SPEXACT updates 3.06.00 and 3.06.01, the
 behaviour of the hot model at low temperatures changed. Since these
 versions, SPEX includes also charge exchange processes in the hot
 model and these change the ionisation balance at low temperature.
 While for previous SPEX versions, setting a temperature of
-<img class="math" src="../_images/math/6f33adba9d23db12b19748eeb0244a7b99e8bd9a.svg" alt="5 \times 10^{-4}" style="vertical-align: -1px"/> was enough to obtain a neutral gas,
-now, the temperature needs to be set to <img class="math" src="../_images/math/16a748e84fd1a50b0b47b94e8f2a0705f20affcc.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV
+<img class="math" src="../_images/math/d1b9628a34c96c20eb019464d7925befc927f1f5.svg" alt="5 \times 10^{-4}" style="vertical-align: -1px"/> was enough to obtain a neutral gas,
+now, the temperature needs to be set to <img class="math" src="../_images/math/ca0aec24c3adbbe3a221e0a51b73ed0f0b865552.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV
 to obtain the same result.</p>
 <p>Since the hot model is mostly used to model neutral gas in the ISM,
 we decided to set the default temperature to the minimum temperature
-of <img class="math" src="../_images/math/16a748e84fd1a50b0b47b94e8f2a0705f20affcc.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV. This should result in a neutral gas
+of <img class="math" src="../_images/math/ca0aec24c3adbbe3a221e0a51b73ed0f0b865552.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV. This should result in a neutral gas
 and give the user the result most users expect.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
-Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/c82f983f78a3e6ca7341f7bdf44e0a7c9c6dccfa.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/51c02b157c3292b0e10b5faa5291d538d5f8b1a8.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
 latitudes).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default
-value: <img class="math" src="../_images/math/16a748e84fd1a50b0b47b94e8f2a0705f20affcc.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the electron temperature <img class="math" src="../_images/math/812856d56fdbbbde335de217566dd235aebfc807.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default
+value: <img class="math" src="../_images/math/ca0aec24c3adbbe3a221e0a51b73ed0f0b865552.svg" alt="1 \times 10^{-6}" style="vertical-align: -1px"/> keV.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">rt</span></code> : the ratio of ionization balance to electron temperature,
-<img class="math" src="../_images/math/86dd84fbdc6943c38ddfdd03cf9b0c65ec0f0ed6.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
+<img class="math" src="../_images/math/a95b7084f0c6dc0676fc677ed46e303658c9c32a.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
 value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
-Default value: <img class="math" src="../_images/math/e6a84054eab4e0a886622798559262af5b4ebe58.svg" alt="10^{-14}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/b30f5c26eed3ad38bcfe0b42446a9a0476a10ebc.svg" alt="10^{6}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, a typical value for the ISM).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density in <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/69ffa4e748436e49710d68523f412d7a63a84b78.svg" alt="10^{-14}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/ab49ad1298f1996438e2c0dc89905d5646850ee2.svg" alt="10^{6}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, a typical value for the ISM).</div>
 </div>
 <p>The following parameters are common to all our absorption models:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (full
 covering)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
+<div class="line"><code class="docutils literal notranslate"><span class="pre">v</span></code> : Root mean square velocity <img class="math" src="../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">rms</span></code> : Rms velocity <img class="math" src="../_images/math/cb9340f8edc9c90f166f9bc3ca9324e362ab550f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> of line blend
 components</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dv</span></code> : Velocity distance <img class="math" src="../_images/math/0ab13866f2e184cf618e658fa8eac854400b7834.svg" alt="\Delta v" style="vertical-align: 0px"/> between different blend
 components</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/26f466833af51f7aab1f2bda409fcc52eb979a05.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zv</span></code> : Average systematic velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift)</div>
 </div>
 <p>The following parameters are the same as for the cie-model (<a class="reference internal" href="cie.html#sect-cie"><span class="std std-ref">Cie: collisional ionisation equilibrium model</span></a>):</p>
 <div class="line-block">
@@ -107,7 +105,9 @@ components</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -144,14 +144,14 @@ components</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="gaus.html" title="previous chapter"><span class="section-number">4.1.19. </span>Gaus: gaussian line model</a></li>
-      <li>Next: <a href="hyd.html" title="next chapter"><span class="section-number">4.1.21. </span>Hyd: model with user-own hydrodynamical simulation</a></li>
+      <li>Previous: <a href="gaus.html" title="previous chapter"><span class="section-number">4.1.20. </span>Gaus: gaussian line model</a></li>
+      <li>Next: <a href="hyd.html" title="next chapter"><span class="section-number">4.1.22. </span>Hyd: model with user-own hydrodynamical simulation</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -159,7 +159,7 @@ components</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -174,7 +174,7 @@ components</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 16, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
