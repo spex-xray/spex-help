@@ -1,0 +1,55 @@
+Ebit: laboratory astrophysics model
+===================================
+
+The EBIT model is a flexible emission line model designed to benchmark the
+SPEX atomic database directly against laboratory spectra, particularly from
+Electron Beam Ion Trap (EBIT) experiments.
+
+This model calculates collisional excitation, including resonant excitation,
+and the resulting line emission due to ion-electron interactions. It operates
+per ion, as specified by the user. The EBIT model does not include other
+processes such as radiative recombination, dielectronic recombination, or
+continuum emission.
+
+EBIT assumes a mono-energetic electron beam, as opposed to the Maxwellian
+electron distribution used in the CIE model. 
+
+There are no assumptions about ion concentration. Neighboring ion populations
+are typically set to zero or to a minimal value to prevent numerical overflow.
+
+To simulate spectra involving multiple charge states, multiple EBIT components must be included.
+
+The model enables line fitting as a function of principal quantum number :math:`n`.
+All lines within the same :math:`n` shell are scaled by a shared coefficient.
+
+For details on the excitation cross sections used, please refer to the citations below.
+
+
+.. Warning:: Resonant excitation is not fully resolved. For more reliable results, it
+	     is recommended to focus on continuum excitation.
+
+.. Warning:: Some emission lines may be underestimated due to difficulty in separating
+	     resonant from continuum excitation.If significant discrepancies with laboratory
+	     data are observed, consult the SPEX support team for validation.
+	     
+The parameters of the model are:
+
+| ``t`` : Beam energy :math:`T` in keV. Default value: 1 keV.
+| ``iz`` : Element number :math:`iz`. Default value: 26.
+| ``jz`` : Spectroscopic charge :math:`jz`. Default value: 25. (Default is set to Fe XXV)
+| ``norm`` : The emission measure :math:`n_{\mathrm e} n_{\mathrm i} V` in units of
+  :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 1.
+| ``cn02`` : Scaling coefficient for n=2. Default value: 1
+| :math:`\ldots`
+| ``cn30`` : Scaling coefficient for n=30. Default value: 1
+| ``cnde`` : Scaling coefficient for doubly excited lines. Default value: 1
+| ``fwhm`` : Full width half maximum of the instrumental broadening in keV. Default value: 0.001
+| ``info`` : If set to 1, save model vs. database comparison to ebit_info:math:`iz_`:math:`jz`.txt.
+Default value: 1
+
+
+*Recommended citation:* `Gu et al. (2019)
+<https://ui.adsabs.harvard.edu/abs/2019A%26A...627A..51G/abstract>`_
+and
+`Mao et al. (2022)
+<https://ui.adsabs.harvard.edu/abs/2022ApJS..263...35M/abstract>`_

@@ -23,6 +23,7 @@ Currently the following models are implemented in SPEX:
    delt
    dem
    dust
+   ebit
    ebv
    etau
    euve
