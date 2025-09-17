@@ -1,16 +1,19 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4.1.13. Dust: dust scattering model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/dust.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -19,9 +22,8 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
-
   
-  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
   
@@ -34,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="dust-dust-scattering-model">
-<h1><span class="section-number">4.1.13. </span>Dust: dust scattering model<a class="headerlink" href="#dust-dust-scattering-model" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">4.1.13. </span>Dust: dust scattering model<a class="headerlink" href="#dust-dust-scattering-model" title="Permalink to this heading">¶</a></h1>
 <p>This model calculates the effective transmission of dust that scatters
 photons out of the line of sight. No re-emission is taken into account,
 i.e. it is assumed that all scattered photons are lost from the line of
@@ -48,9 +50,9 @@ This website contains slightly updated cross sections for three cases as listed
 below. The scattering is computed for a Carbonaceous - Silicate Model
 for Interstellar Dust. The cases are:</p>
 <ol class="arabic simple">
-<li><p>set=1: for <img class="math" src="../_images/math/0eb49cb0b33ffb74593d0e47ddf9c5d271b941f0.svg" alt="R_V=3.1" style="vertical-align: -2px"/>;</p></li>
-<li><p>set=2: for <img class="math" src="../_images/math/e08f47e5586757c6d3f1b5177460151465a74d88.svg" alt="R_V=4.0" style="vertical-align: -2px"/>;</p></li>
-<li><p>set=3: for <img class="math" src="../_images/math/8952991970e337b56a9ac8a52b8f30f5ca66399b.svg" alt="R_V=5.5" style="vertical-align: -2px"/>.</p></li>
+<li><p>set=1: for <img class="math" src="../_images/math/32ff3c3f0593e0dedc9e7a022ef4df31712b605e.svg" alt="R_V=3.1" style="vertical-align: -2px"/>;</p></li>
+<li><p>set=2: for <img class="math" src="../_images/math/b171c5502ebe250d26a7b90ede7ee3591954b741.svg" alt="R_V=4.0" style="vertical-align: -2px"/>;</p></li>
+<li><p>set=3: for <img class="math" src="../_images/math/600709bf761e1f9017995bbfaeb488e2d1c3c57b.svg" alt="R_V=5.5" style="vertical-align: -2px"/>.</p></li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -67,9 +69,9 @@ dust absorption.</p>
 </div>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/c82f983f78a3e6ca7341f7bdf44e0a7c9c6dccfa.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
-Default value: <img class="math" src="../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/51c02b157c3292b0e10b5faa5291d538d5f8b1a8.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nh</span></code> : Hydrogen column density in <img class="math" src="../_images/math/ab6e04e5ca2234069abfab6259b6c07dac8127b5.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
+Default value: <img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
+<img class="math" src="../_images/math/f36d19d17cfe311910a982e8b4571ac20ec2e83c.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
 latitudes).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (full
 covering)</div>
@@ -87,9 +89,7 @@ covering)</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
-    
-    <h1 class="logo logo-name">SPEX</h1>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
     
   </a>
 </p>
@@ -133,7 +133,7 @@ covering)</div>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -141,7 +141,7 @@ covering)</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</search>
+</div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -156,7 +156,7 @@ covering)</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 16, 2025.<br>
+        Last updated on: Sep 17, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

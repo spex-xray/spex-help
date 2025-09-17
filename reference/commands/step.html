@@ -56,6 +56,20 @@ incases of complicated correlations between parameters.</p>
 <p class="admonition-title">Warning</p>
 <p>Beware of the cpu-time if you have a fine grid or many dimensions!</p>
 </div>
+<p>Because the step terminal output can be quite long and <a class="reference external" href="https://github.com/spex-xray/spex-help/issues/44">cause issues in
+some cases</a>, we suppress
+the terminal output when an output file is requested. If you want to follow
+the progress of the steps, you can open a new terminal and use the <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span></code>
+command.</p>
+<p>In your SPEX terminal, you give the <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">file</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPEX</span><span class="o">&gt;</span> <span class="n">step</span> <span class="n">file</span> <span class="n">pargrid</span>
+</pre></div>
+</div>
+<p>While this is running, open a new terminal window and change to your working
+directory. Now you can give the <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span></code> command and follow the progress:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unix</span><span class="p">:</span><span class="o">~&gt;</span> <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">pargrid</span><span class="o">.</span><span class="n">stp</span>
+</pre></div>
+</div>
 </section>
 <section id="syntax">
 <h2><span class="section-number">3.1.30.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
@@ -184,7 +198,7 @@ on your screen (and/or output file if you opened one).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Oct 10, 2024.<br>
+        Last updated on: Sep 17, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

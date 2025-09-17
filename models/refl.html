@@ -1,16 +1,19 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4.1.34. Refl: reflection model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/refl.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -19,9 +22,8 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
-
   
-  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
   
@@ -34,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="refl-reflection-model">
-<span id="sect-refl"></span><h1><span class="section-number">4.1.34. </span>Refl: reflection model<a class="headerlink" href="#refl-reflection-model" title="Link to this heading">¶</a></h1>
+<span id="sect-refl"></span><h1><span class="section-number">4.1.34. </span>Refl: reflection model<a class="headerlink" href="#refl-reflection-model" title="Permalink to this heading">¶</a></h1>
 <p>This model was kindly provided by Piotr Zycki. The related programs in
 XSPEC are <code class="docutils literal notranslate"><span class="pre">felipl</span></code> and <code class="docutils literal notranslate"><span class="pre">ferfschw</span></code>. The first one gives the reflected
 continuum (i.e. pexrav/pexriv) plus the line with correct energy and
@@ -52,21 +54,21 @@ Ne, Mg, Si, S and Fe. The standard abundances are taken from
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract">Morrison &amp; McCammon (1983)</a>.</p>
 <p>The incoming spectrum is characterized by:</p>
 <div class="math">
-<p><img src="../_images/math/19b6fc3bd4b97eb968b1b2dd3524adf1adb3b5e4.svg" alt="N_i(E) = A E^{-\Gamma}\exp \left[ -E/E_c \right],"/></p>
-</div><p>where <img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/523640a0ddaaa33e0abde12f513f19a5356ad6aa.svg" alt="N_i(E)" style="vertical-align: -4px"/> the number
-of photons per per second per keV, <img class="math" src="../_images/math/086bf686ca2b36fc53fa64b0a4be2e9ec92a342f.svg" alt="\Gamma" style="vertical-align: 0px"/> is the photon index
-and <img class="math" src="../_images/math/f6c93d11fae5b65a4f19eb8a4c813d739b737007.svg" alt="E_c" style="vertical-align: -2px"/> a cut-off energy. The normalisation <img class="math" src="../_images/math/16d06aab1997308bd05dbe19b75775631dd6bc62.svg" alt="A" style="vertical-align: 0px"/> is in
-units of <img class="math" src="../_images/math/a36065d5c5a7b087b5eed391e899f7542044a61d.svg" alt="10^{44}" style="vertical-align: 0px"/> photons <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/68f9c723a4514b8ef6d38009c2e67e7fdc381fb4.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> at
+<p><img src="../_images/math/f9ea0bac4fc8dd12ec0ab0fda1227547600f4876.svg" alt="N_i(E) = A E^{-\Gamma}\exp \left[ -E/E_c \right],"/></p>
+</div><p>where <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/> is the photon energy in keV, <img class="math" src="../_images/math/e44df1486803275ee83ba47bd609801c8be701f7.svg" alt="N_i(E)" style="vertical-align: -4px"/> the number
+of photons per per second per keV, <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> is the photon index
+and <img class="math" src="../_images/math/b5784ba166daa27a5450bdf80ba656c56fff214f.svg" alt="E_c" style="vertical-align: -2px"/> a cut-off energy. The normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> is in
+units of <img class="math" src="../_images/math/10032336f81641b7a7ef5064e6614742acd1d93a.svg" alt="10^{44}" style="vertical-align: 0px"/> photons <img class="math" src="../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/f988464ba000811a3a8df1be26b1986d12559d08.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> at
 1 keV, just the same as in the standard power law model. The total
-spectrum <img class="math" src="../_images/math/64193b230536ea9a00fc89ecc73b3a3ee1197674.svg" alt="N(E)" style="vertical-align: -4px"/> is then given by</p>
+spectrum <img class="math" src="../_images/math/49315f01a4b09d24ed3bc0776b30d12a3f5b9ecd.svg" alt="N(E)" style="vertical-align: -4px"/> is then given by</p>
 <div class="math">
-<p><img src="../_images/math/db399535f898628d4c4b24ff2cc7f66f8bc85422.svg" alt="N(E) = N_i(E) + s R(E),"/></p>
-</div><p>where <img class="math" src="../_images/math/8c7021ceda2b13de66030a1c15c4933c7f6afc4d.svg" alt="R(E)" style="vertical-align: -4px"/> is the reflected spectrum and <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/> is a scaling
+<p><img src="../_images/math/af6bbded54a90ca27e3f613156bf1bcb09de41d3.svg" alt="N(E) = N_i(E) + s R(E),"/></p>
+</div><p>where <img class="math" src="../_images/math/fe26cb6f9c3eddac1865fe28098573dfb90aa329.svg" alt="R(E)" style="vertical-align: -4px"/> is the reflected spectrum and <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> is a scaling
 factor.</p>
 <p>The parameters of the model are:</p>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/16d06aab1997308bd05dbe19b75775631dd6bc62.svg" alt="A" style="vertical-align: 0px"/> of the power law.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">gamm</span></code> : The photon index <img class="math" src="../_images/math/086bf686ca2b36fc53fa64b0a4be2e9ec92a342f.svg" alt="\Gamma" style="vertical-align: 0px"/> of the ionising spectrum.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalisation <img class="math" src="../_images/math/c96547a77b05ea2772dc163b08f22dd7b92cadc9.svg" alt="A" style="vertical-align: 0px"/> of the power law.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gamm</span></code> : The photon index <img class="math" src="../_images/math/76ef9888650b0c8f9eee16fbf04f98539128c778.svg" alt="\Gamma" style="vertical-align: 0px"/> of the ionising spectrum.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">ecut</span></code> : The cut-off energy (keV) of the ionising spectrum. If no
 cut-off is desired, take this parameter zero (and keep it frozen!).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">pow</span></code> : If pow=1, the incoming power law is added to the spectrum
@@ -75,23 +77,23 @@ cut-off is desired, take this parameter zero (and keep it frozen!).</div>
 disk profile (default); if disk=0, this is not done.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fgr</span></code> : Full general relativity used (default, for fgr=1).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : Temperature of the reflector (disk) in keV.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : Ionisation parameter <img class="math" src="../_images/math/b9a7db419b5a8d555ababa2527e34c26b6f3c27b.svg" alt="\xi=L/nr^2" style="vertical-align: -4px"/> in the usual (c.g.s.
-based) units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">xi</span></code> : Ionisation parameter <img class="math" src="../_images/math/ab4d2b1f6df066c75d4fd2d9a0caa9034e2885db.svg" alt="\xi=L/nr^2" style="vertical-align: -4px"/> in the usual (c.g.s.
+based) units of <img class="math" src="../_images/math/6a4b79279044493855d396b733ee7b812a8e73ae.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">abun</span></code> : The abundance of all metals excluding H and He, in solar
 units</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">feab</span></code> : The iron abundance with respect to the other metals</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">cosi</span></code> : The cosine of the inclination angle of the disk.
-<img class="math" src="../_images/math/c7d1b8ce1e00809c4beac569f5273d77513cd6ac.svg" alt="\cos i=0" style="vertical-align: 0px"/> (<img class="math" src="../_images/math/a21025af4cdb6ef11f3bc13b833f0a5c001fb806.svg" alt="i=\pi/2" style="vertical-align: -4px"/>) corresponds to edge-on</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">scal</span></code> : Scale <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/> for reflection. For an isotropic source
-above the disk <img class="math" src="../_images/math/665c60178695a2bf9e09515fdfb81900f477469d.svg" alt="s=1" style="vertical-align: 0px"/>. This value corresponds to seeing equal
+<img class="math" src="../_images/math/bc1bbe71dff66ab6f4b63b82c4a7769bf0023162.svg" alt="\cos i=0" style="vertical-align: 0px"/> (<img class="math" src="../_images/math/6098a42b7ebee8c6c121ac02f32fede62c4f54fd.svg" alt="i=\pi/2" style="vertical-align: -4px"/>) corresponds to edge-on</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">scal</span></code> : Scale <img class="math" src="../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> for reflection. For an isotropic source
+above the disk <img class="math" src="../_images/math/b36c9eae45473b7d7f00eb71bf532a6a6d8dfd02.svg" alt="s=1" style="vertical-align: 0px"/>. This value corresponds to seeing equal
 contributions from the reflected and direct spectra.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">q</span></code> : Emissivity index for the accretion disk; default value -3 (the
-emissivity scales with <img class="math" src="../_images/math/5a1c5e86606e67c82b72fef193e2b11e91ddc8c1.svg" alt="r^{+q}" style="vertical-align: 0px"/> at large radii, so <img class="math" src="../_images/math/3acd2bc66f62ef4a51e1a7e022112163247655db.svg" alt="q=-3" style="vertical-align: -3px"/>
-means <img class="math" src="../_images/math/69e772961cd07074ff4df8d4a342be21952d5f7c.svg" alt="r^-3" style="vertical-align: 0px"/>. Note the sign difference with the Laor model.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">r1</span></code> : Inner radius of the disk in units of <img class="math" src="../_images/math/97c48b0a2989261b33a8a174c266089ddbd2f356.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Default:
+emissivity scales with <img class="math" src="../_images/math/2bd6a638b2d481e5d5b477182c6ab8c0908e437e.svg" alt="r^{+q}" style="vertical-align: 0px"/> at large radii, so <img class="math" src="../_images/math/a51c1c06233eb3a0ebca41d381996f55a21b2c03.svg" alt="q=-3" style="vertical-align: -3px"/>
+means <img class="math" src="../_images/math/09a269b07971eac46fffea6b06070d059b92080e.svg" alt="r^-3" style="vertical-align: 0px"/>. Note the sign difference with the Laor model.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r1</span></code> : Inner radius of the disk in units of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Default:
 10.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">r2</span></code> : Outer radius of the disk in units of <img class="math" src="../_images/math/97c48b0a2989261b33a8a174c266089ddbd2f356.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Default:
-<img class="math" src="../_images/math/66b8dcc90cc06e833e7a49a3cb85fb1044a55149.svg" alt="10^4" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r2</span></code> : Outer radius of the disk in units of <img class="math" src="../_images/math/8d6fdd22c3bcc8a5e0ef419014463b0f040936a7.svg" alt="GM/c^2" style="vertical-align: -4px"/>. Default:
+<img class="math" src="../_images/math/57ee462f2d69ae200ca8e70947ea719113cc159c.svg" alt="10^4" style="vertical-align: 0px"/>.</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995MNRAS.273..837M/abstract">Magdziarz &amp; Zdziarski (1995)</a> and
 <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1999MNRAS.305..231Z/abstract">Zicky et al. (1999)</a></p>
@@ -106,9 +108,7 @@ means <img class="math" src="../_images/math/69e772961cd07074ff4df8d4a342be21952
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
-    
-    <h1 class="logo logo-name">SPEX</h1>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
     
   </a>
 </p>
@@ -152,7 +152,7 @@ means <img class="math" src="../_images/math/69e772961cd07074ff4df8d4a342be21952
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -160,7 +160,7 @@ means <img class="math" src="../_images/math/69e772961cd07074ff4df8d4a342be21952
       <input type="submit" value="Go" />
     </form>
     </div>
-</search>
+</div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -175,7 +175,7 @@ means <img class="math" src="../_images/math/69e772961cd07074ff4df8d4a342be21952
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 16, 2025.<br>
+        Last updated on: Sep 17, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     

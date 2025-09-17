@@ -1,16 +1,19 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4.1.23. Knak: segmented power law transmission model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=6b9f2c8f"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/knak.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -19,9 +22,8 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
-
   
-  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
   
@@ -34,7 +36,7 @@
           <div class="body" role="main">
             
   <section id="knak-segmented-power-law-transmission-model">
-<h1><span class="section-number">4.1.23. </span>Knak: segmented power law transmission model<a class="headerlink" href="#knak-segmented-power-law-transmission-model" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">4.1.23. </span>Knak: segmented power law transmission model<a class="headerlink" href="#knak-segmented-power-law-transmission-model" title="Permalink to this heading">¶</a></h1>
 <p>The knak model is used to model the transmission of any spectrum using a
 set of contiguous segments with a power-law transmission at each
 segment.</p>
@@ -48,35 +50,35 @@ at some relevant energies, and then apply the absorption. An example of
 this last application can be found in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract">Porquet et al. (2004)</a>.</p>
 <p>The Transmission is given by:</p>
 <div class="math">
-<p><img src="../_images/math/1eb032a7ad725c36a98a83af1ea0c87cd6f94f15.svg" alt="T(E) = c_iE^{a_i} \quad \mathrm{if} \quad E_i &lt; E &lt; E_{i+1}"/></p>
-</div><p>for each value of <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/> between 0 and <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>, the number of grid
-points. The transmission is 1 for <img class="math" src="../_images/math/999a9dc28e70f946a95619ce04dc46b953b8d35f.svg" alt="E&lt;E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/51d02712ec1b22805ee522a0619c6dd741ef8c42.svg" alt="E&gt;E_2" style="vertical-align: -2px"/>.
-Further, instead of using the constants <img class="math" src="../_images/math/030e6c676f5268d1e368944cc62db56e7ac386f2.svg" alt="c_i" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/cca65ddcb36cd50b8fd6d10096df79a16ac45dfd.svg" alt="a_i" style="vertical-align: -2px"/>, we
-use instead the values of the transmission at <img class="math" src="../_images/math/1ed790125b5b07b28bfea809c3e3d3701e18b598.svg" alt="E_i" style="vertical-align: -2px"/>, i.e.
-<img class="math" src="../_images/math/fdbc157899c9c8249a2cd88fbd22e4471ca67ec8.svg" alt="T_i \equiv T(E_i) = c_i E_i^{\displaystyle{a_i}}" style="vertical-align: -4px"/>. This allows
+<p><img src="../_images/math/c2fbdc1ec684b2704c78c9bb7a9a663b8eae92ee.svg" alt="T(E) = c_iE^{a_i} \quad \mathrm{if} \quad E_i &lt; E &lt; E_{i+1}"/></p>
+</div><p>for each value of <img class="math" src="../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: 0px"/> between 0 and <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>, the number of grid
+points. The transmission is 1 for <img class="math" src="../_images/math/470031933a315dc7c3779faf17136c3b04e60fc7.svg" alt="E&lt;E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/125501559363bd93c45c9cf0da0ead9bc4d3a275.svg" alt="E&gt;E_2" style="vertical-align: -2px"/>.
+Further, instead of using the constants <img class="math" src="../_images/math/09fea0de52676f21b70eacdb71d1663c5828f141.svg" alt="c_i" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/17c71340327486bebc244c09ed969ebdee802c99.svg" alt="a_i" style="vertical-align: -2px"/>, we
+use instead the values of the transmission at <img class="math" src="../_images/math/f97bd4708860cf07e8b83ef8f71883cd0e0e1a9a.svg" alt="E_i" style="vertical-align: -2px"/>, i.e.
+<img class="math" src="../_images/math/577044306a5618e01c7f87801de26f1009a5e866.svg" alt="T_i \equiv T(E_i) = c_i E_i^{\displaystyle{a_i}}" style="vertical-align: -4px"/>. This allows
 for a continuous connection between neighbouring segments.</p>
 <p>Finally, for historical reasons we use here a wavelength grid instead of
-an energy grid; the corresponding nodes <img class="math" src="../_images/math/2e698d5a750854319db1b1c6f98f8a2a98432953.svg" alt="\lambda_i" style="vertical-align: -2px"/> should
+an energy grid; the corresponding nodes <img class="math" src="../_images/math/f1589f52cb66069f1d896e2a1184e845305dd504.svg" alt="\lambda_i" style="vertical-align: -2px"/> should
 therefore be in strictly increasing order.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When applying this model, take care that at least one of
-the <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> transmission values is kept fixed (otherwise you may run
+the <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> transmission values is kept fixed (otherwise you may run
 the risk that your model is unconstrained, for example if the
 normalisation of the continuum is also a free parameter).</p>
 </div>
 <p>The parameters of the model are:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">n</span></code> : The number of grid points. Maximum value is 9.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">w1</span></code> : Wavelength <img class="math" src="../_images/math/14970009fc7bfeca3cc3aed64551596bf001f275.svg" alt="\lambda_1" style="vertical-align: -2px"/> (Å) of the first grid point</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">f1</span></code> : Transmission <img class="math" src="../_images/math/38b9d66b937d751e960089fb63d28046db4e8b83.svg" alt="T(\lambda_1)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/14970009fc7bfeca3cc3aed64551596bf001f275.svg" alt="\lambda_1" style="vertical-align: -2px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">w2</span></code> : Wavelength <img class="math" src="../_images/math/50dadca5dccf614a70ec0a579c5b95929e2c7f74.svg" alt="\lambda_2" style="vertical-align: -2px"/> (Å) of the second grid point</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">f1</span></code> : Transmission <img class="math" src="../_images/math/e4447a5cb2ff96c1b94fb7d9c8cca283b02f7898.svg" alt="T(\lambda_2)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/50dadca5dccf614a70ec0a579c5b95929e2c7f74.svg" alt="\lambda_2" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w1</span></code> : Wavelength <img class="math" src="../_images/math/24d6c2c46032411476845e306e773dbac09c60b8.svg" alt="\lambda_1" style="vertical-align: -2px"/> (Å) of the first grid point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f1</span></code> : Transmission <img class="math" src="../_images/math/07a5080ef273d5bdb7658334f2a577ed45e14f34.svg" alt="T(\lambda_1)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/24d6c2c46032411476845e306e773dbac09c60b8.svg" alt="\lambda_1" style="vertical-align: -2px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w2</span></code> : Wavelength <img class="math" src="../_images/math/a9b8c5ecf60b50cf033e4948c9ddef54ed5b1714.svg" alt="\lambda_2" style="vertical-align: -2px"/> (Å) of the second grid point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f1</span></code> : Transmission <img class="math" src="../_images/math/fc3b1c882968f2da26da5809ad58b50686384298.svg" alt="T(\lambda_2)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/a9b8c5ecf60b50cf033e4948c9ddef54ed5b1714.svg" alt="\lambda_2" style="vertical-align: -2px"/>.</div>
 <div class="line">…</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">w9</span></code> : Wavelength <img class="math" src="../_images/math/09ee33b65fd8b1ee87ad9896b443fb31869356ec.svg" alt="\lambda_9" style="vertical-align: -2px"/> (Å) of the last grid point</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">f9</span></code> : Transmission <img class="math" src="../_images/math/e8237cfcd27d93af51a246412213fe901bc1dfaa.svg" alt="T(\lambda_9)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/09ee33b65fd8b1ee87ad9896b443fb31869356ec.svg" alt="\lambda_9" style="vertical-align: -2px"/>.</div>
-<div class="line">Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb42130dc82fe86.svg" alt="n&lt;9" style="vertical-align: 0px"/>, the values of <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/2e698d5a750854319db1b1c6f98f8a2a98432953.svg" alt="\lambda_i" style="vertical-align: -2px"/> will be ignored for <img class="math" src="../_images/math/902d71f8ce87573b3a605177010bded399dcad7e.svg" alt="i&gt;n" style="vertical-align: 0px"/>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w9</span></code> : Wavelength <img class="math" src="../_images/math/c1d7e88697e867b1d5e86f916352044db0266a61.svg" alt="\lambda_9" style="vertical-align: -2px"/> (Å) of the last grid point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">f9</span></code> : Transmission <img class="math" src="../_images/math/7d7aa5a69d89a7a87894ac4f3cfd0cbd92c599f1.svg" alt="T(\lambda_9)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/c1d7e88697e867b1d5e86f916352044db0266a61.svg" alt="\lambda_9" style="vertical-align: -2px"/>.</div>
+<div class="line">Note that if <img class="math" src="../_images/math/6ec96ddbf4d10d8dafc6323f2e4eee8a2d007b23.svg" alt="n&lt;9" style="vertical-align: 0px"/>, the values of <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/f1589f52cb66069f1d896e2a1184e845305dd504.svg" alt="\lambda_i" style="vertical-align: -2px"/> will be ignored for <img class="math" src="../_images/math/0e452aec74f397b48dd5e7882b0040b06b97d23f.svg" alt="i&gt;n" style="vertical-align: 0px"/>.</div>
 </div>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract">Porquet et al. (2004)</a>.</p>
 </section>
@@ -90,9 +92,7 @@ normalisation of the continuum is also a free parameter).</p>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
-    
-    <h1 class="logo logo-name">SPEX</h1>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
     
   </a>
 </p>
@@ -136,7 +136,7 @@ normalisation of the continuum is also a free parameter).</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -144,7 +144,7 @@ normalisation of the continuum is also a free parameter).</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</search>
+</div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -159,7 +159,7 @@ normalisation of the continuum is also a free parameter).</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 16, 2025.<br>
+        Last updated on: Sep 17, 2025.<br>
     
         &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
