@@ -40,12 +40,12 @@ Create a conda environment for SPEX (optional, but recommended)
 To make sure that SPEX keeps having access to its dependencies, it is best to install it in its own environment.
 This way, the number of potential conflicts with other packages remains minimal.
 
-Currently, SPEX is available for Python 3.9, 3.10 and 3.11, so please choose a version that matches your needs.
+Currently, SPEX is available for Python 3.10, 3.11 and 3.12, so please choose a version that matches your needs.
 A conda environment can be created with the command below::
 
-    (base) user@linux:~> conda create -n spex python=3.9
+    (base) user@linux:~> conda create -n spex python=3.12
 
-Replace the version number in the flag ``python=3.9`` with the Python version you need. Once the environment
+Replace the version number in the flag ``python=3.12`` with the Python version you need. Once the environment
 is created and the minimal packages are installed, the environment can be activated::
 
     (base) user@linux:~> conda activate spex
@@ -66,13 +66,16 @@ conda environment to make SPEX run directly from the command line::
     (spex) user@linux:~> conda deactivate
     (base) user@linux:~> conda activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.08.01
+     Welcome user to SPEX version 3.08.02
 
-     NEW in this version of SPEX:
-    29-03-2024 Added plot ion command and linid program for line identification
-    27-05-2024 Fixed issue with trafo converting large XRISM matrix
-    15-07-2024 Multiple bugfixes for response binning, tpho, and pyspex
-    15-07-2024 Neutral nitrogen N I oscilator strength correction based on Garcia+09
+     07-10-2025 Added plot component functionality
+     07-10-2025 Added atbl model to load Xspec table models
+     07-10-2025 Added magnetism module for pion
+     07-10-2025 Added ebit model for laboratory astrophysics
+     07-10-2025 Improvement of partial covering factor
+     07-10-2025 Update of quick calculation mode
+
+     Setting the number of threads to  4 for optimal performance.
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 

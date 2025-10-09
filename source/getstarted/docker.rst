@@ -22,7 +22,7 @@ Step 2: Download the SPEX docker image from Zenodo
 The SPEX Docker image is available on `this Zenodo page <https://doi.org/10.5281/zenodo.1924563>`_ as a tar.gz file.
 Please download the file called spex-[version]-Docker.tar.gz, for example::
 
-    spex-3.08.01-Docker.tar.gz
+    spex-3.08.02-Docker.tar.gz
 
 Or, alternatively, you can pull the image from Docker hub with the command: ``docker pull spexxray/spex:latest``.
 
@@ -31,13 +31,13 @@ Step 3: Import the SPEX image into Docker
 
 Before you can run the docker file, it should be imported into the docker system. This can be done on the command line::
 
-    user@linux:~> docker load -i spex-3.08.01-docker.tar.gz
+    user@linux:~> docker load -i spex-3.08.02-docker.tar.gz
 
-The image will be named spexxray/spex with the tag 3.08.01 and can be found with the command::
+The image will be named spexxray/spex with the tag 3.08.02 and can be found with the command::
 
     user@linux:~> docker images
     REPOSITORY TAG IMAGE ID CREATED SIZE
-    spexxray/spex 3.08.01 0a0a0a0a0a0 1 minute ago 996MB
+    spexxray/spex 3.08.02 0a0a0a0a0a0 1 minute ago 996MB
 
 Step 4: Run SPEX on Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,7 +94,7 @@ For Linux::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.08.01
+    spexxray/spex:3.08.02
 
 For Mac::
 
@@ -104,13 +104,13 @@ For Mac::
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /Users/myusername:/home/user \
     -w /home/user \
-    spexxray/spex:3.08.01
+    spexxray/spex:3.08.02
 
 The docker run command above will provide you with a prompt that will allow you to run spex::
 
     user@linux:~> docker run -it -e DISPLAY=$DISPLAY -e LOCAL_USER_ID=`id -u $USER` \
     -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/myusername:/home/user -w /home/user \
-    spexxray/spex:3.08.01
+    spexxray/spex:3.08.02
 
     Welcome to the SPEX Docker Container!
     Just type 'spex' to start the program.
@@ -119,14 +119,18 @@ The docker run command above will provide you with a prompt that will allow you 
 In this environment, you can just run spex or trafo::
 
     user@0922f2e4ff85:~> spex
-     Welcome user to SPEX version 3.08.01
+     Welcome user to SPEX version 3.08.02
 
      NEW in this version of SPEX:
-    29-03-2024 Added plot ion command and linid program for line identification
-    27-05-2024 Fixed issue with trafo converting large XRISM matrix
-    15-07-2024 Multiple bugfixes for response binning, tpho, and pyspex
-    15-07-2024 Neutral nitrogen N I oscilator strength correction based on Garcia+09
+     07-10-2025 Added plot component functionality
+     07-10-2025 Added atbl model to load Xspec table models
+     07-10-2025 Added magnetism module for pion
+     07-10-2025 Added ebit model for laboratory astrophysics
+     07-10-2025 Improvement of partial covering factor
+     07-10-2025 Update of quick calculation mode
 
-    Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
+     Setting the number of threads to  4 for optimal performance.
+
+     Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
     SPEX>
