@@ -121,6 +121,26 @@ the array of :math:`u`-values should be in ascending order. The pairs
 :math:`T=T_1` (the pre-shock temperature), and the final (radiation)
 temperature is the temperature of the last bin.
 
+Plane-parallel shock mode
+~~~~~~~~~~~~~~~~~~~~~~
+
+When a shock propagates through material, different layers behind the shock front
+are heated at different times, and therefore exhibit different ionization ages.
+As a result, the spectrum cannot be fully represented by a single neij component.
+
+By setting ``mode`` = 3, the code approximates a plane-parallel shock. In practice,
+this is done by dividing the ionization timescale parameter ``u`` into 200 logarithmically
+spaced bins, starting from a minimal value near the shock front (set to :math:`10^{-6}`)
+up to the final ``u`` specified as a model parameter. Each shell is given equal
+weight, and the total ionization balance, and hence the resulting spectrum, is obtained
+by summing over all shells.
+
+A current limitation of the pshock mode is that it does not track the evolution
+of electron temperature behind the shock. Work is in progress on an improved
+version of the model that will include full energy balance considerations.
+
+
+
 The parameters of the model are:
 
 | ``t1`` : Temperature :math:`T_1`
@@ -138,7 +158,8 @@ The parameters of the model are:
   “break”. Default value is 0 (constant :math:`n`).
 | ``mode`` : Mode of the model. Mode=1: analytical case; mode=2:
   :math:`T(u)` read from a file. In the latter case, also the parameter
-  ``hisu`` needs to be specified.
+  ``hisu`` needs to be specified. Mode=3: plane-parallel shock. See
+  description above.
 | ``hisu`` : Filename with the :math:`T(u)` values. Only used when
   mode=2.
 

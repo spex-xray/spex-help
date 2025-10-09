@@ -46,13 +46,19 @@ The parameters of the model are:
 
 The following parameters are common to all our absorption models:
 
-| ``fcov`` : The covering factor of the absorber. Default value: 1 (full
-  covering)
+| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
+set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+tangent function that decreases with energy. See description in ``pion``.
+| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+  covering). If icov=3 or 4, it sets the covering factor at the high energy end.
+| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
+lcov is applied only when icov=3 or 4. See description in ``pion``.
+| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
+if icov=3 or 4.
+| ``acov`` : The width of the transit on covering factor. Only applied
+if icov=3 or 4.
 | ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``rms`` : Rms velocity :math:`\sigma_{\mathrm b}` of line blend
-  components
-| ``dv`` : Velocity distance :math:`\Delta v` between different blend
-  components
 | ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift).
 
 The following parameters are the same as for the cie-model (see there

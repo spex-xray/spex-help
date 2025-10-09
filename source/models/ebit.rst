@@ -1,5 +1,5 @@
 Ebit: laboratory astrophysics model
-===================================
+============================================
 
 The EBIT model is a flexible emission line model designed to benchmark the
 SPEX atomic database directly against laboratory spectra, particularly from
@@ -41,7 +41,7 @@ The parameters of the model are:
   :math:`10^{64}` :math:`\mathrm{m}^{-3}`. Default value: 1.
 | ``cn02`` : Scaling coefficient for n=2. Default value: 1
 | :math:`\ldots`
-| ``cn30`` : Scaling coefficient for n=30. Default value: 1
+| ``cn02`` : Scaling coefficient for n=30. Default value: 1
 | ``cnde`` : Scaling coefficient for doubly excited lines. Default value: 1
 | ``fwhm`` : Full width half maximum of the instrumental broadening in keV. Default value: 0.001
 | ``info`` : If set to 1, save model vs. database comparison to ebit_info:math:`iz_`:math:`jz`.txt.

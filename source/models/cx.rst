@@ -58,6 +58,19 @@ presented in Eqs.\ :math:`4-8` of `Gu et al. (2016)
    (especially for molecular targets) from theoretical calculations and
    experiments become available.
 
+
+Ion concentration
+---------------------
+
+There are several reasons why hot plasma at the interface with cold matter may not
+be in exact collisional ionization equilibrium. The parameter ``cmod`` controls whether
+CIE or NEI is assumed for the calculation of charge exchange spectrum. By default,
+``cmod`` is set to 1, corresponding to CIE. When ``cmod`` is set to 2, the plasma
+is treated in NEI, and the parameter ``pt`` and ``u``, together with ``t``, defines the
+ionization balance in the same way as in the ``nei`` model. For a recombining plasma,
+``pt`` should be chosen higher than ``t``.
+
+   
 Parameter description
 ---------------------
 
@@ -79,15 +92,12 @@ The parameters of the CX model are:
 | ``t`` : the ionization temperature of hot matter in keV. It is also
   used to approximate the thermal motion when mode is set to 1. Default
   value: 1.
-| ``sig`` : the width :math:`\sigma_T` of the gaussian emission measure
-  profile. Default value: 0. (no temperature distribution i.e.
-  isothermal)
-| ``sup`` : the width :math:`\sigma_T` of the high-temperature part of
-  the gaussian emission measure profile. If larger than :math:`10^{-5}`
-  keV, the sig parameter becomes the sigma value for the low-temperature
-  end. Default value: 0
-| ``logt`` : Switch between linear and logarithmic temperature scale for
-  the gaussian emission measure profile. Default value: 1 (logarithmic)
+| ``cmod`` : Switch between a CIE and NEI charge balance for the hot
+plasmas. Default value: 1 (CIE).
+| ``pt`` : Pre-shock temperature same as ``t1`` in the ``neij`` model.
+Only applied when ``cmod`` is 2.
+| ``u`` : Ionization parameter :math:`U=n_{\mathrm e}t`. Only applied
+when ``cmod`` is 2.
 | ``zv`` : Collision velocity in unit of km :math:`\mathrm{s}^{-1}`, used when
   mode is set to 2. Default value: 100
 | ``op`` : Switch between single and multiple collisions for each ion.
