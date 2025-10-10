@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8.1.3. Absorption model theory &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>8.1.3. Absorption model theory &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
+    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/spexact/absmodels.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,9 +34,9 @@
           <div class="body" role="main">
             
   <section id="absorption-model-theory">
-<span id="sect-absmodels"></span><h1><span class="section-number">8.1.3. </span>Absorption model theory<a class="headerlink" href="#absorption-model-theory" title="Permalink to this heading">¶</a></h1>
+<span id="sect-absmodels"></span><h1><span class="section-number">8.1.3. </span>Absorption model theory<a class="headerlink" href="#absorption-model-theory" title="Link to this heading">¶</a></h1>
 <section id="introduction">
-<h2><span class="section-number">8.1.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.1.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>In most astrophysical situations we have to take into account
 absorption of photons between the emitting region and the observer.
 Apart from a few standard models like the ones by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1983ApJ...270..119M/abstract">Morrison &amp; McCammon
@@ -56,27 +54,27 @@ in <a class="reference internal" href="atomicabs.html#sect-abs-database"><span c
 <p>A basic assumption in all the absorption models is that there is no
 re-emission, i.e. we look through an absorbing nmedium that has a very
 small solid angle as seen from the X-ray source. This allows essentially
-to calculate the transmission simply as <img class="math" src="../../_images/math/76584c27b1f19e870ae910893ed124bb9b819483.svg" alt="e^{-\tau(E)}" style="vertical-align: 0px"/> with
-<img class="math" src="../../_images/math/bd753a97a8afa4db2f2b2a14a8aaf724c6595d1d.svg" alt="\tau(E)" style="vertical-align: -4px"/> the optical depth.</p>
+to calculate the transmission simply as <img class="math" src="../../_images/math/763fd2fb50a21a91aea83ed2add28774fad5cd5e.svg" alt="e^{-\tau(E)}" style="vertical-align: 0px"/> with
+<img class="math" src="../../_images/math/267daf5ee0e049a325679de852be94a90ac86dc6.svg" alt="\tau(E)" style="vertical-align: -4px"/> the optical depth.</p>
 </section>
 <section id="thomson-scattering">
-<span id="sect-thomson-scattering"></span><h2><span class="section-number">8.1.3.2. </span>Thomson scattering<a class="headerlink" href="#thomson-scattering" title="Permalink to this heading">¶</a></h2>
+<span id="sect-thomson-scattering"></span><h2><span class="section-number">8.1.3.2. </span>Thomson scattering<a class="headerlink" href="#thomson-scattering" title="Link to this heading">¶</a></h2>
 <p>The above approach also allows us to include Thomson-scattering in the
 transmission. Any source photon aimed at the observer but that suffers
 from Thomson scattering is scattered out of the line of sight and hanec
 in this approximation is not seen by the observer. We have included not
-simply the Thomson cross-section <img class="math" src="../../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> but have taken the
+simply the Thomson cross-section <img class="math" src="../../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> but have taken the
 Klein-Nishina correction into account (see <a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman 1986</a>, eqn. 7.5 (exact expression)
 and 7.6 (approximations)). The evaluation of the exact formula for the cross
 section is non-trivial, as terms up to the third power in
-<img class="math" src="../../_images/math/f9800b7275b8cdb96396bf1f3c9b48d30357aa7b.svg" alt="x=E/m_{\mathrm e}c^2" style="vertical-align: -4px"/> cancel; we have extended the low-energy
+<img class="math" src="../../_images/math/ef9925dafa9d6218fe17645744b742fbe4b73fd0.svg" alt="x=E/m_{\mathrm e}c^2" style="vertical-align: -4px"/> cancel; we have extended the low-energy
 polynomial approximation (7.6.a) of Rybicki &amp; Lightman by comparing to
 quadruple precision calculations using the exact formula, and made the
 following approximation that has a relative accuracy of better than
-<img class="math" src="../../_images/math/98711c6d7dbc0f1583749152c680ab8fd38cc569.svg" alt="3\times 10^{-4}" style="vertical-align: -1px"/> for all energies, when evaluated using single
+<img class="math" src="../../_images/math/6f893e23ced0469b7b3cc4d8df199a16dfe2e482.svg" alt="3\times 10^{-4}" style="vertical-align: -1px"/> for all energies, when evaluated using single
 precision arithmetics:</p>
 <div class="math">
-<p><img src="../../_images/math/db6748fa1f054090d1a2e68f02742c39075a8004.svg" alt="\sigma = \left\{
+<p><img src="../../_images/math/1f4540c5effb437bb4b8d2358be9f1c792a09d59.svg" alt="\sigma = \left\{
 {
 \begin{array}{ll}
 \sigma_T (1-2x+5.2x^2-13.3x^3+32.685x^4) &amp; \qquad x &lt; 0.05;\\
@@ -94,12 +92,45 @@ precision arithmetics:</p>
 }
 \right."/></p>
 </div></section>
+<section id="covering-factor">
+<span id="sect-covering-factor"></span><h2><span class="section-number">8.1.3.3. </span>Covering factor<a class="headerlink" href="#covering-factor" title="Link to this heading">¶</a></h2>
+<p>Most users would be happy with a model where an absorbing medium covers the full emitting source.
+However, there are situations where the background source is larger than the absorbing medium.
+In that case the covering factor <img class="math" src="../../_images/math/ba6279a28180665ae5df774a9016990846885ddb.svg" alt="f&lt;1" style="vertical-align: -3px"/>. This option has been implemented in older versions
+of our software through the parameter <code class="docutils literal notranslate"><span class="pre">fcov</span></code>.
+However, there can be more complex situations. This occurs for example in active galactic nuclei,
+where the X-ray continuum source may be smaller than the UV continuum source. In that case, for spectral
+lines from the same ion, the covering factor of the X-ray absorption lines may be larger that the covering
+factor of the UV lines. In order to model this situation, in the later versions (from 3.08.03 onwards)
+we include the option of energy-dependent covering factors. Instead of the single parameter <code class="docutils literal notranslate"><span class="pre">fcov</span></code> we now
+use five parameters, described below.</p>
+<p>The covering factor is now given as</p>
+<div class="math">
+<p><img src="../../_images/math/cc63a67204f697f7458db0d9999efc7ba8d32ffa.svg" alt="f = f_0 + \Delta f \times c(x)."/></p>
+</div><p>A
+where <img class="math" src="../../_images/math/78622f065dc2fa50b4502547e0e246ebbc4145e0.svg" alt="x=\ln{E/E_c}/a" style="vertical-align: -4px"/> and <img class="math" src="../../_images/math/34b988932524c7929029ac4157c2c01d0a042437.svg" alt="c(x)" style="vertical-align: -4px"/> is a function of <img class="math" src="../../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> described below.
+The parameter <img class="math" src="../../_images/math/83e215a32830ab928af55d86aee09d83a159d9e0.svg" alt="f_0=(c_2+c_1)/2" style="vertical-align: -4px"/> and <img class="math" src="../../_images/math/c1738b5433853d8224755d3bfb2eabb9588b67d1.svg" alt="\Delta f = (c_2-c_1)/2" style="vertical-align: -4px"/>.</p>
+<p>We distinguish four cases using the parameter <code class="docutils literal notranslate"><span class="pre">icov</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=1:</span></code> <img class="math" src="../../_images/math/abb9bc41249926f6e22e41a1087012ea1efe8ad6.svg" alt="f=1" style="vertical-align: -3px"/> corresponding to <img class="math" src="../../_images/math/d1d8d8e1ff284d5a91c1f8c86c45d621ecedf35e.svg" alt="c_1=c_2=1" style="vertical-align: -2px"/></p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=2:</span></code> (the default case, corresponding to the variable <code class="docutils literal notranslate"><span class="pre">fcov</span></code> in older versions of spex): math:<cite>c_1=c_2</cite> but both values
+can have any value between 0 and 1 (or equivalent math:<cite>Delta f = 0</cite> ).</p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=3:</span></code> arbitrary values for <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2" style="vertical-align: -2px"/> (but both between 0 and 1), and <img class="math" src="../../_images/math/52a9fcc6bbbbe68984d2392e9529d5da32015a5d.svg" alt="f(x)=\tanh (x)" style="vertical-align: -4px"/>. This gives a somewhat sharper transittion between low- and high energies.</p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=4:</span></code> arbitrary values for <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2" style="vertical-align: -2px"/> (but both between 0 and 1), and <img class="math" src="../../_images/math/bd7061f55e1d082e73b7d0bbef01bab3049449e6.svg" alt="f(x)=(2/\pi ) \arctan (x)" style="vertical-align: -4px"/>. This gives a somewhat smoother transittion between low- and high energies.</p>
+<p>The other four parameters of the model are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">fcov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2" style="vertical-align: -2px"/> above, i.e. the high-energy (asymptotic) covering factor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lcov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1" style="vertical-align: -2px"/> above, i.e. the low-energy (asymptotic) covering factor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ecov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/f6c93d11fae5b65a4f19eb8a4c813d739b737007.svg" alt="E_c" style="vertical-align: -2px"/> above, i.e. the energy (keV) where the covering factor equals
+<img class="math" src="../../_images/math/4cc63eb5dd86ee2bc61a132751f7280ba38f977b.svg" alt="f_0" style="vertical-align: -3px"/> above, or the mean between high- and low-energy limits.</p>
+<p><code class="docutils literal notranslate"><span class="pre">acov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a" style="vertical-align: 0px"/> above, i.e. the logarithmic scaling factor of the transition from low- to high energy limit.
+This is therefore a dimensionless variable. A value of 1 corresponds to a transition over typically a factor of <img class="math" src="../../_images/math/9241c1806f25873aff1be7ba99c901bec4497456.svg" alt="e=2.71828" style="vertical-align: 0px"/> in energy.
+Sharp transitions are obtained for small values of this parameter.</p>
+</section>
 <section id="different-types-of-absorption-models">
-<span id="sect-abs-models"></span><h2><span class="section-number">8.1.3.3. </span>Different types of absorption models<a class="headerlink" href="#different-types-of-absorption-models" title="Permalink to this heading">¶</a></h2>
+<span id="sect-abs-models"></span><h2><span class="section-number">8.1.3.4. </span>Different types of absorption models<a class="headerlink" href="#different-types-of-absorption-models" title="Link to this heading">¶</a></h2>
 <p>We have a set of spectral models available with different levels of
 sophistication and applicability, that we list below.</p>
 <section id="slab-model">
-<h3><span class="section-number">8.1.3.3.1. </span>Slab model<a class="headerlink" href="#slab-model" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.1.3.4.1. </span>Slab model<a class="headerlink" href="#slab-model" title="Link to this heading">¶</a></h3>
 <p>The <em>slab</em> model calculates the transmission of a slab of material,
 where all ionic column densities can be chosen independently. This has
 the advantage that a spectrum can be fit without any knowledge of the
@@ -109,13 +140,13 @@ predictions from any model (as calculated by , Cloudy, XSTAR, ION or any
 other existing (photo)ionization code).</p>
 </section>
 <section id="xabs-model">
-<h3><span class="section-number">8.1.3.3.2. </span>Xabs model<a class="headerlink" href="#xabs-model" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.1.3.4.2. </span>Xabs model<a class="headerlink" href="#xabs-model" title="Link to this heading">¶</a></h3>
 <p>In the <em>xabs</em> model, the ionic column densities are not independent
 quantities, but are linked through a set of runs using a photo
 ionization code. See the description of the <em>xabs</em> model for more
 details about this. The relevant parameter is the ionization parameter
-<img class="math" src="../../_images/math/c19ef854df1a92ba39d56396dc0579f7632c0f6d.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../../_images/math/3e94390a3e99747003bff0b1c8a50ad19128d0b9.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>
-the hydrogen density and <img class="math" src="../../_images/math/0f81851e5ce01f67d8052cff291c506d7afd2225.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
+<img class="math" src="../../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>
+the hydrogen density and <img class="math" src="../../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
 source. The advantage of the <em>xabs</em> model over the <em>slab</em> model is that
 all relevant ions are taken into account, also those which would be
 detected only with marginal significance using the <em>slab</em> model. In some
@@ -127,22 +158,22 @@ photo ionization code. In that case the <em>xabs</em> model may fail to give an
 acceptable fit, while the <em>slab</em> model may perform better.</p>
 </section>
 <section id="warm-model">
-<h3><span class="section-number">8.1.3.3.3. </span>Warm model<a class="headerlink" href="#warm-model" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.1.3.4.3. </span>Warm model<a class="headerlink" href="#warm-model" title="Link to this heading">¶</a></h3>
 <p>In the <em>warm</em> model, we construct a model for a continuous distribution
-of column density <img class="math" src="../../_images/math/0b919b210fa90074cf729813b68a05162c34fbf1.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/>. It
+of column density <img class="math" src="../../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. It
 is in some sense comparable to the differential emission measure models
 used to model the emission from multi-temperature gas. Here we have
 absorption from multi-ionization gas. Depending upon the physics of the
 source, this may be a better approximation than just the sum of a few
 <em>xabs</em> components. A disadvantage of the model may be (but this also
 depends upon the physics of the source), that all dynamical parameters
-for each value of <img class="math" src="../../_images/math/c9e8aef6f8b8c0e290d66b363e1eb7f41d144f6b.svg" alt="\xi" style="vertical-align: -3px"/> are the same, like the outflow velocity
+for each value of <img class="math" src="../../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> are the same, like the outflow velocity
 and turbulent broadening. If this appears to be the case in a given
 source, one may of course avoid this problem by taking multiple,
 non-overlapping <em>warm</em> components.</p>
 </section>
 <section id="hot-model">
-<h3><span class="section-number">8.1.3.3.4. </span>Hot model<a class="headerlink" href="#hot-model" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.1.3.4.4. </span>Hot model<a class="headerlink" href="#hot-model" title="Link to this heading">¶</a></h3>
 <p>In the <em>hot</em> model, we link the different ionic column densities simply
 by using a collisional ionsation (CIE) plasma. It may be useful in
 situations where photoionisation is relatively unimportant but the
@@ -151,69 +182,41 @@ course the case for a low temperature, where it can be used to mimick
 the absorption of (almost) neutral gas.</p>
 </section>
 <section id="pion-model">
-<h3><span class="section-number">8.1.3.3.5. </span>Pion model<a class="headerlink" href="#pion-model" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.1.3.4.5. </span>Pion model<a class="headerlink" href="#pion-model" title="Link to this heading">¶</a></h3>
 <p>Finally we have in the pion model, which does a self-consistent photo
 ionization calculation of the slab of material.</p>
 </section>
 </section>
 <section id="dynamical-model-for-the-absorbers">
-<span id="sect-abs-transm"></span><h2><span class="section-number">8.1.3.4. </span>Dynamical model for the absorbers<a class="headerlink" href="#dynamical-model-for-the-absorbers" title="Permalink to this heading">¶</a></h2>
+<span id="sect-abs-transm"></span><h2><span class="section-number">8.1.3.5. </span>Dynamical model for the absorbers<a class="headerlink" href="#dynamical-model-for-the-absorbers" title="Link to this heading">¶</a></h2>
 <p>For each of the absorption models described in the previous section, we
 have the freedom to prescribe the dynamics of the source. The way we
 have implemented this in is described below.</p>
-<p>The transmission <img class="math" src="../../_images/math/a7dac3d6b8e65cc6c16f53077871b2269ca80bbe.svg" alt="T(\lambda)" style="vertical-align: -4px"/> of the slab is simply calculated as</p>
+<p>The transmission <img class="math" src="../../_images/math/2e9caa2a916dbfa64ab90833637e5b94b12399d5.svg" alt="T(\lambda)" style="vertical-align: -4px"/> of the slab is simply calculated as</p>
 <div class="math">
-<p><img src="../../_images/math/7dc42d02b8c35f16be4331e341a9c3e5b3da5225.svg" alt="T(\lambda)=\exp[{-\tau_c(\lambda)-\tau_l(\lambda)}]"/></p>
-</div><p>with <img class="math" src="../../_images/math/e11551cf930b0b405e18b489b486255db280ac9f.svg" alt="\tau_c" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/04da5b3e46baaa320f01646a05e75a821b50bfd9.svg" alt="\tau_l" style="vertical-align: -2px"/> the total continuum and line
+<p><img src="../../_images/math/2abfac4a2361540a8c833b299b496137843b80c2.svg" alt="T(\lambda)=\exp[{-\tau_c(\lambda)-\tau_l(\lambda)}]"/></p>
+</div><p>with <img class="math" src="../../_images/math/a406e6cb51b0d23de7fff29418f6e31bc8f56ee2.svg" alt="\tau_c" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/c6c58e5d398d9a01518904c3d59a150d5ebb22dc.svg" alt="\tau_l" style="vertical-align: -2px"/> the total continuum and line
 optical depth, respectively. As long as the thickness of the slab is not
 too large, this most simple approximation allows a fast computation of
 the spectrum, which is desirable for spectral fitting.</p>
-<p>In particular UV observations of AGN show that the absorption lines can
-often be decomposed into multiple velocity components. In the X-ray band
-these are not always fully resolvable, which led us to the following
-approach. Each absorption line is split into different velocity
-components, using</p>
+<blockquote>
+<div><p>The total optical depth at line center <img class="math" src="../../_images/math/51887297f839c2ba974372e9147a76a300f3d7ce.svg" alt="\tau_0" style="vertical-align: -2px"/> is given by</p>
+</div></blockquote>
 <div class="math">
-<p><img src="../../_images/math/19e73deb3d67f2015b9eae73a5b3682a4747b638.svg" alt="\tau_l(v) = \sum_{i}^{}\tau_i \exp\left[
--(v-v_i)^2/2\sigma_{\mathrm v}^2
-   \right]"/></p>
-</div><p>(or the equivalent generalisation to the Voigt profile). Further, we
-take</p>
-<div class="math">
-<p><img src="../../_images/math/68cd50d89eb3214abeddd2753a8e7d85650187df.svg" alt="v_i = v_0 + i\,\Delta v,"/></p>
-</div><div class="math">
-<p><img src="../../_images/math/0829d443770c4095305df6a2f6238c59aab95aa8.svg" alt="\label{eqn:taui}
-\tau_i = K \exp\left[ -v_i^2/2 \sigma_{\mathrm b}^2 \right],"/></p>
-</div><p>where <img class="math" src="../../_images/math/54015b54ab09a58dd0423d50f6c91c1c0fa4830e.svg" alt="v_0" style="vertical-align: -2px"/> is the average velocity of the blend (a negative value
-corresponds to a blue-shift or outflow), <img class="math" src="../../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> is the
-separation between the velocity components, and the r.m.s. width of the
-blend <img class="math" src="../../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> is in general larger than the intrinsic
-width <img class="math" src="../../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/> of the components (do never confuse
-both <img class="math" src="../../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/>’s!). The normalization <img class="math" src="../../_images/math/f17e7b21e997c367e6c550b81e7f1896e772558f.svg" alt="K" style="vertical-align: 0px"/> is defined in
-such a way that <img class="math" src="../../_images/math/3bb0c7e83f200eae067534a164c745e12b251a79.svg" alt="\sum \tau_i = \tau_0" style="vertical-align: -4px"/>. Finally, the total optical
-depth <img class="math" src="../../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> is given by</p>
-<div class="math">
-<p><img src="../../_images/math/c04841b059d796b32db99cb4fc901f97e8345726.svg" alt="\label{eqn:tau}
+<p><img src="../../_images/math/bf1601664a8ce763d55ee760ab94139c0dd08507.svg" alt="\label{eqn:tau}
 \tau_0 = 0.106 f N_{20} \lambda / \sigma_{\mathrm v,100}."/></p>
-</div><p>Here <img class="math" src="../../_images/math/b64208741b9a9e6ab720243d59875b9d1f993ebb.svg" alt="f" style="vertical-align: -3px"/> is the oscillator strength, <img class="math" src="../../_images/math/76566000ccc091eb223afe3a02d385191b144e7e.svg" alt="\lambda" style="vertical-align: 0px"/> the
-wavelength in Å, <img class="math" src="../../_images/math/7c78bb8ce29616df9c8ae8b566a746e886128cf8.svg" alt="\sigma_{\mathrm v,100}" style="vertical-align: -5px"/> the velocity dispersion in
-units of <img class="math" src="../../_images/math/af8a8cb90b925525357bbe936462c3ef3ab04367.svg" alt="100" style="vertical-align: 0px"/> km/s and <img class="math" src="../../_images/math/2ea213babc0b8f329d376d5a6c141aaa3aadefcb.svg" alt="N_{20}" style="vertical-align: -2px"/> the total column density of
-the ion in units of <img class="math" src="../../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.</p>
-<p>This dynamical structure offers the user a broad range of applicability.
-However, we advise the user to use the extension with
-<img class="math" src="../../_images/math/3e7ee6fbf382fd939b10b00df4db409e0bd8ff2f.svg" alt="\sigma_{\mathrm b}" style="vertical-align: -2px"/> with caution! Always start with the most
-simple case. The default values for are defined in such a way that
-<img class="math" src="../../_images/math/e0ed43f05c81f83c87b3cffb0f34353b0df4055c.svg" alt="\sigma_{\mathrm b} = 0" style="vertical-align: -2px"/>. This will produce the “normal” case of
-single absorption lines. In that case, the velocity separation
-<img class="math" src="../../_images/math/8a1e195ea7a6ddd2d2bdbd0bf57bc61707cfa84f.svg" alt="\Delta v" style="vertical-align: 0px"/> is an irrelevant parameter.</p>
+</div><p>Here <img class="math" src="../../_images/math/bb2fff686191d308dcb438f43bf8d29acd99038b.svg" alt="f" style="vertical-align: -3px"/> is the oscillator strength, <img class="math" src="../../_images/math/a3d74b08114f0efde832335b7892e04944b1e258.svg" alt="\lambda" style="vertical-align: 0px"/> the
+wavelength in Å, <img class="math" src="../../_images/math/dd2eb78fe9f12024350fccdaf408622aa6c2dd10.svg" alt="\sigma_{\mathrm v,100}" style="vertical-align: -5px"/> the velocity dispersion in
+units of <img class="math" src="../../_images/math/5fa09ba51a3f396bc70cc1b845ff2fffa028ab32.svg" alt="100" style="vertical-align: 0px"/> km/s and <img class="math" src="../../_images/math/e199d145e94a9b04483e1e66d8fcd913216f822a.svg" alt="N_{20}" style="vertical-align: -2px"/> the total column density of
+the ion in units of <img class="math" src="../../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.</p>
 <p>Finally, we make a remark on the r.m.s. line width of individual lines,
-<img class="math" src="../../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/>. In our code, this <em>only</em> includes the
+<img class="math" src="../../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/>. In our code, this <em>only</em> includes the
 turbulent broadening of the lines. The thermal broadening due to motion
 of the ions is included by adding it in quadrature to the turbulent
 broadening. The only exception is the <em>slab</em> model, where of course due
 to the lack of underlying physics the thermal broadening is unknown, and
 therefore in using the slab model one should be aware that
-<img class="math" src="../../_images/math/f691f0b7dee13ad327a9687828f41f263f84fe48.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/> also includes a thermal contribution.</p>
+<img class="math" src="../../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/> also includes a thermal contribution.</p>
 </section>
 </section>
 
@@ -226,7 +229,9 @@ therefore in using the slab model one should be aware that
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
-    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -273,7 +278,7 @@ therefore in using the slab model one should be aware that
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -281,7 +286,7 @@ therefore in using the slab model one should be aware that
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -296,9 +301,9 @@ therefore in using the slab model one should be aware that
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

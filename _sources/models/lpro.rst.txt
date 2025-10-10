@@ -92,10 +92,10 @@ wavelength is necessary.
 
 The parameters of the model are:
 
-| ``s`` : Scale parameter :math:`s`, dimensionless. Default value: 1.
-| ``dlam`` : Offset parameter :math:`\lambda_o`, in Å. Default value:
+:s: Scale parameter :math:`s`, dimensionless. Default value: 1.
+:dlam: Offset parameter :math:`\lambda_o`, in Å. Default value:
   0 Å.
-| ``file`` : Ascii character string, containing the actual name of the
+:file: Ascii character string, containing the actual name of the
   vprof.dat file
 
 *Recommended citation:* `Tamura et al. (2004)

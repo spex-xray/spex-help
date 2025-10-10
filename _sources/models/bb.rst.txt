@@ -26,8 +26,8 @@ where N(E) is the photon spectrum in units of
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` (the emitting area, in units of
+:norm: Normalisation :math:`A` (the emitting area, in units of
   :math:`10^{16}` :math:`\mathrm{m}^2`. Default value: 1.
-| ``t`` : The temperature :math:`T` in keV. Default value: 1 keV.
+:t: The temperature :math:`T` in keV. Default value: 1 keV.
 
 *Recommended citation:* `Kirchhoff (1860) <https://doi.org/10.1002/andp.18601850205>`_.

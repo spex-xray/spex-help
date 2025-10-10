@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8.5. Definition of the micro-turbulent velocity in SPEX &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>8.5. Definition of the micro-turbulent velocity in SPEX &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/turbulence.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,54 +34,54 @@
           <div class="body" role="main">
             
   <section id="definition-of-the-micro-turbulent-velocity-in-spex">
-<span id="sect-turbulence"></span><h1><span class="section-number">8.5. </span>Definition of the micro-turbulent velocity in SPEX<a class="headerlink" href="#definition-of-the-micro-turbulent-velocity-in-spex" title="Permalink to this heading">¶</a></h1>
+<span id="sect-turbulence"></span><h1><span class="section-number">8.5. </span>Definition of the micro-turbulent velocity in SPEX<a class="headerlink" href="#definition-of-the-micro-turbulent-velocity-in-spex" title="Link to this heading">¶</a></h1>
 <p>As of SPEX version 3.06.00, we are using a different definition of velocity broadening
-for emission models. Regarding parameter name, we moved from <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/>, or
-micro-turbulent velocity, to root-mean-square velocity <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/>. The two
+for emission models. Regarding parameter name, we moved from <img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/>, or
+micro-turbulent velocity, to root-mean-square velocity <img class="math" src="../_images/math/f8185ec69fbe02fd7f617bde943c59ce6c36861f.svg" alt="V_{rms}" style="vertical-align: -2px"/>. The two
 definitions are related to each other as follows:</p>
-<p><img class="math" src="../_images/math/69000ca71f5dc3d3b25b80fcb85190c28b2ad165.svg" alt="V_{mic} = \sqrt{2} V_{rms}" style="vertical-align: -2px"/></p>
+<p><img class="math" src="../_images/math/547de113ce9105bb1d716a814e394bdc98845455.svg" alt="V_{mic} = \sqrt{2} V_{rms}" style="vertical-align: -2px"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The change of definition means that the <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/> that you measure
-with SPEX 3.06 will be a factor of <img class="math" src="../_images/math/c73e7ee2f11ca6a23216a4ff548c20c30a2606fe.svg" alt="\sqrt(2)" style="vertical-align: -5px"/> smaller than the <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/>
+<p>The change of definition means that the <img class="math" src="../_images/math/f8185ec69fbe02fd7f617bde943c59ce6c36861f.svg" alt="V_{rms}" style="vertical-align: -2px"/> that you measure
+with SPEX 3.06 will be a factor of <img class="math" src="../_images/math/cb1d8d57ece17b914c97237e9be8d24fe0c4956a.svg" alt="\sqrt(2)" style="vertical-align: -5px"/> smaller than the <img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/>
 that you previously measured with earlier SPEX versions.</p>
 </div>
 <section id="why-change-the-definition">
-<h2><span class="section-number">8.5.1. </span>Why change the definition?<a class="headerlink" href="#why-change-the-definition" title="Permalink to this heading">¶</a></h2>
-<p>The <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/> is defined such that it is equivalent to the Gaussian <img class="math" src="../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/>,
+<h2><span class="section-number">8.5.1. </span>Why change the definition?<a class="headerlink" href="#why-change-the-definition" title="Link to this heading">¶</a></h2>
+<p>The <img class="math" src="../_images/math/f8185ec69fbe02fd7f617bde943c59ce6c36861f.svg" alt="V_{rms}" style="vertical-align: -2px"/> is defined such that it is equivalent to the Gaussian <img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/>,
 which makes it a more intuitive quantity for most colleagues in the field. This new
 definition makes the emission models consistent with the velocity broadening parameters
 in the SPEX absorption models. In addition, this definition is also used by the APEC
 code in XSPEC. To avoid confusion when results from the two codes are compared, we
-decided to change the <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/> parameter to <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/>.</p>
+decided to change the <img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/> parameter to <img class="math" src="../_images/math/f8185ec69fbe02fd7f617bde943c59ce6c36861f.svg" alt="V_{rms}" style="vertical-align: -2px"/>.</p>
 </section>
 <section id="microturbulent-velocity-in-spex-versions-3-05-00">
-<h2><span class="section-number">8.5.2. </span>Microturbulent velocity in SPEX versions &lt;=3.05.00<a class="headerlink" href="#microturbulent-velocity-in-spex-versions-3-05-00" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.2. </span>Microturbulent velocity in SPEX versions &lt;=3.05.00<a class="headerlink" href="#microturbulent-velocity-in-spex-versions-3-05-00" title="Link to this heading">¶</a></h2>
 <p>In previous versions of SPEX before 3.06.00 the turbulent velocity was called <code class="docutils literal notranslate"><span class="pre">vmic</span></code>.
-The micro-turbulent velocity (<img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/>) was defined following a definition
+The micro-turbulent velocity (<img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/>) was defined following a definition
 historically used often in spectroscopy. In this definition, the Doppler broadening
-(<img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bbbf.svg" alt="\Delta E_D" style="vertical-align: -2px"/>) is defined as:</p>
-<p><img class="math" src="../_images/math/520fec109c3911054edc1ba558596c85940a9ddc.svg" alt="\Delta E_D = \frac{E_0}{c} \sqrt{\left( \frac{2 k T_{ion}}{A m_p} + V_{mic}^2 \right)}" style="vertical-align: -15px"/></p>
+(<img class="math" src="../_images/math/8bef093b2f22298527d04d251d870e91a6c15a10.svg" alt="\Delta E_D" style="vertical-align: -2px"/>) is defined as:</p>
+<p><img class="math" src="../_images/math/3b4f9ee4fc458b58b6b4610c671bdc698cfc0f10.svg" alt="\Delta E_D = \frac{E_0}{c} \sqrt{\left( \frac{2 k T_{ion}}{A m_p} + V_{mic}^2 \right)}" style="vertical-align: -15px"/></p>
 <p>As is shown in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2012MNRAS.422.2712Z/abstract">Zhuravleva et al. (2012; Section 7.2, Eq. 24)</a>,
-this relation can be written also in terms of Gaussian <img class="math" src="../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/>:</p>
-<p><img class="math" src="../_images/math/c6f58d0e79e8d56a708ae845367b6dbde14fcdcd.svg" alt="\Delta E_D = \frac{E_0}{c} \sqrt{2( \sigma_{therm}^2 + \sigma_{turb}^2)}" style="vertical-align: -6px"/>,</p>
-<p>where <img class="math" src="../_images/math/903f79d71758e1736a6d0fa64df7c9b540dcca96.svg" alt="\sigma_{therm} = \sqrt{\frac{kT}{A m_p}}" style="vertical-align: -11px"/> is the thermal line broadening.
-From these equations, it is easy to see that <img class="math" src="../_images/math/aa0b031007d7d07e5b21b78d2fed6c2eccea5a2e.svg" alt="V_{mic} = \sqrt{2} \sigma_{turb}" style="vertical-align: -2px"/>,
-where we call <img class="math" src="../_images/math/ef82fe0ec208b3d5b11f40c8f4d8d4a34e465dfa.svg" alt="\sigma_{turb}" style="vertical-align: -2px"/> the root-mean square (RMS) of the line-of-sight
+this relation can be written also in terms of Gaussian <img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/>:</p>
+<p><img class="math" src="../_images/math/645bce5e66a4544365a25135b8c576a48584aee9.svg" alt="\Delta E_D = \frac{E_0}{c} \sqrt{2( \sigma_{therm}^2 + \sigma_{turb}^2)}" style="vertical-align: -6px"/>,</p>
+<p>where <img class="math" src="../_images/math/fdb5dcc5f2b039518e58dd12f64bf2c69698f434.svg" alt="\sigma_{therm} = \sqrt{\frac{kT}{A m_p}}" style="vertical-align: -11px"/> is the thermal line broadening.
+From these equations, it is easy to see that <img class="math" src="../_images/math/8494869085b585b5404ffc43fc702e63cb10c935.svg" alt="V_{mic} = \sqrt{2} \sigma_{turb}" style="vertical-align: -2px"/>,
+where we call <img class="math" src="../_images/math/03c9bfd6bc2464d47ab30fa340c605bdd942545f.svg" alt="\sigma_{turb}" style="vertical-align: -2px"/> the root-mean square (RMS) of the line-of-sight
 velocity (called <cite>vrms</cite> in the current SPEX version).</p>
 </section>
 <section id="historic-note">
-<h2><span class="section-number">8.5.3. </span>Historic note<a class="headerlink" href="#historic-note" title="Permalink to this heading">¶</a></h2>
-<p>The definition <img class="math" src="../_images/math/aa0b031007d7d07e5b21b78d2fed6c2eccea5a2e.svg" alt="V_{mic} = \sqrt{2} \sigma_{turb}" style="vertical-align: -2px"/> historically originates from
+<h2><span class="section-number">8.5.3. </span>Historic note<a class="headerlink" href="#historic-note" title="Link to this heading">¶</a></h2>
+<p>The definition <img class="math" src="../_images/math/8494869085b585b5404ffc43fc702e63cb10c935.svg" alt="V_{mic} = \sqrt{2} \sigma_{turb}" style="vertical-align: -2px"/> historically originates from
 spectroscopy. It was chosen because it made the Maxwellian function and Gaussian function
 easier to calculate. It may also be related to the definition of the error function (ERF),
-in which the width is also a factor <img class="math" src="../_images/math/99567fec525a5c4d2dbc36e3b2c19b845af4660b.svg" alt="\sqrt{2}" style="vertical-align: -2px"/> different from the Gaussian <img class="math" src="../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: 0px"/>.
+in which the width is also a factor <img class="math" src="../_images/math/a0b42f0a6f90c93cd2ce8da08c0fc80fb8c3c7f1.svg" alt="\sqrt{2}" style="vertical-align: -2px"/> different from the Gaussian <img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/>.
 Still, SPEX internally calculates the line broadening using the error function which uses the
-<img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/> definition, but the number that is reported changed to <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/>.</p>
-<p>In the early days of MEKAL and SPEX (from the ’70s onward), this <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/>
+<img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/> definition, but the number that is reported changed to <img class="math" src="../_images/math/f8185ec69fbe02fd7f617bde943c59ce6c36861f.svg" alt="V_{rms}" style="vertical-align: -2px"/>.</p>
+<p>In the early days of MEKAL and SPEX (from the ’70s onward), this <img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/>
 definition was probably chosen to speed up the calculations. This definition is still
-used often in theoretical work, so be prepared to convert your measured <img class="math" src="../_images/math/5771e1084316aa9696299ea409defd311a6ba7f3.svg" alt="V_{rms}" style="vertical-align: -2px"/>
-to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bbbf.svg" alt="\Delta E_D" style="vertical-align: -2px"/> or <img class="math" src="../_images/math/7782542c5153cdfb086dca8eae7ed4e8f9c209bc.svg" alt="V_{mic}" style="vertical-align: -2px"/> if you want to do a meaningful comparison.</p>
+used often in theoretical work, so be prepared to convert your measured <img class="math" src="../_images/math/f8185ec69fbe02fd7f617bde943c59ce6c36861f.svg" alt="V_{rms}" style="vertical-align: -2px"/>
+to <img class="math" src="../_images/math/8bef093b2f22298527d04d251d870e91a6c15a10.svg" alt="\Delta E_D" style="vertical-align: -2px"/> or <img class="math" src="../_images/math/e718685346541c529b947d176cba2e8ea9a4da1b.svg" alt="V_{mic}" style="vertical-align: -2px"/> if you want to do a meaningful comparison.</p>
 </section>
 </section>
 
@@ -96,7 +94,9 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -141,7 +141,7 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -149,7 +149,7 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -164,9 +164,9 @@ to <img class="math" src="../_images/math/6f418949ae0e26d280a418c87e42aafe0ff0bb
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

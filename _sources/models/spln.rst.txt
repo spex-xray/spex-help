@@ -103,24 +103,24 @@ improvement in :math:`\chi^2` would only come if *all* values of
 
 The parameters of the model are:
 
-| ``type`` : The parameter *type* defined above; allowed values are 1–4.
+:type: The parameter *type* defined above; allowed values are 1–4.
   Default value: 1.
-| ``n`` : The number of grid points :math:`n`. Should be at least 2.
-| ``low`` : Lower x-value :math:`b_1`.
-| ``upp`` : Upper x-value :math:`b_2`. Take care to take
+:n: The number of grid points :math:`n`. Should be at least 2.
+:low: Lower x-value :math:`b_1`.
+:upp: Upper x-value :math:`b_2`. Take care to take
   :math:`b_2>b_1`.
-| ``x001`` : First x-value, by definition equal to :math:`b_1`.
+:x001: First x-value, by definition equal to :math:`b_1`.
   :math:`x`-values are not allowed to vary (i.e. you may not fit them).
-| ``x002`` : Second x-value
-| ``x003`` : Third x-value
-| ``...`` : Other x-values
-| ``x999`` : last x-value, by definition equal to :math:`b_n`. If
+:x002: Second x-value
+:x003: Third x-value
+:...: Other x-values
+:x999: last x-value, by definition equal to :math:`b_n`. If
   :math:`n<999`, replace the 999 by the relevant value (for example, if
   :math:`n=237`, then the last :math:`x`-value is x237).
-| ``y001`` : First y-value. This is a fittable parameter.
-| ``y002`` : Second y-value
-| ``y003`` : Third y-value
-| ``...`` : Other y-values
-| ``y999`` : last y-value. If :math:`n<999`, replace the 999 by the
+:y001: First y-value. This is a fittable parameter.
+:y002: Second y-value
+:y003: Third y-value
+:...: Other y-values
+:y999: last y-value. If :math:`n<999`, replace the 999 by the
   relevant value (for example, if :math:`n=237`, then the last
   :math:`y`-value is 237).

@@ -510,3 +510,27 @@ Changes in SPEXACT 3.08.01:
 '''''''''''''''''''''''''''
 
 - Neutral nitrogen N I oscilator strength correction based on Garcia+09.
+
+Version 3.08.02
+---------------
+
+Changes in SPEX 3.08.02:
+''''''''''''''''''''''''
+
+- Added plot component functionality.
+
+- Added atbl model to load Xspec table models.
+
+- Added ebit model for laboratory astrophysics.
+
+- Improvement of partial covering factor.
+
+- Removed support for Python 3.9 (conda environment spex39). See :ref:`sec:installpyspex`
+  for instructions to use pyspex with Python 3.11.
+
+Changes in SPEXACT 3.08.02
+''''''''''''''''''''''''''
+
+- Added magnetism module for pion.
+
+- Update of quick calculation data.

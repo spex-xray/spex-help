@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1.24. Plot: Plotting data and models &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>3.1.24. Plot: Plotting data and models &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
+    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/plot.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,11 +34,11 @@
           <div class="body" role="main">
             
   <section id="plot-plotting-data-and-models">
-<span id="sec-plot"></span><h1><span class="section-number">3.1.24. </span>Plot: Plotting data and models<a class="headerlink" href="#plot-plotting-data-and-models" title="Permalink to this heading">¶</a></h1>
+<span id="sec-plot"></span><h1><span class="section-number">3.1.24. </span>Plot: Plotting data and models<a class="headerlink" href="#plot-plotting-data-and-models" title="Link to this heading">¶</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1.24.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.24.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>The plot command cause the plot to be (re)drawn on the graphics device.
-Multiple graphics devices can be defined in one SPEX session. For
+Multiple graphics devices can be defined in one SPEX session. For
 example, a plot can be sent to both a postscript and a xs device.</p>
 <p>A user can also set the number of plot frames in the currently active
 device(s), e.g. the data and model can be displayed in one frame while
@@ -73,7 +71,7 @@ future version of SPEX.</p>
 </div>
 </section>
 <section id="syntax">
-<h2><span class="section-number">3.1.24.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.24.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">¶</a></h2>
 <p>The following syntax rules apply for plot:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span></code> : (Re)draws the plot on the graphics device. Take care to
@@ -117,7 +115,7 @@ eV, or whatever unit that is allowed. The allowed values depend upon
 the plot type. See <a class="reference internal" href="../plot/axes.html#sect-plotaxes"><span class="std std-ref">Plot axis units and scales</span></a> for
 allowed units for each plot type.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">vel</span> <span class="pre">#r</span> <span class="pre">#a</span></code> : Plot the x-axis in velocity units
-(<img class="math" src="../../_images/math/bb6c54184c56f408dbd1c0bb36ec247073a83c48.svg" alt="\mathrm{km}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>), with reference energy provided as #r if #a is
+(<img class="math" src="../../_images/math/86fbde4087bd2db1cbaf02cb3426a1d6421d9c46.svg" alt="\mathrm{km}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>), with reference energy provided as #r if #a is
 “keV” or reference wavelength provided as #r if #a is “Ang”. Note that
 the same zero scale will be set for all plot windows.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">uy</span> <span class="pre">#a</span></code> : Same as above, but for the y-axis</div>
@@ -144,7 +142,7 @@ plot box, #a should be one of the following keywords: top, bottom,
 left, right. Note that whether you see the edges or not also depends
 on the settings defined by the <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">disp</span></code> command.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">x</span> <span class="pre">#l</span></code> : Plots an x-axis with tick marks at the line
-<img class="math" src="../../_images/math/12224e5d92c968ed0567bdef0e33e19efb34fc08.svg" alt="y=0" style="vertical-align: -3px"/>. You only see this of course if your y-range includes the
+<img class="math" src="../../_images/math/7f6321476b02253f56e0694fe9e9d36fe81ee148.svg" alt="y=0" style="vertical-align: -3px"/>. You only see this of course if your y-range includes the
 value 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">y</span> <span class="pre">#l</span></code> : As above, but for the y-axis</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">grid</span> <span class="pre">x</span> <span class="pre">#l</span></code> : Plot a grid for the x-axis</div>
@@ -213,7 +211,7 @@ viewport, where #r is in units of the character height. Enter negative
 values to write inside the viewport.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">coord</span> <span class="pre">#r</span></code> : Plot caption #a along the specified edge of
 the viewport, in units of the viewport length, where
-<img class="math" src="../../_images/math/38f9c68ee141d7e1f6a597f02f3d0224d754630c.svg" alt="0.0 \le\mathrm{\#r}\le 1.0" style="vertical-align: -3px"/>.</div>
+<img class="math" src="../../_images/math/c8ce9d4fb7938ce0a878a85f3c023673986df899.svg" alt="0.0 \le\mathrm{\#r}\le 1.0" style="vertical-align: -3px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">fjust</span> <span class="pre">#r</span></code> : Controls justification of the caption #a
 parallel to the specified edge of the viewport. If #r = 0.0, the left
 hand of #a will be placed at the position specified by “coord” above;
@@ -324,9 +322,6 @@ y-direction.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">data</span> <span class="pre">fh</span> <span class="pre">#r</span></code> : Give the symbols for the data font height #r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">data</span> <span class="pre">symbol</span> <span class="pre">#i</span></code> : Plot the data with symbol number #i. For
 symbol numbers, see <a class="reference internal" href="../plot/marker.html#sect-plotmarkers"><span class="std std-ref">Plot symbols</span></a>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">new</span> <span class="pre">#i</span> <span class="pre">#i</span></code> : Plot the energies of the strongest lines of
-the ion with atomic number #i and ionisation stage #i.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">del</span></code> : Delete the plotted energies of the strongest lines.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">adum</span> <span class="pre">#a</span> <span class="pre">[overwrite]</span> <span class="pre">[append]</span></code> : Dump the data and model in the
 plot in an ascii file with filename #a. The extension “.qdp” will
 automatically be appended. Note that the data will be written as they
@@ -341,14 +336,37 @@ If the optional “append” keyword is present, the data will
 be appended to any existing file with the name #a; if the optional
 “overwrite” keyword is present, any pre-existing file with the name #a
 will be overwritten by the new data.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">new</span> <span class="pre">#i1</span> <span class="pre">#i2</span> <span class="pre">#r</span></code> : Plot the transition identifier per ion.</div>
+</div>
+<p>Specify #i1 and #i2 to select element and ionization state, for instance,
+to plot Fe XXV, #i1 and #i2 are set to 26 and 25. It is optional to define
+the redshift of the transitions with respect to their restframe energies
+by #r. The current implementation includes all isoelectronic sequences from
+H-like down to B-like ions. It only contains K-shell transitions in the
+Rydberg series.
+| <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">del</span></code> : Delete the last transition identifier.
+| <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span> <span class="pre">#i</span></code> : Plot each additive model component separately for all
+components in sector #i. The command should be immediately followed by a
+<code class="docutils literal notranslate"><span class="pre">calc</span></code> command to re-evaluate the model, and then a <code class="docutils literal notranslate"><span class="pre">plot</span></code> command to
+display the individual components (shown in green) in the current window.
+<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span></code> works under both <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">type</span> <span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">type</span> <span class="pre">model</span></code> modes.
+If multiplicative components are present, they are applied to the additive
+components in the plot. Use <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span> <span class="pre">0</span></code> to disable the component plot.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span></code> cannot be applied yet to the pion model.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span></code> should be best used for the final plot. It is not
+recommended to use <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span></code> during a spectral fitting.</p>
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">3.1.24.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.24.3. </span>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">xs</span></code> : Open the graphic device xs (xserver)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">ps</span> <span class="pre">myplot.ps</span></code> : Select a postscript device connected to
-the file name myplot.ps</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">xs</span></code> : Open the graphic device xs (xserver).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">device</span> <span class="pre">ps</span> <span class="pre">myplot.ps</span></code> : Select a postscript device connected to the file name myplot.ps</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">type</span> <span class="pre">data</span></code> : Plot the data on the selected graphics device(s)</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">angstrom</span></code> : Set the x-axis plot units to Å</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">uy</span> <span class="pre">angstrom</span></code> : Set the y-axis plot units to Counts/s/Å</div>
@@ -370,7 +388,7 @@ that new user viewport values can be specified for frame 2</div>
 2</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">a</span></code> : Set the x-axis plot units of frame 2 to Å</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">21.602</span> <span class="pre">ang</span></code> : Plot the x-axis as velocity in
-<img class="math" src="../../_images/math/6fd6a94b3b2fd27c8a0c30bac754384c38156027.svg" alt="\mathrm{km}^{-1}" style="vertical-align: 0px"/> relative to a wavelength of 21.602 Å.</div>
+<img class="math" src="../../_images/math/d10bc34f7e20540a61568d88b44cfa848f75ec85.svg" alt="\mathrm{km}^{-1}" style="vertical-align: 0px"/> relative to a wavelength of 21.602 Å.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ry</span> <span class="pre">-1:1</span></code> : Set the y-axis plot range of frame 2 to between a
 lower limit of -1 and an upper limit of 1</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">frame</span> <span class="pre">1</span></code> : Go to frame 1</div>
@@ -380,12 +398,18 @@ that new user viewport values can be specified for frame 1</div>
 0.25 to 0.75 of the full device window</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">de</span> <span class="pre">cps</span> <span class="pre">filename.ps</span></code> : Open a colour postscript graphics device
 and write the output file to filename.ps</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span></code> : Redraw the plot on all frames and devices</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">close</span> <span class="pre">2</span></code> : Close device number 2, which is the postscript
-device in this case</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">new</span> <span class="pre">14</span> <span class="pre">13</span></code> : Label the strongest lines of Si XIII.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">del</span></code> : Delete all the line labels.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">new</span> <span class="pre">26</span> <span class="pre">25</span> <span class="pre">0.1</span></code> : Plot the positions of the K-shell atomic transitions
+for Fe XXV with a redshift of 0.1 on the current device</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ion</span> <span class="pre">del</span></code> : Delete the last ion from the plot</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span> <span class="pre">1</span></code> : Plot separately all additive components from sector 1. This command</div>
 </div>
+<p>should be immediately followed by a <code class="docutils literal notranslate"><span class="pre">calc</span></code> and a <code class="docutils literal notranslate"><span class="pre">plot</span></code> command to execute.
+| <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">com</span> <span class="pre">0</span></code> : Remove the component plot.
+| <code class="docutils literal notranslate"><span class="pre">plot</span></code> : Redraw the plot on all frames and devices.
+| <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">close</span> <span class="pre">2</span></code> : Close device number 2, which is the postscript</p>
+<blockquote>
+<div><p>device in this case</p>
+</div></blockquote>
 </section>
 </section>
 
@@ -398,7 +422,9 @@ device in this case</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
-    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -442,7 +468,7 @@ device in this case</div>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -450,7 +476,7 @@ device in this case</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -465,9 +491,9 @@ device in this case</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

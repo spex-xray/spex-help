@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Python Interface &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+    <title>6. Python Interface &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=e1e178d4" />
+    <script src="_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6.1.1. Basic usage of PYSPEX" href="pyspex/spex.html" />
-    <link rel="prev" title="5.9. Calling SPEX from Fortran" href="tools/fortcall.html" />
+    <link rel="prev" title="5.10. Linid" href="tools/linid.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="python-interface">
-<span id="sec-pyspexidx"></span><h1><span class="section-number">6. </span>Python Interface<a class="headerlink" href="#python-interface" title="Permalink to this heading">¶</a></h1>
+<span id="sec-pyspexidx"></span><h1><span class="section-number">6. </span>Python Interface<a class="headerlink" href="#python-interface" title="Link to this heading">¶</a></h1>
 <p>Welcome to the documentation of PYSPEX, the Python interface to SPEX. Since version
 3.06.00 we provide a Python interface layer to the SPEX program. This documentation
 section explains how to use this interface, which is an alternative for the standard
@@ -47,7 +45,7 @@ command-line interface of SPEX.</p>
 a separate Python package called pyspextools. Please see the <a class="reference external" href="https://spex-xray.github.io/pyspextools/">Pyspextools documentation</a> for more information.</p>
 </div>
 <section id="basic-commands">
-<h2><span class="section-number">6.1. </span>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Basic commands<a class="headerlink" href="#basic-commands" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyspex/spex.html">6.1.1. Basic usage of PYSPEX</a><ul>
@@ -68,7 +66,7 @@ a separate Python package called pyspextools. Please see the <a class="reference
 </div>
 </section>
 <section id="analysis-threads-other-tricks">
-<h2><span class="section-number">6.2. </span>Analysis threads &amp; other tricks<a class="headerlink" href="#analysis-threads-other-tricks" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Analysis threads &amp; other tricks<a class="headerlink" href="#analysis-threads-other-tricks" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyspex/threads.html">6.2.1. Jupyter Notebooks</a></li>
@@ -78,10 +76,11 @@ a separate Python package called pyspextools. Please see the <a class="reference
 </div>
 </section>
 <section id="advanced-class-descriptions">
-<h2><span class="section-number">6.3. </span>Advanced class descriptions<a class="headerlink" href="#advanced-class-descriptions" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Advanced class descriptions<a class="headerlink" href="#advanced-class-descriptions" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyspex/session.html">6.3.1. Session class structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/session.html#pyspex.spex.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyspex/session.html#session-class-commands">6.3.1.1. Session class commands</a></li>
 </ul>
 </li>
@@ -119,8 +118,14 @@ a separate Python package called pyspextools. Please see the <a class="reference
 <li class="toctree-l2"><a class="reference internal" href="pyspex/plot.html#effective-area-plots">6.3.5.3. Effective area plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pyspex/ascdump.html">6.3.6. Ascdump class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyspex/log.html">6.3.7. Logging commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/ascdump.html">6.3.6. Ascdump class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/ascdump.html#pyspex.ascdump.Ascdump"><code class="docutils literal notranslate"><span class="pre">Ascdump</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspex/log.html">6.3.7. Logging commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspex/log.html#pyspex.log.Log"><code class="docutils literal notranslate"><span class="pre">Log</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -135,7 +140,9 @@ a separate Python package called pyspextools. Please see the <a class="reference
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="index.html">
-    <img class="logo" src="_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -171,12 +178,12 @@ a separate Python package called pyspextools. Please see the <a class="reference
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="tools/fortcall.html" title="previous chapter"><span class="section-number">5.9. </span>Calling SPEX from Fortran</a></li>
+      <li>Previous: <a href="tools/linid.html" title="previous chapter"><span class="section-number">5.10. </span>Linid</a></li>
       <li>Next: <a href="pyspex/spex.html" title="next chapter"><span class="section-number">6.1.1. </span>Basic usage of PYSPEX</a></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -184,7 +191,7 @@ a separate Python package called pyspextools. Please see the <a class="reference
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -199,9 +206,9 @@ a separate Python package called pyspextools. Please see the <a class="reference
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

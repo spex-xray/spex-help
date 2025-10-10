@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>9.5. Supernova remnants &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>9.5. Supernova remnants &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/exercises/ex5.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="supernova-remnants">
-<h1><span class="section-number">9.5. </span>Supernova remnants<a class="headerlink" href="#supernova-remnants" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">9.5. </span>Supernova remnants<a class="headerlink" href="#supernova-remnants" title="Link to this heading">¶</a></h1>
 <p>Up to now we have only fitted an object which was in collisional
 ionization equilibrium (CIE), but when there are plasma shocks in a (low
 density) medium, equilibrium might not be reached yet. This is often the
@@ -44,7 +42,7 @@ case in supernova remnants. We will illustrate this with the following
 spectrum: <a class="reference download internal" download="" href="../_downloads/74fad87746212c1b10f6ff2e63af04dd/nei.spo"><code class="xref download docutils literal notranslate"><span class="pre">nei.spo</span></code></a>. Again the
 response is the same as <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>.
 Adopt a source distance of 3 kpc, and fix the Galactic foreground
-absorption to <img class="math" src="../_images/math/c9ea427c91b1f1045fb79d416257fb9bfeb6a737.svg" alt="5 \times 10^{24}  \mathrm{m}^{-2}" style="vertical-align: -1px"/>. Define your spectral model.</p>
+absorption to <img class="math" src="../_images/math/5be613d3fa1eb1fad71ca4cf10b13e2c3be0ba34.svg" alt="5 \times 10^{24}  \mathrm{m}^{-2}" style="vertical-align: -1px"/>. Define your spectral model.</p>
 <ol class="arabic simple">
 <li><p>Fit the spectrum with a CIE model. Is the fit acceptable?</p></li>
 <li><p>With the parameter <code class="docutils literal notranslate"><span class="pre">rt</span></code>, which is the ratio between the temperature
@@ -52,9 +50,9 @@ in ionization balance and spectral temperature, we can obtain a
 better fit. Set the parameter to thawn, but be aware that this ratio
 is not allowed to get too close to 0! Is the fit acceptable?</p></li>
 <li><p>In SPEX there is also a component which can fit a non-equilibrium
-spectrum called <code class="docutils literal notranslate"><span class="pre">neij</span></code>. The most important parameter is <img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/>.
-It is defined as follows: <img class="math" src="../_images/math/2f62ece975d5c4133c61e69fc369676cc6068ccb.svg" alt="U = \int_{t_0}^{t_n} n_e dt" style="vertical-align: -7px"/>. When
-<img class="math" src="../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/> is big, it means the ionization is in equilibrium. Fit the
+spectrum called <code class="docutils literal notranslate"><span class="pre">neij</span></code>. The most important parameter is <img class="math" src="../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/>.
+It is defined as follows: <img class="math" src="../_images/math/8b1eee88e17a2e71013edb47d09afc3f66f127d9.svg" alt="U = \int_{t_0}^{t_n} n_e dt" style="vertical-align: -7px"/>. When
+<img class="math" src="../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/> is big, it means the ionization is in equilibrium. Fit the
 spectrum with <code class="docutils literal notranslate"><span class="pre">neij</span></code>. What is the temperature after the shock?</p></li>
 <li><p>Now vary the pre-shock temperature. Does that make any difference?</p></li>
 <li><p>In order to see the effect of Non-Equilibrium Ionisation (NEI), make
@@ -82,7 +80,9 @@ spectra.</p></li>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -129,7 +129,7 @@ spectra.</p></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -137,7 +137,7 @@ spectra.</p></li>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -152,9 +152,9 @@ spectra.</p></li>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6.2.3. Multiprocessing with PYSPEX &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>6.2.3. Multiprocessing with PYSPEX &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/multip.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,7 +34,7 @@
           <div class="body" role="main">
             
   <section id="multiprocessing-with-pyspex">
-<span id="pyspex-multip"></span><h1><span class="section-number">6.2.3. </span>Multiprocessing with PYSPEX<a class="headerlink" href="#multiprocessing-with-pyspex" title="Permalink to this heading">¶</a></h1>
+<span id="pyspex-multip"></span><h1><span class="section-number">6.2.3. </span>Multiprocessing with PYSPEX<a class="headerlink" href="#multiprocessing-with-pyspex" title="Link to this heading">¶</a></h1>
 <p>As described in <a class="reference internal" href="session.html#pyspex-session"><span class="std std-ref">Session class structure</span></a>, a PYSPEX session can only be started once, at least per process or thread. This
 can be an annoying limitation if you want to run several SPEX sessions at once. This problem can be partly circumvented
 by using the <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> module of Python. This module is able to run functions in parallel with different
@@ -111,7 +109,7 @@ the potential of the <code class="docutils literal notranslate"><span class="pre
 </div>
 <p>Next, we will discuss the details of each part of this script.</p>
 <section id="needed-python-modules">
-<h2><span class="section-number">6.2.3.1. </span>Needed Python modules<a class="headerlink" href="#needed-python-modules" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.2.3.1. </span>Needed Python modules<a class="headerlink" href="#needed-python-modules" title="Link to this heading">¶</a></h2>
 <p>For this script, PYSPEX is obviously needed and is imported as usual. The other module is <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool</span></code>,
 which will handle the multiprocessing for us (see also <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">Python multiprocessing</a>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
@@ -120,7 +118,7 @@ which will handle the multiprocessing for us (see also <a class="reference exter
 </div>
 </section>
 <section id="the-ciecalc-function">
-<h2><span class="section-number">6.2.3.2. </span>The ciecalc function<a class="headerlink" href="#the-ciecalc-function" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.2.3.2. </span>The ciecalc function<a class="headerlink" href="#the-ciecalc-function" title="Link to this heading">¶</a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">ciecalc</span></code> is our worker function here. This means that this function will start a PYSPEX session,
 executes a number of SPEX commands (based on the input arguments), and produces a result. In this case, we
 add one CIE component, set a temperature read from the function input arguments, and calculate the spectrum.
@@ -142,7 +140,7 @@ variables and instructions from the input object.</p></li>
 will delete all the <code class="docutils literal notranslate"><span class="pre">*.dum</span></code> files as well.</p>
 </section>
 <section id="set-up-multiprocessing">
-<h2><span class="section-number">6.2.3.3. </span>Set up multiprocessing<a class="headerlink" href="#set-up-multiprocessing" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.2.3.3. </span>Set up multiprocessing<a class="headerlink" href="#set-up-multiprocessing" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">nproc</span></code> variable specifies the number of processes to run at the same time. Choose this parameter wisely
 based on the number of processors and amount of RAM memory in your computer. Also keep in mind that one PYSPEX
 session may also use multiple processors at the same time.</p>
@@ -181,7 +179,7 @@ output is merged (if applicable).</p>
 SPEX are running.</p>
 </section>
 <section id="final-thoughts">
-<h2><span class="section-number">6.2.3.4. </span>Final thoughts<a class="headerlink" href="#final-thoughts" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.2.3.4. </span>Final thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading">¶</a></h2>
 <p>The method above is especially suitable for repeating long and more complicated PYSPEX sessions. Since the SPEX
 is restarted each time a process starts, you will lose a couple of seconds. Therefore, this is only efficient if
 the runtime of one iteration is much longer than a couple of seconds.</p>
@@ -199,7 +197,9 @@ session per process, everything should run well.</p>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -242,7 +242,7 @@ session per process, everything should run well.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -250,7 +250,7 @@ session per process, everything should run well.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -265,9 +265,9 @@ session per process, everything should run well.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1.9. DEM: differential emission measure analysis &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>3.1.9. DEM: differential emission measure analysis &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
+    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/dem.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,9 +34,9 @@
           <div class="body" role="main">
             
   <section id="dem-differential-emission-measure-analysis">
-<span id="sec-dem-command"></span><h1><span class="section-number">3.1.9. </span>DEM: differential emission measure analysis<a class="headerlink" href="#dem-differential-emission-measure-analysis" title="Permalink to this heading">¶</a></h1>
+<span id="sec-dem-command"></span><h1><span class="section-number">3.1.9. </span>DEM: differential emission measure analysis<a class="headerlink" href="#dem-differential-emission-measure-analysis" title="Link to this heading">¶</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1.9.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.9.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>SPEX offers the opportunity to do a differential emission measure
 analysis. This is an effective way to model multi-temperature plasmas in
 the case of continuous temperature distributions or a large number of
@@ -61,10 +59,10 @@ measures.</p></li>
 <li><p>clean – Clean method: uses the clean method that is widely used in
 radio astronomy. Useful for “spiky emission measure distributions.</p></li>
 <li><p>poly – Polynomial method: approximates the DEM by a polynomial in the
-<img class="math" src="../../_images/math/f141d973e5be22096741237bd2637774b1e65ab0.svg" alt="\log T - \log Y" style="vertical-align: -3px"/> plane, where <img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> is the emission
+<img class="math" src="../../_images/math/9f819648a5f29c3b9d73f773ae392804230dc9ee.svg" alt="\log T - \log Y" style="vertical-align: -3px"/> plane, where <img class="math" src="../../_images/math/357afc3c215b6df01b14cbb4745e0946d098938e.svg" alt="Y" style="vertical-align: 0px"/> is the emission
 measure. Works well if the DEM is smooth.</p></li>
 <li><p>mult – Multi-temperature method: tries to fit the DEM to the sum of
-Gaussian components as a function of <img class="math" src="../../_images/math/1f622eeef1c00b9f2bfe14fb4cf5b227a8e1cef6.svg" alt="\log T" style="vertical-align: -3px"/>. Good for
+Gaussian components as a function of <img class="math" src="../../_images/math/7eaa3c3f57f49ddda51c9d7d088397e7a1fb3c5d.svg" alt="\log T" style="vertical-align: -3px"/>. Good for
 discrete and slightly broadened components, but may not always
 converge.</p></li>
 <li><p>gene – Genetic algorithm: using a genetic algorithm try to find the
@@ -89,27 +87,27 @@ components, first the “dem lib” command must be re-issued!</p></li>
 </ol>
 </section>
 <section id="syntax">
-<h2><span class="section-number">3.1.9.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.9.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">lib</span></code> : Create the basic DEM library of isothermal spectra</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span></code> : Do DEM analysis using the regularization method,
 using an automatic search of the optimum regularization parameter. It
-determines the regularisation parameter <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/> in such a way that
-<img class="math" src="../../_images/math/ac97ed518accc3176c0fa7d5d548aacca0daaf17.svg" alt="\chi^2(R) =
+determines the regularisation parameter <img class="math" src="../../_images/math/e21ae425001f982e3a45b3befbc9d5256d66f14c.svg" alt="R" style="vertical-align: 0px"/> in such a way that
+<img class="math" src="../../_images/math/8083a94ecc7e5130e3be85fe4140dae0e661fdb9.svg" alt="\chi^2(R) =
  \chi^2(0) [1 + s \sqrt{2/(n-n_{\mathrm T}}]" style="vertical-align: -5px"/> where the scaling factor
-<img class="math" src="../../_images/math/b36c9eae45473b7d7f00eb71bf532a6a6d8dfd02.svg" alt="s=1" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/> is the number of spectral bins in the data set
-and <img class="math" src="../../_images/math/1984ffeaa7eed72cc82dd61c13f80e368ba7a706.svg" alt="n_{\mathrm T}" style="vertical-align: -2px"/> is the number of temperature components in
+<img class="math" src="../../_images/math/665c60178695a2bf9e09515fdfb81900f477469d.svg" alt="s=1" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> is the number of spectral bins in the data set
+and <img class="math" src="../../_images/math/e2d9106fa77a64a90527c02a59f7c14bcb87f171.svg" alt="n_{\mathrm T}" style="vertical-align: -2px"/> is the number of temperature components in
 the DEM library.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span> <span class="pre">#r</span></code> : As above, but for the scaling factor <img class="math" src="../../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span> <span class="pre">#r</span></code> : As above, but for the scaling factor <img class="math" src="../../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/>
 set to #r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">#r</span></code> : Do DEM analysis using the regularization method,
-using a fixed regularization parameter <img class="math" src="../../_images/math/21eabc612663f0e28ca6517d1161a8f06cc8b1ad.svg" alt="R =" style="vertical-align: 0px"/>#r.</div>
+using a fixed regularization parameter <img class="math" src="../../_images/math/7c87f079b1b84fb2c323ebcefeff72db54a9f759.svg" alt="R =" style="vertical-align: 0px"/>#r.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">chireg</span> <span class="pre">#r1:#r2</span> <span class="pre">#i</span></code> : Do a grid search over the regularization
-parameter <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/>, with #i steps and <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/> distributed
+parameter <img class="math" src="../../_images/math/e21ae425001f982e3a45b3befbc9d5256d66f14c.svg" alt="R" style="vertical-align: 0px"/>, with #i steps and <img class="math" src="../../_images/math/e21ae425001f982e3a45b3befbc9d5256d66f14c.svg" alt="R" style="vertical-align: 0px"/> distributed
 logarithmically between #r1 and #r2. Useful to scan the
-<img class="math" src="../../_images/math/7f4f72c9d6e9ba4cbe0f1538e4758bed12ac2d8b.svg" alt="\chi^2(R)" style="vertical-align: -4px"/> curve whenever it is complicated and to see how much
-“penalty’ (negative DEM values) there are for each value of <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/>.</div>
+<img class="math" src="../../_images/math/4801316e453835c361e99acaf3fae5c1803ded50.svg" alt="\chi^2(R)" style="vertical-align: -4px"/> curve whenever it is complicated and to see how much
+“penalty’ (negative DEM values) there are for each value of <img class="math" src="../../_images/math/e21ae425001f982e3a45b3befbc9d5256d66f14c.svg" alt="R" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">clean</span></code> : Do DEM analysis using the clean method</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">poly</span> <span class="pre">#i</span></code> : Do DEM analysis using the polynomial method, where
 #i is the degree of the polynomial</div>
@@ -118,13 +116,13 @@ where #i is the number of broad components</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">gene</span> <span class="pre">#i1</span> <span class="pre">#i2</span></code> : Do DEM analysis using the genetic algorithm,
 using a population size given by #i1 (maximum value 1024) and #i2 is
 the number of generations (no limit, in practice after
-<img class="math" src="../../_images/math/b453868ab872ce2d945d285e65b84b1e400dc27d.svg" alt="\sim" style="vertical-align: 0px"/>100 generations not much change in the solution.
+<img class="math" src="../../_images/math/7946b5259958dbf9c60ef00efaa75c848b3eb1ef.svg" alt="\sim" style="vertical-align: 0px"/>100 generations not much change in the solution.
 Experiment with these numbers for your practical case.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">read</span> <span class="pre">#a</span></code> : Read a DEM distribution from a file named #a which
 automatically gets the extension “.dem”. It is an ascii file with at
 least two columns, the first column is the temperature in keV and the
 second column the differential emission measure, in units of
-<img class="math" src="../../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> m:math:<cite>^{-3}</cite> keV:math:<cite>^{-1}</cite>. The maximum number of
+<img class="math" src="../../_images/math/d0f3c90ec9ef5341be5994a6bfcf739550c28d0f.svg" alt="10^{64}" style="vertical-align: 0px"/> m:math:<cite>^{-3}</cite> keV:math:<cite>^{-1}</cite>. The maximum number of
 data points in this file is 8192. Temperature should be in increasing
 order. The data will be interpolated to match the temperature grid
 defined in the dem model (which is set by the user).</div>
@@ -135,23 +133,23 @@ used (not always relevant or well defined, exept for the
 regularization method).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">smooth</span> <span class="pre">#r</span></code> : Smoothes a DEM previously determined by any DEM
 method using a block filter/ Here #r is the full width of the filter
-expressed in <img class="math" src="../../_images/math/bc16cb2471360bb4aa9a7f3fed9c63cd439f6fe3.svg" alt="^{10}\log T" style="vertical-align: -3px"/>. Note that this smoothing will in
-principle worsen the <img class="math" src="../../_images/math/db5019371e06bb4dbbf76375d0a61d554448699b.svg" alt="\chi^2" style="vertical-align: -3px"/> of the solution, but it is
+expressed in <img class="math" src="../../_images/math/a1a2117ba24b9f8c338464ec05f291ce17c73916.svg" alt="^{10}\log T" style="vertical-align: -3px"/>. Note that this smoothing will in
+principle worsen the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> of the solution, but it is
 sometimes useful to “wash out” some residual noise in the DEM
 distribution, preserving total emission measure.</div>
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">3.1.9.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.9.3. </span>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">lib</span></code> : create the DEM library</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">auto</span></code> : use the automatic regularization method</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">10.</span></code> : use a regularization parameter of <img class="math" src="../../_images/math/a3b73cd936e701f14e1fe0bfa7c566fa8fffab77.svg" alt="R=10" style="vertical-align: 0px"/> in
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">reg</span> <span class="pre">10.</span></code> : use a regularization parameter of <img class="math" src="../../_images/math/78e14643fa3897d07f62cdbda48923cd43552e44.svg" alt="R=10" style="vertical-align: 0px"/> in
 the regularization method</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">chireg</span> <span class="pre">1.e-5:1.e5</span> <span class="pre">11</span></code> : do a grid search using 11
-regularisation parameters <img class="math" src="../../_images/math/66bf53701a5c6b5929d6ef647b70e9d54bd663b8.svg" alt="R" style="vertical-align: 0px"/> given by <img class="math" src="../../_images/math/373534238f84ddb3c99a028005ff5f9c61d9f2bc.svg" alt="10^{-5}" style="vertical-align: 0px"/>,
-<img class="math" src="../../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/>, 0.001, 0.01, 0.1, 1, 10, 100, 1000, <img class="math" src="../../_images/math/57ee462f2d69ae200ca8e70947ea719113cc159c.svg" alt="10^4" style="vertical-align: 0px"/>,
-<img class="math" src="../../_images/math/bb87a13002fce52f836ad81368f55ea74b5c1910.svg" alt="10^5" style="vertical-align: 0px"/>.</div>
+regularisation parameters <img class="math" src="../../_images/math/e21ae425001f982e3a45b3befbc9d5256d66f14c.svg" alt="R" style="vertical-align: 0px"/> given by <img class="math" src="../../_images/math/e10def739f2f5a73a8853a6ce1148bece2cae3b3.svg" alt="10^{-5}" style="vertical-align: 0px"/>,
+<img class="math" src="../../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}" style="vertical-align: 0px"/>, 0.001, 0.01, 0.1, 1, 10, 100, 1000, <img class="math" src="../../_images/math/66b8dcc90cc06e833e7a49a3cb85fb1044a55149.svg" alt="10^4" style="vertical-align: 0px"/>,
+<img class="math" src="../../_images/math/f952026a20e160c10e42be4de6148d4726667b49.svg" alt="10^5" style="vertical-align: 0px"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">clean</span></code> : use the clean method</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">poly</span> <span class="pre">7</span></code> : use a 7th degree polynomial method</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">gene</span> <span class="pre">512</span> <span class="pre">128</span></code> : use the genetic algorithm with a population of
@@ -159,7 +157,7 @@ regularisation parameters <img class="math" src="../../_images/math/66bf53701a5c
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">save</span> <span class="pre">mydem</span></code> : save the current dem on a file named mydem.dem</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">read</span> <span class="pre">modeldem</span></code> : read the dem from a file named modeldem.dem</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">dem</span> <span class="pre">smooth</span> <span class="pre">0.3</span></code> : smooth the DEM to a temperature width of 0.3 in
-<img class="math" src="../../_images/math/bc16cb2471360bb4aa9a7f3fed9c63cd439f6fe3.svg" alt="^{10}\log T" style="vertical-align: -3px"/> (approximately a factor of 2 in temperature
+<img class="math" src="../../_images/math/a1a2117ba24b9f8c338464ec05f291ce17c73916.svg" alt="^{10}\log T" style="vertical-align: -3px"/> (approximately a factor of 2 in temperature
 range).</div>
 <div class="line">Recommended citation: <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995A&amp;A...296..477M/abstract">Mewe et al. (1995)</a>.</div>
 </div>
@@ -175,7 +173,9 @@ range).</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
-    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -219,7 +219,7 @@ range).</div>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -227,7 +227,7 @@ range).</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -242,9 +242,9 @@ range).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.1.12. Elim: set flux energy limits &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>3.1.12. Elim: set flux energy limits &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
+    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/elim.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,9 +34,9 @@
           <div class="body" role="main">
             
   <section id="elim-set-flux-energy-limits">
-<span id="sec-elim"></span><h1><span class="section-number">3.1.12. </span>Elim: set flux energy limits<a class="headerlink" href="#elim-set-flux-energy-limits" title="Permalink to this heading">¶</a></h1>
+<span id="sec-elim"></span><h1><span class="section-number">3.1.12. </span>Elim: set flux energy limits<a class="headerlink" href="#elim-set-flux-energy-limits" title="Link to this heading">¶</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1.12.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.12.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>SPEX offers the opportunity to calculate the model flux in a given
 energy interval for the current spectral model. This information can be
 viewed when the model parameters are shown (see
@@ -46,12 +44,12 @@ section <a class="reference internal" href="par.html#sec-par"><span class="std 
 <p>For each additive component of the model, the following quantities are
 listed:</p>
 <ul class="simple">
-<li><p>the observed photon number flux (<img class="math" src="../../_images/math/82e2a0254b039a30cb113fafa33daed6e7ffdd23.svg" alt="\mathrm{photons}" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/c0a326b7dd0bb2fb67d3e9537242840ad69320bd.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>)
+<li><p>the observed photon number flux (<img class="math" src="../../_images/math/4815da275570d4b6a3a73581cc4ec9fe34733a8b.svg" alt="\mathrm{photons}" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>)
 at earth, including any effects of galactic absorption etc.</p></li>
-<li><p>the observed energy flux (<img class="math" src="../../_images/math/ab7152d95170507575312c08c3e79c27480bc4bd.svg" alt="\mathrm{W} \mathrm{m}^{-2}" style="vertical-align: 0px"/>) at earth, including any
+<li><p>the observed energy flux (<img class="math" src="../../_images/math/6a1d2d0c537c56c20e9ac60ec72c41dd4c7c8e8d.svg" alt="\mathrm{W} \mathrm{m}^{-2}" style="vertical-align: 0px"/>) at earth, including any
 effects of galactic absorption etc.</p></li>
 <li><p>the intrinsic number of photons emitted at the source, not diluted by
-any absorption etc., in <img class="math" src="../../_images/math/82e2a0254b039a30cb113fafa33daed6e7ffdd23.svg" alt="\mathrm{photons}" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/d84e11a7ba25be842f2b7cad4a2eee2acead9751.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>.</p></li>
+any absorption etc., in <img class="math" src="../../_images/math/4815da275570d4b6a3a73581cc4ec9fe34733a8b.svg" alt="\mathrm{photons}" style="vertical-align: -3px"/> <img class="math" src="../../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>.</p></li>
 <li><p>the intrinsic luminosity emitted at the source, not diluted by any
 absorption etc., in W.</p></li>
 </ul>
@@ -59,12 +57,12 @@ absorption etc., in W.</p></li>
 range: keV (the default), eV, Ryd, J, Hz, Å, nm.</p>
 </section>
 <section id="syntax">
-<h2><span class="section-number">3.1.12.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.12.2. </span>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">¶</a></h2>
 <p>The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">elim</span> <span class="pre">#r1:#r2</span> <span class="pre">[#a]</span></code> : Determine the flux between #r1 #r2, in units
 given by #a, and as listed above. The default at startup is
-<img class="math" src="../../_images/math/886227196e802e2cbbf07dc6730e5333dffb96da.svg" alt="2 - 10" style="vertical-align: -1px"/> keV. If no unit is given, it is assumed that the limits
+<img class="math" src="../../_images/math/59fd7929f1d4354555389b7390ce8116464ef630.svg" alt="2 - 10" style="vertical-align: -1px"/> keV. If no unit is given, it is assumed that the limits
 are in keV.</div>
 </div>
 <div class="admonition warning">
@@ -80,7 +78,7 @@ always be larger than the lower limit.</p>
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">3.1.12.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.12.3. </span>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">elim</span> <span class="pre">0.5:4.5</span></code> : give fluxes between 0.5 and 4.5 keV</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">elim</span> <span class="pre">500:4500</span> <span class="pre">ev</span></code> : give fluxes between 500 and 4500 eV (same
@@ -99,7 +97,9 @@ result as above)</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
-    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -143,7 +143,7 @@ result as above)</div>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -151,7 +151,7 @@ result as above)</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -166,9 +166,9 @@ result as above)</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

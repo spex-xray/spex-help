@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.16. Etau: simple transmission model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.17. Etau: simple transmission model &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/etau.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.17. Euve: EUVE absorption model" href="euve.html" />
-    <link rel="prev" title="4.1.15. Ebv: Galactic interstellar extinction model" href="ebv.html" />
+    <link rel="next" title="4.1.18. Euve: EUVE absorption model" href="euve.html" />
+    <link rel="prev" title="4.1.16. Ebv: Galactic interstellar extinction model" href="ebv.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,57 +34,72 @@
           <div class="body" role="main">
             
   <section id="etau-simple-transmission-model">
-<span id="sect-etau"></span><h1><span class="section-number">4.1.16. </span>Etau: simple transmission model<a class="headerlink" href="#etau-simple-transmission-model" title="Permalink to this heading">¶</a></h1>
-<p>This model calculates the transmission <img class="math" src="../_images/math/ac4c0d4818cb65f349bb02ec5b07f1f7062f6bbc.svg" alt="T(E)" style="vertical-align: -4px"/> between energies
-<img class="math" src="../_images/math/ad46b698131685d50524a27e93a4955bdcacd6ce.svg" alt="E1" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> for a simple (often unphysical!) case:</p>
+<span id="sect-etau"></span><h1><span class="section-number">4.1.17. </span>Etau: simple transmission model<a class="headerlink" href="#etau-simple-transmission-model" title="Link to this heading">¶</a></h1>
+<p>This model calculates the transmission <img class="math" src="../_images/math/1fdca20c8523882d26f4fcc8f1b7a727128c7332.svg" alt="T(E)" style="vertical-align: -4px"/> between energies
+<img class="math" src="../_images/math/4bd229159e8a62a1b8876c71441d24699c7cc766.svg" alt="E1" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> for a simple (often unphysical!) case:</p>
 <div class="math">
-<p><img src="../_images/math/94713d7b48d0b90e1f6e1f9c420755cfc1c4fa6f.svg" alt="T(E) = e^{-\tau(E)},"/></p>
-</div><p>with the optical depth <img class="math" src="../_images/math/bd753a97a8afa4db2f2b2a14a8aaf724c6595d1d.svg" alt="\tau(E)" style="vertical-align: -4px"/> given by:</p>
+<p><img src="../_images/math/0773ad08d533a520d695a549389f664ca5672793.svg" alt="T(E) = e^{-\tau(E)},"/></p>
+</div><p>with the optical depth <img class="math" src="../_images/math/267daf5ee0e049a325679de852be94a90ac86dc6.svg" alt="\tau(E)" style="vertical-align: -4px"/> given by:</p>
 <div class="math">
-<p><img src="../_images/math/fe7e8ff79f27f087a07b80bdafe7acaf251f3f81.svg" alt="\tau(E) = \tau_0 E^a."/></p>
-</div><p>In addition, we put here <img class="math" src="../_images/math/b35acad84fcfe2771cce91c3f9a40530336c31fb.svg" alt="T\equiv 1" style="vertical-align: 0px"/> for <img class="math" src="../_images/math/470031933a315dc7c3779faf17136c3b04e60fc7.svg" alt="E&lt;E_1" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/125501559363bd93c45c9cf0da0ead9bc4d3a275.svg" alt="E&gt;E_2" style="vertical-align: -2px"/>, where <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> are adjustable
+<p><img src="../_images/math/fc4bf5a0655210b313401b809532ef87a8aba0f7.svg" alt="\tau(E) = \tau_0 E^a."/></p>
+</div><p>In addition, we put here <img class="math" src="../_images/math/9aba3b52777abf80e3caf94eb520dfdd7fa38972.svg" alt="T\equiv 1" style="vertical-align: 0px"/> for <img class="math" src="../_images/math/999a9dc28e70f946a95619ce04dc46b953b8d35f.svg" alt="E&lt;E_1" style="vertical-align: -2px"/> and
+<img class="math" src="../_images/math/51d02712ec1b22805ee522a0619c6dd741ef8c42.svg" alt="E&gt;E_2" style="vertical-align: -2px"/>, where <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> are adjustable
 parameters. This allows the user for example to mimick an edge. Note
 however, that in most circumstances there are more physical models
 present in SPEX that contain realistic transmissions of edges! If you do
-not want or need edges, simply keep <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> at their
+not want or need edges, simply keep <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> at their
 default values.</p>
-<p>Note that <img class="math" src="../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> should be non-negative. For <img class="math" src="../_images/math/58fc203b285a0f748b5227a188f5dff7d493bf81.svg" alt="a&gt;0" style="vertical-align: 0px"/> the
-spectrum has a high-energy cut-off, for <img class="math" src="../_images/math/63a6f8eca62111290db1fbbedeac6808bfbaaa8d.svg" alt="a&lt;0" style="vertical-align: 0px"/> it has a low-energy
-cut-off, and for <img class="math" src="../_images/math/364911ce0fdca171d755b730d2499d06d926426a.svg" alt="a=0" style="vertical-align: 0px"/> the transmission is flat. The larger the
-value of <img class="math" src="../_images/math/bd23af321acb3c2291fc451fe18f5fc46d850c03.svg" alt="a" style="vertical-align: 0px"/>, the sharper the cut-off is.</p>
+<p>Note that <img class="math" src="../_images/math/51887297f839c2ba974372e9147a76a300f3d7ce.svg" alt="\tau_0" style="vertical-align: -2px"/> should be non-negative. For <img class="math" src="../_images/math/a17c66bc02cb7a939e1d24bc43a83742f188d20c.svg" alt="a&gt;0" style="vertical-align: 0px"/> the
+spectrum has a high-energy cut-off, for <img class="math" src="../_images/math/e486e57796108b226d49d9bcd1a9b0f0c453b4c1.svg" alt="a&lt;0" style="vertical-align: 0px"/> it has a low-energy
+cut-off, and for <img class="math" src="../_images/math/8cf172adc0cbc85560ea4c5d2c3620b0b977ebc2.svg" alt="a=0" style="vertical-align: 0px"/> the transmission is flat. The larger the
+value of <img class="math" src="../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a" style="vertical-align: 0px"/>, the sharper the cut-off is.</p>
 <p>The model can be used as a basis for more complicated continuum
 absorption models. For example, if the optical depth is given as a
-polynomial in the photon energy <img class="math" src="../_images/math/cfc664ffb3acc54cd4736cdcc64cb77e5f900c47.svg" alt="E" style="vertical-align: 0px"/>, say for example
-<img class="math" src="../_images/math/8dfef436b5256b461db8fdf30bb86aecf0e74010.svg" alt="\tau = 2 + 3E + 4E^2" style="vertical-align: -1px"/>, one may define three <em>etau</em> components,
-with <img class="math" src="../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> values of 2, 3, and 4, and indices <img class="math" src="../_images/math/bd23af321acb3c2291fc451fe18f5fc46d850c03.svg" alt="a" style="vertical-align: 0px"/> of 0, 1
+polynomial in the photon energy <img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E" style="vertical-align: 0px"/>, say for example
+<img class="math" src="../_images/math/1d241cb3545cd9721125e8cbbcbd847cd7919aae.svg" alt="\tau = 2 + 3E + 4E^2" style="vertical-align: -1px"/>, one may define three <em>etau</em> components,
+with <img class="math" src="../_images/math/51887297f839c2ba974372e9147a76a300f3d7ce.svg" alt="\tau_0" style="vertical-align: -2px"/> values of 2, 3, and 4, and indices <img class="math" src="../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a" style="vertical-align: 0px"/> of 0, 1
 and 2. This is because of the mathematical identity
-<img class="math" src="../_images/math/731f24a64d6c4a6e5ac3863354996629c9134579.svg" alt="e^{-(\tau_1+\tau_2)}
+<img class="math" src="../_images/math/f8de22d6114e319470aaed07e00fcfcbdc69fd47.svg" alt="e^{-(\tau_1+\tau_2)}
 = e^{-\tau1}\times e^{-\tau2}" style="vertical-align: -1px"/>.</p>
-<p>As of version 3.08.00 a new option has been added to use an
-input transmission spectrum instead of an analytical description.
-The file has a similar structure as the file model for emission spectra.
-The first line must contain the number of energies in the file.
-The next lines contain two numbers for each entry: the energy in keV,
-and the scaled optical depth <img class="math" src="../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> (dimensionless).
-The entries must be in increasing energy order.
-The transmission T(E) is then computed as <img class="math" src="../_images/math/b8239c49d090863bb5edad0f3707ce214741e52b.svg" alt="\mathrm{T(E)} = e^{(-\tau_0  t(E))}" style="vertical-align: -4px"/>
-where <img class="math" src="../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> is the first parameter of the model <code class="docutils literal notranslate"><span class="pre">tau0</span></code>.</p>
 <p>The parameters of the model are:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">tau0</span></code> : Optical depth <img class="math" src="../_images/math/a4f8b4f05db777ae565bfaa392394372f037bbf2.svg" alt="\tau_0" style="vertical-align: -2px"/> at <img class="math" src="../_images/math/008ba885f6d0e5e1df33e94590172a1d8b3b949e.svg" alt="E=1" style="vertical-align: 0px"/> keV. Default
-value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code> : The index <img class="math" src="../_images/math/bd23af321acb3c2291fc451fe18f5fc46d850c03.svg" alt="a" style="vertical-align: 0px"/> defined above. Default value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">e1</span></code> : Lower energy <img class="math" src="../_images/math/02abd8c46e3a909793253b7317b7d7bb21f6d0f8.svg" alt="E_1" style="vertical-align: -2px"/> (keV). Default value:
-<img class="math" src="../_images/math/f3dd5aca9825c00ea5d05eca4e13946c6a32105e.svg" alt="10^{-20}" style="vertical-align: 0px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">e2</span></code> : Upper energy <img class="math" src="../_images/math/c3ebea5fe795836298884ce0d5ddbd0c1b2adafb.svg" alt="E_2" style="vertical-align: -2px"/> (keV). Default value:
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">f</span></code> : The covering factor of the absorber. Default value: 1 (full
-covering)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code>: <code class="docutils literal notranslate"><span class="pre">mode=0</span></code>: Default etau model (analytical description).
-<code class="docutils literal notranslate"><span class="pre">mode=1</span></code>: Input of the optical depth of the absorber as a file model.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code>: The name of the file that provides the transmission.</div>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">tau0<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optical depth <img class="math" src="../_images/math/51887297f839c2ba974372e9147a76a300f3d7ce.svg" alt="\tau_0" style="vertical-align: -2px"/> at <img class="math" src="../_images/math/9eb761208149ce92efd8b2a80b86d3d7d4fcec7e.svg" alt="E=1" style="vertical-align: 0px"/> keV. Default
+value: 1.</p>
+</dd>
+<dt class="field-even">a<span class="colon">:</span></dt>
+<dd class="field-even"><p>The index <img class="math" src="../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a" style="vertical-align: 0px"/> defined above. Default value: 1.</p>
+</dd>
+<dt class="field-odd">e1<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lower energy <img class="math" src="../_images/math/6e57a90753908e5332acb3eddcd9fb40df9c13da.svg" alt="E_1" style="vertical-align: -2px"/> (keV). Default value:
+<img class="math" src="../_images/math/c490d1087362e53c7f150238f449f0f57a685e81.svg" alt="10^{-20}" style="vertical-align: 0px"/>.</p>
+</dd>
+<dt class="field-even">e2<span class="colon">:</span></dt>
+<dd class="field-even"><p>Upper energy <img class="math" src="../_images/math/bc2482992a9529dc42191678646b6280c95c86e9.svg" alt="E_2" style="vertical-align: -2px"/> (keV). Default value:
+<img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/>.</p>
+</dd>
+<dt class="field-odd">icov<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of the covering fraction. Default value: 2 (constant,
+set by <em>fcov</em>). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+tangent function that decreases with energy. See description in <code class="docutils literal notranslate"><span class="pre">pion</span></code>.</p>
+</dd>
+<dt class="field-even">fcov<span class="colon">:</span></dt>
+<dd class="field-even"><p>The covering factor of the absorber if icov=2. Default value: 1 (full
+covering). If icov=3 or 4, it sets the covering factor at the high energy end.</p>
+</dd>
+<dt class="field-odd">lcov<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The covering factor of the absorber at the low energy end. Default value: 1.
+lcov is applied only when icov=3 or 4. See description in <code class="docutils literal notranslate"><span class="pre">pion</span></code>.</p>
+</dd>
+<dt class="field-even">ecov<span class="colon">:</span></dt>
+<dd class="field-even"><p>The energy when the covering factor changes from lcov to fcov. Only applied
+if icov=3 or 4.</p>
+</dd>
+<dt class="field-odd">acov<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The width of the transit on covering factor. Only applied if icov=3 or 4.</p>
+</dd>
+</dl>
 </section>
 
 
@@ -98,7 +111,9 @@ covering)</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -135,14 +150,14 @@ covering)</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="ebv.html" title="previous chapter"><span class="section-number">4.1.15. </span>Ebv: Galactic interstellar extinction model</a></li>
-      <li>Next: <a href="euve.html" title="next chapter"><span class="section-number">4.1.17. </span>Euve: EUVE absorption model</a></li>
+      <li>Previous: <a href="ebv.html" title="previous chapter"><span class="section-number">4.1.16. </span>Ebv: Galactic interstellar extinction model</a></li>
+      <li>Next: <a href="euve.html" title="next chapter"><span class="section-number">4.1.18. </span>Euve: EUVE absorption model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -150,7 +165,7 @@ covering)</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -165,9 +180,9 @@ covering)</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

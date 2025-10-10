@@ -29,8 +29,8 @@ units.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A`, in units of
+:norm: Normalisation :math:`A`, in units of
   :math:`10^{44} \ \mathrm{ph} \ \mathrm{s}^{-1}`. Default value: 1.
-| ``e`` : The line energy :math:`E_0` in keV. Default value: 6.4 keV.
-| ``type`` : The type: 0 for energy units, 1 for wavelength units.
-| ``w`` : The line wavelength :math:`\lambda` in Å. Default value: 20 Å.
+:e: The line energy :math:`E_0` in keV. Default value: 6.4 keV.
+:type: The type: 0 for energy units, 1 for wavelength units.
+:w: The line wavelength :math:`\lambda` in Å. Default value: 20 Å.

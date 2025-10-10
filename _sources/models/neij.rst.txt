@@ -121,35 +121,56 @@ the array of :math:`u`-values should be in ascending order. The pairs
 :math:`T=T_1` (the pre-shock temperature), and the final (radiation)
 temperature is the temperature of the last bin.
 
+Plane-parallel shock mode
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a shock propagates through material, different layers behind the shock front
+are heated at different times, and therefore exhibit different ionization ages.
+As a result, the spectrum cannot be fully represented by a single neij component.
+
+By setting ``mode`` = 3, the code approximates a plane-parallel shock. In practice,
+this is done by dividing the ionization timescale parameter ``u`` into 200 logarithmically
+spaced bins, starting from a minimal value near the shock front (set to :math:`10^{-6}`)
+up to the final ``u`` specified as a model parameter. Each shell is given equal
+weight, and the total ionization balance, and hence the resulting spectrum, is obtained
+by summing over all shells.
+
+A current limitation of the pshock mode is that it does not track the evolution
+of electron temperature behind the shock. Work is in progress on an improved
+version of the model that will include full energy balance considerations.
+
+
+
 The parameters of the model are:
 
-| ``t1`` : Temperature :math:`T_1`
+:t1: Temperature :math:`T_1`
   before the sudden change in temperature, in keV. Default: 0.002 keV.
-| ``t2`` : Temperature :math:`T_2` after the sudden change in
+:t2: Temperature :math:`T_2` after the sudden change in
   temperature, in keV. Default: 1 keV.
-| ``u`` : Ionization parameter :math:`U=n_{\mathrm e}t` before the
+:u: Ionization parameter :math:`U=n_{\mathrm e}t` before the
   “break”, in :math:`10^{20}` m\ :math:`^{-3}` s. Default:
   :math:`10^{-4}`.
-| ``du`` : Ionization parameter :math:`dU` after the “break” in
+:du: Ionization parameter :math:`dU` after the “break” in
   :math:`10^{20}` :math:`\mathrm{m}^{-3}` s. Default value is 0 (no break).
-| ``alfa`` : Slope :math:`\alpha` of the :math:`T(t)` curve after the
+:alfa: Slope :math:`\alpha` of the :math:`T(t)` curve after the
   “break”. Default value is 0 (constant :math:`T`).
-| ``beta`` : Slope :math:`\beta` of the :math:`n(t)` curve after the
+:beta: Slope :math:`\beta` of the :math:`n(t)` curve after the
   “break”. Default value is 0 (constant :math:`n`).
-| ``mode`` : Mode of the model. Mode=1: analytical case; mode=2:
+:mode: Mode of the model. Mode=1: analytical case; mode=2:
   :math:`T(u)` read from a file. In the latter case, also the parameter
-  ``hisu`` needs to be specified.
-| ``hisu`` : Filename with the :math:`T(u)` values. Only used when
+  ``hisu`` needs to be specified. Mode=3: plane-parallel shock. See
+  description above.
+:hisu: Filename with the :math:`T(u)` values. Only used when
   mode=2.
 
 The following parameters are the same as for the cie-model (:ref:`sect:cie`):
 
-| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
-| ``it`` : Ion temperature in keV
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
-| ``ref`` : Reference element
-| ``01...30`` : Abundances of H to Zn
-| ``file`` : Filename for the nonthermal electron distribution
+:hden: Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
+:it: Ion temperature in keV
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
+:ref: Reference element
+:01...30: Abundances of H to Zn
+:file: Filename for the nonthermal electron distribution
 
 *Recommended citation:* `Kaastra & Jansen (1993)
 <https://ui.adsabs.harvard.edu/abs/1993A%26AS...97..873K/abstract>`_.

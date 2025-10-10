@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.7. RGS_fmat &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>5.7. RGS_fmat &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/tools/rgs_fmat.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,14 +34,14 @@
           <div class="body" role="main">
             
   <section id="rgs-fmat">
-<span id="sect-rgsfmat"></span><h1><span class="section-number">5.7. </span>RGS_fmat<a class="headerlink" href="#rgs-fmat" title="Permalink to this heading">¶</a></h1>
+<span id="sect-rgsfmat"></span><h1><span class="section-number">5.7. </span>RGS_fmat<a class="headerlink" href="#rgs-fmat" title="Link to this heading">¶</a></h1>
 <p>Program <em>RGS_fmat</em> produces a response matrix for a fluxed spectrum
 created by the XMM-Newton SAS task <em>rgsfluxer</em>.</p>
 <p>The user should provide an FITS file that is the output of the
 <em>rgsfluxer</em> program. That program <em>must</em> be run with 3600 equidistant
 wavelength bins between 4 and 40 Å. The program takes this fluxed
 spectrum, and creates a response matrix with effective area
-1 <img class="math" src="../_images/math/9c0da95e2fbe8c5d7b90f52589fe5f130debdeab.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/> for each wavelength, and a redistribution function
+1 <img class="math" src="../_images/math/a26a9cedbf93d94ccf540df6ce251fbad8449fe4.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/> for each wavelength, and a redistribution function
 normalised to unity for each wavelength.</p>
 <p>This redistribution function is slightly different for RGS1 and RGS2,
 and also different for the second order spectra. Hence, the user must
@@ -65,14 +63,14 @@ in 2014 after having re-investigated the RGS line-spread-function by the
 RGS consortium.</p>
 <p>The model energy grid used for the matrix has a uniform spacing of 1/9th
 of the instrumental FWHM, approxinmated here simply by
-0.06/<img class="math" src="../_images/math/c2690dfc5f8627719aa8b5643679aaf1963b690e.svg" alt="\vert m\vert" style="vertical-align: -4px"/>, where <img class="math" src="../_images/math/13a9a7bb4a4c30c9a9543cb771fc9cce192c661c.svg" alt="m" style="vertical-align: 0px"/> is the spectral order. The
+0.06/<img class="math" src="../_images/math/45a83e0f04094cd27b6f81a1cf13b6b12723ee0e.svg" alt="\vert m\vert" style="vertical-align: -4px"/>, where <img class="math" src="../_images/math/76057117b344531a11036e3bc9660e8d94df7649.svg" alt="m" style="vertical-align: 0px"/> is the spectral order. The
 matrix is fully -compatible, in the sense that it also uses the
 derivatives of the matrix with respect to energy to get the most
 accurate results. There is no way back from this to OGIP-typs spectra!</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The redistribution function is limited to
-<img class="math" src="../_images/math/cfe02d7b32dad5efe97b2bbe42dda59774631106.svg" alt="\pm" style="vertical-align: -1px"/>1 Å around the central wavelength. For most continuum and
+<img class="math" src="../_images/math/8c9ab529fdc101dee8f8e5fe64bed4f920fd79c4.svg" alt="\pm" style="vertical-align: -1px"/>1 Å around the central wavelength. For most continuum and
 absorption line spectra this is sufficient. In a few rare cases of very
 bright emission line sources, the user is advised to compare the
 resulting fit with a direct fit using the original SAS response matrices
@@ -92,7 +90,9 @@ OGIP format, which is over 200 Mbyte.</p>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -120,6 +120,7 @@ OGIP format, which is over 200 Mbyte.</p>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">5.7. RGS_fmat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uvtospex.html">5.8. Uvtospex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fortcall.html">5.9. Calling SPEX from Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linid.html">5.10. Linid</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../pyspex.html">6. Python Interface</a></li>
@@ -141,7 +142,7 @@ OGIP format, which is over 200 Mbyte.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -149,7 +150,7 @@ OGIP format, which is over 200 Mbyte.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -164,9 +165,9 @@ OGIP format, which is over 200 Mbyte.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

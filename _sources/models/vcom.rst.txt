@@ -28,9 +28,9 @@ be convolved with the this broadening model.
 
 The parameters of the model are:
 
-| ``s`` : Scaling of the profile in energy space :math:`s`, dimensionless. Default
+:s: Scaling of the profile in energy space :math:`s`, dimensionless. Default
   value: 1.
 
-| ``a`` : Skewness parameter :math:`a`, dimensionless. Default
+:a: Skewness parameter :math:`a`, dimensionless. Default
   value: 0.
 

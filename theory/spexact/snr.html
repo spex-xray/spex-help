@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8.1.7. Supernova remnant model theory &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <title>8.1.7. Supernova remnant model theory &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
+    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/spexact/snr.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -22,8 +19,9 @@
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,107 +34,107 @@
           <div class="body" role="main">
             
   <section id="supernova-remnant-model-theory">
-<h1><span class="section-number">8.1.7. </span>Supernova remnant model theory<a class="headerlink" href="#supernova-remnant-model-theory" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">8.1.7. </span>Supernova remnant model theory<a class="headerlink" href="#supernova-remnant-model-theory" title="Link to this heading">¶</a></h1>
 <p>For the calculation of SNR models we follow <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993A%26AS...97..873K/abstract">Kaastra &amp; Jansen (1993)</a>.
 But also here we make some modifications in the implementation.</p>
 <p>The X-ray spectrum of a SNR is characterised in lowest order by its
-average temperature <img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>, ionisation parameter <img class="math" src="../../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/> and
-emission measure <img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/>. If one calculates a specific model however,
+average temperature <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>, ionisation parameter <img class="math" src="../../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/> and
+emission measure <img class="math" src="../../_images/math/357afc3c215b6df01b14cbb4745e0946d098938e.svg" alt="Y" style="vertical-align: 0px"/>. If one calculates a specific model however,
 these average values are not known a priori. A relevant set of input
 parameters could be the interstellar density, the shock radius and the
 explosion energy. These are the parameters used by KJ. A disadvantage is
 that this choice is not suitable for spectral fitting: changing one of
-the parameters gives correlated changes in <img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/> and
-<img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/>, which is an undesirable feature in spectral fitting. KJ
-solved this by inputting a guess of <img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/>, and <img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/>
+the parameters gives correlated changes in <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/> and
+<img class="math" src="../../_images/math/357afc3c215b6df01b14cbb4745e0946d098938e.svg" alt="Y" style="vertical-align: 0px"/>, which is an undesirable feature in spectral fitting. KJ
+solved this by inputting a guess of <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/>, and <img class="math" src="../../_images/math/357afc3c215b6df01b14cbb4745e0946d098938e.svg" alt="Y" style="vertical-align: 0px"/>
 and using these guess parameters as the fitting parameters. After
 fitting, the model had to be calculated another time in order to find
 the relation between guessed and true parameters. here we take another
-choice. We will select input parameters which scale with <img class="math" src="../../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>,
-<img class="math" src="../../_images/math/233239088d7d5c677ae72581f50efe98dd2f4be6.svg" alt="U" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/bea8ea81e7c553c9103bec22e468a6693549ac10.svg" alt="Y" style="vertical-align: 0px"/> respectively but are connected to the SNR
+choice. We will select input parameters which scale with <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>,
+<img class="math" src="../../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/357afc3c215b6df01b14cbb4745e0946d098938e.svg" alt="Y" style="vertical-align: 0px"/> respectively but are connected to the SNR
 parameters independent of the hydrodynamical model. The first parameter
 is the shock temperature</p>
 <div class="math">
-<p><img src="../../_images/math/9f55e0d4ce06d7e3ac62285e34cf6cb35c162596.svg" alt="T_s,"/></p>
+<p><img src="../../_images/math/99ea8cec36a763ab3921f06061adfe50a1fd0b26.svg" alt="T_s,"/></p>
 </div><p>the second the shock ionisation parameter defined by</p>
 <div class="math">
-<p><img src="../../_images/math/a826e7cb6e62d82d454153ca7b160cf35a70224a.svg" alt="U_s\equiv n_{\mathrm e}t"/></p>
-</div><p>where <img class="math" src="../../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> is the electron density before the shock (for a
-completely ionised gas), and <img class="math" src="../../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> the age of the remnant. Further
+<p><img src="../../_images/math/8ed606abffcac33ffeba869e3fb58e236c4c7dfc.svg" alt="U_s\equiv n_{\mathrm e}t"/></p>
+</div><p>where <img class="math" src="../../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> is the electron density before the shock (for a
+completely ionised gas), and <img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/> the age of the remnant. Further
 we define the shock reduced emission measure by</p>
 <div class="math">
-<p><img src="../../_images/math/b60a61f88f9322fe580355cd5a15abed6ec3daa8.svg" alt="Y_s\equiv n_{\mathrm e}n_{\mathrm H}r_s^3/d^2"/></p>
-</div><p>where <img class="math" src="../../_images/math/5241fa881120087f6702dacb229f63a32a39e0ac.svg" alt="r_s" style="vertical-align: -2px"/> is the main shock radius, and <img class="math" src="../../_images/math/5ac673113d00676b08c46a209eb6b5d862c02609.svg" alt="d" style="vertical-align: 0px"/> the distance
+<p><img src="../../_images/math/4ae357136589b9b77d6dfe42e061aadb300b2e90.svg" alt="Y_s\equiv n_{\mathrm e}n_{\mathrm H}r_s^3/d^2"/></p>
+</div><p>where <img class="math" src="../../_images/math/276f7928be1bf1b4d83d39d122f974f0f2d24df6.svg" alt="r_s" style="vertical-align: -2px"/> is the main shock radius, and <img class="math" src="../../_images/math/7552d1f4fcc50fe2e4e6fd7a9a640f4c87b96dbe.svg" alt="d" style="vertical-align: 0px"/> the distance
 to the source. We have introduced here also the electron density
-<img class="math" src="../../_images/math/23ebfb3650ff0e4963ddfaf0e6ff0f985b9808bd.svg" alt="n_e" style="vertical-align: -2px"/> instead of the more natural Hydrogen density, because this
+<img class="math" src="../../_images/math/7ab48ee169444d3da12697a377a09fec19863fa6.svg" alt="n_e" style="vertical-align: -2px"/> instead of the more natural Hydrogen density, because this
 allows an efficient use of the model for spectral fitting: if one fits a
 spectrum with variable chemical abundances, then using the current
-scaling we need to calculate (for a given <img class="math" src="../../_images/math/14eda2ceb8d792fada19110af3ef2b5f6031ae5a.svg" alt="T_s" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/435b1fee16648dcd622e1780cb34eda5262773fa.svg" alt="U_s" style="vertical-align: -2px"/> and
-<img class="math" src="../../_images/math/92bb7d5cd7159dca0162092f30d95c30285e5b7f.svg" alt="Y_s" style="vertical-align: -2px"/>) the relative ion concentrations only once; for other
+scaling we need to calculate (for a given <img class="math" src="../../_images/math/41de8e172af8ff04fc60499e902f45e1a2811143.svg" alt="T_s" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/fc6906ed30da80d05e835e8ff81eadd65a1fca95.svg" alt="U_s" style="vertical-align: -2px"/> and
+<img class="math" src="../../_images/math/5ea3beb66911603f869ebe04b7dae63e1e587763.svg" alt="Y_s" style="vertical-align: -2px"/>) the relative ion concentrations only once; for other
 abundances, the relative concentrations may be simply scaled without a
 need to redo completely the ionisation balance calculations. Finally we
-introduced the distance in the definition of <img class="math" src="../../_images/math/92bb7d5cd7159dca0162092f30d95c30285e5b7f.svg" alt="Y_s" style="vertical-align: -2px"/> in order to
+introduced the distance in the definition of <img class="math" src="../../_images/math/5ea3beb66911603f869ebe04b7dae63e1e587763.svg" alt="Y_s" style="vertical-align: -2px"/> in order to
 allow an easy comparison with spectra observed at earth. These 3 input
-parameters <img class="math" src="../../_images/math/14eda2ceb8d792fada19110af3ef2b5f6031ae5a.svg" alt="T_s" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/435b1fee16648dcd622e1780cb34eda5262773fa.svg" alt="U_s" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/92bb7d5cd7159dca0162092f30d95c30285e5b7f.svg" alt="Y_s" style="vertical-align: -2px"/> will serve as input
+parameters <img class="math" src="../../_images/math/41de8e172af8ff04fc60499e902f45e1a2811143.svg" alt="T_s" style="vertical-align: -2px"/>, <img class="math" src="../../_images/math/fc6906ed30da80d05e835e8ff81eadd65a1fca95.svg" alt="U_s" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/5ea3beb66911603f869ebe04b7dae63e1e587763.svg" alt="Y_s" style="vertical-align: -2px"/> will serve as input
 parameters for all hydrodynamical models. They are linked to other
 parameters as follows:</p>
 <div class="math" id="equation-snr-eqn4">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-snr-eqn4" title="Permalink to this equation">¶</a></span><img src="../../_images/math/9643535caaa5f30b720c48143dc035df3c25a32a.svg" alt="f_{\mathrm p} kT_s = f_{\mathrm T} \epsilon_\rho m_{\mathrm p}r_s^2/t^2"/></p>
-</div><p>where <img class="math" src="../../_images/math/8a4684e401e138def9859182ab8d6760ebcb7ad8.svg" alt="\epsilon_\rho" style="vertical-align: -5px"/> is a dimensionless factor representing the
-average mass in units of a proton mass per Hydrogen atom (<img class="math" src="../../_images/math/d25a3d15842bc5763a4da2fce0f5e411d531e30f.svg" alt="\rho =
-\epsilon_\rho m_{\mathrm p}n_{\mathrm H}" style="vertical-align: -5px"/> with <img class="math" src="../../_images/math/7ee834b6882cddba80e1d7f6a32c255176c47069.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> the proton
-mass), and <img class="math" src="../../_images/math/ff6a8c785eab7c24b367ac203b7087f38b8fc6ba.svg" alt="f_{\mathrm p}" style="vertical-align: -5px"/> is another dimensionless factor,
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-snr-eqn4" title="Link to this equation">¶</a></span><img src="../../_images/math/aaf4d51450b7152d8545c9bb6980d3f2ea011632.svg" alt="f_{\mathrm p} kT_s = f_{\mathrm T} \epsilon_\rho m_{\mathrm p}r_s^2/t^2"/></p>
+</div><p>where <img class="math" src="../../_images/math/96b1d5a518190b9e8cf9aeeca1588b30b86ec3f2.svg" alt="\epsilon_\rho" style="vertical-align: -5px"/> is a dimensionless factor representing the
+average mass in units of a proton mass per Hydrogen atom (<img class="math" src="../../_images/math/f5caba1d890dcd29b0cf18cb74e0c3e0ec930f3d.svg" alt="\rho =
+\epsilon_\rho m_{\mathrm p}n_{\mathrm H}" style="vertical-align: -5px"/> with <img class="math" src="../../_images/math/85290f17a19f29074b739e6973e839a84e6a3c84.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> the proton
+mass), and <img class="math" src="../../_images/math/d2c4bd2721e24885e2a61f84cbbdb7e545f928c0.svg" alt="f_{\mathrm p}" style="vertical-align: -5px"/> is another dimensionless factor,
 representing the ratio of electron plus ion density over the Hydrogen
-density. Further, <img class="math" src="../../_images/math/e035f0d5a571265563522c2a1fe7ad7e3adf1f04.svg" alt="f_{\mathrm T}" style="vertical-align: -3px"/> is a model-dependent dimensionless
+density. Further, <img class="math" src="../../_images/math/166e31f5667493658afe1a92f9e91a763b64827a.svg" alt="f_{\mathrm T}" style="vertical-align: -3px"/> is a model-dependent dimensionless
 scaling factor which is given by</p>
 <div class="math">
-<p><img src="../../_images/math/0286cf78753170d2049eeff59b090ba3496c5b83.svg" alt="f_{\mathrm T} = \frac{f_v^2}{\eta - 1}"/></p>
-</div><p>with <img class="math" src="../../_images/math/b8432083f4fcd5f8c3299412306630ecd62392c7.svg" alt="f_v" style="vertical-align: -3px"/> the velocity scaling discussed below and <img class="math" src="../../_images/math/bd747d9b660c0de772ed6e4d74198dc074e26e6f.svg" alt="\eta" style="vertical-align: -3px"/>
+<p><img src="../../_images/math/99e7295fa84a070f8d8fd236acd829a0f07f771e.svg" alt="f_{\mathrm T} = \frac{f_v^2}{\eta - 1}"/></p>
+</div><p>with <img class="math" src="../../_images/math/7e0c74a1281fa38c7d62c64c11cbb56d8a1b3426.svg" alt="f_v" style="vertical-align: -3px"/> the velocity scaling discussed below and <img class="math" src="../../_images/math/759c6a990cbffaad5a8f09c2f87108f616a12962.svg" alt="\eta" style="vertical-align: -3px"/>
 the density jump at the main shock front, which depends upon the
 Hydrodynamical model. Another scaling law links the gas velocity to the
 temperature:</p>
 <div class="math">
-<p><img src="../../_images/math/67fca136da11b7374ff92fc3546a460154a8c0f5.svg" alt="v_2 = f_v r_s/t"/></p>
-</div><p>with <img class="math" src="../../_images/math/7edfa66a7f70400424d0849a041409c040e1f8ce.svg" alt="v_2" style="vertical-align: -2px"/> the post-shock gas velocity (not to be confused with
+<p><img src="../../_images/math/1006ea6abe8475d6db22c4fd252d373592790413.svg" alt="v_2 = f_v r_s/t"/></p>
+</div><p>with <img class="math" src="../../_images/math/6714993f542d10440d36d5f532172c1dc8416c43.svg" alt="v_2" style="vertical-align: -2px"/> the post-shock gas velocity (not to be confused with
 the shock velocity!). The velocity scaling factor is given by</p>
 <div class="math">
-<p><img src="../../_images/math/7e9407c18f2d2a48a4f2e5c54943abfd3657fdf3.svg" alt="f_v \equiv \frac{(n-3)(\eta - 1)}{(n-s) \eta}"/></p>
+<p><img src="../../_images/math/2c4312fbe65af9c1990317ad9bbbb3090f11c556.svg" alt="f_v \equiv \frac{(n-3)(\eta - 1)}{(n-s) \eta}"/></p>
 </div><p>with the understatement that for the Sedov and Solinger model one should
-take formally the limit <img class="math" src="../../_images/math/b91bbcb7982b170a688e1d1cbfd491b2c4e9df93.svg" alt="n=5" style="vertical-align: 0px"/>.</p>
-<p>The explosion energy <img class="math" src="../../_images/math/a3fac7908ac5466af7b50ed61c6e967252738de0.svg" alt="E_0" style="vertical-align: -2px"/> is linked to the other parameters by</p>
+take formally the limit <img class="math" src="../../_images/math/6ec063743e73f6ce803ca5f4bac6a537f51e072e.svg" alt="n=5" style="vertical-align: 0px"/>.</p>
+<p>The explosion energy <img class="math" src="../../_images/math/1a4f279596f95857b81d43a56f11c4223b3a9296.svg" alt="E_0" style="vertical-align: -2px"/> is linked to the other parameters by</p>
 <div class="math">
-<p><img src="../../_images/math/5aedfa0c5764375525dccfd4a2db1a7f8283e614.svg" alt="E_0 = \frac{\alpha r_s^5 \rho}{t^2},"/></p>
-</div><p>where <img class="math" src="../../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> is the dimensionless energy integral introduced by
-Sedov. The value of <img class="math" src="../../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> depends both upon the hydrodynamical
-model and the value for <img class="math" src="../../_images/math/5a99ec20046e64dffe57732005e1da92e6a7603b.svg" alt="s" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>, the density gradient
+<p><img src="../../_images/math/5a6d6777da914e7bace72a696794566f6a0f1932.svg" alt="E_0 = \frac{\alpha r_s^5 \rho}{t^2},"/></p>
+</div><p>where <img class="math" src="../../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/> is the dimensionless energy integral introduced by
+Sedov. The value of <img class="math" src="../../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/> depends both upon the hydrodynamical
+model and the value for <img class="math" src="../../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>, the density gradient
 scale heights of the interstellar medium and the stellar ejecta.</p>
-<p>If we express <img class="math" src="../../_images/math/14eda2ceb8d792fada19110af3ef2b5f6031ae5a.svg" alt="T_s" style="vertical-align: -2px"/> in keV, <img class="math" src="../../_images/math/435b1fee16648dcd622e1780cb34eda5262773fa.svg" alt="U_s" style="vertical-align: -2px"/> in
-<img class="math" src="../../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>s, <img class="math" src="../../_images/math/92bb7d5cd7159dca0162092f30d95c30285e5b7f.svg" alt="Y_s" style="vertical-align: -2px"/> in
-<img class="math" src="../../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/264566d38d8721f9ac5311d9c81c01efb9b137d6.svg" alt="\mathrm{m}^{-5}" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/5241fa881120087f6702dacb229f63a32a39e0ac.svg" alt="r_s" style="vertical-align: -2px"/> in units of <img class="math" src="../../_images/math/1c44b4ddc5b8358823c0741f276bfffd54e2cf28.svg" alt="10^8" style="vertical-align: 0px"/> m,
-<img class="math" src="../../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> in <img class="math" src="../../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/5ac673113d00676b08c46a209eb6b5d862c02609.svg" alt="d" style="vertical-align: 0px"/> in units
-of <img class="math" src="../../_images/math/5294cfd02629a9ede75606a475e5ef604c0e65c8.svg" alt="10^{22}" style="vertical-align: 0px"/> m and <img class="math" src="../../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> in s, we obtain from <a class="reference internal" href="#equation-snr-eqn4">(1)</a> the
-value for the proton mass of <img class="math" src="../../_images/math/7ee834b6882cddba80e1d7f6a32c255176c47069.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> =
-<img class="math" src="../../_images/math/625979f22433e37904a2a5a8420952e976cff32c.svg" alt="1.043969\times 10^5" style="vertical-align: -1px"/> <img class="math" src="../../_images/math/9957fe5e518144576f59ee967d5c62d9c7075602.svg" alt="\mathrm{keV}^2" style="vertical-align: 0px"/>(<img class="math" src="../../_images/math/a0236e3d3ceabddd953324dad75f50c1f83ce39e.svg" alt="10^{16}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/911b8808901029410ea83edbc9b7218b631f8a6c.svg" alt="\mathrm{m}^{2}" style="vertical-align: 0px"/>)<img class="math" src="../../_images/math/2a585ca056c8e8cb111c861488ac47fe4ce73ebc.svg" alt="^{-1}" style="vertical-align: 0px"/>.
+<p>If we express <img class="math" src="../../_images/math/41de8e172af8ff04fc60499e902f45e1a2811143.svg" alt="T_s" style="vertical-align: -2px"/> in keV, <img class="math" src="../../_images/math/fc6906ed30da80d05e835e8ff81eadd65a1fca95.svg" alt="U_s" style="vertical-align: -2px"/> in
+<img class="math" src="../../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>s, <img class="math" src="../../_images/math/5ea3beb66911603f869ebe04b7dae63e1e587763.svg" alt="Y_s" style="vertical-align: -2px"/> in
+<img class="math" src="../../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/f4351c1fbbfc622396b1f8cff7369b49e7d3512a.svg" alt="\mathrm{m}^{-5}" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/276f7928be1bf1b4d83d39d122f974f0f2d24df6.svg" alt="r_s" style="vertical-align: -2px"/> in units of <img class="math" src="../../_images/math/99d09fe0ee3e92de78274fb351f8024b169e0b97.svg" alt="10^8" style="vertical-align: 0px"/> m,
+<img class="math" src="../../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> in <img class="math" src="../../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, <img class="math" src="../../_images/math/7552d1f4fcc50fe2e4e6fd7a9a640f4c87b96dbe.svg" alt="d" style="vertical-align: 0px"/> in units
+of <img class="math" src="../../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}" style="vertical-align: 0px"/> m and <img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/> in s, we obtain from <a class="reference internal" href="#equation-snr-eqn4">(1)</a> the
+value for the proton mass of <img class="math" src="../../_images/math/85290f17a19f29074b739e6973e839a84e6a3c84.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> =
+<img class="math" src="../../_images/math/c3415893e04dfc34b015d91ea83a914cc5b3aeee.svg" alt="1.043969\times 10^5" style="vertical-align: -1px"/> <img class="math" src="../../_images/math/1cb47e0a14b103378e1ad20ccf59afe43c371f6b.svg" alt="\mathrm{keV}^2" style="vertical-align: 0px"/>(<img class="math" src="../../_images/math/70ba2a5ebf6fda50d1c7275d7f9aa4a24cef512b.svg" alt="10^{16}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/70c0f5985f350f2aff128185faac7cf6c7928c19.svg" alt="\mathrm{m}^{2}" style="vertical-align: 0px"/>)<img class="math" src="../../_images/math/36257ab71f271517d576a5de6c28351d5957d526.svg" alt="^{-1}" style="vertical-align: 0px"/>.
 Using this value and defining
-<img class="math" src="../../_images/math/253d86f7199c7a72e732563036dc5494d07f0558.svg" alt="f_m = f_T\epsilon_\rho m_{\mathrm p}/f_{\mathrm p}" style="vertical-align: -5px"/>, the scaling laws for
+<img class="math" src="../../_images/math/e20f9b4719cf7d8fda6e843a19c52003f92df7cf.svg" alt="f_m = f_T\epsilon_\rho m_{\mathrm p}/f_{\mathrm p}" style="vertical-align: -5px"/>, the scaling laws for
 SNRs may be written as</p>
 <div class="math">
-<p><img src="../../_images/math/6fbf35b0af73407ffa1836e7b2aa7d2582c02d2d.svg" alt="n_{\mathrm e} = \frac{T_s^{1.5}U_s^3}{f_m^{1.5}Y_s d^2}"/></p>
+<p><img src="../../_images/math/d0c4aae60cb15fc8cdc97f4d06098f46b4b08307.svg" alt="n_{\mathrm e} = \frac{T_s^{1.5}U_s^3}{f_m^{1.5}Y_s d^2}"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/df3239ac93478ff6e4020c83c33ce9e95d74ede8.svg" alt="t = \frac{f_m^{1.5}Y_s d^2 n_{\mathrm e}}{ T_s^{1.5}U_s^2 n_{\mathrm H}}"/></p>
+<p><img src="../../_images/math/26d64f1ebf885d5b66f205f0bdef2c2b6a6934cf.svg" alt="t = \frac{f_m^{1.5}Y_s d^2 n_{\mathrm e}}{ T_s^{1.5}U_s^2 n_{\mathrm H}}"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/67dd2c08af15069b10b9c2844a5a73e9add4e5da.svg" alt="r = \frac{f_mY_s d^2 n_{\mathrm e}}{U_s^2T_s n_{\mathrm H}}"/></p>
+<p><img src="../../_images/math/2d77a002ed8253dcc455b88cbfdc3ce050be4493.svg" alt="r = \frac{f_mY_s d^2 n_{\mathrm e}}{U_s^2T_s n_{\mathrm H}}"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/15ea070926f28b9fbe7c48083fcf9f5c9b4c7198.svg" alt="v = \frac{f_vT_s^{0.5}}{f_m^{0.5}}"/></p>
+<p><img src="../../_images/math/f8e419bb43efe01162bf052b206d10b6255c5279.svg" alt="v = \frac{f_vT_s^{0.5}}{f_m^{0.5}}"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/5040f075bbce7df66581e9b71c2075cc54c19a74.svg" alt="E_0 = [1.6726231\times 10^{33}\ {\mathrm J}] \frac{\alpha \epsilon_\rho
+<p><img src="../../_images/math/b8f809107ab69e91cd53a8a0b083ff4fa0021fce.svg" alt="E_0 = [1.6726231\times 10^{33}\ {\mathrm J}] \frac{\alpha \epsilon_\rho
 f_m^{0.5}Y_s^2d^4 n_{\mathrm e}}{U_s^3T_s^{0.5}n_{\mathrm H}}"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/6fe5e16644418c1e418e4971e3ff0fced0e3fb5a.svg" alt="M = [8.409\times 10^{-14}\ \mathrm{M_{\odot}} ] \frac{\epsilon_\rho \beta \eta
+<p><img src="../../_images/math/1f24dde089675b3e81d5b0aa86a31c452cca1d67.svg" alt="M = [8.409\times 10^{-14}\ \mathrm{M_{\odot}} ] \frac{\epsilon_\rho \beta \eta
 f_m^{1.5}Y_s^2 d^4 n_{\mathrm e}}{ U_s^3T_s^{1.5} n_{\mathrm H}}"/></p>
-</div><p>where <img class="math" src="../../_images/math/f785b2f8d2748dce753f1ea193a3c030348b1950.svg" alt="M" style="vertical-align: 0px"/> is the mass integral, and <img class="math" src="../../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> is the
+</div><p>where <img class="math" src="../../_images/math/60c2f1677baa9f9ab44d62f602f743639c765aa4.svg" alt="M" style="vertical-align: 0px"/> is the mass integral, and <img class="math" src="../../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/> is the
 dimensionless mass integral (defined by
-<img class="math" src="../../_images/math/48a4a2480d3fe84ece98a5de5cea86212d57599f.svg" alt="\beta = 4\pi\int \frac{\rho}{\rho_s}(\frac{r}{r_s})^2{\mathrm d}\frac{r}{r_s}" style="vertical-align: -8px"/>).</p>
+<img class="math" src="../../_images/math/361ff201aacf8c06ae58ce7e8879800b2b3a9a3c.svg" alt="\beta = 4\pi\int \frac{\rho}{\rho_s}(\frac{r}{r_s})^2{\mathrm d}\frac{r}{r_s}" style="vertical-align: -8px"/>).</p>
 </section>
 
 
@@ -148,7 +146,9 @@ dimensionless mass integral (defined by
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
-    <img class="logo" src="../../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -195,7 +195,7 @@ dimensionless mass integral (defined by
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -203,7 +203,7 @@ dimensionless mass integral (defined by
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -218,9 +218,9 @@ dimensionless mass integral (defined by
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

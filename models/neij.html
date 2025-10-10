@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.29. Neij: non-equilibrium ionisation jump model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.30. Neij: non-equilibrium ionisation jump model &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/neij.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.30. Pdem: DEM models" href="pdem.html" />
-    <link rel="prev" title="4.1.28. Musr: User defined multiplicative model" href="musr.html" />
+    <link rel="next" title="4.1.31. Pdem: DEM models" href="pdem.html" />
+    <link rel="prev" title="4.1.29. Musr: User defined multiplicative model" href="musr.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,51 +34,51 @@
           <div class="body" role="main">
             
   <section id="neij-non-equilibrium-ionisation-jump-model">
-<span id="sect-nei"></span><h1><span class="section-number">4.1.29. </span>Neij: non-equilibrium ionisation jump model<a class="headerlink" href="#neij-non-equilibrium-ionisation-jump-model" title="Permalink to this heading">¶</a></h1>
+<span id="sect-nei"></span><h1><span class="section-number">4.1.30. </span>Neij: non-equilibrium ionisation jump model<a class="headerlink" href="#neij-non-equilibrium-ionisation-jump-model" title="Link to this heading">¶</a></h1>
 <p>This model calculates the spectrum of a plasma in non-equilibrium
 ionisation (NEI). For more details about NEI calculations, see
 <a class="reference internal" href="../theory/spexact/nei.html#sect-neijtheory"><span class="std std-ref">Non-equilibrium ionisation (NEI) calculations</span></a>.</p>
 <p>The present model calculates the spectrum of a collisional ionisation
 equilibrium (CIE) plasma with uniform electron density
-<img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>, that is
-instantaneously heated or cooled to a temperature <img class="math" src="../_images/math/bf26e4bae14dd22607ad0a45e0c90a06202675ae.svg" alt="T_2" style="vertical-align: -2px"/>. It then
-calculates the ionisation state and spectrum after a time <img class="math" src="../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/>.
-Obviously, if <img class="math" src="../_images/math/3c760bf9d70f9eddd4f40aeda06d42fe13bbe08b.svg" alt="t" style="vertical-align: 0px"/> becomes large the plasma tends to an equilibrium
-plasma again at temperature <img class="math" src="../_images/math/bf26e4bae14dd22607ad0a45e0c90a06202675ae.svg" alt="T_2" style="vertical-align: -2px"/>.</p>
+<img class="math" src="../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and temperature <img class="math" src="../_images/math/5180e7be37254241e039d94193b290de1912b40e.svg" alt="T_1" style="vertical-align: -2px"/>, that is
+instantaneously heated or cooled to a temperature <img class="math" src="../_images/math/9e025d6cc16359edd51c5733aeb2d74806482920.svg" alt="T_2" style="vertical-align: -2px"/>. It then
+calculates the ionisation state and spectrum after a time <img class="math" src="../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/>.
+Obviously, if <img class="math" src="../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/> becomes large the plasma tends to an equilibrium
+plasma again at temperature <img class="math" src="../_images/math/9e025d6cc16359edd51c5733aeb2d74806482920.svg" alt="T_2" style="vertical-align: -2px"/>.</p>
 <p>The ionisation history can be traced by defining an ionisation
 parameter,</p>
 <div class="math">
-<p><img src="../_images/math/cedb5310e364b7d983f9b59e27002827e4e9cf7f.svg" alt="u \equiv \int n_{\mathrm e} {\mathrm d}t"/></p>
-</div><p>with <img class="math" src="../_images/math/45462ee702029bb7673429bf6a75200819be7e37.svg" alt="u=0" style="vertical-align: 0px"/> defined at the start of the shock.</p>
+<p><img src="../_images/math/30711620f48e2d291b6186790ce4580911ac0c9a.svg" alt="u \equiv \int n_{\mathrm e} {\mathrm d}t"/></p>
+</div><p>with <img class="math" src="../_images/math/e09fcd940944d8cb2b08b64bf7598e8e9eb9a34a.svg" alt="u=0" style="vertical-align: 0px"/> defined at the start of the shock.</p>
 <p>By default the model describes a classical NEI condition with a flat
 temperature profile:</p>
 <div class="math">
-<p><img src="../_images/math/50cd0e2cd4429e66f821c869e624af6f40a6f390.svg" alt="\begin{aligned}
+<p><img src="../_images/math/4c2ea5b6d0dee72cfe20270b0ffaf5d44d1ed38a.svg" alt="\begin{aligned}
 u&lt;0&amp;:&amp; \ \ \ T = T_1,\\
 u&gt;0&amp;:&amp; \ \ \ T = T_2.\end{aligned}"/></p>
 </div><p>For the case the user wands to calculate more complex situations, SPEX
-offers two modes to treat a temperature profile <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/>: analytic
+offers two modes to treat a temperature profile <img class="math" src="../_images/math/ab0bc3c616c060571f7489ac4d983edeb1a72658.svg" alt="T(u)" style="vertical-align: -4px"/>: analytic
 expression (mode 1) or ascii-file input (mode 2).</p>
 <p>The temperature profile in mode=1 (analytic case) is given by</p>
 <div class="math">
-<p><img src="../_images/math/708a7d1a980859f887a2ae644d093eaa15476cf3.svg" alt="\begin{aligned}
+<p><img src="../_images/math/32bef2448c0eafcd1e2f052a5b104896f05c99af.svg" alt="\begin{aligned}
 u&lt;0&amp;:&amp; \ \ \ T = T_1,\\
 0&lt;u&lt;U&amp;:&amp; \ \ \ T = T_2,\\
 U&lt;u&lt;U+dU&amp;:&amp; \ \ \ T = T(u).\end{aligned}"/></p>
-</div><p>By setting a non-zero value for <img class="math" src="../_images/math/c808e5e61487c2cef6df1b84bef84aa177f03bcc.svg" alt="dU" style="vertical-align: 0px"/>, this model offers the
+</div><p>By setting a non-zero value for <img class="math" src="../_images/math/03eee7ec30505227c45fadcafaf7ddea69853c64.svg" alt="dU" style="vertical-align: 0px"/>, this model offers the
 opportunity to calculate more complex evolution in the last epoch
-(<img class="math" src="../_images/math/5d4106fa8aea43f8180bb370e9e0aa25e99548e1.svg" alt="U&lt;u&lt;U+dU" style="vertical-align: -1px"/>); e.g. with secondary heating/cooling process and/or
-change in density. We introduce parameters <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> and
-<img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>, which describe a power-law like evolution respectively
+(<img class="math" src="../_images/math/1a3fdb3991e688265eacda12957c8c3c83082bda.svg" alt="U&lt;u&lt;U+dU" style="vertical-align: -1px"/>); e.g. with secondary heating/cooling process and/or
+change in density. We introduce parameters <img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/>, which describe a power-law like evolution respectively
 for temperature and density of the plasma after the “break” of constancy
-at time <img class="math" src="../_images/math/7fdbb8f65df38fdb692f63a91bb4f94187457adf.svg" alt="t_{\rm br}" style="vertical-align: -2px"/>:</p>
+at time <img class="math" src="../_images/math/c85747c9aabecb21ba0df8b70b1af1d664b237b9.svg" alt="t_{\rm br}" style="vertical-align: -2px"/>:</p>
 <div class="math" id="equation-tevo">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-tevo" title="Permalink to this equation">¶</a></span><img src="../_images/math/2189247501956ad0f6848b17634e0c568420f904.svg" alt="\begin{aligned}
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-tevo" title="Link to this equation">¶</a></span><img src="../_images/math/6558d6d15dbe6550294b67ee2b166a4b4efc61ac.svg" alt="\begin{aligned}
 T(t) &amp;=&amp; T_2~(t/t_{\mathrm br})^{\alpha} \\
 n_{\mathrm e}(t) &amp;=&amp; n_{\mathrm e}~(t/t_{\mathrm br})^{\beta}, \end{aligned}"/></p>
 </div><p>An immediate application of this break feature would be a recombining
 plasma due to rarefaction (adiabatic expansion). Such a condition can be
-realised with <img class="math" src="../_images/math/5b39555533160fcd5609ee266b000be627a8fa9f.svg" alt="\alpha=-2" style="vertical-align: -1px"/> and <img class="math" src="../_images/math/45ef0d70f091bc914492438a2fbdee37b3c153bc.svg" alt="\beta = -3" style="vertical-align: -3px"/>. Note that we
+realised with <img class="math" src="../_images/math/6823822632ef01f82e27cbbb17cca75bc07767cb.svg" alt="\alpha=-2" style="vertical-align: -1px"/> and <img class="math" src="../_images/math/ebfce6d801f6b1455dfb24ff93e7e3d9317f1abf.svg" alt="\beta = -3" style="vertical-align: -3px"/>. Note that we
 include the effect of the density change here in the NEI calculation for
 the ion concentration, but of course the line emission is calculated at
 the density prescribed by the parameter <em>ed</em> of the model, which
@@ -88,76 +86,120 @@ represents the true density at the epoch of emission of the spectrum.</p>
 <figure class="align-default" id="fig-neibreak">
 <a class="reference internal image-reference" href="../_images/neibreak.png"><img alt="The temperature profile with mode=1." src="../_images/neibreak.png" style="width: 12cm;" /></a>
 <figcaption>
-<p><span class="caption-text">The temperature profile with mode=1.</span><a class="headerlink" href="#fig-neibreak" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">The temperature profile with mode=1.</span><a class="headerlink" href="#fig-neibreak" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>To get the expression for <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/>, we first calculate the increase
-of the ionisation parameter after <img class="math" src="../_images/math/0218832f0befcc3cf6b22953300079cd9f460416.svg" alt="t=t_{\mathrm br}" style="vertical-align: -2px"/> as follows:</p>
+<p>To get the expression for <img class="math" src="../_images/math/ab0bc3c616c060571f7489ac4d983edeb1a72658.svg" alt="T(u)" style="vertical-align: -4px"/>, we first calculate the increase
+of the ionisation parameter after <img class="math" src="../_images/math/a25c8f41d4d1b3374e924c59ffd7ad60e6ecab43.svg" alt="t=t_{\mathrm br}" style="vertical-align: -2px"/> as follows:</p>
 <div class="math" id="equation-tauevo">
-<p><span class="eqno">(2)<a class="headerlink" href="#equation-tauevo" title="Permalink to this equation">¶</a></span><img src="../_images/math/11284de868e1f482b750969a3ae9c879666bfcfd.svg" alt="\begin{aligned}
+<p><span class="eqno">(2)<a class="headerlink" href="#equation-tauevo" title="Link to this equation">¶</a></span><img src="../_images/math/8d640ee431ca2a66eb561e9e8696d5bc94c621d2.svg" alt="\begin{aligned}
 u-U &amp;=&amp; \int_{t_{\mathrm br}} n(t) dt = \int_{t_{\mathrm br}} n_{\mathrm e} (t/t_{\mathrm br})^{\beta} dt \\
 &amp;=&amp; n_{\mathrm e} t_{\mathrm br} ~\int_{1} (t/t_{\mathrm br})^{\beta} ~d(t/t_{\mathrm br}) \\
 &amp;=&amp; U / (\beta+1) \cdot [(t/t_{\mathrm br})^{\beta+1} - 1], \end{aligned}"/></p>
 </div><p>Then, by combining equations <a class="reference internal" href="#equation-tevo">(1)</a> and
 <a class="reference internal" href="#equation-tauevo">(2)</a>, we obtain:</p>
 <div class="math">
-<p><img src="../_images/math/2574f60e08faf08ada2af4efe100ec9a41c0156d.svg" alt="\begin{aligned}
+<p><img src="../_images/math/6ecbc568deb85d622f935aae637cee11f2931660.svg" alt="\begin{aligned}
 T(u) = T_2 \cdot [1 + (\beta+1) \cdot (u-U)/U]^{\alpha/(\beta+1)},\end{aligned}"/></p>
-</div><p>and we get the final temperature at <img class="math" src="../_images/math/8d755bb1be570a8e9f5743c71b4e4745eca568f9.svg" alt="u=U+dU" style="vertical-align: -1px"/> to be</p>
+</div><p>and we get the final temperature at <img class="math" src="../_images/math/fb4c1db82fbf5ec56011b9df371421ad652283ef.svg" alt="u=U+dU" style="vertical-align: -1px"/> to be</p>
 <div class="math">
-<p><img src="../_images/math/bc7a54a3e1bcd267b1a2f86670d3e03b2223eb2d.svg" alt="\begin{aligned}
+<p><img src="../_images/math/72d63e2403973b17c509771e594ff7640e1c5a41.svg" alt="\begin{aligned}
 T_3 = T_2 \cdot [1 + (\beta+1) \cdot dU/U]^{\alpha/(\beta+1)}.\end{aligned}"/></p>
-</div><p>It should be noted that, for fixed values of <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> and
-<img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>, the temperature change after the break is determined by
-the ratio <img class="math" src="../_images/math/f80f3682bd66b64d59529501eec7d169c480f253.svg" alt="dU/U" style="vertical-align: -4px"/> rather than <img class="math" src="../_images/math/c808e5e61487c2cef6df1b84bef84aa177f03bcc.svg" alt="dU" style="vertical-align: 0px"/> itself. The user can check
-<img class="math" src="../_images/math/7de06fe93bc246b0fd662f83d7a7bca9c853f0eb.svg" alt="T_3" style="vertical-align: -2px"/> with the <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">plas</span></code> command (see  <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a>)
-and also the histories of <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> with the
+</div><p>It should be noted that, for fixed values of <img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/>, the temperature change after the break is determined by
+the ratio <img class="math" src="../_images/math/a99ccfffb850cae4054c5168f9d154ca43d7382d.svg" alt="dU/U" style="vertical-align: -4px"/> rather than <img class="math" src="../_images/math/03eee7ec30505227c45fadcafaf7ddea69853c64.svg" alt="dU" style="vertical-align: 0px"/> itself. The user can check
+<img class="math" src="../_images/math/9321da400c603c7225d72c9664486cd64182a44b.svg" alt="T_3" style="vertical-align: -2px"/> with the <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">plas</span></code> command (see  <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a>)
+and also the histories of <img class="math" src="../_images/math/f6739fee48d0dbcb278e8e211ed2c188d10a812a.svg" alt="u" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/ab0bc3c616c060571f7489ac4d983edeb1a72658.svg" alt="T(u)" style="vertical-align: -4px"/> with the
 <code class="docutils literal notranslate"><span class="pre">ascdump</span> <span class="pre">nei</span></code> command (see <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a>).</p>
-<p>In some rare cases with a large negative <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/7de06fe93bc246b0fd662f83d7a7bca9c853f0eb.svg" alt="T_3" style="vertical-align: -2px"/> can
-get an unphysical value (<img class="math" src="../_images/math/35d5c17a217d1047dcc83f0b23d2bb45b0823971.svg" alt="T_3 &lt; 0" style="vertical-align: -2px"/>). In such a case the
+<p>In some rare cases with a large negative <img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/9321da400c603c7225d72c9664486cd64182a44b.svg" alt="T_3" style="vertical-align: -2px"/> can
+get an unphysical value (<img class="math" src="../_images/math/47ca2737f32ed21e7b415a8cdbd38d58f24e7121.svg" alt="T_3 &lt; 0" style="vertical-align: -2px"/>). In such a case the
 calculation will automatically be stopped at a lower-limit of
-<img class="math" src="../_images/math/f99c1c499878fd3437a0838b6826a59216e1cb32.svg" alt="T(u) = 10^{-4}" style="vertical-align: -4px"/> keV.</p>
-<p>For mode 2, the user may enter an ascii-file with <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>- and
-<img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>-values. The format of this file is as follows: the first line
-contains the number of data pairs (<img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>). The next lines
-contain the values of <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/> (in the SPEX units of
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> s <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/> (in keV). Note that
-<img class="math" src="../_images/math/b906f6b850497c174f453e291bb2c9f89829eedc.svg" alt="u_1=0" style="vertical-align: -2px"/> is a requirement, all <img class="math" src="../_images/math/3aaf6d09bfa8b898698a65d4b2d6e7b11742563d.svg" alt="T_i" style="vertical-align: -2px"/> should be positive, and
-the array of <img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>-values should be in ascending order. The pairs
-(<img class="math" src="../_images/math/a507cd4db8638f040798b10db9397dcfe357029c.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>) determine the ionisation history, starting from
-<img class="math" src="../_images/math/eac5e215553bd4b41add4accfd7fb91aa230358c.svg" alt="T=T_1" style="vertical-align: -2px"/> (the pre-shock temperature), and the final (radiation)
+<img class="math" src="../_images/math/7d7181d1172ba79b286cdeb089932272b31b9349.svg" alt="T(u) = 10^{-4}" style="vertical-align: -4px"/> keV.</p>
+<p>For mode 2, the user may enter an ascii-file with <img class="math" src="../_images/math/f6739fee48d0dbcb278e8e211ed2c188d10a812a.svg" alt="u" style="vertical-align: 0px"/>- and
+<img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>-values. The format of this file is as follows: the first line
+contains the number of data pairs (<img class="math" src="../_images/math/f6739fee48d0dbcb278e8e211ed2c188d10a812a.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>). The next lines
+contain the values of <img class="math" src="../_images/math/f6739fee48d0dbcb278e8e211ed2c188d10a812a.svg" alt="u" style="vertical-align: 0px"/> (in the SPEX units of
+<img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> s <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>) and <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/> (in keV). Note that
+<img class="math" src="../_images/math/d77e682c158979dd12dfde235641a07feabaab7c.svg" alt="u_1=0" style="vertical-align: -2px"/> is a requirement, all <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i" style="vertical-align: -2px"/> should be positive, and
+the array of <img class="math" src="../_images/math/f6739fee48d0dbcb278e8e211ed2c188d10a812a.svg" alt="u" style="vertical-align: 0px"/>-values should be in ascending order. The pairs
+(<img class="math" src="../_images/math/f6739fee48d0dbcb278e8e211ed2c188d10a812a.svg" alt="u" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>) determine the ionisation history, starting from
+<img class="math" src="../_images/math/feec94860c3a1697b70af5de75f721dcb33d5b90.svg" alt="T=T_1" style="vertical-align: -2px"/> (the pre-shock temperature), and the final (radiation)
 temperature is the temperature of the last bin.</p>
+<section id="plane-parallel-shock-mode">
+<h2><span class="section-number">4.1.30.1. </span>Plane-parallel shock mode<a class="headerlink" href="#plane-parallel-shock-mode" title="Link to this heading">¶</a></h2>
+<p>When a shock propagates through material, different layers behind the shock front
+are heated at different times, and therefore exhibit different ionization ages.
+As a result, the spectrum cannot be fully represented by a single neij component.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">mode</span></code> = 3, the code approximates a plane-parallel shock. In practice,
+this is done by dividing the ionization timescale parameter <code class="docutils literal notranslate"><span class="pre">u</span></code> into 200 logarithmically
+spaced bins, starting from a minimal value near the shock front (set to <img class="math" src="../_images/math/cd14680074e06f3afc7909d84fb03668e88aa220.svg" alt="10^{-6}" style="vertical-align: 0px"/>)
+up to the final <code class="docutils literal notranslate"><span class="pre">u</span></code> specified as a model parameter. Each shell is given equal
+weight, and the total ionization balance, and hence the resulting spectrum, is obtained
+by summing over all shells.</p>
+<p>A current limitation of the pshock mode is that it does not track the evolution
+of electron temperature behind the shock. Work is in progress on an improved
+version of the model that will include full energy balance considerations.</p>
 <p>The parameters of the model are:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">t1</span></code> : Temperature <img class="math" src="../_images/math/d407abe15b50f15c090bb7cfd1e9abaa01c35b9a.svg" alt="T_1" style="vertical-align: -2px"/>
-before the sudden change in temperature, in keV. Default: 0.002 keV.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">t2</span></code> : Temperature <img class="math" src="../_images/math/bf26e4bae14dd22607ad0a45e0c90a06202675ae.svg" alt="T_2" style="vertical-align: -2px"/> after the sudden change in
-temperature, in keV. Default: 1 keV.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">u</span></code> : Ionization parameter <img class="math" src="../_images/math/533ad0851699fc5930d476effdc1e3c002c9ee90.svg" alt="U=n_{\mathrm e}t" style="vertical-align: -2px"/> before the
-“break”, in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/> s. Default:
-<img class="math" src="../_images/math/5af985bca89ef405a8dea835b54997e022a3a857.svg" alt="10^{-4}" style="vertical-align: 0px"/>.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">du</span></code> : Ionization parameter <img class="math" src="../_images/math/c808e5e61487c2cef6df1b84bef84aa177f03bcc.svg" alt="dU" style="vertical-align: 0px"/> after the “break” in
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> s. Default value is 0 (no break).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">alfa</span></code> : Slope <img class="math" src="../_images/math/eee4bbbfc4a266627fc4d9c2ba127a7bfc41e0dd.svg" alt="\alpha" style="vertical-align: 0px"/> of the <img class="math" src="../_images/math/5c0f05712e1204de935b51dc41d32501e036a38f.svg" alt="T(t)" style="vertical-align: -4px"/> curve after the
-“break”. Default value is 0 (constant <img class="math" src="../_images/math/76b11d6b0fe7f918f2387638925cbe821dfaf34e.svg" alt="T" style="vertical-align: 0px"/>).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">beta</span></code> : Slope <img class="math" src="../_images/math/46b24166141e1d247014bfba456356601ea65756.svg" alt="\beta" style="vertical-align: -3px"/> of the <img class="math" src="../_images/math/b98e3c2bcb5c9ea2b824a07915dae01675e5e482.svg" alt="n(t)" style="vertical-align: -4px"/> curve after the
-“break”. Default value is 0 (constant <img class="math" src="../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: 0px"/>).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">mode</span></code> : Mode of the model. Mode=1: analytical case; mode=2:
-<img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> read from a file. In the latter case, also the parameter
-<code class="docutils literal notranslate"><span class="pre">hisu</span></code> needs to be specified.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">hisu</span></code> : Filename with the <img class="math" src="../_images/math/2816665146574e487ebca0ab84be8f0d1279a003.svg" alt="T(u)" style="vertical-align: -4px"/> values. Only used when
-mode=2.</div>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">t1<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Temperature <img class="math" src="../_images/math/5180e7be37254241e039d94193b290de1912b40e.svg" alt="T_1" style="vertical-align: -2px"/>
+before the sudden change in temperature, in keV. Default: 0.002 keV.</p>
+</dd>
+<dt class="field-even">t2<span class="colon">:</span></dt>
+<dd class="field-even"><p>Temperature <img class="math" src="../_images/math/9e025d6cc16359edd51c5733aeb2d74806482920.svg" alt="T_2" style="vertical-align: -2px"/> after the sudden change in
+temperature, in keV. Default: 1 keV.</p>
+</dd>
+<dt class="field-odd">u<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Ionization parameter <img class="math" src="../_images/math/6aa3c899e8e5d607e9f9e064f58cb3b8eda9db10.svg" alt="U=n_{\mathrm e}t" style="vertical-align: -2px"/> before the
+“break”, in <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> m<img class="math" src="../_images/math/2ebe1bd91da77c4d5c573cc02a9f174cf6944b49.svg" alt="^{-3}" style="vertical-align: 0px"/> s. Default:
+<img class="math" src="../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}" style="vertical-align: 0px"/>.</p>
+</dd>
+<dt class="field-even">du<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ionization parameter <img class="math" src="../_images/math/03eee7ec30505227c45fadcafaf7ddea69853c64.svg" alt="dU" style="vertical-align: 0px"/> after the “break” in
+<img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> s. Default value is 0 (no break).</p>
+</dd>
+<dt class="field-odd">alfa<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Slope <img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/> of the <img class="math" src="../_images/math/964529ddcdc886ae8d4683fa7c0f5f0d4ff43053.svg" alt="T(t)" style="vertical-align: -4px"/> curve after the
+“break”. Default value is 0 (constant <img class="math" src="../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>).</p>
+</dd>
+<dt class="field-even">beta<span class="colon">:</span></dt>
+<dd class="field-even"><p>Slope <img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/> of the <img class="math" src="../_images/math/2bab8df5d2fab104b743640b561fea4668b22bbd.svg" alt="n(t)" style="vertical-align: -4px"/> curve after the
+“break”. Default value is 0 (constant <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>).</p>
+</dd>
+<dt class="field-odd">mode<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mode of the model. Mode=1: analytical case; mode=2:
+<img class="math" src="../_images/math/ab0bc3c616c060571f7489ac4d983edeb1a72658.svg" alt="T(u)" style="vertical-align: -4px"/> read from a file. In the latter case, also the parameter
+<code class="docutils literal notranslate"><span class="pre">hisu</span></code> needs to be specified. Mode=3: plane-parallel shock. See
+description above.</p>
+</dd>
+<dt class="field-even">hisu<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filename with the <img class="math" src="../_images/math/ab0bc3c616c060571f7489ac4d983edeb1a72658.svg" alt="T(u)" style="vertical-align: -4px"/> values. Only used when
+mode=2.</p>
+</dd>
+</dl>
 <p>The following parameters are the same as for the cie-model (<a class="reference internal" href="cie.html#sect-cie"><span class="std std-ref">Cie: collisional ionisation equilibrium model</span></a>):</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : Hydrogen density in <img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : Ion temperature in keV</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">vrms</span></code> : RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : Reference element</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">01...30</span></code> : Abundances of H to Zn</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the nonthermal electron distribution</div>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">hden<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Hydrogen density in <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/></p>
+</dd>
+<dt class="field-even">it<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ion temperature in keV</p>
+</dd>
+<dt class="field-odd">vrms<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</p>
+</dd>
+<dt class="field-even">ref<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference element</p>
+</dd>
+<dt class="field-odd">01…30<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Abundances of H to Zn</p>
+</dd>
+<dt class="field-even">file<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filename for the nonthermal electron distribution</p>
+</dd>
+</dl>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1993A%26AS...97..873K/abstract">Kaastra &amp; Jansen (1993)</a>.</p>
+</section>
 </section>
 
 
@@ -169,7 +211,9 @@ mode=2.</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -206,14 +250,14 @@ mode=2.</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="musr.html" title="previous chapter"><span class="section-number">4.1.28. </span>Musr: User defined multiplicative model</a></li>
-      <li>Next: <a href="pdem.html" title="next chapter"><span class="section-number">4.1.30. </span>Pdem: DEM models</a></li>
+      <li>Previous: <a href="musr.html" title="previous chapter"><span class="section-number">4.1.29. </span>Musr: User defined multiplicative model</a></li>
+      <li>Next: <a href="pdem.html" title="next chapter"><span class="section-number">4.1.31. </span>Pdem: DEM models</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -221,7 +265,7 @@ mode=2.</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -236,9 +280,9 @@ mode=2.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>

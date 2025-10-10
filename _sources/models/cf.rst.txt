@@ -31,25 +31,26 @@ each temperature.
 
 The parameters of the model are:
 
-| ``norm`` : The mass deposition rate :math:`\dot{M}` in
+:norm: The mass deposition rate :math:`\dot{M}` in
   :math:`\mathrm{M}_{\odot}` :math:`\mathrm{yr}^{-1}`.
-| ``t1`` : Lower temperature cut-off temperature :math:`T_1`. Default:
+:t1: Lower temperature cut-off temperature :math:`T_1`. Default:
   0.1 keV.
-| ``tn`` : Upper temperature cut-off temperature :math:`T_n`. Default:
+:tn: Upper temperature cut-off temperature :math:`T_n`. Default:
   1 keV.
-| ``nr`` : Number of temperature bins :math:`n` used in the integration.
+:nr: Number of temperature bins :math:`n` used in the integration.
   Default value: 16
-| ``p`` : Slope :math:`p=1/\alpha`. Default: 0.25 (:math:`\alpha = 4`).
-| ``cut`` : Lower temperature cut-off, in units of :math:`T_{\max}`.
+:p: Slope :math:`p=1/\alpha`. Default: 0.25 (:math:`\alpha = 4`).
+:cut: Lower temperature cut-off, in units of :math:`T_{\max}`.
   Default value: 0.1.
-| The following parameters are the same as for the cie-model: 
-| ``hden`` :
-  Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
-| ``it`` : Ion temperature in keV
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
-| ``ref`` : Reference element
-| ``01...30`` : Abundances of H to Zn
-| ``file`` : Filename for the nonthermal electron distribution
+
+The following parameters are the same as for the cie-model: 
+
+:hden: Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+:it: Ion temperature in keV.
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
+:ref: Reference element
+:01...30: Abundances of H to Zn
+:file: Filename for the nonthermal electron distribution
 
 *Recommended citation:* `Kaastra et al. (2004) <https://ui.adsabs.harvard.edu/abs/2004A%26A...413..415K/abstract>`_
 and `Fabian et al. (1984) <https://ui.adsabs.harvard.edu/abs/1984Natur.310..733F/abstract>`_.

@@ -7,7 +7,7 @@ Overview
 ~~~~~~~~
 
 The plot command cause the plot to be (re)drawn on the graphics device.
-Multiple graphics devices can be defined in one SPEX session. For
+Multiple graphics devices can be defined in one SPEX session. For
 example, a plot can be sent to both a postscript and a xs device.
 
 A user can also set the number of plot frames in the currently active
@@ -291,9 +291,6 @@ The following syntax rules apply for plot:
 | ``plot data fh #r`` : Give the symbols for the data font height #r.
 | ``plot data symbol #i`` : Plot the data with symbol number #i. For
   symbol numbers, see :ref:`sect:plotmarkers`.
-| ``plot ion new #i #i`` : Plot the energies of the strongest lines of
-  the ion with atomic number #i and ionisation stage #i.
-| ``plot ion del`` : Delete the plotted energies of the strongest lines.
 | ``plot adum #a [overwrite] [append]`` : Dump the data and model in the
   plot in an ascii file with filename #a. The extension ".qdp" will
   automatically be appended. Note that the data will be written as they
@@ -308,15 +305,34 @@ The following syntax rules apply for plot:
   be appended to any existing file with the name #a; if the optional
   "overwrite" keyword is present, any pre-existing file with the name #a
   will be overwritten by the new data.
+| ``plot ion new #i1 #i2 #r`` : Plot the transition identifier per ion.
+Specify #i1 and #i2 to select element and ionization state, for instance,
+to plot Fe XXV, #i1 and #i2 are set to 26 and 25. It is optional to define
+the redshift of the transitions with respect to their restframe energies
+by #r. The current implementation includes all isoelectronic sequences from
+H-like down to B-like ions. It only contains K-shell transitions in the
+Rydberg series. 
+| ``plot ion del`` : Delete the last transition identifier.
+| ``plot com #i`` : Plot each additive model component separately for all
+components in sector #i. The command should be immediately followed by a
+``calc`` command to re-evaluate the model, and then a ``plot`` command to
+display the individual components (shown in green) in the current window.
+``plot com`` works under both ``plot type data`` and ``plot type model`` modes.
+If multiplicative components are present, they are applied to the additive
+components in the plot. Use ``plot com 0`` to disable the component plot.
 
+.. warning:: ``plot com`` cannot be applied yet to the pion model.
+
+.. warning:: ``plot com`` should be best used for the final plot. It is not
+             recommended to use ``plot com`` during a spectral fitting.
+	    
 
 
 Examples
 ~~~~~~~~
 
-| ``plot device xs`` : Open the graphic device xs (xserver)
-| ``plot device ps myplot.ps`` : Select a postscript device connected to
-  the file name myplot.ps
+| ``plot device xs`` : Open the graphic device xs (xserver).
+| ``plot device ps myplot.ps`` : Select a postscript device connected to the file name myplot.ps
 | ``plot type data`` : Plot the data on the selected graphics device(s)
 | ``plot ux angstrom`` : Set the x-axis plot units to Å
 | ``plot uy angstrom`` : Set the y-axis plot units to Counts/s/Å
@@ -348,8 +364,12 @@ Examples
   0.25 to 0.75 of the full device window
 | ``plot de cps filename.ps`` : Open a colour postscript graphics device
   and write the output file to filename.ps
-| ``plot`` : Redraw the plot on all frames and devices
+| ``plot ion new 26 25 0.1`` : Plot the positions of the K-shell atomic transitions
+  for Fe XXV with a redshift of 0.1 on the current device
+| ``plot ion del`` : Delete the last ion from the plot
+| ``plot com 1`` : Plot separately all additive components from sector 1. This command
+should be immediately followed by a ``calc`` and a ``plot`` command to execute.
+| ``plot com 0`` : Remove the component plot.
+| ``plot`` : Redraw the plot on all frames and devices.
 | ``plot close 2`` : Close device number 2, which is the postscript
   device in this case
-| ``plot ion new 14 13`` : Label the strongest lines of Si XIII.
-| ``plot ion del`` : Delete all the line labels.

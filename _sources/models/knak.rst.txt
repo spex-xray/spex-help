@@ -37,15 +37,15 @@ therefore be in strictly increasing order.
 
 The parameters of the model are:
 
-| ``n`` : The number of grid points. Maximum value is 9.
-| ``w1`` : Wavelength :math:`\lambda_1` (Å) of the first grid point
-| ``f1`` : Transmission :math:`T(\lambda_1)` at :math:`\lambda_1`.
-| ``w2`` : Wavelength :math:`\lambda_2` (Å) of the second grid point
-| ``f1`` : Transmission :math:`T(\lambda_2)` at :math:`\lambda_2`.
-| ...
-| ``w9`` : Wavelength :math:`\lambda_9` (Å) of the last grid point
-| ``f9`` : Transmission :math:`T(\lambda_9)` at :math:`\lambda_9`.
-| Note that if :math:`n<9`, the values of :math:`T_i` and
+:n: The number of grid points. Maximum value is 9.
+:w1: Wavelength :math:`\lambda_1` (Å) of the first grid point
+:f1: Transmission :math:`T(\lambda_1)` at :math:`\lambda_1`.
+:w2: Wavelength :math:`\lambda_2` (Å) of the second grid point
+:f1: Transmission :math:`T(\lambda_2)` at :math:`\lambda_2`.
+ ...
+:w9: Wavelength :math:`\lambda_9` (Å) of the last grid point
+:f9: Transmission :math:`T(\lambda_9)` at :math:`\lambda_9`.
+  Note that if :math:`n<9`, the values of :math:`T_i` and
   :math:`\lambda_i` will be ignored for :math:`i>n`.
 
 *Recommended citation:* `Porquet et al. (2004)

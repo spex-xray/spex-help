@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1.5. Cie: collisional ionisation equilibrium model &#8212; SPEX Help Center 3.08.01 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>4.1.6. Cie: collisional ionisation equilibrium model &#8212; SPEX Help Center 3.08.02 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
+    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/cie.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1.6. Clus: projected cluster model" href="clus.html" />
-    <link rel="prev" title="4.1.4. Cf: isobaric cooling flow differential emission measure model" href="cf.html" />
+    <link rel="next" title="4.1.7. Clus: projected cluster model" href="clus.html" />
+    <link rel="prev" title="4.1.5. Cf: isobaric cooling flow differential emission measure model" href="cf.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,92 +34,82 @@
           <div class="body" role="main">
             
   <section id="cie-collisional-ionisation-equilibrium-model">
-<span id="sect-cie"></span><h1><span class="section-number">4.1.5. </span>Cie: collisional ionisation equilibrium model<a class="headerlink" href="#cie-collisional-ionisation-equilibrium-model" title="Permalink to this heading">¶</a></h1>
+<span id="sect-cie"></span><h1><span class="section-number">4.1.6. </span>Cie: collisional ionisation equilibrium model<a class="headerlink" href="#cie-collisional-ionisation-equilibrium-model" title="Link to this heading">¶</a></h1>
 <p>This model calculates the spectrum of a plasma in collisional ionisation
 equilibrium (CIE). It consists essentially of two steps, first a
 calculation of the ionisation balance and then the calculation of the
 X-ray spectrum. The basis for this model is formed by the mekal model,
 but several updates have been included (see <a class="reference internal" href="../theory/spexact/plasma.html#chap-plasmamodel"><span class="std std-ref">Plasma model in SPEX 3.0</span></a>).</p>
 <section id="temperatures">
-<h2><span class="section-number">4.1.5.1. </span>Temperatures<a class="headerlink" href="#temperatures" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.6.1. </span>Temperatures<a class="headerlink" href="#temperatures" title="Link to this heading">¶</a></h2>
 <p>Some remarks should be made about the temperatures. SPEX knows three
 temperatures that are used for this model.</p>
-<p>First there is the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/>. This is
+<p>First there is the electron temperature <img class="math" src="../_images/math/812856d56fdbbbde335de217566dd235aebfc807.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/>. This is
 usually referred to as “the” temperature of the plasma. It determines
 the continuum shape and line emissivities and the resulting spectrum is
 most sensitive to this.</p>
-<p>Secondly, there is the ion temperature <img class="math" src="../_images/math/2b586829713206a4f7ae0dceb3295556c169f33c.svg" alt="T_{\mathrm i}" style="vertical-align: -2px"/>. This is
+<p>Secondly, there is the ion temperature <img class="math" src="../_images/math/798b1af2bd2465cdfaf378c898053edce9d75835.svg" alt="T_{\mathrm i}" style="vertical-align: -2px"/>. This is
 only important for determining the line broadening, since this depends
 upon the thermal velocity of the ions (which is determined both by
-<img class="math" src="../_images/math/2b586829713206a4f7ae0dceb3295556c169f33c.svg" alt="T_{\mathrm i}" style="vertical-align: -2px"/> and the atomic mass of the ion). Only in high
+<img class="math" src="../_images/math/798b1af2bd2465cdfaf378c898053edce9d75835.svg" alt="T_{\mathrm i}" style="vertical-align: -2px"/> and the atomic mass of the ion). Only in high
 resolution spectra the effects of the ion temperature can be seen.</p>
 <p>Finally, we have introduced here the ionization balance temperature
-<img class="math" src="../_images/math/6c1769763abccfc556b51f8c25a008edb817da44.svg" alt="T_{\mathrm b}" style="vertical-align: -2px"/> that is used in the determination of the ionization equilibrium. It
+<img class="math" src="../_images/math/d17f891b2360b02735dc8b298f2a04bf49207077.svg" alt="T_{\mathrm b}" style="vertical-align: -2px"/> that is used in the determination of the ionization equilibrium. It
 is the temperature that goes into the calculation of ionization and
 recombination coefficients. In equilibrium plasmas, the ratio
-<img class="math" src="../_images/math/d9ec29648418ab5cb1ab753048c1e07f4d15e95c.svg" alt="R_{\mathrm b} \equiv
+<img class="math" src="../_images/math/53f8d2b04a8f864e08bd078c0db3cde24a6a6312.svg" alt="R_{\mathrm b} \equiv
 T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> is 1 by definition. It is unphysical to
-have <img class="math" src="../_images/math/e0115ce0d617ea4b56bf1dab13d8355520314826.svg" alt="R_{\mathrm b}" style="vertical-align: -2px"/> not equal to 1. Nevertheless we allow for the
-possibility of different values of <img class="math" src="../_images/math/e0115ce0d617ea4b56bf1dab13d8355520314826.svg" alt="R_{\mathrm b}" style="vertical-align: -2px"/>, in order to
-mimick out of equilibrium plasmas. For <img class="math" src="../_images/math/b9aa03c214c03c1334c83bc93bfb309826c88696.svg" alt="R_{\mathrm b}&lt;1" style="vertical-align: -2px"/>, we have
-an ionizing plasma, for <img class="math" src="../_images/math/007a0f96469d0c7812e68bc33d8832119e8cbbae.svg" alt="R_{\mathrm b}&gt;1" style="vertical-align: -2px"/> a recombining plasma.
+have <img class="math" src="../_images/math/dab244e986ad34cd79f6be56f49661da25181fa9.svg" alt="R_{\mathrm b}" style="vertical-align: -2px"/> not equal to 1. Nevertheless we allow for the
+possibility of different values of <img class="math" src="../_images/math/dab244e986ad34cd79f6be56f49661da25181fa9.svg" alt="R_{\mathrm b}" style="vertical-align: -2px"/>, in order to
+mimick out of equilibrium plasmas. For <img class="math" src="../_images/math/84dc084f8111000b9ba074ddac7606d01eaf24c6.svg" alt="R_{\mathrm b}&lt;1" style="vertical-align: -2px"/>, we have
+an ionizing plasma, for <img class="math" src="../_images/math/1e27d2fb436dae81bac232cdced4aff5ae189fe4.svg" alt="R_{\mathrm b}&gt;1" style="vertical-align: -2px"/> a recombining plasma.
 Note that for ionizing plasmas SPEX has also the <code class="docutils literal notranslate"><span class="pre">nei</span></code> model
 (<a class="reference internal" href="neij.html#sect-nei"><span class="std std-ref">Neij: non-equilibrium ionisation jump model</span></a>), which takes into account explicitly the effects of
 transient (time dependent) ionization.</p>
 <p>It is also possible to mimic the effects of non-isothermality in a
 simple way. SPEX allows for a Gaussian emission measure distribution:</p>
 <div class="math">
-<p><img src="../_images/math/3f8402165d52aea2ce4bb14a9a590dd560b6097c.svg" alt="Y(x) = \frac{Y_0}{\sqrt{2\pi} \sigma_T} e^{\displaystyle{-(x-x0)^2/2\sigma_T^2}}"/></p>
-</div><p>where <img class="math" src="../_images/math/ab3aeca4b2dde243f7c57604ed971717c2fb0412.svg" alt="Y_0" style="vertical-align: -2px"/> is the total, integrated emission measure. By default
-<img class="math" src="../_images/math/84ce1dc68b389ffd46750149d72aa0aada7136c1.svg" alt="x\equiv \log T" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/57f3d2c0836304e9cb9f9d8fcf2b7b837f8b0057.svg" alt="x_0\equiv \log T_0" style="vertical-align: -3px"/> with <img class="math" src="../_images/math/4c7305af60dcf190077929100b318958cec86d07.svg" alt="T_0" style="vertical-align: -2px"/>
+<p><img src="../_images/math/7170dc5081b89abcc7c43fb65c1ec49db54580fb.svg" alt="Y(x) = \frac{Y_0}{\sqrt{2\pi} \sigma_T} e^{\displaystyle{-(x-x0)^2/2\sigma_T^2}}"/></p>
+</div><p>where <img class="math" src="../_images/math/d881b26b7f9fe3a67b8d71fc4d781fa9c0fcdca1.svg" alt="Y_0" style="vertical-align: -2px"/> is the total, integrated emission measure. By default
+<img class="math" src="../_images/math/8b438a6708aeb353a0e96e344247535db5d52923.svg" alt="x\equiv \log T" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/3168bc14814906f8fd34b331c815c614b3e6738f.svg" alt="x_0\equiv \log T_0" style="vertical-align: -3px"/> with <img class="math" src="../_images/math/10a8a649c625a38bfa7c12f72c12e48910c0eab3.svg" alt="T_0" style="vertical-align: -2px"/>
 the average temperature of the plasma (this is entered at the “T” value
-in SPEX). However, this can be changed to <img class="math" src="../_images/math/cbfd2ef7afde9e4535438fe4a497ee713f05a075.svg" alt="x\equiv T" style="vertical-align: 0px"/> and
-<img class="math" src="../_images/math/8eb718528813f8832922da9e621412605e8aee23.svg" alt="x_0\equiv T_0" style="vertical-align: -2px"/> by setting logt to 0. If the parameter <code class="docutils literal notranslate"><span class="pre">sup</span></code> is set
-<img class="math" src="../_images/math/500a1fa94d5d86ab67c0bd9e338548292fee4d59.svg" alt="&gt; 10^{-5}" style="vertical-align: 0px"/>, then the Gaussian emission measure distribution model
+in SPEX). However, this can be changed to <img class="math" src="../_images/math/a34dbe1fe966a6c6cd69f72bbf7c09980a0950e0.svg" alt="x\equiv T" style="vertical-align: 0px"/> and
+<img class="math" src="../_images/math/0abd3b9fc2ebd76520b48f97f6f706c407dae0fa.svg" alt="x_0\equiv T_0" style="vertical-align: -2px"/> by setting logt to 0. If the parameter <code class="docutils literal notranslate"><span class="pre">sup</span></code> is set
+<img class="math" src="../_images/math/b63d14ef22a9450151c0bcb7e2a32b0d3c49bf6e.svg" alt="&gt; 10^{-5}" style="vertical-align: 0px"/>, then the Gaussian emission measure distribution model
 becomes asymmetric. The <code class="docutils literal notranslate"><span class="pre">sig</span></code> parameter determines the slope of the
 low-temperature part of the Gaussian and sup determines the
-high-temperature side. Usually (default) <img class="math" src="../_images/math/7180b3bdbd53994dfdb30a3685f8cac7bc1285b1.svg" alt="\sigma_T = 0" style="vertical-align: -2px"/> and in
+high-temperature side. Usually (default) <img class="math" src="../_images/math/7203d2c495836099269b4f2051bdef911da4e599.svg" alt="\sigma_T = 0" style="vertical-align: -2px"/> and in
 that case the normal isothermal spectrum is chosen. Note that for larger
-values of <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> the cpu time may become larger due to the
+values of <img class="math" src="../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> the cpu time may become larger due to the
 fact that the code has to evaluate many isothermal spectra.</p>
-<p>The actual emission measure distribution that SPEX uses can be shown
-using <a class="reference internal" href="../reference/commands/ascdump.html#sec-ascdump"><span class="std std-ref">Ascdump: ascii output of plasma and spectral properties</span></a>. The subcommand for this is <code class="docutils literal notranslate"><span class="pre">dem</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ascdump</span> <span class="n">ter</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">dem</span>
-</pre></div>
-</div>
-<p>(if your cie model is in sector 1 and component 1).
-SPEX creates a temperature grid (either logarithmic or linear)
-and for each grid point, it calculates an emission measure
-following the Gaussian distribution. The sum of all the emission
-measures is equal to the total emission measure <img class="math" src="../_images/math/ab3aeca4b2dde243f7c57604ed971717c2fb0412.svg" alt="Y_0" style="vertical-align: -2px"/> (<code class="docutils literal notranslate"><span class="pre">norm</span></code>).</p>
 </section>
 <section id="line-broadening">
-<h2><span class="section-number">4.1.5.2. </span>Line broadening<a class="headerlink" href="#line-broadening" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.6.2. </span>Line broadening<a class="headerlink" href="#line-broadening" title="Link to this heading">¶</a></h2>
 <p>Apart from line broadening due to the thermal velocity of the ions
-(caused by <img class="math" src="../_images/math/83ed096a4ed554838dea908e6eec35a82670f51d.svg" alt="T_{\mathrm i} &gt; 0" style="vertical-align: -2px"/>) it is also possible to get line
+(caused by <img class="math" src="../_images/math/e864a74be34072ef3e6071262006443f10ce6e07.svg" alt="T_{\mathrm i} &gt; 0" style="vertical-align: -2px"/>) it is also possible to get line
 broadening due to (micro)turbulence. Since SPEX version 3.06, we use
 the RMS velocity broadening in km/s in our models. For more information
 about this change see: <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>.</p>
 </section>
 <section id="density-effects">
-<h2><span class="section-number">4.1.5.3. </span>Density effects<a class="headerlink" href="#density-effects" title="Permalink to this heading">¶</a></h2>
-<p>It is also possible to vary the hydrogen density <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/>
+<h2><span class="section-number">4.1.6.3. </span>Density effects<a class="headerlink" href="#density-effects" title="Link to this heading">¶</a></h2>
+<p>It is also possible to vary the hydrogen density <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/>
 of the plasma. This does not affect the overall shape of the spectrum
-(i.e., by changing <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> only SPEX still uses the
+(i.e., by changing <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> only SPEX still uses the
 previous value of the emission measure
-<img class="math" src="../_images/math/51094921c7d1ae9e9017609a47eb9aac21eabd11.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/>), but spectral lines that
+<img class="math" src="../_images/math/a83fc5302a6e53856bfcd4edaaaef36654d9b614.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/>), but spectral lines that
 are sensitive to the hydrogen density will get different intensities.
 Usually this occurs for higher densities, for example under typical ISM
-conditions (<img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> = 1 cm<img class="math" src="../_images/math/82f2dcd1e7a6504e07d2397c000e5639bd8baa07.svg" alt="^{-3}" style="vertical-align: 0px"/>) this is not an
+conditions (<img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> = 1 cm<img class="math" src="../_images/math/2ebe1bd91da77c4d5c573cc02a9f174cf6944b49.svg" alt="^{-3}" style="vertical-align: 0px"/>) this is not an
 important effect.</p>
 </section>
 <section id="non-thermal-electron-distributions">
-<h2><span class="section-number">4.1.5.4. </span>Non-thermal electron distributions<a class="headerlink" href="#non-thermal-electron-distributions" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.6.4. </span>Non-thermal electron distributions<a class="headerlink" href="#non-thermal-electron-distributions" title="Link to this heading">¶</a></h2>
 <p>The effects of non-thermal electron distribution on the spectrum can be
 included. See <a class="reference internal" href="../theory/spexact/nonthermal.html#sec-nonthermal"><span class="std std-ref">Non-thermal electron distributions</span></a> for more details.</p>
 </section>
 <section id="abundances">
-<h2><span class="section-number">4.1.5.5. </span>Abundances<a class="headerlink" href="#abundances" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.6.5. </span>Abundances<a class="headerlink" href="#abundances" title="Link to this heading">¶</a></h2>
 <p>The abundances are given in Solar units. Which set of solar units is
 being used can be set using the <code class="docutils literal notranslate"><span class="pre">abun</span></code> command (<a class="reference internal" href="../reference/commands/abundance.html#sec-abundance"><span class="std std-ref">Abundance: standard abundances</span></a>).
 For spectral fitting purposes it is important to distinguish two situations.</p>
@@ -143,41 +131,41 @@ lines (for example Fe). Then the O/Fe ratio will be well constrained,
 and it is now only the H abundance relative to Fe that is poorly
 constrained. In this case it is important to keep the nominal abundance
 of the reference element to unity. Also keep in mind that in general we
-write for the normalisation <img class="math" src="../_images/math/635e974bc1aa1401668cb3d6baf13a250968ebf5.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> in this
+write for the normalisation <img class="math" src="../_images/math/4de6e4360c19259791d127b88705d61cd0a76b95.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> in this
 case; when the reference element is H, you mays substitute X=H; however
 when it is another element, like O, the normalisation is still the
-product of <img class="math" src="../_images/math/635e974bc1aa1401668cb3d6baf13a250968ebf5.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> where X stands for the
+product of <img class="math" src="../_images/math/4de6e4360c19259791d127b88705d61cd0a76b95.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> where X stands for the
 fictitious hydrogen density derived from the solar O/H ratio.</p>
 </section>
 <section id="external-magnetic-field">
-<h2><span class="section-number">4.1.5.6. </span>External magnetic field<a class="headerlink" href="#external-magnetic-field" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.6.6. </span>External magnetic field<a class="headerlink" href="#external-magnetic-field" title="Link to this heading">¶</a></h2>
 <p>External magnetic field resolves the degeneracy of the magnetic sublevels of a
 given level and allows mixing with neighbour levels of the same magnetic quantum
 number and parity, which could not happen in the field-free case. The appearance
 and intensities of these otherwise forbidden transitions depend on the magnetic
 field.</p>
 <p>The magnetic field strength is given in unit of Gauss. For very strong fields
-(<img class="math" src="../_images/math/c3d1eb67dd98938c36fb572976d349f85bec78d7.svg" alt="$B\geq 10^{9}$" style="vertical-align: 0px"/> Gauss), the calculation likely becomes less reliable as
+(<img class="math" src="../_images/math/d8d4ab1c226f10acbe19e33c0110c455b62083f3.svg" alt="$B\geq 10^{9}$" style="vertical-align: 0px"/> Gauss), the calculation likely becomes less reliable as
 the Lorentzian field versus Coulomb field strength ratio reaches or goes beyond unity.</p>
 <section id="example">
-<h3><span class="section-number">4.1.5.6.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.6.6.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h3>
 <p>Suppose the Solar O abundance is 1E-3 (i.e. there is 0.001
 oxygen atom per hydrogen atom in the Sun). Take the reference atom
-oxygen (<img class="math" src="../_images/math/c673873f88ae8e1f74325d793b20e74042de2527.svg" alt="Z=8" style="vertical-align: 0px"/>). Fix the oxygen abundance to 1. Fit your spectrum
+oxygen (<img class="math" src="../_images/math/32fc79a112864437b118cf8ddc3cb460b78c6897.svg" alt="Z=8" style="vertical-align: 0px"/>). Fix the oxygen abundance to 1. Fit your spectrum
 with a free hydrogen abundance. Suppose the outcome of this fit is a
 hydrogen abundance of 0.2 and an emission measure 3 (in SPEX units).
-This means <img class="math" src="../_images/math/635e974bc1aa1401668cb3d6baf13a250968ebf5.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/a878c9a41d36c32b04d94f95e051d102d3226233.svg" alt="3\times 10^{64}" style="vertical-align: -1px"/>
-<img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. Then the “true” emission measure
-<img class="math" src="../_images/math/1f9c21463bd419026bf8d0eb3fa19dc5dbd4cab0.svg" alt="n_{\mathrm e}n_{\mathrm H}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/1b3d9b64f1963e34797bbcb5cb5f7fc469656cf5.svg" alt="0.2 \times 3\times 10^{64}" style="vertical-align: -1px"/>
-<img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
+This means <img class="math" src="../_images/math/4de6e4360c19259791d127b88705d61cd0a76b95.svg" alt="n_{\mathrm e}n_{\mathrm X}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/4007415ef041be3ad89b2df16c00c097b2f2e955.svg" alt="3\times 10^{64}" style="vertical-align: -1px"/>
+<img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. Then the “true” emission measure
+<img class="math" src="../_images/math/efbe93799f5e9636d5e77310d179be11b59a57de.svg" alt="n_{\mathrm e}n_{\mathrm H}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/ab77fade5c0363251e860dae976ed78fe6eaad46.svg" alt="0.2 \times 3\times 10^{64}" style="vertical-align: -1px"/>
+<img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
 The nominal oxygen emission measure is
-<img class="math" src="../_images/math/bd00d38bb2f89985e84824f96ed364d083432ccf.svg" alt="n_{\mathrm e}n_{\mathrm O}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/9e311df78b7ae884cc8d2ef7f43a2db4dfd622c6.svg" alt="0.001 \times 3\times
-10^{64}" style="vertical-align: -1px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, and nominally oxygen would have 5 times
+<img class="math" src="../_images/math/5464afb5acdeafd5a4e655ecbd161c36af43ac39.svg" alt="n_{\mathrm e}n_{\mathrm O}V" style="vertical-align: -2px"/> = <img class="math" src="../_images/math/4c296a4c751d9d5a7229bdb3f2e611017afb73e0.svg" alt="0.001 \times 3\times
+10^{64}" style="vertical-align: -1px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, and nominally oxygen would have 5 times
 overabundance as compared to hydrogen, in terms of solar ratios.</p>
 </section>
 </section>
 <section id="parameter-description">
-<h2><span class="section-number">4.1.5.7. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.6.7. </span>Parameter description<a class="headerlink" href="#parameter-description" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When you make the temperature too low such that the plasma
@@ -198,62 +186,94 @@ fitting and the line widths may be wrong.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some people use instead of the emission measure
-<img class="math" src="../_images/math/51094921c7d1ae9e9017609a47eb9aac21eabd11.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/>, the quantity
-<img class="math" src="../_images/math/9890dee6be48f04c9aa87c2d7cabb2cb60e17c86.svg" alt="Y^\prime = n_{\mathrm e}^2 V" style="vertical-align: -4px"/> as
+<img class="math" src="../_images/math/a83fc5302a6e53856bfcd4edaaaef36654d9b614.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/>, the quantity
+<img class="math" src="../_images/math/0d2cba1e4f3e46f15d38ba436b1a49bbe4eeaefa.svg" alt="Y^\prime = n_{\mathrm e}^2 V" style="vertical-align: -4px"/> as
 normalisation. This use should be avoided as the emission is
 proportional to the product of electron and ion densities, and therefore
-use of <img class="math" src="../_images/math/a98f30008366976f9bf32b9bd6b4e9c9eaa90427.svg" alt="Y^\prime" style="vertical-align: 0px"/> makes the spectrum to depend nonlinear on the
+use of <img class="math" src="../_images/math/8b7c1d225d8140a9b550fc568e41dc22420e078b.svg" alt="Y^\prime" style="vertical-align: 0px"/> makes the spectrum to depend nonlinear on the
 elemental abundances (since an increase in abundances also affects the
-<img class="math" src="../_images/math/a41b56ec4941a1e8af9a59f6eef502bb37a6cba6.svg" alt="n_{\mathrm e} / n_{\mathrm H}" style="vertical-align: -4px"/> ratio).</p>
+<img class="math" src="../_images/math/e8c1499e57350b4d75544b3ef213cb7c8c33b860.svg" alt="n_{\mathrm e} / n_{\mathrm H}" style="vertical-align: -4px"/> ratio).</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The default line broadening is just Doppler broadening.
-This is fine and self-consistent for the ‘old’ line calculation. To
-incorporate the natural line broadening for the ‘new’ calculations, the
+This is fine and self-consistent for the old line calculation. To
+incorporate the natural line broadening for the new calculations, the
 user must use the <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">dopp</span> <span class="pre">4</span></code> option to get Voigt profiles. This is
 physically better but takes more computation time.</p>
 </div>
 <p>The parameters of the model are:</p>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">norm</span></code> : the normalisation, which is the emission measure
-<img class="math" src="../_images/math/51094921c7d1ae9e9017609a47eb9aac21eabd11.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/> in units of
-<img class="math" src="../_images/math/c68d36011f16e4c056d0d5ccfa9fd93ea20e33b7.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, where
-<img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/8efa1efae49695bf0b29a8a8ca90f66fa226e04b.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> are the electron and
-Hydrogen densities and <img class="math" src="../_images/math/3b893a3b46cb3502e758072811b7c1cc89714c93.svg" alt="V" style="vertical-align: 0px"/> the volume of the source. Default
-value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">t</span></code> : the electron temperature <img class="math" src="../_images/math/0846f7c1178b6af0b81412f4e843329ecfb65823.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default
-value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">sig</span></code> : the width <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the gaussian emission measure
+<dl class="field-list simple">
+<dt class="field-odd">norm<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the normalisation, which is the emission measure
+<img class="math" src="../_images/math/a83fc5302a6e53856bfcd4edaaaef36654d9b614.svg" alt="Y \equiv n_{\mathrm H} n_{\mathrm e} V" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/d0f3c90ec9ef5341be5994a6bfcf739550c28d0f.svg" alt="10^{64}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, where
+<img class="math" src="../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> are the electron and
+Hydrogen densities and <img class="math" src="../_images/math/54621bdbc29ff70df385cb16c46bbbe8af511788.svg" alt="V" style="vertical-align: 0px"/> the volume of the source. Default
+value: 1.</p>
+</dd>
+<dt class="field-even">t<span class="colon">:</span></dt>
+<dd class="field-even"><p>the electron temperature <img class="math" src="../_images/math/812856d56fdbbbde335de217566dd235aebfc807.svg" alt="T_{\mathrm e}" style="vertical-align: -2px"/> in keV. Default
+value: 1.</p>
+</dd>
+<dt class="field-odd">sig<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the width <img class="math" src="../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the gaussian emission measure
 profile. Default value: 0. (no temperature distribution i.e.
-isothermal)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">sup</span></code> : the width <img class="math" src="../_images/math/3bc5838bc6ac310ca831e1fe415695d71660cd6b.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the high-temperature part of
-the gaussian emission measure profile. If larger than <img class="math" src="../_images/math/373534238f84ddb3c99a028005ff5f9c61d9f2bc.svg" alt="10^{-5}" style="vertical-align: 0px"/>
+isothermal)</p>
+</dd>
+<dt class="field-even">sup<span class="colon">:</span></dt>
+<dd class="field-even"><p>the width <img class="math" src="../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> of the high-temperature part of
+the gaussian emission measure profile. If larger than <img class="math" src="../_images/math/e10def739f2f5a73a8853a6ce1148bece2cae3b3.svg" alt="10^{-5}" style="vertical-align: 0px"/>
 keV, the sig parameter becomes the sigma value for the low-temperature
-end. Default value: 0</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">logt</span></code> : Switch between linear and logarithmic temperature scale for
-the gaussian emission measure profile. Default value: 1 (logarithmic)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">hden</span></code> : the Hydrogen density <img class="math" src="../_images/math/e48c16ada92036b32fa6a9b5d50b0d9240f3ab9f.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> in units of
-<img class="math" src="../_images/math/22930a0ec3f5a5b815256b6ca239486029c2f7cc.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/fe3f93d068e0064c7b13a3e8366f80ddc73a3dbd.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> (or <img class="math" src="../_images/math/ec8f0eda6b74e73d2064fccc92e96a21c1983abc.svg" alt="10^{14}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/6c9b7627c759b52b2dc5ad07b40e35476e1a90d3.svg" alt="\mathrm{cm}^{-3}" style="vertical-align: 0px"/>).
-Default value: <img class="math" src="../_images/math/e6a84054eab4e0a886622798559262af5b4ebe58.svg" alt="10^{-14}" style="vertical-align: 0px"/>, i.e. typical ISM conditions, or the
-low density limit.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">it</span></code> : the ion temperature <img class="math" src="../_images/math/2b586829713206a4f7ae0dceb3295556c169f33c.svg" alt="T_{\mathrm i}" style="vertical-align: -2px"/> in keV. Default
-value: 1</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">rt</span></code> : the ratio of ionization balance to electron temperature,
-<img class="math" src="../_images/math/86dd84fbdc6943c38ddfdd03cf9b0c65ec0f0ed6.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
-value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">vrms</span></code> : RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ref</span></code> : reference element. Default value 1 (hydrogen). See above for
+end. Default value: 0</p>
+</dd>
+<dt class="field-odd">logt<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Switch between linear and logarithmic temperature scale for
+the gaussian emission measure profile. Default value: 1 (logarithmic)</p>
+</dd>
+<dt class="field-even">hden<span class="colon">:</span></dt>
+<dd class="field-even"><p>the Hydrogen density <img class="math" src="../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> in units of
+<img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/> (or <img class="math" src="../_images/math/b3d63983ea18bc99414b037a2b8f2e07f7b1323e.svg" alt="10^{14}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/b203fe642a4c878d1307c648d69a2d8b766fd46b.svg" alt="\mathrm{cm}^{-3}" style="vertical-align: 0px"/>).
+Default value: <img class="math" src="../_images/math/69ffa4e748436e49710d68523f412d7a63a84b78.svg" alt="10^{-14}" style="vertical-align: 0px"/>, i.e. typical ISM conditions, or the
+low density limit.</p>
+</dd>
+<dt class="field-odd">it<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the ion temperature <img class="math" src="../_images/math/798b1af2bd2465cdfaf378c898053edce9d75835.svg" alt="T_{\mathrm i}" style="vertical-align: -2px"/> in keV. Default
+value: 1</p>
+</dd>
+<dt class="field-even">rt<span class="colon">:</span></dt>
+<dd class="field-even"><p>the ratio of ionization balance to electron temperature,
+<img class="math" src="../_images/math/a95b7084f0c6dc0676fc677ed46e303658c9c32a.svg" alt="R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}" style="vertical-align: -4px"/> in keV. Default
+value: 1.</p>
+</dd>
+<dt class="field-odd">vrms<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RMS Velocity broadening in km/s (see <a class="reference internal" href="../theory/turbulence.html#sect-turbulence"><span class="std std-ref">Definition of the micro-turbulent velocity in SPEX</span></a>)</p>
+</dd>
+<dt class="field-even">ref<span class="colon">:</span></dt>
+<dd class="field-even"><p>reference element. Default value 1 (hydrogen). See above for
 more details. The value corresponds to the atomic number of the
-reference element.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">01</span></code> : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">02</span></code> : Abundance of helium (He, Z=2) in Solar units. Default 1.</div>
-<div class="line"><img class="math" src="../_images/math/4ccdb00a62e4df149dcfc6880ebacfc99358a47c.svg" alt="\ldots" style="vertical-align: 0px"/> <code class="docutils literal notranslate"><span class="pre">30</span></code> : Abundance of zinc (Zn, Z=30) in Solar units.
-Default 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">file</span></code> : Filename for the non-thermal electron distribution. If not
-present, non-thermal effects are not taken into account (default).</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">b</span></code> : External magnetic field strength in Gauss. Default value: 0.</div>
-</div>
+reference element.</p>
+</dd>
+<dt class="field-odd">01<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Abundance of hydrogen (H, Z=1) in Solar units. Default 1.</p>
+</dd>
+<dt class="field-even">02<span class="colon">:</span></dt>
+<dd class="field-even"><p>Abundance of helium (He, Z=2) in Solar units. Default 1.</p>
+</dd>
+</dl>
+<p><img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/></p>
+<dl class="field-list simple">
+<dt class="field-odd">30<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Abundance of zinc (Zn, Z=30) in Solar units. Default 1.</p>
+</dd>
+<dt class="field-even">file<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filename for the non-thermal electron distribution. If not
+present, non-thermal effects are not taken into account (default).</p>
+</dd>
+<dt class="field-odd">b<span class="colon">:</span></dt>
+<dd class="field-odd"><p>External magnetic field strength in Gauss. Default value: 0.</p>
+</dd>
+</dl>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996uxsa.conf..411K/abstract">Kaastra et al. (1996)</a>.</p>
 </section>
 </section>
@@ -267,7 +287,9 @@ present, non-thermal effects are not taken into account (default).</div>
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
-    <img class="logo" src="../_static/logo-wide.png" alt="Logo"/>
+    <img class="logo" src="../_static/logo-wide.png" alt="Logo" />
+    
+    <h1 class="logo logo-name">SPEX</h1>
     
   </a>
 </p>
@@ -304,14 +326,14 @@ present, non-thermal effects are not taken into account (default).</div>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../models.html"><span class="section-number">4. </span>Spectral models</a><ul>
   <li><a href="over.html"><span class="section-number">4.1. </span>Overview of spectral components</a><ul>
-      <li>Previous: <a href="cf.html" title="previous chapter"><span class="section-number">4.1.4. </span>Cf: isobaric cooling flow differential emission measure model</a></li>
-      <li>Next: <a href="clus.html" title="next chapter"><span class="section-number">4.1.6. </span>Clus: projected cluster model</a></li>
+      <li>Previous: <a href="cf.html" title="previous chapter"><span class="section-number">4.1.5. </span>Cf: isobaric cooling flow differential emission measure model</a></li>
+      <li>Next: <a href="clus.html" title="next chapter"><span class="section-number">4.1.7. </span>Clus: projected cluster model</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -319,7 +341,7 @@ present, non-thermal effects are not taken into account (default).</div>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -334,9 +356,9 @@ present, non-thermal effects are not taken into account (default).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Sep 17, 2025.<br>
+        Last updated on: Oct 10, 2025.<br>
     
-        &copy;2024, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
+        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/">SRON Netherlands Institute for Space Research</a>.
     
 
 </div>
