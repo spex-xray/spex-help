@@ -652,14 +652,14 @@ Parameter description
 
 The remaining parameters of the model are:
 
-| ``ref`` : reference element. Default value 1 (hydrogen). See above for
+:ref: reference element. Default value 1 (hydrogen). See above for
   more details. The value corresponds to the atomic number of the
   reference element.
-| ``01`` : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
-| ``02`` : Abundance of helium (He, Z=2) in Solar units. Default 1.
-| ``03...30`` : Abundance of all elements up to zinc (Zn, Z=30) in Solar units.
+:01: Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
+:02: Abundance of helium (He, Z=2) in Solar units. Default 1.
+:03...30: Abundance of all elements up to zinc (Zn, Z=30) in Solar units.
   Default 1.
-| ``file`` : Filename for the non-thermal electron distribution. If not
+:file: Filename for the non-thermal electron distribution. If not
   present, non-thermal effects are not taken into account (default).
 
 *Recommended citation:* Kaastra et al. (2022) (this manual for the moment).

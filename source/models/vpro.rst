@@ -60,7 +60,7 @@ cut-off approximation at 5 standard deviations would be :math:`x=`-5,
 
 The parameters of the model are:
 
-| ``v`` : Velocity broadening parameter :math:`v`, in km/s. Default
+:v: Velocity broadening parameter :math:`v`, in km/s. Default
   value: 1 km/s.
-| ``file`` : Ascii character string, containing the actual name of the
+:file: Ascii character string, containing the actual name of the
   vprof.dat file

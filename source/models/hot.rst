@@ -50,43 +50,43 @@ Model parameters
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
+:nh: Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
-| ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
+:t: the electron temperature :math:`T_{\mathrm e}` in keV. Default
   value: :math:`8 \times 10^{-6}` keV.
-| ``rt`` : the ratio of ionization balance to electron temperature,
+:rt: the ratio of ionization balance to electron temperature,
   :math:`R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}` in keV. Default
   value: 1.
-| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+:hden: Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
   Default value: :math:`10^{-14}` (corresponding to
   :math:`10^{6}` :math:`\mathrm{m}^{-3}`, a typical value for the ISM).
-| ``ism`` : Switch to mute atomic line transitions. See description above. Default value: 0
+:ism: Switch to mute atomic line transitions. See description above. Default value: 0
 
 The following parameters are common to all our absorption models:
 
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description in ``pion``.
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description in ``pion``.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
-| ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.
+:v: Root mean square velocity :math:`\sigma_{\mathrm v}`
+:zv: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 
 The following parameters are the same as for the cie-model (:ref:`sect:cie`):
 
-| ``ref`` : Reference element
-| ``01...30`` : Abundances of H to Zn
-| ``file`` : Filename for the nonthermal electron distribution
-| ``b`` : External magnetic field strength in Gauss. See *cie* section. Default value: 0
+:ref: Reference element
+:01...30: Abundances of H to Zn
+:file: Filename for the nonthermal electron distribution
+:b: External magnetic field strength in Gauss. See *cie* section. Default value: 0
 
 *Recommended citation:* `de Plaa et al. (2004)
 <https://ui.adsabs.harvard.edu/abs/2004A%26A...423...49D/abstract>`_ and

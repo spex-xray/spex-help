@@ -76,35 +76,35 @@ Parameter description
 
 The parameters of the CX model are:
 
-| ``norm`` : the normalisation, which is the emission measure
+:norm: the normalisation, which is the emission measure
   :math:`Y \equiv n_{\mathrm H} n_{\mathrm nh} V` in units of
   :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
   :math:`n_{\mathrm H}` and :math:`n_{\mathrm nh}` are the Hydrogen
   densities of the ionized and neutral materials, respectively, and
   :math:`V` is the effective interaction volume. Default value: 1.
-| ``hden`` : Hydrogen density of the neutral materials in units of
+:hden: Hydrogen density of the neutral materials in units of 
   :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}`
   :math:`\mathrm{m}^{-3}`).
   Default value: :math:`10^{-14}`.
-| ``mode`` : Switch between a hot-cold interaction driven by thermal
+:mode: Switch between a hot-cold interaction driven by thermal
   motion of hot plasma, and the one dominated by flow velocity. Default
   value: 2 (kinematic).
-| ``t`` : the ionization temperature of hot matter in keV. It is also
+:t: the ionization temperature of hot matter in keV. It is also
   used to approximate the thermal motion when mode is set to 1. Default
   value: 1.
-| ``cmod`` : Switch between a CIE and NEI charge balance for the hot
-plasmas. Default value: 1 (CIE).
-| ``pt`` : Pre-shock temperature same as ``t1`` in the ``neij`` model.
-Only applied when ``cmod`` is 2.
-| ``u`` : Ionization parameter :math:`U=n_{\mathrm e}t`. Only applied
-when ``cmod`` is 2.
-| ``zv`` : Collision velocity in unit of km :math:`\mathrm{s}^{-1}`, used when
+:cmod: Switch between a CIE and NEI charge balance for the hot
+  plasmas. Default value: 1 (CIE).
+:pt: Pre-shock temperature same as ``t1`` in the ``neij`` model.
+  Only applied when ``cmod`` is 2.
+:u: Ionization parameter :math:`U=n_{\mathrm e}t`. Only applied
+  when ``cmod`` is 2.
+:zv: Collision velocity in unit of km :math:`\mathrm{s}^{-1}`, used when
   mode is set to 2. Default value: 100
-| ``op`` : Switch between single and multiple collisions for each ion.
+:op: Switch between single and multiple collisions for each ion.
   In multiple collision case, one ion would continuously undergo CX and
   produce various emission lines, until it becomes neutral. Default: 1
   (single)
-| ``wt`` : Weighting functions for subshell :math:`l-` population. When
+:wt: Weighting functions for subshell :math:`l-` population. When
   wt is set to 1, the :math:`l-` population is approximated by a series
   of empirical functions that switchs from one to another as a function
   of collision velocity. See `Gu et al. (2016)
@@ -112,15 +112,18 @@ when ``cmod`` is 2.
   These empirical functions are defined in Eqs. :math:`4-8` of
   `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_,
   and will be selected when wt is set to :math:`2-6`, respectively. Default: 1
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
-| ``ref`` : reference element. Default value 1 (hydrogen). See above for
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
+:ref: reference element. Default value 1 (hydrogen). See above for
   more details. The value corresponds to the atomic number of the
   reference element.
-| ``01`` : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
-| ``02`` : Abundance of helium (He, Z=2) in Solar units. Default 1.
-| :math:`\ldots` ``30`` : Abundance of zinc (Zn, Z=30) in Solar units.
+:01: Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
+:02: Abundance of helium (He, Z=2) in Solar units. Default 1.
+
+:math:`\ldots` 
+
+:30: Abundance of zinc (Zn, Z=30) in Solar units.
   Default 1.
-| ``file`` : Filename for the nonthermal distribution. If not present,
+:file: Filename for the nonthermal distribution. If not present,
   nonthermal effects are not taken into account (default).
 
 *Recommended citation:* `Gu et al. (2016) <https://ui.adsabs.harvard.edu/abs/2016A%26A...588A..52G/abstract>`_.

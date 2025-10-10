@@ -33,5 +33,5 @@ user.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation factor :math:`N`. Default value: 1.
-| ``file`` : The file name of the file containing the spectrum
+:norm: Normalisation factor :math:`N`. Default value: 1.
+:file: The file name of the file containing the spectrum

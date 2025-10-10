@@ -320,18 +320,19 @@ display the individual components (shown in green) in the current window.
 ``plot com`` works under both ``plot type data`` and ``plot type model`` modes.
 If multiplicative components are present, they are applied to the additive
 components in the plot. Use ``plot com 0`` to disable the component plot.
+
 .. warning:: ``plot com`` cannot be applied yet to the pion model.
+
 .. warning:: ``plot com`` should be best used for the final plot. It is not
-recommended to use ``plot com`` during a spectral fitting.
+             recommended to use ``plot com`` during a spectral fitting.
 	    
 
 
 Examples
 ~~~~~~~~
 
-| ``plot device xs`` : Open the graphic device xs (xserver)
-| ``plot device ps myplot.ps`` : Select a postscript device connected to
-  the file name myplot.ps
+| ``plot device xs`` : Open the graphic device xs (xserver).
+| ``plot device ps myplot.ps`` : Select a postscript device connected to the file name myplot.ps
 | ``plot type data`` : Plot the data on the selected graphics device(s)
 | ``plot ux angstrom`` : Set the x-axis plot units to Å
 | ``plot uy angstrom`` : Set the y-axis plot units to Counts/s/Å
@@ -364,11 +365,11 @@ Examples
 | ``plot de cps filename.ps`` : Open a colour postscript graphics device
   and write the output file to filename.ps
 | ``plot ion new 26 25 0.1`` : Plot the positions of the K-shell atomic transitions
-for Fe XXV with a redshift of 0.1 on the current device
+  for Fe XXV with a redshift of 0.1 on the current device
 | ``plot ion del`` : Delete the last ion from the plot
 | ``plot com 1`` : Plot separately all additive components from sector 1. This command
 should be immediately followed by a ``calc`` and a ``plot`` command to execute.
 | ``plot com 0`` : Remove the component plot.
-| ``plot`` : Redraw the plot on all frames and devices
+| ``plot`` : Redraw the plot on all frames and devices.
 | ``plot close 2`` : Close device number 2, which is the postscript
   device in this case

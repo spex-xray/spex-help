@@ -35,16 +35,16 @@ most :math:`400GM/c^2`.
 
 The parameters of the model are:
 
-| ``r1`` : Inner radius of the disk, in units of :math:`GM/c^2`. The
+:r1: Inner radius of the disk, in units of :math:`GM/c^2`. The
   minimum allowed value is 1.234 (for a maximally rotating Kerr black
   hole). For a Schwarzschild black hole, one should take
   :math:`r_i = 6`. Default value: 1.234.
-| ``r2`` : Outer radius of the disk, in units of :math:`GM/c^2`. Keep
+:r2: Outer radius of the disk, in units of :math:`GM/c^2`. Keep
   this radius less than 400 (default value)
-| ``q`` : Emissivity slope :math:`q` as described above. Default value:
+:q: Emissivity slope :math:`q` as described above. Default value:
   2.
-| ``h`` : Emissivity scale height. Default value: 0.
-| ``i`` : Inclination angle (in degrees) of the disk (angle between line
+:h: Emissivity scale height. Default value: 0.
+:i: Inclination angle (in degrees) of the disk (angle between line
   of sight and the rotation axis of the disk). Default value: 45
   degrees.
 

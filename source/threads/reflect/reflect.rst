@@ -1,7 +1,7 @@
 .. _sec:reflect:
 
 SPEX solution of the relativistic disk reflection
-===========================
+=================================================
 
 .. highlight:: none
 
@@ -14,10 +14,11 @@ a SPEITH line profile, and
 
 
 Setup of xillver*spei
-======================
+---------------------
 
 The table model based on the X-ray reflection code XILLVER can be incorporated
 in SPEX through atbl (:ref:`sect:atbl`)::
+  
   SPEX> com atbl
   SPEX> par 1 1 file av /directory/to/xillver/xillverCp_v3.6.fits
   SPEX> calc
@@ -33,7 +34,8 @@ model, and the relativistic kernel SPEI has been applied to the XILLVER spectrum
 
 
 Validating xillver*spei using Relxill
-======================
+-------------------------------------
+
 The above setup is compared with a RELXILL calculation using the same set of parameters. The
 model assumes a disk with solar iron abundance around a maximally spinning black hole, with the
 inner radius set to the ISCO and the outer radius fixed at 400 gravitational radii. The emissivity

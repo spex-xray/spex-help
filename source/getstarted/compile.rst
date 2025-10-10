@@ -151,7 +151,7 @@ Compiler selection
 
 Select a different fortran compiler::
 
-    unix:~/Software/SPEX-3.08.01-Source> cmake . -DCMAKE_Fortran_COMPILER=ifort
+    unix:~/Software/SPEX-3.08.02-Source> cmake . -DCMAKE_Fortran_COMPILER=ifort
 
 Install prefix
 """"""""""""""

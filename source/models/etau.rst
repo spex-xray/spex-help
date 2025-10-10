@@ -36,22 +36,21 @@ and 2. This is because of the mathematical identity
 
 The parameters of the model are:
 
-| ``tau0`` : Optical depth :math:`\tau_0` at :math:`E=1` keV. Default
+:tau0: Optical depth :math:`\tau_0` at :math:`E=1` keV. Default
   value: 1.
-| ``a`` : The index :math:`a` defined above. Default value: 1.
-| ``e1`` : Lower energy :math:`E_1` (keV). Default value:
+:a: The index :math:`a` defined above. Default value: 1.
+:e1: Lower energy :math:`E_1` (keV). Default value:
   :math:`10^{-20}`.
-| ``e2`` : Upper energy :math:`E_2` (keV). Default value:
+:e2: Upper energy :math:`E_2` (keV). Default value:
   :math:`10^{20}`.
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description in ``pion``.
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description in ``pion``.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied if icov=3 or 4.

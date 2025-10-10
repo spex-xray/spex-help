@@ -122,7 +122,7 @@ the array of :math:`u`-values should be in ascending order. The pairs
 temperature is the temperature of the last bin.
 
 Plane-parallel shock mode
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When a shock propagates through material, different layers behind the shock front
 are heated at different times, and therefore exhibit different ionization ages.
@@ -143,34 +143,34 @@ version of the model that will include full energy balance considerations.
 
 The parameters of the model are:
 
-| ``t1`` : Temperature :math:`T_1`
+:t1: Temperature :math:`T_1`
   before the sudden change in temperature, in keV. Default: 0.002 keV.
-| ``t2`` : Temperature :math:`T_2` after the sudden change in
+:t2: Temperature :math:`T_2` after the sudden change in
   temperature, in keV. Default: 1 keV.
-| ``u`` : Ionization parameter :math:`U=n_{\mathrm e}t` before the
+:u: Ionization parameter :math:`U=n_{\mathrm e}t` before the
   “break”, in :math:`10^{20}` m\ :math:`^{-3}` s. Default:
   :math:`10^{-4}`.
-| ``du`` : Ionization parameter :math:`dU` after the “break” in
+:du: Ionization parameter :math:`dU` after the “break” in
   :math:`10^{20}` :math:`\mathrm{m}^{-3}` s. Default value is 0 (no break).
-| ``alfa`` : Slope :math:`\alpha` of the :math:`T(t)` curve after the
+:alfa: Slope :math:`\alpha` of the :math:`T(t)` curve after the
   “break”. Default value is 0 (constant :math:`T`).
-| ``beta`` : Slope :math:`\beta` of the :math:`n(t)` curve after the
+:beta: Slope :math:`\beta` of the :math:`n(t)` curve after the
   “break”. Default value is 0 (constant :math:`n`).
-| ``mode`` : Mode of the model. Mode=1: analytical case; mode=2:
+:mode: Mode of the model. Mode=1: analytical case; mode=2:
   :math:`T(u)` read from a file. In the latter case, also the parameter
   ``hisu`` needs to be specified. Mode=3: plane-parallel shock. See
   description above.
-| ``hisu`` : Filename with the :math:`T(u)` values. Only used when
+:hisu: Filename with the :math:`T(u)` values. Only used when
   mode=2.
 
 The following parameters are the same as for the cie-model (:ref:`sect:cie`):
 
-| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
-| ``it`` : Ion temperature in keV
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
-| ``ref`` : Reference element
-| ``01...30`` : Abundances of H to Zn
-| ``file`` : Filename for the nonthermal electron distribution
+:hden: Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`
+:it: Ion temperature in keV
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
+:ref: Reference element
+:01...30: Abundances of H to Zn
+:file: Filename for the nonthermal electron distribution
 
 *Recommended citation:* `Kaastra & Jansen (1993)
 <https://ui.adsabs.harvard.edu/abs/1993A%26AS...97..873K/abstract>`_.

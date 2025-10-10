@@ -32,50 +32,51 @@ It is in principle possible to simulate a time-varying SED with changing hardnes
 ratio using the obscuration option. 
 
 
-| The parameters of the model are:
-| ``nh``: Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`. Default
+The parameters of the model are:
+
+:nh: Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`. Default
   value: :math:`10^{-4}` (corresponding to :math:`10^{24}` :math:`\mathrm{m}^{-2}`).
-| ``xi``: the :math:`^{10}\log` of the initial (time=0) ionisation parameter
+:xi: the :math:`^{10}\log` of the initial (time=0) ionisation parameter
   :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
-| ``mode``: This parameter specifies how
+:mode: This parameter specifies how
   the ionising SED is taken into account. Mode=1 means use the continuum
   models that the user has set up in SPEX (e.g. pow). This mode is the
   same as how the continuum is used in the *pion* model. Mode=2 means an
   input SED file in ASCII format is read. Mode=3 means an input SED file in ASCII
   format is needed, together with a time-varying absorber obscuring the SED. 
-| ``sed``: The name of the input SED
+:sed: The name of the input SED
   file, if mode=2 or 3. The format of this file is like the *file* model in
   SPEX and is as following: the 1st line contains the number of data
   points, and the next lines provide the energy in keV (1st column) and
   the flux in :math:`10^{44}` photons/s/keV (2nd column). Remember to use
   ’aval’ instead of ’val’ when setting the name of the parameter in
   SPEX.
-| ``lc``: The name of the file containing the lightcurve. The first
+:lc: The name of the file containing the lightcurve. The first
   column is time in second, and the second column is the X-ray flux
   (energy per unit area per second). For mode=3, this file should contains
   two extra columnes. The third column is column density of the absorber
   in :math:`10^{28}` :math:`\mathrm{m}^{-2}`, and the fourth column is the
   covering factor of the absorber. Remember to use ’aval’ instead of
   ’val’ when setting the name of the parameter in SPEX.
-| ``hden``: Hydrogen number density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description in ``pion``.
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+:hden: Hydrogen number density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description in ``pion``.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
-| ``v``: Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``zv``: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
-| ``ref``: Reference element for abundances
-| ``01..28``: Abundances of H to Ni; only here we take H, He, C, N, O,
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.
+:v: Root mean square velocity :math:`\sigma_{\mathrm v}`
+:zv: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
+:ref: Reference element for abundances
+:01..28: Abundances of H to Ni; only here we take H, He, C, N, O,
   Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
-| ``info``: Flag for writing out the intermediate calculation results into ASCII
+:info: Flag for writing out the intermediate calculation results into ASCII
   files. Info=0 (default) does not write any files, while info=1 writes the
   intermediate results into a directory called ``tpho_info``. The following ASCII
   files are produced: ``plasma.dat`` (1st column: time (s); 2nd column: ionisation
@@ -94,11 +95,11 @@ if icov=3 or 4.
   transmission). We note that currently only the final spectrum (at t=final) can be
   stored; the user however can modify the t=final in the lightcurve file to be
   able to see the spectrum at the desired time in SPEX.
-| ``oxil``: the :math:`^{10}\log` ionisation parameter of the obscurer
+:oxil: the :math:`^{10}\log` ionisation parameter of the obscurer
   :math:`\log\xi` in units of :math:`10^{-9}` W m. Default value: 1.
-| ``ov``: Root mean square velocity of the obscurer :math:`\sigma_{\mathrm v}`
-| ``zv``: Average systematic velocity :math:`v` of the obscurer (using relativistic Doppler shift)
-| ``ofla``: This flag specifies how the ionization parameter is evaluated for the obscurer. ofla=1 means
+:ov: Root mean square velocity of the obscurer :math:`\sigma_{\mathrm v}`
+:zv: Average systematic velocity :math:`v` of the obscurer (using relativistic Doppler shift)
+:ofla: This flag specifies how the ionization parameter is evaluated for the obscurer. ofla=1 means
   a constant ionization parameter, ofla=2 means that the ionization of the obscurer scales instantaneously with
   the SED flux.
 

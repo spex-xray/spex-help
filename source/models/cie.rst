@@ -174,49 +174,51 @@ Parameter description
    :math:`n_{\mathrm e} / n_{\mathrm H}` ratio).
 
 .. Warning:: The default line broadening is just Doppler broadening.
-   This is fine and self-consistent for the ‘old’ line calculation. To
-   incorporate the natural line broadening for the ‘new’ calculations, the
+   This is fine and self-consistent for the old line calculation. To
+   incorporate the natural line broadening for the new calculations, the
    user must use the ``var dopp 4`` option to get Voigt profiles. This is
    physically better but takes more computation time.
 
 The parameters of the model are:
 
-| ``norm`` : the normalisation, which is the emission measure
+:norm: the normalisation, which is the emission measure
   :math:`Y \equiv n_{\mathrm H} n_{\mathrm e} V` in units of
   :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where
   :math:`n_{\mathrm e}` and :math:`n_{\mathrm H}` are the electron and
   Hydrogen densities and :math:`V` the volume of the source. Default
   value: 1.
-| ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
+:t: the electron temperature :math:`T_{\mathrm e}` in keV. Default
   value: 1.
-| ``sig`` : the width :math:`\sigma_T` of the gaussian emission measure
+:sig: the width :math:`\sigma_T` of the gaussian emission measure
   profile. Default value: 0. (no temperature distribution i.e.
   isothermal)
-| ``sup`` : the width :math:`\sigma_T` of the high-temperature part of
+:sup: the width :math:`\sigma_T` of the high-temperature part of
   the gaussian emission measure profile. If larger than :math:`10^{-5}`
   keV, the sig parameter becomes the sigma value for the low-temperature
   end. Default value: 0
-| ``logt`` : Switch between linear and logarithmic temperature scale for
+:logt: Switch between linear and logarithmic temperature scale for
   the gaussian emission measure profile. Default value: 1 (logarithmic)
-| ``hden`` : the Hydrogen density :math:`n_{\mathrm e}` in units of
+:hden: the Hydrogen density :math:`n_{\mathrm e}` in units of
   :math:`10^{20}` :math:`\mathrm{m}^{-3}` (or :math:`10^{14}` :math:`\mathrm{cm}^{-3}`).
   Default value: :math:`10^{-14}`, i.e. typical ISM conditions, or the
   low density limit.
-| ``it`` : the ion temperature :math:`T_{\mathrm i}` in keV. Default
+:it: the ion temperature :math:`T_{\mathrm i}` in keV. Default
   value: 1
-| ``rt`` : the ratio of ionization balance to electron temperature,
+:rt: the ratio of ionization balance to electron temperature,
   :math:`R_{\mathrm b} = T_{\mathrm b} / T_{\mathrm e}` in keV. Default
   value: 1.
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
-| ``ref`` : reference element. Default value 1 (hydrogen). See above for
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
+:ref: reference element. Default value 1 (hydrogen). See above for
   more details. The value corresponds to the atomic number of the
   reference element.
-| ``01`` : Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
-| ``02`` : Abundance of helium (He, Z=2) in Solar units. Default 1.
-| :math:`\ldots` ``30`` : Abundance of zinc (Zn, Z=30) in Solar units.
-  Default 1.
-| ``file`` : Filename for the non-thermal electron distribution. If not
+:01: Abundance of hydrogen (H, Z=1) in Solar units. Default 1.
+:02: Abundance of helium (He, Z=2) in Solar units. Default 1.
+
+:math:`\ldots` 
+
+:30: Abundance of zinc (Zn, Z=30) in Solar units. Default 1.
+:file: Filename for the non-thermal electron distribution. If not
   present, non-thermal effects are not taken into account (default).
-| ``b`` : External magnetic field strength in Gauss. Default value: 0.
+:b: External magnetic field strength in Gauss. Default value: 0.
 
 *Recommended citation:* `Kaastra et al. (1996) <https://ui.adsabs.harvard.edu/abs/1996uxsa.conf..411K/abstract>`_.

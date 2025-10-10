@@ -28,26 +28,26 @@ relative to the concentration of the relevant chemical element.
 
 The parameters of the model are:
 
-| ``hyd`` : Hydrogen density in
+:hyd: Hydrogen density in
   :math:`10^{20}` :math:`\mathrm{m}^{-3}`
-| ``mode`` : Mode of the model. Mode=1: read absolute ion concentration
+:mode: Mode of the model. Mode=1: read absolute ion concentration
   from spexicon_abs.dat. mode=2: read relative ion concentration from
   spexicon_rel.dat.
 
 The following parameters are the same as for the cie-model:
 
-| ``norm`` : the normalisation, which is the emission measure
+:norm: the normalisation, which is the emission measure
   :math:`Y \equiv  n_{\mathrm e} n_{\mathrm H} V` in units of
   :math:`10^{64}` :math:`\mathrm{m}^{-3}`, where :math:`n_{\mathrm e}` and
   :math:`n_{\mathrm H}` are the electron and Hydrogen densities and
   :math:`V` the volume of the source. Default value: 1.
-| ``t`` : the electron temperature :math:`T_{\mathrm e}` in keV. Default
+:t: the electron temperature :math:`T_{\mathrm e}` in keV. Default
   value: 1.
-| ``it`` : Ion temperature in keV.
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`).
-| ``ref`` : Reference element.
-| ``01...30`` : Abundances of H to Zn.
-| ``file`` : Filename for the non-thermal electron distribution.
+:it: Ion temperature in keV.
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`).
+:ref: Reference element.
+:01...30: Abundances of H to Zn.
+:file: Filename for the non-thermal electron distribution.
 
 .. warning:: By default, SPEX starts with ``var calc old`` (see the var
    menu for explanation). If you want to use this model with the latest

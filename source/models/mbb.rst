@@ -24,9 +24,9 @@ with :math:`n_{\mathrm e}` the electron density (units:
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` (in units of
+:norm: Normalisation :math:`A` (in units of
   :math:`10^{26}` :math:`\mathrm{m}^{0.5}`). Default value: 1.
-| ``t`` : The temperature :math:`T` in keV. Default value: 1 keV.
+:t: The temperature :math:`T` in keV. Default value: 1 keV.
 
 *Recommended citation:* `Kaastra & Barr (1989)
 <https://ui.adsabs.harvard.edu/abs/1989A%26A...226...59K/abstract>`_ and

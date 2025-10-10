@@ -30,37 +30,39 @@ values of 1 therefore correspond to an almost negligible column.
 
 The parameters of the model are:
 
-| ``h1`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
-| ``h2`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
-| ``he1`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
+:h1: log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
+:h2: log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
+:he1: log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
   1.
-| ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
+:he2: log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
   1.
-| ``he2`` : log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
+:he2: log column density (:math:`\mathrm{m}^{-2}`) of He . Default value:
   1.
-| ``c1`` : log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
-| :math:`\ldots`
-| ``ni27`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
+:c1: log column density (:math:`\mathrm{m}^{-2}`) of H . Default value: 1.
+ 
+:math:`\ldots`
+
+:ni27: log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
   1.
-| ``ni28`` : log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
+:ni28: log column density (:math:`\mathrm{m}^{-2}`) of Ni . Default value:
   1.
 
 The following parameters are common to all our absorption models:
 
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description in ``pion``.
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description in ``pion``.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
-| ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.
+:v: Root mean square velocity :math:`\sigma_{\mathrm v}`
+:zv: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
 
 *Recommended citation:* `Kaastra et al. (2002)
 <https://ui.adsabs.harvard.edu/abs/2002A%26A...386..427K/abstract>`_.

@@ -1,7 +1,7 @@
 .. _sec:apec:
 
 SPEX evaluation of APEC model
-===========================
+=============================
 
 .. highlight:: none
 
@@ -13,14 +13,14 @@ This would allow user to compare APEC and CIE (:ref:`sect:cie`)
 without switching softwares.
 
 Download APEC files
-======================
+-------------------
 
 The APEC package containing the continuum coco file and the
 line file are available at 
 `AtomDB <http://www.atomdb.org/download.php>`_.
 
 Atbl for APEC
-======================
+-------------
 
 The APEC files can be evaluated through::
 
@@ -39,12 +39,12 @@ calculated separately if needed.
 
 The SPEX evaluation of APEC may differ slightly from the XSPEC implementation
 due to differences in the interpolation algorithms. In addition, the
-normalization follows the SPEX convention. This means that a SPEX–APEC model,
+normalization follows the SPEX convention. This means that a SPEX/APEC model,
 at its default distance and with a normalization of :math:`4\pi`, corresponds
-to an XSPEC–APEC model evaluated at zero redshift.
+to an XSPEC/APEC model evaluated at zero redshift.
 
 It is possible to set the abundance standard using the ``abund``
-(:ref:`sect:abundance`) command.
+(:ref:`sec:abundance`) command.
 
 .. note:: The current atbl cannot be used to read the APEC-NEI fits table.
 

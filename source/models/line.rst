@@ -57,34 +57,34 @@ covering factor can be varied.
 
 The parameters of the model are:
 
-| ``tau0`` : Optical depth :math:`\tau_0` at line center. Default value:
+:tau0: Optical depth :math:`\tau_0` at line center. Default value:
   1. Positive values correspond to absorption lines, negative values to
   emission lines.
-| ``el`` : Line center energy :math:`E_0` (keV). Default value: 6.4 keV.
-| ``fwhg`` : FWHM of the Gaussian component :math:`F_g` in keV. Default
+:el: Line center energy :math:`E_0` (keV). Default value: 6.4 keV.
+:fwhg: FWHM of the Gaussian component :math:`F_g` in keV. Default
   value: 0.1 keV.
-| ``fwhl`` : FWHM of the Lorentzian component :math:`F_l` in keV.
+:fwhl: FWHM of the Lorentzian component :math:`F_l` in keV.
   Default value: 0.1 keV.
-| ``type`` : Type of calculation. Type=0: energy units; type=1:
+:type: Type of calculation. Type=0: energy units; type=1:
   wavelength units.
-| ``wl`` : Line center wavelength :math:`E_0` (Å). Default value: 20 Å.
-| ``awhg`` : FWHM of the Gaussian component :math:`F_g` in Å. Default
+:wl: Line center wavelength :math:`E_0` (Å). Default value: 20 Å.
+:awhg: FWHM of the Gaussian component :math:`F_g` in Å. Default
   value: 0.1 Å.
-| ``awhl`` : FWHM of the Lorentzian component :math:`F_l` in Å. Default
+:awhl: FWHM of the Lorentzian component :math:`F_l` in Å. Default
   value: 0.1 Å.
-| ``ewk`` : Equivalent width of the line in keV. Calculated by the
+:ewk: Equivalent width of the line in keV. Calculated by the
   program, not an input variable.
-| ``ewa`` : Equivalent width of the line in Å. Calculated by the
+:ewa: Equivalent width of the line in Å. Calculated by the
   program, not an input variable.
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description in ``pion``.
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description in ``pion``.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.

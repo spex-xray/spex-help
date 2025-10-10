@@ -272,7 +272,7 @@ abundances of SPEX (you can check this number from the ``asc ter
    stronger acceleration.
 
 Partial covering
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 By default, SPEX applies a constant covering fraction of the absorber :math:`f_{\mathrm cov}`.
 An energy-dependent partial covering can be introduced by setting the parameters :math:`i_{\mathrm cov}`,
@@ -292,7 +292,7 @@ and the width of :math:`a_{\mathrm cov}`. Instead, if :math:`i_{\mathrm cov}` is
 The same form is applied to all absorption models.
 
 Magnetic field, Landau levels, and Zeeman effect
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Landau levels are quantized energy levels of electrons moving in a uniform magnetic field. The energy spacing between adajecent Landau levels
 is :math:`S = \hbar \omega_{\mathrm c}` where :math:`\omega_{\mathrm c} = q B/m` is the cyclotron frequency. SPEX can calculate the free-bound emission from
@@ -313,88 +313,91 @@ Model parameters
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
+:nh: Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
-| ``xi`` : the :math:`^{10}\log` of the ionisation parameter
+:xi: the :math:`^{10}\log` of the ionisation parameter
   :math:`\xi` in units of :math:`10^{-9}` W m. Default value: 1.
-| ``u`` : the Davidson (Cloudy) ionisation parameter :math:`U`
+:u: the Davidson (Cloudy) ionisation parameter :math:`U`
   (dimensionless). This is calculated from the SED and the value of
   :math:`\xi`. Not fittable, just output.
-| ``hden`` : the hydrogen density in units of :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+:hden: the hydrogen density in units of :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
   Default value: :math:`10^{-14}` (corresponding to
   :math:`10^{6}` :math:`\mathrm{m}^{-3}`, to be consistent with the order of magnitude of the
   electron density (which is used in the cie and neij models; do NOT confuse both quantities!).
 
 The following parameters are common to all our absorption models:
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description above. 
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description above. 
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description above.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
-| ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
-| The following parameters are the same as for the cie-model (see there
-  for a description):
-| ``ref`` : Reference element
-| ``01...28`` : Abundances of H to Ni; only here we take H, He, C,
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description above.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.
+:v: Root mean square velocity :math:`\sigma_{\mathrm v}`
+:zv: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
+
+The following parameters are the same as for the cie-model (see there for a description):
+
+:ref: Reference element
+:01...28: Abundances of H to Ni; only here we take H, He, C,
   N, O, Ne, Na, Mg, Al, Si, S, Ar, Ca, Fe, Ni.
-| ``file`` : File name for the electron distribution (in case of a sum
+:file: File name for the electron distribution (in case of a sum
   of Maxwellians distribution)
-| The following parameters are unique for the *pion* model: ``type`` :
-  If type equals 0 (default value), it uses :math:`\xi` as its main
+
+The following parameters are unique for the *pion* model: 
+
+:type: If type equals 0 (default value), it uses :math:`\xi` as its main
   parameter; if type equals 1, it uses lixi (see next parameter) as its
   main parameter
-| ``lixi`` : Optional alternative ionisation parameter, defines as
+:lixi: Optional alternative ionisation parameter, defines as
   :math:`{L_\mathrm{ion}}/\xi` in units of :math:`10^{39}` :math:`\mathrm{m}^{-1}`. This is useful
   for time-variable spectra where :math:`\xi` has been determined from
   one spectrum and where one wants to calculated the transmitted
   spectrum for fixed :math:`nr^2` for a different ionising spectrum; in
   that case lixi can be kept constant.
-| ``omeg`` : Covering factor :math:`\Omega/4\pi`, needed for emission.
+:omeg: Covering factor :math:`\Omega/4\pi`, needed for emission.
   At this stage, keep it to zero, please.
-| ``mix`` : Fraction of emitted spectrum to the forward direction
+:mix: Fraction of emitted spectrum to the forward direction
   relative to the total. default value: 1 (all emission forward). A
   value of 0 means SPEX gives all backwards emission.
-| ``exth`` : External heating in W :math:`\mathrm{m}^{-3}`. default value: 0.
-| ``fmod`` : Show all solutions in ascii output of the heating (fmod=1).
+:exth: External heating in W :math:`\mathrm{m}^{-3}`. default value: 0.
+:fmod: Show all solutions in ascii output of the heating (fmod=1).
   Default is fmod=0. Set fmod=1 also when you set soln\ :math:`>0`.
-| ``soln`` : The temperature solution to be used, from low to high
+:soln: The temperature solution to be used, from low to high
   values. Default value is 0 (hottest solution). If this parameter is
   larger than the hootest solution, it adopts the hottest solution
   instead. Should be used with fmod=1 in case soln\ :math:`>0`.
-| ``tmod`` : Temperature mode. Default value: 0 (solve for the
+:tmod: Temperature mode. Default value: 0 (solve for the
   temperature that provides energy balance). If tmod=1, use *tinp*
   instead as temperature and do not solve for energy balance. The ionization
   balance is then determined with both *tinp* and the photon field. If tmod=2,
   use *tinp* as temperature for both energy balance and ion concentration.
-| ``tinp`` : Temperature of the plasma in keV. Default: 1 keV. Only
+:tinp: Temperature of the plasma in keV. Default: 1 keV. Only
   relevant if *tmod=1* and *2*.
-| ``tadi`` : Adiabatic cooling time scale (s). See description above.
+:tadi: Adiabatic cooling time scale (s). See description above.
   Default value: :math:`10^{30}` s.
-| ``acc`` : Radiative acceleration. See description above. Note: only
-  output.
-| ``be``  : Magnetic field strength that sets the Landau levels of the free electron.
-Only affect the radiative recombination continuum in the emission mode.
-See description above. 
-| ``phas`` : Phase of the waveform by the Landau levels of the free electron
-field. Only affect the radiative recombination continuum in the emission mode.
-See description above. 
-| ``ampl`` : Amplitude of the waveform by the Landau levels of the free electron
-field. Only affect the radiative recombination continuum in the emission mode.
-See description above.
-| ``zeem`` : Zeeman calculation mode. Default value: 0 (no Zeeman). If zeem=1,
-Zeeman effect is calculated for the emission lines. See description above. 
-| ``bi``  : Magnetic field strength that sets the Zeeman effect of ions in their
-line emission. Only affect the emission mode. See description above. 
+:acc: Radiative acceleration. See description above. Note: only output.
+:be: Magnetic field strength that sets the Landau levels of the free electron.
+  Only affect the radiative recombination continuum in the emission mode.
+  See description above. 
+:phas: Phase of the waveform by the Landau levels of the free electron
+  field. Only affect the radiative recombination continuum in the emission mode.
+  See description above. 
+:ampl: Amplitude of the waveform by the Landau levels of the free electron
+  field. Only affect the radiative recombination continuum in the emission mode.
+  See description above.
+:zeem: Zeeman calculation mode. Default value: 0 (no Zeeman). If zeem=1,
+  Zeeman effect is calculated for the emission lines. See description above. 
+:bi: Magnetic field strength that sets the Zeeman effect of ions in their
+  line emission. Only affect the emission mode. See description above. 
 
 *Recommended citation:* `Mehdipour et al. (2016)
 <https://ui.adsabs.harvard.edu/abs/2016A%26A...596A..65M/abstract>`_

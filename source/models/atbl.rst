@@ -1,7 +1,7 @@
 .. _sect:atbl:
 
 Atbl: Additive table model
-========================
+==========================
 
 The atbl model provides an interface to apply an additive model component directly
 from a FITS table. The required FITS table format follows the specifications given on the
@@ -29,5 +29,5 @@ Model parameters
 
 The parameters of the model are:
 
-| ``file`` : full name and location of the table fits file.
-| ``norm`` : normalization applied globally in the calculation.
+:file: full name and location of the table fits file.
+:norm: normalization applied globally in the calculation.

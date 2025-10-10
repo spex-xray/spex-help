@@ -63,9 +63,6 @@ the full model to update the best-fit values. The errors should not be affected 
 unless the parameter is strongly correlated to another one.
 
 
-Quick CIE mode
---------------
-
 The Quick CIE (QC) mode provides an approximate computation of collisional line emissivities, calibrated against full
 calculations that use the latest atomic database in SPEX. In QC mode, SPEX bypasses the full calculation, resulting in
 a substantial gain in computational speed.
@@ -97,6 +94,7 @@ spectral range in a single step, with minimal computational cost. Consequently, 
 more pronounced at large velocity dispersions.
 
 Note that thermal Doppler broadening must be computed within the plasma model itself, as it depends on the element.
+
 
 
 Replacing secondary components by the file model

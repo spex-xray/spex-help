@@ -11,5 +11,5 @@ be convolved with the this broadening model.
 
 The parameters of the model are:
 
-| ``vblo`` : Velocity broadening half-width :math:`v`, in km/s. Default
+:vblo: Velocity broadening half-width :math:`v`, in km/s. Default
   value: 3000 km/s.

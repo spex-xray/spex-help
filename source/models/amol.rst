@@ -223,43 +223,42 @@ becomes 1.
    in the optical band.
 
 .. Warning:: It is possible to change the values of the output atomic
-   column densities of H–Zn, that are shown when you issue the "show par"
+   column densities of H-Zn, that are shown when you issue the "show par"
    command of SPEX. However, SPEX completely ignores this and when you
    issue the ``calc`` or ``fit`` commands, they will be reset to the proper
-   values. Morale: just read of those parameters, don’t touch them!
+   values. Morale: just read of those parameters, do not touch them!
 
 The parameters of the model are:
 
-| ``n1--n4`` : Molecular column density in
+:n1--n4: Molecular column density in
   :math:`10^{28}` :math:`\mathrm{m}^{-2}` for molecules 1–4. Default value:
   :math:`10^{-6}` for molecule 1, and zero for the others.
-| ``i1--i4`` : the molecule numbers for molecules 1–4 in the list
+:i1--i4: the molecule numbers for molecules 1–4 in the list
   (:ref:`tab:xride-table` and :ref:`tab:additional_compounds`). Default value: 108 (:math:`\mathrm{O_2}`)
   for molecule 1, zero for the others. A value of zero indicates that
   for that number no molecule will be taken into account. Thus, for only
-  1 molecule, keep *i2–i4* :math:`=0`.
+  1 molecule, keep *i2--i4* :math:`=0`.
 
-| The following parameters are common to all our absorption models:
+The following parameters are common to all our absorption models:
 
-| ``icov`` : Type of the covering fraction. Default value: 2 (constant,
-set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
-tangent function that increases with energy. If icov=4, covering fraction follows an inverse
-tangent function that decreases with energy. See description in ``pion``.
-| ``fcov`` : The covering factor of the absorber if icov=2. Default value: 1 (full
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
   covering). If icov=3 or 4, it sets the covering factor at the high energy end.
-| ``lcov`` : The covering factor of the absorber at the low energy end. Default value: 1.
-lcov is applied only when icov=3 or 4. See description in ``pion``.
-| ``ecov`` : The energy when the covering factor changes from lcov to fcov. Only applied
-if icov=3 or 4.
-| ``acov`` : The width of the transit on covering factor. Only applied
-if icov=3 or 4.
-| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied if icov=3 or 4.
+:zv: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift).
 
-| The following parameters are *only* output parameters:
+The following parameters are *only* output parameters:
 
-| ``h--zn`` : The column densities in :math:`10^{28}` :math:`\mathrm{m}^{-2}` for
+:h--zn: The column densities in :math:`10^{28}` :math:`\mathrm{m}^{-2}` for
   all *atoms* added together for the all molecules that are present in
   this component.
 
-| *Recommended citation:* `Pinto et al. (2010) <https://ui.adsabs.harvard.edu/abs/2010A%26A...521A..79P/abstract>`_.
+*Recommended citation:* `Pinto et al. (2010) <https://ui.adsabs.harvard.edu/abs/2010A%26A...521A..79P/abstract>`_.
 
