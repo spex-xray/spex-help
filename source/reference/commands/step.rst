@@ -20,6 +20,22 @@ incases of complicated correlations between parameters.
 
 .. Warning:: Beware of the cpu-time if you have a fine grid or many dimensions!
 
+Because the step terminal output can be quite long and `cause issues in
+some cases <https://github.com/spex-xray/spex-help/issues/44>`_, we suppress
+the terminal output when an output file is requested. If you want to follow
+the progress of the steps, you can open a new terminal and use the ``tail -f`` 
+command.
+
+In your SPEX terminal, you give the ``step file`` command:: 
+
+    SPEX> step file pargrid
+    
+While this is running, open a new terminal window and change to your working 
+directory. Now you can give the ``tail -f`` command and follow the progress:: 
+
+    unix:~> tail -f pargrid.stp
+
+
 Syntax
 ~~~~~~
 

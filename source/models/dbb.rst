@@ -56,14 +56,14 @@ inclination angle :math:`i` is known.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` (:math:`=r_i^2\cos i`), in units of
+:norm: Normalisation :math:`A` (:math:`=r_i^2\cos i`), in units of
   :math:`10^{16}` :math:`\mathrm{m}^2`. Default value: 1.
-| ``t`` : The nominal temperature :math:`T_i` in keV. Default value: 1
+:t: The nominal temperature :math:`T_i` in keV. Default value: 1
   keV.
-| ``ro`` : The ratio of outer to inner disk radius, :math:`r_o/r_i`
-| ``ener`` : Energy :math:`E_r` at which the average radius of emission
+:ro: The ratio of outer to inner disk radius, :math:`r_o/r_i`
+:ener: Energy :math:`E_r` at which the average radius of emission
   will be calculated
-| ``rav`` : Average radius :math:`R_e` of all emission at energy
+:rav: Average radius :math:`R_e` of all emission at energy
   :math:`E_r` specified by the parameter above. Note that this is not a
   free parameter, it is calculated each time the model is evaluated.
 

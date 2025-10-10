@@ -41,32 +41,32 @@ factor.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` of the power law.
-| ``gamm`` : The photon index :math:`\Gamma` of the ionising spectrum.
-| ``ecut`` : The cut-off energy (keV) of the ionising spectrum. If no
+:norm: Normalisation :math:`A` of the power law.
+:gamm: The photon index :math:`\Gamma` of the ionising spectrum.
+:ecut: The cut-off energy (keV) of the ionising spectrum. If no
   cut-off is desired, take this parameter zero (and keep it frozen!).
-| ``pow`` : If pow=1, the incoming power law is added to the spectrum
+:pow: If pow=1, the incoming power law is added to the spectrum
   (default); if pow=0, only the reflected spectrum is given.
-| ``disk`` : If disk=1, the spectrum will be convolved with an accretion
+:disk: If disk=1, the spectrum will be convolved with an accretion
   disk profile (default); if disk=0, this is not done.
-| ``fgr`` : Full general relativity used (default, for fgr=1).
-| ``t`` : Temperature of the reflector (disk) in keV.
-| ``xi`` : Ionisation parameter :math:`\xi=L/nr^2` in the usual (c.g.s.
+:fgr: Full general relativity used (default, for fgr=1).
+:t: Temperature of the reflector (disk) in keV.
+:xi: Ionisation parameter :math:`\xi=L/nr^2` in the usual (c.g.s.
   based) units of :math:`10^{-9}` W m.
-| ``abun`` : The abundance of all metals excluding H and He, in solar
+:abun: The abundance of all metals excluding H and He, in solar
   units
-| ``feab`` : The iron abundance with respect to the other metals
-| ``cosi`` : The cosine of the inclination angle of the disk.
+:feab: The iron abundance with respect to the other metals
+:cosi: The cosine of the inclination angle of the disk.
   :math:`\cos i=0` (:math:`i=\pi/2`) corresponds to edge-on
-| ``scal`` : Scale :math:`s` for reflection. For an isotropic source
+:scal: Scale :math:`s` for reflection. For an isotropic source
   above the disk :math:`s=1`. This value corresponds to seeing equal
   contributions from the reflected and direct spectra.
-| ``q`` : Emissivity index for the accretion disk; default value -3 (the
+:q: Emissivity index for the accretion disk; default value -3 (the
   emissivity scales with :math:`r^{+q}` at large radii, so :math:`q=-3`
   means :math:`r^-3`. Note the sign difference with the Laor model.
-| ``r1`` : Inner radius of the disk in units of :math:`GM/c^2`. Default:
+:r1: Inner radius of the disk in units of :math:`GM/c^2`. Default:
   10.
-| ``r2`` : Outer radius of the disk in units of :math:`GM/c^2`. Default:
+:r2: Outer radius of the disk in units of :math:`GM/c^2`. Default:
   :math:`10^4`.
 
 *Recommended citation:* `Magdziarz & Zdziarski (1995)

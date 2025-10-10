@@ -37,12 +37,12 @@ units.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A`, in units of
+:norm: Normalisation :math:`A`, in units of
   :math:`10^{44}` ph :math:`\mathrm{s}^{-1}`. Default value: 1.
-| ``e`` : The line energy :math:`E_0` in keV. Default value: 6.4 keV.
-| ``fwhm`` : The line :math:`FWHM`, in keV.
-| ``type`` : The type: 0 for energy units, 1 for wavelength units.
-| ``w`` : The line wavelength :math:`\lambda` in Å. Default value: 20 Å.
-| ``awid`` : The line :math:`FWHM`, in Å.
+:e: The line energy :math:`E_0` in keV. Default value: 6.4 keV.
+:fwhm: The line :math:`FWHM`, in keV.
+:type: The type: 0 for energy units, 1 for wavelength units.
+:w: The line wavelength :math:`\lambda` in Å. Default value: 20 Å.
+:awid: The line :math:`FWHM`, in Å.
 
 *Recommended citation:* `Gauss (1809) <https://ui.adsabs.harvard.edu/abs/1809tmcc.book.....G/abstract>`_.

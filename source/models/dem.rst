@@ -22,17 +22,19 @@ temperatures between :math:`T_1` and :math:`T_2`, with :math:`n` bins.
 
 The parameters of the model are:
 
-| ``t1`` : Lower temperature :math:`T_1` in keV. Default value: 0.001
+:t1: Lower temperature :math:`T_1` in keV. Default value: 0.001
   keV.
-| ``t2`` : Upper temperature :math:`T_2` in keV. Default value: 100 keV.
-| ``nr`` : Number of temperature bins. Default value: 64.
-| The following parameters are the same as for the cie-model:
-| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
-| ``it`` : Ion temperature in keV.
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`).
-| ``ref`` : Reference element.
-| ``01...30`` : Abundances of H to Zn.
-| ``file`` : Filename for the non-thermal electron distribution.
+:t2: Upper temperature :math:`T_2` in keV. Default value: 100 keV.
+:nr: Number of temperature bins. Default value: 64.
+
+The following parameters are the same as for the cie-model:
+
+:hden: Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+:it: Ion temperature in keV.
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`).
+:ref: Reference element.
+:01...30: Abundances of H to Zn.
+:file: Filename for the non-thermal electron distribution.
 
 *Recommended citation:* `Mewe et al. (1995)
 <https://ui.adsabs.harvard.edu/abs/1995A%26A...296..477M/abstract>`_

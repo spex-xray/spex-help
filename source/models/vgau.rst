@@ -10,5 +10,5 @@ a Gaussian Doppler profile, characterized by the Gaussian
 
 The parameters of the model are:
 
-| ``sig`` : Gaussian velocity broadening :math:`\sigma`, in km/s.
+:sig: Gaussian velocity broadening :math:`\sigma`, in km/s.
   Default value: 1 km/s

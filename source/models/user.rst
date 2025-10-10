@@ -60,8 +60,8 @@ The equivalent of ``user`` for multiplicative models is :ref:`sect:musr`.
 
 The parameters of the model are:
 
-| ``exec`` : User executable, for example ’./model.py’ for a python
+:exec: User executable, for example ’./model.py’ for a python
   script in the same directory where you run SPEX
-| ``npar`` : Number of free parameters in the model. Current maximum is
+:npar: Number of free parameters in the model. Current maximum is
   40.
-| ``p01...p40`` : Model parameters of the user model.
+:p01...p40: Model parameters of the user model.

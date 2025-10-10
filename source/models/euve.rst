@@ -18,19 +18,25 @@ collisional ionisation equilibrium.
 
 The parameters of the model are:
 
-| ``nh`` : Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
+:nh: Hydrogen column density in :math:`10^{28}` :math:`\mathrm{m}^{-2}`.
   Default value: :math:`10^{-4}` (corresponding to
   :math:`10^{24}` :math:`\mathrm{m}^{-2}`, a typical value at low Galactic
   latitudes).
-| ``he1`` : The He  / H  ratio. Default value: 0.1.
-| ``he2`` : The He  / H  ratio. Default value: 0.01.
-|  ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
-|  ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
-|  ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
-  covering)
-|  ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
-  covering)
-|  ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
+:he1: The He  / H  ratio. Default value: 0.1.
+:he2: The He  / H  ratio. Default value: 0.01.
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
+  covering). If icov=3 or 4, it sets the covering factor at the high energy end.
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.
+
 
 *Recommended citation:* `Rumph et al. (1994)
 <https://ui.adsabs.harvard.edu/abs/1994AJ....107.2108R/abstract>`_.

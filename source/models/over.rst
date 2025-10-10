@@ -12,6 +12,7 @@ Currently the following models are implemented in SPEX:
 
    absm
    amol
+   atbl
    bb
    cf
    cie
@@ -23,6 +24,7 @@ Currently the following models are implemented in SPEX:
    delt
    dem
    dust
+   ebit
    ebv
    etau
    euve

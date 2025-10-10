@@ -52,16 +52,16 @@ our calculations:
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` of the power law, in units of
+:norm: Normalisation :math:`A` of the power law, in units of
   :math:`10^{44}` :math:`\mathrm{ph}` :math:`\mathrm{s}^{-1}`
   :math:`\mathrm{keV}^{-1}`. Due to the way the model is calculated, this is not
   the flux at 1 keV! Default value: 1.
-| ``t0`` : The temperature :math:`T` of the seed photons in keV. Default
+:t0: The temperature :math:`T` of the seed photons in keV. Default
   value: 1 keV.
-| ``t1`` : The plasma temperature :math:`T` in keV. Default value: 100
+:t1: The plasma temperature :math:`T` in keV. Default value: 100
   keV.
-| ``tau`` : The optical depth. Default value: 3.
-| ``type`` : The type of geometry. Allowed values are 0 for a disk
+:tau: The optical depth. Default value: 3.
+:type: The type of geometry. Allowed values are 0 for a disk
   (default) or 1 for a sphere. This is a frozen parameter (cannot be
   fitted).
 

@@ -33,23 +33,26 @@ This output is only produced when the parameter out=1 is set.
 
 The parameters of the model are:
 
-| ``n`` :  The maximum number of polynomial terms that is desired. Default value is 1,
+:n:  The maximum number of polynomial terms that is desired. Default value is 1,
   maximum is 10. Note  that for n less than 10, all Chebychev terms larger than n are ignored,
   even if the corresponding scaling parameter is non-zero.
-| ``wav`` : Wheter to use an energy grid (wav=0, default) or a wavelength grid (wav=1) for the
+:wav: Wheter to use an energy grid (wav=0, default) or a wavelength grid (wav=1) for the
   evaluation of the Chebychev polynomials.
-| ``log`` : Wheter to use a linear grid (log=0, default) or a logarithmic grid (log=1) for the
+:log: Wheter to use a linear grid (log=0, default) or a logarithmic grid (log=1) for the
   evaluation of the Chebychev polynomials.
-| ``e1`` : The Chebychev polynomials are evaluated only between energy :math:`E_1` and
+:e1: The Chebychev polynomials are evaluated only between energy :math:`E_1` and
   :math:`E_2` (both in keV). Default value: :math:`E_1=10^{-20}`. Outside this range
   we force :math:`z(x)=0`.
-| ``e2`` : The Chebychev polynomials are evaluated only between energy :math:`E_1` and
+:e2: The Chebychev polynomials are evaluated only between energy :math:`E_1` and
   :math:`E_2` (both in keV). Default value: :math:`E_2=10^{20}`.
-| ``out`` : Whether output of the gain correction (out=1) is desired or not (out=0, default).
-| ``p0`` : first chebychev term (a constant). Note that due to the definition of chebychev
+:out: Whether output of the gain correction (out=1) is desired or not (out=0, default).
+:p0: first chebychev term (a constant). Note that due to the definition of chebychev
   polynomials, the gain is half of this; for example, p0=0.1 leads toa 5\% gain correction. 
   Default value: 0. 
-| ``p1`` : next chebychev term (linear). Default value 0.
-| ``p2`` : next chebychev term (linear). Default value 0.
-| :math:`\ldots` ``p9`` : 9th order chebychev term. Default value 0.
+:p1: next chebychev term (linear). Default value 0.
+:p2: next chebychev term (linear). Default value 0.
+
+:math:`\ldots` 
+
+:p9: 9th order chebychev term. Default value 0.
 

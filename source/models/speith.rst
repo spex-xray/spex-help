@@ -61,37 +61,37 @@ with that of Fabian et al. (2002) for the second part.
 
 The parameters of the model are:
 
-| ``r1`` : Inner radius of the disk, in units of GM/c^2. The minimum allowed value is 1.234 (for a maximally rotating Kerr black
+:r1: Inner radius of the disk, in units of GM/c^2. The minimum allowed value is 1.234 (for a maximally rotating Kerr black
            hole). For a Schwarzschild black hole, one should take r_i = 6. Default value: 1.234.
-| ``r2`` : Outer radius of the disk, in units of GM/c^2. Default value 400. Take care that r2>r1.
+:r2: Outer radius of the disk, in units of GM/c^2. Default value 400. Take care that r2>r1.
 
-| ``a`` : black hole spin. Default value 0 (Schwarzchild case), maximum value 0.9982 (maximally rotating Kerr black hole).
+:a: black hole spin. Default value 0 (Schwarzchild case), maximum value 0.9982 (maximally rotating Kerr black hole).
 
-| ``i`` : Inclination angle (in degrees) of the disk (angle between line of sight and the rotation axis of the disk).
+:i: Inclination angle (in degrees) of the disk (angle between line of sight and the rotation axis of the disk).
           Default value: 45 degrees.
 
-| ``q`` : Emissivity slope q as described above. Default value: 2.
+:q: Emissivity slope q as described above. Default value: 2.
 
-| ``h`` : Emissivity scale height. Default value: 0.
+:h: Emissivity scale height. Default value: 0.
 
-| ``dq``: Emissivity break index. Default value: 0 (no break)
+:dq: Emissivity break index. Default value: 0 (no break)
 
-| ``rb``: Emissivity break radius. Default value: 10^20.
+:rb: Emissivity break radius. Default value: 10^20.
 
-| ``limb``: limb brightening law :math:`I \sim 1 + limb * \mu` where :math:`\mu` is the cosine of the emission angle.
+:limb: limb brightening law :math:`I \sim 1 + limb * \mu` where :math:`\mu` is the cosine of the emission angle.
              Default value: 2.06 following Laor (1991).
 
-| ``dres``: resolution of the profile. Computation time is inverse proportional to this number. Recommended value is
+:dres: resolution of the profile. Computation time is inverse proportional to this number. Recommended value is
             0.01 for CCD-type resolution, and 0.001 for high-resolution X-ray spectra. Default value: 0.001.
 
 The following parameters are not free parameters, but output parameters of the model.
 
-| ``s``: Integrated flux of the line before renormalising to 1.
-| ``gmin``: minimum redshift, occurs at the innermost radius r1.
-| ``gmax``: maximum redshift, occurs at some intermediate radius.
-| ``gint``: maximum redshift at the innermost radius r1.
-| ``g1``: minimum redshift at the outermost radius r2.
-| ``g2``: maximum redshift at the outermost radius r2.
-| ``rms``: radius of the innermost stable circular orbit in units of GM/c^2.
+:s: Integrated flux of the line before renormalising to 1.
+:gmin: minimum redshift, occurs at the innermost radius r1.
+:gmax: maximum redshift, occurs at some intermediate radius.
+:gint: maximum redshift at the innermost radius r1.
+:g1: minimum redshift at the outermost radius r2.
+:g2: maximum redshift at the outermost radius r2.
+:rms: radius of the innermost stable circular orbit in units of GM/c^2.
 
 Recommended citation: `Speith et al. (1995) <https://ui.adsabs.harvard.edu/abs/1995CoPhC..88..109S/abstract>`_.

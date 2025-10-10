@@ -14,3 +14,6 @@ Analysis threads
    threads/pionena/pionena
    threads/twospec/twospec
    threads/user/user
+   threads/reflect/reflect
+   threads/apec
+   

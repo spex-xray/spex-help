@@ -68,9 +68,11 @@ command ``var calc new`` (referred to as SPEXACT v3), and a "quick-cie"
 mode with the command ``var calc qc``.
 
 The quick CIE mode is designed only for CIE-family models, including
-*cie*, *dem*, *pdem*, *wdem*, *cf*, and *clus*. It is not compatible with
-non-equilibrium scenarios like *nei* or any cases involving photon fields,
-like *pion*, *tpho*, and *xabs*.
+*cie*, *dem*, *pdem*, *wdem*, *cf*, and *clus*. It can be used as a rough
+estimate for *nei* for ionizing plasma. This mode is not yet compatible
+with the recombing or charge exchange plasma, as well as
+any cases involving photon fields, like *pion*, *tpho*, and *xabs*.
+
 
 Calculation level occupations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -32,27 +32,29 @@ the total emission measure :math:`Y` that went into the model.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation, i.e. total integrated emission measure
+:norm: Normalisation, i.e. total integrated emission measure
   :math:`Y` in units of :math:`10^{64}` :math:`\mathrm{m}^{-3}`.
-| ``t1`` : Lower temperature :math:`T_1` in keV.
-| ``tn`` : Upper temperature :math:`T_n` in keV.
-| ``npol`` : Number of temperature grid points :math:`n`; minimum value
+:t1: Lower temperature :math:`T_1` in keV.
+:tn: Upper temperature :math:`T_n` in keV.
+:npol: Number of temperature grid points :math:`n`; minimum value
   2, maximum value 8.
-| ``y1`` : Relative contribution :math:`y_1` at :math:`T_1`.
-| ``y2`` : Relative contribution :math:`y_2` at :math:`T_2`
-| :math:`\ldots`
-| ``y8`` : Relative contribution :math:`y_8` at
+:y1: Relative contribution :math:`y_1` at :math:`T_1`.
+:y2: Relative contribution :math:`y_2` at :math:`T_2`
+
+:math:`\ldots`
+
+:y8: Relative contribution :math:`y_8` at
   :math:`T_8`; note that the higher contributions :math:`y_i` are
   neglected if :math:`i>n`.
 
 The following parameters are the same as for the cie-model:
 
-| ``hden`` : Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
-| ``it`` : Ion temperature in keV.
-| ``vrms`` : RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
-| ``ref`` : Reference element.
-| ``01...30`` : Abundances of H to Zn.
-| ``file`` : Filename for the nonthermal electron distribution
+:hden: Hydrogen density in :math:`10^{20}` :math:`\mathrm{m}^{-3}`.
+:it: Ion temperature in keV.
+:vrms: RMS Velocity broadening in km/s (see :ref:`sect:turbulence`)
+:ref: Reference element.
+:01...30: Abundances of H to Zn.
+:file: Filename for the nonthermal electron distribution
 
 Note that the true emission measure on the finer mesh can be displayed
 by using the ``ascdump term # # dem`` command; you will get a list of

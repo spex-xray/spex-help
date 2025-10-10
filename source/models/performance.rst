@@ -63,6 +63,40 @@ the full model to update the best-fit values. The errors should not be affected 
 unless the parameter is strongly correlated to another one.
 
 
+The Quick CIE (QC) mode provides an approximate computation of collisional line emissivities, calibrated against full
+calculations that use the latest atomic database in SPEX. In QC mode, SPEX bypasses the full calculation, resulting in
+a substantial gain in computational speed.
+
+The current QC implementation offers a reasonable approximation to the standard CIE model, as well as to all secondary
+models based on CIE, in particular, the DEM-family, CF, and Cluster models.
+
+The application of QC mode to NEI models is still experimental. It can be used for ionizing cases (t1 < t2), including
+the Pshock mode, although results should be verified against a full calculation using the command ``var calc new``. The
+QC mode for recombining cases (t1 > t2) is not yet available.
+
+In practice, QC mode is recommended for preliminary analyses of collisional sources that are not undergoing rapid
+recombination. It is suitable and even encouraged for estimating statistical uncertainties or performing higher-level
+analyses such as Bayesian inference. However, at least one round of full calculation is recommended for the final
+results to ensure accuracy.
+
+
+Large velocity dispersion
+-------------------------
+
+If the data exhibit significant velocity dispersion, leading to substantial kinematic Doppler broadening, it is generally
+recommended to model this effect using an additional ``vgau`` component. In such cases, the velocity dispersion parameter
+within the plasma model (e.g., CIE) should be fixed to zero. The vgau component, with a free ``sig`` parameter, should then
+be applied directly to the plasma component.
+
+The rationale for this approach is computational efficiency. In plasma models, the calculation time for line broadening
+increases with velocity dispersion. In contrast, ``vgau`` applies the velocity broadening uniformly across the entire
+spectral range in a single step, with minimal computational cost. Consequently, the advantage of using ``vgau`` becomes
+more pronounced at large velocity dispersions.
+
+Note that thermal Doppler broadening must be computed within the plasma model itself, as it depends on the element.
+
+
+
 Replacing secondary components by the file model
 ------------------------------------------------
 
@@ -104,6 +138,8 @@ be sure. Then, follow these steps:
 
 The fitting should now be faster, because there are now two CIE components that do not need to be calculated anymore.
 
+.. note:: Same as the emission spectrum, it might be more efficient in some cases to apply a secondary absorption
+	  component by ``etau`` component in ``mode = 1`` as an ASCII input.
 
 Optimizing the number of threads
 --------------------------------

@@ -1,4 +1,4 @@
-SSD: Shakura-Sunyaev disk model
+SSd: Shakura-Sunyaev disk model
 ===============================
 
 This model performs on-the-fly exact calculations for a standard Shakura-Sunyaev
@@ -47,14 +47,14 @@ in the unit of photons per second per keV.
 
 The parameters of the model are:
 
-| ``cosi`` : Cos inclination. Default value: 1.
-| ``alfa`` : Viscosity alpha. Default value: 0.1
-| ``mass`` : Log blackhole mass. Default value: 8.
-| ``mdot`` : Mass accretion Eddington ratio. Default value: 1.
-| ``rin`` : Inner radius in Schwarzschild radius. Default value: 3.
-| ``rout`` : Outermost radius in Schwarzschild radius. Default value: 1000.
-| ``comp`` : 1 turns on Comptonization. 0 turns off. Default value: 0.
-| ``info`` : 1 Disk diagnostics saved in ssd_info.txt. Default value: 1.
+:cosi: Cos inclination. Default value: 1.
+:alfa: Viscosity alpha. Default value: 0.1
+:mass: Log blackhole mass. Default value: 8.
+:mdot: Mass accretion Eddington ratio. Default value: 1.
+:rin: Inner radius in Schwarzschild radius. Default value: 3.
+:rout: Outermost radius in Schwarzschild radius. Default value: 1000.
+:comp: 1 turns on Comptonization. 0 turns off. Default value: 0.
+:info: 1 Disk diagnostics saved in ssd_info.txt. Default value: 1.
 
 *Recommended citation:* `Shakura & Sunyaev (1973) <https://ui.adsabs.harvard.edu/abs/1973A%26A....24..337S/abstract>`_.
 

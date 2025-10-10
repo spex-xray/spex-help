@@ -34,16 +34,16 @@ refer to :ref:`sect:abs_models`.
 
 The parameters of the model are:
 
-| ``xil1`` : :math:`\log\xi_1` of the lower limit of the ionisation
+:xil1: :math:`\log\xi_1` of the lower limit of the ionisation
   parameter range in units of :math:`10^{-9}` W m. Default value: -4.
-| ``xil2`` : :math:`\log\xi_2` of the upper limit of the ionisation
+:xil2: :math:`\log\xi_2` of the upper limit of the ionisation
   parameter range in units of :math:`10^{-9}` W m. Default value: 5.
-| ``npol`` : The number of grid points for the :math:`\log\xi` grid,
+:npol: The number of grid points for the :math:`\log\xi` grid,
   including the end points for :math:`\xi_1`. Default value: 19; lower
   values are generally recommended; minimum value is 2.
-| ``dxi`` : step size for numerical integration :math:`\Delta\log\xi`.
+:dxi: step size for numerical integration :math:`\Delta\log\xi`.
   Default value: 0.2.
-| ``f01...f19`` : Values of
+:f01...f19: Values of
   :math:`f_i={\mathrm d}N_{\mathrm H}/{\mathrm
   d}\ln\xi` at the grid points. Default values :math:`10^{-6}`. When
   npol\ :math:`<19`, the remaining values of :math:`f_i` are simply
@@ -51,18 +51,24 @@ The parameters of the model are:
 
 The following parameters are common to all our absorption models:
 
-| ``icov`` : The shape type of the covering factor. Default value 2 (constant). See :ref:`sect:abs_models` for details.
-| ``fcov`` : The covering factor (at high energy) of the absorber. Default value: 1 (full covering)
-| ``lcov`` : The covering factor (at low energy) of the absorber. Default value: 1 (full
-  covering)
-| ``ecov`` : The energy parameter of the transition from low-energy to high-energy covering factor (keV). Default value: 1 (full
-  covering)
-| ``acov`` : The width parameter of the covering factor transition from low to high energies. Default value: 1
-| ``v`` : Root mean square velocity :math:`\sigma_{\mathrm v}`
-| ``zv`` : Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
-| The following parameter is the same as for the xabs-model (see there
-  for a description): 
-| ``col`` : File name for the photoionisation
+:icov: Type of the covering fraction. Default value: 2 (constant,
+  set by *fcov*). If icov=1, full covering is applied. If icov=3, covering fraction follows a
+  tangent function that increases with energy. If icov=4, covering fraction follows an inverse
+  tangent function that decreases with energy. See description in ``pion``.
+:fcov: The covering factor of the absorber if icov=2. Default value: 1 (full
+  covering). If icov=3 or 4, it sets the covering factor at the high energy end.
+:lcov: The covering factor of the absorber at the low energy end. Default value: 1.
+  lcov is applied only when icov=3 or 4. See description in ``pion``.
+:ecov: The energy when the covering factor changes from lcov to fcov. Only applied
+  if icov=3 or 4.
+:acov: The width of the transit on covering factor. Only applied
+  if icov=3 or 4.
+:v: Root mean square velocity :math:`\sigma_{\mathrm v}`
+:zv: Average systematic velocity :math:`v` of the absorber (using relativistic Doppler shift)
+
+The following parameter is the same as for the xabs-model (see there for a description):
+ 
+:col: File name for the photoionisation
   balance parameters
 
 *Recommended citation:* `Steenbrugge et al. (2005) <https://ui.adsabs.harvard.edu/abs/2005A%26A...432..453S/abstract>`_

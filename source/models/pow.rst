@@ -83,24 +83,22 @@ specified in other spectral components.
 
 The parameters of the model are:
 
-| ``norm`` : Normalisation :math:`A` of the power law, in units of
+:norm: Normalisation :math:`A` of the power law, in units of
   :math:`10^{44}` ph :math:`\mathrm{s}^{-1}` :math:`\mathrm{keV}^{-1}` at 1 keV.
   Default value: 1. When :math:`\Delta\Gamma` is not equal to 0, it is
   the asymptotic value at 1 keV of the low-energy branch.
-| ``gamm`` : The photon index :math:`\Gamma` of the spectrum. Default
+:gamm: The photon index :math:`\Gamma` of the spectrum. Default
   value: 2. When :math:`\Delta\Gamma` is not equal to 0, it is the slope
   of the low-energy branch.
-| ``dgam`` : The photon index break :math:`\Delta\Gamma` of the
+:dgam: The photon index break :math:`\Delta\Gamma` of the
   spectrum. Default value: 0. and frozen. If no break is desired, keep
   this parameter 0 (and frozen!).
-| ``e0`` : The break energy :math:`E_0` (keV) of the spectrum. Default
-  value: :math:`10^{10}` and frozen.
-| ``b`` : Smoothness of the break :math:`b`. Default: 0.
-| ``type`` : Type of normalisation. Type\ :math:`=0` (default): use
-  :math:`A`; type\ :math:`=1`: use :math:`L`.
-| ``elow`` : :math:`E_1` in keV, the lower limit for the luminosity
-  calculation. Default value: 2 keV.
-| ``eupp`` : :math:`E_2` in keV, the upper limit for the luminosity
-  calculation. Default value: 10 keV. Take care that :math:`E_2>E_1`.
-| ``lum`` : Luminosity :math:`L` between :math:`E_1` and :math:`E_2`, in
+:e0: The break energy :math:`E_0` (keV) of the spectrum. Default value: :math:`10^{10}` and frozen.
+:b: Smoothness of the break :math:`b`. Default: 0.
+
+:type: Type of normalisation. Type :math:`=0` (default): use
+  :math:`A`; type :math:`=1`: use :math:`L`.
+:elow: :math:`E_1` in keV, the lower limit for the luminosity calculation. Default value: 2 keV.
+:eupp: :math:`E_2` in keV, the upper limit for the luminosity calculation. Default value: 10 keV. Take care that :math:`E_2>E_1`.
+:lum: Luminosity :math:`L` between :math:`E_1` and :math:`E_2`, in
   units of :math:`10^{30}` W.
