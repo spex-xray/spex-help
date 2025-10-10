@@ -18,19 +18,19 @@ The current SPEX version 3.08.02 was released on 2025-10-10. SPEX install files 
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
     |Download type             |Linux                                                                                                                      |Mac OS                                                                                                              |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |Binary (Administrator)    |                                                                                                                           |`MacOS Intel pkg <https://zenodo.org/records/12771915/files/spex-3.08.02-Apple-Intel.pkg?download=1>`_              |
+    |Binary (Administrator)    |                                                                                                                           |`MacOS Intel pkg <https://zenodo.org/records/17313851/files/spex-3.08.02-Apple-Intel.pkg?download=1>`_              |
     |                          +---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |                          |                                                                                                                           |`MacOS M1/M2/M3 pkg <https://zenodo.org/records/12771915/files/spex-3.08.02-Apple-Silicon-M1.pkg?download=1>`_      |
+    |                          |                                                                                                                           |`MacOS M1/M2/M3/M4 pkg <https://zenodo.org/records/17313851/files/spex-3.08.02-Apple-Silicon.pkg?download=1>`_      |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |Binary (Non-Administrator)|`spex-3.08.02-Linux-Intel.tar.gz <https://zenodo.org/records/12771915/files/spex-3.08.02-Linux-Intel.tar.gz?download=1>`_  |`MacOS Intel tar.gz <https://zenodo.org/records/12771915/files/spex-3.08.02-Apple-Intel.tar.gz?download=1>`_        |
+    |Binary (Non-Administrator)|`spex-3.08.02-Linux-Intel.tar.gz <https://zenodo.org/records/17313851/files/spex-3.08.02-Linux-Intel.tar.gz?download=1>`_  |`MacOS Intel tar.gz <https://zenodo.org/records/17313851/files/spex-3.08.02-Apple-Intel.tar.gz?download=1>`_        |
     |                          +---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |                          |                                                                                                                           |`MacOS M1/M2/M3 tar.gz <https://zenodo.org/records/12771915/files/spex-3.08.02-Apple-Silicon-M1.tar.gz?download=1>`_|
+    |                          |                                                                                                                           |`MacOS M1/M2/M3/M4 tar.gz <https://zenodo.org/records/17313851/files/spex-3.08.02-Apple-Silicon.tar.gz?download=1>`_|
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |Windows 10/11             |`SPEX Ubuntu 22.04 WSL <https://zenodo.org/records/12771915/files/spex-3.08.02-Ubuntu2204-WSL.tar.gz?download=1>`_         |                                                                                                                    |
+    |Windows 11                |`SPEX Ubuntu 22.04 WSL <https://zenodo.org/records/17313851/files/spex-3.08.02-Ubuntu2404-WSL.tar.gz?download=1>`_         |                                                                                                                    |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |Source code               | `spex-3.08.02-Source.tar.bz2 <https://zenodo.org/records/12771915/files/spex-3.08.02-Source.tar.bz2?download=1>`_                                                                                                                              |
+    |Source code               | `spex-3.08.02-Source.tar.bz2 <https://zenodo.org/records/17313851/files/spex-3.08.02-Source.tar.bz2?download=1>`_                                                                                                                              |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-    |Docker image              | `spex-3.08.02-Docker.tar.gz <https://zenodo.org/records/12771915/files/spex-3.08.02-Docker.tar.gz?download=1>`_                                                                                                                                |
+    |Docker image              | `spex-3.08.02-Docker.tar.gz <https://zenodo.org/records/17313851/files/spex-3.08.02-Docker.tar.gz?download=1>`_                                                                                                                                |
     +--------------------------+---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 Linux
@@ -109,8 +109,8 @@ Remove the tar file: rm SPEX-3.08.02-Apple-Intel.tar.gz
             SPEX release.
 
 
-Windows 10/11
--------------
+Windows 11
+----------
 
 SPEX can be installed in Windows 11 using the linux subsystem in Windows (WSL2). SPEX can run in an Ubuntu Linux
 environment that can be installed through the Microsoft Store.
@@ -125,7 +125,7 @@ using the command ``sudo apt install x11-apps``, you should be able to continue 
 Install SPEX in the Ubuntu environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The steps below describe how to install a SPEX version tailored to Ubuntu 22.04. If you are planning to
+The steps below describe how to install a SPEX version tailored to Ubuntu 24.04. If you are planning to
 use Anaconda in this Ubuntu WSL2 environment, then we would recommend to install SPEX through Anaconda directly.
 See :ref:`sec:conda` for details.
 
