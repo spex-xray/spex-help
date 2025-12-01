@@ -28,9 +28,15 @@ SPEX Help Center
 
    .. _issue-tracker: https://github.com/spex-xray/spex-help/issues
 
-   The table of contents below contains the full documentation for the SPEX package.
-   Can you find what you are looking for? If not, please use the 'Quick search' function on the left
-   or ask your question though our issue-tracker_.
+.. admonition::  SPEX Newsletter
+
+                 If you want to be kept up-to-date on SPEX developments, then please subscribe to our SPEX newsletter.
+                 To subscribe, please fill out the `SRON Newsletter form <https://www.sron.nl/en/newsletter/>`_ and select SPEX.
+                 We intent to send about three newsletters a year.
+
+The table of contents below contains the full documentation for the SPEX package.
+Can you find what you are looking for? If not, please use the 'Quick search' function on the left
+or ask your question though our issue-tracker_.
 
 .. toctree::
    :maxdepth: 2
