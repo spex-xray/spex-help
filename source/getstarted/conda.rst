@@ -1,98 +1,81 @@
 .. _sec:conda:
 
-How to install SPEX using Anaconda
-==================================
+Conda/Mamba
+===========
 
   .. highlight:: none
 
-SPEX is now also available through Anaconda for Linux and MacOS. The instructions
-below assume that you have a working version of Anaconda on your system (otherwise see
-`Anaconda download <https://www.anaconda.com/products/distribution>`_ or
-`Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_, which installs the
-minimum needed).
+The recommended way to install SPEX is through Conda or `Mamba <https://mamba.readthedocs.io/en/latest/user_guide/mamba.html>`_
+on both Linux and MacOS systems. If you do not have a conda or mamba environment installed,
+then we recommend to install it through the `conda-forge installer <https://conda-forge.org/download/>`_.
 
-SPEX status at Anaconda
------------------------
+The install also works for the commercial version of Anaconda, but we recommend to
+use the open-source conda-forge alternative instead.
 
-.. raw:: html
+.. note:: We are moving from the commercial version of Anaconda to an open source alternative.
+          This means that the Anaconda spexxray channel is going to be discontinued.
+          Please use https://var.sron.nl/spexconda as channel URL for installing SPEX.
+          The best option is to create a new mamba/conda environment for a fresh SPEX install.
 
-    <table>
-    <tr>
-    <td>Current SPEX version:</td>
-    <td><a href="https://anaconda.org/spexxray/spex">
-        <img src="https://anaconda.org/spexxray/spex/badges/version.svg" alt="Last SPEX version"/></a></td>
-    </tr>
-    <tr>
-    <td>Platforms for which SPEX is available:</td>
-    <td><a href="https://anaconda.org/spexxray/spex">
-        <img src="https://anaconda.org/spexxray/spex/badges/platforms.svg" alt="Platforms for which SPEX is available"/></a></td>
-    </tr>
-    <tr>
-    <td>Total number of downloads of SPEX through Anaconda:</td>
-    <td><a href="https://anaconda.org/spexxray/spex">
-        <img src="https://anaconda.org/spexxray/spex/badges/downloads.svg" alt="Total number of downloads of SPEX through Anaconda"/></a></td>
-    </tr>
-    </table>
+Create a conda/mamba environment for SPEX (optional, but recommended)
+---------------------------------------------------------------------
 
-Create a conda environment for SPEX (optional, but recommended)
----------------------------------------------------------------
+To make sure that SPEX keeps having access to its dependencies, it is best to install
+it in its own environment. This way, the number of potential conflicts with other
+packages remains minimal.
 
-To make sure that SPEX keeps having access to its dependencies, it is best to install it in its own environment.
-This way, the number of potential conflicts with other packages remains minimal.
+Currently, SPEX is available for Python 3.11, 3.12 and 3.13, and numpy 2.3 and 2.4.
+Please choose a version that matches your needs. A conda/mamba environment can be
+created with the command below. If you use the commercial version of conda, then
+you can replace the ``mamba`` command with ``conda``::
 
-Currently, SPEX is available for Python 3.10, 3.11 and 3.12, so please choose a version that matches your needs.
-A conda environment can be created with the command below::
-
-    (base) user@linux:~> conda create -n spex python=3.12
+    user@linux:~> mamba create -n spex python=3.12
 
 Replace the version number in the flag ``python=3.12`` with the Python version you need. Once the environment
 is created and the minimal packages are installed, the environment can be activated::
 
-    (base) user@linux:~> conda activate spex
-    (spex) user@linux:~>
+    user@linux:~> mamba activate spex
+    user@linux:~>
 
 You now have a minimal environment to install SPEX into.
 
-Install SPEX using conda
-------------------------
+Install SPEX using conda/mamba
+------------------------------
 
-Installing SPEX in a conda environment is as simple as::
+Installing SPEX in a conda/mamba environment is as simple as::
 
-    (spex) user@linux:~> conda install -c spexxray spex
+    (spex) user@linux:~> mamba install -c https://var.sron.nl/spexconda spex
 
-Conda will automatically install the dependencies of SPEX. It is possible that you need to re-initialize the
-conda environment to make SPEX run directly from the command line::
+or with conda::
 
-    (spex) user@linux:~> conda deactivate
-    (base) user@linux:~> conda activate spex
+    (spex) user@linux:~> conda install -c https://var.sron.nl/spexconda -c conda-forge spex
+
+Mamba will automatically install the dependencies of SPEX. It is possible
+that you need to re-initialize the conda environment to make SPEX run
+directly from the command line::
+
+    (spex) user@linux:~> mamba deactivate
+    (base) user@linux:~> mamba activate spex
     (spex) user@linux:~> spex
-     Welcome user to SPEX version 3.08.02
-
-     07-10-2025 Added plot component functionality
-     07-10-2025 Added atbl model to load Xspec table models
-     07-10-2025 Added magnetism module for pion
-     07-10-2025 Added ebit model for laboratory astrophysics
-     07-10-2025 Improvement of partial covering factor
-     07-10-2025 Update of quick calculation mode
+     Welcome user to SPEX version 3.08.03
 
      Setting the number of threads to  4 for optimal performance.
 
      Currently using SPEXACT version 2.07.00. Type `help var calc` for details.
 
-    SPEX> quit
-     Thank you for using SPEX
+    SPEX>
 
 You probably want to install more packages in this environment for your purposes, like Jupyterlab or other
-scientific packages. This can be done using the ``conda install`` command as well.
+scientific packages. This can be done using the ``mamba install`` command as well.
 
 On an Apple Mac, it is necessary to install an Xserver, like `XQuartz <https://www.xquartz.org/>`_.
 
-Running SPEX in conda
----------------------
+Running SPEX in conda/mamba
+---------------------------
 
 Every time that you want to use SPEX in a new terminal, you have to activate the spex environment::
 
-    (base) user@linux:~> conda activate spex
+    user@linux:~> conda activate spex
     (spex) user@linux:~>
 
 After this command also the python interface of SPEX should be automatically initialized::
@@ -105,13 +88,8 @@ After this command also the python interface of SPEX should be automatically ini
 Pyspextools in conda
 --------------------
 
-Our python support package `pyspextools <https://spex-xray.github.io/pyspextools/index.html>`_ is now also available
-on Conda::
+Our Python support package `pyspextools <https://spex-xray.github.io/pyspextools/index.html>`_ is also available
+in conda/mamba::
 
-   (spex) user@linux:~> conda install -c spexxray pyspextools
+   (spex) user@linux:~> mamba install -c https://var.sron.nl/spexconda pyspextools
 
-
-More information
-----------------
-
-See `our SPEX page at Anaconda <https://anaconda.org/spexxray/spex>`_ for more information.
