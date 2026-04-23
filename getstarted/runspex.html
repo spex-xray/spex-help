@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.2. How to run SPEX &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>1.2. How to run SPEX &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/getstarted/runspex.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,10 +56,10 @@ be downloaded.</p>
 <p>SPEX needs two files per spectrum:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;.spo</span></code> – This file contains the countrate per energy bin
-for the source (<img class="math" src="../_images/math/3e09cb103519baf93983020a8b4c9a2e4f6d2ce1.svg" alt="D_i" style="vertical-align: -2px"/>), as well as the background countrate and
-the errors (<img class="math" src="../_images/math/990143f950b5f22fe7d9570c4a3c0543650c01e5.svg" alt="\sigma_i" style="vertical-align: -2px"/>).</p></li>
+for the source (<img class="math" src="../_images/math/3e09cb103519baf93983020a8b4c9a2e4f6d2ce1.svg" alt="D_i"/>), as well as the background countrate and
+the errors (<img class="math" src="../_images/math/990143f950b5f22fe7d9570c4a3c0543650c01e5.svg" alt="\sigma_i"/>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;.res</span></code> – This file contains the instrumental response:
-the energy redistribution and effective area (<img class="math" src="../_images/math/cd04294a2c63c101493536ebb22814a4f69b5fd3.svg" alt="R_{ij}~ A_j" style="vertical-align: -5px"/>).</p></li>
+the energy redistribution and effective area (<img class="math" src="../_images/math/cd04294a2c63c101493536ebb22814a4f69b5fd3.svg" alt="R_{ij}~ A_j"/>).</p></li>
 </ul>
 <p>In order to calculate the observed model spectrum, SPEX uses this
 integral equation to account for the imperfections caused by the
@@ -137,8 +138,8 @@ background spectrum and model are set. The last commands beginning with
 <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span></code> remove some standard titles and other text around the plot.
 After you define the plot like in the example above, you can plot it
 with a single <code class="docutils literal notranslate"><span class="pre">plot</span></code> command.</p>
-<p>The y-axis in this plot is in <img class="math" src="../_images/math/5e02e7bf1399d4b22ac1f3b8087fa9152b465591.svg" alt="\mathrm{counts}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>
-<img class="math" src="../_images/math/1eb5a52413ddb306949f54a5c0169415461a7348.svg" alt="\mathrm{Å}^{-1}" style="vertical-align: 0px"/>. Ångstrom is not the only unit used in high-energy
+<p>The y-axis in this plot is in <img class="math" src="../_images/math/5e02e7bf1399d4b22ac1f3b8087fa9152b465591.svg" alt="\mathrm{counts}"/> <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}"/>
+<img class="math" src="../_images/math/1eb5a52413ddb306949f54a5c0169415461a7348.svg" alt="\mathrm{Å}^{-1}"/>. Ångstrom is not the only unit used in high-energy
 astrophysics. Usually, the energy of the photons is expressed in keV.
 In SPEX you can use keV by writing <code class="docutils literal notranslate"><span class="pre">k</span></code> instead of <code class="docutils literal notranslate"><span class="pre">a</span></code> in all commands.
 For example, <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">k</span></code> to use keV for the x-axis. An overview of
@@ -175,7 +176,7 @@ range.</p>
 <h2><span class="section-number">1.2.5. </span>Defining a model<a class="headerlink" href="#defining-a-model" title="Link to this heading">¶</a></h2>
 <p>Now we have a clean and rebinned spectrum that is ready to fit. Before
 we can start fitting, we first need to define a model. It’s equivalent
-to <img class="math" src="../_images/math/12c825c4d95f0b3d273748fe58e6a9b7db5908f8.svg" alt="S(E)" style="vertical-align: -4px"/> in Eq. <a class="reference internal" href="#equation-eq-data">(1)</a>. The model can contain
+to <img class="math" src="../_images/math/12c825c4d95f0b3d273748fe58e6a9b7db5908f8.svg" alt="S(E)"/> in Eq. <a class="reference internal" href="#equation-eq-data">(1)</a>. The model can contain
 one or more of these components:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">absm</span></code> Model for interstellar absorption.</p></li>
@@ -300,7 +301,7 @@ some initial parameters. This is especially true when using complex
 models. Again this is a game of trial and error.</p>
 <p>You also might want to fix or free certain parameters to see if they can
 be constrained. In SPEX fixing is <code class="docutils literal notranslate"><span class="pre">f</span></code> (frozen) and freeing is <code class="docutils literal notranslate"><span class="pre">t</span></code>
-(thawn). You can free the redshift and fix the <img class="math" src="../_images/math/a399743ff38d74cffd28c15b28297a5a95dda45f.svg" alt="N_{\mathrm{H}}" style="vertical-align: -2px"/> by
+(thawn). You can free the redshift and fix the <img class="math" src="../_images/math/a399743ff38d74cffd28c15b28297a5a95dda45f.svg" alt="N_{\mathrm{H}}"/> by
 the following commands:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; par 1 z stat t
 SPEX&gt; par 2 nh stat f
@@ -311,16 +312,16 @@ SPEX&gt; par 2 nh stat f
 <h2><span class="section-number">1.2.7. </span>Calculating errors<a class="headerlink" href="#calculating-errors" title="Link to this heading">¶</a></h2>
 <p>When the fit is acceptable, you might want to know the uncertainties on
 your fitted parameters. Errors are determined one-by-one by fixing the
-parameter to some value and calculate the <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat with
-respect to the best fit. If you want to know the 1<img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/> error
-on the parameter, you need to know its values at <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat =
+parameter to some value and calculate the <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta"/> C-stat with
+respect to the best fit. If you want to know the 1<img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma"/> error
+on the parameter, you need to know its values at <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta"/> C-stat =
 1. This is done by the <code class="docutils literal notranslate"><span class="pre">error</span></code> command (<a class="reference internal" href="../reference/commands/error.html#sec-error"><span class="std std-ref">Error: Calculate the errors of the fitted parameters</span></a>). You
 can calculate the error for each parameter. For example redshift:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SPEX&gt; error 1 z
 </pre></div>
 </div>
-<p>If you need another <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat limit (not recommended), then
-you can set the desired <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta" style="vertical-align: 0px"/> C-stat in SPEX using the command:
+<p>If you need another <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta"/> C-stat limit (not recommended), then
+you can set the desired <img class="math" src="../_images/math/dcc7c597878febc320bda9cefe3e369cfc24fc63.svg" alt="\Delta"/> C-stat in SPEX using the command:
 <code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">dchi</span> <span class="pre">1.</span></code></p>
 </section>
 <section id="making-life-easier">
@@ -429,7 +430,7 @@ typing. In case there are more possibilities, it shows them all.</p></li>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -447,7 +448,16 @@ typing. In case there are more possibilities, it shows them all.</p></li>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../getstarted.html">1. Getting started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">1.1. How to install SPEX</a></li>
@@ -457,7 +467,7 @@ typing. In case there are more possibilities, it shows them all.</p></li>
 <li class="toctree-l2"><a class="reference internal" href="pyspex.html#dependencies">1.5. Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compile.html">1.6. Compile SPEX from source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">1.7. Use SPEX through Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conda.html">1.8. How to install SPEX using Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conda.html">1.8. Conda/Mamba</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimize.html">1.9. Optimize for speed</a></li>
 </ul>
 </li>
@@ -484,16 +494,6 @@ typing. In case there are more possibilities, it shows them all.</p></li>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -507,9 +507,9 @@ typing. In case there are more possibilities, it shows them all.</p></li>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

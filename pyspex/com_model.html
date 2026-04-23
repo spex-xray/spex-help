@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.1.2.2. Model related commands &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>6.1.2.2. Model related commands &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/pyspex/com_model.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -1050,7 +1051,7 @@ fixed regularization parameter R = r.</p>
 <dd class="field-odd"><p><strong>r</strong> (<em>int</em>) – Regularization parameter R</p>
 </dd>
 <dt class="field-even">Return chisq<span class="colon">:</span></dt>
-<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
+<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>.</p>
 </dd>
 <dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1072,14 +1073,14 @@ fixed regularization parameter R = r.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_reg_auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_reg_auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_reg_auto" title="Link to this definition">¶</a></dt>
 <dd><p>Do DEM analysis using the regularization method using an automatic search of the optimum regularization
 parameter. It determines the regularisation parameter R in such a way that
-<img class="math" src="../_images/math/4fa3daefa1bb5213a3e4d386dff7f21d0e8ff1ff.svg" alt="\chi^2(R) = \chi^2(0) [1 + s \sqrt{2/(n-n_{\mathrm T}}]" style="vertical-align: -5px"/> where the scaling factor s=1, n is the number of
-spectral bins in the data set and <img class="math" src="../_images/math/e2d9106fa77a64a90527c02a59f7c14bcb87f171.svg" alt="n_{\mathrm T}" style="vertical-align: -2px"/> is the number of temperature components in the DEM library.</p>
+<img class="math" src="../_images/math/4fa3daefa1bb5213a3e4d386dff7f21d0e8ff1ff.svg" alt="\chi^2(R) = \chi^2(0) [1 + s \sqrt{2/(n-n_{\mathrm T}}]"/> where the scaling factor s=1, n is the number of
+spectral bins in the data set and <img class="math" src="../_images/math/e2d9106fa77a64a90527c02a59f7c14bcb87f171.svg" alt="n_{\mathrm T}"/> is the number of temperature components in the DEM library.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>s</strong> (<em>int</em>) – Scaling factor in the automatic search for R (optional).</p>
 </dd>
 <dt class="field-even">Return chisq<span class="colon">:</span></dt>
-<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/4801316e453835c361e99acaf3fae5c1803ded50.svg" alt="\chi^2(R)" style="vertical-align: -4px"/>.</p>
+<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/4801316e453835c361e99acaf3fae5c1803ded50.svg" alt="\chi^2(R)"/>.</p>
 </dd>
 <dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1094,15 +1095,15 @@ spectral bins in the data set and <img class="math" src="../_images/math/e2d9106
 </dd></dl>
 
 </div></blockquote>
-<p>Both functions above return the best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> value and the DEM penalty.</p>
+<p>Both functions above return the best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> value and the DEM penalty.</p>
 <p>One can also do a grid search using <code class="docutils literal notranslate"><span class="pre">s.dem_chireg()</span></code>, which outputs a table with best-fit
-<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> values and regularisation parameters:</p>
+<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> values and regularisation parameters:</p>
 <blockquote>
 <div><dl class="py method">
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_chireg">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_chireg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_chireg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_chireg" title="Link to this definition">¶</a></dt>
 <dd><p>Do a grid search over the regularization parameter R, with <code class="docutils literal notranslate"><span class="pre">n</span></code> steps and R distributed logarithmically
-between <code class="docutils literal notranslate"><span class="pre">r1</span></code> and <code class="docutils literal notranslate"><span class="pre">r2</span></code>. Useful to scan the <img class="math" src="../_images/math/4801316e453835c361e99acaf3fae5c1803ded50.svg" alt="\chi^2(R)" style="vertical-align: -4px"/> curve whenever it is complicated and to see how
+between <code class="docutils literal notranslate"><span class="pre">r1</span></code> and <code class="docutils literal notranslate"><span class="pre">r2</span></code>. Useful to scan the <img class="math" src="../_images/math/4801316e453835c361e99acaf3fae5c1803ded50.svg" alt="\chi^2(R)"/> curve whenever it is complicated and to see how
 much <cite>penalty</cite> (negative DEM values) there are for each value of R.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1140,7 +1141,7 @@ Penalty (Penalty).</p>
 <dd><p>Do DEM analysis using the clean method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return chisq<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
+<dd class="field-odd"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>.</p>
 </dd>
 <dt class="field-even">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
@@ -1173,7 +1174,7 @@ Penalty (Penalty).</p>
 <dd class="field-odd"><p><strong>degree</strong> (<em>int</em>) – The degree of the polynomial.</p>
 </dd>
 <dt class="field-even">Return chisq<span class="colon">:</span></dt>
-<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
+<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>.</p>
 </dd>
 <dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1211,7 +1212,7 @@ Penalty (Penalty).</p>
 <dd class="field-odd"><p>astropy.table.QTable</p>
 </dd>
 <dt class="field-even">Return chisq<span class="colon">:</span></dt>
-<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
+<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>.</p>
 </dd>
 <dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1225,7 +1226,7 @@ Penalty (Penalty).</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The method outputs the <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> value and a table with columns for the temperature (kT),
+<p>The method outputs the <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> value and a table with columns for the temperature (kT),
 the error on temperature (dkT), and differential emission measure (DY).</p>
 </section>
 <section id="genetic-algorithm">
@@ -1251,7 +1252,7 @@ the solution. Experiment with these numbers for your practical case).</p>
 <dd class="field-odd"><p>astropy.table.QTable</p>
 </dd>
 <dt class="field-even">Return chisq<span class="colon">:</span></dt>
-<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>.</p>
+<dd class="field-even"><p>Best fit <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>.</p>
 </dd>
 <dt class="field-odd">Rtype chisq<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1272,12 +1273,12 @@ the solution. Experiment with these numbers for your practical case).</p>
 <dt class="sig sig-object py" id="pyspex.spex.Session.dem_smooth">
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_smooth" title="Link to this definition">¶</a></dt>
 <dd><p>Smoothes a DEM previously determined by any DEM method using a block filter/ Here <code class="docutils literal notranslate"><span class="pre">width</span></code> is the full width
-of the filter expressed in <img class="math" src="../_images/math/a1a2117ba24b9f8c338464ec05f291ce17c73916.svg" alt="^{10}\log T" style="vertical-align: -3px"/>. Note that this smoothing will in principle worsen the
-<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> of the solution, but it is sometimes useful to “wash out” some residual noise in the DEM
+of the filter expressed in <img class="math" src="../_images/math/a1a2117ba24b9f8c338464ec05f291ce17c73916.svg" alt="^{10}\log T"/>. Note that this smoothing will in principle worsen the
+<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> of the solution, but it is sometimes useful to “wash out” some residual noise in the DEM
 distribution, preserving total emission measure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>width</strong> (<em>float</em>) – The full width of the filter expressed in <img class="math" src="../_images/math/a1a2117ba24b9f8c338464ec05f291ce17c73916.svg" alt="^{10}\log T" style="vertical-align: -3px"/>.</p>
+<dd class="field-odd"><p><strong>width</strong> (<em>float</em>) – The full width of the filter expressed in <img class="math" src="../_images/math/a1a2117ba24b9f8c338464ec05f291ce17c73916.svg" alt="^{10}\log T"/>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1345,7 +1346,7 @@ the error on the emission measure (DY_Err), if available.</p>
 <span class="sig-prename descclassname"><span class="pre">Session.</span></span><span class="sig-name descname"><span class="pre">dem_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyspex/spex.html#Session.dem_read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyspex.spex.Session.dem_read" title="Link to this definition">¶</a></dt>
 <dd><p>Read a DEM distribution from a file named #a which automatically gets the extension <code class="docutils literal notranslate"><span class="pre">.dem</span></code>. It is an ascii
 file with at least two columns, the first column is the temperature in keV and the second column the
-differential emission measure, in units of <img class="math" src="../_images/math/8933195e868603cee134031c8982db87b0dcc53a.svg" alt="10^{64} m^{-3} keV^{-1}" style="vertical-align: 0px"/>. The maximum number of data points
+differential emission measure, in units of <img class="math" src="../_images/math/8933195e868603cee134031c8982db87b0dcc53a.svg" alt="10^{64} m^{-3} keV^{-1}"/>. The maximum number of data points
 in this file is 8192. Temperature should be in increasing order. The data will be interpolated to match
 the temperature grid defined in the dem model (which is set by the user).</p>
 <dl class="field-list simple">
@@ -1605,7 +1606,7 @@ pyspex through the methods below. The current settings can be obtained using the
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -1623,7 +1624,16 @@ pyspex through the methods below. The current settings can be obtained using the
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -1656,16 +1666,6 @@ pyspex through the methods below. The current settings can be obtained using the
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -1679,9 +1679,9 @@ pyspex through the methods below. The current settings can be obtained using the
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

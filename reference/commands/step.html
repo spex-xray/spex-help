@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1.30. Step: Grid search for spectral fits &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>3.1.30. Step: Grid search for spectral fits &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/step.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -37,12 +38,12 @@
 <span id="sec-step"></span><h1><span class="section-number">3.1.30. </span>Step: Grid search for spectral fits<a class="headerlink" href="#step-grid-search-for-spectral-fits" title="Link to this heading">¶</a></h1>
 <section id="overview">
 <h2><span class="section-number">3.1.30.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>A grid search can be performed of <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> versus 1, 2, 3 or 4
+<p>A grid search can be performed of <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> versus 1, 2, 3 or 4
 parameters. The minimum, maximum and number of steps for each parameter
 may be adjusted. Steps may be linear or logarithmic. For each set of
 parameters, a spectral fit is made, using the last spectral fit executed
 before this command as the starting point. For each step, the parameters
-and <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> are displayed. This option is useful in case of doubt
+and <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> are displayed. This option is useful in case of doubt
 about the position of the best fit in the parameter space, or in cases
 where the usual error search is complicated. Further it can be useful
 incases of complicated correlations between parameters.</p>
@@ -78,8 +79,8 @@ directory. Now you can give the <code class="docutils literal notranslate"><span
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">#i1</span> <span class="pre">parameter</span> <span class="pre">[[#i2]</span> <span class="pre">#i3]</span> <span class="pre">#a</span> <span class="pre">range</span> <span class="pre">#r1:#r2</span> <span class="pre">n</span> <span class="pre">#i4</span></code> : Set
 for axis #i1, optional sector #i2, optional component #i3 and
 parameter with name #a the range to the number specified by #r1 and
-#r2, with a number of steps <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> given by #i4. If <img class="math" src="../../_images/math/2db2992889c4c780ec317215de9c3110d8b58d7b.svg" alt="n&gt;0" style="vertical-align: 0px"/>, a
-linear mesh between #r1 and #r2 will be taken, for <img class="math" src="../../_images/math/afd48cd5c1a6bef7bc73a89db11eaf5afd395170.svg" alt="n&lt;0" style="vertical-align: 0px"/>, a
+#r2, with a number of steps <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> given by #i4. If <img class="math" src="../../_images/math/2db2992889c4c780ec317215de9c3110d8b58d7b.svg" alt="n&gt;0"/>, a
+linear mesh between #r1 and #r2 will be taken, for <img class="math" src="../../_images/math/afd48cd5c1a6bef7bc73a89db11eaf5afd395170.svg" alt="n&lt;0"/>, a
 logarithmic grid will be taken.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span></code> : Do the step search. Take care to do first the “step
 dimension” command, followed by as many “step axis” commands as you
@@ -107,7 +108,7 @@ abundace (linear between 0.0 and 1.0 with 11 steps) and Si abundance
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Do not forget to do first a fit.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">dimension</span> <span class="pre">3</span></code> : We will do a three-dimensional grid search</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">1</span> <span class="pre">parameter</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">t</span> <span class="pre">range</span> <span class="pre">0.1:10.0</span> <span class="pre">n</span> <span class="pre">-21</span></code> : The logarithmic
-grid for the first axis, temperature; note the <img class="math" src="../../_images/math/2c797ba9258a86bf3844a86f1c057988165bd9c5.svg" alt="-" style="vertical-align: -1px"/> before the
+grid for the first axis, temperature; note the <img class="math" src="../../_images/math/2c797ba9258a86bf3844a86f1c057988165bd9c5.svg" alt="-"/> before the
 21!</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">axis</span> <span class="pre">2</span> <span class="pre">par</span> <span class="pre">26</span> <span class="pre">range</span> <span class="pre">0:1</span> <span class="pre">n</span> <span class="pre">11</span></code> : The grid for axis 2, Fe
 abundance.</div>
@@ -125,7 +126,7 @@ on your screen (and/or output file if you opened one).</div>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -143,7 +144,16 @@ on your screen (and/or output file if you opened one).</div>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -175,16 +185,6 @@ on your screen (and/or output file if you opened one).</div>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -198,9 +198,9 @@ on your screen (and/or output file if you opened one).</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

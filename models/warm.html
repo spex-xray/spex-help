@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.47. Warm: continuous photoionised absorption model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.47. Warm: continuous photoionised absorption model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/warm.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,56 +38,56 @@
 <h1><span class="section-number">4.1.47. </span>Warm: continuous photoionised absorption model<a class="headerlink" href="#warm-continuous-photoionised-absorption-model" title="Link to this heading">¶</a></h1>
 <p>The <em>warm</em> model is a multi-component version of the <em>xabs</em> model. In
 the <em>warm</em> model, we construct a model for a continuous distribution of
-column density <img class="math" src="../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. It is
+column density <img class="math" src="../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}"/> as a function of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>. It is
 in some sense comparable to the differential emission measure models
 used to model the emission from multi-temperature gas. Here we have
 absorption from multi-ionization gas. Depending upon the physics of the
 source, this may be a better approximation than just the sum of a few
 <em>xabs</em> components. A disadvantage of the model may be (but this also
 depends upon the physics of the source), that all dynamical parameters
-for each value of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> are the same, like the outflow velocity
+for each value of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> are the same, like the outflow velocity
 and turbulent broadening. If this appears to be the case in a given
 source, one may of course avoid this problem by taking multiple,
 non-overlapping <em>warm</em> components.</p>
-<p>The model assumes a logarithmic grid of <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> equidistant values of
-<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/>, between a lower limit <img class="math" src="../_images/math/d96a5a61e6f9e0db68d1f4c891d38ea073e30710.svg" alt="\xi_1" style="vertical-align: -3px"/> and an upper limit
-<img class="math" src="../_images/math/9c4d9dec4b95a17dfd42a086b3383e87f1d7aa0a.svg" alt="\xi_2" style="vertical-align: -3px"/>. For each of the grid points <img class="math" src="../_images/math/5dc5421502db0c6bf3ed13c3dbf9c72860ffa48b.svg" alt="\xi_i" style="vertical-align: -3px"/>, a value of
-<img class="math" src="../_images/math/68e54b2d2bb183f5cd70135aa28d3808a1e830be.svg" alt="f_i" style="vertical-align: -3px"/> can be adjusted; here <img class="math" src="../_images/math/68e54b2d2bb183f5cd70135aa28d3808a1e830be.svg" alt="f_i" style="vertical-align: -3px"/> is given as
-<img class="math" src="../_images/math/645a73174f46948567ded6c6e207d73c5fc46c74.svg" alt="f_i={\mathrm d}N_{\mathrm H}/{\mathrm d}\ln\xi" style="vertical-align: -4px"/> evaluated at
-<img class="math" src="../_images/math/5dc5421502db0c6bf3ed13c3dbf9c72860ffa48b.svg" alt="\xi_i" style="vertical-align: -3px"/>, where the differential column density is assumed to be a
-continuous function of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. At each intermediate point, the
+<p>The model assumes a logarithmic grid of <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> equidistant values of
+<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/>, between a lower limit <img class="math" src="../_images/math/d96a5a61e6f9e0db68d1f4c891d38ea073e30710.svg" alt="\xi_1"/> and an upper limit
+<img class="math" src="../_images/math/9c4d9dec4b95a17dfd42a086b3383e87f1d7aa0a.svg" alt="\xi_2"/>. For each of the grid points <img class="math" src="../_images/math/5dc5421502db0c6bf3ed13c3dbf9c72860ffa48b.svg" alt="\xi_i"/>, a value of
+<img class="math" src="../_images/math/68e54b2d2bb183f5cd70135aa28d3808a1e830be.svg" alt="f_i"/> can be adjusted; here <img class="math" src="../_images/math/68e54b2d2bb183f5cd70135aa28d3808a1e830be.svg" alt="f_i"/> is given as
+<img class="math" src="../_images/math/645a73174f46948567ded6c6e207d73c5fc46c74.svg" alt="f_i={\mathrm d}N_{\mathrm H}/{\mathrm d}\ln\xi"/> evaluated at
+<img class="math" src="../_images/math/5dc5421502db0c6bf3ed13c3dbf9c72860ffa48b.svg" alt="\xi_i"/>, where the differential column density is assumed to be a
+continuous function of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>. At each intermediate point, the
 value of <img class="math" src="../_images/math/c09716f0f910ada83cfa0f3686cdf25843430ef8.svg" alt="{\mathrm d}N_{\mathrm H}/{\mathrm
-d}\ln\xi" style="vertical-align: -4px"/> is then determined by doing cubic spline interpolation in the
-<img class="math" src="../_images/math/5aeefd692a7611e21a6810d26c595bf904a34ea4.svg" alt="\ln f" style="vertical-align: -3px"/> – <img class="math" src="../_images/math/1b07f09fa063994a5b754eab74e044b620c3a6ac.svg" alt="\ln\xi" style="vertical-align: -3px"/> space. In order not to consume too much
+d}\ln\xi"/> is then determined by doing cubic spline interpolation in the
+<img class="math" src="../_images/math/5aeefd692a7611e21a6810d26c595bf904a34ea4.svg" alt="\ln f"/> – <img class="math" src="../_images/math/1b07f09fa063994a5b754eab74e044b620c3a6ac.svg" alt="\ln\xi"/> space. In order not to consume too much
 computer time, the step size for numerical integration
-<img class="math" src="../_images/math/9769cf51d2a24ea92374d1cb78952e54d98aac56.svg" alt="\Delta\log\xi" style="vertical-align: -3px"/> can be set. A typical, recommended value for this
+<img class="math" src="../_images/math/9769cf51d2a24ea92374d1cb78952e54d98aac56.svg" alt="\Delta\log\xi"/> can be set. A typical, recommended value for this
 (the default) is 0.2.</p>
 <p>For more information on this model, the atomic data and parameters we
 refer to <a class="reference internal" href="../theory/spexact/absmodels.html#sect-abs-models"><span class="std std-ref">Different types of absorption models</span></a>.</p>
 <p>The parameters of the model are:</p>
 <dl class="field-list simple">
 <dt class="field-odd">xil1<span class="colon">:</span></dt>
-<dd class="field-odd"><p><img class="math" src="../_images/math/298ce4af39442030db6937b981eb7d18019d7dd6.svg" alt="\log\xi_1" style="vertical-align: -3px"/> of the lower limit of the ionisation
-parameter range in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: -4.</p>
+<dd class="field-odd"><p><img class="math" src="../_images/math/298ce4af39442030db6937b981eb7d18019d7dd6.svg" alt="\log\xi_1"/> of the lower limit of the ionisation
+parameter range in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}"/> W m. Default value: -4.</p>
 </dd>
 <dt class="field-even">xil2<span class="colon">:</span></dt>
-<dd class="field-even"><p><img class="math" src="../_images/math/b78a3867786633a8a6fcd7bfb7f129788997c15b.svg" alt="\log\xi_2" style="vertical-align: -3px"/> of the upper limit of the ionisation
-parameter range in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 5.</p>
+<dd class="field-even"><p><img class="math" src="../_images/math/b78a3867786633a8a6fcd7bfb7f129788997c15b.svg" alt="\log\xi_2"/> of the upper limit of the ionisation
+parameter range in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}"/> W m. Default value: 5.</p>
 </dd>
 <dt class="field-odd">npol<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The number of grid points for the <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> grid,
-including the end points for <img class="math" src="../_images/math/d96a5a61e6f9e0db68d1f4c891d38ea073e30710.svg" alt="\xi_1" style="vertical-align: -3px"/>. Default value: 19; lower
+<dd class="field-odd"><p>The number of grid points for the <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/> grid,
+including the end points for <img class="math" src="../_images/math/d96a5a61e6f9e0db68d1f4c891d38ea073e30710.svg" alt="\xi_1"/>. Default value: 19; lower
 values are generally recommended; minimum value is 2.</p>
 </dd>
 <dt class="field-even">dxi<span class="colon">:</span></dt>
-<dd class="field-even"><p>step size for numerical integration <img class="math" src="../_images/math/9769cf51d2a24ea92374d1cb78952e54d98aac56.svg" alt="\Delta\log\xi" style="vertical-align: -3px"/>.
+<dd class="field-even"><p>step size for numerical integration <img class="math" src="../_images/math/9769cf51d2a24ea92374d1cb78952e54d98aac56.svg" alt="\Delta\log\xi"/>.
 Default value: 0.2.</p>
 </dd>
 <dt class="field-odd">f01…f19<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Values of
 <img class="math" src="../_images/math/38a40cea2a2fea8554d9091ff4cbbad42376561b.svg" alt="f_i={\mathrm d}N_{\mathrm H}/{\mathrm
-d}\ln\xi" style="vertical-align: -4px"/> at the grid points. Default values <img class="math" src="../_images/math/cd14680074e06f3afc7909d84fb03668e88aa220.svg" alt="10^{-6}" style="vertical-align: 0px"/>. When
-npol<img class="math" src="../_images/math/ab408852eee5c9b34341d8e325f36f3a68698d9f.svg" alt="&lt;19" style="vertical-align: 0px"/>, the remaining values of <img class="math" src="../_images/math/68e54b2d2bb183f5cd70135aa28d3808a1e830be.svg" alt="f_i" style="vertical-align: -3px"/> are simply
+d}\ln\xi"/> at the grid points. Default values <img class="math" src="../_images/math/cd14680074e06f3afc7909d84fb03668e88aa220.svg" alt="10^{-6}"/>. When
+npol<img class="math" src="../_images/math/ab408852eee5c9b34341d8e325f36f3a68698d9f.svg" alt="&lt;19"/>, the remaining values of <img class="math" src="../_images/math/68e54b2d2bb183f5cd70135aa28d3808a1e830be.svg" alt="f_i"/> are simply
 ignored.</p>
 </dd>
 </dl>
@@ -115,10 +116,10 @@ if icov=3 or 4.</p>
 if icov=3 or 4.</p>
 </dd>
 <dt class="field-even">v<span class="colon">:</span></dt>
-<dd class="field-even"><p>Root mean square velocity <img class="math" src="../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></p>
+<dd class="field-even"><p>Root mean square velocity <img class="math" src="../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}"/></p>
 </dd>
 <dt class="field-odd">zv<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Average systematic velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift)</p>
+<dd class="field-odd"><p>Average systematic velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v"/> of the absorber (using relativistic Doppler shift)</p>
 </dd>
 </dl>
 <p>The following parameter is the same as for the xabs-model (see there for a description):</p>
@@ -136,7 +137,7 @@ balance parameters</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -154,7 +155,16 @@ balance parameters</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -186,16 +196,6 @@ balance parameters</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -209,9 +209,9 @@ balance parameters</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.3. Xabsinput &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>5.3. Xabsinput &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/tools/xabsinput.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +38,7 @@
 <span id="sect-xabsinput"></span><h1><span class="section-number">5.3. </span>Xabsinput<a class="headerlink" href="#xabsinput" title="Link to this heading">¶</a></h1>
 <p>For the <em>xabs</em> and <em>warm</em> models, an input file is needed that contains
 the temperature and ionic column densities as a function of the
-ionisation parameter <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. The standard input file provided by
+ionisation parameter <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>. The standard input file provided by
 SPEX is based on a run with an older version of <a class="reference external" href="https://www.nublado.org/">Cloudy</a>, using the spectral energy distribution
 of NGC 5548 as used in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005A%26A...434..569S/abstract">Steenbrugge et al. (2005)</a>.</p>
 <p>The present program <em>xabsinput</em> allows the user to create such a file.
@@ -48,20 +49,20 @@ root directory, and how to call Cloudy.</p>
 column gives the energy in Rydberg units (note these units!), and the
 second column gives the spectral energy distribution in terms of
 <img class="math" src="../_images/math/bf9a2e1ab5d03b4ee883f4ea732b290d94dcdad4.svg" alt="E\,{\mathrm d}N/
-{\mathrm d}E" style="vertical-align: -4px"/> (for instance, in units of
-keV <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/68f9c723a4514b8ef6d38009c2e67e7fdc381fb4.svg" alt="\mathrm{keV}^{-1}" style="vertical-align: 0px"/> or
-Ryd <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/b44745400835b68650a343a3ca6eca3598c2f174.svg" alt="\mathrm{Ryd}^{-1}" style="vertical-align: -3px"/>, or Jansky,
+{\mathrm d}E"/> (for instance, in units of
+keV <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/> <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}"/> <img class="math" src="../_images/math/68f9c723a4514b8ef6d38009c2e67e7fdc381fb4.svg" alt="\mathrm{keV}^{-1}"/> or
+Ryd <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/> <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}"/> <img class="math" src="../_images/math/b44745400835b68650a343a3ca6eca3598c2f174.svg" alt="\mathrm{Ryd}^{-1}"/>, or Jansky,
 etc. Note that the absolute normalisation of the SED does not matter
 here, only the shape is used, so therefore all these units can be used
 as long as it corresponds to energy per area per time per unit energy.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In order to have a sufficiently broad energy band,
-<em>xabsinput</em> adds a value of <img class="math" src="../_images/math/273b0d5f91af68e796d700de5518a5afc8dda852.svg" alt="10^{-10}" style="vertical-align: 0px"/> at energies of
-<img class="math" src="../_images/math/9dfa14cce8bfb795e71a17acb05cc27758aa4cf0.svg" alt="10^{-8}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/02070a4421d322b3686ce6abe74be360e7cd623e.svg" alt="10^9" style="vertical-align: 0px"/> Ryd. Take care that the SED scaling
-would essentially imply <img class="math" src="../_images/math/273b0d5f91af68e796d700de5518a5afc8dda852.svg" alt="10^{-10}" style="vertical-align: 0px"/> to be a very small value. Also,
+<em>xabsinput</em> adds a value of <img class="math" src="../_images/math/273b0d5f91af68e796d700de5518a5afc8dda852.svg" alt="10^{-10}"/> at energies of
+<img class="math" src="../_images/math/9dfa14cce8bfb795e71a17acb05cc27758aa4cf0.svg" alt="10^{-8}"/> and <img class="math" src="../_images/math/02070a4421d322b3686ce6abe74be360e7cd623e.svg" alt="10^9"/> Ryd. Take care that the SED scaling
+would essentially imply <img class="math" src="../_images/math/273b0d5f91af68e796d700de5518a5afc8dda852.svg" alt="10^{-10}"/> to be a very small value. Also,
 the energies in the file should be in increasing order, and within the
-<img class="math" src="../_images/math/9dfa14cce8bfb795e71a17acb05cc27758aa4cf0.svg" alt="10^{-8}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/02070a4421d322b3686ce6abe74be360e7cd623e.svg" alt="10^9" style="vertical-align: 0px"/> Ryd interval.</p>
+<img class="math" src="../_images/math/9dfa14cce8bfb795e71a17acb05cc27758aa4cf0.svg" alt="10^{-8}"/> and <img class="math" src="../_images/math/02070a4421d322b3686ce6abe74be360e7cd623e.svg" alt="10^9"/> Ryd interval.</p>
 </div>
 <p>Default abundances are presently the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009LanB...4B..712L/abstract">Lodders et al. (2009)</a>
 proto-Solar values, presently the default of SPEX.</p>
@@ -83,27 +84,27 @@ appear in this directory:</p>
 <ul class="simple">
 <li><p>a file “run.in”, which contains the input file for Cloudy; at the end
 of the program, it contains the input of the last Cloudy run (with
-the highest <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>).</p></li>
+the highest <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>).</p></li>
 <li><p>a file “run.out”, which contains the output of Cloudy; at the end of
 the program, it contains the output of the last Cloudy run (with the
-highest <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>).</p></li>
+highest <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>).</p></li>
 <li><p>a file “xabs_inputfile”, which is the input file that you will need
 for the <em>xabs</em> and <em>warm</em> models of ; you can rename or move that
 file after finishing this program. The format of that file is as
-follows: first part two columns (<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> (in cgs, bah) and
+follows: first part two columns (<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/> (in cgs, bah) and
 temperature (in eV); this is followed by blocks for each ion from H
 to Zn, with as first entry the nuclear charge and ionisation stage,
 and then simply the logs of the column densities, scaled to 28 for
 hydrogen.</p></li>
-<li><p>ascii files named “column01.dat”, “column02.dat”, <img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/>
+<li><p>ascii files named “column01.dat”, “column02.dat”, <img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots"/>
 “column30.dat” containing for each element with nuclear charge
-<img class="math" src="../_images/math/12598cdeec4ff39abac6f7f0ded5ed2f1e5c97fd.svg" alt="Z=1-30" style="vertical-align: -1px"/> the ion concentrations as a function of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>.
+<img class="math" src="../_images/math/12598cdeec4ff39abac6f7f0ded5ed2f1e5c97fd.svg" alt="Z=1-30"/> the ion concentrations as a function of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>.
  does not need those files, but it can be educative to look at them
-(or to plot using qdp). The format of those files is <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/>,
+(or to plot using qdp). The format of those files is <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/>,
 followed by the logs of the column densities for each ion (1 is
 neutral, 2 is singly ionised etc). The column densities take account
 of the abundances and have, for practical reasons, been scaled in
-such a way that Hydrogen has log column <img class="math" src="../_images/math/05342d488229e545a3202931c01aee95a7069219.svg" alt="10" style="vertical-align: 0px"/>; values below 0
+such a way that Hydrogen has log column <img class="math" src="../_images/math/05342d488229e545a3202931c01aee95a7069219.svg" alt="10"/>; values below 0
 are cut-off to 0.</p></li>
 </ul>
 <p>Finally, the user should provide the name of a script that runs Cloudy.
@@ -119,22 +120,22 @@ setenv LD_LIBRARY_PATH
 settings (apart from the SED and abundances that are entered by the
 user):</p>
 <ul class="simple">
-<li><p>Hydrogen density small, i.e. <img class="math" src="../_images/math/b3d63983ea18bc99414b037a2b8f2e07f7b1323e.svg" alt="10^{14}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>
-(<img class="math" src="../_images/math/99d09fe0ee3e92de78274fb351f8024b169e0b97.svg" alt="10^8" style="vertical-align: 0px"/> <img class="math" src="../_images/math/b203fe642a4c878d1307c648d69a2d8b766fd46b.svg" alt="\mathrm{cm}^{-3}" style="vertical-align: 0px"/>)</p></li>
-<li><p>Column density small, i.e. <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>
-(<img class="math" src="../_images/math/70ba2a5ebf6fda50d1c7275d7f9aa4a24cef512b.svg" alt="10^{16}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/153bf725a8e7e5ed5c043943179b8663c2dea071.svg" alt="\mathrm{cm}^{-2}" style="vertical-align: 0px"/>)</p></li>
+<li><p>Hydrogen density small, i.e. <img class="math" src="../_images/math/b3d63983ea18bc99414b037a2b8f2e07f7b1323e.svg" alt="10^{14}"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>
+(<img class="math" src="../_images/math/99d09fe0ee3e92de78274fb351f8024b169e0b97.svg" alt="10^8"/> <img class="math" src="../_images/math/b203fe642a4c878d1307c648d69a2d8b766fd46b.svg" alt="\mathrm{cm}^{-3}"/>)</p></li>
+<li><p>Column density small, i.e. <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/>
+(<img class="math" src="../_images/math/70ba2a5ebf6fda50d1c7275d7f9aa4a24cef512b.svg" alt="10^{16}"/> <img class="math" src="../_images/math/153bf725a8e7e5ed5c043943179b8663c2dea071.svg" alt="\mathrm{cm}^{-2}"/>)</p></li>
 <li><p>Use the “iterate to convergence” command of Cloudy</p></li>
-<li><p>Values of <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> between <img class="math" src="../_images/math/31bd66395cd0310fdad25fbeef79af255bc2a0ce.svg" alt="-8.5" style="vertical-align: -1px"/> and <img class="math" src="../_images/math/8909610ac86227680593280fce7e6759d6d4ec83.svg" alt="+6.5" style="vertical-align: -1px"/> with
-steps of <img class="math" src="../_images/math/a02684aa7fbf5c1af5c68d6a5003df80a2ae0c1a.svg" alt="0.1" style="vertical-align: 0px"/></p></li>
+<li><p>Values of <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/> between <img class="math" src="../_images/math/31bd66395cd0310fdad25fbeef79af255bc2a0ce.svg" alt="-8.5"/> and <img class="math" src="../_images/math/8909610ac86227680593280fce7e6759d6d4ec83.svg" alt="+6.5"/> with
+steps of <img class="math" src="../_images/math/a02684aa7fbf5c1af5c68d6a5003df80a2ae0c1a.svg" alt="0.1"/></p></li>
 </ul>
 <p>Note that, depending on the computer used, this program may run for
 several hours. During execution it should display the present value of
-<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> and the electron temperature in eV for each step of
-<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> between <img class="math" src="../_images/math/31bd66395cd0310fdad25fbeef79af255bc2a0ce.svg" alt="-8.5" style="vertical-align: -1px"/> and <img class="math" src="../_images/math/8909610ac86227680593280fce7e6759d6d4ec83.svg" alt="+6.5" style="vertical-align: -1px"/>. This number
+<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/> and the electron temperature in eV for each step of
+<img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/> between <img class="math" src="../_images/math/31bd66395cd0310fdad25fbeef79af255bc2a0ce.svg" alt="-8.5"/> and <img class="math" src="../_images/math/8909610ac86227680593280fce7e6759d6d4ec83.svg" alt="+6.5"/>. This number
 should update regularly. If it does not, then it is possible that the
 calculation is stuck. This usually happens if the used model cannot
-calculate the lowest values for <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. If so, you may want to
-change the <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi" style="vertical-align: -3px"/> range. This can be done by providing the flag
+calculate the lowest values for <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>. If so, you may want to
+change the <img class="math" src="../_images/math/945d8140accce51ad34373bfdcfcf2115f557d52.svg" alt="\log\xi"/> range. This can be done by providing the flag
 <code class="docutils literal notranslate"><span class="pre">-r</span></code> at the command line when xabsinput is started. If you do that,
 make sure that when you use the <code class="docutils literal notranslate"><span class="pre">xabs</span></code> model in SPEX, you adjust the
 lower and upper limit of the <code class="docutils literal notranslate"><span class="pre">xil</span></code> parameter as well to the limits given to
@@ -143,10 +144,10 @@ out of the calculated range.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>We note that up to and including version 13.03 of Cloudy,
-<img class="math" src="../_images/math/d6c4a1f096ea9b8657914ea39adb3384c1c11422.svg" alt="L_{\mathrm ion}" style="vertical-align: -2px"/> in the definition of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> was actually the
+<img class="math" src="../_images/math/d6c4a1f096ea9b8657914ea39adb3384c1c11422.svg" alt="L_{\mathrm ion}"/> in the definition of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> was actually the
 total bolometric ionising luminosity. However, from the upcoming version
 13.04 of Cloudy this is corrected in the Cloudy code to be consistent
-with the commonly used definition, where <img class="math" src="../_images/math/d6c4a1f096ea9b8657914ea39adb3384c1c11422.svg" alt="L_{\mathrm ion}" style="vertical-align: -2px"/> ranges
+with the commonly used definition, where <img class="math" src="../_images/math/d6c4a1f096ea9b8657914ea39adb3384c1c11422.svg" alt="L_{\mathrm ion}"/> ranges
 between 1 to 1000 Ryd. Thus, we recommend using the xabsinput program
 with Cloudy version 13.04.</p>
 </div>
@@ -157,7 +158,7 @@ with Cloudy version 13.04.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -175,7 +176,16 @@ with Cloudy version 13.04.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -213,16 +223,6 @@ with Cloudy version 13.04.</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -236,9 +236,9 @@ with Cloudy version 13.04.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

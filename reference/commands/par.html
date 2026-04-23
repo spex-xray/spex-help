@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1.23. Par: Input and output of model parameters &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>3.1.23. Par: Input and output of model parameters &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/par.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -38,7 +39,7 @@
 <section id="overview">
 <h2><span class="section-number">3.1.23.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>This command is used as an interface to set or display the parameters of
-the spectral model. Each model parameter (like temperature <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>,
+the spectral model. Each model parameter (like temperature <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T"/>,
 abundance, normalization etc.) has a set of attributes, namely its
 value, status, range and coupling. This is illustrated by the following
 example. Assume we have a spectral model consisting of a thermal plasma.
@@ -175,12 +176,12 @@ then the file #a will be overwritten with the new values.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">val</span> <span class="pre">10</span></code> : Sets the value of the current parameter to 10.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">t</span> <span class="pre">val</span> <span class="pre">4</span></code> : Sets the parameter named “t” to 4.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">06:28</span> <span class="pre">value</span> <span class="pre">0.3</span></code> : Sets the parameters named 06:28 (for example
-the abundances of C (<img class="math" src="../../_images/math/15386fca3a6a1535f41df52bf7e68ce2e9926c7d.svg" alt="Z=6" style="vertical-align: 0px"/>), N (<img class="math" src="../../_images/math/ad7733318ed0a5dc0cf99d25661b9099cd6327a2.svg" alt="Z=7" style="vertical-align: 0px"/>), <img class="math" src="../../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/> Ni
-(<img class="math" src="../../_images/math/724ddb272f78c716d06a5a96c16d64ada1931145.svg" alt="Z=28" style="vertical-align: 0px"/>)) to the value 0.3.</div>
+the abundances of C (<img class="math" src="../../_images/math/15386fca3a6a1535f41df52bf7e68ce2e9926c7d.svg" alt="Z=6"/>), N (<img class="math" src="../../_images/math/ad7733318ed0a5dc0cf99d25661b9099cd6327a2.svg" alt="Z=7"/>), <img class="math" src="../../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots"/> Ni
+(<img class="math" src="../../_images/math/724ddb272f78c716d06a5a96c16d64ada1931145.svg" alt="Z=28"/>)) to the value 0.3.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">2</span> <span class="pre">nh</span> <span class="pre">val</span> <span class="pre">0.01</span></code> : Sets the parameter named “nh” of component 2
 to the value 0.01</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">1</span> <span class="pre">1</span> <span class="pre">norm</span> <span class="pre">value</span> <span class="pre">1E8</span></code> : Sets parameter named “norm” of component
-1 of sector 1 to the value <img class="math" src="../../_images/math/99d09fe0ee3e92de78274fb351f8024b169e0b97.svg" alt="10^8" style="vertical-align: 0px"/>.</div>
+1 of sector 1 to the value <img class="math" src="../../_images/math/99d09fe0ee3e92de78274fb351f8024b169e0b97.svg" alt="10^8"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">file</span> <span class="pre">avalue</span> <span class="pre">myfile.with.data</span></code> : sets the ascii-type parameter
 named “file” to the value “myfile.with.data” (without quotes).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">file</span> <span class="pre">avalue</span> <span class="pre">none</span></code> : sets the ascii-type parameter named “file”
@@ -193,7 +194,7 @@ spectral fitting.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">gamm</span> <span class="pre">range</span> <span class="pre">1.6:1.9</span></code> : Limit parameter “gamm” of component 3
 of sector 2 to the range 1.6 – 1.9.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">norm</span> <span class="pre">range</span> <span class="pre">-1E8</span> <span class="pre">1E8</span></code> : Set the range for the parameter “norm”
-between <img class="math" src="../../_images/math/dd00facceb8697779212c053f037b331298f565d.svg" alt="-10^{8}" style="vertical-align: -1px"/> and <img class="math" src="../../_images/math/c4fbf215c9f10b781afc488ad3dbeac70b83d7e4.svg" alt="+10^{8}" style="vertical-align: -1px"/>. This command is necessary
+between <img class="math" src="../../_images/math/dd00facceb8697779212c053f037b331298f565d.svg" alt="-10^{8}"/> and <img class="math" src="../../_images/math/c4fbf215c9f10b781afc488ad3dbeac70b83d7e4.svg" alt="+10^{8}"/>. This command is necessary
 if for example the model is a delta line used to mimick an absorption
 line, which normally has a default minimum value of 0. (for an
 emission line).</div>
@@ -205,7 +206,7 @@ above, but now the norm of the first component in the model for sector
 1 is 3 times the norm of the first component of the model for sector
 2. For example, if the norm of the 1st component of sector 2 gets the
 value 40, then the norm of the 1st component of sector 1 will
-automatically be updated to a value of <img class="math" src="../../_images/math/2496d09380676fa744b8949820c1e20464f4af0e.svg" alt="3\times 40 = 120" style="vertical-align: -1px"/>.</div>
+automatically be updated to a value of <img class="math" src="../../_images/math/2496d09380676fa744b8949820c1e20464f4af0e.svg" alt="3\times 40 = 120"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">3:5</span> <span class="pre">02:30</span> <span class="pre">couple</span> <span class="pre">1</span> <span class="pre">02:30</span></code> : Couples the abundances of He–Zn of
 components 3, 4 and 5 to the He–Zn abundances of component 1.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">par</span> <span class="pre">norm</span> <span class="pre">decouple</span></code> : Decouples the norm of the current component
@@ -240,7 +241,7 @@ SPEX will give an error message.</div>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -258,7 +259,16 @@ SPEX will give an error message.</div>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -290,16 +300,6 @@ SPEX will give an error message.</div>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -313,9 +313,9 @@ SPEX will give an error message.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

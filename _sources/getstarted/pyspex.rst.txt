@@ -38,15 +38,9 @@ And from now on, you can use the python interface in SPEX::
     Type "help", "copyright", "credits" or "license" for more information.
     >>> from pyspex.spex import Session
     >>> s=Session()
-     Welcome user to SPEX version 3.08.02
+     Welcome user to SPEX version 3.08.03
 
      NEW in this version of SPEX:
-     07-10-2025 Added plot component functionality
-     07-10-2025 Added atbl model to load Xspec table models
-     07-10-2025 Added magnetism module for pion
-     07-10-2025 Added ebit model for laboratory astrophysics
-     07-10-2025 Improvement of partial covering factor
-     07-10-2025 Update of quick calculation mode
 
      Setting the number of threads to  4 for optimal performance.
 

@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.7. Clus: projected cluster model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.7. Clus: projected cluster model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/clus.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -64,19 +65,19 @@ all parameters, but make as much as possible use of other constraints and common
 <section id="two-important-radii">
 <h2><span class="section-number">4.1.7.2. </span>Two important radii<a class="headerlink" href="#two-important-radii" title="Link to this heading">¶</a></h2>
 <p>It is important to distinguish two important radii in the model.</p>
-<p>Internally, everything is scaled to <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/> , which is the first parameter of the
-model (input name r500). It should be given in units of <img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}" style="vertical-align: 0px"/> meter.
-The default value is 3 (i.e., <img class="math" src="../_images/math/4ea58396c4180fab9ee9e6bfbac4c81bfa400b05.svg" alt="r_{500} = 3\times 10^{22}" style="vertical-align: -2px"/> m, or approximately (but not exactly!))
+<p>Internally, everything is scaled to <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/> , which is the first parameter of the
+model (input name r500). It should be given in units of <img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}"/> meter.
+The default value is 3 (i.e., <img class="math" src="../_images/math/4ea58396c4180fab9ee9e6bfbac4c81bfa400b05.svg" alt="r_{500} = 3\times 10^{22}"/> m, or approximately (but not exactly!))
 1 Mpc.</p>
-<p>The cluster is terminated at a radius <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/> (input name: rout).
+<p>The cluster is terminated at a radius <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}"/> (input name: rout).
 Outside this radius, the density is cut-off to zero, so this means the effective edge
-of the cluster is at <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/>. It should be provided in units of
-<img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/>, and its default value is 2 (i.e., <img class="math" src="../_images/math/53b6ed6ea569684dc4c24dda0d289eec10f2543e.svg" alt="2\times 3" style="vertical-align: -1px"/> or <img class="math" src="../_images/math/c67939272de7cc3c2fd37ad5e88fb98458695b38.svg" alt="6\times 10^{22}" style="vertical-align: -1px"/> m
+of the cluster is at <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}"/>. It should be provided in units of
+<img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/>, and its default value is 2 (i.e., <img class="math" src="../_images/math/53b6ed6ea569684dc4c24dda0d289eec10f2543e.svg" alt="2\times 3"/> or <img class="math" src="../_images/math/c67939272de7cc3c2fd37ad5e88fb98458695b38.svg" alt="6\times 10^{22}"/> m
 or approximately 648 kpc).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you really want to go to the outermost cluster outskirts,
-and you increase <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/> , then you should take care to adjust
+and you increase <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}"/> , then you should take care to adjust
 possibly the number of shells (default 25) and/or projected annuli (default 50),
 otherwise the spatial resolution of your model may be insufficient.</p>
 </div>
@@ -89,14 +90,14 @@ otherwise the spatial resolution of your model may be insufficient.</p>
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>r500</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 <td><p>3.0</p></td>
-<td><p><img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}" style="vertical-align: 0px"/> m</p></td>
+<td><p><img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}"/> m</p></td>
 </tr>
 <tr class="row-odd"><td><p>rout</p></td>
-<td><p><img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}"/></p></td>
 <td><p>2.0</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 </tbody>
 </table>
@@ -105,14 +106,14 @@ otherwise the spatial resolution of your model may be insufficient.</p>
 <h2><span class="section-number">4.1.7.3. </span>Radial grid: 3-d shells<a class="headerlink" href="#radial-grid-3-d-shells" title="Link to this heading">¶</a></h2>
 <p>The 3-d model is evaluated for a logarithmic radius grid, in order to cover the possible
 large dynamical range between the core of the cluster and the outermost radius.
-The user specifies <img class="math" src="../_images/math/a0ea341b42ce33f9c95c6c882184fc65c9282285.svg" alt="n_{r}" style="vertical-align: -2px"/> (input name nr), the number of shells for which the
+The user specifies <img class="math" src="../_images/math/a0ea341b42ce33f9c95c6c882184fc65c9282285.svg" alt="n_{r}"/> (input name nr), the number of shells for which the
 model is evaluated.</p>
 <p>The default value for nr is 25, but it can be changed (obviously, for large values the computation
-time increases). The logarithmic grid is chosen to be beween <img class="math" src="../_images/math/a7e933ea0c6fccb6a8787488dd9ff43d35664001.svg" alt="r_{\mathrm{in}}" style="vertical-align: -2px"/>
-and <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}" style="vertical-align: -2px"/>.
-Here <img class="math" src="../_images/math/a7e933ea0c6fccb6a8787488dd9ff43d35664001.svg" alt="r_{\mathrm{in}}" style="vertical-align: -2px"/> is taken as 1% of <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/>, or if that is smaller,
+time increases). The logarithmic grid is chosen to be beween <img class="math" src="../_images/math/a7e933ea0c6fccb6a8787488dd9ff43d35664001.svg" alt="r_{\mathrm{in}}"/>
+and <img class="math" src="../_images/math/21c2181ec315d17217590f45f51111e508cdf9a6.svg" alt="r_{\mathrm{out}}"/>.
+Here <img class="math" src="../_images/math/a7e933ea0c6fccb6a8787488dd9ff43d35664001.svg" alt="r_{\mathrm{in}}"/> is taken as 1% of <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/>, or if that is smaller,
 10% of the smallest of the core radii for the density profile (see later).
-Obviously, for the innermost shell the inner boundary <img class="math" src="../_images/math/a7e933ea0c6fccb6a8787488dd9ff43d35664001.svg" alt="r_{\mathrm{in}}" style="vertical-align: -2px"/> is replaced by 0 instead.</p>
+Obviously, for the innermost shell the inner boundary <img class="math" src="../_images/math/a7e933ea0c6fccb6a8787488dd9ff43d35664001.svg" alt="r_{\mathrm{in}}"/> is replaced by 0 instead.</p>
 <p>The hydrodynamical parameters like density, temperature etc. are then evaluated for the middle
 radius of each shell using analytical parameterisation of the profiles (see later), and we assume
 that these quantities are constant within the shell.</p>
@@ -151,7 +152,7 @@ respectively.</p>
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>nr</p></td>
-<td><p><img class="math" src="../_images/math/a0ea341b42ce33f9c95c6c882184fc65c9282285.svg" alt="n_{r}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/a0ea341b42ce33f9c95c6c882184fc65c9282285.svg" alt="n_{r}"/></p></td>
 <td><p>25</p></td>
 <td></td>
 </tr>
@@ -169,25 +170,25 @@ respectively.</p>
 modified by a possible density jump (shock):</p>
 <div class="math">
 <p><img src="../_images/math/96ed0c70d312649662ef8c90fd3e72cc4da11cbf.svg" alt="n(r) = \bigl[ n_1(r) + n_2(r) \bigr] f(r)"/></p>
-</div><p>with for <img class="math" src="../_images/math/66b5ab0d476ff466ee7406f4ad56f506db02ca1b.svg" alt="i=1,2:" style="vertical-align: -3px"/></p>
+</div><p>with for <img class="math" src="../_images/math/66b5ab0d476ff466ee7406f4ad56f506db02ca1b.svg" alt="i=1,2:"/></p>
 <div class="math">
 <p><img src="../_images/math/6221cb5154c38f81212472290f2c5237ee6a92e3.svg" alt="n_i(r) = \frac {n_{0,i}}{ \bigl[ 1 + (r/r_{c,i})^2 ) \bigl] ^{1.5\beta_{i}}}"/></p>
-</div><p>where <img class="math" src="../_images/math/32cfecc12a283f0c90d21e89f278a70c840752fe.svg" alt="n_0" style="vertical-align: -2px"/> is the central density in units of per cubic meter for both components
-(input names hd1 and hd2), <img class="math" src="../_images/math/13804f4b53ca219d90ebc11cd70db6f5d92167c7.svg" alt="r_c" style="vertical-align: -2px"/> are the core radii (rc1 and rc2 in the input)
-in units of <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/> the beta parameters (bet1 and bet2 in the input).</p>
-<p>The optional density jump parameterisation <img class="math" src="../_images/math/b79b4fc3e643a31f3a8c426b35ec55ddb7d2356f.svg" alt="f(r)" style="vertical-align: -4px"/> is:</p>
+</div><p>where <img class="math" src="../_images/math/32cfecc12a283f0c90d21e89f278a70c840752fe.svg" alt="n_0"/> is the central density in units of per cubic meter for both components
+(input names hd1 and hd2), <img class="math" src="../_images/math/13804f4b53ca219d90ebc11cd70db6f5d92167c7.svg" alt="r_c"/> are the core radii (rc1 and rc2 in the input)
+in units of <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/> and
+<img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta"/> the beta parameters (bet1 and bet2 in the input).</p>
+<p>The optional density jump parameterisation <img class="math" src="../_images/math/b79b4fc3e643a31f3a8c426b35ec55ddb7d2356f.svg" alt="f(r)"/> is:</p>
 <div class="math">
 <p><img src="../_images/math/3486b568cf31e5bfa2a28b5d9d0ce5fc06f62329.svg" alt="r&lt;r_s:\quad f(r) = 1"/></p>
 </div><div class="math">
 <p><img src="../_images/math/45356f918f59416aa75fc0365fd43a05195f5a41.svg" alt="r&gt;r_s:\quad f(r) = \Delta_d (r/r_s)^{\gamma_d}"/></p>
-</div><p>where the discontinuity radius <img class="math" src="../_images/math/3e8e0f3ebc9e73b74757b28c6000c9ac1daf5b00.svg" alt="r_{s}" style="vertical-align: -2px"/> (input name rsh)
-is given again in units of <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/>
-and further <img class="math" src="../_images/math/189e899f32258071a59d0fedca9a73ea99265651.svg" alt="\Delta_d" style="vertical-align: -2px"/> is the density jump at <img class="math" src="../_images/math/3e8e0f3ebc9e73b74757b28c6000c9ac1daf5b00.svg" alt="r_{s}" style="vertical-align: -2px"/> (its input name is dfac).
-Note that for <img class="math" src="../_images/math/57e25eca7eab5b9322a9297ac8d6f192b8ca94bc.svg" alt="\Delta_d &gt; 1" style="vertical-align: -2px"/> the density increases outside <img class="math" src="../_images/math/3e8e0f3ebc9e73b74757b28c6000c9ac1daf5b00.svg" alt="r_{s}" style="vertical-align: -2px"/> relative
-to the undisturbed model, while for <img class="math" src="../_images/math/57e25eca7eab5b9322a9297ac8d6f192b8ca94bc.svg" alt="\Delta_d &gt; 1" style="vertical-align: -2px"/> it decreases.
+</div><p>where the discontinuity radius <img class="math" src="../_images/math/3e8e0f3ebc9e73b74757b28c6000c9ac1daf5b00.svg" alt="r_{s}"/> (input name rsh)
+is given again in units of <img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/>
+and further <img class="math" src="../_images/math/189e899f32258071a59d0fedca9a73ea99265651.svg" alt="\Delta_d"/> is the density jump at <img class="math" src="../_images/math/3e8e0f3ebc9e73b74757b28c6000c9ac1daf5b00.svg" alt="r_{s}"/> (its input name is dfac).
+Note that for <img class="math" src="../_images/math/57e25eca7eab5b9322a9297ac8d6f192b8ca94bc.svg" alt="\Delta_d &gt; 1"/> the density increases outside <img class="math" src="../_images/math/3e8e0f3ebc9e73b74757b28c6000c9ac1daf5b00.svg" alt="r_{s}"/> relative
+to the undisturbed model, while for <img class="math" src="../_images/math/57e25eca7eab5b9322a9297ac8d6f192b8ca94bc.svg" alt="\Delta_d &gt; 1"/> it decreases.
 Further fine-tuning of the discontinuity can be achieved by playing with the power-law
-parameter <img class="math" src="../_images/math/a824b24527556ebc0c51aa84d71d19f1aec82a85.svg" alt="\gamma_d" style="vertical-align: -3px"/> (input name dgad). Positive values means increasing effects at
+parameter <img class="math" src="../_images/math/a824b24527556ebc0c51aa84d71d19f1aec82a85.svg" alt="\gamma_d"/> (input name dgad). Positive values means increasing effects at
 large radii, z zero value (the default) a constant jump, and negative values correspond to
 a decreasing effect of the jump at large radii.</p>
 <p>The parameters describing the density profile are summarized below.</p>
@@ -199,47 +200,47 @@ a decreasing effect of the jump at large radii.</p>
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>hd1</p></td>
-<td><p><img class="math" src="../_images/math/7e944c96c4c028b3ae7e3f3e130d2f2b3d4201c4.svg" alt="n_{0,1}" style="vertical-align: -5px"/></p></td>
+<td><p><img class="math" src="../_images/math/7e944c96c4c028b3ae7e3f3e130d2f2b3d4201c4.svg" alt="n_{0,1}"/></p></td>
 <td><p>5000</p></td>
-<td><p><img class="math" src="../_images/math/91775f25a2322cc352d21160321e38fd40a37ad6.svg" alt="{\textrm m}^{-3}" style="vertical-align: 0px"/></p></td>
+<td><p><img class="math" src="../_images/math/91775f25a2322cc352d21160321e38fd40a37ad6.svg" alt="{\textrm m}^{-3}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>rc1</p></td>
-<td><p><img class="math" src="../_images/math/090e273c69de51b57405e265e21ba9ba87e7621c.svg" alt="r_{c,1}" style="vertical-align: -5px"/></p></td>
+<td><p><img class="math" src="../_images/math/090e273c69de51b57405e265e21ba9ba87e7621c.svg" alt="r_{c,1}"/></p></td>
 <td><p>0.1</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-even"><td><p>bet1</p></td>
-<td><p><img class="math" src="../_images/math/b4b3456b4c666ce845ebfad5c525a4fda9f24124.svg" alt="\beta_1" style="vertical-align: -3px"/></p></td>
+<td><p><img class="math" src="../_images/math/b4b3456b4c666ce845ebfad5c525a4fda9f24124.svg" alt="\beta_1"/></p></td>
 <td><p>0.7</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>hd2</p></td>
-<td><p><img class="math" src="../_images/math/f39ffe9d30035e2de9cc0bf52535de44bf952f8f.svg" alt="n_{0,2}" style="vertical-align: -5px"/></p></td>
+<td><p><img class="math" src="../_images/math/f39ffe9d30035e2de9cc0bf52535de44bf952f8f.svg" alt="n_{0,2}"/></p></td>
 <td><p>25000</p></td>
-<td><p><img class="math" src="../_images/math/91775f25a2322cc352d21160321e38fd40a37ad6.svg" alt="{\textrm m}^{-3}" style="vertical-align: 0px"/></p></td>
+<td><p><img class="math" src="../_images/math/91775f25a2322cc352d21160321e38fd40a37ad6.svg" alt="{\textrm m}^{-3}"/></p></td>
 </tr>
 <tr class="row-even"><td><p>rc2</p></td>
-<td><p><img class="math" src="../_images/math/ae66041b11b94f49ffd97721b1cb90ca72d2958b.svg" alt="r_{c,2}" style="vertical-align: -5px"/></p></td>
+<td><p><img class="math" src="../_images/math/ae66041b11b94f49ffd97721b1cb90ca72d2958b.svg" alt="r_{c,2}"/></p></td>
 <td><p>0.01</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>bet2</p></td>
-<td><p><img class="math" src="../_images/math/ea44ed42507cf57ec2c5970336204bb0ef633845.svg" alt="\beta_2" style="vertical-align: -3px"/></p></td>
+<td><p><img class="math" src="../_images/math/ea44ed42507cf57ec2c5970336204bb0ef633845.svg" alt="\beta_2"/></p></td>
 <td><p>1.0</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>rsh</p></td>
-<td><p><img class="math" src="../_images/math/276f7928be1bf1b4d83d39d122f974f0f2d24df6.svg" alt="r_s" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/276f7928be1bf1b4d83d39d122f974f0f2d24df6.svg" alt="r_s"/></p></td>
 <td><p>2.0</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>dfac</p></td>
-<td><p><img class="math" src="../_images/math/0cf94b820d8bb576f424089a33646336abe97c13.svg" alt="\Delta_{d}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/0cf94b820d8bb576f424089a33646336abe97c13.svg" alt="\Delta_{d}"/></p></td>
 <td><p>1.0</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>dgad</p></td>
-<td><p><img class="math" src="../_images/math/fb87a12fd314ad911abe4538177608c3dc9a63f4.svg" alt="\gamma_{d}" style="vertical-align: -3px"/></p></td>
+<td><p><img class="math" src="../_images/math/fb87a12fd314ad911abe4538177608c3dc9a63f4.svg" alt="\gamma_{d}"/></p></td>
 <td><p>0.0</p></td>
 <td></td>
 </tr>
@@ -251,7 +252,7 @@ a decreasing effect of the jump at large radii.</p>
 <p>The temperature distribution is based upon Vikhlinin et al. (2006) (Eq. 6)  (2006ApJ…640..691V)
 but with a temperature jump added and described below.</p>
 <p>The Vikhlinin parameterisation is the product of two terms. For the first term, describing the
-inner part of the cluster (<img class="math" src="../_images/math/e769dcbc2f1cb04871b55000acc21e9e323d6bce.svg" alt="T_1(r)" style="vertical-align: -4px"/> below), we rewrite his expression to an equivalent but slightly
+inner part of the cluster (<img class="math" src="../_images/math/e769dcbc2f1cb04871b55000acc21e9e323d6bce.svg" alt="T_1(r)"/> below), we rewrite his expression to an equivalent but slightly
 different form, as given by Kaastra et al. 2004, eq. 10 (<a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2004/02/aah4230.pdf">https://www.aanda.org/articles/aa/pdf/2004/02/aah4230.pdf</a>),
 which in turn is based on Allen et al. 2001.</p>
 <p>With this, the temperature profile can be written as</p>
@@ -270,14 +271,14 @@ which in turn is based on Allen et al. 2001.</p>
 <p><img src="../_images/math/ad951d5fb981d9738109d5882fc07ab12c18ab0b.svg" alt="r&lt;r_s:\quad  f_2(r) = 1"/></p>
 </div><div class="math">
 <p><img src="../_images/math/8732f14ebd4689bf39d37e2b90d664a6e41d0eaa.svg" alt="r&gt;r_s:\quad  f_2(r) = \Delta_t (r/r_s)^{\gamma_t}"/></p>
-</div><p>The central and outer temperatures <img class="math" src="../_images/math/eebcab42c7194477c210a1c55655ae285a8d4ba5.svg" alt="T_c" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/0c2d336fa6cbf95a7eff52ecf5c38021e419cffb.svg" alt="T_h" style="vertical-align: -2px"/> are not the actual temperatures,
-but the temperatures that would exist without the  <img class="math" src="../_images/math/1f6d5bc84f8bd53989f0f25d5c2ae5d71051bfa9.svg" alt="f_1(r)" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/7b09ddf10268f101bfa97cc46552c28ead637bf9.svg" alt="f_2(r)" style="vertical-align: -4px"/> terms.</p>
+</div><p>The central and outer temperatures <img class="math" src="../_images/math/eebcab42c7194477c210a1c55655ae285a8d4ba5.svg" alt="T_c"/> and <img class="math" src="../_images/math/0c2d336fa6cbf95a7eff52ecf5c38021e419cffb.svg" alt="T_h"/> are not the actual temperatures,
+but the temperatures that would exist without the  <img class="math" src="../_images/math/1f6d5bc84f8bd53989f0f25d5c2ae5d71051bfa9.svg" alt="f_1(r)"/> and <img class="math" src="../_images/math/7b09ddf10268f101bfa97cc46552c28ead637bf9.svg" alt="f_2(r)"/> terms.</p>
 <p>Similar to the density profile, we allow for a possible temperature jump of any magnitude
-(i.e., increase or decrease) at the radius <img class="math" src="../_images/math/276f7928be1bf1b4d83d39d122f974f0f2d24df6.svg" alt="r_s" style="vertical-align: -2px"/> (which is the same radius where a possible
+(i.e., increase or decrease) at the radius <img class="math" src="../_images/math/276f7928be1bf1b4d83d39d122f974f0f2d24df6.svg" alt="r_s"/> (which is the same radius where a possible
 density jump may occur).</p>
 <p>Most default parameters are based on Vikhlinin et al. Eq. 8 for the typical
 temperature profile that they derived. Note that their gas-mas weighted temperature
-<img class="math" src="../_images/math/f58fcf01c325efd5ea78c9829fe608cf60bdf4aa.svg" alt="T_{mg}" style="vertical-align: -5px"/> is related to our parameter <img class="math" src="../_images/math/0c2d336fa6cbf95a7eff52ecf5c38021e419cffb.svg" alt="T_h" style="vertical-align: -2px"/> by <img class="math" src="../_images/math/32296cbfbc39722fbf83cb674a24f5100ae1bb19.svg" alt="T_h = 1.35 T_{mg}" style="vertical-align: -5px"/>.</p>
+<img class="math" src="../_images/math/f58fcf01c325efd5ea78c9829fe608cf60bdf4aa.svg" alt="T_{mg}"/> is related to our parameter <img class="math" src="../_images/math/0c2d336fa6cbf95a7eff52ecf5c38021e419cffb.svg" alt="T_h"/> by <img class="math" src="../_images/math/32296cbfbc39722fbf83cb674a24f5100ae1bb19.svg" alt="T_h = 1.35 T_{mg}"/>.</p>
 <p>We assume that the ion temperature equals the electron temperature for each shell.
 The parameters describing the temperature profile are summarized below.</p>
 <table class="docutils align-default">
@@ -288,52 +289,52 @@ The parameters describing the temperature profile are summarized below.</p>
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>tc</p></td>
-<td><p><img class="math" src="../_images/math/eebcab42c7194477c210a1c55655ae285a8d4ba5.svg" alt="T_c" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/eebcab42c7194477c210a1c55655ae285a8d4ba5.svg" alt="T_c"/></p></td>
 <td><p>1.8</p></td>
 <td><p>keV</p></td>
 </tr>
 <tr class="row-odd"><td><p>th</p></td>
-<td><p><img class="math" src="../_images/math/0c2d336fa6cbf95a7eff52ecf5c38021e419cffb.svg" alt="T_h" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/0c2d336fa6cbf95a7eff52ecf5c38021e419cffb.svg" alt="T_h"/></p></td>
 <td><p>4.0</p></td>
 <td><p>keV</p></td>
 </tr>
 <tr class="row-even"><td><p>rtc</p></td>
-<td><p><img class="math" src="../_images/math/9253eedefd3d56ac04ece03b0366af751afb4804.svg" alt="r_{tc}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/9253eedefd3d56ac04ece03b0366af751afb4804.svg" alt="r_{tc}"/></p></td>
 <td><p>0.045</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>mu</p></td>
-<td><p><img class="math" src="../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu" style="vertical-align: -3px"/></p></td>
+<td><p><img class="math" src="../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu"/></p></td>
 <td><p>1.9</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>rto</p></td>
-<td><p><img class="math" src="../_images/math/9913908539629213762ed5c12a03eba8f65b0d11.svg" alt="r_{to}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/9913908539629213762ed5c12a03eba8f65b0d11.svg" alt="r_{to}"/></p></td>
 <td><p>0.6</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>at</p></td>
-<td><p><img class="math" src="../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a" style="vertical-align: 0px"/></p></td>
+<td><p><img class="math" src="../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a"/></p></td>
 <td><p>0.0</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>bt</p></td>
-<td><p><img class="math" src="../_images/math/b5d55b92e296bb3aa41b5598c2f19f05a607dfd3.svg" alt="b" style="vertical-align: 0px"/></p></td>
+<td><p><img class="math" src="../_images/math/b5d55b92e296bb3aa41b5598c2f19f05a607dfd3.svg" alt="b"/></p></td>
 <td><p>2.0</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>ct</p></td>
-<td><p><img class="math" src="../_images/math/efbb13e7d1cbad70de2221f908a19158be7ae356.svg" alt="c" style="vertical-align: 0px"/></p></td>
+<td><p><img class="math" src="../_images/math/efbb13e7d1cbad70de2221f908a19158be7ae356.svg" alt="c"/></p></td>
 <td><p>2.0</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>tfac</p></td>
-<td><p><img class="math" src="../_images/math/5f5456fbb49ba47c0452edd3850cece13ca97a06.svg" alt="\Delta_{t}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/5f5456fbb49ba47c0452edd3850cece13ca97a06.svg" alt="\Delta_{t}"/></p></td>
 <td><p>1.0</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>gamt</p></td>
-<td><p><img class="math" src="../_images/math/4f0fc26ce627faf57cf2e90ee3e044ffce637ff2.svg" alt="\gamma_{t}" style="vertical-align: -3px"/></p></td>
+<td><p><img class="math" src="../_images/math/4f0fc26ce627faf57cf2e90ee3e044ffce637ff2.svg" alt="\gamma_{t}"/></p></td>
 <td><p>0.0</p></td>
 <td></td>
 </tr>
@@ -344,15 +345,15 @@ The parameters describing the temperature profile are summarized below.</p>
 <h2><span class="section-number">4.1.7.7. </span>Radial abundance profile<a class="headerlink" href="#radial-abundance-profile" title="Link to this heading">¶</a></h2>
 <p>The relative metal abundances can be adjusted similar to the CIE model
 (see the last parts of this chapter).
-But these abundances can be multiplied by a radial scaling law <img class="math" src="../_images/math/b79b4fc3e643a31f3a8c426b35ec55ddb7d2356f.svg" alt="f(r)" style="vertical-align: -4px"/>.</p>
+But these abundances can be multiplied by a radial scaling law <img class="math" src="../_images/math/b79b4fc3e643a31f3a8c426b35ec55ddb7d2356f.svg" alt="f(r)"/>.</p>
 <p>The scaling law, including the default parameters, is taken from
 Mernier et al. (2017)
 <a class="reference external" href="https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf">https://www.aanda.org/articles/aa/pdf/2017/07/aa30075-16.pdf</a>
 However, we write it in a slightly different, equivalent form as follows:</p>
 <div class="math">
-<p><img src="../_images/math/f59af76025908fb5a202f961ff2261fb0d8053d0.svg" alt="f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1-De{\displaystyle{-(r/F)(1+r/E)}}  \bigr] + G"/></p>
+<p><img src="../_images/math/7fb74f17e78317d59464880d57a08900951058fc.svg" alt="f(r) = \frac{A}{(1+r/B)^C} \bigl[ 1 - D e^{-(r/F)(1+r/E)}  \bigr] + G"/></p>
 </div><p>If the abundances should be kept constant as a function of radius,
-the user should take care that <img class="math" src="../_images/math/5695062f3b9a49200411c932231489f01b789996.svg" alt="f(r)\equiv 1" style="vertical-align: -4px"/> for all radii.
+the user should take care that <img class="math" src="../_images/math/5695062f3b9a49200411c932231489f01b789996.svg" alt="f(r)\equiv 1"/> for all radii.
 This can be achieved for instance by setting A=0, G=1.</p>
 <p>The constant term with G was not included in Mernier et al. (2017), but may be useful for some applications.
 Its default value is 0.</p>
@@ -387,7 +388,7 @@ correlated. In those situations it may be wise to keep one of them frozen.</p>
 <tr class="row-odd"><td><p>bfe</p></td>
 <td><p>B</p></td>
 <td><p>0.021</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-even"><td><p>cfe</p></td>
 <td><p>C</p></td>
@@ -402,12 +403,12 @@ correlated. In those situations it may be wise to keep one of them frozen.</p>
 <tr class="row-even"><td><p>efe</p></td>
 <td><p>E</p></td>
 <td><p>0.163</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>ffe</p></td>
 <td><p>F</p></td>
 <td><p>0.0165</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 <tr class="row-even"><td><p>gfe</p></td>
 <td><p>G</p></td>
@@ -425,17 +426,17 @@ correlated. In those situations it may be wise to keep one of them frozen.</p>
 </div><p>with</p>
 <div class="math">
 <p><img src="../_images/math/8fa8e5e82f93d39d2cf0ecc493e9aa75901cf4cc.svg" alt="x = r / r_v"/></p>
-</div><p>Here <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v" style="vertical-align: 0px"/> has the same meaning as the vrms parameter of the CIE model of SPEX
+</div><p>Here <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v"/> has the same meaning as the vrms parameter of the CIE model of SPEX
 (see there for more documentation).</p>
-<p>At the center, v is given by <img class="math" src="../_images/math/9492321a388c3df8b77920a9f6b8a6158062163a.svg" alt="v=v_a" style="vertical-align: -2px"/>, at large distances it is given by
-<img class="math" src="../_images/math/a7565d230bcabd279bf85112b7956d2d3090abcb.svg" alt="v^2=v_a^2 + v_b \lvert v_b \rvert" style="vertical-align: -4px"/>
-Note that due to this definition, positive values of <img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b" style="vertical-align: -2px"/> means increasing turbulence
+<p>At the center, v is given by <img class="math" src="../_images/math/9492321a388c3df8b77920a9f6b8a6158062163a.svg" alt="v=v_a"/>, at large distances it is given by
+<img class="math" src="../_images/math/a7565d230bcabd279bf85112b7956d2d3090abcb.svg" alt="v^2=v_a^2 + v_b \lvert v_b \rvert"/>
+Note that due to this definition, positive values of <img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b"/> means increasing turbulence
 for larger radii, while negative values means decreasing turbulence for larger radii.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you do a spectral fit or evaluate the model, take care that for negative
-values of <img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b" style="vertical-align: -2px"/> with <img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b" style="vertical-align: -2px"/> smaller than <img class="math" src="../_images/math/efd836ee01b0e5e255316ea9a209e2e67961f389.svg" alt="-v_a" style="vertical-align: -2px"/>, the turbulent velocity
-would become imaginary (<img class="math" src="../_images/math/36fd2f2ca83cfba8bf1c1e38708b339fdb9083b6.svg" alt="v^2&lt;0" style="vertical-align: 0px"/>). To avoid a crash, SPEX cuts these values off to zero,
+values of <img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b"/> with <img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b"/> smaller than <img class="math" src="../_images/math/efd836ee01b0e5e255316ea9a209e2e67961f389.svg" alt="-v_a"/>, the turbulent velocity
+would become imaginary (<img class="math" src="../_images/math/36fd2f2ca83cfba8bf1c1e38708b339fdb9083b6.svg" alt="v^2&lt;0"/>). To avoid a crash, SPEX cuts these values off to zero,
 and continues, but be aware that your results are not realistic anymore in those situations.</p>
 </div>
 <div class="admonition warning">
@@ -453,19 +454,19 @@ in quadrature using the relevant (ion) temperature.</p>
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>av</p></td>
-<td><p><img class="math" src="../_images/math/75ae197bdeba7efb79d038f2358b79519968fa8d.svg" alt="v_a" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/75ae197bdeba7efb79d038f2358b79519968fa8d.svg" alt="v_a"/></p></td>
 <td><p>100</p></td>
 <td><p>km/s</p></td>
 </tr>
 <tr class="row-odd"><td><p>bv</p></td>
-<td><p><img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/80c61b31897b1a95b0b1c14fc0b77948fef50c9e.svg" alt="v_b"/></p></td>
 <td><p>0</p></td>
 <td><p>km/s</p></td>
 </tr>
 <tr class="row-even"><td><p>rv</p></td>
-<td><p><img class="math" src="../_images/math/477e2b7b5a819dfe7a0b7ec75b251c07c942adbf.svg" alt="r_v" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/477e2b7b5a819dfe7a0b7ec75b251c07c942adbf.svg" alt="r_v"/></p></td>
 <td><p>1</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 </tbody>
 </table>
@@ -480,8 +481,8 @@ This is done as follows:</p>
 <div class="math">
 <p><img src="../_images/math/43441a62ee26ed2e628542f077a9909e4489f3a9.svg" alt="x = r / r_z"/></p>
 </div><p>Positive values correspond to inflow, negative values to outflow.
-The parameter <img class="math" src="../_images/math/2b58c227cae062fb1c2ae0f919d4342e74cbad30.svg" alt="v_c" style="vertical-align: -2px"/> corresponds to the flow velocity at the core,
-<img class="math" src="../_images/math/2b58c227cae062fb1c2ae0f919d4342e74cbad30.svg" alt="v_c" style="vertical-align: -2px"/> is the flow velocity at large distances. Note that the default
+The parameter <img class="math" src="../_images/math/2b58c227cae062fb1c2ae0f919d4342e74cbad30.svg" alt="v_c"/> corresponds to the flow velocity at the core,
+<img class="math" src="../_images/math/2b58c227cae062fb1c2ae0f919d4342e74cbad30.svg" alt="v_c"/> is the flow velocity at large distances. Note that the default
 values for these parameters correspond to no in- or outflow.</p>
 <table class="docutils align-default">
 <tbody>
@@ -491,19 +492,19 @@ values for these parameters correspond to no in- or outflow.</p>
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>zc</p></td>
-<td><p><img class="math" src="../_images/math/2b58c227cae062fb1c2ae0f919d4342e74cbad30.svg" alt="v_c" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/2b58c227cae062fb1c2ae0f919d4342e74cbad30.svg" alt="v_c"/></p></td>
 <td><p>0</p></td>
 <td><p>km/s</p></td>
 </tr>
 <tr class="row-odd"><td><p>zh</p></td>
-<td><p><img class="math" src="../_images/math/db11adc3c1ac0148135dd4148a734899941d9866.svg" alt="v_h" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/db11adc3c1ac0148135dd4148a734899941d9866.svg" alt="v_h"/></p></td>
 <td><p>0</p></td>
 <td><p>km/s</p></td>
 </tr>
 <tr class="row-even"><td><p>rz</p></td>
-<td><p><img class="math" src="../_images/math/00012d7b984992ca927c6725c18b5438da5ec034.svg" alt="r_z" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/00012d7b984992ca927c6725c18b5438da5ec034.svg" alt="r_z"/></p></td>
 <td><p>1</p></td>
-<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/7cf5fb3824a67f1fa94d8a4cb0328ffe21e560d9.svg" alt="r_{500}"/></p></td>
 </tr>
 </tbody>
 </table>
@@ -513,15 +514,15 @@ values for these parameters correspond to no in- or outflow.</p>
 <p>The cluster model projects the spectra of all shells onto the sky. But sometimes the
 user is not interested in the spectrum of the full cluster, but only in the spectrum within
 a projected annulus.</p>
-<p>One can specify the inner and outer radius <img class="math" src="../_images/math/8bd1d0a592eeb48683fe64efe7ead1f437adaa19.svg" alt="r_{min}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/ea8d301b5896589a1a55b984e6b0a08a3eb67435.svg" alt="r_{max}" style="vertical-align: -2px"/>
+<p>One can specify the inner and outer radius <img class="math" src="../_images/math/8bd1d0a592eeb48683fe64efe7ead1f437adaa19.svg" alt="r_{min}"/> and <img class="math" src="../_images/math/ea8d301b5896589a1a55b984e6b0a08a3eb67435.svg" alt="r_{max}"/>
 for this projected annulus annulus.
 The spectrum is then only calculated between those boundaries.</p>
-<p>Contrary to all other radii, we specify these radii in units of <img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}" style="vertical-align: -2px"/>,
-the outer radius of the cluster. Thus, for <img class="math" src="../_images/math/9041f93b5a4f849bfa85f2d804bea79fc6cc4ecf.svg" alt="r_{min}=0" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/08037a3bd1a8ceb06a78701f39eed066ee1df79e.svg" alt="r_{max}=1" style="vertical-align: -2px"/>,
+<p>Contrary to all other radii, we specify these radii in units of <img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}"/>,
+the outer radius of the cluster. Thus, for <img class="math" src="../_images/math/9041f93b5a4f849bfa85f2d804bea79fc6cc4ecf.svg" alt="r_{min}=0"/> and <img class="math" src="../_images/math/08037a3bd1a8ceb06a78701f39eed066ee1df79e.svg" alt="r_{max}=1"/>,
 the full cluster spectrum is obtained.</p>
 <p>On the other hand, the “clup” output option allows to display the
 radial intensity profile of the cluster for a given energy band. These energies
-(always in keV) can be specified by the parameters <img class="math" src="../_images/math/1f77bce113e1699fb7e18fdbe8ec63524a82c307.svg" alt="E_{min}" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/3c2924cd7358ade4116de23e1d18b49665d750a7.svg" alt="E_{max}" style="vertical-align: -2px"/>.</p>
+(always in keV) can be specified by the parameters <img class="math" src="../_images/math/1f77bce113e1699fb7e18fdbe8ec63524a82c307.svg" alt="E_{min}"/> and <img class="math" src="../_images/math/3c2924cd7358ade4116de23e1d18b49665d750a7.svg" alt="E_{max}"/>.</p>
 <p>It may be that the user wants the spectrum or profile in a more complex region than
 a simple annulus, for instance the projection of a square detector (pixel).
 The cluster model provides an option for this by using the parameter with name
@@ -531,8 +532,8 @@ name of an ascii-file (parameter fazi).</p>
 <p>This file must have the following contents:</p>
 <p>first line: number of points</p>
 <p>next lines: for each specified radius, from small to large radii, two numbers, namely the
-radius <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> and the azimuthal fraction <img class="math" src="../_images/math/58639315f9359f575b7ed714e6f6c45c542dd7dd.svg" alt="f_a" style="vertical-align: -3px"/>.</p>
-<p>The radius <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> must be in units of <img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}" style="vertical-align: -2px"/>, the azimuthal fraction <img class="math" src="../_images/math/58639315f9359f575b7ed714e6f6c45c542dd7dd.svg" alt="f_a" style="vertical-align: -3px"/>
+radius <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/> and the azimuthal fraction <img class="math" src="../_images/math/58639315f9359f575b7ed714e6f6c45c542dd7dd.svg" alt="f_a"/>.</p>
+<p>The radius <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/> must be in units of <img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}"/>, the azimuthal fraction <img class="math" src="../_images/math/58639315f9359f575b7ed714e6f6c45c542dd7dd.svg" alt="f_a"/>
 should be between 0 (no contribution of this annular radius) and 1 (the full annulus is contributing.)
 The spacing between the radial points should be such that linear extrapolation between the
 points gives a fair representation of the shape of the extraction region.</p>
@@ -543,9 +544,9 @@ file could be simply three lines:</p>
 <p>0 0.25</p>
 <p>1 0.25</p>
 <p>If the first radius is larger than 0 or the last radius less than 1, we adopt
-<img class="math" src="../_images/math/58ddc622ad8207f855e66e1e4f965e6091096032.svg" alt="f_a=0" style="vertical-align: -3px"/> (no emission) for the non-specified regions.</p>
+<img class="math" src="../_images/math/58ddc622ad8207f855e66e1e4f965e6091096032.svg" alt="f_a=0"/> (no emission) for the non-specified regions.</p>
 <p>An error message will be given if the file is incorrect, and in that case
-the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_images/math/c2e2d1b9f244499579a6893836ebbcc59c04a7b2.svg" alt="f_a=1" style="vertical-align: -3px"/> everywhere).</p>
+the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_images/math/c2e2d1b9f244499579a6893836ebbcc59c04a7b2.svg" alt="f_a=1"/> everywhere).</p>
 <p>We summarise the parameters below.</p>
 <table class="docutils align-default">
 <tbody>
@@ -555,23 +556,23 @@ the model is evaluated as if the flag azim=0 (i.e., <img class="math" src="../_i
 <td><p>Units</p></td>
 </tr>
 <tr class="row-even"><td><p>rmin</p></td>
-<td><p><img class="math" src="../_images/math/8bd1d0a592eeb48683fe64efe7ead1f437adaa19.svg" alt="r_{min}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/8bd1d0a592eeb48683fe64efe7ead1f437adaa19.svg" alt="r_{min}"/></p></td>
 <td><p>0</p></td>
-<td><p><img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}"/></p></td>
 </tr>
 <tr class="row-odd"><td><p>rmax</p></td>
-<td><p><img class="math" src="../_images/math/ea8d301b5896589a1a55b984e6b0a08a3eb67435.svg" alt="r_{max}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/ea8d301b5896589a1a55b984e6b0a08a3eb67435.svg" alt="r_{max}"/></p></td>
 <td><p>1</p></td>
-<td><p><img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/69b866260c01d0f228585930eccf2b243b44b1f4.svg" alt="r_{out}"/></p></td>
 </tr>
 <tr class="row-even"><td><p>emin</p></td>
-<td><p><img class="math" src="../_images/math/1f77bce113e1699fb7e18fdbe8ec63524a82c307.svg" alt="E_{min}" style="vertical-align: -2px"/></p></td>
+<td><p><img class="math" src="../_images/math/1f77bce113e1699fb7e18fdbe8ec63524a82c307.svg" alt="E_{min}"/></p></td>
 <td><p>0</p></td>
 <td><p>keV</p></td>
 </tr>
 <tr class="row-odd"><td><p>emax</p></td>
-<td><p><img class="math" src="../_images/math/3c2924cd7358ade4116de23e1d18b49665d750a7.svg" alt="E_{max}" style="vertical-align: -2px"/></p></td>
-<td><p><img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/></p></td>
+<td><p><img class="math" src="../_images/math/3c2924cd7358ade4116de23e1d18b49665d750a7.svg" alt="E_{max}"/></p></td>
+<td><p><img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}"/></p></td>
 <td><p>keV</p></td>
 </tr>
 <tr class="row-even"><td><p>azim</p></td>
@@ -665,7 +666,7 @@ information is given “on the fly”.</p>
 <p class="admonition-title">Warning</p>
 <p>When running resonance scattering, be aware that the computation times may become very large.
 For example, a run with 128 radial shells, 256 projected annuli, with cluster parameters adjusted to
-the Perseus cluster, and with nit0 equal to <img class="math" src="../_images/math/f952026a20e160c10e42be4de6148d4726667b49.svg" alt="10^5" style="vertical-align: 0px"/> and thus <img class="math" src="../_images/math/006725ddfb5840df9978491a659263fec9754490.svg" alt="1.28\times 10^7" style="vertical-align: -1px"/> random drawings
+the Perseus cluster, and with nit0 equal to <img class="math" src="../_images/math/f952026a20e160c10e42be4de6148d4726667b49.svg" alt="10^5"/> and thus <img class="math" src="../_images/math/006725ddfb5840df9978491a659263fec9754490.svg" alt="1.28\times 10^7"/> random drawings
 per spectral line (and 666 spectral lines included) takes about 6 hours to complete on a single core of a 2.3 GHz processor
 using the gfortran compiler; it may be faster using other processors or compilers. For less ambitious accuracy
 a couple of minutes per model evaluation is more realistic.</p>
@@ -708,7 +709,7 @@ The columns are as follows:</p>
 <ol class="arabic simple">
 <li><p>line number (corresponding to the first number in <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>)</p></li>
 <li><p>ir: the projected annulus number</p></li>
-<li><p>r: the radius of the projected annulus in <img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}" style="vertical-align: 0px"/> m. The radius is here the mean of the inner and outer
+<li><p>r: the radius of the projected annulus in <img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}"/> m. The radius is here the mean of the inner and outer
 radius of the annulus.</p></li>
 <li><p>fluxscale: the scaling factor by which the number of photons in the next three columns (5 to 7) needs to be
 multiplied in order to get fluxes in photons per square meter per second, emitted at the cluster (not to be
@@ -733,7 +734,7 @@ The columns are as follows:</p>
 <ol class="arabic simple">
 <li><p>line number (corresponding to the first number in <code class="docutils literal notranslate"><span class="pre">cluslin1.asc</span></code>)</p></li>
 <li><p>ir: the 3D shell number</p></li>
-<li><p>r: the radius of the shell in <img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}" style="vertical-align: 0px"/> m. The radius is here the mean of the inner and outer radius of the shell.</p></li>
+<li><p>r: the radius of the shell in <img class="math" src="../_images/math/bfe27b764e14aae0f307b0af2abb2e5da9877211.svg" alt="10^{22}"/> m. The radius is here the mean of the inner and outer radius of the shell.</p></li>
 <li><p>T: the temperature of the shell at mid-radius</p></li>
 <li><p>fr: the fraction of the total line flux of the cluster emitted from this shell (without resonance scattering)</p></li>
 <li><p>concentrat: the ion concentration of the emitting ion at this radius.</p></li>
@@ -745,12 +746,12 @@ The columns are as follows:</p>
 version of this model was created. For the “new” atomic data set, we selected 666 transitions for H-like to Na-like
 ions, under the following assumptions:</p>
 <ol class="arabic simple">
-<li><p>We use a simple scaling law <img class="math" src="../_images/math/54ca6a8859fe781d91a5872e061be902a52235ac.svg" alt="N_{\rm H} = 10^{25} \sqrt{T}" style="vertical-align: -2px"/> where <img class="math" src="../_images/math/c4ebc8b22cf63fb09b5fdb079d74f33f2298497b.svg" alt="N_{\rm H}" style="vertical-align: -2px"/> is the total column density
-from the core of the cluster to infinity, in units of per square meter, and <img class="math" src="../_images/math/a41b9514b9207870e358b4920805e90b64608e85.svg" alt="{T}" style="vertical-align: 0px"/> the temperature in keV. This
+<li><p>We use a simple scaling law <img class="math" src="../_images/math/54ca6a8859fe781d91a5872e061be902a52235ac.svg" alt="N_{\rm H} = 10^{25} \sqrt{T}"/> where <img class="math" src="../_images/math/c4ebc8b22cf63fb09b5fdb079d74f33f2298497b.svg" alt="N_{\rm H}"/> is the total column density
+from the core of the cluster to infinity, in units of per square meter, and <img class="math" src="../_images/math/a41b9514b9207870e358b4920805e90b64608e85.svg" alt="{T}"/> the temperature in keV. This
 matches approximately the Perseus cluster at a temperature of 4 keV. It is based on the simple scaling laws for
-cluster mass M, radius R and density <img class="math" src="../_images/math/57fbca72278e05d5c22ee87df47cde84e5379ea5.svg" alt="\rho" style="vertical-align: -3px"/></p></li>
+cluster mass M, radius R and density <img class="math" src="../_images/math/57fbca72278e05d5c22ee87df47cde84e5379ea5.svg" alt="\rho"/></p></li>
 </ol>
-<p><img class="math" src="../_images/math/5ce4fdba9a43f8f142e8769ab6eb545b56ad2c92.svg" alt="M\sim R^3\rho" style="vertical-align: -3px"/> , <img class="math" src="../_images/math/57fbca72278e05d5c22ee87df47cde84e5379ea5.svg" alt="\rho" style="vertical-align: -3px"/> constant, <img class="math" src="../_images/math/0ad5d47e77c83f3b5eda6af67bb1decc98312b88.svg" alt="M\sim T^{1.5}" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/a9cb1464c6d5ac8a635015936b50394061522177.svg" alt="N_{\rm H} \sim \rho R" style="vertical-align: -3px"/></p>
+<p><img class="math" src="../_images/math/5ce4fdba9a43f8f142e8769ab6eb545b56ad2c92.svg" alt="M\sim R^3\rho"/> , <img class="math" src="../_images/math/57fbca72278e05d5c22ee87df47cde84e5379ea5.svg" alt="\rho"/> constant, <img class="math" src="../_images/math/0ad5d47e77c83f3b5eda6af67bb1decc98312b88.svg" alt="M\sim T^{1.5}"/> and <img class="math" src="../_images/math/a9cb1464c6d5ac8a635015936b50394061522177.svg" alt="N_{\rm H} \sim \rho R"/></p>
 <ol class="arabic simple" start="2">
 <li><p>For a grid of temperatures T from 0.25 to 16 keV, step size a factor of 2, assuming no turbulence (i.e., the highest
 possible optical depths) and a column density of 5 times higher than the scaling relation given under 1. above, we
@@ -809,7 +810,7 @@ present, non-thermal effects are not taken into account (default).</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -827,7 +828,16 @@ present, non-thermal effects are not taken into account (default).</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -859,16 +869,6 @@ present, non-thermal effects are not taken into account (default).</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -882,9 +882,9 @@ present, non-thermal effects are not taken into account (default).</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

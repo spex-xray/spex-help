@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8.1.5. Non-equilibrium ionisation (NEI) calculations &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>8.1.5. Non-equilibrium ionisation (NEI) calculations &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/spexact/nei.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -61,12 +62,12 @@ abundances there must be a considerable population of neutral Hydrogen
 or Helium. But in that case charge exchange reactions become important,
 and should be taken into account in the transition matrix. This however
 is impossible to incorporate in the KJ method, since in this case there
-are 3 free parameters (<img class="math" src="../../_images/math/d4e261e47d9ba92f8a4c45ca3677edad82ed9fd4.svg" alt="n_{\mathrm e}/n_{\mathrm H}" style="vertical-align: -4px"/>, <img class="math" src="../../_images/math/0443ee940c00172e2ea3d221c457c74e5525f726.svg" alt="n_{\mathrm
-e}/n_{\mathrm He}" style="vertical-align: -4px"/> and <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>) instead of 1 (<img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>), and storage of
+are 3 free parameters (<img class="math" src="../../_images/math/d4e261e47d9ba92f8a4c45ca3677edad82ed9fd4.svg" alt="n_{\mathrm e}/n_{\mathrm H}"/>, <img class="math" src="../../_images/math/0443ee940c00172e2ea3d221c457c74e5525f726.svg" alt="n_{\mathrm
+e}/n_{\mathrm He}"/> and <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T"/>) instead of 1 (<img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T"/>), and storage of
 matrices etc. becomes physically impossible. Knowing that the method of
 KJ becomes inaccurate for low ionisation rates we decided to leave the
-prescribed <img class="math" src="../../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> concept and return to the prescribed
-<img class="math" src="../../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}" style="vertical-align: -2px"/> concept. This has the advantage that the equations for
+prescribed <img class="math" src="../../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}"/> concept and return to the prescribed
+<img class="math" src="../../_images/math/3ed728fd5e8f6c3ec986beaa8ffa95bf69ea1e17.svg" alt="n_{\mathrm e}"/> concept. This has the advantage that the equations for
 the ionisation balance of each chemical element can be calculated
 independently from the other elements; KJ need to calculate the
 concentrations of all elements for each time step in order to determine
@@ -83,15 +84,15 @@ ratio of SNRs therefore.</p>
 <p>The second modification concerns the temperature grid. Contrary to KJ,
 we use a keV grid instead of a K grid. Further, since we now include 30
 chemical elements instead of 15, we had to reduce the step size
-<img class="math" src="../../_images/math/bb4763e4ca1692f0d33ce4f1c36306a0ae33bc40.svg" alt="h" style="vertical-align: 0px"/> of the grid from 0.05 in <img class="math" src="../../_images/math/7eaa3c3f57f49ddda51c9d7d088397e7a1fb3c5d.svg" alt="\log T" style="vertical-align: -3px"/> to 0.10, in order not
+<img class="math" src="../../_images/math/bb4763e4ca1692f0d33ce4f1c36306a0ae33bc40.svg" alt="h"/> of the grid from 0.05 in <img class="math" src="../../_images/math/7eaa3c3f57f49ddda51c9d7d088397e7a1fb3c5d.svg" alt="\log T"/> to 0.10, in order not
 to get disk storage problems. This change however is compensated by a
 better interpolation technique used here. KJ just rounded all
 temperatures to the nearest grid point. Here we interpolate the
 calculated concentrations between two temperature grid points linearly,
-which is one order of magnitude (<img class="math" src="../../_images/math/bb4763e4ca1692f0d33ce4f1c36306a0ae33bc40.svg" alt="h" style="vertical-align: 0px"/>) better. A rough estimate
-learns that the error in the method of KJ per decade is <img class="math" src="../../_images/math/70123e23af2587f394c2574ac7d0712cb6e1a733.svg" alt="nh^2" style="vertical-align: 0px"/>
-which gives for <img class="math" src="../../_images/math/e967517936de5f1a9acf694342c63f74dc0c6fbc.svg" alt="n=1/h" style="vertical-align: -4px"/> an error of order 0.05, while the current
-implementation has typical errors per decade of <img class="math" src="../../_images/math/302783d3a6e46f36c010de53352dc38cc8849f48.svg" alt="nh^3" style="vertical-align: 0px"/> which gives
+which is one order of magnitude (<img class="math" src="../../_images/math/bb4763e4ca1692f0d33ce4f1c36306a0ae33bc40.svg" alt="h"/>) better. A rough estimate
+learns that the error in the method of KJ per decade is <img class="math" src="../../_images/math/70123e23af2587f394c2574ac7d0712cb6e1a733.svg" alt="nh^2"/>
+which gives for <img class="math" src="../../_images/math/e967517936de5f1a9acf694342c63f74dc0c6fbc.svg" alt="n=1/h"/> an error of order 0.05, while the current
+implementation has typical errors per decade of <img class="math" src="../../_images/math/302783d3a6e46f36c010de53352dc38cc8849f48.svg" alt="nh^3"/> which gives
 a typical error of 0.01 per decade.</p>
 </section>
 
@@ -100,7 +101,7 @@ a typical error of 0.01 per decade.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -118,7 +119,16 @@ a typical error of 0.01 per decade.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -153,16 +163,6 @@ a typical error of 0.01 per decade.</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -176,9 +176,9 @@ a typical error of 0.01 per decade.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

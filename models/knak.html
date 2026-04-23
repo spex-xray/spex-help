@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.24. Knak: segmented power law transmission model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.24. Knak: segmented power law transmission model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/knak.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -49,19 +50,19 @@ this last application can be found in <a class="reference external" href="https:
 <p>The Transmission is given by:</p>
 <div class="math">
 <p><img src="../_images/math/1eb032a7ad725c36a98a83af1ea0c87cd6f94f15.svg" alt="T(E) = c_iE^{a_i} \quad \mathrm{if} \quad E_i &lt; E &lt; E_{i+1}"/></p>
-</div><p>for each value of <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/> between 0 and <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>, the number of grid
-points. The transmission is 1 for <img class="math" src="../_images/math/999a9dc28e70f946a95619ce04dc46b953b8d35f.svg" alt="E&lt;E_1" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/51d02712ec1b22805ee522a0619c6dd741ef8c42.svg" alt="E&gt;E_2" style="vertical-align: -2px"/>.
-Further, instead of using the constants <img class="math" src="../_images/math/030e6c676f5268d1e368944cc62db56e7ac386f2.svg" alt="c_i" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/cca65ddcb36cd50b8fd6d10096df79a16ac45dfd.svg" alt="a_i" style="vertical-align: -2px"/>, we
-use instead the values of the transmission at <img class="math" src="../_images/math/1ed790125b5b07b28bfea809c3e3d3701e18b598.svg" alt="E_i" style="vertical-align: -2px"/>, i.e.
-<img class="math" src="../_images/math/fdbc157899c9c8249a2cd88fbd22e4471ca67ec8.svg" alt="T_i \equiv T(E_i) = c_i E_i^{\displaystyle{a_i}}" style="vertical-align: -4px"/>. This allows
+</div><p>for each value of <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i"/> between 0 and <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/>, the number of grid
+points. The transmission is 1 for <img class="math" src="../_images/math/999a9dc28e70f946a95619ce04dc46b953b8d35f.svg" alt="E&lt;E_1"/> and <img class="math" src="../_images/math/51d02712ec1b22805ee522a0619c6dd741ef8c42.svg" alt="E&gt;E_2"/>.
+Further, instead of using the constants <img class="math" src="../_images/math/030e6c676f5268d1e368944cc62db56e7ac386f2.svg" alt="c_i"/> and <img class="math" src="../_images/math/cca65ddcb36cd50b8fd6d10096df79a16ac45dfd.svg" alt="a_i"/>, we
+use instead the values of the transmission at <img class="math" src="../_images/math/1ed790125b5b07b28bfea809c3e3d3701e18b598.svg" alt="E_i"/>, i.e.
+<img class="math" src="../_images/math/fdbc157899c9c8249a2cd88fbd22e4471ca67ec8.svg" alt="T_i \equiv T(E_i) = c_i E_i^{\displaystyle{a_i}}"/>. This allows
 for a continuous connection between neighbouring segments.</p>
 <p>Finally, for historical reasons we use here a wavelength grid instead of
-an energy grid; the corresponding nodes <img class="math" src="../_images/math/2e698d5a750854319db1b1c6f98f8a2a98432953.svg" alt="\lambda_i" style="vertical-align: -2px"/> should
+an energy grid; the corresponding nodes <img class="math" src="../_images/math/2e698d5a750854319db1b1c6f98f8a2a98432953.svg" alt="\lambda_i"/> should
 therefore be in strictly increasing order.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When applying this model, take care that at least one of
-the <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> transmission values is kept fixed (otherwise you may run
+the <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> transmission values is kept fixed (otherwise you may run
 the risk that your model is unconstrained, for example if the
 normalisation of the continuum is also a free parameter).</p>
 </div>
@@ -71,25 +72,25 @@ normalisation of the continuum is also a free parameter).</p>
 <dd class="field-odd"><p>The number of grid points. Maximum value is 9.</p>
 </dd>
 <dt class="field-even">w1<span class="colon">:</span></dt>
-<dd class="field-even"><p>Wavelength <img class="math" src="../_images/math/14970009fc7bfeca3cc3aed64551596bf001f275.svg" alt="\lambda_1" style="vertical-align: -2px"/> (Å) of the first grid point</p>
+<dd class="field-even"><p>Wavelength <img class="math" src="../_images/math/14970009fc7bfeca3cc3aed64551596bf001f275.svg" alt="\lambda_1"/> (Å) of the first grid point</p>
 </dd>
 <dt class="field-odd">f1<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Transmission <img class="math" src="../_images/math/38b9d66b937d751e960089fb63d28046db4e8b83.svg" alt="T(\lambda_1)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/14970009fc7bfeca3cc3aed64551596bf001f275.svg" alt="\lambda_1" style="vertical-align: -2px"/>.</p>
+<dd class="field-odd"><p>Transmission <img class="math" src="../_images/math/38b9d66b937d751e960089fb63d28046db4e8b83.svg" alt="T(\lambda_1)"/> at <img class="math" src="../_images/math/14970009fc7bfeca3cc3aed64551596bf001f275.svg" alt="\lambda_1"/>.</p>
 </dd>
 <dt class="field-even">w2<span class="colon">:</span></dt>
-<dd class="field-even"><p>Wavelength <img class="math" src="../_images/math/50dadca5dccf614a70ec0a579c5b95929e2c7f74.svg" alt="\lambda_2" style="vertical-align: -2px"/> (Å) of the second grid point</p>
+<dd class="field-even"><p>Wavelength <img class="math" src="../_images/math/50dadca5dccf614a70ec0a579c5b95929e2c7f74.svg" alt="\lambda_2"/> (Å) of the second grid point</p>
 </dd>
 <dt class="field-odd">f1<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Transmission <img class="math" src="../_images/math/e4447a5cb2ff96c1b94fb7d9c8cca283b02f7898.svg" alt="T(\lambda_2)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/50dadca5dccf614a70ec0a579c5b95929e2c7f74.svg" alt="\lambda_2" style="vertical-align: -2px"/>.
+<dd class="field-odd"><p>Transmission <img class="math" src="../_images/math/e4447a5cb2ff96c1b94fb7d9c8cca283b02f7898.svg" alt="T(\lambda_2)"/> at <img class="math" src="../_images/math/50dadca5dccf614a70ec0a579c5b95929e2c7f74.svg" alt="\lambda_2"/>.
 …</p>
 </dd>
 <dt class="field-even">w9<span class="colon">:</span></dt>
-<dd class="field-even"><p>Wavelength <img class="math" src="../_images/math/09ee33b65fd8b1ee87ad9896b443fb31869356ec.svg" alt="\lambda_9" style="vertical-align: -2px"/> (Å) of the last grid point</p>
+<dd class="field-even"><p>Wavelength <img class="math" src="../_images/math/09ee33b65fd8b1ee87ad9896b443fb31869356ec.svg" alt="\lambda_9"/> (Å) of the last grid point</p>
 </dd>
 <dt class="field-odd">f9<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Transmission <img class="math" src="../_images/math/e8237cfcd27d93af51a246412213fe901bc1dfaa.svg" alt="T(\lambda_9)" style="vertical-align: -4px"/> at <img class="math" src="../_images/math/09ee33b65fd8b1ee87ad9896b443fb31869356ec.svg" alt="\lambda_9" style="vertical-align: -2px"/>.
-Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb42130dc82fe86.svg" alt="n&lt;9" style="vertical-align: 0px"/>, the values of <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i" style="vertical-align: -2px"/> and
-<img class="math" src="../_images/math/2e698d5a750854319db1b1c6f98f8a2a98432953.svg" alt="\lambda_i" style="vertical-align: -2px"/> will be ignored for <img class="math" src="../_images/math/902d71f8ce87573b3a605177010bded399dcad7e.svg" alt="i&gt;n" style="vertical-align: 0px"/>.</p>
+<dd class="field-odd"><p>Transmission <img class="math" src="../_images/math/e8237cfcd27d93af51a246412213fe901bc1dfaa.svg" alt="T(\lambda_9)"/> at <img class="math" src="../_images/math/09ee33b65fd8b1ee87ad9896b443fb31869356ec.svg" alt="\lambda_9"/>.
+Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb42130dc82fe86.svg" alt="n&lt;9"/>, the values of <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i"/> and
+<img class="math" src="../_images/math/2e698d5a750854319db1b1c6f98f8a2a98432953.svg" alt="\lambda_i"/> will be ignored for <img class="math" src="../_images/math/902d71f8ce87573b3a605177010bded399dcad7e.svg" alt="i&gt;n"/>.</p>
 </dd>
 </dl>
 <p><em>Recommended citation:</em> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2004A%26A...413..913P/abstract">Porquet et al. (2004)</a>.</p>
@@ -100,7 +101,7 @@ Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb4
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -118,7 +119,16 @@ Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb4
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -150,16 +160,6 @@ Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb4
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -173,9 +173,9 @@ Note that if <img class="math" src="../_images/math/4b309e423972c67011037517ceb4
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

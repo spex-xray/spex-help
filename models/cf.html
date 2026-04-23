@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.5. Cf: isobaric cooling flow differential emission measure model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.5. Cf: isobaric cooling flow differential emission measure model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/cf.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,27 +38,27 @@
 <h1><span class="section-number">4.1.5. </span>Cf: isobaric cooling flow differential emission measure model<a class="headerlink" href="#cf-isobaric-cooling-flow-differential-emission-measure-model" title="Link to this heading">¶</a></h1>
 <p>This model calculates the spectrum of a standard isobaric cooling flow.
 The differential emission measure distribution
-<img class="math" src="../_images/math/5fa48a803c9dda446e5ab0bf08c48f400726d74a.svg" alt="\mathrm{d}Y(T)/\mathrm{d}T" style="vertical-align: -4px"/> for the isobaric cooling flow model can be
+<img class="math" src="../_images/math/5fa48a803c9dda446e5ab0bf08c48f400726d74a.svg" alt="\mathrm{d}Y(T)/\mathrm{d}T"/> for the isobaric cooling flow model can be
 written as</p>
 <div class="math">
 <p><img src="../_images/math/5649fe309296c5c8c2f0cca1159bb3ec3854d368.svg" alt="D(T)\equiv \mathrm{d}Y(T)/\mathrm{d}T = \frac{5\dot{M}k}{2\mu m_{\mathrm{H}} \Lambda(T)},"/></p>
-</div><p>where <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}" style="vertical-align: 0px"/> is the mass deposition rate, <img class="math" src="../_images/math/97679e5a09433a18cf55d0311c991ce7a5ef3c12.svg" alt="k" style="vertical-align: 0px"/> is
-Boltzmann’s constant, <img class="math" src="../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu" style="vertical-align: -3px"/> the mean molecular weight (0.618 for a
-plasma with 0.5 times solar abundances), <img class="math" src="../_images/math/c97020fb0dba9de56c2c9ac917d55fbc216ef63c.svg" alt="m_{\mathrm{H}}" style="vertical-align: -2px"/> is the mass
-of a hydrogen atom, and <img class="math" src="../_images/math/686121e1e9f09aa3d1f592bc0afc62451b2c153e.svg" alt="\Lambda(T)" style="vertical-align: -4px"/> is the cooling function. We
-have calculated the cooling function <img class="math" src="../_images/math/b4f1652f9220d16e47a9d1acf426b1824075c182.svg" alt="\Lambda" style="vertical-align: 0px"/> using our own
+</div><p>where <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}"/> is the mass deposition rate, <img class="math" src="../_images/math/97679e5a09433a18cf55d0311c991ce7a5ef3c12.svg" alt="k"/> is
+Boltzmann’s constant, <img class="math" src="../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu"/> the mean molecular weight (0.618 for a
+plasma with 0.5 times solar abundances), <img class="math" src="../_images/math/c97020fb0dba9de56c2c9ac917d55fbc216ef63c.svg" alt="m_{\mathrm{H}}"/> is the mass
+of a hydrogen atom, and <img class="math" src="../_images/math/686121e1e9f09aa3d1f592bc0afc62451b2c153e.svg" alt="\Lambda(T)"/> is the cooling function. We
+have calculated the cooling function <img class="math" src="../_images/math/b4f1652f9220d16e47a9d1acf426b1824075c182.svg" alt="\Lambda"/> using our own
 SPEX code for a grid of temperatures and for 0.5 times solar abundances.
 The spectrum is evaluated by integrating the above differential emission
-measure distribution between a lower temperature boundary <img class="math" src="../_images/math/5180e7be37254241e039d94193b290de1912b40e.svg" alt="T_1" style="vertical-align: -2px"/>
-and a high temperature boundary <img class="math" src="../_images/math/133cef25f9283594cdb6be0c8c868c5acf35f705.svg" alt="T_n" style="vertical-align: -2px"/>. We do this by creating a
-temperature grid with <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> bins and calculating the spectrum for
+measure distribution between a lower temperature boundary <img class="math" src="../_images/math/5180e7be37254241e039d94193b290de1912b40e.svg" alt="T_1"/>
+and a high temperature boundary <img class="math" src="../_images/math/133cef25f9283594cdb6be0c8c868c5acf35f705.svg" alt="T_n"/>. We do this by creating a
+temperature grid with <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> bins and calculating the spectrum for
 each temperature.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Take care that <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> is not too small in case the
-relevant temperature is large; on the other hand if <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> is large,
+<p>Take care that <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> is not too small in case the
+relevant temperature is large; on the other hand if <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> is large,
 the computational time increases. Usually a spacing with temperature
-differences between adjacent bins of 0.1 (in <img class="math" src="../_images/math/d6320f5c1305a69b783d618faafbaca93d6cfc98.svg" alt="\log" style="vertical-align: -3px"/>) is sufficient
+differences between adjacent bins of 0.1 (in <img class="math" src="../_images/math/d6320f5c1305a69b783d618faafbaca93d6cfc98.svg" alt="\log"/>) is sufficient
 and optimal.</p>
 </div>
 <div class="admonition warning">
@@ -67,33 +68,33 @@ and optimal.</p>
 <p>The parameters of the model are:</p>
 <dl class="field-list simple">
 <dt class="field-odd">norm<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The mass deposition rate <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}" style="vertical-align: 0px"/> in
-<img class="math" src="../_images/math/ae98355d974d6671f2235cd1d9688c81fe8c2c52.svg" alt="\mathrm{M}_{\odot}" style="vertical-align: -4px"/> <img class="math" src="../_images/math/97af1107b6695151682d2d837691c301cc0f17ba.svg" alt="\mathrm{yr}^{-1}" style="vertical-align: -3px"/>.</p>
+<dd class="field-odd"><p>The mass deposition rate <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}"/> in
+<img class="math" src="../_images/math/ae98355d974d6671f2235cd1d9688c81fe8c2c52.svg" alt="\mathrm{M}_{\odot}"/> <img class="math" src="../_images/math/97af1107b6695151682d2d837691c301cc0f17ba.svg" alt="\mathrm{yr}^{-1}"/>.</p>
 </dd>
 <dt class="field-even">t1<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lower temperature cut-off temperature <img class="math" src="../_images/math/5180e7be37254241e039d94193b290de1912b40e.svg" alt="T_1" style="vertical-align: -2px"/>. Default:
+<dd class="field-even"><p>Lower temperature cut-off temperature <img class="math" src="../_images/math/5180e7be37254241e039d94193b290de1912b40e.svg" alt="T_1"/>. Default:
 0.1 keV.</p>
 </dd>
 <dt class="field-odd">tn<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Upper temperature cut-off temperature <img class="math" src="../_images/math/133cef25f9283594cdb6be0c8c868c5acf35f705.svg" alt="T_n" style="vertical-align: -2px"/>. Default:
+<dd class="field-odd"><p>Upper temperature cut-off temperature <img class="math" src="../_images/math/133cef25f9283594cdb6be0c8c868c5acf35f705.svg" alt="T_n"/>. Default:
 1 keV.</p>
 </dd>
 <dt class="field-even">nr<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number of temperature bins <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> used in the integration.
+<dd class="field-even"><p>Number of temperature bins <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> used in the integration.
 Default value: 16</p>
 </dd>
 <dt class="field-odd">p<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Slope <img class="math" src="../_images/math/59da5702e00c346068e7502b9be6d201b1a561b4.svg" alt="p=1/\alpha" style="vertical-align: -4px"/>. Default: 0.25 (<img class="math" src="../_images/math/42db3b14b8b32a7c32398fa9c92fa437d3b32428.svg" alt="\alpha = 4" style="vertical-align: 0px"/>).</p>
+<dd class="field-odd"><p>Slope <img class="math" src="../_images/math/59da5702e00c346068e7502b9be6d201b1a561b4.svg" alt="p=1/\alpha"/>. Default: 0.25 (<img class="math" src="../_images/math/42db3b14b8b32a7c32398fa9c92fa437d3b32428.svg" alt="\alpha = 4"/>).</p>
 </dd>
 <dt class="field-even">cut<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lower temperature cut-off, in units of <img class="math" src="../_images/math/b325a562efba051e57aa7eb9b8c48d597a6f7f9a.svg" alt="T_{\max}" style="vertical-align: -2px"/>.
+<dd class="field-even"><p>Lower temperature cut-off, in units of <img class="math" src="../_images/math/b325a562efba051e57aa7eb9b8c48d597a6f7f9a.svg" alt="T_{\max}"/>.
 Default value: 0.1.</p>
 </dd>
 </dl>
 <p>The following parameters are the same as for the cie-model:</p>
 <dl class="field-list simple">
 <dt class="field-odd">hden<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Hydrogen density in <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.</p>
+<dd class="field-odd"><p>Hydrogen density in <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>.</p>
 </dd>
 <dt class="field-even">it<span class="colon">:</span></dt>
 <dd class="field-even"><p>Ion temperature in keV.</p>
@@ -120,7 +121,7 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984Na
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -138,7 +139,16 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984Na
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -170,16 +180,6 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984Na
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -193,9 +193,9 @@ and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1984Na
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

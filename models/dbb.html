@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.11. Dbb: disk blackbody model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.11. Dbb: disk blackbody model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/dbb.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,66 +40,66 @@
 radiative losses from such a disk are given by</p>
 <div class="math">
 <p><img src="../_images/math/58af997eacea50d2b751560b965225a7247a4e31.svg" alt="Q = \frac{3GM\dot{M}(1-\sqrt{r_i/r}) }{ 8\pi r^3},"/></p>
-</div><p>where <img class="math" src="../_images/math/96257f19c42f73e0d77bbc073a7ee0e516c047f4.svg" alt="Q" style="vertical-align: -3px"/> is the loss term in W m<img class="math" src="../_images/math/c9a1777e7400ab532d9f41bdd333ea02460bb6d6.svg" alt="^{-2}" style="vertical-align: 0px"/> at radius
-<img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/>, <img class="math" src="../_images/math/60c2f1677baa9f9ab44d62f602f743639c765aa4.svg" alt="M" style="vertical-align: 0px"/> the mass of the central object, <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}" style="vertical-align: 0px"/> the
-accretion rate through the disk and <img class="math" src="../_images/math/4b29f633bdd936189f47dddec2402c6c826ab47a.svg" alt="r_i" style="vertical-align: -2px"/> the inner radius. If
+</div><p>where <img class="math" src="../_images/math/96257f19c42f73e0d77bbc073a7ee0e516c047f4.svg" alt="Q"/> is the loss term in W m<img class="math" src="../_images/math/c9a1777e7400ab532d9f41bdd333ea02460bb6d6.svg" alt="^{-2}"/> at radius
+<img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/>, <img class="math" src="../_images/math/60c2f1677baa9f9ab44d62f602f743639c765aa4.svg" alt="M"/> the mass of the central object, <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}"/> the
+accretion rate through the disk and <img class="math" src="../_images/math/4b29f633bdd936189f47dddec2402c6c826ab47a.svg" alt="r_i"/> the inner radius. If
 this energy loss is radiated as a black body, we have</p>
 <div class="math">
 <p><img src="../_images/math/be0833ad851f859a91ee579cea97c7931552d644.svg" alt="Q = \sigma T^4"/></p>
-</div><p>with <img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/> the constant of Stefan-Boltzmann and <img class="math" src="../_images/math/5e52f0bb00c06505b5dd3384afcaeccda3f693c9.svg" alt="T(r)" style="vertical-align: -4px"/>
+</div><p>with <img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma"/> the constant of Stefan-Boltzmann and <img class="math" src="../_images/math/5e52f0bb00c06505b5dd3384afcaeccda3f693c9.svg" alt="T(r)"/>
 the local temperature of the black body. The total spectrum of such a
 disk is then obtained by integration over all radii. We do this
-integration numerically. Note that for large <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/>,
-<img class="math" src="../_images/math/a27495802daa7728e004117d985b64d76dbd3b0a.svg" alt="T\sim r^{-3/4}" style="vertical-align: 0px"/>.</p>
+integration numerically. Note that for large <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/>,
+<img class="math" src="../_images/math/a27495802daa7728e004117d985b64d76dbd3b0a.svg" alt="T\sim r^{-3/4}"/>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A popular disk model (diskbb in XSPEC) assumes this
 temperature dependence over the full disk. However, we correct it using
-the factor <img class="math" src="../_images/math/09ed40427b33ef2f2276a1f8a9b45c02247426cf.svg" alt="(1-\sqrt{r_i/r})" style="vertical-align: -5px"/> in <img class="math" src="../_images/math/96257f19c42f73e0d77bbc073a7ee0e516c047f4.svg" alt="Q" style="vertical-align: -3px"/> which corresponds to
+the factor <img class="math" src="../_images/math/09ed40427b33ef2f2276a1f8a9b45c02247426cf.svg" alt="(1-\sqrt{r_i/r})"/> in <img class="math" src="../_images/math/96257f19c42f73e0d77bbc073a7ee0e516c047f4.svg" alt="Q"/> which corresponds to
 the torque-free condition at the inner boundary of the disk.</p>
 </div>
 <p>The photon spectrum of the disk is now given by</p>
 <div class="math">
 <p><img src="../_images/math/f67c227c7cd5c136cbac5dad8271384b3c309c80.svg" alt="N(E) = \frac{8\pi^2E^2r_i^2\cos i }{ h^3c^2} f_d(E/kT_i,r_o/r_i),"/></p>
-</div><p>where <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/> is the inclination of the disk (0 degrees for face-on
-disk, 90 degrees for an edge-on disk), <img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E" style="vertical-align: 0px"/> the photon energy,
-<img class="math" src="../_images/math/234ec783e4a5dc3e3f6106e510cda05691e53ac7.svg" alt="r_o" style="vertical-align: -2px"/> the outer edge of the disk, and <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i" style="vertical-align: -2px"/> is defined by</p>
+</div><p>where <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i"/> is the inclination of the disk (0 degrees for face-on
+disk, 90 degrees for an edge-on disk), <img class="math" src="../_images/math/b929758a8c88ee87bb77e2c1eb75ae3246cdefdd.svg" alt="E"/> the photon energy,
+<img class="math" src="../_images/math/234ec783e4a5dc3e3f6106e510cda05691e53ac7.svg" alt="r_o"/> the outer edge of the disk, and <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i"/> is defined by</p>
 <div class="math" id="equation-tidisk">
 <p><span class="eqno">(1)<a class="headerlink" href="#equation-tidisk" title="Link to this equation">¶</a></span><img src="../_images/math/3183cba5612d8cbd144060b618655e44b09e3897.svg" alt="T_i^4 = 3GM\dot{M}/8\pi r_i^3\sigma"/></p>
-</div><p>and further the function <img class="math" src="../_images/math/0db7f83bed92811cb0b576a0e2226e2ef5f71662.svg" alt="f_d(y,r)" style="vertical-align: -4px"/> is defined by</p>
+</div><p>and further the function <img class="math" src="../_images/math/0db7f83bed92811cb0b576a0e2226e2ef5f71662.svg" alt="f_d(y,r)"/> is defined by</p>
 <div class="math">
 <p><img src="../_images/math/a4d4d97d5ef42631a9a662390fc1d5f23f0ba32b.svg" alt="f_d(y,r) = \int_{1}^{r} \frac{x{\mathrm d}x }{ e^{y/\tau} - 1}"/></p>
-</div><p>where <img class="math" src="../_images/math/c7864db5ac607919fd3002bbc984b0003a2dccd4.svg" alt="\tau(x)" style="vertical-align: -4px"/> is defined by
-<img class="math" src="../_images/math/788f52f02bcf60f99485e86312c048402971c32e.svg" alt="\tau^4(x) = (1-1/\sqrt{x})/x^3" style="vertical-align: -4px"/>.</p>
+</div><p>where <img class="math" src="../_images/math/c7864db5ac607919fd3002bbc984b0003a2dccd4.svg" alt="\tau(x)"/> is defined by
+<img class="math" src="../_images/math/788f52f02bcf60f99485e86312c048402971c32e.svg" alt="\tau^4(x) = (1-1/\sqrt{x})/x^3"/>.</p>
 <p>In addition to calculating the spectrum, the model also allows to
-calculate the average radius of emission <img class="math" src="../_images/math/280ae59fbb342e21b4226d1682484a70a9b63a49.svg" alt="R_e" style="vertical-align: -2px"/> at a specified
-energy <img class="math" src="../_images/math/f8195a0817e9f9d2d87c024bcf0ed5f2488fe301.svg" alt="E_r" style="vertical-align: -2px"/>. This is sometimes useful for time variability
+calculate the average radius of emission <img class="math" src="../_images/math/280ae59fbb342e21b4226d1682484a70a9b63a49.svg" alt="R_e"/> at a specified
+energy <img class="math" src="../_images/math/f8195a0817e9f9d2d87c024bcf0ed5f2488fe301.svg" alt="E_r"/>. This is sometimes useful for time variability
 studies (softer photons emerging from the outer parts of the disk).</p>
-<p>Given the fit parameters <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i" style="vertical-align: -2px"/> and <img class="math" src="../_images/math/4b29f633bdd936189f47dddec2402c6c826ab47a.svg" alt="r_i" style="vertical-align: -2px"/>, using
+<p>Given the fit parameters <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i"/> and <img class="math" src="../_images/math/4b29f633bdd936189f47dddec2402c6c826ab47a.svg" alt="r_i"/>, using
 <a class="reference internal" href="#equation-tidisk">(1)</a> it is straightforward to calculate the
-product <img class="math" src="../_images/math/144e083b8fc82878fcf35e60088b0f651697cdb4.svg" alt="M\dot{M}" style="vertical-align: 0px"/>. Further note that if <img class="math" src="../_images/math/acfc38284cbcc2f8aa326eaf7ebb3c64933b2952.svg" alt="r_i=6GM/c^2" style="vertical-align: -4px"/>, it
-is possible to find both <img class="math" src="../_images/math/60c2f1677baa9f9ab44d62f602f743639c765aa4.svg" alt="M" style="vertical-align: 0px"/> and <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}" style="vertical-align: 0px"/>, provided the
-inclination angle <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/> is known.</p>
+product <img class="math" src="../_images/math/144e083b8fc82878fcf35e60088b0f651697cdb4.svg" alt="M\dot{M}"/>. Further note that if <img class="math" src="../_images/math/acfc38284cbcc2f8aa326eaf7ebb3c64933b2952.svg" alt="r_i=6GM/c^2"/>, it
+is possible to find both <img class="math" src="../_images/math/60c2f1677baa9f9ab44d62f602f743639c765aa4.svg" alt="M"/> and <img class="math" src="../_images/math/7f83f233add1f0c80c0ba1c826bb6dc2378171f9.svg" alt="\dot{M}"/>, provided the
+inclination angle <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i"/> is known.</p>
 <p>The parameters of the model are:</p>
 <dl class="field-list simple">
 <dt class="field-odd">norm<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalisation <img class="math" src="../_images/math/16d06aab1997308bd05dbe19b75775631dd6bc62.svg" alt="A" style="vertical-align: 0px"/> (<img class="math" src="../_images/math/0c6637f71918766dbca6c54c11c256cc200c2450.svg" alt="=r_i^2\cos i" style="vertical-align: -4px"/>), in units of
-<img class="math" src="../_images/math/70ba2a5ebf6fda50d1c7275d7f9aa4a24cef512b.svg" alt="10^{16}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/a26a9cedbf93d94ccf540df6ce251fbad8449fe4.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>. Default value: 1.</p>
+<dd class="field-odd"><p>Normalisation <img class="math" src="../_images/math/16d06aab1997308bd05dbe19b75775631dd6bc62.svg" alt="A"/> (<img class="math" src="../_images/math/0c6637f71918766dbca6c54c11c256cc200c2450.svg" alt="=r_i^2\cos i"/>), in units of
+<img class="math" src="../_images/math/70ba2a5ebf6fda50d1c7275d7f9aa4a24cef512b.svg" alt="10^{16}"/> <img class="math" src="../_images/math/a26a9cedbf93d94ccf540df6ce251fbad8449fe4.svg" alt="\mathrm{m}^2"/>. Default value: 1.</p>
 </dd>
 <dt class="field-even">t<span class="colon">:</span></dt>
-<dd class="field-even"><p>The nominal temperature <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i" style="vertical-align: -2px"/> in keV. Default value: 1
+<dd class="field-even"><p>The nominal temperature <img class="math" src="../_images/math/641f448a0d32d375b9de628a8c85c30b2c9b19d0.svg" alt="T_i"/> in keV. Default value: 1
 keV.</p>
 </dd>
 <dt class="field-odd">ro<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The ratio of outer to inner disk radius, <img class="math" src="../_images/math/cf52cc4d15ddab6040926df23957e67b3e2a1c61.svg" alt="r_o/r_i" style="vertical-align: -4px"/></p>
+<dd class="field-odd"><p>The ratio of outer to inner disk radius, <img class="math" src="../_images/math/cf52cc4d15ddab6040926df23957e67b3e2a1c61.svg" alt="r_o/r_i"/></p>
 </dd>
 <dt class="field-even">ener<span class="colon">:</span></dt>
-<dd class="field-even"><p>Energy <img class="math" src="../_images/math/f8195a0817e9f9d2d87c024bcf0ed5f2488fe301.svg" alt="E_r" style="vertical-align: -2px"/> at which the average radius of emission
+<dd class="field-even"><p>Energy <img class="math" src="../_images/math/f8195a0817e9f9d2d87c024bcf0ed5f2488fe301.svg" alt="E_r"/> at which the average radius of emission
 will be calculated</p>
 </dd>
 <dt class="field-odd">rav<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Average radius <img class="math" src="../_images/math/280ae59fbb342e21b4226d1682484a70a9b63a49.svg" alt="R_e" style="vertical-align: -2px"/> of all emission at energy
-<img class="math" src="../_images/math/f8195a0817e9f9d2d87c024bcf0ed5f2488fe301.svg" alt="E_r" style="vertical-align: -2px"/> specified by the parameter above. Note that this is not a
+<dd class="field-odd"><p>Average radius <img class="math" src="../_images/math/280ae59fbb342e21b4226d1682484a70a9b63a49.svg" alt="R_e"/> of all emission at energy
+<img class="math" src="../_images/math/f8195a0817e9f9d2d87c024bcf0ed5f2488fe301.svg" alt="E_r"/> specified by the parameter above. Note that this is not a
 free parameter, it is calculated each time the model is evaluated.</p>
 </dd>
 </dl>
@@ -110,7 +111,7 @@ free parameter, it is calculated each time the model is evaluated.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -128,7 +129,16 @@ free parameter, it is calculated each time the model is evaluated.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -160,16 +170,6 @@ free parameter, it is calculated each time the model is evaluated.</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -183,9 +183,9 @@ free parameter, it is calculated each time the model is evaluated.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.6. RGS_fluxcombine &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>5.6. RGS_fluxcombine &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/tools/rgsfluxcombine.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,7 +56,7 @@ with option 2 to get a single stacked RGS spectrum.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You must run the SAS task rgsfluxer with 3600 wavelength
-bins between 4–40 Å. Thus, do not use the former <img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta" style="vertical-align: -3px"/>-bins!
+bins between 4–40 Å. Thus, do not use the former <img class="math" src="../_images/math/f0e1b47b7c92d461b40912a8f747c9ed8907c8e2.svg" alt="\beta"/>-bins!
 Also, do not change these wavelength limits or number of bins.</p>
 </div>
 <p>The program needs an input file, basically telling it how many spectra
@@ -74,29 +75,29 @@ combined, artifacts due to missing data (bad pixels) will arise. This
 can be simply illustrated by an example. Suppose that source X is
 observed twice with RGS, with exactly the same exposure time, the first
 time with 100 counts/bin, the second time with 20 counts/bin. Suppose
-that at wavelength bin <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/> the first observation has a bad pixel,
+that at wavelength bin <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/> the first observation has a bad pixel,
 hence no counts, while the second observation has no bad pixel at bin
-<img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/>. The averaged spectrum will have (100+20)/2=60 counts per bin,
-except for bin <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/> where the average value is (0+20)/2=10. Now
+<img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/>. The averaged spectrum will have (100+20)/2=60 counts per bin,
+except for bin <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/> where the average value is (0+20)/2=10. Now
 since both exposure times are the same, the model will predict 60 counts
-for all bins (as required), except for bin <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/> where it will
+for all bins (as required), except for bin <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/> where it will
 predict 30 counts (the pixel is dead for half of the exposure). Thus,
 the model has 30 counts while the data have only 10 counts. An innocent
 observeer might therefore think there is an absorption line at bin
-<img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/> taking awat 20 counts, but it is obvious that that is not
+<img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/> taking awat 20 counts, but it is obvious that that is not
 true.</p>
 <p>For this reason, when we combine spectra, we will weigh with the
 exposure time for all “normal” bins, but when in some of the datasets
-there is a bad pixel <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/>, we will use a different procedure. In
+there is a bad pixel <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/>, we will use a different procedure. In
 that case, we look to the neighbouring pixels, and <em>assume that the
 spectral shape in this local neighbourhoud remains the same</em>. From the
 neighbours with complete data we can estimate how much flux the spectra
 with good data contribute to the total flux, and we use this fraction to
 estimate with what factor we should scale the flux measured at pixel
-<img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/> in these good data sets, to obtain the best estimate of the
-flux at pixel <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/> for the total spectrum.</p>
+<img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/> in these good data sets, to obtain the best estimate of the
+flux at pixel <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/> for the total spectrum.</p>
 <p>This procedure gives reliable results as long as the spectral shape does
-not change locally; as there is less exposure at pixel <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j" style="vertical-align: -3px"/>, only
+not change locally; as there is less exposure at pixel <img class="math" src="../_images/math/ff32825ed05f3ae892bed7e69775a4e2c45926df.svg" alt="j"/>, only
 the error bar on the flux will be larger.</p>
 <p>When there is reason to suspect that the bad pixel is at the location of
 a spectral line that changes in equivalent width, this procedure cannot
@@ -113,7 +114,7 @@ particular for the multi-pointing mode).</p>
 <em>rgsfluxer</em>, it is still possible that despite careful screening on bad
 pixels, a few bad pixels remain in the fluxed spectrum, often adjacent
 or close to discarded pixels. For this reason, the present program
-checks for any bins that are more than 3<img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/> below their
+checks for any bins that are more than 3<img class="math" src="../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma"/> below their
 right or left neighbouring bin (taking the statistical errors in both
 into account). Typically, the algorithm finds a few additional bad
 pixels in an individual observation that is discarded for combination.</p>
@@ -128,7 +129,7 @@ correction is based on the monitoring campaign on Mrk 509, taken in
 2009, and is found to be consistent with a large data set of Mrk 421
 spectra that are present in the archive.</p>
 <p>Local continuum fits to spectral bands that are poor of lines yield in
-general <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> values that are too low. This is an artifact of
+general <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> values that are too low. This is an artifact of
 the SAS procedures related to the rebinning of the data. Data have to be
 binned from the detector pixel grid to the fixed wavelength grid that we
 use in our analysis. The bin boundaries of both grids do not match. As a
@@ -137,20 +138,20 @@ spectrum as a function of detector pixel are distributed over the
 wavelength bin coinciding most with the detector pixel and its
 neighbours. In addition, there is a small smoothing effect caused by
 pointing fluctuations of the satellite. Due to this tempering of the
-Poissonian fluctuations, <img class="math" src="../_images/math/2a948c784c21a947c8ef3480a04948aecceba6c8.svg" alt="chi^2" style="vertical-align: 0px"/> values will be lower for a
+Poissonian fluctuations, <img class="math" src="../_images/math/2a948c784c21a947c8ef3480a04948aecceba6c8.svg" alt="chi^2"/> values will be lower for a
 “perfect” spectral fit.</p>
 <p>We have quantified the effect by fitting a linear model
-<img class="math" src="../_images/math/30cc7f75bab354469224ff9ba6c64e793e9d41e3.svg" alt="F_\lambda = a + b\lambda" style="vertical-align: -2px"/> to fluxed spectra in relatively line-poor
+<img class="math" src="../_images/math/30cc7f75bab354469224ff9ba6c64e793e9d41e3.svg" alt="F_\lambda = a + b\lambda"/> to fluxed spectra in relatively line-poor
 spectral regions, in 1 Å wide bins in the 7–10, 17–18 and 35–38 Å ranges.
-The median reduced <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> is 0.72, with a 67 % confidence range
+The median reduced <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> is 0.72, with a 67 % confidence range
 between 0.65 and 0.79.</p>
 <p>The rebinning process conserves the number of counts, hence the nominal
 error bars (square root of the number of counts) are properly
-determined. The lower reduced <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> is caused by the smoothing
+determined. The lower reduced <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> is caused by the smoothing
 effect on the data. For correct inferences about the spectrum, such a
-bias in <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> is not appropriate. As we cannot change the
+bias in <img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> is not appropriate. As we cannot change the
 observed flux values, we opt to multiply the nominal errors on the
-fluxes by <img class="math" src="../_images/math/4082af4661bddeaaefd3cd54d77253005a860c71.svg" alt="\sqrt(0.72) = 0.85" style="vertical-align: -5px"/>, in order to get get acceptable
+fluxes by <img class="math" src="../_images/math/4082af4661bddeaaefd3cd54d77253005a860c71.svg" alt="\sqrt(0.72) = 0.85"/>, in order to get get acceptable
 fits for ideal data and models.</p>
 </section>
 <section id="option-2-combine-spectra-of-rgs1-rgs2-and-first-and-second-order-of-both-4-spectra-into-one-spectrum">
@@ -167,7 +168,7 @@ to signal to noise ratio at each bin. Reason is that ofteh the second
 order spectra have poorer statistics than the first order spectra, hence
 they should be weighted less in the combined spectra.</p>
 <p>Spectra created with rgsfluxcombine can only be fitted using
-<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> statistics. C-statistics will produce wrong values.</p>
+<img class="math" src="../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> statistics. C-statistics will produce wrong values.</p>
 </section>
 </section>
 
@@ -176,7 +177,7 @@ they should be weighted less in the combined spectra.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -194,7 +195,16 @@ they should be weighted less in the combined spectra.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -232,16 +242,6 @@ they should be weighted less in the combined spectra.</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -255,9 +255,9 @@ they should be weighted less in the combined spectra.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

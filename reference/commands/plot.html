@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1.24. Plot: Plotting data and models &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>3.1.24. Plot: Plotting data and models &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/plot.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -115,7 +116,7 @@ eV, or whatever unit that is allowed. The allowed values depend upon
 the plot type. See <a class="reference internal" href="../plot/axes.html#sect-plotaxes"><span class="std std-ref">Plot axis units and scales</span></a> for
 allowed units for each plot type.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">vel</span> <span class="pre">#r</span> <span class="pre">#a</span></code> : Plot the x-axis in velocity units
-(<img class="math" src="../../_images/math/86fbde4087bd2db1cbaf02cb3426a1d6421d9c46.svg" alt="\mathrm{km}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>), with reference energy provided as #r if #a is
+(<img class="math" src="../../_images/math/86fbde4087bd2db1cbaf02cb3426a1d6421d9c46.svg" alt="\mathrm{km}"/> <img class="math" src="../../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}"/>), with reference energy provided as #r if #a is
 “keV” or reference wavelength provided as #r if #a is “Ang”. Note that
 the same zero scale will be set for all plot windows.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">uy</span> <span class="pre">#a</span></code> : Same as above, but for the y-axis</div>
@@ -142,7 +143,7 @@ plot box, #a should be one of the following keywords: top, bottom,
 left, right. Note that whether you see the edges or not also depends
 on the settings defined by the <code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">disp</span></code> command.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">x</span> <span class="pre">#l</span></code> : Plots an x-axis with tick marks at the line
-<img class="math" src="../../_images/math/7f6321476b02253f56e0694fe9e9d36fe81ee148.svg" alt="y=0" style="vertical-align: -3px"/>. You only see this of course if your y-range includes the
+<img class="math" src="../../_images/math/7f6321476b02253f56e0694fe9e9d36fe81ee148.svg" alt="y=0"/>. You only see this of course if your y-range includes the
 value 0.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">axis</span> <span class="pre">y</span> <span class="pre">#l</span></code> : As above, but for the y-axis</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">box</span> <span class="pre">grid</span> <span class="pre">x</span> <span class="pre">#l</span></code> : Plot a grid for the x-axis</div>
@@ -211,7 +212,7 @@ viewport, where #r is in units of the character height. Enter negative
 values to write inside the viewport.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">coord</span> <span class="pre">#r</span></code> : Plot caption #a along the specified edge of
 the viewport, in units of the viewport length, where
-<img class="math" src="../../_images/math/c8ce9d4fb7938ce0a878a85f3c023673986df899.svg" alt="0.0 \le\mathrm{\#r}\le 1.0" style="vertical-align: -3px"/>.</div>
+<img class="math" src="../../_images/math/c8ce9d4fb7938ce0a878a85f3c023673986df899.svg" alt="0.0 \le\mathrm{\#r}\le 1.0"/>.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">cap</span> <span class="pre">#a</span> <span class="pre">fjust</span> <span class="pre">#r</span></code> : Controls justification of the caption #a
 parallel to the specified edge of the viewport. If #r = 0.0, the left
 hand of #a will be placed at the position specified by “coord” above;
@@ -388,7 +389,7 @@ that new user viewport values can be specified for frame 2</div>
 2</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">a</span></code> : Set the x-axis plot units of frame 2 to Å</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ux</span> <span class="pre">21.602</span> <span class="pre">ang</span></code> : Plot the x-axis as velocity in
-<img class="math" src="../../_images/math/d10bc34f7e20540a61568d88b44cfa848f75ec85.svg" alt="\mathrm{km}^{-1}" style="vertical-align: 0px"/> relative to a wavelength of 21.602 Å.</div>
+<img class="math" src="../../_images/math/d10bc34f7e20540a61568d88b44cfa848f75ec85.svg" alt="\mathrm{km}^{-1}"/> relative to a wavelength of 21.602 Å.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">ry</span> <span class="pre">-1:1</span></code> : Set the y-axis plot range of frame 2 to between a
 lower limit of -1 and an upper limit of 1</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">frame</span> <span class="pre">1</span></code> : Go to frame 1</div>
@@ -418,7 +419,7 @@ for Fe XXV with a redshift of 0.1 on the current device</div>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -436,7 +437,16 @@ for Fe XXV with a redshift of 0.1 on the current device</div>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -468,16 +478,6 @@ for Fe XXV with a redshift of 0.1 on the current device</div>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -491,9 +491,9 @@ for Fe XXV with a redshift of 0.1 on the current device</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

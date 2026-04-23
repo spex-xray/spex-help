@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1.14. Fit: spectral fitting &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>3.1.14. Fit: spectral fitting &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/fit.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -73,17 +74,17 @@ process, a fake temperature is slowly decreased, until the absolute minimum is
 reached. This temperature should NOT be confused with the true temperature in
 case the spectral model contains plasma components. The default parameters
 should work, but several other parameters can be modified when needed.
-Important here are the start temperature <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T" style="vertical-align: 0px"/>, the relative temperature
-decrease <img class="math" src="../../_images/math/222f0aa2ef965c3e58cf65dedbf3243fe562054c.svg" alt="RT" style="vertical-align: 0px"/> after each set of iterations, the stop criterion
-<img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon" style="vertical-align: 0px"/>, the step size scaling factor <img class="math" src="../../_images/math/9b82bf8d1173e9ad766bd47f8a8954d9ffdf91d3.svg" alt="vm" style="vertical-align: 0px"/>,
+Important here are the start temperature <img class="math" src="../../_images/math/3699797c57c3a68fc6891a4b5c24e67abceff381.svg" alt="T"/>, the relative temperature
+decrease <img class="math" src="../../_images/math/222f0aa2ef965c3e58cf65dedbf3243fe562054c.svg" alt="RT"/> after each set of iterations, the stop criterion
+<img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon"/>, the step size scaling factor <img class="math" src="../../_images/math/9b82bf8d1173e9ad766bd47f8a8954d9ffdf91d3.svg" alt="vm"/>,
 the scaling for the number of function evaluations at each temperature
-<img class="math" src="../../_images/math/b0e3e2e7ca2b7f2d75be2592317a3f4fbfa9de51.svg" alt="ns" style="vertical-align: 0px"/>, the maximum number of function evaluations <img class="math" src="../../_images/math/82ea6eef225d9127eebff0e87ad330289d95bc33.svg" alt="max" style="vertical-align: 0px"/>, and a
+<img class="math" src="../../_images/math/b0e3e2e7ca2b7f2d75be2592317a3f4fbfa9de51.svg" alt="ns"/>, the maximum number of function evaluations <img class="math" src="../../_images/math/82ea6eef225d9127eebff0e87ad330289d95bc33.svg" alt="max"/>, and a
 flag controlling the printing of intermediate results.</p>
 </section>
 <section id="fit-statistic">
 <h2><span class="section-number">3.1.14.4. </span>Fit statistic<a class="headerlink" href="#fit-statistic" title="Link to this heading">¶</a></h2>
-<p>At the moment SPEX uses three types of fit statistic, <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> C-stat and
-W-stat. We first treat the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic, because
+<p>At the moment SPEX uses three types of fit statistic, <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> C-stat and
+W-stat. We first treat the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> statistic, because
 historically that has been most widely used. However, in the present
 version of SPEX  C-stat is the default because in the far majority of
 the cases it gives more robust results. Both statistics can be used for all
@@ -91,29 +92,29 @@ of the fitting methods. W-stat is not recommended to be used (see later).</p>
 </section>
 <section id="chi-squared-fitting">
 <h2><span class="section-number">3.1.14.5. </span>Chi-squared fitting<a class="headerlink" href="#chi-squared-fitting" title="Link to this heading">¶</a></h2>
-<p>First we make a few remarks about proper data weighting. <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>
-is usually calculated as the sum over all data bins <img class="math" src="../../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/> of
-<img class="math" src="../../_images/math/02092f5ca6285713aff826b47ef2eef2513a26d6.svg" alt="(N_i - s_i)^2 / \sigma_i^2" style="vertical-align: -4px"/>, i.e.</p>
+<p>First we make a few remarks about proper data weighting. <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>
+is usually calculated as the sum over all data bins <img class="math" src="../../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i"/> of
+<img class="math" src="../../_images/math/02092f5ca6285713aff826b47ef2eef2513a26d6.svg" alt="(N_i - s_i)^2 / \sigma_i^2"/>, i.e.</p>
 <div class="math">
 <p><img src="../../_images/math/de21f398af9f56def47f0b95bda16ccae566b18e.svg" alt="\chi^2 = \sum_{i=1}^{n} \frac{(N_i - s_i)^2}{\sigma_i^2},"/></p>
-</div><p>where <img class="math" src="../../_images/math/9fae627de4a5938046b5d432ab642c3952525305.svg" alt="N_i" style="vertical-align: -2px"/> is the observed number of source plus background
-counts, <img class="math" src="../../_images/math/49208f5ac7dd3cc1797d1fe905a64a6fbdcae0dd.svg" alt="s_i" style="vertical-align: -2px"/> the expected number of source plus background counts
+</div><p>where <img class="math" src="../../_images/math/9fae627de4a5938046b5d432ab642c3952525305.svg" alt="N_i"/> is the observed number of source plus background
+counts, <img class="math" src="../../_images/math/49208f5ac7dd3cc1797d1fe905a64a6fbdcae0dd.svg" alt="s_i"/> the expected number of source plus background counts
 of the fitted model, and for Poissonian statistics usually one takes
-<img class="math" src="../../_images/math/92af55efc56dd588c0ce8b40098b26f6baec211e.svg" alt="\sigma_i^2=N_i" style="vertical-align: -4px"/>. Take care that the spectral bins contain
+<img class="math" src="../../_images/math/92af55efc56dd588c0ce8b40098b26f6baec211e.svg" alt="\sigma_i^2=N_i"/>. Take care that the spectral bins contain
 sufficient counts (either source or background), recommended is e.g. to
-use at least <img class="math" src="../../_images/math/e80c9782ba3254bc1f5fad2feed6f64263c7c056.svg" alt="\sim 10" style="vertical-align: 0px"/> counts per bin. If this is not the case,
+use at least <img class="math" src="../../_images/math/e80c9782ba3254bc1f5fad2feed6f64263c7c056.svg" alt="\sim 10"/> counts per bin. If this is not the case,
 first rebin the data set whenever you have a “continuum” spectrum. For
 line spectra you cannot do this of course without loosing important
 information! Note however that this method has inaccuracies if
-<img class="math" src="../../_images/math/9fae627de4a5938046b5d432ab642c3952525305.svg" alt="N_i" style="vertical-align: -2px"/> is less than <img class="math" src="../../_images/math/0c4d7fa73fe2f30881ce795c7c27efe4fae53404.svg" alt="\sim 100" style="vertical-align: 0px"/>.</p>
+<img class="math" src="../../_images/math/9fae627de4a5938046b5d432ab642c3952525305.svg" alt="N_i"/> is less than <img class="math" src="../../_images/math/0c4d7fa73fe2f30881ce795c7c27efe4fae53404.svg" alt="\sim 100"/>.</p>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract">Wheaton et al. (1995)</a>
-have shown that the classical <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> method becomes inaccurate
-for spectra with less than <img class="math" src="../../_images/math/0c4d7fa73fe2f30881ce795c7c27efe4fae53404.svg" alt="\sim 100" style="vertical-align: 0px"/> counts per bin. This is <em>not</em>
+have shown that the classical <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> method becomes inaccurate
+for spectra with less than <img class="math" src="../../_images/math/0c4d7fa73fe2f30881ce795c7c27efe4fae53404.svg" alt="\sim 100"/> counts per bin. This is <em>not</em>
 due to the approximation of the Poisson statistic by a normal distribution,
-but due to using the <em>observed</em> number of counts <img class="math" src="../../_images/math/9fae627de4a5938046b5d432ab642c3952525305.svg" alt="N_i" style="vertical-align: -2px"/> as weights
-in the calculation of <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>. <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract">Wheaton et al. (1995)</a>
+but due to using the <em>observed</em> number of counts <img class="math" src="../../_images/math/9fae627de4a5938046b5d432ab642c3952525305.svg" alt="N_i"/> as weights
+in the calculation of <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>. <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1995ApJ...438..322W/abstract">Wheaton et al. (1995)</a>
 showed that the problem can be resolved by using instead
-<img class="math" src="../../_images/math/91bf157804ca85a95782df430224b8eadfa69300.svg" alt="\sigma_i^2 = s_i" style="vertical-align: -4px"/>, i.e. the <em>expected</em> number of counts
+<img class="math" src="../../_images/math/91bf157804ca85a95782df430224b8eadfa69300.svg" alt="\sigma_i^2 = s_i"/>, i.e. the <em>expected</em> number of counts
 from the best fit model.</p>
 <p>The option “fit weight model” allows to use these modified weights. By
 selecting it, the expected number of counts (both source plus
@@ -127,7 +128,7 @@ of SPEX).</p></li>
 <li><p>After completing this fit, select the “fit weight model” option and
 do again a fit</p></li>
 <li><p>then repeat this step once more by again selecting “fit weight model”
-in order to replace <img class="math" src="../../_images/math/49208f5ac7dd3cc1797d1fe905a64a6fbdcae0dd.svg" alt="s_i" style="vertical-align: -2px"/> of the first step by <img class="math" src="../../_images/math/49208f5ac7dd3cc1797d1fe905a64a6fbdcae0dd.svg" alt="s_i" style="vertical-align: -2px"/> of
+in order to replace <img class="math" src="../../_images/math/49208f5ac7dd3cc1797d1fe905a64a6fbdcae0dd.svg" alt="s_i"/> of the first step by <img class="math" src="../../_images/math/49208f5ac7dd3cc1797d1fe905a64a6fbdcae0dd.svg" alt="s_i"/> of
 the second step in the weights. The result should now have been
 converged (under the assumption that the fitted model gives a
 reasonable description of the data, if your spectral model is way off
@@ -138,7 +139,7 @@ you are in trouble anyway!).</p></li>
 <h2><span class="section-number">3.1.14.6. </span>C-stat<a class="headerlink" href="#c-stat" title="Link to this heading">¶</a></h2>
 <p>There is yet another option to try for spectral fitting with low count
 rate statistics and that is maximum likelyhood fitting. It can be shown
-that a good alternative to <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> in that limit is</p>
+that a good alternative to <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> in that limit is</p>
 <div class="math">
 <p><img src="../../_images/math/9fd8d11ca2075d0ab60c83c7790130f5661d47e2.svg" alt="C = 2 \sum_{i=1}^{n} s_i - N_i + N_i \ln (N_i/s_i)."/></p>
 </div><p>This is strictly valid in the limit of Poissonian statistics. If you
@@ -153,36 +154,36 @@ that it was already introduced and well explained by
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note that for a spectrum with many counts per bin
-<img class="math" src="../../_images/math/beb8c4f20b323428c83787e5f78aa8422c88a678.svg" alt="C\rightarrow\chi^2" style="vertical-align: -3px"/>, but if the predicted number of counts per
-bin is small, the expected value for <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C" style="vertical-align: 0px"/> can be substantially
-smaller than the number of bins <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>.</p>
+<img class="math" src="../../_images/math/beb8c4f20b323428c83787e5f78aa8422c88a678.svg" alt="C\rightarrow\chi^2"/>, but if the predicted number of counts per
+bin is small, the expected value for <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C"/> can be substantially
+smaller than the number of bins <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/>.</p>
 </div>
-<p>To help the user to see if a <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C" style="vertical-align: 0px"/>-value corresponds to an
+<p>To help the user to see if a <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C"/>-value corresponds to an
 acceptable fit, SPEX gives, after spectral fitting, the expected value
-of <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C" style="vertical-align: 0px"/> and its r.m.s. spread, based on the best-fit model. Both
+of <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C"/> and its r.m.s. spread, based on the best-fit model. Both
 quantities are simply determined by adding the expected contributions
 and their variances over all bins. See <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2017A&amp;A...605A..51K/abstract">Kaastra et al. (2017)</a>
 for more details.</p>
 <figure class="align-default" id="fig-cstat">
 <img alt="Expected value of the contribution per bin to :math:`C`, and its r.m.s. uncertainty, as a function of the mean expected number of counts :math:`\mu`." src="../../_images/cstat.png" />
 <figcaption>
-<p><span class="caption-text">Expected value of the contribution per bin to <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C" style="vertical-align: 0px"/>, and its
+<p><span class="caption-text">Expected value of the contribution per bin to <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C"/>, and its
 r.m.s. uncertainty, as a function of the mean expected number of
-counts <img class="math" src="../../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu" style="vertical-align: -3px"/>.</span><a class="headerlink" href="#fig-cstat" title="Link to this image">¶</a></p>
+counts <img class="math" src="../../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu"/>.</span><a class="headerlink" href="#fig-cstat" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>The expected value <img class="math" src="../../_images/math/9cebd2ef2b183060ce8fb6279b4baaa108ae6581.svg" alt="C_{\rm e}" style="vertical-align: -2px"/> for <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C" style="vertical-align: 0px"/> in a bin <img class="math" src="../../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/>
-and its variance <img class="math" src="../../_images/math/6dcb505ca1cec52200e5e809802f3651a77a4509.svg" alt="C_{\rm v}" style="vertical-align: -2px"/> are given by:</p>
+<p>The expected value <img class="math" src="../../_images/math/9cebd2ef2b183060ce8fb6279b4baaa108ae6581.svg" alt="C_{\rm e}"/> for <img class="math" src="../../_images/math/f3a09b72613139caf7a4f333124edc8b5b2e7423.svg" alt="C"/> in a bin <img class="math" src="../../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i"/>
+and its variance <img class="math" src="../../_images/math/6dcb505ca1cec52200e5e809802f3651a77a4509.svg" alt="C_{\rm v}"/> are given by:</p>
 <div class="math">
 <p><img src="../../_images/math/cb2b3319f2263e2eeae178b5f15a31013fc8d2b3.svg" alt="C_{e} = 2 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu)),"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/fbc0522f3c16cb835a8c0e6614fd15382024d86e.svg" alt="S_{v} = 4 \sum_{k=0}^\infty P_k(\mu) (\mu - k + k \ln (k/\mu))^2,"/></p>
 </div><div class="math">
 <p><img src="../../_images/math/84394118dad874d9bb478496fe8665caf45608ac.svg" alt="C_{v} = S_{v} - C_{e}^2,"/></p>
-</div><p>with <img class="math" src="../../_images/math/71d017fa4b70ea045bb6242e5e93fd296cc533a3.svg" alt="P_k(\mu)" style="vertical-align: -4px"/> the Poisson distribution:</p>
+</div><p>with <img class="math" src="../../_images/math/71d017fa4b70ea045bb6242e5e93fd296cc533a3.svg" alt="P_k(\mu)"/> the Poisson distribution:</p>
 <div class="math">
 <p><img src="../../_images/math/fd7179e5b6c96460572b0a75982ea69cce3276a7.svg" alt="P_k(\mu) = {e}^{\displaystyle{-\mu}} \mu^k / k!"/></p>
-</div><p>and <img class="math" src="../../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu" style="vertical-align: -3px"/> the expected number of counts. We show both quantities
+</div><p>and <img class="math" src="../../_images/math/cb96592777d64e1cbad6b2efcd5645f2b24084ec.svg" alt="\mu"/> the expected number of counts. We show both quantities
 in Fig. <a class="reference external" href="#fig:cstat">1</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -244,8 +245,8 @@ C-stat or chi-squared.</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span></code> : Execute a spectral fit to the data.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">print</span> <span class="pre">#i</span></code> : Printing the intermediate results during the
-fitting to the screen for every <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>-th step, with <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>=#i
-(most useful for <img class="math" src="../../_images/math/00e40c860f5f2febe5bc6b14539a9d115d421858.svg" alt="n=1" style="vertical-align: 0px"/>). Default value: 0 which implies no
+fitting to the screen for every <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/>-th step, with <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/>=#i
+(most useful for <img class="math" src="../../_images/math/00e40c860f5f2febe5bc6b14539a9d115d421858.svg" alt="n=1"/>). Default value: 0 which implies no
 printing of intermediate steps.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">iter</span> <span class="pre">#i</span></code> : Stop the fitting process after #i iterations,
 regardless convergence or not. This is useful to get a first
@@ -256,12 +257,12 @@ the statistical weight in all subsequent spectral fitting.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">weight</span> <span class="pre">data</span></code> : Use the errors in the spectral data file as a
 basis for the statistical weight in all subsequent spectral fitting.
 This is the default at the start of SPEX.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Use the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic for all instruments for the
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Use the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> statistic for all instruments for the
 minimisation.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Use the C-statistic for all instruments for the minimisation.
 This is the default at start-up.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">wstat</span></code> : Use the W-statistic for all instruments for the minimisation.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span> <span class="pre">#i1:</span> <span class="pre">#i2:</span></code> : Change to the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> statistic for the instrument (range) #i1: and region (range) #i2: for the
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span> <span class="pre">#i1:</span> <span class="pre">#i2:</span></code> : Change to the <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> statistic for the instrument (range) #i1: and region (range) #i2: for the
 minimisation.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span> <span class="pre">#i1:</span> <span class="pre">#i2:</span></code> : Change to the C-statistic for the instrument (range) #i1: and region (range) #i2: for the minimisation.
 This is the default at start-up.</div>
@@ -275,23 +276,23 @@ minimisation as the fitting method.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">rt</span> <span class="pre">#r</span></code> : Change the temperature reduction factor. Default value is
 0.85.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">t</span> <span class="pre">#r</span></code> : Change the start temperature. Default value: 5.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">eps</span> <span class="pre">#r</span></code> : Change the convergence criterion <img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon" style="vertical-align: 0px"/>.
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">eps</span> <span class="pre">#r</span></code> : Change the convergence criterion <img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon"/>.
 If the final function values from the last 4 temperatures differ from the
 corresponding value at the current temperature by less than
-<img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon" style="vertical-align: 0px"/> and the final function value at the current temperature
+<img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon"/> and the final function value at the current temperature
 differs from the current optimal function value by less than
-<img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon" style="vertical-align: 0px"/>, execution terminates. Default value is 0.10.</div>
+<img class="math" src="../../_images/math/4a38148d955730d8b8007c14f7cc2113c228e6b1.svg" alt="\epsilon"/>, execution terminates. Default value is 0.10.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">vm</span> <span class="pre">#r</span></code> : The step length vector. On input it should encompass
 the region of interest given the starting value X.  For point X(I), the next
 trial point is selected is from X(I) - VM(I)  to  X(I) + VM(I).
 Since VM is adjusted so that about half of all points are accepted,
 the input value is not very important (i.e. if the value is off,
 the algorithm adjusts VM to the correct value). Default value: 1.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">ns</span> <span class="pre">#i</span></code> : Number of cycles.  After <img class="math" src="../../_images/math/a6e224a9c8a242d89bbbe6bcdb0ea1ec5b1c39ac.svg" alt="ns*n" style="vertical-align: 0px"/> function
-evaluations, where <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> is the number of free parameters, each element of
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">ns</span> <span class="pre">#i</span></code> : Number of cycles.  After <img class="math" src="../../_images/math/a6e224a9c8a242d89bbbe6bcdb0ea1ec5b1c39ac.svg" alt="ns*n"/> function
+evaluations, where <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> is the number of free parameters, each element of
 the vector VM is adjusted so that approximately half of all function
 evaluations are accepted. The vector VM controls the relative step size for the
-free parameters. Default value for <img class="math" src="../../_images/math/b0e3e2e7ca2b7f2d75be2592317a3f4fbfa9de51.svg" alt="ns" style="vertical-align: 0px"/> is 20.</div>
+free parameters. Default value for <img class="math" src="../../_images/math/b0e3e2e7ca2b7f2d75be2592317a3f4fbfa9de51.svg" alt="ns"/> is 20.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">max</span> <span class="pre">#i</span></code> : The maximum number of function evaluations. If during
 iteration more than this maximum nunber of evaluations is used, the process
 terminates with an error message (not converged). Default value: 100000.</div>
@@ -322,9 +323,9 @@ in the fit.</div>
 find minima.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">ann</span> <span class="pre">rt</span> <span class="pre">0.5</span></code> : changes the temperature reduction factor for simulated
 annealing to 0.5.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Switch from C-statistics to <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> (for all instruments and regions).</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span></code> : Switch from C-statistics to <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> (for all instruments and regions).</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">cstat</span></code> : Switch back to C-statistics.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span> <span class="pre">2</span> <span class="pre">3:4</span></code> : Switch to <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> statistics for instrument 2, regions 3 to 4.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">fit</span> <span class="pre">statistic</span> <span class="pre">chi2</span> <span class="pre">2</span> <span class="pre">3:4</span></code> : Switch to <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> statistics for instrument 2, regions 3 to 4.</div>
 </div>
 </section>
 </section>
@@ -334,7 +335,7 @@ annealing to 0.5.</div>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -352,7 +353,16 @@ annealing to 0.5.</div>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -384,16 +394,6 @@ annealing to 0.5.</div>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -407,9 +407,9 @@ annealing to 0.5.</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

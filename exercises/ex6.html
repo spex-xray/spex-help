@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9.6. Relativistic lines &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>9.6. Relativistic lines &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/exercises/ex6.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,20 +39,20 @@
 <p>The file <a class="reference download internal" download="" href="../_downloads/f27181c19ed13de7f51176696b8d4058/agnrel.spo"><code class="xref download docutils literal notranslate"><span class="pre">agnrel.spo</span></code></a> contains
 a spectrum of an AGN at 1 Mpc distance. The response matrix to be used
 is <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>. The two features that are
-visible in the spectrum are the O VIII L<img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/>
-(<img class="math" src="../_images/math/6cf4f6cf706819fa6059b66bd94499c7b0b09346.svg" alt="\lambda=18.969" style="vertical-align: 0px"/> Å)and N VII L<img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha" style="vertical-align: 0px"/>
-(<img class="math" src="../_images/math/7f6093796fe1f58833e3172bb8475604d1a0f897.svg" alt="\lambda=24.781" style="vertical-align: 0px"/> Å) lines. Because the emission from the disk is
+visible in the spectrum are the O VIII L<img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha"/>
+(<img class="math" src="../_images/math/6cf4f6cf706819fa6059b66bd94499c7b0b09346.svg" alt="\lambda=18.969"/> Å)and N VII L<img class="math" src="../_images/math/8c87e108b8617d3d95469fea02a41a15d40c8fae.svg" alt="\alpha"/>
+(<img class="math" src="../_images/math/7f6093796fe1f58833e3172bb8475604d1a0f897.svg" alt="\lambda=24.781"/> Å) lines. Because the emission from the disk is
 influenced by general relativistic effects, the lines appear to be broad
 and asymmetric. In SPEX we can model these lines by convolving a delta
 line with a so-called Laor profile (<code class="docutils literal notranslate"><span class="pre">com</span> <span class="pre">laor</span></code>) and learn a lot about
 the geometry of the system.</p>
-<p>In this exercise we fix the <img class="math" src="../_images/math/6f7a50b9245d6de1306777bf3894edb3c38aa751.svg" alt="\mathrm{N}_{\mathrm{H}}" style="vertical-align: -2px"/> to
-<img class="math" src="../_images/math/c33e96ff23720a1ce5f99554457b22dffeebdec2.svg" alt="1 \times 10^{20} \ \mathrm{cm}^{-2}" style="vertical-align: -1px"/>. The continuum emission can be well
+<p>In this exercise we fix the <img class="math" src="../_images/math/6f7a50b9245d6de1306777bf3894edb3c38aa751.svg" alt="\mathrm{N}_{\mathrm{H}}"/> to
+<img class="math" src="../_images/math/c33e96ff23720a1ce5f99554457b22dffeebdec2.svg" alt="1 \times 10^{20} \ \mathrm{cm}^{-2}"/>. The continuum emission can be well
 described with a powerlaw. The response file is <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>.</p>
 <ol class="arabic">
 <li><p>First start with the most simple model components: <code class="docutils literal notranslate"><span class="pre">pow</span></code> and
 Galactic foreground absorption. Plot the data. Hint: it may be useful
-to plot the flux as counts/<img class="math" src="../_images/math/a26a9cedbf93d94ccf540df6ce251fbad8449fe4.svg" alt="\mathrm{m}^2" style="vertical-align: 0px"/>/s/Å versus wavelength in Å.
+to plot the flux as counts/<img class="math" src="../_images/math/a26a9cedbf93d94ccf540df6ce251fbad8449fe4.svg" alt="\mathrm{m}^2"/>/s/Å versus wavelength in Å.
 Try first to get a reasonable model spectrum for the continuum. You
 may do this by ignoring the part of the spectrum where you see lines.</p></li>
 <li><p>Set up next the full model by adding lines with <code class="docutils literal notranslate"><span class="pre">delt</span></code> and
@@ -68,8 +69,8 @@ fitted. If not, try to find out which parameter of the <code class="docutils lit
 component should be altered.</p>
 </li>
 <li><p>The inner radius of the disk <code class="docutils literal notranslate"><span class="pre">r1</span></code> tells you immediately the spin of
-the black hole. A non-spinning black hole has <img class="math" src="../_images/math/2318266e6dfa9153be4a2941b269158f5df46871.svg" alt="r_1=6" style="vertical-align: -2px"/>, a
-maximally spinning black hole has <img class="math" src="../_images/math/43c86c5df9a1f59a3ea2d5ca096de69588fb295b.svg" alt="r_1\rightarrow 1" style="vertical-align: -2px"/>. What can
+the black hole. A non-spinning black hole has <img class="math" src="../_images/math/2318266e6dfa9153be4a2941b269158f5df46871.svg" alt="r_1=6"/>, a
+maximally spinning black hole has <img class="math" src="../_images/math/43c86c5df9a1f59a3ea2d5ca096de69588fb295b.svg" alt="r_1\rightarrow 1"/>. What can
 you tell about the spin of the black hole?</p></li>
 <li><p>Vary the parameters <code class="docutils literal notranslate"><span class="pre">r1</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">q</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> to see how they
 influence the line profile (give them manually a different value and
@@ -90,7 +91,7 @@ the spectrum to get a first-step estimate of the spectrum.</p></li>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -108,7 +109,16 @@ the spectrum to get a first-step estimate of the spectrum.</p></li>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -143,16 +153,6 @@ the spectrum to get a first-step estimate of the spectrum.</p></li>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -166,9 +166,9 @@ the spectrum to get a first-step estimate of the spectrum.</p></li>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

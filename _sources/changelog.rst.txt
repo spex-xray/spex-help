@@ -534,3 +534,18 @@ Changes in SPEXACT 3.08.02
 - Added magnetism module for pion.
 
 - Update of quick calculation data.
+
+Version 3.08.03
+---------------
+
+Changes in SPEX 3.08.03
+'''''''''''''''''''''''
+
+- Improved the quick-calculation option for the pshock model.
+
+- Added option to set non-hydrogen targets in charge-exchange model.
+
+- Fixed an issue with the file and table model interpolation and smoothing.
+
+- Fixed a bug in the smoothing of edges.
+

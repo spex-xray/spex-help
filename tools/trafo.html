@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.1. Trafo &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>5.1. Trafo &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/tools/trafo.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -91,8 +92,8 @@ formats. See the <a class="reference external" href="https://heasarc.gsfc.nasa.g
 <td><p>Double precision (for high-res spectra), and in spectral file</p></td>
 </tr>
 <tr class="row-odd"><td><p>Data</p></td>
-<td><p>Counts (2-byte or 4-byte integer) or count rate (real, in counts  <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>)</p></td>
-<td><p>Only count rate (real, in counts <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}" style="vertical-align: 0px"/>)</p></td>
+<td><p>Counts (2-byte or 4-byte integer) or count rate (real, in counts  <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}"/>)</p></td>
+<td><p>Only count rate (real, in counts <img class="math" src="../_images/math/7f88e09a90aacc977d9c0c518c0e2290e297d616.svg" alt="\mathrm{s}^{-1}"/>)</p></td>
 </tr>
 <tr class="row-even"><td><p>Errors</p></td>
 <td><p>Either explicitly given, or calculated using Poissonian statistics if <em>poiserr</em> keyword is given</p></td>
@@ -107,11 +108,11 @@ formats. See the <a class="reference external" href="https://heasarc.gsfc.nasa.g
 <td><p>Background subtracted value in one column; subtracted background (and its statistical error) in other columns</p></td>
 </tr>
 <tr class="row-odd"><td><p>Quality flag</p></td>
-<td><p>2-byte integer with 4 different values (0:math:<cite>=</cite>good, 1<img class="math" src="../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="=" style="vertical-align: 0px"/>bad by s/w, 2<img class="math" src="../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="=" style="vertical-align: 0px"/>dubious by s/w, 5<img class="math" src="../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="=" style="vertical-align: 0px"/>set bad by user</p></td>
+<td><p>2-byte integer with 4 different values (0:math:<cite>=</cite>good, 1<img class="math" src="../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="="/>bad by s/w, 2<img class="math" src="../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="="/>dubious by s/w, 5<img class="math" src="../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="="/>set bad by user</p></td>
 <td><p>“no-nonsense” logical, bin is either to be used (true) or not (false)</p></td>
 </tr>
 <tr class="row-even"><td><p>Grouping</p></td>
-<td><p>2-byte integer, <img class="math" src="../_images/math/6cf10fb979335e75aa2de86ecac53ecaa5de82a3.svg" alt="+1" style="vertical-align: -1px"/> for start channel, <img class="math" src="../_images/math/d3a92238acccf0a46afd194eab742e89d3db196b.svg" alt="-1" style="vertical-align: -1px"/> for continuation bin, <img class="math" src="../_images/math/fee5715c96453e62131bdf2eaceaad5781735155.svg" alt="0" style="vertical-align: 0px"/> if no grouping defined</p></td>
+<td><p>2-byte integer, <img class="math" src="../_images/math/6cf10fb979335e75aa2de86ecac53ecaa5de82a3.svg" alt="+1"/> for start channel, <img class="math" src="../_images/math/d3a92238acccf0a46afd194eab742e89d3db196b.svg" alt="-1"/> for continuation bin, <img class="math" src="../_images/math/fee5715c96453e62131bdf2eaceaad5781735155.svg" alt="0"/> if no grouping defined</p></td>
 <td><p>Two logicals: true/false is bin is first/last of a group (i.e., for no grouping, both are true)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Area scaling</p></td>
@@ -145,7 +146,7 @@ the formal errors just from the square root of the number of raw counts.
 Chandra grating spectra are sometimes delivered with Gehrels errors, but
 this gives problems when the data need to be re-binned, and this is
 usually the case as the Chandra-data are delivered over-sampled. Also,
-never use 90 % errors, but always r.m.s. (“<img class="math" src="../_images/math/6442cfa4c3d7c1a8776522809728b96664cf6854.svg" alt="1\sigma" style="vertical-align: 0px"/>”) errors.</p>
+never use 90 % errors, but always r.m.s. (“<img class="math" src="../_images/math/6442cfa4c3d7c1a8776522809728b96664cf6854.svg" alt="1\sigma"/>”) errors.</p>
 <p>For the same reasons, the use of systematic errors should be avoided in
 the spectral file, because after rebinning they would become smaller. It
 is better to use no systematic errors in the spectral file, but in case
@@ -207,14 +208,14 @@ rates with their errors), and leave the other columns empty / default
 <td><p>One grid for the matrix, single precision</p></td>
 <td><p>Each component can have its own grid, double precision</p></td>
 </tr>
-<tr class="row-odd"><td><p>Response groups (<img class="math" src="../_images/math/0c2632e5adf92482412d410719958bf3741908fd.svg" alt="\equiv" style="vertical-align: 0px"/> contiguous row of non-zero matrix elements for the same energy)</p></td>
+<tr class="row-odd"><td><p>Response groups (<img class="math" src="../_images/math/0c2632e5adf92482412d410719958bf3741908fd.svg" alt="\equiv"/> contiguous row of non-zero matrix elements for the same energy)</p></td>
 <td><p>Multiple groups per row; specify number of groups (2-byte), first channel &amp; number of channels (2-byte or 4-byte) and the matrix elements for each group</p></td>
 <td><p>In extension “spex_resp_group” specify bin lower and upper energy, first channel, last channel and number of channels for the group; in extension “spex_resp_resp give the matrix elements
 Optimalisation &amp; No &amp; Matrix may also contain derivatives of the matrix with respect to photon energy
 <strong>Ebounds extension:</strong> &amp; &amp;
 Channel energies &amp; Single precision &amp; Not here, but in spectral file and double precision
 <strong>Arf extension:</strong> &amp; &amp;
-Columns &amp; Contains lower, upper energy and area (in cm<img class="math" src="../_images/math/b26325ee66265c02266fce96e8bcf5aeba897084.svg" alt="^2" style="vertical-align: 0px"/>) &amp; N/A (included in matrix; but note units are SI, i.e. m<img class="math" src="../_images/math/b26325ee66265c02266fce96e8bcf5aeba897084.svg" alt="^2" style="vertical-align: 0px"/>)</p></td>
+Columns &amp; Contains lower, upper energy and area (in cm<img class="math" src="../_images/math/b26325ee66265c02266fce96e8bcf5aeba897084.svg" alt="^2"/>) &amp; N/A (included in matrix; but note units are SI, i.e. m<img class="math" src="../_images/math/b26325ee66265c02266fce96e8bcf5aeba897084.svg" alt="^2"/>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -229,7 +230,7 @@ spectrum and response file. There can be various reasons to do so:</p>
 <ol class="arabic simple">
 <li><p>You may want to combine different, similar instruments from the same
 observation (e.g. RGS1 and RGS2) or different spectral orders (e.g.
-RGS1 <img class="math" src="../_images/math/d3a92238acccf0a46afd194eab742e89d3db196b.svg" alt="-1" style="vertical-align: -1px"/> and RGS1 <img class="math" src="../_images/math/360e5626677cb0d5dfc9f7d339d6888693a82908.svg" alt="-2" style="vertical-align: -1px"/> spectral order), or even combine
+RGS1 <img class="math" src="../_images/math/d3a92238acccf0a46afd194eab742e89d3db196b.svg" alt="-1"/> and RGS1 <img class="math" src="../_images/math/360e5626677cb0d5dfc9f7d339d6888693a82908.svg" alt="-2"/> spectral order), or even combine
 pn with RGS. However, in these cases you may prefer to have the
 spectra in separate files, as that allows you easier to use only part
 of the data.</p></li>
@@ -359,9 +360,9 @@ is done.</p></li>
 <li><p><em>Trafo</em> will tell you how many components it has found or created. It
 now asks you if you want to apply a shift to your spectra. Usually
 you should enter here 0. Useful cases to enter a non-zero shift
-<img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/> are situations where for instance your energy or wavelength
+<img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s"/> are situations where for instance your energy or wavelength
 scale is not yet sufficiently well calibrated. <em>trafo</em> then in that
-case puts the data of bin nr <img class="math" src="../_images/math/5c339cf2ba0448e12156726e4a417a1cb0a73b7b.svg" alt="k+s" style="vertical-align: -1px"/> into bin <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/>.</p></li>
+case puts the data of bin nr <img class="math" src="../_images/math/5c339cf2ba0448e12156726e4a417a1cb0a73b7b.svg" alt="k+s"/> into bin <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s"/>.</p></li>
 <li><p><em>Trafo</em> reports if the spectrum and matrix will be swapped (in case
 the original OGIP data were in wavelength order). Remember that SPEX
 <em>always</em> uses energy order.</p></li>
@@ -388,7 +389,7 @@ from OGIP to SPEX format using only command line arguments.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -406,7 +407,16 @@ from OGIP to SPEX format using only command line arguments.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -444,16 +454,6 @@ from OGIP to SPEX format using only command line arguments.</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -467,9 +467,9 @@ from OGIP to SPEX format using only command line arguments.</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

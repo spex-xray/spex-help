@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.27. Lpro: spatial broadening model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.27. Lpro: spatial broadening model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/lpro.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,62 +40,62 @@
 an arbitrarily shaped spatial profile, in the case of dispersive
 spectrometers such as the RGS of XMM-Newton. In many instances, the
 effects of a spatially extended source can be approximated by making use
-of the fact that for small off-axis angles <img class="math" src="../_images/math/90cdb85208a28041b506c3c5d32ad4c4efa2038d.svg" alt="\theta" style="vertical-align: 0px"/> the expression
-<img class="math" src="../_images/math/612a4c36f9b0467e85af766e712fe0f6b6acfda5.svg" alt="{\mathrm d}\lambda / {\mathrm d}\theta" style="vertical-align: -4px"/> is almost independent of
-wavelength <img class="math" src="../_images/math/a3d74b08114f0efde832335b7892e04944b1e258.svg" alt="\lambda" style="vertical-align: 0px"/>. This holds for example for the RGS of
+of the fact that for small off-axis angles <img class="math" src="../_images/math/90cdb85208a28041b506c3c5d32ad4c4efa2038d.svg" alt="\theta"/> the expression
+<img class="math" src="../_images/math/612a4c36f9b0467e85af766e712fe0f6b6acfda5.svg" alt="{\mathrm d}\lambda / {\mathrm d}\theta"/> is almost independent of
+wavelength <img class="math" src="../_images/math/a3d74b08114f0efde832335b7892e04944b1e258.svg" alt="\lambda"/>. This holds for example for the RGS of
 XMM-Newton (for which
 <img class="math" src="../_images/math/577eb0a2c8cbbf97874de094092c80f08ea68368.svg" alt="{\mathrm d}\lambda / {\mathrm d}\theta = 0.138 /
-m" style="vertical-align: -4px"/> Å/arcmin, with <img class="math" src="../_images/math/76057117b344531a11036e3bc9660e8d94df7649.svg" alt="m" style="vertical-align: 0px"/> the spectral order).</p>
+m"/> Å/arcmin, with <img class="math" src="../_images/math/76057117b344531a11036e3bc9660e8d94df7649.svg" alt="m"/> the spectral order).</p>
 <p>We can utilize this for a grating spectrum as follows. Make an image
-<img class="math" src="../_images/math/bd0aef09528480cb9d4e8a0a5a3820f7f372f239.svg" alt="I(\Delta\theta)" style="vertical-align: -4px"/> of your source projected onto the dispersion
-axis, as a function of the off-axis angle <img class="math" src="../_images/math/b466ad8f6a9faf29fce35630ea495d621a620b4d.svg" alt="\Delta\theta" style="vertical-align: 0px"/>. From the
+<img class="math" src="../_images/math/bd0aef09528480cb9d4e8a0a5a3820f7f372f239.svg" alt="I(\Delta\theta)"/> of your source projected onto the dispersion
+axis, as a function of the off-axis angle <img class="math" src="../_images/math/b466ad8f6a9faf29fce35630ea495d621a620b4d.svg" alt="\Delta\theta"/>. From the
 properties of your instrument, this can be transformed into an intensity
-<img class="math" src="../_images/math/5b8063e2254f1c1578e357840c1ffdea0da1f887.svg" alt="I(\Delta\lambda)" style="vertical-align: -4px"/> as function of wavelength using
+<img class="math" src="../_images/math/5b8063e2254f1c1578e357840c1ffdea0da1f887.svg" alt="I(\Delta\lambda)"/> as function of wavelength using
 <img class="math" src="../_images/math/f73e3b167f57608504c28df48e9aba92363970c2.svg" alt="\Delta\lambda = \Delta\theta {\mathrm d}\lambda /
-{\mathrm d}\theta" style="vertical-align: -4px"/>. Assume that the spatial profile <img class="math" src="../_images/math/b2245ed968f8354889bf50275461e2e24287ad79.svg" alt="I(\theta)" style="vertical-align: -4px"/> is
+{\mathrm d}\theta"/>. Assume that the spatial profile <img class="math" src="../_images/math/b2245ed968f8354889bf50275461e2e24287ad79.svg" alt="I(\theta)"/> is
 only non-zero within a given angular range (i.e. the source has a finite
-extent). Then we can transform <img class="math" src="../_images/math/5b8063e2254f1c1578e357840c1ffdea0da1f887.svg" alt="I(\Delta\lambda)" style="vertical-align: -4px"/> into a
-probability distribution <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)" style="vertical-align: -4px"/> with <img class="math" src="../_images/math/701197b8c4338cd35d850946db897809fa0e07ac.svg" alt="f=0" style="vertical-align: -3px"/> for very small or
-large values of <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> (here and further we put
-<img class="math" src="../_images/math/b1c086371eb293269ec219625db5ed371222e02e.svg" alt="x=\Delta\lambda" style="vertical-align: 0px"/>). The auxilliary task rgsvprof (see
+extent). Then we can transform <img class="math" src="../_images/math/5b8063e2254f1c1578e357840c1ffdea0da1f887.svg" alt="I(\Delta\lambda)"/> into a
+probability distribution <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)"/> with <img class="math" src="../_images/math/701197b8c4338cd35d850946db897809fa0e07ac.svg" alt="f=0"/> for very small or
+large values of <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x"/> (here and further we put
+<img class="math" src="../_images/math/b1c086371eb293269ec219625db5ed371222e02e.svg" alt="x=\Delta\lambda"/>). The auxilliary task rgsvprof (see
 <a class="reference internal" href="../tools/rgsvprof.html#sect-rgsvprof"><span class="std std-ref">Rgsvprof</span></a>) is able to create an
 input file for the lpro component from a MOS1 image.</p>
-<p>The resulting spatially convolved spectrum <img class="math" src="../_images/math/bc26c66f76f84190b2a614d4f79e782fe685ddaa.svg" alt="S_c(\lambda)" style="vertical-align: -4px"/> is
-calculated from the original spectrum <img class="math" src="../_images/math/1389b938ad4a1ae0fdb27d5ab0d36ba398b5db50.svg" alt="S(\lambda)" style="vertical-align: -4px"/> as</p>
+<p>The resulting spatially convolved spectrum <img class="math" src="../_images/math/bc26c66f76f84190b2a614d4f79e782fe685ddaa.svg" alt="S_c(\lambda)"/> is
+calculated from the original spectrum <img class="math" src="../_images/math/1389b938ad4a1ae0fdb27d5ab0d36ba398b5db50.svg" alt="S(\lambda)"/> as</p>
 <div class="math">
 <p><img src="../_images/math/22520550da894eda9d31d450239f070a19bb5c0e.svg" alt="S_c(\lambda) = \int f(\lambda-\lambda_0)
 S(\lambda_0) {\mathrm d}\lambda_0."/></p>
-</div><p>The function <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)" style="vertical-align: -4px"/> must correspond to a probability function,
-i.e. for all values of <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> we have</p>
+</div><p>The function <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)"/> must correspond to a probability function,
+i.e. for all values of <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x"/> we have</p>
 <div class="math">
 <p><img src="../_images/math/0ef71f63df9e41c2d97bd6dee4f22ddec48b502a.svg" alt="f(x)\ge 0"/></p>
 </div><p>and furthermore</p>
 <div class="math">
 <p><img src="../_images/math/7c747f3e9563d9195c560e0e91d01a1eee90b17d.svg" alt="\int_{-\infty}^{\infty} f(x) {\mathrm d}x = 1."/></p>
-</div><p>In our implementation, we do not use <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)" style="vertical-align: -4px"/> but instead the
-cumulative probability density function <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)" style="vertical-align: -4px"/>, which is related
-to <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)" style="vertical-align: -4px"/> by</p>
+</div><p>In our implementation, we do not use <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)"/> but instead the
+cumulative probability density function <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)"/>, which is related
+to <img class="math" src="../_images/math/0b629923d4324872dd90cf68998b6b6f0f9564ce.svg" alt="f(x)"/> by</p>
 <div class="math">
 <p><img src="../_images/math/d11e431e2db8edcb845e922868bc687ffba8c9cb.svg" alt="F(x)\equiv \int_{-\infty}^{x} f(y){\mathrm d}y,"/></p>
-</div><p>where obviously <img class="math" src="../_images/math/c58b555d2e56b71b029c7189ce4319cb81100a36.svg" alt="F(-\infty)=0" style="vertical-align: -4px"/> and <img class="math" src="../_images/math/9c7e2fbdd49efa42394250621e580b4bb5b506a9.svg" alt="F(\infty)=1" style="vertical-align: -4px"/>. The reason
+</div><p>where obviously <img class="math" src="../_images/math/c58b555d2e56b71b029c7189ce4319cb81100a36.svg" alt="F(-\infty)=0"/> and <img class="math" src="../_images/math/9c7e2fbdd49efa42394250621e580b4bb5b506a9.svg" alt="F(\infty)=1"/>. The reason
 for using the cumulative distribution is that this allows easier
 interpolation and conservation of photons in the numerical integrations.</p>
 <p>If this component is used, you must have a file available which we call
 here <code class="docutils literal notranslate"><span class="pre">vprof.dat</span></code> (but any name is allowed). This is a simple ascii file,
-with <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> lines, and at each line two numbers: a value for
-<img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> and the corresponding <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)" style="vertical-align: -4px"/>. The lines must be sorted
-in ascending order in <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/>, and for <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)" style="vertical-align: -4px"/> to be a proper
+with <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> lines, and at each line two numbers: a value for
+<img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x"/> and the corresponding <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)"/>. The lines must be sorted
+in ascending order in <img class="math" src="../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x"/>, and for <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)"/> to be a proper
 probability distribution, it must be a non-decreasing function i.e. if
-<img class="math" src="../_images/math/1622ff745473238b27d1014e74fa2b151000921c.svg" alt="F(x_{i})\le F(x_{i+1})" style="vertical-align: -4px"/> for all values of <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i" style="vertical-align: 0px"/> between 1 and
-<img class="math" src="../_images/math/c87e0ec8d6b6d058e1d51c4781512cc1c63c30a9.svg" alt="n-1" style="vertical-align: -1px"/>. Furthermore, we demand that <img class="math" src="../_images/math/822693de6975d9d9b0f4a6baa7cd1afcb272eff4.svg" alt="F(x_1)\equiv 0" style="vertical-align: -4px"/> and
-<img class="math" src="../_images/math/468aa6c3c2e28a0c74ce991b78a99dd42eb8a6b6.svg" alt="F(x_n)\equiv 1" style="vertical-align: -4px"/>.</p>
-<p>Note that <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)" style="vertical-align: -4px"/> is dimensionless. In addition, we allow for two
-other parameters: a scale factor <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/> and an offset
-<img class="math" src="../_images/math/2668c7c3134cb4d1ad20c3c4a8ec3ef480316025.svg" alt="\lambda_o" style="vertical-align: -2px"/>. Usually, <img class="math" src="../_images/math/665c60178695a2bf9e09515fdfb81900f477469d.svg" alt="s=1" style="vertical-align: 0px"/>, but if <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/> is varied the
-resulting broadening scales proportional to <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/>. This is useful if
+<img class="math" src="../_images/math/1622ff745473238b27d1014e74fa2b151000921c.svg" alt="F(x_{i})\le F(x_{i+1})"/> for all values of <img class="math" src="../_images/math/58286d9a7b9d5cb765aea70859ce9851fa2fe2f7.svg" alt="i"/> between 1 and
+<img class="math" src="../_images/math/c87e0ec8d6b6d058e1d51c4781512cc1c63c30a9.svg" alt="n-1"/>. Furthermore, we demand that <img class="math" src="../_images/math/822693de6975d9d9b0f4a6baa7cd1afcb272eff4.svg" alt="F(x_1)\equiv 0"/> and
+<img class="math" src="../_images/math/468aa6c3c2e28a0c74ce991b78a99dd42eb8a6b6.svg" alt="F(x_n)\equiv 1"/>.</p>
+<p>Note that <img class="math" src="../_images/math/bb871896e1dd4b7e5dd5ca78bd46ec996b4a0232.svg" alt="F(x)"/> is dimensionless. In addition, we allow for two
+other parameters: a scale factor <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s"/> and an offset
+<img class="math" src="../_images/math/2668c7c3134cb4d1ad20c3c4a8ec3ef480316025.svg" alt="\lambda_o"/>. Usually, <img class="math" src="../_images/math/665c60178695a2bf9e09515fdfb81900f477469d.svg" alt="s=1"/>, but if <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s"/> is varied the
+resulting broadening scales proportional to <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s"/>. This is useful if
 for example one has an idea of the shape of the spatial profile, but
 wants to measure its width directly from the observed grating spectrum.
-In addition, the parameter <img class="math" src="../_images/math/2668c7c3134cb4d1ad20c3c4a8ec3ef480316025.svg" alt="\lambda_o" style="vertical-align: -2px"/> can be varied if the
+In addition, the parameter <img class="math" src="../_images/math/2668c7c3134cb4d1ad20c3c4a8ec3ef480316025.svg" alt="\lambda_o"/> can be varied if the
 absolute position of the source is unknown and a small linear shift in
 wavelength is necessary.</p>
 <div class="admonition warning">
@@ -118,10 +119,10 @@ complicated analysis is needed.</p>
 <p>The parameters of the model are:</p>
 <dl class="field-list simple">
 <dt class="field-odd">s<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Scale parameter <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s" style="vertical-align: 0px"/>, dimensionless. Default value: 1.</p>
+<dd class="field-odd"><p>Scale parameter <img class="math" src="../_images/math/81689c9aa6656682a5508d88956052863cea4914.svg" alt="s"/>, dimensionless. Default value: 1.</p>
 </dd>
 <dt class="field-even">dlam<span class="colon">:</span></dt>
-<dd class="field-even"><p>Offset parameter <img class="math" src="../_images/math/2668c7c3134cb4d1ad20c3c4a8ec3ef480316025.svg" alt="\lambda_o" style="vertical-align: -2px"/>, in Å. Default value:
+<dd class="field-even"><p>Offset parameter <img class="math" src="../_images/math/2668c7c3134cb4d1ad20c3c4a8ec3ef480316025.svg" alt="\lambda_o"/>, in Å. Default value:
 0 Å.</p>
 </dd>
 <dt class="field-odd">file<span class="colon">:</span></dt>
@@ -137,7 +138,7 @@ vprof.dat file</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -155,7 +156,16 @@ vprof.dat file</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -187,16 +197,6 @@ vprof.dat file</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -210,9 +210,9 @@ vprof.dat file</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

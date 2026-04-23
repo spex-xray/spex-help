@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.42. User: User defined model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.42. User: User defined model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/user.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -62,11 +63,11 @@ photons/s/bin. In addition, it is also possible to calculate the model
 for the emission weighted center of the bin. In that case the spectrum
 calculation is a bit more complicated, but it leads to better results.
 The user has the option of also calculating the weighted spectrum, which
-is the average photon energy <img class="math" src="../_images/math/b2ed251fe13a878d8336ce5d1afb41f6d6dc973a.svg" alt="E_{\mathrm{aver}}" style="vertical-align: -2px"/> minus the bin
-centroid <img class="math" src="../_images/math/9b0a197690986694fb04cade9030ed731754d3fc.svg" alt="E_{\mathrm{centroid}}" style="vertical-align: -2px"/> times the flux (F):</p>
+is the average photon energy <img class="math" src="../_images/math/b2ed251fe13a878d8336ce5d1afb41f6d6dc973a.svg" alt="E_{\mathrm{aver}}"/> minus the bin
+centroid <img class="math" src="../_images/math/9b0a197690986694fb04cade9030ed731754d3fc.svg" alt="E_{\mathrm{centroid}}"/> times the flux (F):</p>
 <div class="math">
 <p><img src="../_images/math/98ec94cf27a88cbedb7009dde2c5a897f62243f4.svg" alt="W = (E_{\mathrm{aver}} - E_{\mathrm{centroid}})  F"/></p>
-</div><p>The <img class="math" src="../_images/math/6caefb77305e1d98c2b02ee2da71330044986b2b.svg" alt="W" style="vertical-align: 0px"/> values end up in the <code class="docutils literal notranslate"><span class="pre">wener</span></code> array. If you do not use
+</div><p>The <img class="math" src="../_images/math/6caefb77305e1d98c2b02ee2da71330044986b2b.svg" alt="W"/> values end up in the <code class="docutils literal notranslate"><span class="pre">wener</span></code> array. If you do not use
 weighing by average photon energy, <code class="docutils literal notranslate"><span class="pre">wener</span></code> values can be 0.</p>
 <p>The user program should create an output ASCII file named <code class="docutils literal notranslate"><span class="pre">output-?-?.spc</span></code>
 with the following structure:</p>
@@ -102,7 +103,7 @@ script in the same directory where you run SPEX</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -120,7 +121,16 @@ script in the same directory where you run SPEX</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -152,16 +162,6 @@ script in the same directory where you run SPEX</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -175,9 +175,9 @@ script in the same directory where you run SPEX</p>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8.1.3. Absorption model theory &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>8.1.3. Absorption model theory &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/theory/spexact/absmodels.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -54,8 +55,8 @@ in <a class="reference internal" href="atomicabs.html#sect-abs-database"><span c
 <p>A basic assumption in all the absorption models is that there is no
 re-emission, i.e. we look through an absorbing nmedium that has a very
 small solid angle as seen from the X-ray source. This allows essentially
-to calculate the transmission simply as <img class="math" src="../../_images/math/763fd2fb50a21a91aea83ed2add28774fad5cd5e.svg" alt="e^{-\tau(E)}" style="vertical-align: 0px"/> with
-<img class="math" src="../../_images/math/267daf5ee0e049a325679de852be94a90ac86dc6.svg" alt="\tau(E)" style="vertical-align: -4px"/> the optical depth.</p>
+to calculate the transmission simply as <img class="math" src="../../_images/math/763fd2fb50a21a91aea83ed2add28774fad5cd5e.svg" alt="e^{-\tau(E)}"/> with
+<img class="math" src="../../_images/math/267daf5ee0e049a325679de852be94a90ac86dc6.svg" alt="\tau(E)"/> the optical depth.</p>
 </section>
 <section id="thomson-scattering">
 <span id="sect-thomson-scattering"></span><h2><span class="section-number">8.1.3.2. </span>Thomson scattering<a class="headerlink" href="#thomson-scattering" title="Link to this heading">¶</a></h2>
@@ -63,15 +64,15 @@ to calculate the transmission simply as <img class="math" src="../../_images/mat
 transmission. Any source photon aimed at the observer but that suffers
 from Thomson scattering is scattered out of the line of sight and hanec
 in this approximation is not seen by the observer. We have included not
-simply the Thomson cross-section <img class="math" src="../../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T" style="vertical-align: -2px"/> but have taken the
+simply the Thomson cross-section <img class="math" src="../../_images/math/516635d3e55dc0a42957b9e28edeeb8e532f0e18.svg" alt="\sigma_T"/> but have taken the
 Klein-Nishina correction into account (see <a class="reference external" href="https://doi.org/10.1002/9783527618170">Rybicki &amp; Lightman 1986</a>, eqn. 7.5 (exact expression)
 and 7.6 (approximations)). The evaluation of the exact formula for the cross
 section is non-trivial, as terms up to the third power in
-<img class="math" src="../../_images/math/ef9925dafa9d6218fe17645744b742fbe4b73fd0.svg" alt="x=E/m_{\mathrm e}c^2" style="vertical-align: -4px"/> cancel; we have extended the low-energy
+<img class="math" src="../../_images/math/ef9925dafa9d6218fe17645744b742fbe4b73fd0.svg" alt="x=E/m_{\mathrm e}c^2"/> cancel; we have extended the low-energy
 polynomial approximation (7.6.a) of Rybicki &amp; Lightman by comparing to
 quadruple precision calculations using the exact formula, and made the
 following approximation that has a relative accuracy of better than
-<img class="math" src="../../_images/math/6f893e23ced0469b7b3cc4d8df199a16dfe2e482.svg" alt="3\times 10^{-4}" style="vertical-align: -1px"/> for all energies, when evaluated using single
+<img class="math" src="../../_images/math/6f893e23ced0469b7b3cc4d8df199a16dfe2e482.svg" alt="3\times 10^{-4}"/> for all energies, when evaluated using single
 precision arithmetics:</p>
 <div class="math">
 <p><img src="../../_images/math/1f4540c5effb437bb4b8d2358be9f1c792a09d59.svg" alt="\sigma = \left\{
@@ -96,7 +97,7 @@ precision arithmetics:</p>
 <span id="sect-covering-factor"></span><h2><span class="section-number">8.1.3.3. </span>Covering factor<a class="headerlink" href="#covering-factor" title="Link to this heading">¶</a></h2>
 <p>Most users would be happy with a model where an absorbing medium covers the full emitting source.
 However, there are situations where the background source is larger than the absorbing medium.
-In that case the covering factor <img class="math" src="../../_images/math/ba6279a28180665ae5df774a9016990846885ddb.svg" alt="f&lt;1" style="vertical-align: -3px"/>. This option has been implemented in older versions
+In that case the covering factor <img class="math" src="../../_images/math/ba6279a28180665ae5df774a9016990846885ddb.svg" alt="f&lt;1"/>. This option has been implemented in older versions
 of our software through the parameter <code class="docutils literal notranslate"><span class="pre">fcov</span></code>.
 However, there can be more complex situations. This occurs for example in active galactic nuclei,
 where the X-ray continuum source may be smaller than the UV continuum source. In that case, for spectral
@@ -108,21 +109,21 @@ use five parameters, described below.</p>
 <div class="math">
 <p><img src="../../_images/math/cc63a67204f697f7458db0d9999efc7ba8d32ffa.svg" alt="f = f_0 + \Delta f \times c(x)."/></p>
 </div><p>A
-where <img class="math" src="../../_images/math/78622f065dc2fa50b4502547e0e246ebbc4145e0.svg" alt="x=\ln{E/E_c}/a" style="vertical-align: -4px"/> and <img class="math" src="../../_images/math/34b988932524c7929029ac4157c2c01d0a042437.svg" alt="c(x)" style="vertical-align: -4px"/> is a function of <img class="math" src="../../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x" style="vertical-align: 0px"/> described below.
-The parameter <img class="math" src="../../_images/math/83e215a32830ab928af55d86aee09d83a159d9e0.svg" alt="f_0=(c_2+c_1)/2" style="vertical-align: -4px"/> and <img class="math" src="../../_images/math/c1738b5433853d8224755d3bfb2eabb9588b67d1.svg" alt="\Delta f = (c_2-c_1)/2" style="vertical-align: -4px"/>.</p>
+where <img class="math" src="../../_images/math/78622f065dc2fa50b4502547e0e246ebbc4145e0.svg" alt="x=\ln{E/E_c}/a"/> and <img class="math" src="../../_images/math/34b988932524c7929029ac4157c2c01d0a042437.svg" alt="c(x)"/> is a function of <img class="math" src="../../_images/math/90c72841ac37090f3e7e5e4bb77056d3fc57b2c4.svg" alt="x"/> described below.
+The parameter <img class="math" src="../../_images/math/83e215a32830ab928af55d86aee09d83a159d9e0.svg" alt="f_0=(c_2+c_1)/2"/> and <img class="math" src="../../_images/math/c1738b5433853d8224755d3bfb2eabb9588b67d1.svg" alt="\Delta f = (c_2-c_1)/2"/>.</p>
 <p>We distinguish four cases using the parameter <code class="docutils literal notranslate"><span class="pre">icov</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">icov=1:</span></code> <img class="math" src="../../_images/math/abb9bc41249926f6e22e41a1087012ea1efe8ad6.svg" alt="f=1" style="vertical-align: -3px"/> corresponding to <img class="math" src="../../_images/math/d1d8d8e1ff284d5a91c1f8c86c45d621ecedf35e.svg" alt="c_1=c_2=1" style="vertical-align: -2px"/></p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=1:</span></code> <img class="math" src="../../_images/math/abb9bc41249926f6e22e41a1087012ea1efe8ad6.svg" alt="f=1"/> corresponding to <img class="math" src="../../_images/math/d1d8d8e1ff284d5a91c1f8c86c45d621ecedf35e.svg" alt="c_1=c_2=1"/></p>
 <p><code class="docutils literal notranslate"><span class="pre">icov=2:</span></code> (the default case, corresponding to the variable <code class="docutils literal notranslate"><span class="pre">fcov</span></code> in older versions of spex): math:<cite>c_1=c_2</cite> but both values
 can have any value between 0 and 1 (or equivalent math:<cite>Delta f = 0</cite> ).</p>
-<p><code class="docutils literal notranslate"><span class="pre">icov=3:</span></code> arbitrary values for <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2" style="vertical-align: -2px"/> (but both between 0 and 1), and <img class="math" src="../../_images/math/52a9fcc6bbbbe68984d2392e9529d5da32015a5d.svg" alt="f(x)=\tanh (x)" style="vertical-align: -4px"/>. This gives a somewhat sharper transittion between low- and high energies.</p>
-<p><code class="docutils literal notranslate"><span class="pre">icov=4:</span></code> arbitrary values for <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2" style="vertical-align: -2px"/> (but both between 0 and 1), and <img class="math" src="../../_images/math/bd7061f55e1d082e73b7d0bbef01bab3049449e6.svg" alt="f(x)=(2/\pi ) \arctan (x)" style="vertical-align: -4px"/>. This gives a somewhat smoother transittion between low- and high energies.</p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=3:</span></code> arbitrary values for <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1"/> and <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2"/> (but both between 0 and 1), and <img class="math" src="../../_images/math/52a9fcc6bbbbe68984d2392e9529d5da32015a5d.svg" alt="f(x)=\tanh (x)"/>. This gives a somewhat sharper transittion between low- and high energies.</p>
+<p><code class="docutils literal notranslate"><span class="pre">icov=4:</span></code> arbitrary values for <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1"/> and <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2"/> (but both between 0 and 1), and <img class="math" src="../../_images/math/bd7061f55e1d082e73b7d0bbef01bab3049449e6.svg" alt="f(x)=(2/\pi ) \arctan (x)"/>. This gives a somewhat smoother transittion between low- and high energies.</p>
 <p>The other four parameters of the model are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">fcov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2" style="vertical-align: -2px"/> above, i.e. the high-energy (asymptotic) covering factor.</p>
-<p><code class="docutils literal notranslate"><span class="pre">lcov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1" style="vertical-align: -2px"/> above, i.e. the low-energy (asymptotic) covering factor.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ecov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/f6c93d11fae5b65a4f19eb8a4c813d739b737007.svg" alt="E_c" style="vertical-align: -2px"/> above, i.e. the energy (keV) where the covering factor equals
-<img class="math" src="../../_images/math/4cc63eb5dd86ee2bc61a132751f7280ba38f977b.svg" alt="f_0" style="vertical-align: -3px"/> above, or the mean between high- and low-energy limits.</p>
-<p><code class="docutils literal notranslate"><span class="pre">acov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a" style="vertical-align: 0px"/> above, i.e. the logarithmic scaling factor of the transition from low- to high energy limit.
-This is therefore a dimensionless variable. A value of 1 corresponds to a transition over typically a factor of <img class="math" src="../../_images/math/9241c1806f25873aff1be7ba99c901bec4497456.svg" alt="e=2.71828" style="vertical-align: 0px"/> in energy.
+<p><code class="docutils literal notranslate"><span class="pre">fcov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/092f255f226d0dce1ba006fad0cc62208de1f47c.svg" alt="c_2"/> above, i.e. the high-energy (asymptotic) covering factor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lcov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/3c3a45e12203bad28d89ed843f0a6d1a37e9ed3f.svg" alt="c_1"/> above, i.e. the low-energy (asymptotic) covering factor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ecov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/f6c93d11fae5b65a4f19eb8a4c813d739b737007.svg" alt="E_c"/> above, i.e. the energy (keV) where the covering factor equals
+<img class="math" src="../../_images/math/4cc63eb5dd86ee2bc61a132751f7280ba38f977b.svg" alt="f_0"/> above, or the mean between high- and low-energy limits.</p>
+<p><code class="docutils literal notranslate"><span class="pre">acov:</span></code> corresponds to the variable <img class="math" src="../../_images/math/fccbf2ffb0220422b4355d16433ec2603d7cd0ac.svg" alt="a"/> above, i.e. the logarithmic scaling factor of the transition from low- to high energy limit.
+This is therefore a dimensionless variable. A value of 1 corresponds to a transition over typically a factor of <img class="math" src="../../_images/math/9241c1806f25873aff1be7ba99c901bec4497456.svg" alt="e=2.71828"/> in energy.
 Sharp transitions are obtained for small values of this parameter.</p>
 </section>
 <section id="different-types-of-absorption-models">
@@ -145,8 +146,8 @@ other existing (photo)ionization code).</p>
 quantities, but are linked through a set of runs using a photo
 ionization code. See the description of the <em>xabs</em> model for more
 details about this. The relevant parameter is the ionization parameter
-<img class="math" src="../../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L" style="vertical-align: 0px"/> the source luminosity, <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/>
-the hydrogen density and <img class="math" src="../../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> the distance from the ionizing
+<img class="math" src="../../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2"/>, with <img class="math" src="../../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L"/> the source luminosity, <img class="math" src="../../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/>
+the hydrogen density and <img class="math" src="../../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/> the distance from the ionizing
 source. The advantage of the <em>xabs</em> model over the <em>slab</em> model is that
 all relevant ions are taken into account, also those which would be
 detected only with marginal significance using the <em>slab</em> model. In some
@@ -160,14 +161,14 @@ acceptable fit, while the <em>slab</em> model may perform better.</p>
 <section id="warm-model">
 <h3><span class="section-number">8.1.3.4.3. </span>Warm model<a class="headerlink" href="#warm-model" title="Link to this heading">¶</a></h3>
 <p>In the <em>warm</em> model, we construct a model for a continuous distribution
-of column density <img class="math" src="../../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> as a function of <img class="math" src="../../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. It
+of column density <img class="math" src="../../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}"/> as a function of <img class="math" src="../../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>. It
 is in some sense comparable to the differential emission measure models
 used to model the emission from multi-temperature gas. Here we have
 absorption from multi-ionization gas. Depending upon the physics of the
 source, this may be a better approximation than just the sum of a few
 <em>xabs</em> components. A disadvantage of the model may be (but this also
 depends upon the physics of the source), that all dynamical parameters
-for each value of <img class="math" src="../../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> are the same, like the outflow velocity
+for each value of <img class="math" src="../../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> are the same, like the outflow velocity
 and turbulent broadening. If this appears to be the case in a given
 source, one may of course avoid this problem by taking multiple,
 non-overlapping <em>warm</em> components.</p>
@@ -192,31 +193,31 @@ ionization calculation of the slab of material.</p>
 <p>For each of the absorption models described in the previous section, we
 have the freedom to prescribe the dynamics of the source. The way we
 have implemented this in is described below.</p>
-<p>The transmission <img class="math" src="../../_images/math/2e9caa2a916dbfa64ab90833637e5b94b12399d5.svg" alt="T(\lambda)" style="vertical-align: -4px"/> of the slab is simply calculated as</p>
+<p>The transmission <img class="math" src="../../_images/math/2e9caa2a916dbfa64ab90833637e5b94b12399d5.svg" alt="T(\lambda)"/> of the slab is simply calculated as</p>
 <div class="math">
 <p><img src="../../_images/math/2abfac4a2361540a8c833b299b496137843b80c2.svg" alt="T(\lambda)=\exp[{-\tau_c(\lambda)-\tau_l(\lambda)}]"/></p>
-</div><p>with <img class="math" src="../../_images/math/a406e6cb51b0d23de7fff29418f6e31bc8f56ee2.svg" alt="\tau_c" style="vertical-align: -2px"/> and <img class="math" src="../../_images/math/c6c58e5d398d9a01518904c3d59a150d5ebb22dc.svg" alt="\tau_l" style="vertical-align: -2px"/> the total continuum and line
+</div><p>with <img class="math" src="../../_images/math/a406e6cb51b0d23de7fff29418f6e31bc8f56ee2.svg" alt="\tau_c"/> and <img class="math" src="../../_images/math/c6c58e5d398d9a01518904c3d59a150d5ebb22dc.svg" alt="\tau_l"/> the total continuum and line
 optical depth, respectively. As long as the thickness of the slab is not
 too large, this most simple approximation allows a fast computation of
 the spectrum, which is desirable for spectral fitting.</p>
 <blockquote>
-<div><p>The total optical depth at line center <img class="math" src="../../_images/math/51887297f839c2ba974372e9147a76a300f3d7ce.svg" alt="\tau_0" style="vertical-align: -2px"/> is given by</p>
+<div><p>The total optical depth at line center <img class="math" src="../../_images/math/51887297f839c2ba974372e9147a76a300f3d7ce.svg" alt="\tau_0"/> is given by</p>
 </div></blockquote>
 <div class="math">
 <p><img src="../../_images/math/bf1601664a8ce763d55ee760ab94139c0dd08507.svg" alt="\label{eqn:tau}
 \tau_0 = 0.106 f N_{20} \lambda / \sigma_{\mathrm v,100}."/></p>
-</div><p>Here <img class="math" src="../../_images/math/bb2fff686191d308dcb438f43bf8d29acd99038b.svg" alt="f" style="vertical-align: -3px"/> is the oscillator strength, <img class="math" src="../../_images/math/a3d74b08114f0efde832335b7892e04944b1e258.svg" alt="\lambda" style="vertical-align: 0px"/> the
-wavelength in Å, <img class="math" src="../../_images/math/dd2eb78fe9f12024350fccdaf408622aa6c2dd10.svg" alt="\sigma_{\mathrm v,100}" style="vertical-align: -5px"/> the velocity dispersion in
-units of <img class="math" src="../../_images/math/5fa09ba51a3f396bc70cc1b845ff2fffa028ab32.svg" alt="100" style="vertical-align: 0px"/> km/s and <img class="math" src="../../_images/math/e199d145e94a9b04483e1e66d8fcd913216f822a.svg" alt="N_{20}" style="vertical-align: -2px"/> the total column density of
-the ion in units of <img class="math" src="../../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.</p>
+</div><p>Here <img class="math" src="../../_images/math/bb2fff686191d308dcb438f43bf8d29acd99038b.svg" alt="f"/> is the oscillator strength, <img class="math" src="../../_images/math/a3d74b08114f0efde832335b7892e04944b1e258.svg" alt="\lambda"/> the
+wavelength in Å, <img class="math" src="../../_images/math/dd2eb78fe9f12024350fccdaf408622aa6c2dd10.svg" alt="\sigma_{\mathrm v,100}"/> the velocity dispersion in
+units of <img class="math" src="../../_images/math/5fa09ba51a3f396bc70cc1b845ff2fffa028ab32.svg" alt="100"/> km/s and <img class="math" src="../../_images/math/e199d145e94a9b04483e1e66d8fcd913216f822a.svg" alt="N_{20}"/> the total column density of
+the ion in units of <img class="math" src="../../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}"/> <img class="math" src="../../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/>.</p>
 <p>Finally, we make a remark on the r.m.s. line width of individual lines,
-<img class="math" src="../../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/>. In our code, this <em>only</em> includes the
+<img class="math" src="../../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}"/>. In our code, this <em>only</em> includes the
 turbulent broadening of the lines. The thermal broadening due to motion
 of the ions is included by adding it in quadrature to the turbulent
 broadening. The only exception is the <em>slab</em> model, where of course due
 to the lack of underlying physics the thermal broadening is unknown, and
 therefore in using the slab model one should be aware that
-<img class="math" src="../../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/> also includes a thermal contribution.</p>
+<img class="math" src="../../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}"/> also includes a thermal contribution.</p>
 </section>
 </section>
 
@@ -225,7 +226,7 @@ therefore in using the slab model one should be aware that
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -243,7 +244,16 @@ therefore in using the slab model one should be aware that
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -278,16 +288,6 @@ therefore in using the slab model one should be aware that
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -301,9 +301,9 @@ therefore in using the slab model one should be aware that
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

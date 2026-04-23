@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>9.7. AGN winds &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>9.7. AGN winds &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/exercises/ex7.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,7 +39,7 @@
 <p>In many cases the emission from the central region around the black hole
 is partly absorbed by the disk and/or wind. In the file <a class="reference download internal" download="" href="../_downloads/d671ffa5d56f0d5c55fa0f60797d70cd/agn.spo"><code class="xref download docutils literal notranslate"><span class="pre">agn.spo</span></code></a> we have a spectrum showing a lot of absorption
 lines. We set the distance to the source to 1 Mpc and the
-<img class="math" src="../_images/math/6f7a50b9245d6de1306777bf3894edb3c38aa751.svg" alt="\mathrm{N}_{\mathrm{H}}" style="vertical-align: -2px"/> to <img class="math" src="../_images/math/c33e96ff23720a1ce5f99554457b22dffeebdec2.svg" alt="1 \times 10^{20} \ \mathrm{cm}^{-2}" style="vertical-align: -1px"/>.
+<img class="math" src="../_images/math/6f7a50b9245d6de1306777bf3894edb3c38aa751.svg" alt="\mathrm{N}_{\mathrm{H}}"/> to <img class="math" src="../_images/math/c33e96ff23720a1ce5f99554457b22dffeebdec2.svg" alt="1 \times 10^{20} \ \mathrm{cm}^{-2}"/>.
 Response file: <a class="reference download internal" download="" href="../_downloads/9dfc1ea4e0db962f68ef739070c8d93d/corona.res"><code class="xref download docutils literal notranslate"><span class="pre">corona.res</span></code></a>.</p>
 <ol class="arabic">
 <li><p>This spectrum is too complicated to fit in one run. Therefore start
@@ -48,7 +49,7 @@ normalization right.</p></li>
 Å using the SPEX line list.</p></li>
 <li><p>Now add a component called <code class="docutils literal notranslate"><span class="pre">slab</span></code> (<a class="reference internal" href="../models/slab.html#sec-slab"><span class="std std-ref">Slab: thin slab absorption model</span></a>) to your model and free the ions
 which you identified in 2. You may want to increase the column
-density per ion to about <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> (Note: the parameter in
+density per ion to about <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}"/> (Note: the parameter in
 <code class="docutils literal notranslate"><span class="pre">slab</span></code> is logarithmic). Do the same for the ions C VI and N VII. Is
 it a good fit?</p></li>
 <li><p>Near 15 Å there are a lot of lines associated with iron. Free the
@@ -70,22 +71,22 @@ first. What is the speed of the absorber?</p></li>
 <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">1</span> <span class="pre">3</span> <span class="pre">tran</span></code> and <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span> <span class="pre">1</span> <span class="pre">3</span> <span class="pre">col</span></code> to get the column
 densities for every ion. Do you see differences with the <code class="docutils literal notranslate"><span class="pre">slab</span></code>
 model?</p></li>
-<li><p>The ionization parameter <code class="docutils literal notranslate"><span class="pre">xi</span></code> is defined as follows: <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> =
-<img class="math" src="../_images/math/64bcba7f4ee8b2aedeed26fa1a147936c2b7bd1f.svg" alt="\frac{L_{X}}{nr^2}" style="vertical-align: -6px"/>. Determine the luminosity (<img class="math" src="../_images/math/3e6944b28a32da902ede14a1168bc3cde2233e61.svg" alt="L_X" style="vertical-align: -2px"/>) of
-the source (<img class="math" src="../_images/math/3e6944b28a32da902ede14a1168bc3cde2233e61.svg" alt="L_X" style="vertical-align: -2px"/> is the luminosity between 1 and 1000 Rydberg,
+<li><p>The ionization parameter <code class="docutils literal notranslate"><span class="pre">xi</span></code> is defined as follows: <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> =
+<img class="math" src="../_images/math/64bcba7f4ee8b2aedeed26fa1a147936c2b7bd1f.svg" alt="\frac{L_{X}}{nr^2}"/>. Determine the luminosity (<img class="math" src="../_images/math/3e6944b28a32da902ede14a1168bc3cde2233e61.svg" alt="L_X"/>) of
+the source (<img class="math" src="../_images/math/3e6944b28a32da902ede14a1168bc3cde2233e61.svg" alt="L_X"/> is the luminosity between 1 and 1000 Rydberg,
 where 1 Rydberg = 13.6 eV) and calculate the density (n) if the wind
 is at 1 pc from the source. Take care of units and logs.</p>
 <p>Usually the density is estimated from variability arguments, which
 then allow one to put a limit on the distance of the absorber.</p>
 </li>
 <li><p>The impact of the outflow on its environment can be assessed as
-follows. Assume that the outflow has constant velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v" style="vertical-align: 0px"/>
+follows. Assume that the outflow has constant velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v"/>
 (measured from your spectrum). The outflow is not fully spherical.
 Usually people assume that the solid angle sustained by the outflow
-<img class="math" src="../_images/math/f669116c4323eff28747f46470cd35b6dfdf1f34.svg" alt="\Omega\sim 1" style="vertical-align: 0px"/>.</p>
-<p>Then the total mass loss is <img class="math" src="../_images/math/b05c5f54b1b07f3357fdaa3cb1f962c11965a7f3.svg" alt="\dot M = \Omega m_{\mathrm{H}} nr^2v" style="vertical-align: -2px"/>
+<img class="math" src="../_images/math/f669116c4323eff28747f46470cd35b6dfdf1f34.svg" alt="\Omega\sim 1"/>.</p>
+<p>Then the total mass loss is <img class="math" src="../_images/math/b05c5f54b1b07f3357fdaa3cb1f962c11965a7f3.svg" alt="\dot M = \Omega m_{\mathrm{H}} nr^2v"/>
 and the kinetic energy carried away per second is
-<img class="math" src="../_images/math/1bf1c3059cee3654cdf4a35fd641391de7b12938.svg" alt="L_{\rm K} = \frac{1}{2} v^2 \Omega m_{\mathrm{H}} nr^2v" style="vertical-align: -6px"/>.</p>
+<img class="math" src="../_images/math/1bf1c3059cee3654cdf4a35fd641391de7b12938.svg" alt="L_{\rm K} = \frac{1}{2} v^2 \Omega m_{\mathrm{H}} nr^2v"/>.</p>
 <p>Calculate the kinetic energy carried away and compare to the ionising
 luminosity (you should do this offline from SPEX, but use the numbers
 from your fit). Is the kinetic energy significant compared to the
@@ -107,7 +108,7 @@ X-ray spectra</p></li>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -125,7 +126,16 @@ X-ray spectra</p></li>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -160,16 +170,6 @@ X-ray spectra</p></li>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -183,9 +183,9 @@ X-ray spectra</p></li>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

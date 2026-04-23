@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1.29. Simulate: Simulation of data &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>3.1.29. Simulate: Simulation of data &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/simulate.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -48,10 +49,10 @@ this command, so no fear to destroy your input data!</p>
 <li><p>Instrument, region: the instrument(s) and region(s) for which the
 simulation should be done (i.e., if you have more instruments you can
 do the simulation only for one or a few instruments).</p></li>
-<li><p>time: set the exposure time <img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/> (s) of the source spectrum as
-well as the background error scale factor <img class="math" src="../../_images/math/3eaf924edc37f6d109214de78132d039a076d5a3.svg" alt="f_b" style="vertical-align: -3px"/>. This last
+<li><p>time: set the exposure time <img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t"/> (s) of the source spectrum as
+well as the background error scale factor <img class="math" src="../../_images/math/3eaf924edc37f6d109214de78132d039a076d5a3.svg" alt="f_b"/>. This last
 option allows you to see what happens if for example the background
-would have a ten times higher accuracy (for <img class="math" src="../../_images/math/ae81ce2dc33e32aee5f0bcae36ef29140f06dd92.svg" alt="f_b=0.1" style="vertical-align: -3px"/>).</p></li>
+would have a ten times higher accuracy (for <img class="math" src="../../_images/math/ae81ce2dc33e32aee5f0bcae36ef29140f06dd92.svg" alt="f_b=0.1"/>).</p></li>
 <li><p>syserr: add a systematic error to both the source and background
 spectrum. An alternative way to introduce systematic errors is of
 course to use the syserr command
@@ -89,12 +90,12 @@ simulations.</p>
 <p>When you include systematic errors in the simulation (by
 putting the “syserr” to non-zero values), you cannot use anymore
 Poissonian statistics hence the C-stat for fitting, but you have to use
-the “fit meth chi” to use Gaussian errors and <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>-fitting,
+the “fit meth chi” to use Gaussian errors and <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>-fitting,
 with all thr disadvantages of that.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When you use bnoise<img class="math" src="../../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="=" style="vertical-align: 0px"/>true, your subtracted
+<p>When you use bnoise<img class="math" src="../../_images/math/2db5169222afbcd7ef0d20c9052c44066a2af87f.svg" alt="="/>true, your subtracted
 background (the scaled background from the background region) will be
 randomized, and the pure C-stat cannot be used; the W-stat can be used
 as alternative but has serious drawbacks and is not recommended to be
@@ -104,14 +105,14 @@ used).</p>
 <p class="admonition-title">Warning</p>
 <p>(obsolete) If your background is taken from the same
 observation as your source, and you multiply the original exposure time
-with a factor of <img class="math" src="../../_images/math/b9dcc94ed26ba4afb27c6d969d8fe1319ed60d20.svg" alt="S" style="vertical-align: 0px"/>, you should put <img class="math" src="../../_images/math/3eaf924edc37f6d109214de78132d039a076d5a3.svg" alt="f_b" style="vertical-align: -3px"/> to
-<img class="math" src="../../_images/math/873a683aabfd8033785955b59b9f7f93f8c71e04.svg" alt="S^{-0.5}" style="vertical-align: 0px"/>, reflecting the fact that with increasing source
+with a factor of <img class="math" src="../../_images/math/b9dcc94ed26ba4afb27c6d969d8fe1319ed60d20.svg" alt="S"/>, you should put <img class="math" src="../../_images/math/3eaf924edc37f6d109214de78132d039a076d5a3.svg" alt="f_b"/> to
+<img class="math" src="../../_images/math/873a683aabfd8033785955b59b9f7f93f8c71e04.svg" alt="S^{-0.5}"/>, reflecting the fact that with increasing source
 statistics the background statistics also improves. This is the case for
 an imaging observation where a part of the image is used to determine
 the background. If instead you use a deep field to subtract the
 background, then the exposure time of your background will probably not
-change and you can safely put <img class="math" src="../../_images/math/0ee7604108b327d2c8f2a70cd750d65b9532568a.svg" alt="f_b=1" style="vertical-align: -3px"/> for any exposure time
-<img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/>.</p>
+change and you can safely put <img class="math" src="../../_images/math/0ee7604108b327d2c8f2a70cd750d65b9532568a.svg" alt="f_b=1"/> for any exposure time
+<img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t"/>.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -130,7 +131,7 @@ time will do the actual simulation. All other syntax rules just set some
 parameters. The following syntax rules apply:</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">#r</span></code> : Does the simulation, with #r the exposure time
-<img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t" style="vertical-align: 0px"/> in seconds.</div>
+<img class="math" src="../../_images/math/35125f64195fb1aa58e62b016b906c15954ee642.svg" alt="t"/> in seconds.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">simulate</span> <span class="pre">instrument</span> <span class="pre">#i1</span></code> : Specify the instrument (range) to be
 used in the simulation. Default values are 1 (just the first
 instrument).</div>
@@ -177,7 +178,7 @@ instrument involved</div>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -195,7 +196,16 @@ instrument involved</div>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -227,16 +237,6 @@ instrument involved</div>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -250,9 +250,9 @@ instrument involved</div>
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

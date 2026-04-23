@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1.32. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=e1e178d4" />
-    <script src="../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>4.1.32. Pion: SPEX photoionised plasma model &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/models/pion.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,13 +39,13 @@
 <p>The <em>pion</em> model calculates the transmission and emission of a slab of
 photo-ionized plasma, where all ionic column densities are linked
 through a photoionisation model. The relevant parameter is the
-ionization parameter <img class="math" src="../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>, with <img class="math" src="../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L" style="vertical-align: 0px"/> the source
-luminosity, <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> the hydrogen density and <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> the distance
+ionization parameter <img class="math" src="../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2"/>, with <img class="math" src="../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L"/> the source
+luminosity, <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> the hydrogen density and <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/> the distance
 from the ionizing source. The major difference is that while for the
 <em>xabs</em> model (<a class="reference internal" href="xabs.html#sec-xabs"><span class="std std-ref">Xabs: photoionised absorption model</span></a>) the photoionisation equilibrium is pre-calculated for a
-grid of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>-values by an external code, for instance
+grid of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>-values by an external code, for instance
 <a class="reference external" href="https://www.nublado.org/">Cloudy</a> or <a class="reference external" href="https://heasarc.gsfc.nasa.gov/lheasoft/xstar/xstar.html">XSTAR</a>
-(or even with the present <em>pion</em> model <img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots" style="vertical-align: 0px"/>), in the
+(or even with the present <em>pion</em> model <img class="math" src="../_images/math/3ac18f66ce6dd10f22997a1eb4c22a42d2893e21.svg" alt="\ldots"/>), in the
 present <em>pion</em> model the photoionisation equilibrium is calculated
 self-consistently using the available plasma routines of SPEX.</p>
 <div class="admonition warning">
@@ -52,11 +53,11 @@ self-consistently using the available plasma routines of SPEX.</p>
 <p>The default energy grid in SPEX has 8192 bins between
 0.001 and 100 keV. This may not be sufficient for the pion model when
 you use it without data. Recommended is a logarithmic grid between
-<img class="math" src="../_images/math/e88c4214f51f0e7dd6bafdcc913d455474d3b86b.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV with a step size of 0.005. You can get this
+<img class="math" src="../_images/math/e88c4214f51f0e7dd6bafdcc913d455474d3b86b.svg" alt="10^{-6}-10^{6}"/> keV with a step size of 0.005. You can get this
 by issuing the following command: ”Egrid log 1E-6 : 1E6 step 0.005 keV”.
 Note that if you have read in data, SPEX automatically uses the resolution
 of the response matrix within its energy range and expands the
-total energy grid to <img class="math" src="../_images/math/e88c4214f51f0e7dd6bafdcc913d455474d3b86b.svg" alt="10^{-6}-10^{6}" style="vertical-align: -1px"/> keV.</p>
+total energy grid to <img class="math" src="../_images/math/e88c4214f51f0e7dd6bafdcc913d455474d3b86b.svg" alt="10^{-6}-10^{6}"/> keV.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -132,12 +133,12 @@ it is bug-free. We know at the moment that the source has problems when
 the density gets too high; this is different for each ion; so unless you
 limit the density in fitting, SPEX may encounter a situation where you
 surpass the critical density and you may get a warning message. Here is
-an example. For a photoionised case, with <img class="math" src="../_images/math/addf46683023af64cb1c090817a1c197da9ad744.svg" alt="\log \xi = 3" style="vertical-align: -3px"/>
-(resulting <img class="math" src="../_images/math/d4c424e9bc763d380c764694d5fa5a600f27f8bd.svg" alt="kT=0.64" style="vertical-align: 0px"/> keV) the nominal occupation of the ground
+an example. For a photoionised case, with <img class="math" src="../_images/math/addf46683023af64cb1c090817a1c197da9ad744.svg" alt="\log \xi = 3"/>
+(resulting <img class="math" src="../_images/math/d4c424e9bc763d380c764694d5fa5a600f27f8bd.svg" alt="kT=0.64"/> keV) the nominal occupation of the ground
 state of H becomes negative for a density
-<img class="math" src="../_images/math/34e83de8a9a9c254d2889e60fd0ccf2df4978d13.svg" alt="&gt;0.15\times 10^{20}" style="vertical-align: -1px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. This can be traced down to
+<img class="math" src="../_images/math/34e83de8a9a9c254d2889e60fd0ccf2df4978d13.svg" alt="&gt;0.15\times 10^{20}"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>. This can be traced down to
 incomplete atomic data. For H, we include collisional excitation and
-de-excitation up to principal quantum number <img class="math" src="../_images/math/6ec063743e73f6ce803ca5f4bac6a537f51e072e.svg" alt="n=5" style="vertical-align: 0px"/> but not above.
+de-excitation up to principal quantum number <img class="math" src="../_images/math/6ec063743e73f6ce803ca5f4bac6a537f51e072e.svg" alt="n=5"/> but not above.
 As a result, in this example the 1s–5s levels are mainly
 populated/depopulated by collisions, while 6s–16s are mainly populated
 by radiative recombination and depopulated by radiative cascades
@@ -156,7 +157,7 @@ to absorption-only calculations, so be aware.</p>
 </div>
 <p>Normally, to calculate the emission from a full thin shell surrounding
 an ionising source, you should set the parameter <em>omeg</em> to unity (a full
-shell of 4<img class="math" src="../_images/math/468ca1e2ff2ff665785648484d362b9e732e47eb.svg" alt="\pi" style="vertical-align: 0px"/> steradians). Smaller factors could be associated
+shell of 4<img class="math" src="../_images/math/468ca1e2ff2ff665785648484d362b9e732e47eb.svg" alt="\pi"/> steradians). Smaller factors could be associated
 e.g. to ionisation cones; values larger than unity make physically no
 sense but you can formally play around with it (for very large values,
 the emitted spectrum would start dominating the absorbed primary
@@ -224,16 +225,16 @@ is zero.</p>
 like shock heating, magnetic reconnection, adiabatic expansion etc. If
 one wishes to solve for the photoionisation equilibrium, then this
 additional heat source can be used by putting the parameter <em>exth</em> to
-the proper value (units: W <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. A negative value would mean
+the proper value (units: W <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>. A negative value would mean
 a cooling contribution.</p>
 </section>
 <section id="multiple-solutions">
 <h3><span class="section-number">4.1.32.2.3. </span>Multiple solutions<a class="headerlink" href="#multiple-solutions" title="Link to this heading">¶</a></h3>
 <p>There are situations where there is not a unique solution to the energy
 balance equations. A simple example can be obtained as follows: take a
-logarithmic energy grid between <img class="math" src="../_images/math/c516dd85bc23ee82ace6069a7da7d70a831c0760.svg" alt="10^{-6}-10^6" style="vertical-align: -1px"/> keV, use a powerlaw
+logarithmic energy grid between <img class="math" src="../_images/math/c516dd85bc23ee82ace6069a7da7d70a831c0760.svg" alt="10^{-6}-10^6"/> keV, use a powerlaw
 with photon index 1.5, apply the pion model to it and put <em>exth</em> to
-<img class="math" src="../_images/math/cebcf9a9184deacbd2068fc061337e795c0588f2.svg" alt="5\times 10^{-25}" style="vertical-align: -1px"/> W <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. In this case there are 3
+<img class="math" src="../_images/math/cebcf9a9184deacbd2068fc061337e795c0588f2.svg" alt="5\times 10^{-25}"/> W <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>. In this case there are 3
 solutions. SPEX chooses by default the hottest solution. You can see all
 solutions by putting the parameter <em>fmod=1</em> and using the <em>heat</em> ascii
 output option. Or check the behaviour of the heating balance by issuing
@@ -263,8 +264,8 @@ allowed range for them in case of spectral fitting or error searches.</p>
 <h3><span class="section-number">4.1.32.2.5. </span>Adiabatic cooling<a class="headerlink" href="#adiabatic-cooling" title="Link to this heading">¶</a></h3>
 <p>The effects of adiabatic cooling can be taken into account by setting
 the parameter <em>tadi</em>. This represents the adiabatic cooling time
-<img class="math" src="../_images/math/24ffe55b2c6843a4b5d2d5788a6b516ba5e9bb63.svg" alt="t_{\mathrm adi}" style="vertical-align: -2px"/>. The associated cooling rate is calculated as
-<img class="math" src="../_images/math/aba69558cbbd4cf4e346061d54f479245eda5c3c.svg" alt="R_{\mathrm adi}= \frac{3}{2} nkT / t_{\mathrm adi}" style="vertical-align: -6px"/>, where <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n" style="vertical-align: 0px"/> is
+<img class="math" src="../_images/math/24ffe55b2c6843a4b5d2d5788a6b516ba5e9bb63.svg" alt="t_{\mathrm adi}"/>. The associated cooling rate is calculated as
+<img class="math" src="../_images/math/aba69558cbbd4cf4e346061d54f479245eda5c3c.svg" alt="R_{\mathrm adi}= \frac{3}{2} nkT / t_{\mathrm adi}"/>, where <img class="math" src="../_images/math/0ae8c21fc1e3956fd551be5376b10ba9f0070f13.svg" alt="n"/> is
 the total particle density (electrons and ions). The default setting is
 such that this process can be neglected. If the user takes this process
 into account, it should be verified afterwards that the physical
@@ -281,14 +282,14 @@ parameter <em>acc</em>. Physically, it is given by the following equation,
 which can be easily derived:</p>
 <div class="math">
 <p><img src="../_images/math/2f81f6033ab0688fefffabe4a55fa68c946eb866.svg" alt="a =F_{\mathrm abs}/c f m_{\mathrm p} N_{\mathrm H},"/></p>
-</div><p>where <img class="math" src="../_images/math/10a8d1adee8743cc4152db58db17b6999c8a0b8f.svg" alt="F_{\mathrm abs}=\int F(E)(1-T(E)){\mathrm d}E" style="vertical-align: -5px"/> is the absorbed flux
-(<img class="math" src="../_images/math/b83c6d0968e30f3f83b7a6ceea171d14033367d1.svg" alt="F(E)" style="vertical-align: -4px"/> is the incoming flux in W <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/> keV and
-<img class="math" src="../_images/math/1fdca20c8523882d26f4fcc8f1b7a727128c7332.svg" alt="T(E)" style="vertical-align: -4px"/> the transmission of the layer), <img class="math" src="../_images/math/efbb13e7d1cbad70de2221f908a19158be7ae356.svg" alt="c" style="vertical-align: 0px"/> the speed of
-light, <img class="math" src="../_images/math/85290f17a19f29074b739e6973e839a84e6a3c84.svg" alt="m_{\mathrm p}" style="vertical-align: -5px"/> the proton mass, <img class="math" src="../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}" style="vertical-align: -2px"/> the hydrogen
-column density and <img class="math" src="../_images/math/bb2fff686191d308dcb438f43bf8d29acd99038b.svg" alt="f" style="vertical-align: -3px"/> is a dimension less quantity determined
-from <img class="math" src="../_images/math/9870271a1a2a7b65ab3ef78aed0a09a6e03d63d0.svg" alt="\rho = f n_{\mathrm H} m_{\mathrm p}" style="vertical-align: -5px"/> with <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> the
-hydrogen density and <img class="math" src="../_images/math/57fbca72278e05d5c22ee87df47cde84e5379ea5.svg" alt="\rho" style="vertical-align: -3px"/> the mass density (kg <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>)
-of the plasma, for example <img class="math" src="../_images/math/4dbff47a206aeebd1e4f430b4a8cd641a5729ca8.svg" alt="f=1.4287" style="vertical-align: -3px"/> for the present default
+</div><p>where <img class="math" src="../_images/math/10a8d1adee8743cc4152db58db17b6999c8a0b8f.svg" alt="F_{\mathrm abs}=\int F(E)(1-T(E)){\mathrm d}E"/> is the absorbed flux
+(<img class="math" src="../_images/math/b83c6d0968e30f3f83b7a6ceea171d14033367d1.svg" alt="F(E)"/> is the incoming flux in W <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/> keV and
+<img class="math" src="../_images/math/1fdca20c8523882d26f4fcc8f1b7a727128c7332.svg" alt="T(E)"/> the transmission of the layer), <img class="math" src="../_images/math/efbb13e7d1cbad70de2221f908a19158be7ae356.svg" alt="c"/> the speed of
+light, <img class="math" src="../_images/math/85290f17a19f29074b739e6973e839a84e6a3c84.svg" alt="m_{\mathrm p}"/> the proton mass, <img class="math" src="../_images/math/7bc139b51d1d4509ecdd1db5138e436f7cd3f59b.svg" alt="N_{\mathrm H}"/> the hydrogen
+column density and <img class="math" src="../_images/math/bb2fff686191d308dcb438f43bf8d29acd99038b.svg" alt="f"/> is a dimension less quantity determined
+from <img class="math" src="../_images/math/9870271a1a2a7b65ab3ef78aed0a09a6e03d63d0.svg" alt="\rho = f n_{\mathrm H} m_{\mathrm p}"/> with <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}"/> the
+hydrogen density and <img class="math" src="../_images/math/57fbca72278e05d5c22ee87df47cde84e5379ea5.svg" alt="\rho"/> the mass density (kg <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>)
+of the plasma, for example <img class="math" src="../_images/math/4dbff47a206aeebd1e4f430b4a8cd641a5729ca8.svg" alt="f=1.4287"/> for the present default
 abundances of SPEX (you can check this number from the <code class="docutils literal notranslate"><span class="pre">asc</span> <span class="pre">ter</span>
 <span class="pre">...</span> <span class="pre">plas</span></code> ascii output option).</p>
 <div class="admonition warning">
@@ -296,25 +297,25 @@ abundances of SPEX (you can check this number from the <code class="docutils lit
 <p>It is important to note that the acceleration is proportional to the hydrogen density,
 so take care to choose the appropriate hydrogen density, even in the low density limit where the
 spectral shape does not depend on the density. This counter-intuitive behaviour is caused by the
-use of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> as main parameter. Given the absolute ionising luminosity <img class="math" src="../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L" style="vertical-align: 0px"/> of the ionising
-source, and the value of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}" style="vertical-align: -2px"/> provided by the user,
-the pion model then calculates the distance <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r" style="vertical-align: 0px"/> from the equation <img class="math" src="../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2" style="vertical-align: -4px"/>.
+use of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> as main parameter. Given the absolute ionising luminosity <img class="math" src="../_images/math/ef66e8e7649033c0261d38804768db82fedd94e5.svg" alt="L"/> of the ionising
+source, and the value of <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> and <img class="math" src="../_images/math/4c92af854777c9cc1b60bfb2aba8a705545afd6c.svg" alt="n_{\mathrm H}"/> provided by the user,
+the pion model then calculates the distance <img class="math" src="../_images/math/a2aae1ea38dde08d17ade92834082849068479c0.svg" alt="r"/> from the equation <img class="math" src="../_images/math/a6d711f7a6c7fa97caa2df5b3cac917ed58e7eab.svg" alt="\xi = L/nr^2"/>.
 Thus, higher density yields smaller distance, hence larger absorbed flux by the gas layer, hence
 stronger acceleration.</p>
 </div>
 </section>
 <section id="partial-covering">
 <h3><span class="section-number">4.1.32.2.7. </span>Partial covering<a class="headerlink" href="#partial-covering" title="Link to this heading">¶</a></h3>
-<p>By default, SPEX applies a constant covering fraction of the absorber <img class="math" src="../_images/math/e8662835dcd3bc6c24a5896804ea3808492e220b.svg" alt="f_{\mathrm cov}" style="vertical-align: -3px"/>.
-An energy-dependent partial covering can be introduced by setting the parameters <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}" style="vertical-align: -2px"/>,
-<img class="math" src="../_images/math/e8662835dcd3bc6c24a5896804ea3808492e220b.svg" alt="f_{\mathrm cov}" style="vertical-align: -3px"/>, <img class="math" src="../_images/math/da648bacc90fe6934926e4b0479c2ac61c883151.svg" alt="l_{\mathrm cov}" style="vertical-align: -2px"/>, <img class="math" src="../_images/math/1fea1ef711e4f05423b761f01cdcf5724560b5c7.svg" alt="e_{\mathrm cov}" style="vertical-align: -2px"/>, and <img class="math" src="../_images/math/4bde5a121fd266a85f29a63d9c188642b0f0986e.svg" alt="a_{\mathrm cov}" style="vertical-align: -2px"/>.</p>
-<p>The type of covering can be set by the parameter <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}" style="vertical-align: -2px"/>. When <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}" style="vertical-align: -2px"/> is set to 3 or 4,
-the absorber can have a partical covering as a function of energy. If <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}" style="vertical-align: -2px"/> is 3, the actual covering factor
-<img class="math" src="../_images/math/ea4d1bb8868409c8a1a20ba4b22b850d1dd4e6df.svg" alt="C(E)" style="vertical-align: -4px"/> is calculated by</p>
+<p>By default, SPEX applies a constant covering fraction of the absorber <img class="math" src="../_images/math/e8662835dcd3bc6c24a5896804ea3808492e220b.svg" alt="f_{\mathrm cov}"/>.
+An energy-dependent partial covering can be introduced by setting the parameters <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}"/>,
+<img class="math" src="../_images/math/e8662835dcd3bc6c24a5896804ea3808492e220b.svg" alt="f_{\mathrm cov}"/>, <img class="math" src="../_images/math/da648bacc90fe6934926e4b0479c2ac61c883151.svg" alt="l_{\mathrm cov}"/>, <img class="math" src="../_images/math/1fea1ef711e4f05423b761f01cdcf5724560b5c7.svg" alt="e_{\mathrm cov}"/>, and <img class="math" src="../_images/math/4bde5a121fd266a85f29a63d9c188642b0f0986e.svg" alt="a_{\mathrm cov}"/>.</p>
+<p>The type of covering can be set by the parameter <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}"/>. When <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}"/> is set to 3 or 4,
+the absorber can have a partical covering as a function of energy. If <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}"/> is 3, the actual covering factor
+<img class="math" src="../_images/math/ea4d1bb8868409c8a1a20ba4b22b850d1dd4e6df.svg" alt="C(E)"/> is calculated by</p>
 <div class="math">
 <p><img src="../_images/math/cdf43337104d2a2cfd9bc89d2a72d7d5e5cec19e.svg" alt="C(E) = (f_{\mathrm cov} + l_{\mathrm cov})/2 +  (f_{\mathrm cov} - l_{\mathrm cov})/2 tan( ln(E/e_{\mathrm cov})/ a_{\mathrm cov})"/></p>
-</div><p>where the covering factor is increasing with energy from <img class="math" src="../_images/math/da648bacc90fe6934926e4b0479c2ac61c883151.svg" alt="l_{\mathrm cov}" style="vertical-align: -2px"/> to <img class="math" src="../_images/math/e8662835dcd3bc6c24a5896804ea3808492e220b.svg" alt="f_{\mathrm cov}" style="vertical-align: -3px"/>, with a transition at <img class="math" src="../_images/math/1fea1ef711e4f05423b761f01cdcf5724560b5c7.svg" alt="e_{\mathrm cov}" style="vertical-align: -2px"/>
-and the width of <img class="math" src="../_images/math/4bde5a121fd266a85f29a63d9c188642b0f0986e.svg" alt="a_{\mathrm cov}" style="vertical-align: -2px"/>. Instead, if <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}" style="vertical-align: -2px"/> is 4, the covering factor will decrease with energy,</p>
+</div><p>where the covering factor is increasing with energy from <img class="math" src="../_images/math/da648bacc90fe6934926e4b0479c2ac61c883151.svg" alt="l_{\mathrm cov}"/> to <img class="math" src="../_images/math/e8662835dcd3bc6c24a5896804ea3808492e220b.svg" alt="f_{\mathrm cov}"/>, with a transition at <img class="math" src="../_images/math/1fea1ef711e4f05423b761f01cdcf5724560b5c7.svg" alt="e_{\mathrm cov}"/>
+and the width of <img class="math" src="../_images/math/4bde5a121fd266a85f29a63d9c188642b0f0986e.svg" alt="a_{\mathrm cov}"/>. Instead, if <img class="math" src="../_images/math/b28e8673961509b0fcaa1d4f138a3fae6237d306.svg" alt="i_{\mathrm cov}"/> is 4, the covering factor will decrease with energy,</p>
 <div class="math">
 <p><img src="../_images/math/023030d0dc95f043a1c916043cba86133b989fa4.svg" alt="C(E) = (f_{\mathrm cov} + l_{\mathrm cov})/2 +  (f_{\mathrm cov} - l_{\mathrm cov})/2 arctan( ln(E/e_{\mathrm cov})/ a_{\mathrm cov})"/></p>
 </div><p>The same form is applied to all absorption models.</p>
@@ -322,14 +323,14 @@ and the width of <img class="math" src="../_images/math/4bde5a121fd266a85f29a63d
 <section id="magnetic-field-landau-levels-and-zeeman-effect">
 <h3><span class="section-number">4.1.32.2.8. </span>Magnetic field, Landau levels, and Zeeman effect<a class="headerlink" href="#magnetic-field-landau-levels-and-zeeman-effect" title="Link to this heading">¶</a></h3>
 <p>Landau levels are quantized energy levels of electrons moving in a uniform magnetic field. The energy spacing between adajecent Landau levels
-is <img class="math" src="../_images/math/24352d47575d1d4534d80bd9af1a8856b1dd3563.svg" alt="S = \hbar \omega_{\mathrm c}" style="vertical-align: -2px"/> where <img class="math" src="../_images/math/9c0ba208bcb9e97dd6d2133fe1441e15b5d4758a.svg" alt="\omega_{\mathrm c} = q B/m" style="vertical-align: -4px"/> is the cyclotron frequency. SPEX can calculate the free-bound emission from
+is <img class="math" src="../_images/math/24352d47575d1d4534d80bd9af1a8856b1dd3563.svg" alt="S = \hbar \omega_{\mathrm c}"/> where <img class="math" src="../_images/math/9c0ba208bcb9e97dd6d2133fe1441e15b5d4758a.svg" alt="\omega_{\mathrm c} = q B/m"/> is the cyclotron frequency. SPEX can calculate the free-bound emission from
 a (partial) quantizied electron field, where the original free-bound continuum is modified by a waveform</p>
 <div class="math">
 <p><img src="../_images/math/fe447d095a5715613abd424c68d83bfe20ae0c23.svg" alt="F_{\mathrm fb, Landau} = F_{\mathrm fb} * (ampl * sin(2 \pi (E - E_{\mathrm lim}) / S + phas ) + 1 )"/></p>
-</div><p>where <img class="math" src="../_images/math/a847b0f6e51da7869c3e463f9084adf0b6fb07c7.svg" alt="E_{\mathrm lim}" style="vertical-align: -2px"/> is the Rydberg limit. The Landau levels are only applied when <img class="math" src="../_images/math/375a20ff6a3581e6bd9699d144c618391c78f217.svg" alt="ampl" style="vertical-align: -3px"/> and <img class="math" src="../_images/math/76ef4d54e9445205faf1459e12be3c86b46dfda7.svg" alt="be" style="vertical-align: 0px"/> are positive. The same setting is
+</div><p>where <img class="math" src="../_images/math/a847b0f6e51da7869c3e463f9084adf0b6fb07c7.svg" alt="E_{\mathrm lim}"/> is the Rydberg limit. The Landau levels are only applied when <img class="math" src="../_images/math/375a20ff6a3581e6bd9699d144c618391c78f217.svg" alt="ampl"/> and <img class="math" src="../_images/math/76ef4d54e9445205faf1459e12be3c86b46dfda7.svg" alt="be"/> are positive. The same setting is
 available in the <em>RRC</em> model.</p>
-<p>While Landau splitting is an electronic effect, the Zeeman splitting and broadening is an ionic feature. When <img class="math" src="../_images/math/a09157626b918fd3c4c78a07e5137de614596656.svg" alt="zeem" style="vertical-align: 0px"/> is set to 1, and <img class="math" src="../_images/math/8fe91cdf235a7802f793842c02d2f2699d8e6b31.svg" alt="bi" style="vertical-align: 0px"/>
-is positive, the classical Zeeman levels are calculated as a function of the field strength. It affects the emission lines in the <img class="math" src="../_images/math/79e77e375dae925079d14f91f860b4071d1e7c9b.svg" alt="omega&gt;0" style="vertical-align: -3px"/> mode.</p>
+<p>While Landau splitting is an electronic effect, the Zeeman splitting and broadening is an ionic feature. When <img class="math" src="../_images/math/a09157626b918fd3c4c78a07e5137de614596656.svg" alt="zeem"/> is set to 1, and <img class="math" src="../_images/math/8fe91cdf235a7802f793842c02d2f2699d8e6b31.svg" alt="bi"/>
+is positive, the classical Zeeman levels are calculated as a function of the field strength. It affects the emission lines in the <img class="math" src="../_images/math/79e77e375dae925079d14f91f860b4071d1e7c9b.svg" alt="omega&gt;0"/> mode.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Inclusion of Zeeman effect significantly slows down the calculation.</p>
@@ -341,24 +342,24 @@ is positive, the classical Zeeman levels are calculated as a function of the fie
 <p>The parameters of the model are:</p>
 <dl class="field-list simple">
 <dt class="field-odd">nh<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Hydrogen column density in <img class="math" src="../_images/math/c82f983f78a3e6ca7341f7bdf44e0a7c9c6dccfa.svg" alt="10^{28}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>.
-Default value: <img class="math" src="../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/51c02b157c3292b0e10b5faa5291d538d5f8b1a8.svg" alt="10^{24}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}" style="vertical-align: 0px"/>, a typical value at low Galactic
+<dd class="field-odd"><p>Hydrogen column density in <img class="math" src="../_images/math/c82f983f78a3e6ca7341f7bdf44e0a7c9c6dccfa.svg" alt="10^{28}"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/>.
+Default value: <img class="math" src="../_images/math/0e39fe48b389e3766c3f06ffb8c0ad92f4e75a46.svg" alt="10^{-4}"/> (corresponding to
+<img class="math" src="../_images/math/51c02b157c3292b0e10b5faa5291d538d5f8b1a8.svg" alt="10^{24}"/> <img class="math" src="../_images/math/d747eefc072ba607e36e55258b09fa023471b316.svg" alt="\mathrm{m}^{-2}"/>, a typical value at low Galactic
 latitudes).</p>
 </dd>
 <dt class="field-even">xi<span class="colon">:</span></dt>
-<dd class="field-even"><p>the <img class="math" src="../_images/math/668968ca973dbe402d737ff4d7f39248a6f9798b.svg" alt="^{10}\log" style="vertical-align: -3px"/> of the ionisation parameter
-<img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}" style="vertical-align: 0px"/> W m. Default value: 1.</p>
+<dd class="field-even"><p>the <img class="math" src="../_images/math/668968ca973dbe402d737ff4d7f39248a6f9798b.svg" alt="^{10}\log"/> of the ionisation parameter
+<img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> in units of <img class="math" src="../_images/math/bdf0c61509fbe102bc7552a6b96648b65f4b9ac0.svg" alt="10^{-9}"/> W m. Default value: 1.</p>
 </dd>
 <dt class="field-odd">u<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the Davidson (Cloudy) ionisation parameter <img class="math" src="../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U" style="vertical-align: 0px"/>
+<dd class="field-odd"><p>the Davidson (Cloudy) ionisation parameter <img class="math" src="../_images/math/27dd8dbcbebd163d70304d9a8cd9713dead4b179.svg" alt="U"/>
 (dimensionless). This is calculated from the SED and the value of
-<img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/>. Not fittable, just output.</p>
+<img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/>. Not fittable, just output.</p>
 </dd>
 <dt class="field-even">hden<span class="colon">:</span></dt>
-<dd class="field-even"><p>the hydrogen density in units of <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>.
-Default value: <img class="math" src="../_images/math/69ffa4e748436e49710d68523f412d7a63a84b78.svg" alt="10^{-14}" style="vertical-align: 0px"/> (corresponding to
-<img class="math" src="../_images/math/ab49ad1298f1996438e2c0dc89905d5646850ee2.svg" alt="10^{6}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>, to be consistent with the order of magnitude of the
+<dd class="field-even"><p>the hydrogen density in units of <img class="math" src="../_images/math/79a2b7d169313a1116096bc10923acd51c412a7f.svg" alt="10^{20}"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>.
+Default value: <img class="math" src="../_images/math/69ffa4e748436e49710d68523f412d7a63a84b78.svg" alt="10^{-14}"/> (corresponding to
+<img class="math" src="../_images/math/ab49ad1298f1996438e2c0dc89905d5646850ee2.svg" alt="10^{6}"/> <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>, to be consistent with the order of magnitude of the
 electron density (which is used in the cie and neij models; do NOT confuse both quantities!).</p>
 </dd>
 </dl>
@@ -387,10 +388,10 @@ if icov=3 or 4.</p>
 if icov=3 or 4.</p>
 </dd>
 <dt class="field-even">v<span class="colon">:</span></dt>
-<dd class="field-even"><p>Root mean square velocity <img class="math" src="../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}" style="vertical-align: -2px"/></p>
+<dd class="field-even"><p>Root mean square velocity <img class="math" src="../_images/math/79ba7d7ab88dcfa56cfbfadf8e1dc8d47a0f6bfc.svg" alt="\sigma_{\mathrm v}"/></p>
 </dd>
 <dt class="field-odd">zv<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Average systematic velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v" style="vertical-align: 0px"/> of the absorber (using relativistic Doppler shift)</p>
+<dd class="field-odd"><p>Average systematic velocity <img class="math" src="../_images/math/ea979dcbb8385ae361e733d0f30067c201cfc943.svg" alt="v"/> of the absorber (using relativistic Doppler shift)</p>
 </dd>
 </dl>
 <p>The following parameters are the same as for the cie-model (see there for a description):</p>
@@ -410,20 +411,20 @@ of Maxwellians distribution)</p>
 <p>The following parameters are unique for the <em>pion</em> model:</p>
 <dl class="field-list simple">
 <dt class="field-odd">type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>If type equals 0 (default value), it uses <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> as its main
+<dd class="field-odd"><p>If type equals 0 (default value), it uses <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> as its main
 parameter; if type equals 1, it uses lixi (see next parameter) as its
 main parameter</p>
 </dd>
 <dt class="field-even">lixi<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional alternative ionisation parameter, defines as
-<img class="math" src="../_images/math/f92cad95a5d6e4833c0e591cdf87c4453de92f15.svg" alt="{L_\mathrm{ion}}/\xi" style="vertical-align: -4px"/> in units of <img class="math" src="../_images/math/b4dcd6f8443d09abe4bcd4c6f3fd3942ec2b1f55.svg" alt="10^{39}" style="vertical-align: 0px"/> <img class="math" src="../_images/math/b8885d46d8047ab0f6e50cc0152d48512e336baa.svg" alt="\mathrm{m}^{-1}" style="vertical-align: 0px"/>. This is useful
-for time-variable spectra where <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi" style="vertical-align: -3px"/> has been determined from
+<img class="math" src="../_images/math/f92cad95a5d6e4833c0e591cdf87c4453de92f15.svg" alt="{L_\mathrm{ion}}/\xi"/> in units of <img class="math" src="../_images/math/b4dcd6f8443d09abe4bcd4c6f3fd3942ec2b1f55.svg" alt="10^{39}"/> <img class="math" src="../_images/math/b8885d46d8047ab0f6e50cc0152d48512e336baa.svg" alt="\mathrm{m}^{-1}"/>. This is useful
+for time-variable spectra where <img class="math" src="../_images/math/41c117cb7f531849735f9d6e6850d351cbc9f528.svg" alt="\xi"/> has been determined from
 one spectrum and where one wants to calculated the transmitted
-spectrum for fixed <img class="math" src="../_images/math/0f10b05970528746420d8eaf62f30fe5059e0cb3.svg" alt="nr^2" style="vertical-align: 0px"/> for a different ionising spectrum; in
+spectrum for fixed <img class="math" src="../_images/math/0f10b05970528746420d8eaf62f30fe5059e0cb3.svg" alt="nr^2"/> for a different ionising spectrum; in
 that case lixi can be kept constant.</p>
 </dd>
 <dt class="field-odd">omeg<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Covering factor <img class="math" src="../_images/math/ab3d353fdf220a17c27e342cdacdbe8026a492af.svg" alt="\Omega/4\pi" style="vertical-align: -4px"/>, needed for emission.
+<dd class="field-odd"><p>Covering factor <img class="math" src="../_images/math/ab3d353fdf220a17c27e342cdacdbe8026a492af.svg" alt="\Omega/4\pi"/>, needed for emission.
 At this stage, keep it to zero, please.</p>
 </dd>
 <dt class="field-even">mix<span class="colon">:</span></dt>
@@ -432,17 +433,17 @@ relative to the total. default value: 1 (all emission forward). A
 value of 0 means SPEX gives all backwards emission.</p>
 </dd>
 <dt class="field-odd">exth<span class="colon">:</span></dt>
-<dd class="field-odd"><p>External heating in W <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}" style="vertical-align: 0px"/>. default value: 0.</p>
+<dd class="field-odd"><p>External heating in W <img class="math" src="../_images/math/dd2c3577c89d4a63c96974b024d8db691eee8dff.svg" alt="\mathrm{m}^{-3}"/>. default value: 0.</p>
 </dd>
 <dt class="field-even">fmod<span class="colon">:</span></dt>
 <dd class="field-even"><p>Show all solutions in ascii output of the heating (fmod=1).
-Default is fmod=0. Set fmod=1 also when you set soln<img class="math" src="../_images/math/48b005d88e5947c3241359a461b89f696c176cce.svg" alt="&gt;0" style="vertical-align: 0px"/>.</p>
+Default is fmod=0. Set fmod=1 also when you set soln<img class="math" src="../_images/math/48b005d88e5947c3241359a461b89f696c176cce.svg" alt="&gt;0"/>.</p>
 </dd>
 <dt class="field-odd">soln<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The temperature solution to be used, from low to high
 values. Default value is 0 (hottest solution). If this parameter is
 larger than the hootest solution, it adopts the hottest solution
-instead. Should be used with fmod=1 in case soln<img class="math" src="../_images/math/48b005d88e5947c3241359a461b89f696c176cce.svg" alt="&gt;0" style="vertical-align: 0px"/>.</p>
+instead. Should be used with fmod=1 in case soln<img class="math" src="../_images/math/48b005d88e5947c3241359a461b89f696c176cce.svg" alt="&gt;0"/>.</p>
 </dd>
 <dt class="field-even">tmod<span class="colon">:</span></dt>
 <dd class="field-even"><p>Temperature mode. Default value: 0 (solve for the
@@ -457,7 +458,7 @@ relevant if <em>tmod=1</em> and <em>2</em>.</p>
 </dd>
 <dt class="field-even">tadi<span class="colon">:</span></dt>
 <dd class="field-even"><p>Adiabatic cooling time scale (s). See description above.
-Default value: <img class="math" src="../_images/math/c58bff8085c13530c24ba8afd7b6ce0feb72bfc7.svg" alt="10^{30}" style="vertical-align: 0px"/> s.</p>
+Default value: <img class="math" src="../_images/math/c58bff8085c13530c24ba8afd7b6ce0feb72bfc7.svg" alt="10^{30}"/> s.</p>
 </dd>
 <dt class="field-odd">acc<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Radiative acceleration. See description above. Note: only output.</p>
@@ -497,7 +498,7 @@ and
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../index.html">
@@ -515,7 +516,16 @@ and
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../threads.html">2. Analysis threads</a></li>
@@ -547,16 +557,6 @@ and
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -570,9 +570,9 @@ and
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>

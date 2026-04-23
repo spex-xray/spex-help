@@ -3,14 +3,15 @@
 <html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.1.13. Error: Calculate the errors of the fitted parameters &#8212; SPEX Help Center 3.08.02 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=e1e178d4" />
-    <script src="../../_static/documentation_options.js?v=5c67a6e5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>3.1.13. Error: Calculate the errors of the fitted parameters &#8212; SPEX Help Center 3.08.03 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=9c2ab4a5" />
+    <script src="../../_static/documentation_options.js?v=f81f22fc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="canonical" href="https://spex-xray.github.io/spex-help/reference/commands/error.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -38,29 +39,29 @@
 <section id="overview">
 <h2><span class="section-number">3.1.13.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>This command calculates the error on a certain parameter or parameter
-range, if that parameter is free (thawn). Standard the 1<img class="math" src="../../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma" style="vertical-align: 0px"/>
+range, if that parameter is free (thawn). Standard the 1<img class="math" src="../../_images/math/346b7b64ca0ee756fcc2e1b45ad03e3ade3b869e.svg" alt="\sigma"/>
 error is calculated, which is equivalent to a 68 % confidence level. So
-<img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> is equal to 1 for a single parameter error. The
-<img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> value can be set, such that for instance 90 %
+<img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2"/> is equal to 1 for a single parameter error. The
+<img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2"/> value can be set, such that for instance 90 %
 errors are determined (see the table at the bottom of this page
-for <img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> values with their corresponding confidence
+for <img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2"/> values with their corresponding confidence
 levels).</p>
 <p>SPEX determines the error bounds by iteratively modifying the parameter
-of interest and calculating <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> as a function of the
+of interest and calculating <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> as a function of the
 parameter. During this process the other free parameters of the model
 may vary. The iteration stops when
-<img class="math" src="../../_images/math/b155be32a4df74d765276488cf92e8b04238aaef.svg" alt="\chi^2 = \chi_{\min}^2 + \Delta \chi^2" style="vertical-align: -4px"/>, where
-<img class="math" src="../../_images/math/4cc747ebc59c8eb754666765f17a983a8ef60155.svg" alt="\Delta \chi^2" style="vertical-align: -3px"/> is a parameter that can be set separately. The
+<img class="math" src="../../_images/math/b155be32a4df74d765276488cf92e8b04238aaef.svg" alt="\chi^2 = \chi_{\min}^2 + \Delta \chi^2"/>, where
+<img class="math" src="../../_images/math/4cc747ebc59c8eb754666765f17a983a8ef60155.svg" alt="\Delta \chi^2"/> is a parameter that can be set separately. The
 iteration steps are displayed. It is advised to check them, because
 sometimes the fit at a trial parameter converges to a different solution
-branch, therefore creating a discontinuous jump in <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/>. In
+branch, therefore creating a discontinuous jump in <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/>. In
 those situations it is better to find the error bounds by varying the
 search parameter by hand.</p>
 <p>Note that SPEX remembers the parameter range for which you did your last
 error search. This saves you often typing in sector numbers or component
 numbers if you keep the same spectral component for your next error
 search.</p>
-<p>If the error search reveals a new minimum in <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2" style="vertical-align: -3px"/> space that
+<p>If the error search reveals a new minimum in <img class="math" src="../../_images/math/f7b7c169ad807dddfa999366b2f8e0668b87b0e5.svg" alt="\chi^2"/> space that
 was not found in the fit, SPEX will save the parameters of this new
 minimum in the file <code class="docutils literal notranslate"><span class="pre">spex_lower_chi.com</span></code>. After the error search these
 parameters can be set through the command <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">exe</span> <span class="pre">spex_lower_chi</span></code>, in
@@ -88,7 +89,7 @@ parameters specified by the sector range #i1: (optional), component
 range #i2 (optional) and parameter range #a: (optional). If not
 specified, the range for the last call will be used. On startup, this
 is the first parameter of the first component of the first sector.</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">dchi</span> <span class="pre">#r</span></code> : This command changes the <img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/>, to
+<div class="line"><code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">dchi</span> <span class="pre">#r</span></code> : This command changes the <img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2"/>, to
 the value #r. Default at startup and recommended value to use is 1,
 for other confidence levels see the Table below.</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">start</span> <span class="pre">#r</span></code> : This command gives an initial guess of the error
@@ -112,8 +113,8 @@ degree of freedom. (Not recommended, use standard 68 % errors
 instead!)</div>
 </div>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Table of <img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2" style="vertical-align: -3px"/> as a function of confidence level,
-P, and degrees of freedom, <img class="math" src="../../_images/math/24465a81d8a7887ba7c00aa65abd5fa25fe67b44.svg" alt="\nu" style="vertical-align: 0px"/>.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">Table of <img class="math" src="../../_images/math/0a77ea1b7a506da373e3cedec7180cbeae8ef096.svg" alt="\Delta\chi^2"/> as a function of confidence level,
+P, and degrees of freedom, <img class="math" src="../../_images/math/24465a81d8a7887ba7c00aa65abd5fa25fe67b44.svg" alt="\nu"/>.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>P</p></td>
 <td><p>1</p></td>
@@ -173,7 +174,7 @@ P, and degrees of freedom, <img class="math" src="../../_images/math/24465a81d8a
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="../../index.html">
@@ -191,7 +192,16 @@ P, and degrees of freedom, <img class="math" src="../../_images/math/24465a81d8a
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../getstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../threads.html">2. Analysis threads</a></li>
@@ -223,16 +233,6 @@ P, and degrees of freedom, <img class="math" src="../../_images/math/24465a81d8a
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -246,9 +246,9 @@ P, and degrees of freedom, <img class="math" src="../../_images/math/24465a81d8a
       <div class="clearer"></div>
     </div>
 <div class="footer">
-        Last updated on: Dec 01, 2025.<br>
+        Last updated on: Apr 23, 2026.<br>
     
-        &copy;2025, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
+        &copy;2026, Jelle de Plaa, Jelle Kaastra, Liyi Gu, SPEX Development Team, <a href="https://www.sron.nl/en/pillars/science/astrophysics/#spex">SRON Space Research Organisation Netherlands</a>.
     
 
 </div>
