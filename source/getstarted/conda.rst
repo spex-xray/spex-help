@@ -24,10 +24,12 @@ To make sure that SPEX keeps having access to its dependencies, it is best to in
 it in its own environment. This way, the number of potential conflicts with other
 packages remains minimal.
 
+.. note:: If you use the commercial version of conda, then
+          you can replace the ``mamba`` command with ``conda``.
+
 Currently, SPEX is available for Python 3.11, 3.12 and 3.13, and numpy 2.3 and 2.4.
 Please choose a version that matches your needs. A conda/mamba environment can be
-created with the command below. If you use the commercial version of conda, then
-you can replace the ``mamba`` command with ``conda``::
+created with the command below::
 
     user@linux:~> mamba create -n spex python=3.12
 
@@ -75,7 +77,7 @@ Running SPEX in conda/mamba
 
 Every time that you want to use SPEX in a new terminal, you have to activate the spex environment::
 
-    user@linux:~> conda activate spex
+    user@linux:~> mamba activate spex
     (spex) user@linux:~>
 
 After this command also the python interface of SPEX should be automatically initialized::
